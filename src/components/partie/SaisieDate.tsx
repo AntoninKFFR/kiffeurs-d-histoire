@@ -22,6 +22,8 @@ type Props = {
   onFocusChange: (enSaisie: boolean) => void;
   onValider: () => void;
   verrouille: boolean;
+  /** Consigne affichée au-dessus des cases (question période : le début, puis la fin). */
+  consigne?: string;
 };
 
 const LIBELLES: Record<Cle, { label: string; exemple: string; max: number }> = {
@@ -30,7 +32,7 @@ const LIBELLES: Record<Cle, { label: string; exemple: string; max: number }> = {
   annee: { label: "Année", exemple: "AAAA", max: 6 },
 };
 
-export function SaisieDate({ precision, champs, onChange, onFocusChange, onValider, verrouille }: Props) {
+export function SaisieDate({ precision, champs, onChange, onFocusChange, onValider, verrouille, consigne = "Tapez la date ou cliquez sur la frise" }: Props) {
   const refs = { jour: useRef<HTMLInputElement>(null), mois: useRef<HTMLInputElement>(null), annee: useRef<HTMLInputElement>(null) };
   const ordre = ordreChamps(precision);
   const av = champs.annee.startsWith("-");
@@ -107,7 +109,7 @@ export function SaisieDate({ precision, champs, onChange, onFocusChange, onValid
 
   return (
     <div className={s.saisie}>
-      <span className={s.consigneSaisie}>Tapez la date ou cliquez sur la frise</span>
+      <span className={s.consigneSaisie}>{consigne}</span>
       <div className={s.cases}>
         {ordre.map((cle) => (
           <div key={cle} className={cle === "annee" ? `${s.case} ${s.caseAnnee}` : s.case}>

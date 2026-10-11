@@ -9,6 +9,8 @@ export type ReponseBilan = {
   attendue: HistoricDate; dateJoueur: HistoricDate | null; texteJoueur: string | null;
   points: number; accuracy: number; exacte: boolean; expiree: boolean;
   etat: string; ecart: string | null;
+  /** Question période (#94) : la vraie fin, celle du joueur et l'écart sur la fin. */
+  periode?: { attendueFin: HistoricDate; dateJoueurFin: HistoricDate | null; ecartFin: string | null };
 };
 
 export function reponsesBilan(resultat: SoloResult): ReponseBilan[] {
@@ -24,11 +26,22 @@ export function reponsesBilan(resultat: SoloResult): ReponseBilan[] {
     const texteJoueur = !q.expired && typeof a === "string" && a.trim() ? a : null;
     const presente = inverse ? texteJoueur !== null : dateJoueur !== null;
     const exacte = !q.expired && presente && (inverse ? q.correct : q.gap === 0);
+    const fin = "answer_end" in q ? q.answer_end : undefined;
+    const finJoueur = fin && dateJoueur && fin.year !== null && fin.year !== 0
+      && (precision === "annee" || fin.month !== null) && (precision !== "jour" || fin.day !== null)
+      ? aLaPrecision({ ...fin, year: fin.year }, precision) : null;
+    const periode = !inverse && q.periode && q.correct_end_date ? {
+      attendueFin: aLaPrecision(q.correct_end_date, precision), dateJoueurFin: finJoueur,
+      ecartFin: finJoueur && q.end_gap != null ? phraseEcart(q.end_gap, precision) : null,
+    } : undefined;
     return {
+      ...(periode ? { periode } : {}),
       id: q.question_id, position: q.position, titre: capitaliser(q.title), precision,
       attendue: aLaPrecision(q.correct_date, precision), dateJoueur, texteJoueur,
       points: q.points, accuracy: q.accuracy, exacte, expiree: q.expired,
-      etat: q.expired ? "Temps écoulé" : !presente ? "Sans réponse" : exacte ? "Réponse exacte" : "Réponse incorrecte",
+      etat: q.expired ? "Temps écoulé" : !presente ? "Sans réponse"
+        : periode ? (exacte && periode.ecartFin === null && finJoueur ? "Période exacte" : "Réponse incorrecte")
+        : exacte ? "Réponse exacte" : "Réponse incorrecte",
       ecart: !inverse && presente && q.gap !== null ? phraseEcart(q.gap, precision) : null,
     };
   });

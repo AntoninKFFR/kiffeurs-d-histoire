@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { finishGame, nextQuestion, submitAnswer } from "@/app/solo/actions";
+import { finishGame, nextQuestion, submitAnswer, submitPeriodAnswer } from "@/app/solo/actions";
 import { Bilan } from "@/components/partie/Bilan";
 import { Partie } from "@/components/partie/Partie";
 import { PartieInverse } from "@/components/partie/PartieInverse";
@@ -85,7 +85,7 @@ export default async function PartiePage({ params, searchParams }: PageProps<"/p
           gameId={id}
           total={total}
           question={question}
-          actions={{ soumettre: submitAnswer, suivante: nextQuestion, terminer: finishGame }}
+          actions={{ soumettre: submitAnswer, soumettrePeriode: submitPeriodAnswer, suivante: nextQuestion, terminer: finishGame }}
           connecte={Boolean(account)}
           anonyme={anonyme}
           relance={relance}

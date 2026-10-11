@@ -19,16 +19,24 @@ export type CorrectionAffichee = {
   ecart: string | null;
   description: string | null;
   expiree: boolean;
+  /** Question période (#94) : la vraie fin et l'écart sur la fin. `ecart` porte alors sur le début. */
+  bonneFin?: HistoricDate;
+  ecartFin?: string | null;
 };
 
 export function correctionDepuis(c: SoloCorrection): CorrectionAffichee {
-  return {
+  const affichee: CorrectionAffichee = {
     bonne: dateDepuis(c.correct_date),
     points: c.points,
     ecart: c.expired || c.gap == null ? null : phraseEcart(c.gap, PRECISION[c.unit]),
     description: c.description ? capitaliser(c.description) : c.description,
     expiree: c.expired,
   };
+  if (c.direction !== "inverse" && c.periode && c.correct_end_date) {
+    affichee.bonneFin = dateDepuis(c.correct_end_date);
+    affichee.ecartFin = c.expired || c.end_gap == null ? null : phraseEcart(c.end_gap, PRECISION[c.unit]);
+  }
+  return affichee;
 }
 
 // Les illustrations sont dans le bucket public `histoire-illustrations`, nommées <événement>.svg.

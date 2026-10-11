@@ -26,6 +26,12 @@ for (const ecran of ECRANS) {
     await tientSansDefiler(page);
     if (!ecran.correction) return;
     await page.locator("#saisie-annee").fill("1800");
+    // Question période (#94) : la fin se pose à la même année que le début.
+    const versLaFin = page.getByRole("button", { name: "Placer la fin →" });
+    if (await versLaFin.isVisible()) {
+      await versLaFin.click();
+      await page.locator("#saisie-annee").fill("1800");
+    }
     await page.getByRole("button", { name: "Valider ma réponse" }).click();
     await expect(page.getByRole("status").filter({ hasText: "Réponse :" })).toBeVisible();
     await tientSansDefiler(page);

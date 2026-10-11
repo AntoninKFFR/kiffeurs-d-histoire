@@ -64,13 +64,15 @@ export async function startGame(filters: SoloFilters = {}): Promise<SoloGame> {
   const account = await getAccount();
   if (account && !account.username) throw new Error("Choisis ton pseudo KFFR dans le profil avant de lancer une partie connectée.");
   const token = randomBytes(32).toString("hex");
+  // Questions période (#94) : seulement en jeu de dates, hors test de chapitre. Signature dédiée côté SQL.
+  const periodes = filters.direction !== "inverse" && !filters.chapterTest ? { p_periodes: filters.periods ?? true } : {};
   // Test de chapitre : fonction dédiée, qui ne tire que parmi les événements des cartes du chapitre.
   const game = filters.mystery
     ? await rpc<SoloGame>("start_mystery_game", {
       p_token: token, p_niveau: filters.niveau ?? 1,
       p_difficulty: filters.difficulty ?? "YEAR", p_direction: filters.direction ?? "date",
       p_question_count: filters.questionCount ?? 10,
-      p_pack_id: filters.packId ?? null, p_tag_id: filters.tagId ?? null,
+      p_pack_id: filters.packId ?? null, p_tag_id: filters.tagId ?? null, ...periodes,
     })
     : filters.chapterTest && filters.chapterIds?.length === 1
     ? await rpc<SoloGame>("start_chapter_test", {
@@ -91,6 +93,7 @@ export async function startGame(filters: SoloFilters = {}): Promise<SoloGame> {
       p_question_count: filters.questionCount ?? 10,
       p_direction: filters.direction ?? "date",
       ...(filters.niveau ? { p_niveau: filters.niveau } : {}),
+      ...periodes,
     });
   if (game.anonymous) {
     (await cookies()).set(cookieName(game.game_id), token, {
@@ -123,6 +126,22 @@ export async function submitAnswer(
     p_answer_text: typeof answer === "string" ? answer : null,
   });
   if (date && methode && !correction.expired) {
+    await mesurer("kpi_noter_saisie", { p_game_id: gameId, p_question_id: questionId, p_method: methode, p_token: token });
+  }
+  return correction;
+}
+
+// Question période (#94) : début et fin. null = constater l'expiration (0 point).
+export async function submitPeriodAnswer(
+  gameId: string, questionId: string, answer: { debut: SoloDate; fin: SoloDate } | null, methode?: MethodeSaisie | null,
+): Promise<SoloCorrection> {
+  const token = (await cookies()).get(cookieName(gameId))?.value ?? null;
+  const correction = await rpc<SoloCorrection>("submit_period_answer", {
+    p_game_id: gameId, p_question_id: questionId, p_token: token,
+    p_start_year: answer?.debut.year ?? null, p_start_month: answer?.debut.month ?? null, p_start_day: answer?.debut.day ?? null,
+    p_end_year: answer?.fin.year ?? null, p_end_month: answer?.fin.month ?? null, p_end_day: answer?.fin.day ?? null,
+  });
+  if (answer && methode && !correction.expired) {
     await mesurer("kpi_noter_saisie", { p_game_id: gameId, p_question_id: questionId, p_method: methode, p_token: token });
   }
   return correction;

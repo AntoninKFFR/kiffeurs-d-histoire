@@ -10,12 +10,13 @@ import { BoutonMystere } from "./BoutonMystere";
 import { chargerPacksJouables } from "@/app/solo/packs";
 import type { PackJouable } from "@/lib/solo/packs";
 import { SelectionPacks } from "./SelectionPacks";
+import { QuestionsPeriode } from "./QuestionsPeriode";
 import styles from "./choix.module.css";
 
 const MEMOIRE = "histoire-choix-solo";
 const MEMOIRE_INVERSE = "histoire-choix-inverse";
 type ModeSolo = "general" | "periode" | "pack" | "theme";
-type Etat = { mode: ModeSolo; periode: string; de: string; a: string; pack: string; theme: string; niveau: SoloNiveau; difficulte: SoloDifficulty; longueur: Longueur };
+type Etat = { mode: ModeSolo; periode: string; de: string; a: string; pack: string; theme: string; niveau: SoloNiveau; difficulte: SoloDifficulty; longueur: Longueur; periodes: boolean };
 
 const ONGLETS: { mode: ModeSolo; titre: string }[] = [
   { mode: "general", titre: "Général" },
@@ -24,11 +25,12 @@ const ONGLETS: { mode: ModeSolo; titre: string }[] = [
   { mode: "theme", titre: "Thème" },
 ];
 
-const DEPART: Etat = { mode: "general", periode: PERIODES[0].id, de: "", a: "", pack: PACKS[0].id, theme: THEMES[0].id, niveau: NIVEAU_PAR_DEFAUT, difficulte: "YEAR", longueur: 10 };
+const DEPART: Etat = { mode: "general", periode: PERIODES[0].id, de: "", a: "", pack: PACKS[0].id, theme: THEMES[0].id, niveau: NIVEAU_PAR_DEFAUT, difficulte: "YEAR", longueur: 10, periodes: true };
 
 function versChamps(e: Etat, inverse: boolean) {
   const p = new URLSearchParams({ mode: e.mode, difficulte: e.difficulte, niveau: String(e.niveau), longueur: String(e.longueur) });
   if (inverse) p.set("sens", "inverse");
+  else if (!e.periodes) p.set("periodes", "0");
   if (e.mode === "periode") {
     p.set("periode", e.periode);
     if (e.periode === "libre") {
@@ -52,6 +54,7 @@ function depuisMemoire(c: Choix): Etat | null {
     mode: (c.mode === "pack" && !packConnu) || (c.mode === "theme" && !themeConnu) ? "general" : c.mode,
     difficulte: c.difficulte,
     longueur: c.longueur ?? 10,
+    periodes: c.periodes !== false,
     niveau: c.niveau ?? NIVEAU_PAR_DEFAUT,
     periode: c.periode ?? DEPART.periode,
     de: c.de != null ? String(c.de) : "",
@@ -227,8 +230,13 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
         <LongueurPartie valeur={etat.longueur} disponibles={disponibles} erreur={disponibilite.erreur}
           reessayer={disponibilite.reessayer} onChange={(longueur) => maj({ longueur })} />
       </Etape>
+      {!inverse && (
+        <Etape numero={5} titre="Questions période">
+          <QuestionsPeriode valeur={etat.periodes} onChange={(periodes) => maj({ periodes })} />
+        </Etape>
+      )}
       <BoutonMystere choix={ecrireChoix({ mode: "general", difficulte: inverse ? "DAY" : difficulte ?? etat.difficulte,
-        niveau: etat.niveau, longueur: etat.longueur, ...(inverse ? { sens: "inverse" as const } : {}) })}
+        niveau: etat.niveau, longueur: etat.longueur, ...(inverse ? { sens: "inverse" as const } : etat.periodes ? {} : { periodes: false as const }) })}
         memoriser={(c) => ecrireMemoire(memoire, c)} />
       <BarreLancer
         pret={choix != null && nombre !== null}

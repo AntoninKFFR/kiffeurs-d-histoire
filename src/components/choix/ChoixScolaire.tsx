@@ -5,6 +5,7 @@ import { lancer } from "@/app/partie/actions";
 import { NIVEAUX } from "@/lib/apprendre/catalogue";
 import { CHAPITRES, DIFFICULTES, ecrireChoix, lireChoix, nombreQuestions, type Longueur } from "@/lib/solo/choix";
 import { LongueurPartie, useDisponibilite } from "./LongueurPartie";
+import { QuestionsPeriode } from "./QuestionsPeriode";
 import type { SoloDifficulty } from "@/lib/game/solo";
 import { BarreLancer, ChoixDifficulte, difficulteJouable, ecrireMemoire, Etape, lireMemoire } from "./communs";
 import styles from "./choix.module.css";
@@ -20,6 +21,7 @@ export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
   // Difficulté proposée par défaut : l'année seule, comme dans les manuels.
   const [difficulte, setDifficulte] = useState<SoloDifficulty>("YEAR");
   const [longueur, setLongueur] = useState<Longueur>(10);
+  const [periodes, setPeriodes] = useState(true);
 
   // Reprend le dernier choix du joueur, connu seulement du navigateur.
   useEffect(() => {
@@ -32,6 +34,7 @@ export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
     setCoches(choix.chapitres.filter((id) => CHAPITRES.find((c) => c.id === id)?.niveauSlug === premier.niveauSlug));
     setDifficulte(choix.difficulte);
     setLongueur(choix.longueur ?? 10);
+    setPeriodes(choix.periodes !== false);
   }, [memoire]);
 
   const choisirNiveau = (slug: string) => {
@@ -41,7 +44,7 @@ export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
   const basculer = (id: string) => setCoches((l) => (l.includes(id) ? l.filter((x) => x !== id) : [...l, id]));
 
   const chapitres = niveau ? duNiveau(niveau) : [];
-  const selection = lireChoix(new URLSearchParams({ mode: "scolaire", difficulte, chapitres: coches.join(","), longueur: String(longueur), ...(inverse ? { sens: "inverse" } : {}) }));
+  const selection = lireChoix(new URLSearchParams({ mode: "scolaire", difficulte, chapitres: coches.join(","), longueur: String(longueur), ...(inverse ? { sens: "inverse" } : periodes ? {} : { periodes: "0" }) }));
   const disponibilite = useDisponibilite(selection);
   const comptes = disponibilite.comptes;
   // Inversé : toujours la date exacte, sans choix de difficulté.
@@ -97,6 +100,9 @@ export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
       {niveau && <Etape numero={inverse ? 3 : 4} titre="Longueur de la partie">
         <LongueurPartie valeur={longueur} disponibles={disponibles} erreur={disponibilite.erreur}
           reessayer={disponibilite.reessayer} onChange={setLongueur} />
+      </Etape>}
+      {niveau && !inverse && <Etape numero={5} titre="Questions période">
+        <QuestionsPeriode valeur={periodes} onChange={setPeriodes} />
       </Etape>}
       <BarreLancer
         pret={choix != null && nombre !== null}

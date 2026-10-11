@@ -7,6 +7,9 @@
 > Le texte historique ci-dessous décrit le contrat initial ; la fusion de #93
 > attend l'autorisation d'application de sa migration.
 
+> Questions période (#94) : nouvelles surcharges `start_game(p_periodes, …)`,
+> `start_mystery_game(p_periodes, …)` et RPC `submit_period_answer`. [Contrat](questions-periode.md).
+
 Migrations : `20261006214244_solo_server.sql` (moteur), après celle du score de #12,
 puis `20261006220620_solo_anonymous_retention.sql` (rétention/budget anonyme).
 Le mode inversé ajoute `20261006225007_inverse_server.sql`, sans modifier les

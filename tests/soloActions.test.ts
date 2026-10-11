@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
-import { claimGame, finishGame, nextQuestion, startGame, submitAnswer } from "@/app/solo/actions";
+import { claimGame, finishGame, nextQuestion, startGame, submitAnswer, submitPeriodAnswer } from "@/app/solo/actions";
 
 const gameId = "00000000-0000-0000-0000-000000000013";
 const mocks = vi.hoisted(() => ({ values: new Map<string, string>(), set: vi.fn(), remove: vi.fn(), rpc: vi.fn(), schema: vi.fn(), account: vi.fn() }));
@@ -97,6 +97,7 @@ it("transmet les filtres sans calcul métier et utilise les cookies pour les RPC
   expect(gameCalls()[0]).toEqual(["start_game", {
     p_token: token, p_pack_id: "PACK", p_tag_id: "TAG", p_year_min: -800, p_year_max: 2000,
     p_level_id: "3e", p_chapter_ids: ["CHAPTER"], p_difficulty: "DAY", p_question_count: 20, p_direction: "date",
+    p_periodes: true,
   }]);
   mocks.rpc.mockResolvedValue({ data: null, error: null });
   expect(await nextQuestion(gameId)).toBeNull();
@@ -112,6 +113,24 @@ it("transmet les filtres sans calcul métier et utilise les cookies pour les RPC
     "purge_expired_anonymous_games", "submit_answer", "purge_expired_anonymous_games", "submit_answer",
     "purge_expired_anonymous_games", "finish_game",
   ]);
+});
+
+it("questions période : option transmise en jeu de dates seulement, deux dates à la correction", async () => {
+  mocks.rpc.mockResolvedValue({ data: { game_id: gameId, anonymous: false }, error: null });
+  await startGame({ periods: false, niveau: 2 });
+  expect(gameCalls()[0][1]).toMatchObject({ p_periodes: false, p_niveau: 2 });
+  await startGame({ direction: "inverse", niveau: 2 });
+  expect(gameCalls()[1][1]).not.toHaveProperty("p_periodes");
+  await startGame({ chapterTest: true, chapterIds: ["CH"] });
+  expect(gameCalls()[2][1]).not.toHaveProperty("p_periodes");
+  await startGame({ mystery: true, niveau: 1 });
+  expect(gameCalls()[3]).toEqual(["start_mystery_game", expect.objectContaining({ p_periodes: true })]);
+  mocks.rpc.mockResolvedValue({ data: { question_id: "q", expired: false }, error: null });
+  await submitPeriodAnswer(gameId, "q", { debut: { year: 1914 }, fin: { year: 1918, month: 11, day: 11 } });
+  expect(mocks.rpc).toHaveBeenLastCalledWith("submit_period_answer", { p_game_id: gameId, p_question_id: "q", p_token: null,
+    p_start_year: 1914, p_start_month: null, p_start_day: null, p_end_year: 1918, p_end_month: 11, p_end_day: 11 });
+  await submitPeriodAnswer(gameId, "q", null);
+  expect(mocks.rpc).toHaveBeenLastCalledWith("submit_period_answer", expect.objectContaining({ p_start_year: null, p_end_year: null }));
 });
 
 it("une partie connectée utilise la session Supabase sans cookie anonyme", async () => {

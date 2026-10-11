@@ -30,6 +30,8 @@ export type Choix = {
   chapitres?: string[];
   /** Test d'un seul chapitre lancé depuis « Découvrir » : sa précision alimente la progression pédagogique. */
   test?: true;
+  /** Questions « période » coupées (#94). Absent : activées, comme dans les anciens choix. */
+  periodes?: false;
 };
 export type Comptes = Record<SoloDifficulty, number>;
 
@@ -78,6 +80,7 @@ export function lireChoix(champs: URLSearchParams): Choix | null {
     if (!["5", "10", "20", "tout"].includes(longueur)) return null;
     choix.longueur = longueur === "tout" ? "tout" : Number(longueur) as 5 | 10 | 20;
   }
+  if (champs.get("periodes") === "0") choix.periodes = false;
   if (mode !== "scolaire") {
     const niveau = champs.get("niveau");
     if (niveau == null) choix.niveau = NIVEAU_PAR_DEFAUT;
@@ -88,6 +91,8 @@ export function lireChoix(champs: URLSearchParams): Choix | null {
   if (champs.get("sens") === "inverse") {
     choix.sens = "inverse";
     choix.difficulte = "DAY";
+    // Pas de question période en inversé : l'option n'a pas de sens.
+    delete choix.periodes;
   }
   if (mode === "periode") {
     const periode = champs.get("periode");
@@ -145,6 +150,7 @@ export function ecrireChoix(choix: Choix): string {
   if (choix.theme) p.set("theme", choix.theme);
   if (choix.chapitres?.length) p.set("chapitres", choix.chapitres.join(","));
   if (choix.test) p.set("test", "chapitre");
+  if (choix.periodes === false) p.set("periodes", "0");
   return p.toString();
 }
 
@@ -153,6 +159,7 @@ export function filtresDepuis(choix: Choix): SoloFilters {
   const f: SoloFilters = { difficulty: choix.difficulte, questionCount: choix.longueur === "tout" ? 0 : choix.longueur ?? QUESTIONS };
   if (choix.mystere) f.mystery = true;
   if (choix.sens === "inverse") f.direction = "inverse";
+  if (choix.periodes === false) f.periods = false;
   if (choix.niveau) f.niveau = choix.niveau;
   if (choix.mode === "periode") {
     const p = PERIODES.find((x) => x.id === choix.periode);
@@ -258,7 +265,8 @@ export function relanceEnregistree(f: SoloFilters | null | undefined): string | 
     ...(f.direction === "inverse" ? { sens: "inverse" } : {}),
     ...(mode === "periode" ? { periode: "libre", de: f.yearMin, a: f.yearMax } : {}),
     ...(f.packId ? { pack: f.packId } : {}), ...(f.tagId ? { theme: f.tagId } : {}),
-    ...(f.chapterIds ? { chapitres: f.chapterIds } : {}), ...(f.chapterTest ? { test: true } : {}) };
+    ...(f.chapterIds ? { chapitres: f.chapterIds } : {}), ...(f.chapterTest ? { test: true } : {}),
+    ...(f.periods === false ? { periodes: false as const } : {}) };
   const valide = lireChoix(new URLSearchParams(ecrireChoix(choix)));
   return valide ? ecrireChoix(valide) : null;
 }

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { aLaPrecision, formatHistoricDate, type HistoricDate, type Precision } from "@/lib/game/dates";
-import { REGLAGES, versT, VUE_DE_BASE, type Vue } from "@/lib/game/frise";
+import { dateCourte, REGLAGES, versT, VUE_DE_BASE, type Vue } from "@/lib/game/frise";
 import type { Chrono } from "@/lib/game/partie";
 import type { MethodeSaisie } from "@/lib/game/solo";
 import { Motif } from "@/components/charte/Motif";
@@ -29,7 +29,12 @@ export type QuestionPublique = {
   precision: Precision;
   numero: number;
   total: number;
+  /** Question période (#94) : le joueur place le début puis la fin. */
+  periode?: boolean;
 };
+
+/** Réponse à une question période : le début et la fin, la fin jamais avant le début. */
+export type ReponsePeriode = { debut: HistoricDate; fin: HistoricDate };
 
 // Renvoyé par le serveur une fois la réponse envoyée.
 export type Correction = {
@@ -39,12 +44,17 @@ export type Correction = {
   description?: string | null;
   /** Le temps était écoulé : la question vaut 0. */
   expiree?: boolean;
+  /** Question période : la vraie fin, et l'écart sur la fin (`ecart` porte alors sur le début). */
+  bonneFin?: HistoricDate;
+  ecartFin?: string | null;
 };
 
 type Props = {
   question: QuestionPublique;
   /** `null` : le temps est écoulé, on demande la correction sans réponse. */
   corriger: (questionId: string, reponse: HistoricDate | null, methode?: MethodeSaisie | null) => Promise<Correction>;
+  /** Correction d'une question période ; `null` : le temps est écoulé. */
+  corrigerPeriode?: (questionId: string, reponse: ReponsePeriode | null, methode?: MethodeSaisie | null) => Promise<Correction>;
   /** Chrono affiché (le serveur fait foi). Sans lui, pas de chrono. */
   chrono?: Chrono;
   /** Bouton après la correction. Sans lui (aperçu), la question se rejoue. */
@@ -54,9 +64,15 @@ type Props = {
 };
 
 const BRAVO: Record<Precision, string> = { annee: "Pile la bonne année !", mois: "Pile le bon mois !", jour: "Pile le bon jour !" };
+const PILE: Record<Precision, string> = { annee: "pile la bonne année", mois: "pile le bon mois", jour: "pile le bon jour" };
 
-export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Props) {
+// La fin tombe-t-elle avant le début, à la précision jouée ?
+const finAvantDebut = (debut: HistoricDate, fin: HistoricDate, precision: Precision) =>
+  versT(aLaPrecision(fin, precision)) < versT(aLaPrecision(debut, precision));
+
+export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suivante, bornes }: Props) {
   const { precision } = question;
+  const periode = Boolean(question.periode && corrigerPeriode);
   const { debut, fin } = bornes ?? VUE_DE_BASE;
   const cadre = useMemo(() => ({ debut, fin }), [debut, fin]);
   const controle = useVue(precision, cadre, cadre);
@@ -66,27 +82,46 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
   const [passage, setPassage] = useState(false);
   const [erreur, setErreur] = useState<string | null>(null);
   const [restant, setRestant] = useState(chrono ? chrono.totalMs / 1000 : 0);
-  const { champs, reponse, methode, complete, setEnSaisie, enSaisie, changerChamps, poserSurFrise, reinitialiser } = useSaisieFrise(precision, controle);
+  // Question période : deux saisies reliées à la même frise, le début puis la fin.
+  const saisieDebut = useSaisieFrise(precision, controle);
+  const saisieFin = useSaisieFrise(precision, controle);
+  const [etape, setEtape] = useState<"debut" | "fin">("debut");
+  const active = periode && etape === "fin" ? saisieFin : saisieDebut;
+  const autre = periode ? (etape === "fin" ? saisieDebut : saisieFin) : null;
+  const { champs, reponse, complete, setEnSaisie, enSaisie, changerChamps } = active;
+  const methode = periode ? (saisieFin.methode ?? saisieDebut.methode) : saisieDebut.methode;
+  const debutJoueur = saisieDebut.reponse;
+  const finJoueur = saisieFin.reponse;
+  const inversee = periode && debutJoueur != null && finJoueur != null && saisieDebut.complete && saisieFin.complete && finAvantDebut(debutJoueur, finJoueur, precision);
+  const periodeComplete = saisieDebut.complete && saisieFin.complete && !inversee;
+  // Tant que la fin manque, le bouton du début mène à la fin.
+  const versLaFin = periode && etape === "debut" && !saisieFin.complete;
+  const pret = periode ? (versLaFin ? saisieDebut.complete : periodeComplete) : complete;
   const enCours = useRef(false);
   const expireTente = useRef(false);
   const ecran = useRef<HTMLElement>(null);
   useSaisieVisible(ecran);
 
-  async function envoyer(rep: HistoricDate | null) {
+  async function envoyer(rep: HistoricDate | ReponsePeriode | null) {
     if (enCours.current) return;
     enCours.current = true;
     setEnvoi(true);
     setErreur(null);
     try {
-      const brute = await corriger(question.id, rep, rep ? methode : null);
+      const brute = periode
+        ? await corrigerPeriode!(question.id, rep && "debut" in rep ? rep : null, rep ? methode : null)
+        : await corriger(question.id, rep && !("debut" in rep) ? rep : null, rep ? methode : null);
       // La bonne réponse est donnée à la précision jouée : l'année seule en précision Année.
-      const c = { ...brute, bonne: aLaPrecision(brute.bonne, precision) };
+      const c = { ...brute, bonne: aLaPrecision(brute.bonne, precision), bonneFin: brute.bonneFin && aLaPrecision(brute.bonneFin, precision) };
       setCorrection(c);
-      // La frise montre la bonne date, et la réponse quand il y en a une.
-      const b = versT(c.bonne);
-      const a = rep ? versT(rep) : b;
-      const marge = Math.max(REGLAGES[precision].marge, Math.abs(a - b) * 1.2);
-      animer(Math.min(a, b) - marge, Math.max(a, b) + marge);
+      if (periode) setEtape("debut");
+      // La frise montre la bonne date (ou période), et la réponse quand il y en a une.
+      const ts = [c.bonne, c.bonneFin, ...(rep ? ("debut" in rep ? [rep.debut, rep.fin] : [rep]) : [])]
+        .filter((d): d is HistoricDate => d != null).map(versT);
+      const min = Math.min(...ts);
+      const max = Math.max(...ts);
+      const marge = Math.max(REGLAGES[precision].marge, (max - min) * (periode ? 0.25 : 1.2));
+      animer(min - marge, max + marge);
     } catch {
       setErreur("La connexion a été perdue : ta réponse n'est pas partie. Réessaie.");
     } finally {
@@ -121,7 +156,9 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
       if (!suivante) {
         // Aperçu : on rejoue la même question.
         setCorrection(null);
-        reinitialiser();
+        saisieDebut.reinitialiser();
+        saisieFin.reinitialiser();
+        setEtape("debut");
         return;
       }
       setPassage(true);
@@ -134,8 +171,26 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
       }
       return;
     }
+    if (periode) {
+      if (versLaFin) {
+        if (saisieDebut.complete) setEtape("fin");
+        return;
+      }
+      if (!periodeComplete || !debutJoueur || !finJoueur) {
+        if (!saisieDebut.complete) setEtape("debut");
+        return;
+      }
+      await envoyer({ debut: debutJoueur, fin: finJoueur });
+      return;
+    }
     if (!complete || !reponse) return;
     await envoyer(reponse);
+  }
+
+  // Un clic sur la frise pose la borne en cours ; au début, il passe ensuite à la fin.
+  function poserSurFrise(d: HistoricDate, origine: "clic" | "glisse" | "clavier") {
+    active.poserSurFrise(d);
+    if (periode && etape === "debut" && origine === "clic" && !saisieFin.reponse) setEtape("fin");
   }
 
   // Temps écoulé sans que la correction ait pu arriver (réseau coupé) : un bouton pour redemander.
@@ -157,8 +212,8 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
       Réessayer
     </button>
   ) : (
-    <button type="button" className={s.valider} onClick={valider} disabled={envoi || passage || (!correction && !complete)}>
-      {correction ? (suivante?.libelle ?? "Rejouer cette question") : "Valider ma réponse"}
+    <button type="button" className={s.valider} onClick={valider} disabled={envoi || passage || (!correction && !pret)}>
+      {correction ? (suivante?.libelle ?? "Rejouer cette question") : versLaFin ? "Placer la fin →" : "Valider ma réponse"}
     </button>
   );
   const reponseBoite = (
@@ -173,7 +228,23 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
         </div>
       </div>
       <div data-superposition data-corrige={correction ? "" : undefined} className={`${s.boite} ${s.colonneSaisie}`}>
+        {periode && (
+          <div className={s.bornes} role="group" aria-label="Début et fin de la période">
+            {(["debut", "fin"] as const).map((b) => {
+              const d = b === "debut" ? debutJoueur : finJoueur;
+              return (
+                <button key={b} type="button" aria-pressed={etape === b} disabled={correction != null || envoi}
+                  onPointerDown={(e) => e.preventDefault()} onClick={() => setEtape(b)}>
+                  <span>{b === "debut" ? "Début" : "Fin"}</span>
+                  <b className="date">{d ? dateCourte(aLaPrecision(d, precision)) : "…"}</b>
+                </button>
+              );
+            })}
+          </div>
+        )}
         <SaisieDate
+          key={periode ? etape : undefined}
+          consigne={periode ? (etape === "debut" ? "Le début : tapez la date ou cliquez sur la frise" : "La fin : tapez la date ou cliquez sur la frise") : undefined}
           precision={precision}
           champs={champs}
           onChange={changerChamps}
@@ -181,6 +252,11 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
           onValider={valider}
           verrouille={correction != null || envoi}
         />
+        {inversee && !correction && (
+          <p role="alert" className={s.erreur}>
+            La fin ne peut pas être avant le début.
+          </p>
+        )}
         {erreur && (
           <p role="alert" className={s.erreur}>
             {erreur}
@@ -190,14 +266,19 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
       <div data-superposition className={s.colonneAction}>
         {correction ? (
           <div className={`${s.boite} ${s.resultat}`} role="status">
-            <span className={s.inventaire}>Réponse : {formatHistoricDate(correction.bonne, precision)}</span>
+            <span className={s.inventaire}>
+              Réponse : {formatHistoricDate(correction.bonne, precision)}
+              {correction.bonneFin && <> → {formatHistoricDate(correction.bonneFin, precision)}</>}
+            </span>
             <span className={`${s.points} date`}>{correction.points} pts</span>
             <span>
               {correction.expiree
                 ? "Temps écoulé : cette question vaut 0 point."
-                : correction.ecart
-                  ? `Écart de ${correction.ecart}.`
-                  : BRAVO[precision]}
+                : correction.bonneFin
+                  ? `Début : ${correction.ecart ? `écart de ${correction.ecart}` : PILE[precision]}. Fin : ${correction.ecartFin ? `écart de ${correction.ecartFin}` : PILE[precision]}.`
+                  : correction.ecart
+                    ? `Écart de ${correction.ecart}.`
+                    : BRAVO[precision]}
             </span>
             {description && <span className={s.explication}>{description}</span>}
             {boutonValider}
@@ -218,7 +299,13 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
           {question.inventaire ? `${question.inventaire} · ` : ""}Question {question.numero} sur {question.total}
         </span>
         <h2>{question.titre}</h2>
-        <p className={s.consigne}>{REGLAGES[precision].consigne}</p>
+        {periode ? (
+          <p className={s.consigne}>
+            <span className={s.badgePeriode}>Début et fin</span> {REGLAGES[precision].consigne.replace("À trouver : ", "À trouver pour les deux : ")}
+          </p>
+        ) : (
+          <p className={s.consigne}>{REGLAGES[precision].consigne}</p>
+        )}
       </div>
       {chrono && !correction && <ChronoCirculaire restant={restant} total={chrono.totalMs / 1000} taille={72} />}
     </div>
@@ -229,10 +316,11 @@ export function EcranPartie({ question, corriger, chrono, suivante, bornes }: Pr
       <Frise
         precision={precision}
         controle={controle}
-        reponse={reponse}
+        reponse={correction && periode ? debutJoueur : reponse}
         onReponse={poserSurFrise}
         enSaisie={enSaisie}
-        correction={correction && { bonne: correction.bonne, titre: question.titre }}
+        periode={periode ? (correction ? { etape: "debut", autre: finJoueur } : { etape, autre: autre?.reponse ?? null }) : null}
+        correction={correction && { bonne: correction.bonne, titre: question.titre, bonneFin: correction.bonneFin }}
         haut={
           <>
             <Link href="/" className={s.quitter}>

@@ -37,10 +37,17 @@ type Props = {
    */
   controle?: ReturnType<typeof useVue>;
   reponse?: HistoricDate | null;
-  onReponse?: (d: HistoricDate) => void;
+  /** `origine` : un clic simple, un glissement du losange ou les flèches du clavier. */
+  onReponse?: (d: HistoricDate, origine: "clic" | "glisse" | "clavier") => void;
   enSaisie?: boolean;
+  /**
+   * Question période (#94) : `reponse` est la borne en cours de saisie (début ou fin selon `etape`),
+   * `autre` l'autre borne déjà posée. La frise dessine la période du joueur entre les deux.
+   */
+  periode?: { etape: "debut" | "fin"; autre: HistoricDate | null } | null;
   // Renseignée seulement après la correction (la bonne date ne vient jamais avant).
-  correction?: { bonne: HistoricDate; titre: string } | null;
+  // `bonneFin` : la vraie fin d'une question période.
+  correction?: { bonne: HistoricDate; titre: string; bonneFin?: HistoricDate } | null;
   /** Mode inversé : la date donnée par le jeu, marquée sur la frise avant la correction. */
   dateDonnee?: HistoricDate | null;
   /** Cartes d'événements posées sur la frise ; les marqueurs proches se regroupent. */
@@ -85,6 +92,7 @@ export function Frise({
   reponse = null,
   onReponse,
   enSaisie = false,
+  periode = null,
   correction = null,
   dateDonnee = null,
   marqueurs,
@@ -211,7 +219,7 @@ export function Frise({
       g.bouge = true;
       setFantome(null);
     }
-    if (g.losange) return onReponse?.(dateA(e.clientX));
+    if (g.losange) return onReponse?.(dateA(e.clientX), "glisse");
     const parPixel = (g.vue.fin - g.vue.debut) / ref.current!.clientWidth;
     placer(g.vue.debut - dx * parPixel, g.vue.fin - dx * parPixel);
   }
@@ -221,7 +229,7 @@ export function Frise({
     pointeurs.current.delete(e.pointerId);
     const g = glisse.current;
     // Un clic sans glisser pose la réponse.
-    if (g && !pincement.current && !g.bouge && selection && e.type === "pointerup") onReponse?.(dateA(e.clientX));
+    if (g && !pincement.current && !g.bouge && selection && e.type === "pointerup") onReponse?.(dateA(e.clientX), "clic");
     if (pointeurs.current.size === 0) {
       glisse.current = null;
       pincement.current = null;
@@ -240,7 +248,7 @@ export function Frise({
     const sens = e.key === "ArrowLeft" ? -1 : e.key === "ArrowRight" ? 1 : 0;
     if (!sens) return;
     e.preventDefault();
-    onReponse?.(decaler(reponse, sens * (e.shiftKey ? 10 : 1), precision));
+    onReponse?.(decaler(reponse, sens * (e.shiftKey ? 10 : 1), precision), "clavier");
   }
 
   const span = vue.fin - vue.debut;
@@ -249,9 +257,18 @@ export function Frise({
   const rappel = contexte(vue, pas);
   const xReponse = reponse ? X(versT(reponse)) : 0;
   const bonne = correction?.bonne;
+  const bonneFin = correction?.bonneFin;
+  // Période : le repère et l'étiquette de la bonne réponse se posent au milieu de la vraie période.
   const xBonne = bonne ? X(versT(bonne)) : 0;
+  const xBonneFin = bonneFin ? X(versT(bonneFin)) : xBonne;
+  const xCentreBonne = (xBonne + xBonneFin) / 2;
+  const texteBonne = bonne ? (bonneFin ? `${dateCourte(bonne)} – ${dateCourte(bonneFin)}` : dateCourte(bonne)) : "";
+  // Période du joueur : le début et la fin dans l'ordre, quelle que soit la borne en cours de saisie.
+  const debutJoueur = periode ? (periode.etape === "debut" ? reponse : periode.autre) : null;
+  const finJoueur = periode ? (periode.etape === "fin" ? reponse : periode.autre) : null;
+  const xAutre = periode?.autre ? X(versT(periode.autre)) : 0;
   const xDonnee = dateDonnee ? X(versT(dateDonnee)) : 0;
-  const largeurPuce = correction ? largeurTexte(correction.titre) : 0;
+  const largeurPuce = correction ? Math.max(largeurTexte(correction.titre), bonneFin ? largeurTexte(texteBonne) : 0) : 0;
   const groupes = !aDesMarqueurs ? [] : toutVoir
     ? tries.filter((m) => m.t >= vue.debut && m.t <= vue.fin).map((m) => ({ t: m.t, debut: m.t, fin: m.t, ids: [m.id] }))
      : regrouper(tries, vue, largeur, illustree ? ECART_MARQUEURS_ILLUSTRES : ECART_MARQUEURS, precision);
@@ -442,17 +459,19 @@ export function Frise({
           <>
             {avecPuce && (
               <>
-                <div className={s.tige} style={{ left: xBonne, top: hautPuce + 56, height: 124 - hautPuce }} />
-                <div className={s.puce} style={{ left: clamp(xBonne, largeurPuce / 2 + 2, largeur - largeurPuce / 2 - 2), top: hautPuce }}>
-                  <span className="date">{dateCourte(bonne)}</span>
+                <div className={s.tige} style={{ left: xCentreBonne, top: hautPuce + 56, height: 124 - hautPuce }} />
+                <div className={s.puce} style={{ left: clamp(xCentreBonne, largeurPuce / 2 + 2, largeur - largeurPuce / 2 - 2), top: hautPuce }}>
+                  <span className="date">{texteBonne}</span>
                   {correction.titre}
                 </div>
               </>
             )}
-            {reponse && <div className={s.ecart} style={{ left: Math.min(xReponse, xBonne), width: Math.abs(xReponse - xBonne) }} />}
+            {reponse && !bonneFin && <div className={s.ecart} style={{ left: Math.min(xReponse, xBonne), width: Math.abs(xReponse - xBonne) }} />}
+            {bonneFin && <div className={s.periodeBonne} style={{ left: Math.min(xBonne, xBonneFin), width: Math.abs(xBonneFin - xBonne) }} />}
             <div className={s.bonne} style={{ left: xBonne }} />
-            <div className={s.bonneEtiquette} style={{ left: clamp(xBonne, 110, largeur - 110) }}>
-              Bonne réponse <b>{dateCourte(bonne)}</b>
+            {bonneFin && <div className={s.bonne} style={{ left: xBonneFin }} />}
+            <div className={s.bonneEtiquette} style={{ left: clamp(xCentreBonne, 110, largeur - 110) }}>
+              {bonneFin ? "Bonne période" : "Bonne réponse"} <b>{texteBonne}</b>
             </div>
           </>
         )}
@@ -467,6 +486,18 @@ export function Frise({
           </>
         )}
 
+        {periode?.autre && (
+          // L'autre borne de la période : visible, mais elle ne se déplace qu'une fois resélectionnée.
+          <div className={`${s.losange} ${s.losangeFixe}`} style={{ left: xAutre }} aria-hidden="true" />
+        )}
+        {debutJoueur && finJoueur && (
+          <div className={s.periodeJoueur} style={{ left: Math.min(X(versT(debutJoueur)), X(versT(finJoueur))), width: Math.abs(X(versT(finJoueur)) - X(versT(debutJoueur))) }} />
+        )}
+        {periode && !reponse && periode.autre && (
+          <div className={s.reponseEtiquette} style={{ left: clamp(xAutre, 100, largeur - 100) }}>
+            {periode.etape === "debut" ? "Fin" : "Début"} <b>{dateCourte(periode.autre)}</b>
+          </div>
+        )}
         {reponse && (
           <>
             <div
@@ -475,18 +506,27 @@ export function Frise({
               style={{ left: xReponse }}
               tabIndex={0}
               role="slider"
-              aria-label="Votre réponse"
+              aria-label={periode ? (periode.etape === "debut" ? "Début de votre période" : "Fin de votre période") : "Votre réponse"}
               aria-valuetext={dateCourte(reponse)}
               aria-valuenow={versT(reponse)}
               aria-valuemin={bornes.debut}
               aria-valuemax={bornes.fin}
             />
-            <div
-              className={enSaisie ? `${s.reponseEtiquette} ${s.enSaisie}` : s.reponseEtiquette}
-              style={{ left: clamp(xReponse, 100, largeur - 100) }}
-            >
-              Votre réponse <b>{dateCourte(reponse)}</b>
-            </div>
+            {debutJoueur && finJoueur ? (
+              <div
+                className={enSaisie ? `${s.reponseEtiquette} ${s.enSaisie}` : s.reponseEtiquette}
+                style={{ left: clamp((X(versT(debutJoueur)) + X(versT(finJoueur))) / 2, 150, largeur - 150) }}
+              >
+                Votre période <b>{dateCourte(debutJoueur)} – {dateCourte(finJoueur)}</b>
+              </div>
+            ) : (
+              <div
+                className={enSaisie ? `${s.reponseEtiquette} ${s.enSaisie}` : s.reponseEtiquette}
+                style={{ left: clamp(xReponse, 100, largeur - 100) }}
+              >
+                {periode ? (periode.etape === "debut" ? "Début" : "Fin") : "Votre réponse"} <b>{dateCourte(reponse)}</b>
+              </div>
+            )}
           </>
         )}
 

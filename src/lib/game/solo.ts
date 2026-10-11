@@ -22,6 +22,8 @@ export type SoloFilters = {
   // questionCount = 0 : « Tout », résolu atomiquement en 1 à 100 par start_game (#93).
   /** Test d'un chapitre : le serveur ne tire que parmi les événements de ses cartes pédagogiques. */
   chapterTest?: boolean;
+  /** Questions « période » (début et fin, #94). Absent : activées. Sans effet en inversé et en test. */
+  periods?: boolean;
 };
 /** Façon dont une réponse datée a été donnée (indicateurs #26). Pas de calendrier en V1. */
 export type MethodeSaisie = "frise" | "clavier" | "calendrier";
@@ -46,7 +48,8 @@ type QuestionTiming = {
   deadline: string;
   server_time: string;
 };
-export type SoloDateQuestion = QuestionTiming & { title: string; image_path: string | null };
+/** `periode` : le joueur donne le début et la fin (#94). Aucune date n'est envoyée avant la réponse. */
+export type SoloDateQuestion = QuestionTiming & { title: string; image_path: string | null; periode?: true };
 export type SoloInverseQuestion = QuestionTiming & {
   date: SoloDate;
   date_label: string;
@@ -64,9 +67,18 @@ type CorrectionDetails = {
   expired: boolean;
   description: string | null;
 };
-export type SoloDateCorrection = CorrectionDetails & { direction?: "date" };
+/** Clés ajoutées à la correction d'une question période (#94). Score = moyenne du début et de la fin. */
+export type CorrectionPeriode = {
+  periode: true;
+  correct_end_date: SoloDate;
+  end_gap: number | null;
+  start_accuracy: number | null;
+  end_accuracy: number | null;
+};
+export type SoloDateCorrection = CorrectionDetails & { direction?: "date" } & Partial<CorrectionPeriode>;
 export type SoloInverseCorrection = CorrectionDetails & { direction: "inverse"; title: string; correct: boolean };
 export type SoloCorrection = SoloDateCorrection | SoloInverseCorrection;
+type ReponseDate = { year: number | null; month: number | null; day: number | null };
 type ResultDetails = {
   /** Instantané privé de lancement, disponible seulement au bilan (#93). Anciens jeux : null. */
   replay_filters?: SoloFilters | null;
@@ -77,6 +89,6 @@ type ResultDetails = {
   total_points: number;
 };
 export type SoloResult = ResultDetails & (
-  { direction: "date"; questions: (SoloDateCorrection & { position: number; title: string; answer: { year: number | null; month: number | null; day: number | null } })[] }
+  { direction: "date"; questions: (SoloDateCorrection & { position: number; title: string; answer: ReponseDate; answer_end?: ReponseDate })[] }
   | { direction: "inverse"; questions: (SoloInverseCorrection & { position: number; answer: string | null })[] }
 );

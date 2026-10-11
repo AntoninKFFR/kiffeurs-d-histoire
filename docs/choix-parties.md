@@ -11,10 +11,12 @@ Branche : `ux-simplification-choix-parties`.
    Le décompte vivant, Tout le pack, Retour, le focus, la mémoire et Rejouer
    conservent leur contrat. Explorer et revenir gardent la sélection ; seul choisir
    un autre pack la remplace. Une navigation remet la liste en haut.
-2. Le niveau 3 porte le libellé « Toutes les questions ». Il est choisi au
-   premier affichage de Solo libre et Inversé sans mémoire. Les niveaux 1 et 2
-   restent disponibles. Les anciens liens et mémoires conservent leur niveau
-   explicite, ou le défaut historique 1 s'il manque. Aucun niveau éditorial ne change.
+2. Quatre cartes distinctes proposent Débutant (niveau 1), Intermédiaire (1 et 2),
+   Expert (3 exclusivement avec `expertOnly=1`) et Toutes les questions (1, 2 et 3).
+   Toutes les questions est choisi au premier affichage sans mémoire. Les anciens
+   liens `niveau=3` gardent leur sens cumulatif ; les autres niveaux explicites et
+   le défaut historique 1 des anciens liens sont conservés. Aucun niveau éditorial
+   ne change. Voir [le contrat Expert et la migration préparée](niveaux-expert.md).
 3. Le réglage Questions période disparaît du Solo libre. Les nouvelles parties
    classiques utilisent la valeur automatique existante du moteur. Les anciens
    `periodes=0` dans les URLs et leurs relances explicites restent compatibles.
@@ -39,12 +41,13 @@ concernent uniquement les formulaires Solo libre/Inversé.
 
 | Vérification | Résultat |
 | --- | --- |
-| `npm test` | 450 tests Vitest, 45 fichiers ; 6 tests d'import Node, tous verts |
-| Vitest ciblé (choix, packs, mystère, périodes, actions, bilan et Sport) | 132 tests, 11 fichiers, tous verts |
+| `npm test` | 469 tests Vitest, 46 fichiers ; 6 tests d'import Node, tous verts |
+| Vitest ciblé (choix, packs, mystère, périodes, actions, bilan et Sport) | 160 tests, 14 fichiers, tous verts |
 | `npm run lint` | Vert |
 | `npm run typecheck` | Vert |
 | Build Next de production | Vert, exécuté par le script de relecture |
 | `npx tsx scripts/verifier-sous-packs-local.ts --ux` | Six parcours Chromium verts avec API de fixtures locale |
+| `node scripts/verifier-expert-sql-local.mjs` | Six suites SQL vertes dans PostgreSQL WASM jetable ; Sport 369/397 |
 | `git diff --check` | Vert |
 
 Le parcours navigateur traverse la vraie route Next et ses Server Actions,
@@ -54,15 +57,17 @@ la partie, le badge Début et fin en classique, la mémoire du gagnant et son
 lancement ultérieur par `start_game`. Les contrats RPC, Rejouer, les deux relances,
 les périodes et l'exclusion des tests de chapitre sont également testés en Vitest.
 
-Les suites SQL et Playwright avec vraie base locale ne sont pas exécutées :
-le daemon Docker est indisponible dans cette session. Les trois scénarios E2E
-existants ont été adaptés aux nouveaux contrôles. Aucune CI GitHub n'est attendue.
+Les suites complètes SQL et Playwright avec Supabase local restent à la CI :
+le daemon Docker est indisponible dans cette session. Six suites SQL ont été
+exécutées avec les migrations et les fixtures réelles dans PostgreSQL embarqué,
+sans réseau. Le nouveau parcours E2E Expert complète les scénarios existants
+adaptés aux nouveaux contrôles. Aucune CI GitHub n'est attendue.
 Le build signale l'avertissement préexistant de fallback de police Big Shoulders.
 
-Les 46 captures et 12 mesures sont dans [la relecture visuelle](captures/choix-ux/README.md).
-Les fichiers de contenu, catalogue Sport, migrations, SQL, fonctions de jeu,
-tests pédagogiques et associations restent inchangés ; aucune opération en base
-de production n'a été exécutée.
+Les 52 captures et 12 mesures sont dans [la relecture visuelle](captures/choix-ux/README.md).
+Le contenu, le catalogue Sport, les anciennes migrations, les données pédagogiques
+et les associations restent inchangés. Une nouvelle migration ajoute des surcharges
+Expert sans remplacer les fonctions historiques ; elle n'est pas appliquée en production.
 
 ## Corrections après la CI de la PR #109
 
@@ -88,3 +93,6 @@ sur les trois viewports et dans les deux sens, sans accès Supabase distant.
 - Parcours E2E : `solo-libre.spec.ts`, `sous-packs.spec.ts`, `sport.spec.ts`, `theme-mystere.spec.ts`.
 - Relecture : `scripts/verifier-sous-packs-local.ts` et `docs/captures/choix-ux/`.
 - Documentation : ce fichier, `sous-packs.md`, `questions-periode.md`, `theme-mystere.md`.
+
+Le correctif Expert ajoute les fichiers serveur, moteur, tests et SQL détaillés
+dans [la liste du correctif](niveaux-expert.md#fichiers-du-correctif).

@@ -154,3 +154,33 @@ it("le parcours scolaire garde ses niveaux, son réglage et son absence de roule
   expect(screen.queryByRole("button", { name: /^Toutes les questions/ })).toBeNull();
   expect(screen.queryByRole("button", { name: /Thème mystère/ })).toBeNull();
 });
+it.each([false,true])("quatre niveaux distincts, comptes Expert et persistance, inverse=%s", async (inverse) => {
+  mocks.packs.mockImplementation((_niveau: number,_inverse: boolean,_id: string|null,expertOnly?: boolean) => Promise.resolve([
+    pack("COL-0105","Sport",null,expertOnly ? 7 : 397),pack("COL-0106","Football","COL-0105",expertOnly ? 5 : 49)]));
+  const memoire=inverse?"histoire-choix-inverse":"histoire-choix-solo";
+  const {container,unmount}=render(<ChoixSolo inverse={inverse} />);
+  const niveaux=within(screen.getByRole("group",{name:"Niveau"}));
+  expect(niveaux.getAllByRole("button")).toHaveLength(4);
+  expect(niveaux.getByRole("button",{name:/^Toutes les questions/}).getAttribute("aria-pressed")).toBe("true");
+  fireEvent.click(screen.getByRole("button",{name:"Pack"}));
+  fireEvent.click(await screen.findByRole("button",{name:/^Jouer tout Sport/}));
+  fireEvent.click(niveaux.getByRole("button",{name:/^Expert/}));
+  await screen.findByText(/7 questions réellement jouables/);
+  expect(champs(container).get("expertOnly")).toBe("1");
+  expect(champs(container).get("niveau")).toBe("3");
+  expect(niveaux.getByRole("button",{name:/^Toutes les questions/}).getAttribute("aria-pressed")).toBe("false");
+  expect(screen.getByRole("button",{name:/^10 questions/}).hasAttribute("disabled")).toBe(true);
+  fireEvent.click(screen.getByRole("button",{name:/^5 questions/}));
+  fireEvent.click(screen.getByRole("button",{name:"Voir les sous-thèmes de Sport"}));
+  fireEvent.click(screen.getByRole("button",{name:/^Football/}));
+  expect(champs(container).get("expertOnly")).toBe("1");
+  const form=container.querySelector("form")!;
+  form.addEventListener("submit",e=>e.preventDefault());fireEvent.submit(form);
+  expect(localStorage.getItem(memoire)).toContain("expertOnly=1");
+  unmount();render(<ChoixSolo inverse={inverse} />);
+  await screen.findByRole("button",{name:/^Football/});
+  expect(screen.getByRole("button",{name:/^Expert/}).getAttribute("aria-pressed")).toBe("true");
+  fireEvent.click(screen.getByRole("button",{name:/^Toutes les questions/}));
+  await screen.findByText(/49 questions réellement jouables/);
+  expect(screen.getByRole("button",{name:/^Expert/}).getAttribute("aria-pressed")).toBe("false");
+});

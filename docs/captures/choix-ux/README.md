@@ -14,7 +14,7 @@ ses processus. `--sans-build` réutilise uniquement un build avec ces fixtures.
 | 1366×768 | [Sous-thèmes](sous-themes-classique-1366.png), [Mystère](mystere-classique-1366.png) | [Sous-thèmes](sous-themes-inverse-1366.png), [Mystère](mystere-inverse-1366.png) |
 | 375×812 | [Parent](parent-classique-375.png), [Mystère](mystere-classique-375.png) | [Parent](parent-inverse-375.png), [Mystère](mystere-inverse-375.png) |
 
-Les autres captures couvrent Général, Période, la liste complète, Football
+52 captures au total. Les autres captures couvrent Général, Période, la liste complète, Football
 sélectionné et la roulette pour les deux sens. Les captures mobiles sont en
 page entière ; la barre collée en bas du viewport est mesurée séparément.
 
@@ -32,4 +32,16 @@ ne désactive pas les périodes d'une nouvelle partie classique (vérifié dans 
 
 Relecture visuelle : titres et comptes lisibles, focus visible, longueurs et
 niveaux sans dépassement à 375 px, grilles défilantes, barre finale accessible.
-Le contenu Sport, les fonctions SQL et le tirage réel ne sont pas modifiés.
+Les quatre cartes sont sur une ligne sur PC et en grille 2 × 2 sur mobile.
+Le script contrôle le choix Expert, son indicateur RPC, son URL, sa mémoire
+et un lancement mystère Expert sans double création. Les décomptes Sport Expert
+de l'API locale sont calculés depuis les événements et les dates distinctes de la fixture.
+
+| Viewport | Expert classique | Expert inversé |
+| --- | --- | --- |
+| 1280×800 | [369 événements](expert-classique-1280.png) | [6 dates exactes](expert-inverse-1280.png) |
+| 1366×768 | [369 événements](expert-classique-1366.png) | [6 dates exactes](expert-inverse-1366.png) |
+| 375×812 | [369 événements](expert-classique-375.png) | [6 dates exactes](expert-inverse-375.png) |
+
+Le contenu Sport reste inchangé. Les tests du tirage et des surcharges SQL Expert
+sont décrits dans [le rapport Expert](../../niveaux-expert.md).

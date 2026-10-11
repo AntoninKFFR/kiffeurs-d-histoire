@@ -19,6 +19,13 @@ it("refuse les paramètres invalides avant la RPC", async () => {
   await expect(chargerPacksJouables(1, false, "../pack")).rejects.toThrow("invalide");
   expect(mocks.rpc).not.toHaveBeenCalled();
 });
+it("Expert lit ses comptes exacts pour parents et enfants", async () => {
+  await chargerPacksJouables(3,true,"C89",true);
+  expect(mocks.rpc).toHaveBeenCalledWith("playable_packs",{p_niveau:3,p_direction:"inverse",p_pack_id:"C89",p_expert_only:true});
+  mocks.rpc.mockClear();
+  await expect(chargerPacksJouables(2,false,null,true)).rejects.toThrow("invalide");
+  expect(mocks.rpc).not.toHaveBeenCalled();
+});
 it.each([null, [{ ...pack, comptes: { YEAR: -1 } }], [{ ...pack, b: [1901] }]])("refuse un catalogue corrompu", async (data) => {
   mocks.rpc.mockResolvedValue({ data, error: null });
   await expect(chargerPacksJouables(1)).rejects.toThrow("momentanément indisponibles");

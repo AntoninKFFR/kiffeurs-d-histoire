@@ -23,7 +23,7 @@ it.each([false,true])("présente le vrai découpage Sport, les précisions et lo
   mocks.packs.mockResolvedValue(sport.packs.map((p) => ({ id: p.id, titre: p.title, description: p.description,
     parent_id: p.parent_id, comptes: Object.fromEntries(["YEAR","MONTH","DAY"].map((k,i) => [k, (inverse ? p.comptes.inverse : p.comptes.precisions)[i]])), b: [-790,2040] })));
   const { container } = render(<ChoixSolo inverse={inverse} />);
-  fireEvent.click(screen.getByRole("group", { name: "Niveau" }).querySelectorAll("button")[2]);
+  fireEvent.click(screen.getByRole("group", { name: "Niveau" }).querySelectorAll("button")[3]);
   fireEvent.click(screen.getByRole("button", { name: "Pack" }));
   fireEvent.click(await screen.findByRole("button", { name: /^Jouer tout Sport/ }));
   const parent = container.querySelector<HTMLInputElement>('input[name="c"]')!.value;

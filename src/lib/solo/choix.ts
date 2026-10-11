@@ -21,6 +21,8 @@ export type Choix = {
   longueur?: Longueur;
   /** Niveau des événements tirés (absent en mode scolaire, qui suit le programme). */
   niveau?: SoloNiveau;
+  /** Expert exclusif, uniquement avec niveau 3 hors scolaire. */
+  expertOnly?: true;
   periode?: string;
   /** Période libre, en années astronomiques (négatives avant J.-C.). */
   de?: number;
@@ -41,11 +43,15 @@ export const DIFFICULTES: { valeur: SoloDifficulty; titre: string; aide: string 
   { valeur: "MONTH", titre: "Mois", aide: "le mois et l'année" },
   { valeur: "DAY", titre: "Jour", aide: "le jour exact" },
 ];
-export const NIVEAUX: { valeur: SoloNiveau; titre: string; aide: string }[] = [
-  { valeur: 1, titre: "Débutant", aide: "Les grandes dates que tout le monde connaît" },
-  { valeur: 2, titre: "Intermédiaire", aide: "Plus de culture générale" },
-  { valeur: 3, titre: "Toutes les questions", aide: "Tous les niveaux, des grandes dates aux plus pointues" },
+export const NIVEAUX: { valeur: SoloNiveau; expertOnly?: true; titre: string; aide: string }[] = [
+  { valeur: 1, titre: "Débutant", aide: "Les grandes dates" },
+  { valeur: 2, titre: "Intermédiaire", aide: "Niveaux 1 et 2" },
+  { valeur: 3, expertOnly: true, titre: "Expert", aide: "Niveau 3 seulement" },
+  { valeur: 3, titre: "Toutes les questions", aide: "Tous les niveaux" },
 ];
+export function libelleNiveau(choix: Pick<Choix, "niveau" | "expertOnly">): string | undefined {
+  return NIVEAUX.find(n => n.valeur === choix.niveau && Boolean(n.expertOnly) === Boolean(choix.expertOnly))?.titre;
+}
 /** Niveau d'une ancienne URL ou d'un ancien choix mémorisé, qui n'en avaient pas. */
 export const NIVEAU_PAR_DEFAUT: SoloNiveau = 1;
 
@@ -86,6 +92,12 @@ export function lireChoix(champs: URLSearchParams): Choix | null {
     if (niveau == null) choix.niveau = NIVEAU_PAR_DEFAUT;
     else if (estNiveau(Number(niveau))) choix.niveau = Number(niveau) as SoloNiveau;
     else return null;
+  }
+  const expertOnly = champs.get("expertOnly");
+  if (expertOnly !== null && !["1", "true", "0", "false"].includes(expertOnly)) return null;
+  if (expertOnly === "1" || expertOnly === "true") {
+    if (mode === "scolaire" || choix.niveau !== 3) return null;
+    choix.expertOnly = true;
   }
   // Inversé : seule la date exacte donne une question sans ambiguïté (plusieurs événements partagent une année).
   if (champs.get("sens") === "inverse") {
@@ -143,6 +155,7 @@ export function ecrireChoix(choix: Choix): string {
   if (choix.longueur !== undefined) p.set("longueur", String(choix.longueur));
   if (choix.sens) p.set("sens", choix.sens);
   if (choix.niveau) p.set("niveau", String(choix.niveau));
+  if (choix.expertOnly) p.set("expertOnly", "1");
   if (choix.periode) p.set("periode", choix.periode);
   if (choix.de != null) p.set("de", String(choix.de));
   if (choix.a != null) p.set("a", String(choix.a));
@@ -161,6 +174,7 @@ export function filtresDepuis(choix: Choix): SoloFilters {
   if (choix.sens === "inverse") f.direction = "inverse";
   if (choix.periodes === false) f.periods = false;
   if (choix.niveau) f.niveau = choix.niveau;
+  if (choix.expertOnly) f.expertOnly = true;
   if (choix.mode === "periode") {
     const p = PERIODES.find((x) => x.id === choix.periode);
     const de = p ? p.de : choix.de;
@@ -183,10 +197,12 @@ export function filtresDepuis(choix: Choix): SoloFilters {
  * Nombre d'événements jouables par difficulté pour ce choix, d'après le dataset.
  * `null` quand on ne sait pas d'avance (période libre, chapitres) : le serveur tranchera.
  */
-export function comptesDe(choix: Pick<Choix, "mode" | "periode" | "pack" | "theme" | "chapitres" | "test" | "niveau">): Comptes | null {
+export function comptesDe(choix: Pick<Choix, "mode" | "periode" | "pack" | "theme" | "chapitres" | "test" | "niveau" | "expertOnly">): Comptes | null {
+  // Les dates distinctes Expert ne se déduisent pas de comptes cumulatifs : seule la RPC sait.
+  if (choix.expertOnly) return null;
   // Test de chapitre : seulement les événements des cartes apprises.
   if (choix.test && choix.chapitres?.length === 1) return CHAPITRES_JOUABLES[choix.chapitres[0]]?.t ?? null;
-  // Décomptes cumulés par niveau : [Débutant, Intermédiaire, Expert].
+  // Décomptes cumulés par niveau : [Débutant, Intermédiaire, Toutes les questions].
   const i = (choix.niveau ?? NIVEAU_PAR_DEFAUT) - 1;
   if (choix.mode === "general") return catalogue.general[i];
   if (choix.mode === "periode") return (catalogue.periodes as Record<string, Comptes[]>)[choix.periode ?? ""]?.[i] ?? null;
@@ -260,6 +276,7 @@ export function relanceEnregistree(f: SoloFilters | null | undefined): string | 
   const mode: Mode = f.chapterIds?.length ? "scolaire" : f.packId ? "pack"
     : f.tagId ? "theme" : f.yearMin != null || f.yearMax != null ? "periode" : "general";
   const choix: Choix = { mode, difficulte: f.difficulty ?? "YEAR", longueur,
+    ...(f.expertOnly === true ? { expertOnly: true as const } : {}),
     ...(f.mystery && (mode === "pack" || mode === "theme") ? { mystere: true as const } : {}),
     ...(mode !== "scolaire" ? { niveau: f.niveau ?? 3 } : {}),
     ...(f.direction === "inverse" ? { sens: "inverse" } : {}),

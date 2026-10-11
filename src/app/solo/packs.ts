@@ -3,14 +3,15 @@
 import { createClient } from "@/lib/supabase/server";
 import type { PackJouable } from "@/lib/solo/packs";
 
-export async function chargerPacksJouables(niveau: number, inverse = false, packId: string | null = null): Promise<PackJouable[]> {
-  if (![1, 2, 3].includes(niveau) || (packId !== null && !/^[\w-]{1,80}$/.test(packId))) {
+export async function chargerPacksJouables(niveau: number, inverse = false, packId: string | null = null, expertOnly = false): Promise<PackJouable[]> {
+  if (![1, 2, 3].includes(niveau) || (expertOnly && niveau !== 3) || (packId !== null && !/^[\w-]{1,80}$/.test(packId))) {
     throw new Error("Choix de pack invalide.");
   }
   try {
     const client = await createClient({ noStore: true });
     const { data, error } = await client.schema("histoire").rpc("playable_packs", {
       p_niveau: niveau, p_direction: inverse ? "inverse" : "date", p_pack_id: packId,
+      ...(expertOnly ? { p_expert_only: true } : {}),
     });
     if (error || !Array.isArray(data)) throw new Error();
     // Projection explicite : aucun champ privé inattendu ne quitte le serveur.

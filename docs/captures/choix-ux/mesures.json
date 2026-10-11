@@ -63,7 +63,7 @@
     "hauteur": 768,
     "documentLargeur": 1366,
     "documentHauteur": 768,
-    "jouerBas": 648.65625,
+    "jouerBas": 635.78125,
     "inverse": true,
     "mystere": true
   },
@@ -71,7 +71,7 @@
     "largeur": 375,
     "hauteur": 812,
     "documentLargeur": 375,
-    "documentHauteur": 2032,
+    "documentHauteur": 1981,
     "jouerBas": 799,
     "inverse": false
   },
@@ -79,7 +79,7 @@
     "largeur": 375,
     "hauteur": 812,
     "documentLargeur": 375,
-    "documentHauteur": 1985,
+    "documentHauteur": 1934,
     "jouerBas": 758.5,
     "inverse": false,
     "mystere": true
@@ -88,7 +88,7 @@
     "largeur": 375,
     "hauteur": 812,
     "documentLargeur": 375,
-    "documentHauteur": 1816,
+    "documentHauteur": 1765,
     "jouerBas": 799,
     "inverse": true
   },
@@ -96,7 +96,7 @@
     "largeur": 375,
     "hauteur": 812,
     "documentLargeur": 375,
-    "documentHauteur": 1769,
+    "documentHauteur": 1718,
     "jouerBas": 759,
     "inverse": true,
     "mystere": true

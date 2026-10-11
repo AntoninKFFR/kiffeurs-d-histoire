@@ -192,3 +192,23 @@ it("la roulette depuis Jouer permet de corriger un réglage après une erreur", 
   expect(screen.getByRole("dialog")).toBeTruthy();
   expect(mocks.lancer).not.toHaveBeenCalled();
 });
+it.each([false,true])("Expert garde son filtre dans la roulette puis les deux relances, inverse=%s", async (inverse) => {
+  const expert={...tirage,choix:`mode=pack&pack=M95-PACK&mystere=1&niveau=3&expertOnly=1&difficulte=DAY&longueur=5${inverse?"&sens=inverse":""}`};
+  mocks.preparer.mockResolvedValue({tirage:expert});
+  render(<ChoixSolo inverse={inverse} />);
+  fireEvent.click(screen.getByRole("button",{name:"Thème"}));
+  fireEvent.click(screen.getByRole("button",{name:/Thème mystère/}));
+  fireEvent.click(screen.getByRole("button",{name:/^Expert/}));
+  fireEvent.click(screen.getByRole("button",{name:/^5 questions/}));
+  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:"Jouer"}));});
+  expect(mocks.preparer).toHaveBeenCalledTimes(1);
+  expect(new URLSearchParams(mocks.preparer.mock.calls[0][0]).get("expertOnly")).toBe("1");
+  expect(localStorage.getItem(inverse?"histoire-choix-inverse":"histoire-choix-solo")).toContain("expertOnly=1");
+  cleanup();mocks.preparer.mockClear();
+  const {container}=render(<Bilan resultat={{...partieBilan,replay_filters:{mystery:true,mysteryLabel:"Cabinet surprise",expertOnly:true,niveau:3,packId:"M95-PACK",difficulty:"DAY",questionCount:5,...(inverse?{direction:"inverse" as const}:{})}}}
+    connecte anonyme={false} relance="mode=general&niveau=3&difficulte=YEAR" />);
+  expect(new URLSearchParams(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).get("expertOnly")).toBe("1");
+  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:/Relancer la roulette/}));});
+  const relance=new URLSearchParams(mocks.preparer.mock.calls[0][0]);
+  expect(relance.get("expertOnly")).toBe("1");expect(relance.get("pack")).toBeNull();
+});

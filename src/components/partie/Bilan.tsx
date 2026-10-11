@@ -3,7 +3,7 @@ import { lancer } from "@/app/partie/actions";
 import SaveGame from "@/app/partie/[id]/SaveGame";
 import type { SoloResult } from "@/lib/game/solo";
 import { cheminChapitre } from "@/lib/apprendre/catalogue";
-import { CHAPITRES, ecrireChoix, lireChoix, relanceEnregistree } from "@/lib/solo/choix";
+import { CHAPITRES, ecrireChoix, lireChoix, relanceEnregistree, libelleNiveau } from "@/lib/solo/choix";
 import { choixMystere } from "@/lib/solo/mystere";
 import { BoutonMystere } from "@/components/choix/BoutonMystere";
 import { EnregistrerTest } from "@/components/pedagogie/EnregistrerTest";
@@ -22,13 +22,13 @@ export function Bilan({ resultat, connecte, anonyme, relance }: Props) {
   const { game_id: id, questions, average_accuracy: precision } = resultat;
   const suite = `/partie/${id}`;
   const enregistre = relanceEnregistree(resultat.replay_filters);
-  const choix = (resultat.replay_filters?.mystery ? enregistre : relance) ?? enregistre ?? `mode=general&difficulte=${questions[0]?.unit ?? "YEAR"}`;
+  const choix = (resultat.replay_filters?.mystery || resultat.replay_filters?.expertOnly !== undefined ? enregistre : relance) ?? enregistre ?? `mode=general&difficulte=${questions[0]?.unit ?? "YEAR"}`;
   const origine = lireChoix(new URLSearchParams(choix));
   const mystere = origine?.mystere && (origine.mode === "pack" || origine.mode === "theme");
   const chapitreTeste = origine?.test ? CHAPITRES.find((c) => c.id === origine.chapitres?.[0]) : undefined;
   const unite = questions[0]?.unit === "DAY" ? "JOUR" : questions[0]?.unit === "MONTH" ? "MOIS" : "ANNÉE";
   const contexte = chapitreTeste ? `Test du chapitre · ${chapitreTeste.titre}`
-    : `${resultat.direction === "inverse" ? "SOLO INVERSÉ" : "SOLO LIBRE"} · PRÉCISION ${unite}${mystere ? ` · THÈME MYSTÈRE${resultat.replay_filters?.mysteryLabel ? ` : ${resultat.replay_filters.mysteryLabel}` : ""}` : ""}`;
+    : `${resultat.direction === "inverse" ? "SOLO INVERSÉ" : "SOLO LIBRE"}${origine?.niveau ? ` · ${libelleNiveau(origine)}` : ""} · PRÉCISION ${unite}${mystere ? ` · THÈME MYSTÈRE${resultat.replay_filters?.mysteryLabel ? ` : ${resultat.replay_filters.mysteryLabel}` : ""}` : ""}`;
 
   // Ce slot reste monté au même endroit pendant toute la navigation du carnet.
   // La sauvegarde et la progression gardent leurs effets et actions d'origine.

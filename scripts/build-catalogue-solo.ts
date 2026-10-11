@@ -9,6 +9,7 @@ import { join } from "node:path";
 import { lireCsv, type LigneCsv } from "./csv";
 import { PERIODES } from "../src/lib/solo/periodes";
 import { contenuPacksHierarchiques } from "./catalogue-packs";
+import sport from "../content/sport/packs-proposes.json";
 
 const dossier = join(import.meta.dirname, "..", "content", "dataset-v18");
 const csv = (nom: string) => lireCsv(join(dossier, `kiffeurs-${nom}-v18.csv`));
@@ -51,6 +52,12 @@ function bornes(liste: LigneCsv[]): [number, number] {
 const contenuPacks = new Map<string, string[]>();
 for (const r of csv("ready-collection-events")) contenuPacks.set(r.collection_id, [...(contenuPacks.get(r.collection_id) ?? []), r.event_id]);
 const packsSource = csv("ready-collections");
+// #90 : contenu séparé du dataset ; l’import des 24 anciens packs ne le synchronise pas.
+for (const p of sport.packs) packsSource.push({ collection_id: p.id, title: p.title, description: p.description,
+  parent_id: p.parent_id ?? "", active: "TRUE", ready_to_play: "TRUE" });
+for (const a of sport.associations) {
+  for (const id of ["COL-0105", a.sous_pack]) contenuPacks.set(id, [...(contenuPacks.get(id) ?? []), a.event_id]);
+}
 const packsActifs = packsSource.filter((p) => p.active === "TRUE" && p.ready_to_play === "TRUE");
 const unionsPacks = contenuPacksHierarchiques(packsSource, contenuPacks);
 const packs = packsActifs.map((p) => ({ id: p.collection_id, titre: p.title, description: p.description,

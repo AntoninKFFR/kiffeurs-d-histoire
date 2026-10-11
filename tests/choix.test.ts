@@ -5,9 +5,11 @@ import { NIVEAUX } from "@/lib/apprendre/catalogue";
 const lire = (q: string) => lireChoix(new URLSearchParams(q));
 
 describe("catalogue du choix", () => {
-  it("propose les 24 packs prêts à jouer", () => {
-    expect(PACKS).toHaveLength(24);
-    expect(new Set(PACKS.map((p) => p.id)).size).toBe(24);
+  it("conserve les 24 packs et ajoute Sport avec ses six sous-packs", () => {
+    expect(PACKS).toHaveLength(31);
+    expect(new Set(PACKS.map((p) => p.id)).size).toBe(31);
+    for (let n=59;n<=82;n++) expect(PACKS.some((p) => p.id === `COL-${String(n).padStart(4,"0")}`)).toBe(true);
+    expect(PACKS.filter((p) => p.parent_id === "COL-0105")).toHaveLength(6);
   });
   it("ne garde que des thèmes jouables et tous les niveaux ont des chapitres", () => {
     for (const t of THEMES) expect(t.n[2].YEAR).toBeGreaterThanOrEqual(10);

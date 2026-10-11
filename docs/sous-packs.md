@@ -12,7 +12,8 @@ retraits et corrections éditoriales sont pris en compte au prochain chargement
 ou changement de niveau. Une erreur affiche Réessayer et bloque le lancement.
 Les précisions et longueurs réutilisent les comptes déjà lus. Le moteur revalide
 au lancement : une modification concurrente peut rendre un choix insuffisant.
-Les anciens packs restent plats (`parent_id = null`). Aucun pack Sport créé.
+Les anciens packs restent plats (`parent_id = null`). Le contenu Sport est
+préparé séparément dans [Pack Sport — #90](pack-sport.md).
 
 La restauration valide le pack mémorisé dans le catalogue vivant : s’il est
 supprimé ou inactif, retour en Général avec les réglages conservés et un message.
@@ -23,7 +24,7 @@ ne réécrit pas la mémoire : un rechargement reprend le dernier choix lancé.
 ## Contrat SQL
 
 Migration préparée : `20261010235740_sous_packs.sql`, exclusivement `histoire`,
-après #87/#93/#95/#104. **Non appliquée sur KFFR. GO SQL séparé après revue et CI.**
+après #87/#93/#95/#104. **Appliquée sur KFFR avant #90, PR #106 fusionnée.**
 Aucun `db push` ni `apply_migration`. Le registre et le rechargement PostgREST
 restent dans la transaction du fichier, suivant la procédure du README.
 

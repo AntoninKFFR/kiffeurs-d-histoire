@@ -9,6 +9,7 @@ import { createClient } from "@supabase/supabase-js";
 import { lireCsv } from "./csv";
 import { estUrlLocale, FICHIER_CARTES, importerCartesLocales, validerCartes } from "./import-cartes";
 import { fusionnerDescriptions } from "./import-descriptions";
+import { verifierCollectionsSport } from "./import-sport";
 
 type Ligne = Record<string, string>;
 
@@ -129,6 +130,7 @@ async function importer() {
   const themes = csv("themes");
   const liensProgramme = csv("curriculum-links");
   const packs = csv("ready-collections");
+  verifierCollectionsSport(packs.map((p) => ({ collection_id: p.collection_id, slug: p.slug })));
   const packEvenements = csv("ready-collection-events");
   const tags = csv("tags");
   const evenementTags = csv("event-tags");

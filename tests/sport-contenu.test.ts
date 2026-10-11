@@ -50,6 +50,15 @@ it("garde les sept niveaux en proposition et la migration limitée aux nouvelles
   expect(migration).not.toMatch(/\b(public|auth|private)\./);
   expect(migration).not.toMatch(/insert\s+into\s+histoire\.(events|event_answers|event_aliases|event_editorial_overrides)\b/i);
   expect(migration).toContain("on conflict (pack_id,event_id) do nothing");
+  const associationsSql = [...migration.matchAll(/^\s+\('(EVT-\d+)','(COL-\d+)',(\d+)\)/gm)]
+    .map((m) => ({ event_id:m[1], sous_pack:m[2], position:Number(m[3]) }));
+  expect(associationsSql).toEqual(sport.associations);
+  expect(sport.packs.map((p) => [p.id,p.slug])).toEqual([
+    ["COL-0105","sport"], ["COL-0106","sport-football"], ["COL-0107","sport-tennis"],
+    ["COL-0108","sport-jeux-olympiques"], ["COL-0109","sport-cyclisme"],
+    ["COL-0110","sport-mecanique"], ["COL-0111","sport-autres-exploits"],
+  ]);
+  for (const p of sport.packs) expect(migration).toContain(`('${p.id}','${p.slug}',`);
   for (const id of sport.associations.map((a) => a.event_id)) expect(migration).toContain(`'${id}'`);
   const anciens = lireCsv("content/dataset-v18/kiffeurs-ready-collections-v18.csv");
   expect(anciens).toHaveLength(24);

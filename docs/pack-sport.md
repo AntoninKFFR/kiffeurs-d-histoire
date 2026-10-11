@@ -160,3 +160,20 @@ clavier et barre Jouer accessibles. Aucune modification CSS nécessaire.
 Le build sans configuration Supabase échoue sur le pré-rendu pédagogique faute
 de variables ; le runner de lecture fournit l’API de fixtures locale et compile
 les 69 pages correctement. Aucun secret de production n’est utilisé pour ce contrôle.
+
+### Correction de la CI SQL de la PR #108
+
+Le run `38136006366` du commit `9e93fca` valide verifier, E2E et cartes locales,
+dont le vrai réimport préservant les 24 packs et les retraits Sport. SQL échoue
+dans `pack_sport.sql` sur la collision variable/colonne `niveau`. Les variables
+des deux blocs sont désormais préfixées `v_` et les colonnes des sous-requêtes
+qualifiées, sans changer les assertions métier. Les contrôles des 397 triplets
+événement/sous-pack/position et des sept couples identifiant/slug sont renforcés.
+Migration, import et contenu restent inchangés ; les deux applications successives
+de la migration sont toujours exécutées par le simulateur CI.
+
+Contrôles locaux de cette correction : neuf tests ciblés verts, lint, types,
+build avec API de fixtures et `git diff --check`. Docker ne démarre pas et
+PostgreSQL n’est pas installé dans Ubuntu/WSL : le test SQL complet ne peut pas
+être relancé ici. Aucun accès à Supabase distant ; migration Sport toujours non
+appliquée. La PR reste en brouillon, sans fusion ni attente du nouveau run GitHub.

@@ -9,48 +9,55 @@ create function pg_temp.refuser(query text, expected_state text) returns void la
   raise exception 'Requête acceptée : %', query;
 end $$;
 select pg_temp.verifier((select count(*)=7 from histoire.packs where id between 'COL-0105' and 'COL-0111'),'sept packs installés');
+select pg_temp.verifier(not exists (
+  select 1 from (values ('COL-0105','sport'),('COL-0106','sport-football'),('COL-0107','sport-tennis'),
+    ('COL-0108','sport-jeux-olympiques'),('COL-0109','sport-cyclisme'),('COL-0110','sport-mecanique'),
+    ('COL-0111','sport-autres-exploits')) attendu(id,slug)
+  left join histoire.packs p on p.id=attendu.id where p.slug is distinct from attendu.slug
+),'chaque identifiant Sport correspond à son slug');
 select pg_temp.verifier((select count(*)=794 from histoire.pack_events where pack_id between 'COL-0105' and 'COL-0111'),'associations idempotentes');
 select pg_temp.verifier(histoire.available_questions(p_pack_id=>'COL-0105')='{"YEAR":397,"MONTH":29,"DAY":29}'::jsonb,'union classique exacte');
 select pg_temp.verifier(histoire.available_questions(p_pack_id=>'COL-0105',p_direction=>'inverse')='{"YEAR":131,"MONTH":28,"DAY":29}'::jsonb,'inverse déduplique les dates');
 select pg_temp.verifier((histoire.available_questions(p_pack_id=>'COL-0105',p_niveau=>1)->>'YEAR')::int=5,'cinq Débutant');
 select pg_temp.verifier((histoire.available_questions(p_pack_id=>'COL-0105',p_niveau=>2)->>'YEAR')::int=28,'28 jusqu’à Intermédiaire, propositions non appliquées');
-do $$ declare niveau int; g jsonb; begin
-  foreach niveau in array array[1,2] loop
-    g := histoire.start_game(p_niveau=>niveau,p_token=>repeat('7',64),p_pack_id=>'COL-0105',p_question_count=>0);
-    perform pg_temp.verifier((g->>'question_count')::int=case when niveau=1 then 5 else 28 end,'Tout respecte le niveau');
+do $$ declare v_niveau int; v_partie jsonb; begin
+  foreach v_niveau in array array[1,2] loop
+    v_partie := histoire.start_game(p_niveau=>v_niveau,p_token=>repeat('7',64),p_pack_id=>'COL-0105',p_question_count=>0);
+    perform pg_temp.verifier((v_partie->>'question_count')::int=case when v_niveau=1 then 5 else 28 end,'Tout respecte le niveau');
     perform pg_temp.verifier(not exists(select 1 from histoire.game_questions q join histoire.events e on e.id=q.event_id
-      where q.game_id=(g->>'game_id')::uuid and e.niveau>niveau),'aucune question au-dessus du niveau choisi');
+      where q.game_id=(v_partie->>'game_id')::uuid and e.niveau>v_niveau),'aucune question au-dessus du niveau choisi');
   end loop;
 end $$;
-do $$ declare p record; g jsonb; q jsonb; sens text; precision text; longueur int; n int; disponible int;
+-- Préfixer les variables : éviter aussi les collisions avec les alias q et la colonne n du VALUES.
+do $$ declare v_pack record; v_partie jsonb; v_question jsonb; v_sens text; v_precision text; v_longueur int; v_nombre int; v_disponible int;
 begin
-  for p in select * from (values ('COL-0105',397),('COL-0106',49),('COL-0107',86),
+  for v_pack in select * from (values ('COL-0105',397),('COL-0106',49),('COL-0107',86),
     ('COL-0108',57),('COL-0109',91),('COL-0110',60),('COL-0111',54)) v(id,n) loop
-    perform pg_temp.verifier((histoire.available_questions(p_pack_id=>p.id)->>'YEAR')::int=p.n,'compte enfant '||p.id);
-    foreach sens in array array['date','inverse'] loop
-      foreach precision in array array['YEAR','MONTH','DAY'] loop
-        disponible := (histoire.available_questions(p_pack_id=>p.id,p_direction=>sens)->>precision)::int;
-        foreach longueur in array array[5,10,20,0] loop
-          if disponible=0 or (longueur>0 and disponible<longueur) then
-            perform pg_temp.refuser(format('select histoire.start_game(p_niveau=>3,p_token=>%L,p_pack_id=>%L,p_direction=>%L,p_difficulty=>%L,p_question_count=>%s)',repeat('9',64),p.id,sens,precision,longueur),'22023');
+    perform pg_temp.verifier((histoire.available_questions(p_pack_id=>v_pack.id)->>'YEAR')::int=v_pack.n,'compte enfant '||v_pack.id);
+    foreach v_sens in array array['date','inverse'] loop
+      foreach v_precision in array array['YEAR','MONTH','DAY'] loop
+        v_disponible := (histoire.available_questions(p_pack_id=>v_pack.id,p_direction=>v_sens)->>v_precision)::int;
+        foreach v_longueur in array array[5,10,20,0] loop
+          if v_disponible=0 or (v_longueur>0 and v_disponible<v_longueur) then
+            perform pg_temp.refuser(format('select histoire.start_game(p_niveau=>3,p_token=>%L,p_pack_id=>%L,p_direction=>%L,p_difficulty=>%L,p_question_count=>%s)',repeat('9',64),v_pack.id,v_sens,v_precision,v_longueur),'22023');
             continue;
           end if;
-          g := histoire.start_game(p_niveau=>3,p_token=>repeat('9',64),p_pack_id=>p.id,p_direction=>sens,p_difficulty=>precision,p_question_count=>longueur);
-          n := case when longueur=0 then least(100,disponible) else longueur end;
-          perform pg_temp.verifier((g->>'question_count')::int=n,'longueur 5/10/20/Tout et plafond 100');
-          perform pg_temp.verifier((select count(distinct event_id)=n from histoire.game_questions where game_id=(g->>'game_id')::uuid),'pas de doublon');
-          perform pg_temp.verifier(not exists(select 1 from histoire.game_questions q where game_id=(g->>'game_id')::uuid
-            and not exists(select 1 from histoire.pack_scope_events(p.id) s where s.event_id=q.event_id)),'périmètre du sous-pack');
-          perform pg_temp.verifier((select context->'replay_filters'->>'packId'=p.id from histoire.games where id=(g->>'game_id')::uuid),'replay conserve le choix');
-          q := histoire.next_question((g->>'game_id')::uuid,repeat('9',64));
-          perform pg_temp.verifier(not q ? 'event_id' and not q ? 'aliases' and not q ? 'expected_year','pas de réponse privée');
-          if sens='date' then perform pg_temp.verifier(not q ? 'date','date cachée avant correction');
-          else perform pg_temp.verifier(not q ? 'title','événement caché en inverse'); end if;
+          v_partie := histoire.start_game(p_niveau=>3,p_token=>repeat('9',64),p_pack_id=>v_pack.id,p_direction=>v_sens,p_difficulty=>v_precision,p_question_count=>v_longueur);
+          v_nombre := case when v_longueur=0 then least(100,v_disponible) else v_longueur end;
+          perform pg_temp.verifier((v_partie->>'question_count')::int=v_nombre,'longueur 5/10/20/Tout et plafond 100');
+          perform pg_temp.verifier((select count(distinct q.event_id)=v_nombre from histoire.game_questions q where q.game_id=(v_partie->>'game_id')::uuid),'pas de doublon');
+          perform pg_temp.verifier(not exists(select 1 from histoire.game_questions q where q.game_id=(v_partie->>'game_id')::uuid
+            and not exists(select 1 from histoire.pack_scope_events(v_pack.id) s where s.event_id=q.event_id)),'périmètre du sous-pack');
+          perform pg_temp.verifier((select g.context->'replay_filters'->>'packId'=v_pack.id from histoire.games g where g.id=(v_partie->>'game_id')::uuid),'replay conserve le choix');
+          v_question := histoire.next_question((v_partie->>'game_id')::uuid,repeat('9',64));
+          perform pg_temp.verifier(not v_question ? 'event_id' and not v_question ? 'aliases' and not v_question ? 'expected_year','pas de réponse privée');
+          if v_sens='date' then perform pg_temp.verifier(not v_question ? 'date','date cachée avant correction');
+          else perform pg_temp.verifier(not v_question ? 'title','événement caché en inverse'); end if;
         end loop;
       end loop;
     end loop;
-    g := histoire.start_mystery_game(p_token=>repeat('8',64),p_niveau=>3,p_pack_id=>p.id,p_question_count=>5);
-    perform pg_temp.verifier(g->'mystery'->'winner'->>'id'=p.id,'thème mystère parent et chaque enfant');
+    v_partie := histoire.start_mystery_game(p_token=>repeat('8',64),p_niveau=>3,p_pack_id=>v_pack.id,p_question_count=>5);
+    perform pg_temp.verifier(v_partie->'mystery'->'winner'->>'id'=v_pack.id,'thème mystère parent et chaque enfant');
   end loop;
 end $$;
 

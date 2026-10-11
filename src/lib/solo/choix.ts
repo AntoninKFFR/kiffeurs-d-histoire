@@ -44,7 +44,7 @@ export const DIFFICULTES: { valeur: SoloDifficulty; titre: string; aide: string 
 export const NIVEAUX: { valeur: SoloNiveau; titre: string; aide: string }[] = [
   { valeur: 1, titre: "Débutant", aide: "Les grandes dates que tout le monde connaît" },
   { valeur: 2, titre: "Intermédiaire", aide: "Plus de culture générale" },
-  { valeur: 3, titre: "Expert", aide: "Toute la base, même les dates pointues" },
+  { valeur: 3, titre: "Toutes les questions", aide: "Tous les niveaux, des grandes dates aux plus pointues" },
 ];
 /** Niveau d'une ancienne URL ou d'un ancien choix mémorisé, qui n'en avaient pas. */
 export const NIVEAU_PAR_DEFAUT: SoloNiveau = 1;

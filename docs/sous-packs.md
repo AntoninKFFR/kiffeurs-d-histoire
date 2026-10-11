@@ -1,6 +1,9 @@
 # Sous-packs jouables — #89
 
-Un pack possédant des enfants ouvre une vue dédiée sur `/solo` et `/inverse` :
+Un pack possédant des enfants propose deux boutons sur `/solo` et `/inverse` :
+« Jouer tout [pack] » sélectionne le parent sans lancer la partie ni ouvrir ses
+enfants ; « Voir les sous-thèmes » ouvre la vue dédiée. Seul le bouton final
+« Jouer » lance une partie. La vue des enfants conserve
 « Tout le pack », sous-packs, nombre de questions disponibles au niveau,
 à la précision et dans le sens choisis. Un enfant insuffisant pour la longueur
 est désactivé ; Tout permet une sélection non vide, avec le plafond existant de

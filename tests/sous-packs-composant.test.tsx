@@ -25,7 +25,8 @@ it.each([false,true])("présente le vrai découpage Sport, les précisions et lo
   const { container } = render(<ChoixSolo inverse={inverse} />);
   fireEvent.click(screen.getByRole("group", { name: "Niveau" }).querySelectorAll("button")[2]);
   fireEvent.click(screen.getByRole("button", { name: "Pack" }));
-  fireEvent.click(await screen.findByRole("button", { name: /^Sport\s/ }));
+  fireEvent.click(await screen.findByRole("button", { name: /^Jouer tout Sport/ }));
+  fireEvent.click(screen.getByRole("button", { name: "Voir les sous-thèmes de Sport" }));
   expect(screen.getByRole("heading", { name: /^Sport$/ })).toBe(document.activeElement);
   fireEvent.click(screen.getByRole("button", { name: /^Tout le pack/ }));
   expect(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).toContain("pack=COL-0105");
@@ -45,7 +46,8 @@ it.each([false,true])("présente le vrai découpage Sport, les précisions et lo
 it("ouvre la vue dédiée, désactive le vide, choisit l'enfant et revient avec focus", async () => {
   const { container } = render(<ChoixSolo />);
   fireEvent.click(screen.getByRole("button", { name: "Pack" }));
-  fireEvent.click(await screen.findByRole("button", { name: /^Guerres et batailles/ }));
+  fireEvent.click(await screen.findByRole("button", { name: /^Jouer tout Guerres et batailles/ }));
+  fireEvent.click(screen.getByRole("button", { name: "Voir les sous-thèmes de Guerres et batailles" }));
   expect(screen.getByRole("heading", { name: "Guerres et batailles" })).toBe(document.activeElement);
   expect((screen.getByRole("button", { name: /^Vide/ }) as HTMLButtonElement).disabled).toBe(true);
   fireEvent.click(screen.getByRole("button", { name: /^Tout le pack/ }));
@@ -116,7 +118,7 @@ it("actualise les décomptes avec le niveau et ne promet rien pendant une erreur
   expect(screen.getByRole("button", { name: "Jouer" }).hasAttribute("disabled")).toBe(true);
   fireEvent.click(screen.getByRole("button", { name: "Réessayer" }));
   fireEvent.click(await screen.findByRole("button", { name: /^Pack plat/ }));
-  fireEvent.click(within(screen.getByRole("group", { name: "Niveau" })).getByRole("button", { name: /^Expert/ }));
+  fireEvent.click(within(screen.getByRole("group", { name: "Niveau" })).getByRole("button", { name: /^Intermédiaire/ }));
   await screen.findByText(/10 questions réellement jouables/);
-  expect(mocks.packs).toHaveBeenCalledWith(3, false);
+  expect(mocks.packs).toHaveBeenCalledWith(2, false);
 });

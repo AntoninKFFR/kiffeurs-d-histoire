@@ -1,7 +1,12 @@
 # Thème mystère (#95)
 
-Le bouton de `/solo` et `/inverse` remplace le contenu choisi par un pack ou un thème
-surprise. Il garde le niveau, la précision, le sens et la longueur 5/10/20/Tout.
+Dans `/solo` et `/inverse`, la tuile « ✦ Thème mystère » est dans la grille de
+l'onglet Thème. Elle sélectionne un pack ou un thème surprise à préparer : le joueur
+règle son niveau, sa précision et sa longueur, puis clique sur le bouton final Jouer
+pour ouvrir la roulette. La tuile elle-même ne lance aucune partie. Le lancement
+réutilise `BoutonMystere`, `preparerMystere` et `RouletteMystere` ; il garde le niveau,
+la précision, le sens et la longueur 5/10/20/Tout. Les quatre longueurs sont proposées,
+la RPC existante vérifiant les thèmes éligibles sans décompte fictif dans la grille.
 Le scolaire et les tests pédagogiques conservent leur parcours.
 
 ## Tirage et coût

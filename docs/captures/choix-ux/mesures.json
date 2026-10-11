@@ -1,0 +1,104 @@
+[
+  {
+    "largeur": 1280,
+    "hauteur": 800,
+    "documentLargeur": 1280,
+    "documentHauteur": 800,
+    "jouerBas": 738.34375,
+    "inverse": false
+  },
+  {
+    "largeur": 1280,
+    "hauteur": 800,
+    "documentLargeur": 1280,
+    "documentHauteur": 800,
+    "jouerBas": 680.78125,
+    "inverse": false,
+    "mystere": true
+  },
+  {
+    "largeur": 1280,
+    "hauteur": 800,
+    "documentLargeur": 1280,
+    "documentHauteur": 800,
+    "jouerBas": 753.78125,
+    "inverse": true
+  },
+  {
+    "largeur": 1280,
+    "hauteur": 800,
+    "documentLargeur": 1280,
+    "documentHauteur": 800,
+    "jouerBas": 667.78125,
+    "inverse": true,
+    "mystere": true
+  },
+  {
+    "largeur": 1366,
+    "hauteur": 768,
+    "documentLargeur": 1366,
+    "documentHauteur": 768,
+    "jouerBas": 738.34375,
+    "inverse": false
+  },
+  {
+    "largeur": 1366,
+    "hauteur": 768,
+    "documentLargeur": 1366,
+    "documentHauteur": 768,
+    "jouerBas": 680.78125,
+    "inverse": false,
+    "mystere": true
+  },
+  {
+    "largeur": 1366,
+    "hauteur": 768,
+    "documentLargeur": 1366,
+    "documentHauteur": 768,
+    "jouerBas": 721.78125,
+    "inverse": true
+  },
+  {
+    "largeur": 1366,
+    "hauteur": 768,
+    "documentLargeur": 1366,
+    "documentHauteur": 768,
+    "jouerBas": 648.65625,
+    "inverse": true,
+    "mystere": true
+  },
+  {
+    "largeur": 375,
+    "hauteur": 812,
+    "documentLargeur": 375,
+    "documentHauteur": 2032,
+    "jouerBas": 799,
+    "inverse": false
+  },
+  {
+    "largeur": 375,
+    "hauteur": 812,
+    "documentLargeur": 375,
+    "documentHauteur": 1985,
+    "jouerBas": 758.5,
+    "inverse": false,
+    "mystere": true
+  },
+  {
+    "largeur": 375,
+    "hauteur": 812,
+    "documentLargeur": 375,
+    "documentHauteur": 1816,
+    "jouerBas": 799,
+    "inverse": true
+  },
+  {
+    "largeur": 375,
+    "hauteur": 812,
+    "documentLargeur": 375,
+    "documentHauteur": 1769,
+    "jouerBas": 759,
+    "inverse": true,
+    "mystere": true
+  }
+]

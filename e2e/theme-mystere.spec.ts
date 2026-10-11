@@ -11,11 +11,14 @@ function contexte(id: string): Contexte {
 for (const chemin of ["/solo", "/inverse"]) for (const longueur of [5, 10, 20, "tout"] as const) {
   test(`${chemin} : gagnant réel et longueur ${longueur}, bouton Passer`, async ({ page }) => {
     await page.goto(chemin);
-    await page.getByRole("button", { name: /^Expert/ }).click();
+    await page.getByRole("button", { name: /^Toutes les questions/ }).click();
     await expect(page.getByText(/questions? réellement jouables?/)).toBeVisible();
     await page.getByRole("group", { name: "Longueur de la partie" }).getByRole("button",
       { name: longueur === "tout" ? /^Tout/ : new RegExp(`^${longueur} questions`) }).click();
+    await page.getByRole("button", { name: "Thème", exact: true }).click();
     await page.getByRole("button", { name: /Thème mystère/ }).click();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+    await page.getByRole("button", { name: "Jouer", exact: true }).click();
     const roulette = page.getByRole("dialog", { name: "Thème mystère" });
     await expect(roulette).toBeVisible();
     await expect(roulette.getByRole("status")).toHaveText("La roulette tourne…");
@@ -43,7 +46,10 @@ for (const chemin of ["/solo", "/inverse"]) for (const longueur of [5, 10, 20, "
 test("375 px : gagnant centré après décélération et aucun débordement horizontal", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/solo");
+  await page.getByRole("button", { name: "Thème", exact: true }).click();
   await page.getByRole("button", { name: /Thème mystère/ }).click();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await page.getByRole("button", { name: "Jouer", exact: true }).click();
   const roulette = page.getByRole("dialog", { name: "Thème mystère" });
   await expect(roulette).toBeVisible();
   const debut = Date.now();
@@ -61,7 +67,10 @@ test("mouvement réduit, bilan A+, rejouer puis relancer et rouvrir sans URL", a
   await page.goto("/solo");
   await expect(page.getByText(/questions? réellement jouables?/)).toBeVisible();
   await page.getByRole("group", { name: "Longueur de la partie" }).getByRole("button", { name: /^5 questions/ }).click();
+  await page.getByRole("button", { name: "Thème", exact: true }).click();
   await page.getByRole("button", { name: /Thème mystère/ }).click();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await page.getByRole("button", { name: "Jouer", exact: true }).click();
   await expect(page.getByRole("dialog").getByRole("status")).toContainText("C'est parti :");
   await expect(page).toHaveURL(/\/partie\//);
   const premier = idPartie(page), gagnant = contexte(premier).replay_filters;

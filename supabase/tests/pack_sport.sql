@@ -62,9 +62,16 @@ begin
 end $$;
 
 -- Le parent a son inventaire complet : retirer l’enfant ne retire pas l’association parent.
-insert into histoire.players(id) values ('00000000-0000-0000-0000-000000000090');
-insert into histoire.admins(user_id) values ('00000000-0000-0000-0000-000000000090');
-set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000090';
+-- kffr_profiles.sql est chargé avant les migrations/tests par tests-sql.sh.
+-- Réutiliser ses faux comptes Auth, comme les tests #89/#104 ; ne créer aucun utilisateur.
+select pg_temp.verifier((select count(*)=2 from auth.users where id in (
+  '00000000-0000-0000-0000-000000000024','00000000-0000-0000-0000-000000000025'
+)),'faux comptes Auth de la fixture locale présents');
+insert into histoire.players(id) values ('00000000-0000-0000-0000-000000000024'),
+  ('00000000-0000-0000-0000-000000000025') on conflict (id) do nothing;
+insert into histoire.admins(user_id) values ('00000000-0000-0000-0000-000000000024') on conflict (user_id) do nothing;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000024';
+set local role authenticated;
 select histoire.admin_remove_pack_event('COL-0106','EVT-0941','Fixture Sport');
 select pg_temp.verifier((histoire.available_questions(p_pack_id=>'COL-0106')->>'YEAR')::int=48,'retrait enfant');
 select pg_temp.verifier((histoire.available_questions(p_pack_id=>'COL-0105')->>'YEAR')::int=397,'association parent indépendante');
@@ -73,16 +80,31 @@ select pg_temp.verifier((histoire.available_questions(p_pack_id=>'COL-0105')->>'
 select histoire.admin_restore_pack_event('COL-0106','EVT-0941');
 select histoire.admin_restore_pack_event('COL-0105','EVT-0941');
 select histoire.admin_edit_event('COL-0106','EVT-0941','Victoire française corrigée',2,'Fixture Sport');
+select pg_temp.verifier(jsonb_array_length(histoire.admin_event_history('EVT-0941'))=1,'historique lisible par administrateur authentifié');
+reset role;
+-- Simuler une écriture d’import privilégiée, hors des droits du joueur.
 update histoire.events set title='Titre dataset',niveau=3 where id='EVT-0941';
 select pg_temp.verifier((select title='Victoire française corrigée' and niveau=2 from histoire.events where id='EVT-0941'),'réimport préserve surcharge globale');
 select pg_temp.verifier(jsonb_array_length(histoire.admin_event_history('EVT-0941'))=1,'historique global conservé');
 select pg_temp.verifier((select count(*)=4 from histoire.pack_event_audit where event_id='EVT-0941'),'historique retraits/remises');
+select pg_temp.verifier((select bool_and(admin_id='00000000-0000-0000-0000-000000000024'::uuid)
+  from histoire.pack_event_audit where event_id='EVT-0941'),'retraits/remises attribués au faux administrateur');
 select pg_temp.verifier(exists(select 1 from jsonb_array_elements(histoire.admin_list_packs()) p
   where p->>'id'='COL-0105' and (p->>'total')::int=397 and (p->>'scope_playable')::int=397),'administration et inventaire Sport');
 set local request.jwt.claim.sub = '';
 set local role anon;
 select pg_temp.refuser('select * from histoire.event_answers','42501');
+select pg_temp.refuser('select * from histoire.event_aliases','42501');
 select pg_temp.refuser('select histoire.admin_list_packs()','42501');
 select pg_temp.verifier(exists(select 1 from jsonb_array_elements(histoire.playable_packs(3)) p where p->>'id'='COL-0105'),'Sport dans catalogue vivant');
 reset role;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000025';
+set local role authenticated;
+select pg_temp.refuser('select histoire.admin_list_packs()','42501');
+select pg_temp.refuser($q$select histoire.admin_remove_pack_event('COL-0106','EVT-0941')$q$,'42501');
+select pg_temp.refuser($q$select histoire.admin_restore_pack_event('COL-0106','EVT-0941')$q$,'42501');
+select pg_temp.refuser($q$select histoire.admin_edit_event('COL-0106','EVT-0941','Titre interdit',1)$q$,'42501');
+select pg_temp.refuser($q$select histoire.admin_event_history('EVT-0941')$q$,'42501');
+reset role;
+set local request.jwt.claim.sub = '';
 rollback;

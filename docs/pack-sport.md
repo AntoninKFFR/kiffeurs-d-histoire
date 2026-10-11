@@ -177,3 +177,17 @@ build avec API de fixtures et `git diff --check`. Docker ne démarre pas et
 PostgreSQL n’est pas installé dans Ubuntu/WSL : le test SQL complet ne peut pas
 être relancé ici. Aucun accès à Supabase distant ; migration Sport toujours non
 appliquée. La PR reste en brouillon, sans fusion ni attente du nouveau run GitHub.
+
+Le run `38140671599` du commit `e6a2220` passe ensuite tous les contrôles de jeu
+du test Sport, puis révèle la FK `players.id → auth.users.id` : le faux joueur
+0090 n’existe pas dans Auth. Le test réutilise désormais 0024, fourni avec 0025
+par `kffr_profiles.sql` avant les migrations et tests. Les insertions locales de
+players/admins tolèrent un compte déjà présent ; aucun utilisateur Auth n’est créé.
+Les RPC Retirer/Remettre/Modifier/Historique sont exercées comme administrateur
+`authenticated`, l’écriture simulant l’import après `RESET ROLE`, puis les refus
+pour 0025 non administrateur. Rôles et claims sont réinitialisés avant `ROLLBACK`.
+Les assertions précédentes restent intactes, avec attribution des audits à 0024
+et protection des alias ajoutées. FK, signatures et droits des RPC #89/#104 relus ;
+migration, import et contenu inchangés. Contrôles locaux : 23 tests ciblés verts,
+lint, types et `git diff --check`. PostgreSQL/Docker restent indisponibles : les
+nouveaux contrôles SQL d’administration doivent être exécutés par GitHub.

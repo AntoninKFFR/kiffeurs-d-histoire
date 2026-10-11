@@ -32,6 +32,9 @@ async function main() {
     stdio: ["ignore", "ignore", "inherit"],
   });
   console.log("Dataset v18 importé (LOCAL).");
+  // Les migrations d’une pile vide précèdent l’import : installer ensuite le vrai contenu Sport.
+  // La garde locale ci-dessus s’applique aussi à cette migration de données idempotente.
+  psql(readFileSync("supabase/migrations/20261011111510_pack_sport.sql", "utf8"));
   await importerCartesLocales(chargerCartes(), statut.API_URL, statut.SERVICE_ROLE_KEY);
 
   // Compte de test : e-mail confirmé et pseudo KFFR déjà choisi, comme un joueur de Contrée.

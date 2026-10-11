@@ -47,6 +47,12 @@ for f in supabase/migrations/*.sql supabase/seed.sql; do
   fi
 done
 
+# Les migrations de données précèdent le seed sur une pile vide ; vrais événements locaux
+# puis installation et répétition pour vérifier l’idempotence, sans toucher une base distante.
+psql_q -f supabase/fixtures/sport_397.sql
+psql_q -f supabase/migrations/20261011111510_pack_sport.sql
+psql_q -f supabase/migrations/20261011111510_pack_sport.sql
+
 for f in supabase/tests/*.sql; do
   echo "→ $f"
   psql_q -f "$f"

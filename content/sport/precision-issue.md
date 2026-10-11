@@ -1,0 +1,5 @@
+Complément à la proposition : **l’interface inversée utilise uniquement le jour exact**. Ses effectifs à niveau Expert sont donc Sport **29**, Football **11**, JO **12**, Tennis **1**, Cyclisme **1**, F1 **0**, Autres **4**. À cinq/dix questions, les sous-packs insuffisants sont désactivés ; Tout permet un groupe non vide, avec le plafond habituel de 100. Les 131 années distinctes indiquées précédemment concernent le contrat SQL, pas une option Année de l’interface inversée. Aucune précision n’est inventée.
+
+Cette limite du corpus fait partie des décisions à valider avec Max. Les cinq compléments sourcés restent séparés, non importés. Les catégories et sept reclassements restent provisoires.
+
+Préparation technique : 397 identifiants, 794 associations parent/enfant, 24 anciens packs inchangés ; précontrôle des imports pour refuser une collision future avec les identifiants/slugs Sport. Tests unitaires ciblés, contrôles de lecture PC/mobile et fixtures SQL/E2E ; aucun SQL de production, aucun changement global de date/niveau. Docker indisponible localement : SQL/E2E réels seront exécutés par GitHub.

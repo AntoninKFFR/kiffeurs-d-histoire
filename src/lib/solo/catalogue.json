@@ -640,6 +640,194 @@
     1890,
     2020
    ]
+  },
+  {
+   "id": "COL-0105",
+   "titre": "Sport",
+   "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits.",
+   "n": [
+    {
+     "YEAR": 5,
+     "MONTH": 4,
+     "DAY": 4
+    },
+    {
+     "YEAR": 28,
+     "MONTH": 23,
+     "DAY": 23
+    },
+    {
+     "YEAR": 397,
+     "MONTH": 29,
+     "DAY": 29
+    }
+   ],
+   "b": [
+    -790,
+    2030
+   ]
+  },
+  {
+   "id": "COL-0106",
+   "titre": "Football",
+   "description": "Coupes du monde, championnats d’Europe et grandes victoires du football.",
+   "parent_id": "COL-0105",
+   "n": [
+    {
+     "YEAR": 2,
+     "MONTH": 2,
+     "DAY": 2
+    },
+    {
+     "YEAR": 13,
+     "MONTH": 9,
+     "DAY": 9
+    },
+    {
+     "YEAR": 49,
+     "MONTH": 11,
+     "DAY": 11
+    }
+   ],
+   "b": [
+    1920,
+    2030
+   ]
+  },
+  {
+   "id": "COL-0107",
+   "titre": "Tennis",
+   "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus.",
+   "parent_id": "COL-0105",
+   "n": [
+    {
+     "YEAR": 0,
+     "MONTH": 0,
+     "DAY": 0
+    },
+    {
+     "YEAR": 1,
+     "MONTH": 1,
+     "DAY": 1
+    },
+    {
+     "YEAR": 86,
+     "MONTH": 1,
+     "DAY": 1
+    }
+   ],
+   "b": [
+    1860,
+    2030
+   ]
+  },
+  {
+   "id": "COL-0108",
+   "titre": "Jeux olympiques",
+   "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants.",
+   "parent_id": "COL-0105",
+   "n": [
+    {
+     "YEAR": 3,
+     "MONTH": 2,
+     "DAY": 2
+    },
+    {
+     "YEAR": 11,
+     "MONTH": 10,
+     "DAY": 10
+    },
+    {
+     "YEAR": 57,
+     "MONTH": 12,
+     "DAY": 12
+    }
+   ],
+   "b": [
+    -790,
+    2030
+   ]
+  },
+  {
+   "id": "COL-0109",
+   "titre": "Cyclisme / Tour de France",
+   "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus.",
+   "parent_id": "COL-0105",
+   "n": [
+    {
+     "YEAR": 0,
+     "MONTH": 0,
+     "DAY": 0
+    },
+    {
+     "YEAR": 1,
+     "MONTH": 1,
+     "DAY": 1
+    },
+    {
+     "YEAR": 91,
+     "MONTH": 1,
+     "DAY": 1
+    }
+   ],
+   "b": [
+    1890,
+    2030
+   ]
+  },
+  {
+   "id": "COL-0110",
+   "titre": "Sports mécaniques",
+   "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus.",
+   "parent_id": "COL-0105",
+   "n": [
+    {
+     "YEAR": 0,
+     "MONTH": 0,
+     "DAY": 0
+    },
+    {
+     "YEAR": 0,
+     "MONTH": 0,
+     "DAY": 0
+    },
+    {
+     "YEAR": 60,
+     "MONTH": 0,
+     "DAY": 0
+    }
+   ],
+   "b": [
+    1940,
+    2030
+   ]
+  },
+  {
+   "id": "COL-0111",
+   "titre": "Autres sports et exploits",
+   "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs.",
+   "parent_id": "COL-0105",
+   "n": [
+    {
+     "YEAR": 0,
+     "MONTH": 0,
+     "DAY": 0
+    },
+    {
+     "YEAR": 2,
+     "MONTH": 2,
+     "DAY": 2
+    },
+    {
+     "YEAR": 54,
+     "MONTH": 4,
+     "DAY": 4
+    }
+   ],
+   "b": [
+    1880,
+    2030
+   ]
   }
  ],
  "themes": [

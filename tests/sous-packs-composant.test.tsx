@@ -3,6 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-li
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { ChoixSolo } from "@/components/choix/ChoixSolo";
 import type { PackJouable } from "@/lib/solo/packs";
+import sport from "../content/sport/packs-proposes.json";
 const mocks = vi.hoisted(() => ({ packs: vi.fn(), compter: vi.fn(), lancer: vi.fn() }));
 vi.mock("@/app/solo/packs", () => ({ chargerPacksJouables: mocks.packs }));
 vi.mock("@/app/solo/disponibilite", () => ({ compterQuestions: mocks.compter }));
@@ -18,6 +19,29 @@ beforeEach(() => {
   mocks.compter.mockReset().mockResolvedValue({ YEAR: 25, MONTH: 25, DAY: 25 });
 });
 afterEach(cleanup);
+it.each([false,true])("présente le vrai découpage Sport, les précisions et longueurs disponibles, inverse=%s", async (inverse) => {
+  mocks.packs.mockResolvedValue(sport.packs.map((p) => ({ id: p.id, titre: p.title, description: p.description,
+    parent_id: p.parent_id, comptes: Object.fromEntries(["YEAR","MONTH","DAY"].map((k,i) => [k, (inverse ? p.comptes.inverse : p.comptes.precisions)[i]])), b: [-790,2040] })));
+  const { container } = render(<ChoixSolo inverse={inverse} />);
+  fireEvent.click(screen.getByRole("group", { name: "Niveau" }).querySelectorAll("button")[2]);
+  fireEvent.click(screen.getByRole("button", { name: "Pack" }));
+  fireEvent.click(await screen.findByRole("button", { name: /^Sport\s/ }));
+  expect(screen.getByRole("heading", { name: /^Sport$/ })).toBe(document.activeElement);
+  fireEvent.click(screen.getByRole("button", { name: /^Tout le pack/ }));
+  expect(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).toContain("pack=COL-0105");
+  if (inverse) expect(screen.getByRole("button", { name: /^Sports mécaniques/ }).hasAttribute("disabled")).toBe(true);
+  else {
+    fireEvent.click(screen.getByRole("button", { name: /^Sports mécaniques/ }));
+    expect(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).toContain("pack=COL-0110");
+    expect(screen.getByRole("group", { name: "Précision" }).querySelectorAll("button")[1].hasAttribute("disabled")).toBe(true);
+  }
+  fireEvent.click(screen.getByRole("button", { name: /^Football/ }));
+  if (!inverse) fireEvent.click(screen.getByRole("group", { name: "Précision" }).querySelectorAll("button")[2]);
+  expect(screen.getByRole("button", { name: /^20 questions/ }).hasAttribute("disabled")).toBe(true);
+  expect(screen.getByRole("button", { name: /^10 questions/ }).hasAttribute("disabled")).toBe(false);
+  fireEvent.click(screen.getByRole("button", { name: /Tous les packs/ }));
+  expect(screen.getByRole("heading", { name: "Packs disponibles" })).toBe(document.activeElement);
+});
 it("ouvre la vue dédiée, désactive le vide, choisit l'enfant et revient avec focus", async () => {
   const { container } = render(<ChoixSolo />);
   fireEvent.click(screen.getByRole("button", { name: "Pack" }));

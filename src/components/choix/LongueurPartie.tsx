@@ -7,7 +7,7 @@ import styles from "./choix.module.css";
 
 export function useDisponibilite(choix: Choix | null) {
   // Précision et longueur ne modifient pas les trois décomptes ; pas de requête à chaque clic.
-  const cle = choix ? ecrireChoix({ ...choix, difficulte: "YEAR", longueur: undefined }) : null;
+  const cle = choix ? ecrireChoix({ ...choix, difficulte: "YEAR", longueur: undefined, periodes: undefined }) : null;
   const [lecture, setLecture] = useState<{ cle: string; comptes?: Comptes; erreur?: boolean }>();
   const [tentative, reessayer] = useState(0);
   useEffect(() => {

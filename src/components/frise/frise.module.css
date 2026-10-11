@@ -104,3 +104,9 @@
   .zoneSous { flex: 1 1 0; min-width: 230px; padding: 0; }
   .zoneBas { flex: 1.6 1 0; min-width: 0; padding: 0; }
 }
+
+/* ---------- Questions période (#94) : deux bornes et la durée entre elles ---------- */
+.losangeFixe { background: var(--color-blanc-cartel); border-color: var(--color-oxyde); cursor: default; z-index: 2; pointer-events: none; }
+.losangeFixe::before { content: none; }
+.periodeJoueur { position: absolute; top: 205px; height: 12px; background: var(--color-oxyde); opacity: 0.45; z-index: 1; pointer-events: none; min-width: 2px; }
+.periodeBonne { position: absolute; top: 186px; height: 12px; background: var(--color-laiton); border: 1px solid var(--color-encre); z-index: 1; pointer-events: none; min-width: 2px; }

@@ -108,3 +108,7 @@ a.entree:hover { box-shadow: inset 0 0 0 2px var(--color-laiton); }
   .soloPacks .longueurs .difficulte b { font-size: 18px; white-space: nowrap; }
   .soloPacks .lancer { grid-column: 1 / -1; position: static; }
 }
+
+/* Option des questions période (#94) : deux choix seulement. */
+.options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 600px) { .options { grid-template-columns: minmax(0, 1fr); } }

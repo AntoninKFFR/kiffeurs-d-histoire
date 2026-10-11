@@ -7,11 +7,13 @@ import type { Vue } from "@/lib/game/frise";
 import { capitaliser, chronoDepuis, correctionDepuis, precisionDepuis, urlIllustration } from "@/lib/game/partie";
 import type { MethodeSaisie, SoloCorrection, SoloDate, SoloDateQuestion, SoloQuestion, SoloResult } from "@/lib/game/solo";
 import { Bilan } from "./Bilan";
-import { EcranPartie, type Correction } from "./EcranPartie";
+import { EcranPartie, type Correction, type ReponsePeriode } from "./EcranPartie";
 
 // Les trois appels au moteur serveur (src/app/solo/actions.ts), passés par la page.
 export type ActionsPartie = {
   soumettre: (gameId: string, questionId: string, reponse: SoloDate | null, methode?: MethodeSaisie | null) => Promise<SoloCorrection>;
+  /** Question période (#94) : le début et la fin ; `null` constate l'expiration. */
+  soumettrePeriode?: (gameId: string, questionId: string, reponse: { debut: SoloDate; fin: SoloDate } | null, methode?: MethodeSaisie | null) => Promise<SoloCorrection>;
   suivante: (gameId: string) => Promise<SoloQuestion | null>;
   terminer: (gameId: string) => Promise<SoloResult>;
 };
@@ -38,6 +40,10 @@ export function Partie({ gameId, total, question: premiere, actions, connecte, a
 
   async function corriger(questionId: string, reponse: HistoricDate | null, methode?: MethodeSaisie | null): Promise<Correction> {
     return correctionDepuis(await actions.soumettre(gameId, questionId, reponse, methode));
+  }
+
+  async function corrigerPeriode(questionId: string, reponse: ReponsePeriode | null, methode?: MethodeSaisie | null): Promise<Correction> {
+    return correctionDepuis(await actions.soumettrePeriode!(gameId, questionId, reponse, methode));
   }
 
   async function suivante() {
@@ -71,6 +77,7 @@ export function Partie({ gameId, total, question: premiere, actions, connecte, a
       <EcranPartie
         key={question.question_id}
         corriger={corriger}
+        corrigerPeriode={actions.soumettrePeriode ? corrigerPeriode : undefined}
         chrono={chrono}
         bornes={bornes}
         suivante={{ libelle: question.position >= nombre ? "Voir le bilan" : "Question suivante", action: suivante }}
@@ -81,6 +88,7 @@ export function Partie({ gameId, total, question: premiere, actions, connecte, a
           numero: question.position,
           total: nombre,
           illustrationUrl: urlIllustration(question.image_path) ?? undefined,
+          periode: question.periode === true,
         }}
       />
     </div>

@@ -55,6 +55,9 @@ const simple = (s: string) => normaliser(s).trim();
 
 /** La date attendue sous forme de donnée : `"year":1789`, `"start_year": 1789`… */
 const anneeEnDonnee = (q: QuestionEnBase) => new RegExp(`"[a-z_]*(?:year|annee)[a-z_]*"\\s*:\\s*${q.expected_year}(?![\\d.])`);
+/** Question période (#94) : l'année de fin attendue sous forme de donnée. */
+const finEnDonnee = (q: QuestionEnBase) => q.periode && q.expected_end_year != null
+  ? new RegExp(`"[a-z_]*(?:year|annee)[a-z_]*"\\s*:\\s*${q.expected_end_year}(?![\\d.])`) : null;
 
 function secretsDate(q: QuestionEnBase) {
   const [ligne] = lireSql<{ date_text: string | null }[]>(`select date_text from histoire.event_answers where event_id = '${q.event_id.replace(/'/g, "")}'`);
@@ -83,11 +86,19 @@ test("aucune date attendue dans le réseau avant la correction (solo)", async ({
   for (let n = 1; n <= total; n++) {
     await attendreQuestion(page, n);
     await repondreAuClavier(page, 1);
+    // Question période (#94) : on pose aussi la fin, sans rien envoyer au serveur.
+    const versLaFin = page.getByRole("button", { name: "Placer la fin →" });
+    if (await versLaFin.isVisible()) {
+      await versLaFin.click();
+      await repondreAuClavier(page, 1);
+    }
     const q = questionsEnBase(gameId)[n - 1];
     const { annee, textes } = secretsDate(q);
     const avant = await reseau.fenetre();
     expect(avant.length, "aucune réponse réseau observée").toBeGreaterThan(0);
     expect(avant, `date de la question ${n} visible avant la correction`).not.toMatch(annee);
+    const fin = finEnDonnee(q);
+    if (fin) expect(avant, `fin de la période ${n} visible avant la correction`).not.toMatch(fin);
     for (const t of textes) expect(avant.includes(t), `« ${t} » visible avant la correction de la question ${n}`).toBe(false);
 
     // Témoin : la correction, elle, contient bien la date (l'écoute fonctionne).

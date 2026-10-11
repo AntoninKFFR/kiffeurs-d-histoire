@@ -24,6 +24,8 @@ export type QuestionEnBase = {
   input_method: string | null;
   points: number | null;
   answer_text: string | null;
+  periode: boolean;
+  expected_end_year: number | null;
 };
 
 /** Questions de la partie, lues directement dans la base locale (ce que le navigateur ne voit jamais). */
@@ -31,7 +33,7 @@ export function questionsEnBase(gameId: string): QuestionEnBase[] {
   if (!UUID.test(gameId)) throw new Error("Identifiant de partie invalide");
   return lireSql<QuestionEnBase[]>(
     `select position, event_id, title, difficulty, expected_year, expected_month, expected_day, correction_description,
-       answered_at, input_method, points, answer_text
+       answered_at, input_method, points, answer_text, periode, expected_end_year
      from histoire.game_questions where game_id = '${gameId}' order by position`,
   );
 }
@@ -61,7 +63,14 @@ export async function repondreSurFrise(page: Page) {
   });
   expect(point, "aucune zone libre sur la frise").not.toBeNull();
   await page.mouse.click(point!.x, point!.y);
+  // Question période (#94) : le clic a posé le début et ouvert la fin ; un second clic au même endroit la pose.
+  if (await estPeriode(page)) await page.mouse.click(point!.x, point!.y);
   await expect(page.locator("#saisie-annee")).not.toHaveValue("");
+}
+
+/** Question période (#94) : la carte porte « Début et fin ». */
+async function estPeriode(page: Page) {
+  return page.getByRole("group", { name: "Début et fin de la période" }).isVisible();
 }
 
 /** Tape une date au clavier, sans viser de case : la première case s'ouvre et les suivantes s'enchaînent. */
@@ -75,6 +84,14 @@ export async function repondreAuClavier(page: Page, annee = 1800) {
 
 /** Valide, attend la correction, puis passe à la question suivante (ou au bilan). */
 export async function validerEtContinuer(page: Page, valider: "bouton" | "entree" = "bouton") {
+  // Question période (#94) : début posé, on passe à la fin et on y reporte la même date (fin = début est permis).
+  const versLaFin = page.getByRole("button", { name: "Placer la fin →" });
+  if (await versLaFin.isVisible()) {
+    const annee = Number(await page.locator("#saisie-annee").inputValue());
+    if (valider === "entree") await page.keyboard.press("Enter");
+    else await versLaFin.click();
+    await repondreAuClavier(page, annee);
+  }
   if (valider === "entree") await page.keyboard.press("Enter");
   else await page.getByRole("button", { name: "Valider ma réponse" }).click();
   const correction = page.getByRole("status").filter({ hasText: "Réponse :" });

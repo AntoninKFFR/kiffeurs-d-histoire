@@ -37,11 +37,15 @@ export function CarnetBilan({ reponses, selection, choisir }: { reponses: Repons
     </div>}
     {q ? <article id="reponse-bilan" className="answer-sheet" aria-live="polite">
       <div className="answer-heading"><span className="eyebrow">QUESTION {String(q.position).padStart(2, "0")}</span><h3>{q.titre}</h3>
-        <p>{q.etat} · Précision : {q.accuracy.toLocaleString("fr-FR")} %{q.ecart && ` · Écart : ${q.ecart}`}</p>
+        <p>{q.etat} · Précision : {q.accuracy.toLocaleString("fr-FR")} %{q.periode
+          ? (q.ecart || q.periode.ecartFin) && ` · Écart : début ${q.ecart ?? "exact"}, fin ${q.periode.ecartFin ?? "exacte"}`
+          : q.ecart && ` · Écart : ${q.ecart}`}</p>
       </div>
-      <dl className="answer-date correct"><dt>Date attendue</dt><dd>{formatHistoricDate(q.attendue, q.precision)}</dd></dl>
+      <dl className="answer-date correct"><dt>{q.periode ? "Période attendue" : "Date attendue"}</dt><dd>{formatHistoricDate(q.attendue, q.precision)}
+        {q.periode && <> → {formatHistoricDate(q.periode.attendueFin, q.precision)}</>}</dd></dl>
       <dl className="answer-date"><dt>Votre réponse</dt><dd className={q.dateJoueur ? undefined : "answer-text"}>
         {q.dateJoueur ? formatHistoricDate(q.dateJoueur, q.precision) : q.texteJoueur ?? (q.expiree ? "Temps écoulé" : "Sans réponse")}
+        {q.dateJoueur && q.periode?.dateJoueurFin && <> → {formatHistoricDate(q.periode.dateJoueurFin, q.precision)}</>}
       </dd></dl>
       <div className="answer-points"><b>{q.points}</b><span>POINTS / 100</span></div>
     </article> : <p className="answer-sheet">Aucune réponse disponible pour cette partie.</p>}

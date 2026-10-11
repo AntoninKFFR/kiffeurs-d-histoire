@@ -26,6 +26,9 @@ Contrôles : navigation Entrée, sélection sans ouverture ni lancement, focus
 du titre lors de l'exploration/du retour, enfants insuffisants désactivés,
 absence d'erreur JavaScript, réglages du mystère, Passer vers la même partie,
 une seule création, mémoire et lancement ultérieur du parent.
+La relecture vérifie aussi que l'exploration et le retour gardent le parent choisi,
+que le choix d'un enfant le remplace, et qu'une ancienne mémoire `periodes=0`
+ne désactive pas les périodes d'une nouvelle partie classique (vérifié dans l'appel RPC).
 
 Relecture visuelle : titres et comptes lisibles, focus visible, longueurs et
 niveaux sans dépassement à 375 px, grilles défilantes, barre finale accessible.

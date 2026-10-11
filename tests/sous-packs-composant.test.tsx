@@ -26,8 +26,15 @@ it.each([false,true])("présente le vrai découpage Sport, les précisions et lo
   fireEvent.click(screen.getByRole("group", { name: "Niveau" }).querySelectorAll("button")[2]);
   fireEvent.click(screen.getByRole("button", { name: "Pack" }));
   fireEvent.click(await screen.findByRole("button", { name: /^Jouer tout Sport/ }));
+  const parent = container.querySelector<HTMLInputElement>('input[name="c"]')!.value;
   fireEvent.click(screen.getByRole("button", { name: "Voir les sous-thèmes de Sport" }));
   expect(screen.getByRole("heading", { name: /^Sport$/ })).toBe(document.activeElement);
+  expect(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).toBe(parent);
+  expect(screen.getByRole("button", { name: "Jouer" }).hasAttribute("disabled")).toBe(false);
+  fireEvent.click(screen.getByRole("button", { name: /Tous les packs/ }));
+  expect(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).toBe(parent);
+  expect(screen.getByRole("button", { name: /^Jouer tout Sport/ }).getAttribute("aria-pressed")).toBe("true");
+  fireEvent.click(screen.getByRole("button", { name: "Voir les sous-thèmes de Sport" }));
   fireEvent.click(screen.getByRole("button", { name: /^Tout le pack/ }));
   expect(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).toContain("pack=COL-0105");
   if (inverse) expect(screen.getByRole("button", { name: /^Sports mécaniques/ }).hasAttribute("disabled")).toBe(true);

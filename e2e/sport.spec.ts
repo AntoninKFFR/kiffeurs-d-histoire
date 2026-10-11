@@ -17,6 +17,12 @@ for (const inverse of [false,true]) {
     await expect(page.getByRole("heading", { name: "Packs disponibles" })).toBeVisible();
     await page.getByRole("button", { name: "Voir les sous-thèmes de Sport" }).click();
     await expect(page.getByRole("heading", { name: "Sport", exact: true })).toBeFocused();
+    expect(new URLSearchParams(await page.locator('input[name="c"]').inputValue()).get("pack")).toBe("COL-0105");
+    await expect(page.getByRole("button", { name: "Jouer", exact: true })).toBeEnabled();
+    await page.getByRole("button", { name: /Tous les packs/ }).click();
+    await expect(parent).toHaveAttribute("aria-pressed", "true");
+    expect(new URLSearchParams(await page.locator('input[name="c"]').inputValue()).get("pack")).toBe("COL-0105");
+    await page.getByRole("button", { name: "Voir les sous-thèmes de Sport" }).click();
     for (const p of sport.packs.slice(1)) {
       const bouton = page.getByRole("button", { name: p.title, exact: false });
       if (inverse && p.comptes.inverse[2]<5) await expect(bouton).toBeDisabled();

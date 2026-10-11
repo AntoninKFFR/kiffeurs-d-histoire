@@ -108,9 +108,20 @@ try {
       }
       await page.getByRole("button",{name:sportDemande ? "Voir les sous-thèmes de Sport" : "Voir les sous-thèmes de Guerres et batailles"}).click();
       await expect(page.getByRole("heading",{name:sportDemande ? "Sport" : "Guerres et batailles",exact:true})).toBeFocused();
+      if (ux) {
+        await expect(page.locator('input[name="c"]')).toHaveValue(/pack=COL-0105/);
+        await expect(page.getByRole("button",{name:"Jouer",exact:true})).toBeEnabled();
+        await expect(page.getByText(/pack « Sport »/)).toBeVisible();
+        await page.getByRole("button",{name:/Tous les packs/}).click();
+        await expect(parent).toHaveAttribute("aria-pressed","true");
+        await expect(page.locator('input[name="c"]')).toHaveValue(/pack=COL-0105/);
+        await page.getByRole("button",{name:"Voir les sous-thèmes de Sport"}).focus();
+        await page.keyboard.press("Enter");
+        await expect(page.getByRole("heading",{name:"Sport",exact:true})).toBeFocused();
+      }
       if(sportDemande && inverse) await expect(page.getByRole("button",{name:/^Sports mécaniques/})).toBeDisabled();
       if(!sportDemande) await expect(page.getByRole("button",{name:/^Sous-pack vide/})).toBeDisabled();
-      // Mesurer aussi avant toute sélection, quand le statut et les longueurs sont en attente.
+      // Mesurer avant de choisir un sous-pack, avec le parent conservé.
       if(ux) await page.screenshot({path:`${output}/sous-themes-${inverse?"inverse":"classique"}-${width}.png`,fullPage:true});
       if(width>=1000) {
         const hauteur = await page.evaluate(()=>document.documentElement.scrollHeight);
@@ -140,6 +151,10 @@ try {
       }
       await page.getByRole("button",{name:/Tous les packs/}).click();
       await expect(page.getByRole("heading",{name:"Packs disponibles"})).toBeFocused();
+      if(ux) {
+        await expect(page.locator('input[name="c"]')).toHaveValue(inverse ? /pack=COL-0107/ : /pack=COL-0111/);
+        await expect(page.getByRole("button",{name:"Jouer",exact:true})).toBeEnabled();
+      }
       if(width>=1000) {
         await page.screenshot({path:`${output}/liste-${inverse?"inverse":"classique"}-${width}.png`,fullPage:true});
         const hauteurListe=await page.evaluate(()=>document.documentElement.scrollHeight);
@@ -179,13 +194,18 @@ try {
         assert.equal(lancements.length,avant+1,"Aucune seconde partie après la roulette");
         const memoire = await page.evaluate((cle)=>localStorage.getItem(cle),inverse?"histoire-choix-inverse":"histoire-choix-solo");
         assert(memoire?.includes("pack=COL-0105") && memoire.includes("niveau=2") && memoire.includes("longueur=20"),"Gagnant mémorisé");
+        // Une ancienne préférence ne désactive plus les périodes d'une nouvelle partie.
+        await page.evaluate(({cle,valeur})=>localStorage.setItem(cle,valeur),{
+          cle:inverse?"histoire-choix-inverse":"histoire-choix-solo",valeur:`${memoire}&periodes=0`});
         await page.goto(`http://127.0.0.1:${port}/${inverse?"inverse":"solo"}`);
         await expect(page.getByRole("button",{name:/^Jouer tout Sport/})).toHaveAttribute("aria-pressed","true");
         await expect(page.getByRole("heading",{name:"Packs disponibles"})).toBeVisible();
+        await expect(page.locator('input[name="c"]')).not.toHaveValue(/periodes=0/);
         await page.getByRole("button",{name:"Jouer",exact:true}).click();
         await expect(page).toHaveURL(/\/partie\//);
         assert.equal(lancements.at(-1)?.rpc,"start_game");
         assert.equal(lancements.at(-1)?.pack,"COL-0105");
+        assert.equal(lancements.at(-1)?.periodes,inverse?undefined:true);
       }
       assert.equal(errors.length,0,errors.join("\n"));
       await page.close();

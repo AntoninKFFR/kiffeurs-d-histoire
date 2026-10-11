@@ -15,7 +15,7 @@ import styles from "./choix.module.css";
 const MEMOIRE = "histoire-choix-solo";
 const MEMOIRE_INVERSE = "histoire-choix-inverse";
 type ModeSolo = "general" | "periode" | "pack" | "theme";
-type Etat = { mode: ModeSolo; periode: string; de: string; a: string; pack: string; theme: string; niveau: SoloNiveau; difficulte: SoloDifficulty; longueur: Longueur; periodes: boolean; mystere: boolean };
+type Etat = { mode: ModeSolo; periode: string; de: string; a: string; pack: string; theme: string; niveau: SoloNiveau; difficulte: SoloDifficulty; longueur: Longueur; mystere: boolean };
 
 const ONGLETS: { mode: ModeSolo; titre: string }[] = [
   { mode: "general", titre: "Général" },
@@ -25,12 +25,11 @@ const ONGLETS: { mode: ModeSolo; titre: string }[] = [
 ];
 
 // Les nouveaux choix utilisent toute la base ; lireChoix garde le défaut historique des anciens liens.
-const DEPART: Etat = { mode: "general", periode: PERIODES[0].id, de: "", a: "", pack: PACKS[0].id, theme: THEMES[0].id, niveau: 3, difficulte: "YEAR", longueur: 10, periodes: true, mystere: false };
+const DEPART: Etat = { mode: "general", periode: PERIODES[0].id, de: "", a: "", pack: PACKS[0].id, theme: THEMES[0].id, niveau: 3, difficulte: "YEAR", longueur: 10, mystere: false };
 
 function versChamps(e: Etat, inverse: boolean) {
   const p = new URLSearchParams({ mode: e.mode, difficulte: e.difficulte, niveau: String(e.niveau), longueur: String(e.longueur) });
   if (inverse) p.set("sens", "inverse");
-  else if (!e.periodes) p.set("periodes", "0");
   if (e.mode === "periode") {
     p.set("periode", e.periode);
     if (e.periode === "libre") {
@@ -54,7 +53,8 @@ function depuisMemoire(c: Choix): Etat | null {
     mode: (c.mode === "pack" && !packConnu) || (c.mode === "theme" && !themeConnu) ? "general" : c.mode,
     difficulte: c.difficulte,
     longueur: c.longueur ?? 10,
-    periodes: c.periodes !== false,
+    // La mémoire prépare une nouvelle partie : les périodes sont automatiques.
+    // Les URLs et relances explicites restent traitées telles quelles par lireChoix.
     niveau: c.niveau ?? NIVEAU_PAR_DEFAUT,
     periode: c.periode ?? DEPART.periode,
     de: c.de != null ? String(c.de) : "",
@@ -78,7 +78,8 @@ function libelle(c: Choix, packs: PackJouable[]) {
 export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
   const memoire = inverse ? MEMOIRE_INVERSE : MEMOIRE;
   const [etat, setEtat] = useState<Etat>(DEPART);
-  const [ouvert, ouvrir] = useState<string | null>(null);
+  // undefined : reprendre la vue du choix mémorisé ; null : liste principale demandée.
+  const [ouvert, ouvrir] = useState<string | null | undefined>(undefined);
   const [packAbsent, signalerPackAbsent] = useState(false);
   const packMemorise = useRef<string | null>(null);
   const [catalogue, setCatalogue] = useState<{ cle: string; packs?: PackJouable[]; erreur?: boolean }>();
@@ -121,7 +122,7 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
 
   // Restaurer le contexte de navigation du pack mémorisé, même s'il vient d'un import récent.
   const choisi = packs.find((p) => p.id === etat.pack);
-  const contextePack = ouvert ?? choisi?.parent_id ?? null;
+  const contextePack = ouvert === undefined ? choisi?.parent_id ?? null : ouvert;
 
   const contenu = { mode: etat.mode, periode: etat.periode, pack: etat.pack, theme: etat.theme };
   // Inversé : toujours la date exacte, sans choix de précision.
@@ -138,7 +139,7 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
   const libreInvalide = etat.mode === "periode" && etat.periode === "libre" && !selection && (etat.de !== "" || etat.a !== "");
   const choixMystere = ecrireChoix({ mode: "general", difficulte: inverse ? "DAY" : etat.difficulte,
     niveau: etat.niveau, longueur: etat.longueur,
-    ...(inverse ? { sens: "inverse" as const } : etat.periodes ? {} : { periodes: false as const }) });
+    ...(inverse ? { sens: "inverse" as const } : {}) });
 
   return (
     <form action={mystere ? undefined : lancer} onSubmit={(event) => {
@@ -204,7 +205,7 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
           : catalogue?.cle !== clePacks || !catalogue.packs ? <p role="status">Chargement des packs…</p>
           : <SelectionPacks packs={packs} ouvert={contextePack} selection={etat.pack}
             precision={inverse ? "DAY" : difficulte ?? etat.difficulte} longueur={etat.longueur}
-            onOuvrir={(id) => { ouvrir(id); maj({ pack: "" }); }}
+            onOuvrir={ouvrir}
             onChoisir={(pack) => maj({ pack })} />)}
 
         {etat.mode === "theme" && (

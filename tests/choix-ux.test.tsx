@@ -36,14 +36,67 @@ it.each([false, true])("nouvelle partie : niveau 3, périodes automatiques, inve
   expect(screen.queryByRole("group", { name: "Précision" }) === null).toBe(inverse);
 });
 
-it.each([1, 2, 3])("préférence explicite conservée : niveau %s, ancienne option et Rejouer", async (niveau) => {
+it.each([1, 2, 3])("restaure niveau %s, longueur et précision, mais réactive les périodes pour une nouvelle partie", async (niveau) => {
   localStorage.setItem("histoire-choix-solo", `mode=general&difficulte=MONTH&niveau=${niveau}&periodes=0&longueur=5`);
   const { container } = render(<ChoixSolo />);
   await screen.findByText(/25 questions réellement jouables/);
   const choix = lireChoix(champs(container))!;
-  expect(choix).toMatchObject({ niveau, difficulte: "MONTH", longueur: 5, periodes: false });
+  expect(choix).toMatchObject({ niveau, difficulte: "MONTH", longueur: 5 });
+  expect(choix.periodes).toBeUndefined();
+  expect(filtresDepuis(choix).periods).toBeUndefined();
+  // La mémoire d'origine reste lisible pour une relance historique explicite.
+  expect(lireChoix(new URLSearchParams(localStorage.getItem("histoire-choix-solo")!))!.periodes).toBe(false);
   const replay = relanceEnregistree(filtresDepuis(choix))!;
   expect(lireChoix(new URLSearchParams(replay))).toMatchObject(choix);
+});
+
+it("les anciennes URLs et relances explicites conservent periodes=0", () => {
+  const ancien = lireChoix(new URLSearchParams("mode=pack&pack=P&difficulte=MONTH&niveau=2&longueur=5&periodes=0"))!;
+  expect(filtresDepuis(ancien)).toMatchObject({ packId: "P", niveau: 2, difficulty: "MONTH", questionCount: 5, periods: false });
+  const replay = relanceEnregistree(filtresDepuis(ancien))!;
+  expect(lireChoix(new URLSearchParams(replay))).toEqual(ancien);
+});
+
+it.each([false, true])("explorer et revenir conserve le parent jusqu'au choix d'un enfant, inverse=%s", async (inverse) => {
+  const { container } = render(<ChoixSolo inverse={inverse} />);
+  fireEvent.click(screen.getByRole("button", { name: "Pack" }));
+  fireEvent.click(await screen.findByRole("button", { name: /^Jouer tout Parent/ }));
+  const parent = champs(container).toString();
+  fireEvent.click(screen.getByRole("button", { name: "Voir les sous-thèmes de Parent" }));
+  expect(champs(container).toString()).toBe(parent);
+  expect(screen.getByRole("button", { name: /^Tout le pack Parent/ }).getAttribute("aria-pressed")).toBe("true");
+  expect(screen.getByRole("button", { name: "Jouer" }).hasAttribute("disabled")).toBe(false);
+  expect(screen.getByText(/pack « Parent »/)).toBeTruthy();
+  fireEvent.click(screen.getByRole("button", { name: /Tous les packs/ }));
+  expect(champs(container).toString()).toBe(parent);
+  expect(screen.getByRole("button", { name: /^Jouer tout Parent/ }).getAttribute("aria-pressed")).toBe("true");
+  fireEvent.click(screen.getByRole("button", { name: "Voir les sous-thèmes de Parent" }));
+  fireEvent.click(screen.getByRole("button", { name: /^Jouer tout Enfant/ }));
+  expect(champs(container).get("pack")).toBe("C");
+  expect(screen.getByText(/pack « Enfant »/)).toBeTruthy();
+  fireEvent.click(screen.getByRole("button", { name: /Tous les packs/ }));
+  expect(screen.getByRole("heading", { name: "Packs disponibles" })).toBe(document.activeElement);
+  expect(champs(container).get("pack")).toBe("C");
+  const choisi = lireChoix(champs(container))!;
+  expect(lireChoix(new URLSearchParams(relanceEnregistree(filtresDepuis(choisi))!))).toEqual(choisi);
+});
+
+it.each([false, true])("restaure le sous-pack sans imposer sa vue après Retour et mémorise le vrai choix, inverse=%s", async (inverse) => {
+  const memoire = inverse ? "histoire-choix-inverse" : "histoire-choix-solo";
+  localStorage.setItem(memoire, `mode=pack&pack=C&difficulte=DAY&niveau=2&longueur=5${inverse ? "&sens=inverse" : "&periodes=0"}`);
+  const { container, unmount } = render(<ChoixSolo inverse={inverse} />);
+  await screen.findByRole("button", { name: /^Jouer tout Enfant/ });
+  fireEvent.click(screen.getByRole("button", { name: /Tous les packs/ }));
+  expect(champs(container).get("pack")).toBe("C");
+  expect(champs(container).has("periodes")).toBe(false);
+  expect(screen.getByRole("button", { name: "Jouer" }).hasAttribute("disabled")).toBe(false);
+  const form = container.querySelector("form")!;
+  form.addEventListener("submit", (e) => e.preventDefault()); fireEvent.submit(form);
+  expect(localStorage.getItem(memoire)).toContain("pack=C");
+  expect(localStorage.getItem(memoire)).not.toContain("periodes=0");
+  unmount(); render(<ChoixSolo inverse={inverse} />);
+  await screen.findByRole("button", { name: /^Jouer tout Enfant/ });
+  expect(screen.getByRole("button", { name: /^Jouer tout Enfant/ }).getAttribute("aria-pressed")).toBe("true");
 });
 
 it("ancienne mémoire sans niveau : défaut historique et dix questions", async () => {

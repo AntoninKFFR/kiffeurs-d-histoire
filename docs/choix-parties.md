@@ -9,14 +9,17 @@ Branche : `ux-simplification-choix-parties`.
    pour le sélectionner et « Voir les sous-thèmes » pour explorer ses enfants.
    Choisir un parent n'ouvre pas les enfants et ne démarre aucune partie.
    Le décompte vivant, Tout le pack, Retour, le focus, la mémoire et Rejouer
-   conservent leur contrat. Une navigation remet la liste en haut.
+   conservent leur contrat. Explorer et revenir gardent la sélection ; seul choisir
+   un autre pack la remplace. Une navigation remet la liste en haut.
 2. Le niveau 3 porte le libellé « Toutes les questions ». Il est choisi au
    premier affichage de Solo libre et Inversé sans mémoire. Les niveaux 1 et 2
    restent disponibles. Les anciens liens et mémoires conservent leur niveau
    explicite, ou le défaut historique 1 s'il manque. Aucun niveau éditorial ne change.
 3. Le réglage Questions période disparaît du Solo libre. Les nouvelles parties
    classiques utilisent la valeur automatique existante du moteur. Les anciens
-   `periodes=0` explicites et leurs relances restent compatibles. L'onglet Période
+   `periodes=0` dans les URLs et leurs relances explicites restent compatibles.
+   La restauration locale ignore cette option désactivée pour les nouvelles parties,
+   sans perdre le pack, le niveau, la précision ou la longueur. L'onglet Période
    conserve le filtre des époques. Le scolaire, les tests de chapitre et le
    moteur inversé ne changent pas.
 4. « ✦ Thème mystère » est une tuile de l'onglet Thème. Le joueur la sélectionne,
@@ -36,8 +39,8 @@ concernent uniquement les formulaires Solo libre/Inversé.
 
 | Vérification | Résultat |
 | --- | --- |
-| `npm test` | 445 tests Vitest, 45 fichiers ; 6 tests d'import Node, tous verts |
-| Vitest ciblé (choix, packs, mystère, périodes, actions, bilan et Sport) | 127 tests, 11 fichiers, tous verts |
+| `npm test` | 450 tests Vitest, 45 fichiers ; 6 tests d'import Node, tous verts |
+| Vitest ciblé (choix, packs, mystère, périodes, actions, bilan et Sport) | 132 tests, 11 fichiers, tous verts |
 | `npm run lint` | Vert |
 | `npm run typecheck` | Vert |
 | Build Next de production | Vert, exécuté par le script de relecture |
@@ -61,12 +64,27 @@ Les fichiers de contenu, catalogue Sport, migrations, SQL, fonctions de jeu,
 tests pédagogiques et associations restent inchangés ; aucune opération en base
 de production n'a été exécutée.
 
+## Corrections après la CI de la PR #109
+
+Les deux échecs PC/mobile du [run 38147121535](https://github.com/Zazou13015/KIffeur-d-Histoire/actions/runs/38147121535)
+venaient du test Solo libre qui attendait encore Débutant par défaut. Ce parcours
+vérifie désormais le niveau 3 initial, sélectionne explicitement Débutant, contrôle
+le niveau 1 transmis et enregistré, puis garde les dix questions et l'assertion
+sur les seuls événements de niveau 1.
+
+Les tests de navigation et restauration reproduisaient aussi la perte de sélection
+et la désactivation silencieuse des périodes. Ils vérifient maintenant la conservation
+du parent/enfant, le résumé et Jouer, la mémoire et Rejouer, les périodes automatiques
+après une ancienne mémoire `periodes=0`, et la compatibilité des relances explicites.
+La relecture Chromium contrôle ces comportements avec le vrai composant et ses actions,
+sur les trois viewports et dans les deux sens, sans accès Supabase distant.
+
 ## Fichiers modifiés
 
 - Interface : `ChoixSolo.tsx`, `SelectionPacks.tsx`, `BoutonMystere.tsx`,
   `LongueurPartie.tsx`, `choix.module.css`, `src/lib/solo/choix.ts`.
 - Tests : `choix-ux.test.tsx`, `sous-packs-composant.test.tsx`,
   `longueur-composants.test.tsx`, `mystere-composants.test.tsx`.
-- Parcours E2E : `sous-packs.spec.ts`, `sport.spec.ts`, `theme-mystere.spec.ts`.
+- Parcours E2E : `solo-libre.spec.ts`, `sous-packs.spec.ts`, `sport.spec.ts`, `theme-mystere.spec.ts`.
 - Relecture : `scripts/verifier-sous-packs-local.ts` et `docs/captures/choix-ux/`.
 - Documentation : ce fichier, `sous-packs.md`, `questions-periode.md`, `theme-mystere.md`.

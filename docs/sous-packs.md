@@ -9,6 +9,10 @@ enfants ; « Voir les sous-thèmes » ouvre la vue dédiée. Seul le bouton fina
 est désactivé ; Tout permet une sélection non vide, avec le plafond existant de
 100 questions. Retour remonte d’un niveau, puis vers la liste des packs.
 Les boutons sont utilisables au clavier ; le focus suit le titre de navigation.
+Explorer les sous-thèmes ou revenir à Tous les packs ne change pas la sélection :
+le résumé, le décompte et Jouer utilisent toujours le pack choisi. Choisir un enfant
+remplace le parent. La vue initiale d'un sous-pack mémorisé se restaure chez son parent,
+mais un retour explicite à la liste principale reste possible sans effacer ce sous-pack.
 
 La liste vivante vient de `playable_packs`, sans cache partagé : les imports,
 retraits et corrections éditoriales sont pris en compte au prochain chargement

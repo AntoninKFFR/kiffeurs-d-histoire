@@ -107,6 +107,14 @@ a.entree:hover { box-shadow: inset 0 0 0 2px var(--color-laiton); }
   .soloPacks .difficulte small { font-size: 12px; line-height: 1.25; }
   .soloPacks .longueurs .difficulte b { font-size: 18px; white-space: nowrap; }
   .soloPacks .lancer { grid-column: 1 / -1; position: static; }
+  /* Questions période (#94) : une seule ligne serrée, pour que l'écran des packs tienne sans défiler. */
+  .soloPacks:has(.options) > section:first-of-type { grid-row: span 5; }
+  .soloPacks .etape:has(> .options) { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 16px; margin-top: -4px; }
+  .soloPacks .etape:has(> .options) > h2 { font-size: 18px; line-height: 1; }
+  .soloPacks .etape:has(> .options) > h2 b { font-size: 22px; }
+  .soloPacks .options .difficulte { padding: 1px 10px; }
+  .soloPacks .options .difficulte b { font-size: 16px; line-height: 1.2; }
+  .soloPacks .options small { display: none; }
 }
 
 /* Option des questions période (#94) : deux choix seulement. */

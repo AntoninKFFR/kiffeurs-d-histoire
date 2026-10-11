@@ -232,3 +232,14 @@
   .bornes button { padding: 2px 8px; }
   .bornes button b { font-size: 17px; }
 }
+/* Téléphone : Début et Fin sur une ligne basse, la boîte resserrée pour tenir sans défiler. */
+@media (max-width: 600px), (max-height: 500px) {
+  .bornes button { display: flex; align-items: baseline; gap: 8px; min-height: 30px; padding: 1px 8px; }
+  .colonneSaisie:has(> .bornes) { padding-top: 4px; gap: 4px; }
+}
+/* Écran bas (téléphone couché) : les deux onglets se posent au-dessus de la saisie, sur la frise,
+   pour que la boîte garde la hauteur d'une question simple. */
+@media (max-height: 500px) {
+  .colonneSaisie:has(> .bornes) { position: relative; }
+  .colonneSaisie > .bornes { position: absolute; left: 0; right: 0; bottom: calc(100% + 4px); }
+}

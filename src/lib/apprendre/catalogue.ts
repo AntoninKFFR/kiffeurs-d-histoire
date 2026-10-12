@@ -1,6 +1,6 @@
 import catalogue from "./structure.json";
 
-export type Chapitre = Omit<(typeof catalogue)[number], "etat"> & { etat: "actif" | "historique" | "inactif" };
+export type Chapitre = Omit<(typeof catalogue)[number], "etat"> & { etat: "actif" | "historique" | "inactif"; edition_active?:string; editions?:string[];edition_counts?:Record<string,{YEAR:number;MONTH:number;DAY:number}> };
 // Slugs figés et associés à THM, indépendants d'un index ou d'un futur libellé.
 const REGISTRE: Chapitre[] = catalogue as Chapitre[];
 /** Résolution des anciens liens, bilans, sessions et Rejouer ; jamais les brouillons. */
@@ -10,6 +10,12 @@ export const CHAPITRES_HISTORIQUES = CHAPITRES.filter(c => c.etat === "historiqu
 export const NIVEAUX = [...new Map(CHAPITRES.map((c) => [c.niveauSlug, { slug: c.niveauSlug, nom: c.niveau }])).values()];
 export function cheminChapitre(c: Chapitre) {
   return `/apprendre/${c.niveauSlug}/${c.slug}`;
+}
+export function cheminEdition(c: Chapitre,version:string) {
+  return `${cheminChapitre(c)}/edition/${encodeURIComponent(version)}`;
+}
+export function editionConnue(c:Chapitre,version:string) {
+  return Boolean(c.editions?.length && (version===c.content_version || c.editions.includes(version)));
 }
 export function trouverChapitre(niveau: string, chapitre: string) {
   return CHAPITRES.find((c) => c.niveauSlug === niveau && c.slug === chapitre);

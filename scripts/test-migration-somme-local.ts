@@ -22,6 +22,8 @@ const AVANT = `
   drop trigger if exists protected_card on histoire.chapter_cards;
   drop trigger if exists protected_chapter on histoire.chapters;
   drop trigger if exists protected_curriculum on histoire.event_chapters;
+  drop table if exists histoire.learning_progress_editions;
+  drop table if exists histoire.pedagogical_editions cascade;
   drop table if exists histoire.pedagogical_units;
   delete from histoire.event_chapters where chapter_id between 'THM-047' and 'THM-064';
   delete from histoire.chapters where id between 'THM-047' and 'THM-064';

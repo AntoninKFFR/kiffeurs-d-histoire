@@ -2,7 +2,9 @@
 // Un Postgres labellisé et une base aléatoire jetable ; seules les données de fixture sont importées.
 import assert from "node:assert/strict";
 import { execFileSync, spawn } from "node:child_process";
-import { readFileSync,readdirSync } from "node:fs";
+import { readFileSync,readdirSync,mkdtempSync,writeFileSync,unlinkSync,rmdirSync } from "node:fs";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
 import { createServer } from "node:http";
 import { randomBytes,createHmac } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
@@ -10,6 +12,8 @@ import { chargerCartes } from "./import-cartes";
 import { cartePublique } from "../src/lib/pedagogie";
 import {verifierDockerFixture} from "./verifier-docker-fixture";
 import {testerMigrationSommeLocale} from "./test-migration-somme-local";
+import {planCompletions,importerCompletionsLocales} from "./completions-pedagogiques";
+import {lireCsv,type LigneCsv} from "./csv";
 const container=process.argv[process.argv.indexOf('--container')+1];
 verifierDockerFixture(container);
 const suffix=randomBytes(5).toString('hex'),database='kffr_api_'+suffix,network='kffr-issue92-api-'+suffix,api='kffr-issue92-rest-'+suffix;
@@ -48,7 +52,11 @@ async function main(){
         const target=upstream+(req.url??'/').replace(/^\/rest\/v1/,'');
         const headers=new Headers();for(const[k,v]of Object.entries(req.headers))if(v&& !['host','content-length','connection'].includes(k))headers.set(k,Array.isArray(v)?v.join(','):v);
         const response=await fetch(target,{method:req.method,headers,...(['GET','HEAD'].includes(req.method??'GET')?{}:{body:Buffer.concat(chunks)})});
-        res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));
+        const outgoing=Object.fromEntries(response.headers);
+        // fetch peut décoder le corps ; recalculer le framing et fermer la connexion
+        // avant les longs contrôles psql synchrones de cette fixture.
+        for(const key of ['content-length','content-encoding','transfer-encoding','connection'])delete outgoing[key];
+        res.writeHead(response.status,{...outgoing,connection:'close'});res.end(Buffer.from(await response.arrayBuffer()));
       }catch{res.writeHead(503);res.end();}
     });
     await new Promise<void>(resolve=>server!.listen(0,'127.0.0.1',resolve));
@@ -76,6 +84,30 @@ async function main(){
     assert.equal(sql('select count(*) from histoire.learning_progress'),'0');
     testerMigrationSommeLocale({container,database});
     assert.equal(sql('select count(*) from histoire.pedagogical_units'),'59');
+    // Le véritable importeur de complétion passe par SDK/PostgREST. Textes de fixture déjà existants.
+    const original=lireCsv('content/pedagogie/cartes-v1.csv'),events=lireCsv('content/dataset-v18/kiffeurs-events-v18.csv'),links=lireCsv('content/dataset-v18/kiffeurs-curriculum-links-v18.csv');
+    const additions=planCompletions().flatMap(p=>p.event_ids.map((id):LigneCsv=>{
+      const template=original.find(c=>c.chapter_id===p.chapter_id)!,e=events.find(e=>e.event_id===id)!;
+      return {...template,card_id:`CARD-${p.chapter_id.slice(4)}-fixture-${id.slice(4)}`,event_id:id,
+        official_wording:links.find(l=>l.theme_id===p.chapter_id&&l.event_id===id)!.official_wording,
+        ...Object.fromEntries(['start_year','start_month','start_day','end_year','end_month','end_day','date_text','date_status'].map(k=>[k,e[k]])),date_precision:e.precision};
+    }).sort((a,b)=>Number(a.start_year)-Number(b.start_year)||Number(a.start_month)-Number(b.start_month)||Number(a.start_day)-Number(b.start_day))
+      .map((c,i):LigneCsv=>({...c,sort_order:String(i+1)})));
+    const directory=mkdtempSync(join(tmpdir(),'kffr-completion-fixture-')),file=join(directory,'fixture.csv');
+    const fields=Object.keys(additions[0]),csvValue=(v:string)=>'"'+v.replaceAll('"','""')+'"';
+    try {
+      writeFileSync(file,[fields.map(csvValue).join(','),...additions.map(c=>fields.map(k=>csvValue(c[k as keyof typeof c])).join(','))].join('\n')+'\n');
+      await importerCompletionsLocales(file,url,token('service_role'));
+      const snapshot=sql("select jsonb_agg(to_jsonb(e) order by chapter_id,version) from histoire.pedagogical_editions e");
+      await importerCompletionsLocales(file,url,token('service_role'));
+      assert.equal(sql("select jsonb_agg(to_jsonb(e) order by chapter_id,version) from histoire.pedagogical_editions e"),snapshot);
+      assert.equal(sql("select count(*) from histoire.pedagogical_editions where version='completion-v1' and not published"),'27');
+      assert.equal(sql("select count(*) from histoire.chapter_cards"),'325');
+      assert.equal(sql("select count(*) from histoire.chapters"),'59');
+      assert.equal((await publicDb.rpc('get_chapter_cards_version',{p_chapter_id:'THM-001',p_version:'completion-v1'})).data?.length,0);
+      assert((await publicDb.rpc('start_chapter_test_version',{p_token:'a'.repeat(64),p_chapter_id:'THM-001',p_difficulty:'YEAR',p_question_count:5,p_version:'completion-v1'})).error);
+    }finally {unlinkSync(file);rmdirSync(directory);}
+    console.log('OK HTTP complétions : 104 ajouts techniques / 27 brouillons importés deux fois par le véritable importeur, 325 cartes historiques et 59 unités inchangées, aucun brouillon public.');
     console.log('OK HTTP réel : deux imports du dataset par le SDK et PostgREST, 2001 événements/325 cartes inchangées/59 unités/18 inactives/722 liens, 41 anciennes projections exactes, données privées refusées et aucune progression fabriquée.');
   }finally{
     if(server)await new Promise<void>(resolve=>server!.close(()=>resolve()));

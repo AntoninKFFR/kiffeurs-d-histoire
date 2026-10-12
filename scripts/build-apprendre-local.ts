@@ -9,7 +9,7 @@ import { cartePublique } from "../src/lib/pedagogie";
 const cartes = chargerCartes().map(cartePublique);
 const server = createServer((req, res) => {
   const url = new URL(req.url!, "http://localhost");
-  if (req.method !== "GET" || url.pathname !== "/rest/v1/rpc/get_chapter_cards" || req.headers["accept-profile"] !== "histoire") {
+  if (req.method !== "GET" || !["/rest/v1/rpc/get_chapter_cards","/rest/v1/rpc/get_chapter_cards_version"].includes(url.pathname) || req.headers["accept-profile"] !== "histoire") {
     res.writeHead(404); res.end(); return;
   }
   res.setHeader("Content-Type", "application/json");

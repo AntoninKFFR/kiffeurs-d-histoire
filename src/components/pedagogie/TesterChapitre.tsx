@@ -10,13 +10,13 @@ import s from "./apprendre.module.css";
 
 // « Me tester sur ce chapitre » : une partie solo scolaire sur ce seul chapitre, lancée par le même chemin que /scolaire.
 // Le test ne porte que sur les cartes du chapitre (ce qu'on vient d'apprendre) : il compte autant de questions que de cartes jouables, 10 au plus et 5 au minimum.
-export function TesterChapitre({ chapitre }: { chapitre: string }) {
+export function TesterChapitre({ chapitre,edition }: { chapitre: string;edition?:string }) {
   const idSelect = useId();
-  const comptes = comptesDe({ mode: "scolaire", chapitres: [chapitre], test: true });
+  const comptes = comptesDe({ mode: "scolaire", chapitres: [chapitre], test: true,edition });
   const possible = (d: SoloDifficulty) => comptes == null || comptes[d] >= QUESTIONS_MIN_TEST;
   const [difficulte, setDifficulte] = useState<SoloDifficulty>("YEAR");
   const jouable = possible(difficulte) ? difficulte : (DIFFICULTES.find((d) => possible(d.valeur))?.valeur ?? null);
-  const choix: Choix | null = jouable ? { mode: "scolaire", difficulte: jouable, chapitres: [chapitre], test: true } : null;
+  const choix: Choix | null = jouable ? { mode: "scolaire", difficulte: jouable, chapitres: [chapitre], test: true,...(edition?{edition}:{}) } : null;
   const questions = choix && comptes ? Math.min(QUESTIONS, comptes[choix.difficulte]) : QUESTIONS;
 
   if (!choix) {

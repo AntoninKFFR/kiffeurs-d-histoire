@@ -13,6 +13,7 @@ import sport from "../content/sport/packs-proposes.json";
 import { chargerStructure, type Unite } from "./structure-pedagogique";
 import { FICHIER_CARTES_ENFANTS } from "./fichiers-pedagogiques";
 import { chargerCartesSousChapitres } from "./import-cartes";
+import { chargerCompletions } from "./completions-pedagogiques";
 
 const dossier = join(import.meta.dirname, "..", "content", "dataset-v18");
 const csv = (nom: string) => lireCsv(join(dossier, `kiffeurs-${nom}-v18.csv`));
@@ -94,6 +95,8 @@ const sourceDates = new Map<string,LigneCsv>();
 const registre = JSON.parse(readFileSync(join(import.meta.dirname,"..","src/lib/apprendre/structure.json"),"utf8")) as Unite[];
 const disponibles = new Set(registre.filter(c=>c.etat!=="inactif").map(c=>c.id));
 const fichierEnfants=join(import.meta.dirname,"..",FICHIER_CARTES_ENFANTS);
+const fichierCompletions=join(import.meta.dirname,"..","content/pedagogie/cartes-completions.csv");
+const ajouts=existsSync(fichierCompletions)?chargerCompletions(fichierCompletions,join(import.meta.dirname,"..")):[];
 if (existsSync(fichierEnfants)) chargerCartesSousChapitres(fichierEnfants);
 for (const c of [...lireCsv(join(import.meta.dirname, "..", "content", "pedagogie", "cartes-v1.csv")),...(existsSync(fichierEnfants)?lireCsv(fichierEnfants):[])]) {
   if (!c.event_id) continue;
@@ -105,11 +108,23 @@ for (const c of chargerStructure(join(import.meta.dirname,"..")).sous_chapitres)
   if (c.event_ids.some(id=>!cards.includes(id))) throw new Error("Catalogue enfant incomplet");
   contenuChapitres.set(c.id,c.event_ids);
 }
+const structure=chargerStructure(join(import.meta.dirname,".."));
+const toutesSources=new Map(csv("events").map(e=>[e.event_id,e]));
+const candidatsCartes=(id:string,ids:string[])=>registre.find(c=>c.id===id)?.edition_counts
+  ? [...new Set(ids)].flatMap(ev=>toutesSources.has(ev)&&sourceDates.get(id+'\0'+ev)?.start_year?[toutesSources.get(ev)!]:[])
+  : deIds(ids);
 const chapitres = Object.fromEntries([...contenuChapitres].sort().map(([id, ids]) => {
   const test = cartesChapitres.get(id) ?? [];
-  const versionApprise=deIds(test).map(e=>({...e,...Object.fromEntries(["start_year","start_month","start_day"].map(k=>[k,sourceDates.get(id+"\0"+e.event_id)?.[k]??e[k]]))}));
+  const eligible=structure.eligibilite_tests_historiques[id];
+  const versionApprise=(eligible?eligible.flatMap(ev=>toutesSources.has(ev)?[toutesSources.get(ev)!]:[]):candidatsCartes(id,test)).map(e=>({...e,...Object.fromEntries(["start_year","start_month","start_day"].map(k=>[k,sourceDates.get(id+"\0"+e.event_id)?.[k]??e[k]]))}));
+  const c=registre.find(c=>c.id===id),additionnels=ajouts.filter(c=>c.chapter_id===id);
+  if(c?.editions?.length && ids.some(ev=>!test.includes(ev)&&!additionnels.some(c=>c.event_id===ev))) throw new Error("Complétion publiée absente du catalogue");
+  const completes=[...versionApprise,...additionnels.filter(c=>parId.has(c.event_id!)).map(c=>({start_year:String(c.start_year??""),start_month:String(c.start_month??""),start_day:String(c.start_day??"")}))];
+  const initial={t:c?.edition_counts?.[c.content_version]??compter(versionApprise),tb:bornes(versionApprise)},
+    completion={t:c?.edition_counts?.['completion-v1']??compter(completes),tb:bornes(completes)};
   // Le mode scolaire n'a pas de niveau : tous les événements du chapitre comptent.
-  return [id, { n: compter(deIds(ids)), b: bornes(deIds(ids)), t: compter(versionApprise), tb: bornes(versionApprise) }];
+  return [id, { n: compter(deIds(ids)), b: bornes(deIds(ids)), ...(c?.edition_active?completion:initial),
+    ...(c?.editions?.length?{editions:{[c.content_version]:initial,"completion-v1":completion}}:{}) }];
 }));
 
 const catalogue = { general: parNiveau(evenements), packs, themes, periodes, bornesPeriodes, chapitres };

@@ -13,7 +13,7 @@ import { TesterChapitre } from "./TesterChapitre";
 import s from "./apprendre.module.css";
 
 // Un seul écran sur ordinateur : la liste à gauche, la frise du chapitre en haut, la carte ouverte dessous.
-export function DecouvrirChapitre({ cartes, chapitre }: { cartes: CarteApprendre[]; chapitre?: { id: string; titre: string; niveau: string } }) {
+export function DecouvrirChapitre({ cartes, chapitre }: { cartes: CarteApprendre[]; chapitre?: { id: string; titre: string; niveau: string;edition?:string } }) {
   const [selection, setSelection] = useState<string | null>(cartes[0]?.card_id ?? null);
   const cadre = useMemo(() => cadrageChapitre(cartes), [cartes]);
   const controle = useVue("jour", cadre.bornes, cadre.plage);
@@ -58,7 +58,7 @@ export function DecouvrirChapitre({ cartes, chapitre }: { cartes: CarteApprendre
       {chapitre && <BadgeNiveau niveau={chapitre.niveau} />}
       {chapitre && <h1>{chapitre.titre}</h1>}
       <span className="text-sm text-encre-douce">{cartes.length} cartes</span>
-      {chapitre && <TesterChapitre chapitre={chapitre.id} />}
+      {chapitre && <TesterChapitre chapitre={chapitre.id} edition={chapitre.edition} />}
     </header>
     <div className={s.corps}>
       <nav aria-label="Cartes du chapitre" className={s.liste}>

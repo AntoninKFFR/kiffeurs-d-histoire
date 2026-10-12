@@ -9,7 +9,9 @@ function correspondances() {
   if (!cartes) {
     // Chemin littéral pour limiter le traçage Turbopack à ce fichier optionnel.
     const enfant = path.join(process.cwd(),"content/pedagogie/cartes-sous-chapitres.csv");
-    const lignes = [...lireCsv(path.join(process.cwd(), "content/pedagogie/cartes-v1.csv")),...(existsSync(enfant) ? lireCsv(enfant) : [])];
+    const completions=path.join(process.cwd(),"content/pedagogie/cartes-completions.csv");
+    const ajouts=existsSync(completions)?lireCsv(completions).filter(c=>CHAPITRES.some(ch=>ch.id===c.chapter_id&&ch.editions?.includes('completion-v1'))):[];
+    const lignes = [...lireCsv(path.join(process.cwd(), "content/pedagogie/cartes-v1.csv")),...(existsSync(enfant) ? lireCsv(enfant) : []),...ajouts];
     const disponibles=new Set(CHAPITRES.map(c=>c.id));
     cartes = new Map(lignes.filter(c=>disponibles.has(c.chapter_id)).map(c => [c.card_id,{event:c.event_id,chapitre:c.chapter_id}]));
   }

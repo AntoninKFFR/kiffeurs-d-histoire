@@ -6,6 +6,8 @@ export type EtatUnite = "actif" | "historique" | "inactif";
 export type Unite = {
   id: string; parent_id: string | null; titre: string; niveau: string; niveauSlug: string;
   slug: string; content_version: string; etat: EtatUnite;
+  edition_active?: string; editions?: string[];
+  edition_counts?:Record<string,{YEAR:number;MONTH:number;DAY:number}>;
 };
 export type SousChapitre = Unite & {
   event_ids: string[]; validation_contenu: string | null; validation_illustrations: string | null;
@@ -14,6 +16,7 @@ export type SousChapitre = Unite & {
 export type Structure = {
   version: number; audit_sha: string; chapitres_historiques: Unite[];
   sous_chapitres: SousChapitre[]; empreintes_cartes_historiques: Record<string, string>;
+  eligibilite_tests_historiques:Record<string,string[]>;
 };
 export const FICHIER_STRUCTURE = "content/pedagogie/chapitres-v2.json";
 export function empreinteLigne(ligne: LigneCsv) {
@@ -32,6 +35,8 @@ export function chargerStructure(racine = "."): Structure {
 export function validerStructure(s: Structure, themes: LigneCsv[], liens: LigneCsv[], cartes: LigneCsv[]) {
   const refuser = (message: string): never => { throw new Error(`Structure pédagogique : ${message}`); };
   if (s.version !== 1 || s.chapitres_historiques.length !== 41 || s.sous_chapitres.length !== 18) refuser("effectifs inattendus");
+  if(Object.keys(s.eligibilite_tests_historiques??{}).length!==41 || s.chapitres_historiques.some(c=>!Array.isArray(s.eligibilite_tests_historiques[c.id])
+    || s.eligibilite_tests_historiques[c.id].some(id=>!cartes.some(x=>x.chapter_id===c.id && x.event_id===id)))) refuser("admissibilité historique manquante ou hors cartes");
   const anciens = new Map(s.chapitres_historiques.map(c => [c.id, c]));
   if (themes.length !== anciens.size || themes.some(t => !anciens.has(t.theme_id))) refuser("anciens chapitres perdus");
   if (cartes.length !== 325 || Object.keys(s.empreintes_cartes_historiques).length !== 325
@@ -72,7 +77,7 @@ export function projectionStructure(s: Structure): Unite[] {
   }));
 }
 
-export type EtatPublie = Pick<Unite,"id" | "parent_id" | "slug" | "content_version" | "etat"> & {published:boolean};
+export type EtatPublie = Pick<Unite,"id" | "parent_id" | "slug" | "content_version" | "etat"> & {published:boolean; current_version?:string|null; editions?:string[];edition_counts?:Unite['edition_counts']};
 /** Le manifeste de préparation reste inactif ; seuls les états contrôlés en base sont exportables. */
 export function appliquerEtatsPublies(s: Structure, etats: EtatPublie[]): Unite[] {
   const connus = projectionStructure(s), map = new Map(etats.map(c => [c.id,c]));
@@ -81,7 +86,15 @@ export function appliquerEtatsPublies(s: Structure, etats: EtatPublie[]): Unite[
     const e=map.get(c.id);
     if (!e || e.parent_id!==c.parent_id || e.slug!==c.slug || e.content_version!==c.content_version
       || !["actif","historique","inactif"].includes(e.etat) || (e.etat!=="inactif" && !e.published)) throw new Error("Export incompatible avec les IDs et versions conservés");
-    return {...c,etat:e.etat};
+    const versions=e.editions??[];
+    if (new Set(versions).size!==versions.length || versions.some(v=>v!=="completion-v1") || (versions.length && (c.parent_id || s.sous_chapitres.some(x=>x.parent_id===c.id)))
+      || (e.current_version && !versions.includes(e.current_version))) throw new Error("Éditions exportées incompatibles");
+    if(versions.length && (!e.edition_counts || [c.content_version,...versions].some(v=>!e.edition_counts![v]))) throw new Error("Décomptes publiés manquants");
+    if(e.edition_counts && Object.entries(e.edition_counts).some(([v,n])=>![c.content_version,...versions].includes(v)
+      || Object.keys(n).sort().join(',')!=='DAY,MONTH,YEAR' || Object.values(n).some(x=>!Number.isInteger(x)||x<0||x>64)
+      || n.DAY>n.MONTH || n.MONTH>n.YEAR)) throw new Error("Décomptes d'édition invalides");
+    return {...c,etat:e.etat,...(versions.length?{editions:versions}:{}),
+      ...((versions.length||c.parent_id)&&e.edition_counts?{edition_counts:e.edition_counts}:{}),...(e.current_version?{edition_active:e.current_version}:{})};
   });
   for (const p of s.chapitres_historiques) {
     const children=resultat.filter(c => c.parent_id===p.id), parent=resultat.find(c=>c.id===p.id)!;

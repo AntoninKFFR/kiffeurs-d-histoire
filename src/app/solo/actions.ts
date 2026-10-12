@@ -80,11 +80,12 @@ export async function startGame(filters: SoloFilters = {}): Promise<SoloGame> {
       p_pack_id: filters.packId ?? null, p_tag_id: filters.tagId ?? null, ...periodes, ...expert,
     })
     : filters.chapterTest && filters.chapterIds?.length === 1
-    ? await rpc<SoloGame>("start_chapter_test", {
+    ? await rpc<SoloGame>(filters.chapterVersion ? "start_chapter_test_version" : "start_chapter_test", {
       p_token: token,
       p_chapter_id: filters.chapterIds[0],
       p_difficulty: filters.difficulty ?? "YEAR",
       p_question_count: filters.questionCount ?? 10,
+      ...(filters.chapterVersion ? { p_version: filters.chapterVersion } : {}),
     })
     : await rpc<SoloGame>("start_game", {
       p_token: token,

@@ -1,4 +1,5 @@
 import path from "node:path";
+import {existsSync,readFileSync} from "node:fs";
 import { createClient } from "@supabase/supabase-js";
 import { lireCsv, type LigneCsv } from "./csv";
 import { periodeContexte } from "./periode-cartes";
@@ -29,7 +30,7 @@ function liste(valeur: string) {
 
 // Validation complète avant toute écriture. Les événements reprennent le canon ;
 // le contexte conserve uniquement les périodes explicites de son rattachement.
-export function validerCartes(lignes: LigneCsv[], evenements: LigneCsv[], themes: LigneCsv[], liens: LigneCsv[], structure?: Structure): Carte[] {
+export function validerCartes(lignes: LigneCsv[], evenements: LigneCsv[], themes: LigneCsv[], liens: LigneCsv[], structure?: Structure, completions: ReadonlySet<string> = new Set()): Carte[] {
   if (!lignes.length) throw new Error("CSV de cartes vide");
   const events = new Map(evenements.map((e) => [e.event_id, e]));
   const children = new Map(structure?.sous_chapitres.map(c => [c.id, c]) ?? []);
@@ -86,7 +87,7 @@ export function validerCartes(lignes: LigneCsv[], evenements: LigneCsv[], themes
     groupe.sort((a, b) => a.sort_order - b.sort_order);
     // Les lots incomplets sont autorisés uniquement pour un enfant inactif. L'activation
     // exige ensuite couverture exacte, test suffisant et validations de contenu/illustration.
-    const minimum = children.get(id)?.etat === "inactif" ? 1 : 5;
+    const minimum = children.get(id)?.etat === "inactif" || completions.has(id) ? 1 : 5;
     if (groupe.length < minimum || groupe.length > 64 || groupe.some((c, i) => c.sort_order !== i + 1))
       throw new Error(`${id} : ${minimum}–64 cartes avec ordre continu requis`);
     const evenementsGroupe = groupe.flatMap(c => c.event_id ? [c.event_id] : []);
@@ -116,6 +117,8 @@ export function chargerCartes(dossier = "content/dataset-v18", fichier = FICHIER
 /** Validation d'un futur lot enfant, sans copier ni créer de contenu dans cette phase. */
 export function chargerCartesSousChapitres(fichier: string, racine = ".") {
   const s = chargerStructure(racine);
+  const ledger=path.join(racine,'content/pedagogie/cartes-publiees.json');
+  if(existsSync(ledger))s.empreintes_cartes_historiques={...s.empreintes_cartes_historiques,...JSON.parse(readFileSync(ledger,'utf8')) as Record<string,string>};
   const dossier = path.join(racine, "content/dataset-v18");
   const lignes = lireCsv(fichier);
   if (lignes.some(l => !s.sous_chapitres.some(c => c.id === l.chapter_id))) throw new Error("Lot enfant contenant un chapitre historique");

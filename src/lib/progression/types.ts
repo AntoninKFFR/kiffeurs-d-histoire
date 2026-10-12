@@ -12,6 +12,7 @@ export type Progression = {
   /** true : lue dans le compte ; false : gardée dans le navigateur le temps de la session. */
   connecte: boolean;
   chapitres: Record<string, ProgressionChapitre>;
+  historique?: {chapter_id:string;version:string;progression:ProgressionChapitre}[];
 };
 
 export const LIBELLE_DIFFICULTE: Record<SoloDifficulty, string> = { YEAR: "Année", MONTH: "Mois", DAY: "Jour" };
@@ -43,4 +44,23 @@ export function progressionDepuisLignes(lignes: LigneProgression[], idsConnus: R
     };
   }
   return chapitres;
+}
+
+/** Aucun résultat de l'édition initiale n'est présenté comme un acquis de la complétion. */
+export function progressionParEditions(initiales:LigneProgression[],editions:(LigneProgression&{version:string})[],
+  chapitres:{id:string;content_version:string;edition_active?:string}[]):Pick<Progression,"chapitres"|"historique"> {
+  const connus=new Set(chapitres.map(c=>c.id)),active=progressionDepuisLignes(initiales,connus);
+  const historique:NonNullable<Progression["historique"]>=[];
+  for(const c of chapitres) {
+    if(c.edition_active && active[c.id]) {
+      historique.push({chapter_id:c.id,version:c.content_version,progression:active[c.id]});
+      delete active[c.id];
+    }
+    for(const row of editions.filter(e=>e.chapter_id===c.id)) {
+      const p=progressionDepuisLignes([row],connus)[c.id];
+      if(row.version===c.edition_active) active[c.id]=p;
+      else historique.push({chapter_id:c.id,version:row.version,progression:p});
+    }
+  }
+  return {chapitres:active,...(historique.length?{historique}:{})};
 }

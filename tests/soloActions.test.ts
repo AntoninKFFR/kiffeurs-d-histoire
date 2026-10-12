@@ -23,6 +23,16 @@ beforeEach(() => {
   mocks.set.mockReset().mockImplementation((name: string, value: string) => mocks.values.set(name, value));
 });
 
+it("transmet l'édition du bilan à la RPC dédiée et conserve les autres lancements inchangés",async()=>{
+  mocks.rpc.mockResolvedValue({data:{game_id:gameId,anonymous:false},error:null});
+  await startGame({chapterTest:true,chapterIds:['THM-001'],chapterVersion:'legacy-v1',difficulty:'YEAR',questionCount:5});
+  expect(gameCalls()[0]).toEqual(['start_chapter_test_version',expect.objectContaining({p_chapter_id:'THM-001',p_version:'legacy-v1',p_question_count:5})]);
+  await startGame({chapterTest:true,chapterIds:['THM-001'],difficulty:'YEAR',questionCount:5});
+  expect(gameCalls()[1][0]).toBe('start_chapter_test');expect(gameCalls()[1][1]).not.toHaveProperty('p_version');
+  await startGame({direction:'inverse',difficulty:'DAY'});
+  expect(gameCalls()[2][0]).toBe('start_game');expect(gameCalls()[2][1]).not.toHaveProperty('p_version');
+});
+
 it("claim utilise uniquement le cookie serveur puis supprime ce seul cookie", async () => {
   mocks.values.set(`histoire-solo-${gameId}`, "test-secret");
   mocks.values.set("other-cookie", "other");

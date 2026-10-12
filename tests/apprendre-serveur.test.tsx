@@ -16,6 +16,21 @@ vi.mock("node:fs", async (importOriginal) => {
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("404"); } }));
 afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.restoreAllMocks(); });
 
+it("lie le contenu et son cache à l'édition demandée, sans exposer les champs privés",async()=>{
+  const carte=chargerDemoPedagogie()[0].cartes[0];
+  vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','https://supabase-fictif.example');
+  vi.stubEnv('NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY','publique');
+  const fetcher=vi.fn().mockImplementation(async()=>Response.json([{...carte,event_id:'EVT-9999',sources:['interne']}]));
+  vi.stubGlobal('fetch',fetcher);
+  const initial=await chargerCartesChapitre(carte.chapter_id,'legacy-v1');
+  await chargerCartesChapitre(carte.chapter_id,'completion-v1');
+  expect(fetcher.mock.calls.map(c=>c[0])).toEqual([
+    `https://supabase-fictif.example/rest/v1/rpc/get_chapter_cards_version?p_chapter_id=${carte.chapter_id}&p_version=legacy-v1`,
+    `https://supabase-fictif.example/rest/v1/rpc/get_chapter_cards_version?p_chapter_id=${carte.chapter_id}&p_version=completion-v1`,
+  ]);
+  expect(JSON.stringify(initial)).not.toMatch(/event_id|sources|EVT-/);
+});
+
 it("charge seulement le chapitre demandé via la RPC anonyme mise en cache et filtre les champs", async () => {
   const carte = chargerDemoPedagogie()[0].cartes[0];
   vi.stubEnv("NEXT_PUBLIC_SUPABASE_URL", "https://supabase-fictif.example");

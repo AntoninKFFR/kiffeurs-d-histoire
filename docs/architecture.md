@@ -116,6 +116,8 @@ Règles :
 - `matchmaking_queue` : file d'attente du classé.
 - `learning_progress` : cartes vues, chapitres terminés, résultats aux tests.
 
+Préparation #92, **non appliquée en production** : le registre pédagogique ferme les chapitres non enregistrés après son initialisation. Les éditions privées figent les cartes et les candidats des tests publiés, indépendamment des corrections ultérieures du canon. La complétion des chapitres non découpés conserve les IDs et URLs ; ses résultats vivent dans `learning_progress_editions`, sans transférer les scores initiaux. Les anciennes parties conservent leur édition pour Bilan et Rejouer. Le contrat, les volumes conditionnels, les limites et la séquence migration → manifeste → publication sont détaillés dans [le second audit #92](phase-2-92/second-audit.md) et [le plan de déploiement](phase-2-92/README.md).
+
 Toutes les tables ont la RLS activée : un joueur lit le contenu historique, mais n'écrit que ses propres lignes, et uniquement via des fonctions SQL contrôlées pour tout ce qui touche au score.
 
 ## 5. Les modes de jeu, côté technique

@@ -28,7 +28,7 @@ let state: "full" | "empty" | "error" = "full";
 const api = createServer((req, res) => {
   const url = new URL(req.url!, "http://127.0.0.1");
   res.setHeader("Content-Type", "application/json");
-  if (url.pathname === "/rest/v1/rpc/get_chapter_cards")
+  if (["/rest/v1/rpc/get_chapter_cards","/rest/v1/rpc/get_chapter_cards_version"].includes(url.pathname))
     return res.end(
       JSON.stringify(
         cartes.filter(

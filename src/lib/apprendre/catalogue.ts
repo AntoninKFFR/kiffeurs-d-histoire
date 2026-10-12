@@ -1,11 +1,21 @@
-import catalogue from "./catalogue.json";
+import catalogue from "./structure.json";
 
-export type Chapitre = (typeof catalogue)[number];
+export type Chapitre = Omit<(typeof catalogue)[number], "etat"> & { etat: "actif" | "historique" | "inactif"; edition_active?:string; editions?:string[];edition_counts?:Record<string,{YEAR:number;MONTH:number;DAY:number}> };
 // Slugs figés et associés à THM, indépendants d'un index ou d'un futur libellé.
-export const CHAPITRES: Chapitre[] = catalogue;
+const REGISTRE: Chapitre[] = catalogue as Chapitre[];
+/** Résolution des anciens liens, bilans, sessions et Rejouer ; jamais les brouillons. */
+export const CHAPITRES = REGISTRE.filter(c => c.etat !== "inactif");
+export const CHAPITRES_ACTIFS = CHAPITRES.filter(c => c.etat === "actif");
+export const CHAPITRES_HISTORIQUES = CHAPITRES.filter(c => c.etat === "historique");
 export const NIVEAUX = [...new Map(CHAPITRES.map((c) => [c.niveauSlug, { slug: c.niveauSlug, nom: c.niveau }])).values()];
 export function cheminChapitre(c: Chapitre) {
   return `/apprendre/${c.niveauSlug}/${c.slug}`;
+}
+export function cheminEdition(c: Chapitre,version:string) {
+  return `${cheminChapitre(c)}/edition/${encodeURIComponent(version)}`;
+}
+export function editionConnue(c:Chapitre,version:string) {
+  return Boolean(c.editions?.length && (version===c.content_version || c.editions.includes(version)));
 }
 export function trouverChapitre(niveau: string, chapitre: string) {
   return CHAPITRES.find((c) => c.niveauSlug === niveau && c.slug === chapitre);
@@ -13,7 +23,7 @@ export function trouverChapitre(niveau: string, chapitre: string) {
 
 // Motifs existants de la charte : aucune jointure publique vers les événements.
 export function motifChapitre(id: string): string {
-  const n = Number(id.slice(4));
+  const n = Number((REGISTRE.find(c => c.id === id)?.parent_id ?? id).slice(4));
   if (n === 4) return "biface";
   if (n <= 6 || n === 17) return "colonne";
   if (n <= 10 || n === 18) return "donjon";

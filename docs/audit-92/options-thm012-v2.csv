@@ -1,0 +1,22 @@
+event_id,titre,date,cible_hypothetique,deja_dans_cible,statut
+EVT-0062,Prise de Constantinople par les Ottomans,29 mai 1453,THM-011,True,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0063,Débarquement de l'expédition de Colomb à Guanahaní,12 octobre 1492,THM-011,True,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0069,Début de la première circumnavigation,1519,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0070,Achèvement de la première circumnavigation par Elcano et la Victoria,6 septembre 1522,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0404,Départ de Marco Polo vers l’Asie,1271,THM-009,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0405,Retour de Marco Polo à Venise,1295,THM-009,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0414,Impression de la Bible de Gutenberg,vers 1455,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0064,Diffusion conventionnelle des 95 thèses de Martin Luther,31 octobre 1517,THM-011,True,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0072,Concile de Trente,1545-1563,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0073,Guerres de Religion en France,1562-1598,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0065,Édit de Nantes,13 avril 1598,THM-011,True,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0416,Création de l’Inquisition espagnole,1er novembre 1478,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0074,Fronde,1648-1653,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0075,Début du gouvernement personnel de Louis XIV,10 mars 1661,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0076,Édit de Fontainebleau / révocation de l’édit de Nantes,18 octobre 1685,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0077,Mort de Louis XIV,1er septembre 1715,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0411,Levée du siège d’Orléans par Jeanne d’Arc,8 mai 1429,THM-010,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0412,Sacre de Charles VII à Reims,17 juillet 1429,THM-010,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0413,Exécution de Jeanne d’Arc,30 mai 1431,THM-010,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0415,Mariage d’Isabelle de Castille et Ferdinand d’Aragon,19 octobre 1469,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés
+EVT-0417,Prise de Grenade par les Rois Catholiques,2 janvier 1492,THM-011,False,SCÉNARIO NON APPLIQUÉ ; titres/anciens liens conservés

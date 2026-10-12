@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
-import { CHAPITRES, cheminChapitre, NIVEAUX } from "@/lib/apprendre/catalogue";
+import { CHAPITRES, CHAPITRES_ACTIFS, CHAPITRES_HISTORIQUES, cheminChapitre, cheminEdition, NIVEAUX } from "@/lib/apprendre/catalogue";
 import { nombre, pourcentage } from "@/lib/profil/types";
 import { LIBELLE_DIFFICULTE, type Progression } from "@/lib/progression/types";
 import styles from "./Profil.module.css";
@@ -21,10 +21,10 @@ export function ProgressionPedagogique({ progression }: { progression: Progressi
 }
 
 function Parcours({ progression }: { progression: Progression }) {
-  const lignes = Object.values(progression.chapitres);
+  const lignes = CHAPITRES_ACTIFS.flatMap(c => progression.chapitres[c.id] ? [progression.chapitres[c.id]] : []);
   const decouverts = lignes.filter((p) => p.decouvert).length;
   const testes = lignes.filter((p) => p.precision != null).length;
-  if (!decouverts && !testes) {
+  if (!decouverts && !testes && !progression.historique?.length && !CHAPITRES_HISTORIQUES.some(c => progression.chapitres[c.id])) {
     return (
       <div className={styles.empty}>
         <h3 className={styles.heading}>Un premier chapitre, puis des repères.</h3>
@@ -36,12 +36,12 @@ function Parcours({ progression }: { progression: Progression }) {
   return (
     <>
       <p className={styles.muted}>
-        {nombre(decouverts)} chapitre{decouverts > 1 ? "s" : ""} découvert{decouverts > 1 ? "s" : ""} sur {CHAPITRES.length}
+        {nombre(decouverts)} chapitre{decouverts > 1 ? "s" : ""} découvert{decouverts > 1 ? "s" : ""} sur {CHAPITRES_ACTIFS.length}
         {" · "}{nombre(testes)} testé{testes > 1 ? "s" : ""}. Le meilleur test garde la précision la plus haute, quelle que soit la difficulté choisie.
       </p>
       <div className="grid gap-2">
         {NIVEAUX.map((n) => {
-          const chapitres = CHAPITRES.filter((c) => c.niveauSlug === n.slug);
+          const chapitres = CHAPITRES_ACTIFS.filter((c) => c.niveauSlug === n.slug);
           const vus = chapitres.filter((c) => progression.chapitres[c.id]?.decouvert).length;
           const essayes = chapitres.filter((c) => progression.chapitres[c.id]?.precision != null).length;
           return (
@@ -70,6 +70,33 @@ function Parcours({ progression }: { progression: Progression }) {
           );
         })}
       </div>
+      {CHAPITRES_HISTORIQUES.length > 0 && <section aria-label="Résultats historiques" className="grid gap-2">
+        <h3 className={styles.heading}>Tes résultats historiques</h3>
+        <p className={styles.muted}>Ces résultats restent conservés sur les anciens chapitres. Ils ne sont pas transférés aux nouvelles séquences.</p>
+        <ul className="m-0 grid list-none gap-2 p-0">
+          {CHAPITRES_HISTORIQUES.filter(c => progression.chapitres[c.id]).map(c => {
+            const p = progression.chapitres[c.id];
+            return <li key={c.id}>
+              <Link href={cheminChapitre(c)} className={styles.link}>{c.titre}</Link>
+              {p.decouvert && <Badge ton="sauge">Découvert</Badge>}
+              {p.precision != null && <Badge ton="laiton">Meilleur test : {pourcentage(p.precision)}{p.difficulte ? ` · ${LIBELLE_DIFFICULTE[p.difficulte]}` : ""}</Badge>}
+            </li>;
+          })}
+        </ul>
+      </section>}
+      {Boolean(progression.historique?.length) && <section aria-label="Éditions historiques" className="grid gap-2">
+        <h3 className={styles.heading}>Tes éditions historiques</h3>
+        <p className={styles.muted}>Chaque résultat reste associé aux cartes apprises dans cette édition.</p>
+        <ul className="m-0 grid list-none gap-2 p-0">{progression.historique?.map(h=>{
+          const c=CHAPITRES.find(c=>c.id===h.chapter_id);
+          if(!c) return null;
+          return <li key={`${c.id}@${h.version}`}>
+            <Link href={cheminEdition(c,h.version)} className={styles.link}>{c.titre} · {h.version===c.content_version?'avant complétion':'parcours complété'}</Link>
+            {h.progression.decouvert && <Badge ton="sauge">Découvert</Badge>}
+            {h.progression.precision!=null && <Badge ton="laiton">Meilleur test : {pourcentage(h.progression.precision)}{h.progression.difficulte?` · ${LIBELLE_DIFFICULTE[h.progression.difficulte]}`:""}</Badge>}
+          </li>;
+        })}</ul>
+      </section>}
       <Link href="/apprendre" className={styles.link}>Découvrir un chapitre →</Link>
     </>
   );

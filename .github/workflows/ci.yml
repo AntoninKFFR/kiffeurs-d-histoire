@@ -23,6 +23,7 @@ jobs:
       - run: python3 scripts/verifier-descriptions.py --exiger-revue-documentaire
       - run: python3 scripts/test-verifier-descriptions.py
       - run: npm test
+      - run: npx tsx scripts/build-structure-pedagogique.ts --check
       - run: npm run content:audit-plages -- --strict
       - run: npm run content:relecture-cartes -- --check
       - run: npm run lint
@@ -101,3 +102,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: scripts/tests-sql.sh
+
+  tests-sous-chapitres-local:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Postgres jetable dédié à #92
+        run: |
+          docker run -d --name kffr-issue92-phase2 --label kffr.audit=issue92-phase2 -e POSTGRES_PASSWORD=fixture-issue92 postgres:17
+          for attempt in $(seq 1 30); do
+            docker exec kffr-issue92-phase2 pg_isready -U postgres && exit 0
+            sleep 1
+          done
+          exit 1
+      - run: npx tsx scripts/test-sous-chapitres-local.ts --container kffr-issue92-phase2
+      - run: npx tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2
+      - if: always()
+        run: docker rm -f kffr-issue92-phase2

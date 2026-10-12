@@ -32,6 +32,7 @@ export type Choix = {
   chapitres?: string[];
   /** Test d'un seul chapitre lancé depuis « Découvrir » : sa précision alimente la progression pédagogique. */
   test?: true;
+  edition?: string;
   /** Questions « période » coupées (#94). Absent : activées, comme dans les anciens choix. */
   periodes?: false;
 };
@@ -140,6 +141,12 @@ export function lireChoix(champs: URLSearchParams): Choix | null {
     choix.chapitres = chapitres;
     // Test de chapitre : un seul chapitre, jeu de dates, assez de questions jouables pour que la précision veuille dire quelque chose.
     if (champs.get("test") === "chapitre" && chapitres.length === 1 && !choix.sens) {
+      const edition=champs.get("edition");
+      if (edition !== null) {
+        const c=CHAPITRES.find(c=>c.id===chapitres[0])!;
+        if (edition!==c.content_version && !c.editions?.includes(edition)) return null;
+        choix.edition=edition;
+      }
       const jouables = comptesDe({ ...choix, test: true })?.[difficulte];
       if (jouables != null && jouables < QUESTIONS_MIN_TEST) return null;
       choix.test = true;
@@ -163,6 +170,7 @@ export function ecrireChoix(choix: Choix): string {
   if (choix.theme) p.set("theme", choix.theme);
   if (choix.chapitres?.length) p.set("chapitres", choix.chapitres.join(","));
   if (choix.test) p.set("test", "chapitre");
+  if (choix.edition) p.set("edition", choix.edition);
   if (choix.periodes === false) p.set("periodes", "0");
   return p.toString();
 }
@@ -188,6 +196,7 @@ export function filtresDepuis(choix: Choix): SoloFilters {
   // Un chapitre peut compter moins de 10 cartes jouables : le test s'adapte (5 questions au minimum).
   if (choix.test) {
     f.chapterTest = true;
+    if (choix.edition) f.chapterVersion=choix.edition;
     f.questionCount = Math.min(QUESTIONS, comptesDe(choix)?.[choix.difficulte] ?? QUESTIONS);
   }
   return f;
@@ -197,11 +206,14 @@ export function filtresDepuis(choix: Choix): SoloFilters {
  * Nombre d'événements jouables par difficulté pour ce choix, d'après le dataset.
  * `null` quand on ne sait pas d'avance (période libre, chapitres) : le serveur tranchera.
  */
-export function comptesDe(choix: Pick<Choix, "mode" | "periode" | "pack" | "theme" | "chapitres" | "test" | "niveau" | "expertOnly">): Comptes | null {
+export function comptesDe(choix: Pick<Choix, "mode" | "periode" | "pack" | "theme" | "chapitres" | "test" | "edition" | "niveau" | "expertOnly">): Comptes | null {
   // Les dates distinctes Expert ne se déduisent pas de comptes cumulatifs : seule la RPC sait.
   if (choix.expertOnly) return null;
   // Test de chapitre : seulement les événements des cartes apprises.
-  if (choix.test && choix.chapitres?.length === 1) return CHAPITRES_JOUABLES[choix.chapitres[0]]?.t ?? null;
+  if (choix.test && choix.chapitres?.length === 1) {
+    const c=CHAPITRES_JOUABLES[choix.chapitres[0]];
+    return choix.edition ? c?.editions?.[choix.edition]?.t ?? c?.t ?? null : c?.t ?? null;
+  }
   // Décomptes cumulés par niveau : [Débutant, Intermédiaire, Toutes les questions].
   const i = (choix.niveau ?? NIVEAU_PAR_DEFAUT) - 1;
   if (choix.mode === "general") return catalogue.general[i];
@@ -221,7 +233,7 @@ export function comptesDe(choix: Pick<Choix, "mode" | "periode" | "pack" | "them
 }
 
 // n/b : tous les événements du chapitre ; t/tb : ceux de ses cartes pédagogiques (le test de chapitre).
-const CHAPITRES_JOUABLES = catalogue.chapitres as Record<string, { n: Comptes; b: number[]; t: Comptes; tb: number[] }>;
+const CHAPITRES_JOUABLES = catalogue.chapitres as Record<string, { n: Comptes; b: number[]; t: Comptes; tb: number[]; editions?: Record<string,{t:Comptes;tb:number[]}> }>;
 const versAstro = (annee: number) => (annee < 0 ? annee + 1 : annee);
 
 /**
@@ -236,7 +248,7 @@ export function bornesDe(choix: Choix): Vue | null {
   else if (choix.mode === "pack") b = PACKS.find((p) => p.id === choix.pack)?.b;
   else if (choix.mode === "theme") b = THEMES.find((t) => t.id === choix.theme)?.b;
   else if (choix.mode === "scolaire") {
-    const liste = (choix.chapitres ?? []).flatMap((id) => (choix.test ? CHAPITRES_JOUABLES[id]?.tb : CHAPITRES_JOUABLES[id]?.b) ?? []);
+    const liste = (choix.chapitres ?? []).flatMap((id) => (choix.test ? (choix.edition ? CHAPITRES_JOUABLES[id]?.editions?.[choix.edition]?.tb : CHAPITRES_JOUABLES[id]?.tb) : CHAPITRES_JOUABLES[id]?.b) ?? []);
     if (liste.length) b = [Math.min(...liste), Math.max(...liste)];
   }
   if (!b) return null;
@@ -283,6 +295,7 @@ export function relanceEnregistree(f: SoloFilters | null | undefined): string | 
     ...(mode === "periode" ? { periode: "libre", de: f.yearMin, a: f.yearMax } : {}),
     ...(f.packId ? { pack: f.packId } : {}), ...(f.tagId ? { theme: f.tagId } : {}),
     ...(f.chapterIds ? { chapitres: f.chapterIds } : {}), ...(f.chapterTest ? { test: true } : {}),
+    ...(f.chapterTest && f.chapterVersion ? {edition:f.chapterVersion} : {}),
     ...(f.periods === false ? { periodes: false as const } : {}) };
   const valide = lireChoix(new URLSearchParams(ecrireChoix(choix)));
   return valide ? ecrireChoix(valide) : null;

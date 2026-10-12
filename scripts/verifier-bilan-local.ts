@@ -24,7 +24,7 @@ const api = createServer(async (req, res) => {
   for await (const chunk of req) chunks.push(chunk);
   const texte = Buffer.concat(chunks).toString();
   const args = texte ? JSON.parse(texte) : {};
-  if (url.pathname === "/rest/v1/rpc/get_chapter_cards") return res.end(JSON.stringify(cartes.filter((c) => c.chapter_id === url.searchParams.get("p_chapter_id"))));
+  if (["/rest/v1/rpc/get_chapter_cards","/rest/v1/rpc/get_chapter_cards_version"].includes(url.pathname)) return res.end(JSON.stringify(cartes.filter((c) => c.chapter_id === url.searchParams.get("p_chapter_id"))));
   if (url.pathname === "/auth/v1/user") return res.end(JSON.stringify(user));
   if (url.pathname === "/rest/v1/profiles") return res.end(JSON.stringify({ username: "Antonin" }));
   const rpc = url.pathname.replace("/rest/v1/rpc/", "");

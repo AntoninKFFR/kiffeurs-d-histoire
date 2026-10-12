@@ -45,7 +45,8 @@ async function verifier() {
   const chapitres = lireCsv("content/dataset-v18/kiffeurs-themes-v18.csv");
   const { count: nombreChapitres, error: erreurChapitres } = await db.from("chapters").select("id", { count: "exact", head: true });
   assert.ifError(erreurChapitres);
-  assert.equal(nombreChapitres, 41);
+  assert.equal(nombreChapitres, 59);
+  assert.equal((await publicDb.from("chapters").select("id",{count:"exact",head:true})).count,41);
   assert.equal(new Set(cartes.map((c) => c.chapter_id)).size, 41);
   for (const carte of cartes.filter((c) => c.event_id)) {
     const e = lireCsv("content/dataset-v18/kiffeurs-events-v18.csv").find((e) => e.event_id === carte.event_id)!;
@@ -80,18 +81,18 @@ async function verifier() {
   const invalides = [...cartes.slice(0, -1), { ...cartes.at(-1)!, event_id: "EVT-INCONNU" }];
   await assert.rejects(importerCartesLocales(invalides, status.API_URL, status.SERVICE_ROLE_KEY));
   assert.deepEqual(await lire(), premier, "Lot partiellement supprimé après échec");
-  // Un chapitre absent du lot n'est jamais touché ; un ordre peut être permuté.
+  // Les chapitres publiés conservent leur ordre et toutes leurs cartes.
   const groupe = cartes.filter((c) => c.chapter_id === "THM-005");
   const permute = groupe.map((c) => ({ ...c, sort_order: c.sort_order === 2 ? 3 : c.sort_order === 3 ? 2 : c.sort_order }));
-  await importerCartesLocales(permute, status.API_URL, status.SERVICE_ROLE_KEY);
+  await assert.rejects(importerCartesLocales(permute, status.API_URL, status.SERVICE_ROLE_KEY));
   assert.deepEqual((await lire())!.filter((c) => c.chapter_id !== "THM-005"), premier!.filter((c) => c.chapter_id !== "THM-005"));
-  // Retirer une carte du CSV supprime réellement l'ancienne ligne de son chapitre.
-  await importerCartesLocales(groupe.slice(0, -1), status.API_URL, status.SERVICE_ROLE_KEY);
-  assert.equal((await lire())!.filter((c) => c.chapter_id === "THM-005").length, 7);
+  // Un retrait historique est refusé, même pour service_role.
+  await assert.rejects(importerCartesLocales(groupe.slice(0, -1), status.API_URL, status.SERVICE_ROLE_KEY));
+  assert.equal((await lire())!.filter((c) => c.chapter_id === "THM-005").length,8);
   await importerCartesLocales(cartes, status.API_URL, status.SERVICE_ROLE_KEY);
   assert.deepEqual(await lire(), premier);
   testerMigrationSommeLocale();
-  console.log(`OK : 2001 événements, 41 chapitres, ${cartes.length} cartes, références et dates v18, import idempotent/atomique, périmètre par chapitre, RPC sans event_id ni sources, table/oracle/réponses/alias/écritures anon et authenticated refusés.`);
+  console.log(`OK : 2001 événements, 41 chapitres publics/59 stockés/18 inactifs, ${cartes.length} cartes conservées, références et dates v18, import idempotent/atomique, retraits historiques refusés, RPC sans event_id ni sources, table/oracle/réponses/alias/écritures anon et authenticated refusés.`);
 }
 
 verifier().catch((e: unknown) => {

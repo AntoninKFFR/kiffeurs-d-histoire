@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { lancer } from "@/app/partie/actions";
-import { NIVEAUX } from "@/lib/apprendre/catalogue";
+import { NIVEAUX, CHAPITRES_ACTIFS } from "@/lib/apprendre/catalogue";
 import { CHAPITRES, DIFFICULTES, ecrireChoix, lireChoix, nombreQuestions, type Longueur } from "@/lib/solo/choix";
 import { LongueurPartie, useDisponibilite } from "./LongueurPartie";
 import { QuestionsPeriode } from "./QuestionsPeriode";
@@ -12,7 +12,7 @@ import styles from "./choix.module.css";
 
 const MEMOIRE = "histoire-choix-scolaire";
 const MEMOIRE_INVERSE = "histoire-choix-inverse-scolaire";
-const duNiveau = (niveau: string) => CHAPITRES.filter((c) => c.niveauSlug === niveau);
+const duNiveau = (niveau: string) => CHAPITRES_ACTIFS.filter((c) => c.niveauSlug === niveau);
 
 export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
   const memoire = inverse ? MEMOIRE_INVERSE : MEMOIRE;
@@ -43,7 +43,8 @@ export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
   };
   const basculer = (id: string) => setCoches((l) => (l.includes(id) ? l.filter((x) => x !== id) : [...l, id]));
 
-  const chapitres = niveau ? duNiveau(niveau) : [];
+  // Un ancien choix mémorisé reste lisible et rejouable, avec une indication claire.
+  const chapitres = niveau ? [...duNiveau(niveau),...CHAPITRES.filter(c => c.etat === "historique" && c.niveauSlug === niveau && coches.includes(c.id))] : [];
   const selection = lireChoix(new URLSearchParams({ mode: "scolaire", difficulte, chapitres: coches.join(","), longueur: String(longueur), ...(inverse ? { sens: "inverse" } : periodes ? {} : { periodes: "0" }) }));
   const disponibilite = useDisponibilite(selection);
   const comptes = disponibilite.comptes;
@@ -83,7 +84,7 @@ export function ChoixScolaire({ inverse = false }: { inverse?: boolean }) {
                 <label className={`${styles.tuile} ${styles.case}`}>
                   <input type="checkbox" checked={coches.includes(c.id)} onChange={() => basculer(c.id)} />
                   <span className={styles.coche} aria-hidden="true">{coches.includes(c.id) ? "✓" : ""}</span>
-                  <b>{c.titre}</b>
+                  <b>{c.titre}{c.etat === "historique" ? " · parcours historique" : ""}</b>
                 </label>
               </li>
             ))}

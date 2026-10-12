@@ -2,7 +2,7 @@ import Link from "next/link";
 import { lancer } from "@/app/partie/actions";
 import SaveGame from "@/app/partie/[id]/SaveGame";
 import type { SoloResult } from "@/lib/game/solo";
-import { cheminChapitre } from "@/lib/apprendre/catalogue";
+import { cheminChapitre, cheminEdition } from "@/lib/apprendre/catalogue";
 import { CHAPITRES, ecrireChoix, lireChoix, relanceEnregistree, libelleNiveau } from "@/lib/solo/choix";
 import { choixMystere } from "@/lib/solo/mystere";
 import { BoutonMystere } from "@/components/choix/BoutonMystere";
@@ -22,7 +22,7 @@ export function Bilan({ resultat, connecte, anonyme, relance }: Props) {
   const { game_id: id, questions, average_accuracy: precision } = resultat;
   const suite = `/partie/${id}`;
   const enregistre = relanceEnregistree(resultat.replay_filters);
-  const choix = (resultat.replay_filters?.mystery || resultat.replay_filters?.expertOnly !== undefined ? enregistre : relance) ?? enregistre ?? `mode=general&difficulte=${questions[0]?.unit ?? "YEAR"}`;
+  const choix = (resultat.replay_filters?.mystery || resultat.replay_filters?.expertOnly !== undefined || resultat.replay_filters?.chapterVersion ? enregistre : relance) ?? enregistre ?? `mode=general&difficulte=${questions[0]?.unit ?? "YEAR"}`;
   const origine = lireChoix(new URLSearchParams(choix));
   const mystere = origine?.mystere && (origine.mode === "pack" || origine.mode === "theme");
   const chapitreTeste = origine?.test ? CHAPITRES.find((c) => c.id === origine.chapitres?.[0]) : undefined;
@@ -36,14 +36,14 @@ export function Bilan({ resultat, connecte, anonyme, relance }: Props) {
     <form action={lancer}><input type="hidden" name="c" value={choix} /><button type="submit" className="replay">{mystere ? "Rejouer ce thème" : "Rejouer"} <span aria-hidden="true">↗</span></button></form>
     {mystere && origine && <BoutonMystere choix={ecrireChoix(choixMystere(origine))} relance />}
     <Link className="change-mode" href="/">Changer de mode</Link>
-    {chapitreTeste && <Link className="chapter-action" href={cheminChapitre(chapitreTeste)}>Revoir le chapitre</Link>}
+    {chapitreTeste && <Link className="chapter-action" href={origine?.edition && chapitreTeste.editions?.length?cheminEdition(chapitreTeste,origine.edition):cheminChapitre(chapitreTeste)}>Revoir le chapitre</Link>}
     <div className="save">
       {!connecte ? <p>Tu as joué sans compte : cette partie ne sera pas sauvegardée. <Link href={`/connexion?next=${encodeURIComponent(suite)}`} className="font-bold underline underline-offset-4">Se connecter pour la sauvegarder</Link></p>
         : anonyme ? <SaveGame gameId={id} /> : <p role="status">✓ Partie sauvegardée dans ton compte KFFR.</p>}
     </div>
     {/* Comme avant, la simple relecture depuis le profil ne réenregistre pas un test. */}
     {chapitreTeste && origine && relance && <div className="chapter-status"><EnregistrerTest chapitre={chapitreTeste.id} partie={id} precision={precision}
-      difficulte={origine.difficulte} connecte={connecte} anonyme={anonyme} /></div>}
+      difficulte={origine.difficulte} edition={origine.edition} connecte={connecte} anonyme={anonyme} /></div>}
   </div>;
   return <BilanInteractif resultat={resultat} contexte={contexte} actions={actions} />;
 }

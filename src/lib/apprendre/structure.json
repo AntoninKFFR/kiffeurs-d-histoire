@@ -1,0 +1,412 @@
+[
+  {
+    "id": "THM-001",
+    "titre": "Thème 1 — Le temps de la République",
+    "niveau": "CM2",
+    "niveauSlug": "cm2",
+    "slug": "thm-001-theme-1-le-temps-de-la-republique",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-002",
+    "titre": "Thème 2 — L’âge industriel en France",
+    "niveau": "CM2",
+    "niveauSlug": "cm2",
+    "slug": "thm-002-theme-2-l-age-industriel-en-france",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-003",
+    "titre": "Thème 3 — Guerres mondiales et construction européenne",
+    "niveau": "CM2",
+    "niveauSlug": "cm2",
+    "slug": "thm-003-theme-3-guerres-mondiales-et-construction-europeenne",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-004",
+    "titre": "Thème 1 — La longue histoire de l’humanité et des migrations",
+    "niveau": "6e",
+    "niveauSlug": "6e",
+    "slug": "thm-004-theme-1-la-longue-histoire-de-l-humanite-et-des-migrations",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-005",
+    "titre": "Thème 2 — Récits fondateurs, croyances et citoyenneté dans la Méditerranée antique",
+    "niveau": "6e",
+    "niveauSlug": "6e",
+    "slug": "thm-005-theme-2-recits-fondateurs-croyances-et-citoyennete-dans-la-mediterranee-antique",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-006",
+    "titre": "Thème 3 — L’Empire romain dans le monde antique",
+    "niveau": "6e",
+    "niveauSlug": "6e",
+    "slug": "thm-006-theme-3-l-empire-romain-dans-le-monde-antique",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-007",
+    "titre": "Thème 1 — Chrétientés et islam (VIe-XIIIe siècles), des mondes en contact",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-007-theme-1-chretientes-et-islam-vie-xiiie-siecles-des-mondes-en-contact",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-008",
+    "titre": "Événements complémentaires directement utiles au thème 1",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-008-evenements-complementaires-directement-utiles-au-theme-1",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-009",
+    "titre": "Thème 2 — Société, Église et pouvoir politique dans l'Occident féodal (XIe-XVe siècles)",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-009-theme-2-societe-eglise-et-pouvoir-politique-dans-l-occident-feodal-xie-xve-siecles",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-010",
+    "titre": "Autres événements directement exploitables pour le thème 2",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-010-autres-evenements-directement-exploitables-pour-le-theme-2",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-011",
+    "titre": "Thème 3 — Transformations de l'Europe et ouverture sur le monde aux XVIe et XVIIe siècles",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-011-theme-3-transformations-de-l-europe-et-ouverture-sur-le-monde-aux-xvie-et-xviie-siecles",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-012",
+    "titre": "Événements complémentaires directement utiles au thème 3",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-012-evenements-complementaires-directement-utiles-au-theme-3",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-013",
+    "titre": "Thème 1 — Le XVIIIe siècle. Expansions, Lumières et révolutions",
+    "niveau": "4e",
+    "niveauSlug": "4e",
+    "slug": "thm-013-theme-1-le-xviiie-siecle-expansions-lumieres-et-revolutions",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-014",
+    "titre": "Thème 2 — L'Europe et le monde au XIXe siècle",
+    "niveau": "4e",
+    "niveauSlug": "4e",
+    "slug": "thm-014-theme-2-l-europe-et-le-monde-au-xixe-siecle",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-015",
+    "titre": "Thème 3 — Société, culture et politique dans la France du XIXe siècle",
+    "niveau": "4e",
+    "niveauSlug": "4e",
+    "slug": "thm-015-theme-3-societe-culture-et-politique-dans-la-france-du-xixe-siecle",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-016",
+    "titre": "Thème 1 — L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-016-theme-1-l-europe-un-theatre-majeur-des-guerres-totales-1914-1945",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-017",
+    "titre": "Thème 2 — Le monde depuis 1945",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-017-theme-2-le-monde-depuis-1945",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-018",
+    "titre": "Thème 3 — Françaises et Français dans une République repensée",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-018-theme-3-francaises-et-francais-dans-une-republique-repensee",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-019",
+    "titre": "Thème 1 — Le monde méditerranéen : empreintes de l’Antiquité et du Moyen Âge",
+    "niveau": "Seconde générale et technologique",
+    "niveauSlug": "seconde",
+    "slug": "thm-019-theme-1-le-monde-mediterraneen-empreintes-de-l-antiquite-et-du-moyen-age",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-020",
+    "titre": "Thème 2 — XVe-XVIe siècles : un nouveau rapport au monde, un temps de mutation intellectuelle",
+    "niveau": "Seconde générale et technologique",
+    "niveauSlug": "seconde",
+    "slug": "thm-020-theme-2-xve-xvie-siecles-un-nouveau-rapport-au-monde-un-temps-de-mutation-intellectuelle",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-021",
+    "titre": "Thème 3 — L’État à l’époque moderne : France et Angleterre",
+    "niveau": "Seconde générale et technologique",
+    "niveauSlug": "seconde",
+    "slug": "thm-021-theme-3-l-etat-a-l-epoque-moderne-france-et-angleterre",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-022",
+    "titre": "Thème 4 — Dynamiques et ruptures dans les sociétés des XVIIe et XVIIIe siècles",
+    "niveau": "Seconde générale et technologique",
+    "niveauSlug": "seconde",
+    "slug": "thm-022-theme-4-dynamiques-et-ruptures-dans-les-societes-des-xviie-et-xviiie-siecles",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-024",
+    "titre": "Thème 1 — L’Europe face aux révolutions",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-024-theme-1-l-europe-face-aux-revolutions",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-025",
+    "titre": "Thème 2 — La France dans l’Europe des nationalités : politique et société (1848-1871)",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-025-theme-2-la-france-dans-l-europe-des-nationalites-politique-et-societe-1848-1871",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-026",
+    "titre": "Thème 3 — La Troisième République avant 1914 : un régime politique, un empire colonial",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-026-theme-3-la-troisieme-republique-avant-1914-un-regime-politique-un-empire-colonial",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-027",
+    "titre": "Thème 4 — La Première Guerre mondiale : le « suicide de l’Europe » et la fin des empires européens",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-027-theme-4-la-premiere-guerre-mondiale-le-suicide-de-l-europe-et-la-fin-des-empires-europeens",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-028",
+    "titre": "Thème 1 — Fragilités des démocraties, totalitarismes et Seconde Guerre mondiale (1929-1945)",
+    "niveau": "Terminale générale",
+    "niveauSlug": "terminale",
+    "slug": "thm-028-theme-1-fragilites-des-democraties-totalitarismes-et-seconde-guerre-mondiale-1929-1945",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-029",
+    "titre": "Thème 2 — La multiplication des acteurs internationaux dans un monde bipolaire (1945-début des années 1970)",
+    "niveau": "Terminale générale",
+    "niveauSlug": "terminale",
+    "slug": "thm-029-theme-2-la-multiplication-des-acteurs-internationaux-dans-un-monde-bipolaire-1945-debut-des-annees-1970",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-030",
+    "titre": "Thème 3 — Les remises en cause économiques, politiques et sociales des années 1970 à 1991",
+    "niveau": "Terminale générale",
+    "niveauSlug": "terminale",
+    "slug": "thm-030-theme-3-les-remises-en-cause-economiques-politiques-et-sociales-des-annees-1970-a-1991",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-031",
+    "titre": "Thème 4 — Le monde, l’Europe et la France depuis les années 1990, entre coopérations et conflits",
+    "niveau": "Terminale générale",
+    "niveauSlug": "terminale",
+    "slug": "thm-031-theme-4-le-monde-l-europe-et-la-france-depuis-les-annees-1990-entre-cooperations-et-conflits",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-036",
+    "titre": "Thème 1 — Comprendre un régime politique : la démocratie",
+    "niveau": "Première HGGSP",
+    "niveauSlug": "premiere-hggsp",
+    "slug": "thm-036-theme-1-comprendre-un-regime-politique-la-democratie",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-037",
+    "titre": "Thème 2 — Analyser les dynamiques des puissances internationales",
+    "niveau": "Première HGGSP",
+    "niveauSlug": "premiere-hggsp",
+    "slug": "thm-037-theme-2-analyser-les-dynamiques-des-puissances-internationales",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-038",
+    "titre": "Thème 3 — Étudier les divisions politiques du monde : les frontières",
+    "niveau": "Première HGGSP",
+    "niveauSlug": "premiere-hggsp",
+    "slug": "thm-038-theme-3-etudier-les-divisions-politiques-du-monde-les-frontieres",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-039",
+    "titre": "Thème 4 — S’informer : un regard critique sur les sources et modes de communication",
+    "niveau": "Première HGGSP",
+    "niveauSlug": "premiere-hggsp",
+    "slug": "thm-039-theme-4-s-informer-un-regard-critique-sur-les-sources-et-modes-de-communication",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-040",
+    "titre": "Thème 5 — Analyser les relations entre États et religions",
+    "niveau": "Première HGGSP",
+    "niveauSlug": "premiere-hggsp",
+    "slug": "thm-040-theme-5-analyser-les-relations-entre-etats-et-religions",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-041",
+    "titre": "Thème 1 — De nouveaux espaces de conquête",
+    "niveau": "Terminale HGGSP",
+    "niveauSlug": "terminale-hggsp",
+    "slug": "thm-041-theme-1-de-nouveaux-espaces-de-conquete",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-042",
+    "titre": "Thème 2 — Faire la guerre, faire la paix : formes de conflits et modes de résolution",
+    "niveau": "Terminale HGGSP",
+    "niveauSlug": "terminale-hggsp",
+    "slug": "thm-042-theme-2-faire-la-guerre-faire-la-paix-formes-de-conflits-et-modes-de-resolution",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-043",
+    "titre": "Thème 3 — Histoire et mémoires",
+    "niveau": "Terminale HGGSP",
+    "niveauSlug": "terminale-hggsp",
+    "slug": "thm-043-theme-3-histoire-et-memoires",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-044",
+    "titre": "Thème 4 — Identifier, protéger et valoriser le patrimoine : enjeux géopolitiques",
+    "niveau": "Terminale HGGSP",
+    "niveauSlug": "terminale-hggsp",
+    "slug": "thm-044-theme-4-identifier-proteger-et-valoriser-le-patrimoine-enjeux-geopolitiques",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-045",
+    "titre": "Thème 5 — L’environnement, entre exploitation et protection : un enjeu planétaire",
+    "niveau": "Terminale HGGSP",
+    "niveauSlug": "terminale-hggsp",
+    "slug": "thm-045-theme-5-l-environnement-entre-exploitation-et-protection-un-enjeu-planetaire",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  },
+  {
+    "id": "THM-046",
+    "titre": "Thème 6 — L’enjeu de la connaissance",
+    "niveau": "Terminale HGGSP",
+    "niveauSlug": "terminale-hggsp",
+    "slug": "thm-046-theme-6-l-enjeu-de-la-connaissance",
+    "parent_id": null,
+    "content_version": "legacy-v1",
+    "etat": "actif"
+  }
+]

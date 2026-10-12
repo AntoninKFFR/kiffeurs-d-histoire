@@ -24,6 +24,7 @@ export type SoloFilters = {
   // questionCount = 0 : « Tout », résolu atomiquement en 1 à 100 par start_game (#93).
   /** Test d'un chapitre : le serveur ne tire que parmi les événements de ses cartes pédagogiques. */
   chapterTest?: boolean;
+  chapterVersion?: string;
   /** Questions « période » (début et fin, #94). Absent : activées. Sans effet en inversé et en test. */
   periods?: boolean;
 };

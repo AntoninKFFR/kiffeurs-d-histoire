@@ -3,7 +3,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { CHAPITRES } from "@/lib/apprendre/catalogue";
-import { progressionDepuisLignes, type LigneProgression, type Progression } from "./types";
+import { progressionDepuisLignes, progressionParEditions, type LigneProgression, type Progression } from "./types";
 
 const CHAPITRES_CONNUS: ReadonlySet<string> = new Set(CHAPITRES.map((c) => c.id));
 export const chapitreConnu = (id: unknown): id is string => typeof id === "string" && CHAPITRES_CONNUS.has(id);
@@ -25,6 +25,12 @@ export async function lireProgressionJoueur(client?: SupabaseClient): Promise<Pr
   const { data, error } = await supabase.schema("histoire").from("learning_progress")
     .select("chapter_id, discovered_at, best_accuracy, best_difficulty, tests_count");
   if (error) throw new Error("Progression indisponible");
+  if (CHAPITRES.some(c=>c.editions?.length)) {
+    const {data: editions,error: erreurEditions}=await supabase.schema("histoire").from("learning_progress_editions")
+      .select("chapter_id, version, discovered_at, best_accuracy, best_difficulty, tests_count");
+    if (erreurEditions) throw new Error("Progression indisponible");
+    return {connecte:true,...progressionParEditions((data??[]) as LigneProgression[],(editions??[]) as (LigneProgression&{version:string})[],CHAPITRES)};
+  }
   return { connecte: true, chapitres: progressionDepuisLignes((data ?? []) as LigneProgression[], CHAPITRES_CONNUS) };
 }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CHAPITRES } from "@/lib/apprendre/catalogue";
+import { CHAPITRES_ACTIFS } from "@/lib/apprendre/catalogue";
 import { ChoisirChapitre } from "@/components/pedagogie/ChoisirChapitre";
 
 export const metadata: Metadata = { title: "Découvrir un chapitre · Kiffeurs d’Histoire" };
@@ -12,6 +12,6 @@ export default function Apprendre() {
       <h1 className="text-4xl leading-tight">Découvrir un chapitre</h1>
       <p className="m-0 max-w-prose text-encre-douce">Choisis ton niveau, puis explore les cartes et la frise de ton chapitre. Les dates sont visibles pour t’aider à réviser.</p>
     </header>
-    <ChoisirChapitre chapitres={CHAPITRES} />
+    <ChoisirChapitre chapitres={CHAPITRES_ACTIFS} />
   </main>;
 }

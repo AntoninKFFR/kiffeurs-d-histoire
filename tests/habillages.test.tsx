@@ -36,6 +36,34 @@ describe("habillageDe", () => {
     expect(habillageDe({ mode: "scolaire" }, { debut: -40000, fin: -9000 })).toBe("prehistoire");
   });
 
+  it("associe les douze autres habillages à leurs packs et thèmes", () => {
+    const pack = (id: string) => habillageDe({ mode: "pack", pack: id }, { debut: -3000, fin: 2030 });
+    const theme = (id: string) => habillageDe({ mode: "theme", theme: id }, { debut: -3000, fin: 2030 });
+    expect(pack("COL-0071")).toBe("sciences");
+    expect(theme("TAG-0127")).toBe("sciences");
+    expect(pack("COL-0072")).toBe("religions");
+    expect(theme("TAG-0120")).toBe("religions");
+    expect(pack("COL-0073")).toBe("droits");
+    expect(theme("TAG-0110")).toBe("droits");
+    expect(pack("COL-0074")).toBe("europe");
+    expect(pack("COL-0062")).toBe("europe");
+    expect(theme("TAG-0136")).toBe("europe");
+    expect(pack("COL-0075")).toBe("decolonisation");
+    expect(theme("TAG-0116")).toBe("decolonisation");
+    expect(pack("COL-0076")).toBe("environnement");
+    expect(theme("TAG-0134")).toBe("environnement");
+    expect(pack("COL-0069")).toBe("batailles");
+    expect(theme("TAG-0111")).toBe("batailles");
+    expect(pack("COL-0061")).toBe("france");
+    expect(theme("TAG-0132")).toBe("spectacle");
+    expect(theme("TAG-0107")).toBe("politique");
+    // Égypte et Rome n'ont pas encore de pack : réglées à la main (aperçu), jamais appliquées d'office.
+    for (const id of ["egypte", "rome"] as const) {
+      expect(estHabillage(id)).toBe(true);
+      expect([...HABILLAGES[id].packs, ...HABILLAGES[id].themes, ...HABILLAGES[id].periodes]).toEqual([]);
+    }
+  });
+
   it("applique aussi l'habillage à une partie dont les dates tiennent dans la plage (chapitre, sous-pack)", () => {
     expect(habillageDe({ mode: "scolaire" }, { debut: 1901, fin: 1931 })).toBe("tranchees");
     expect(habillageDe({ mode: "pack", pack: "COL-9999" }, { debut: -800, fin: -300 })).toBe("mosaique");

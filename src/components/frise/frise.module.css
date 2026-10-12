@@ -44,7 +44,16 @@
    Pour un fond sombre, la bande passe en thème de nuit de la charte : les dates, marqueurs et réponses prennent leurs
    couleurs claires, alors que les boîtes de la question et de la réponse gardent le thème normal. */
 .habille { border-color: color-mix(in srgb, var(--color-encre) 22%, transparent); }
-.bandeScene[data-theme], .bande[data-theme] { background: transparent; }
+.bandeScene[data-theme], .bande[data-theme], .zoneSous[data-theme] { background: transparent; }
+/* Halo : une bande du fond, très claire, derrière l'axe et les dates ; elle s'estompe en haut et en bas et laisse la scène visible ailleurs.
+   Pas de halo en thème de nuit : les dates claires sont déjà bien détachées du ciel sombre. */
+.habille:not([data-fond="sombre"]) .bandeScene::before, .habille:not([data-fond="sombre"]) .bande::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 128px; height: 160px; pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--frise-fond) 90%, transparent) 28%, color-mix(in srgb, var(--frise-fond) 90%, transparent) 72%, transparent 100%);
+}
+/* Axe plus épais et dates un peu plus grandes : la frise doit ressortir du décor. */
+.habille .axe { top: 208px; height: 6px; }
+.habille .etiquette { font-size: 18px; }
 
 /* Mode lecture : pas de réponse à poser, curseur de déplacement. */
 .lecture { cursor: grab; }

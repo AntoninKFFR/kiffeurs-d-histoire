@@ -1,6 +1,6 @@
 // Habillages de frise propres à certaines périodes (#97).
 // Un habillage est un petit jeu de réglages : un fond (couleur, trame, grande scène très pâle qui remplit tout l'écran)
-// et, pour la nuit, la variante sombre de la charte. Rien n'est posé sur la frise elle-même. Tout est en SVG léger
+// et les couleurs de la frise (axe, dates, époques) : thème de nuit pour l'espace, teintes propres à la période sinon. Rien n'est posé sur la frise elle-même. Tout est en SVG léger
 // (public/habillages/) et n'est chargé que quand une partie de la période est jouée.
 // Aucun habillage ne dépend de la date : le décor est le même sur toute la frise, il ne donne aucun indice.
 
@@ -11,8 +11,10 @@ export type Habillage = {
   nom: string;
   /** Période évoquée, pour l'aperçu et la documentation. */
   periode: string;
-  /** Fond sombre : la frise passe en thème de nuit de la charte (texte clair), sans toucher aux boîtes posées dessus. */
+  /** Fond sombre : la frise et la bande des époques passent en thème de nuit de la charte (texte clair), sans toucher aux boîtes posées dessus. */
   sombre: boolean;
+  /** Couleurs de la frise et de la bande des époques propres à l'habillage (variables de la charte redéfinies, thème clair). Vide pour le thème de nuit. */
+  palette: Record<string, string>;
   fond: {
     couleur: string;
     /** Valeur CSS de `background-image` : la scène plein écran d'abord (dessus), puis la trame et le dégradé. */
@@ -40,6 +42,16 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
     nom: "Tranchées",
     periode: "Première Guerre mondiale",
     sombre: false,
+    // Sépia et kaki : encre brune, époques en teintes de boue, d'ocre et d'olive. Le rouge coquelicot reste celui de la charte.
+    palette: {
+      "--color-encre": "#3a2d1f",
+      "--color-encre-douce": "#5a4a35",
+      "--color-epoque-prehistoire": "#d6cfb0",
+      "--color-epoque-antiquite": "#dfca98",
+      "--color-epoque-moyen-age": "#cdd1a6",
+      "--color-epoque-temps-modernes": "#dcbea0",
+      "--color-epoque-contemporaine": "#c8c6b2",
+    },
     fond: {
       couleur: "#efe6cd",
       image: `url(${DOSSIER}/tranchees-scene.svg), url(${DOSSIER}/tranchees-fond.svg)`,
@@ -59,6 +71,16 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
     nom: "Mosaïque",
     periode: "Antiquité",
     sombre: false,
+    // Terre cuite : encre brun-rouge, époques en ocre, terre cuite et turquoise passé.
+    palette: {
+      "--color-encre": "#4a2a1b",
+      "--color-encre-douce": "#6a4430",
+      "--color-epoque-prehistoire": "#dccfb2",
+      "--color-epoque-antiquite": "#ecc48c",
+      "--color-epoque-moyen-age": "#c6d3c0",
+      "--color-epoque-temps-modernes": "#e6b9a0",
+      "--color-epoque-contemporaine": "#b9cfce",
+    },
     fond: {
       couleur: "#f5ecd2",
       image: `url(${DOSSIER}/mosaique-scene.svg), url(${DOSSIER}/mosaique-fond.svg)`,
@@ -78,6 +100,7 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
     nom: "Ciel étoilé",
     periode: "Conquête spatiale",
     sombre: true,
+    palette: {},
     fond: {
       couleur: "#0d1630",
       image: `url(${DOSSIER}/espace-scene.svg), url(${DOSSIER}/espace-fond.svg), linear-gradient(180deg, #080e24 0%, #14224a 100%)`,

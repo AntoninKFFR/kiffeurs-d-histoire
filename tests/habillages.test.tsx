@@ -87,7 +87,8 @@ const melange = (dessus: string, dessous: string, alpha: number) =>
   `#${[0, 1, 2].map((i) => Math.round(canal(dessus, i) * alpha + canal(dessous, i) * (1 - alpha)).toString(16).padStart(2, "0")).join("")}`;
 
 describe.each(LISTE_HABILLAGES.map((h) => [h.id, h] as const))("lisibilité de l'habillage %s", (_id, h) => {
-  const th = h.sombre ? sombre : clair;
+  // Couleurs de la frise et de la bande des époques : charte (clair ou nuit) puis palette propre à l'habillage.
+  const th: Record<string, string> = { ...(h.sombre ? sombre : clair), ...Object.fromEntries(Object.entries(h.palette).map(([k, v]) => [k.replace("--color-", ""), v])) };
 
   it.each(["encre", "encre-douce", "oxyde"])("le texte « %s » des dates et réponses atteint 4,5:1 sur tous les fonds", (jeton) => {
     for (const fond of h.fondsPires) expect(contraste(th[jeton], fond), `${jeton} sur ${fond}`).toBeGreaterThanOrEqual(4.5);
@@ -97,6 +98,14 @@ describe.each(LISTE_HABILLAGES.map((h) => [h.id, h] as const))("lisibilité de l
     for (const epoque of EPOQUES) {
       const jeton = epoque.couleur.match(/--color-([\w-]+)/)![1];
       for (const fond of h.fondsPires) expect(contraste(th.encre, melange(th[jeton], fond, 0.62)), `${epoque.nom} sur ${fond}`).toBeGreaterThanOrEqual(4.5);
+    }
+  });
+
+  it("la bande des époques du bas (opaque) garde ses noms et ses dates lisibles", () => {
+    for (const epoque of EPOQUES) {
+      const jeton = epoque.couleur.match(/--color-([\w-]+)/)![1];
+      expect(contraste(th.encre, th[jeton]), `${epoque.nom} (nom)`).toBeGreaterThanOrEqual(4.5);
+      expect(contraste(th["encre-douce"], th[jeton]), `${epoque.nom} (date)`).toBeGreaterThanOrEqual(4.5);
     }
   });
 
@@ -152,6 +161,9 @@ describe("Frise habillée", () => {
     const nuit = container.querySelector('[data-theme="dark"]');
     expect(Boolean(nuit)).toBe(h.sombre);
     if (nuit) expect(racine.contains(nuit) && racine !== nuit).toBe(true);
+    // Les couleurs de l'habillage sont posées sur la bande de la frise.
+    const bande = container.querySelector(`.${s.bande}, .${s.bandeScene}`) as HTMLElement;
+    for (const [variable, valeur] of Object.entries(h.palette)) expect(bande.style.getPropertyValue(variable)).toBe(valeur);
     // Les motifs gravés de la V1 laissent la place à la scène de fond.
     expect(container.querySelector(`.${s.motif}`)).toBeNull();
   });

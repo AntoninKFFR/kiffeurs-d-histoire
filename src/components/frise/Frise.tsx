@@ -347,7 +347,7 @@ export function Frise({
         data-fond={hab?.sombre ? "sombre" : undefined}
         style={{
           ...(scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : null),
-          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, backgroundPosition: hab.fond.position } : null),
+          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, backgroundPosition: hab.fond.position, "--frise-fond": hab.fond.couleur } as React.CSSProperties : null),
         }}
         aria-label={
           selection
@@ -368,7 +368,7 @@ export function Frise({
               style={toutVoir && remplir ? { top: axeY + 10 } : undefined}>{outils}</div>
           </div>
         )}
-        <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined} data-theme={hab?.sombre ? "dark" : undefined}>
+        <div className={scene ? s.bandeScene : s.bande} style={{ ...(scene ? { top: decalage } : null), ...hab?.palette } as React.CSSProperties} data-theme={hab?.sombre ? "dark" : undefined}>
         {EPOQUES.map((ep) => {
           const l = X(ep.debut);
           const r = X(ep.fin);
@@ -557,7 +557,7 @@ export function Frise({
         </div>
         {scene && (
           <div ref={refBas} className={s.zoneBasScene}>
-            {sous != null && <div data-superposition data-sous className={s.zoneSous}>{sous}</div>}
+            {sous != null && <div data-superposition data-sous className={s.zoneSous} style={hab?.palette as React.CSSProperties | undefined} data-theme={hab?.sombre ? "dark" : undefined}>{sous}</div>}
             {bas != null && <div className={s.zoneBas}>{bas}</div>}
           </div>
         )}

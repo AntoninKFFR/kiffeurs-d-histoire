@@ -119,26 +119,16 @@ const crete = (base, amp, pas = 40) => {
   ecrire("mosaique-scene.svg", svg(1600, 900, monter(c)));
 }
 
-// Conquête spatiale : nébuleuses, Terre qui se lève sur l'horizon lunaire, planète à anneaux, fusée et satellite.
+// Conquête spatiale : peu d'éléments, pour ne pas charger l'écran : nébuleuses, une Terre qui se lève sur l'horizon lunaire.
 {
   let c = '<defs>';
   for (const [id, col] of [["n1", "#3552a8"], ["n2", "#6a3a9a"], ["n3", "#1c4a86"]]) c += `<radialGradient id="${id}"><stop offset="0" stop-color="${col}" stop-opacity=".3"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></radialGradient>`;
-  c += '<radialGradient id="t" cx=".35" cy=".35"><stop offset="0" stop-color="#5a9be0"/><stop offset=".6" stop-color="#1f56a8"/><stop offset="1" stop-color="#0c2a63"/></radialGradient>';
-  c += '<radialGradient id="p" cx=".35" cy=".35"><stop offset="0" stop-color="#e2c590"/><stop offset="1" stop-color="#6b4a2c"/></radialGradient></defs>';
+  c += '<radialGradient id="t" cx=".35" cy=".35"><stop offset="0" stop-color="#5a9be0"/><stop offset=".6" stop-color="#1f56a8"/><stop offset="1" stop-color="#0c2a63"/></radialGradient></defs>';
   c += '<circle cx="360" cy="240" r="480" fill="url(#n1)"/><circle cx="1250" cy="430" r="420" fill="url(#n2)"/><circle cx="800" cy="720" r="560" fill="url(#n3)"/>';
-  // orbite
-  c += '<ellipse cx="760" cy="360" rx="470" ry="110" transform="rotate(-10 760 360)" fill="none" stroke="#9db4d8" stroke-opacity=".16" stroke-width="2" stroke-dasharray="3 12"/>';
-  // planète à anneaux
-  c += '<g transform="rotate(-18 250 330)"><ellipse cx="250" cy="330" rx="170" ry="34" fill="none" stroke="#d9c08a" stroke-opacity=".28" stroke-width="11"/><circle cx="250" cy="330" r="80" fill="url(#p)" fill-opacity=".6"/><path d="M80 330A170 34 0 0 0 420 330" fill="none" stroke="#d9c08a" stroke-opacity=".34" stroke-width="11"/></g>';
-  // Spoutnik
-  c += '<g transform="translate(780 300) rotate(-12)" stroke="#cfd8ee" stroke-opacity=".6" stroke-width="2" fill="none"><circle r="15" fill="#cfd8ee" fill-opacity=".45" stroke="none"/><path d="M-12 -5l-60 -30M-12 5l-60 30M12 -5l60 -30M12 5l60 30"/></g>';
-  // fusée à trois étages et traînée
-  c += '<g transform="translate(470 430) rotate(24)" fill="#cfd8ee" fill-opacity=".3"><path d="M-8 60V-30l8 -22l8 22V60z"/><path d="M-8 60l-12 20h40l-12 -20z" fill-opacity=".4"/><rect x="-8" y="-8" width="16" height="3" fill="#0d1630"/><path d="M-6 80q6 40 0 80q-6 -40 0 -80z" fill="#f2c26b" fill-opacity=".22"/></g>';
-  // surface lunaire et Terre qui se lève
-  c += '<circle cx="1230" cy="330" r="90" fill="url(#t)" fill-opacity=".62"/><path d="M1170 310c16-16 32-12 46-24c-5 21 6 32-5 53c-16 6-32-8-41-29zM1250 360c19-5 40 8 56-5c-3 21-24 37-46 35c-8-11-11-21-10-30z" fill="#4f8a58" fill-opacity=".4"/>';
+  // Terre qui se lève
+  c += '<g transform="translate(-60 50)"><circle cx="1230" cy="330" r="90" fill="url(#t)" fill-opacity=".62"/><path d="M1170 310c16-16 32-12 46-24c-5 21 6 32-5 53c-16 6-32-8-41-29zM1250 360c19-5 40 8 56-5c-3 21-24 37-46 35c-8-11-11-21-10-30z" fill="#4f8a58" fill-opacity=".4"/></g>';
+  // horizon lunaire et cratères
   c += `<path d="${crete(640, 36, 60)}" fill="#050a18" fill-opacity=".92"/>`;
   c += '<g fill="none" stroke="#9db4d8" stroke-opacity=".22" stroke-width="2"><ellipse cx="260" cy="700" rx="90" ry="14"/><ellipse cx="760" cy="830" rx="130" ry="18"/><ellipse cx="1260" cy="780" rx="100" ry="13"/><ellipse cx="520" cy="880" rx="60" ry="9"/></g>';
-  // module lunaire et drapeau
-  c += '<g fill="#cfd8ee" fill-opacity=".34"><path d="M820 590h46l8 20h-62zM832 570h22v20h-22z"/><path d="M826 610l-14 22M868 610l14 22" stroke="#cfd8ee" stroke-opacity=".34" stroke-width="3"/><rect x="1180" y="560" width="3" height="46"/><rect x="1183" y="560" width="30" height="20" fill-opacity=".5"/></g>';
-  ecrire("espace-scene.svg", svg(1600, 900, monter(c)));
+ecrire("espace-scene.svg", svg(1600, 900, monter(c)));
 }

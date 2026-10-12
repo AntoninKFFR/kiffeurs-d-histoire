@@ -2,7 +2,7 @@
 
 ## Second audit : contrôles après intégration de main
 
-Base intégrée : `2e09a4c257eb83ff4e401c65411dcc1229cc5a55`, #110 et #113 inclus par rebase. La branche d'audit `ed5a682` reste intacte. Les résultats du premier audit ci-dessous constituent l'historique ; les contrôles suivants sont ceux de la préparation corrigée.
+Bases intégrées : `2e09a4c257eb83ff4e401c65411dcc1229cc5a55` (#110 et #113), puis `dafb4274a03719f3e4cb0e4a71fd8b6187003419` après l'arrivée de #115. La branche d'audit `ed5a682` reste intacte. Les résultats du premier audit ci-dessous constituent l'historique ; les contrôles suivants sont ceux de la préparation corrigée.
 
 - Plan exact : **27 chapitres non découpés / 104 ajouts**, comparé à l'inventaire CSV de l'audit. Validation TypeScript de toutes les fixtures, dates/textes incohérents refusés.
 - PostgreSQL 17 : staging répété des 104 ajouts dans 27 éditions, sans nouveau chapitre ni modification des 325 cartes. Publication contrôlée d'une complétion, score initial 83 conservé et résultat nouveau 50 séparé ; idempotence et RLS A/B ; rollback sans perte. Aucun brouillon de complétion exposé.
@@ -12,7 +12,7 @@ Base intégrée : `2e09a4c257eb83ff4e401c65411dcc1229cc5a55`, #110 et #113 inclu
 - Immutabilité : corrections de date/mode et retrait canonique valides n'affectent pas l'édition initiale, l'ancien bilan, sa relance, les réponses enregistrées ou le score. Une complétion publiée reste rejouable après correction ; son réimport identique reste un no-op.
 - Application : progression active/historique par édition sans transfert ; Rejouer conserve la version, même si une ancienne URL de lancement lui est donnée ; session anonyme isolée par édition. Les futurs exports conservés sont vérifiés contre les instantanés avant de produire leurs empreintes.
 - Navigateurs locaux : Bilan, **66 cas/formats** et interactions, puis Sous-packs desktop/mobile réussis avec leurs builds. Le premier passage CI a révélé deux fixtures HTTP limitées à l'ancienne RPC de cartes ; elles acceptent maintenant aussi la RPC d'édition explicite, comme les fixtures Apprendre/Profil. Aucun assouplissement du contrat SQL ou des assertions navigateur.
-- Suite SQL existante complète sur base jetable : réussie, y compris les quatre tests de concurrence et les modes Libre/Inversé. Build intégré : réussi, 41 routes initiales et 69 pages, seul avertissement Big Shoulders préexistant. Lint et types : réussis. Vitest : **51 fichiers, 576 tests réussis** ; import de descriptions : **6 tests réussis**. Registre préparé conforme au contrôle `--check`.
+- Suite SQL existante complète sur base jetable : réussie, y compris les quatre tests de concurrence et les modes Libre/Inversé. Build intégré : réussi, 41 routes initiales et 69 pages, seul avertissement Big Shoulders préexistant. Lint et types : réussis. Vitest : **51 fichiers, 661 tests réussis** après intégration de #115 (576 lors du premier passage sur #113) ; import de descriptions : **6 tests réussis**. Registre préparé conforme au contrôle `--check`.
 
 Les cartes, signatures et publications utilisés ci-dessus sont exclusivement des fixtures de contrats, avec des textes existants repris. Aucune nouvelle carte pédagogique ou illustration, aucun changement canonique dans le dépôt ni SQL distant.
 

@@ -44,7 +44,7 @@ const api = createServer(async (req,res) => {
   res.setHeader("Content-Type","application/json");
   const chunks=[]; for await (const c of req) chunks.push(c);
   const args = chunks.length ? JSON.parse(Buffer.concat(chunks).toString()) : {};
-  if (url.pathname.endsWith("get_chapter_cards")) return res.end(JSON.stringify(cartes.filter(c=>c.chapter_id===url.searchParams.get("p_chapter_id"))));
+  if (["/rest/v1/rpc/get_chapter_cards","/rest/v1/rpc/get_chapter_cards_version"].includes(url.pathname)) return res.end(JSON.stringify(cartes.filter(c=>c.chapter_id===url.searchParams.get("p_chapter_id"))));
   if (url.pathname.endsWith("playable_packs")) return res.end(JSON.stringify(packs.filter(p=>!args.p_pack_id || p.id===args.p_pack_id).map(p=>{
     const s=sport.packs.find(s=>s.id===p.id);
     if(sportDemande && s && args.p_expert_only) return {...p,comptes:comptesSport(p.id,args.p_direction==="inverse",true)};

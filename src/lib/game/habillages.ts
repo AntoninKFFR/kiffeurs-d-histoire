@@ -22,8 +22,10 @@ export type Habillage = {
   };
   /** Couleurs les plus défavorables sous les dates : le fond et ses trames les plus marquées (aplats, pas les traits de 1 px), pour le contrôle de contraste (tests). */
   fondsPires: string[];
-  /** Décor d'horizon : tuile SVG répétée sur la largeur, posée juste au-dessus de la bande des époques. */
-  horizon: { url: string; hauteur: number; tuile: number };
+  /** Décor d'horizon : tuile SVG répétée sur la largeur, en arrière-plan très discret au-dessus de la bande des époques. */
+  horizon: { url: string; hauteur: number; tuile: number; opacite: number };
+  /** Petit détail posé sur l'axe à chaque graduation (piquet, colonne, étoile) : la frise reste au premier plan. */
+  detail: string;
   /** Où il s'applique, voir `habillageDe`. */
   packs: string[];
   themes: string[];
@@ -43,7 +45,8 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
     sombre: false,
     fond: { couleur: "#e8dec3", image: `url(${DOSSIER}/tranchees-fond.svg)`, taille: "240px 240px", repetition: "repeat" },
     fondsPires: ["#e8dec3", "#ded2b5"], // le fond, puis sous la tache de trame la plus marquée
-    horizon: { url: `${DOSSIER}/tranchees-horizon.svg`, hauteur: 110, tuile: 480 },
+    horizon: { url: `${DOSSIER}/tranchees-horizon.svg`, hauteur: 110, tuile: 480, opacite: 0.4 },
+    detail: `${DOSSIER}/tranchees-detail.svg`,
     packs: ["COL-0063"],
     themes: [],
     periodes: [],
@@ -57,7 +60,8 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
     sombre: false,
     fond: { couleur: "#efe4c6", image: `url(${DOSSIER}/mosaique-fond.svg)`, taille: "96px 96px", repetition: "repeat" },
     fondsPires: ["#efe4c6", "#e5d1b2", "#e2d4b4"], // le fond, puis sous les tesselles les plus marquées
-    horizon: { url: `${DOSSIER}/mosaique-horizon.svg`, hauteur: 110, tuile: 400 },
+    horizon: { url: `${DOSSIER}/mosaique-horizon.svg`, hauteur: 110, tuile: 400, opacite: 0.4 },
+    detail: `${DOSSIER}/mosaique-detail.svg`,
     packs: ["COL-0078"],
     themes: [],
     periodes: ["antiquite"],
@@ -76,7 +80,8 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
       repetition: "repeat, no-repeat",
     },
     fondsPires: ["#080e24", "#14224a"], // les deux bouts du dégradé du ciel
-    horizon: { url: `${DOSSIER}/espace-horizon.svg`, hauteur: 110, tuile: 600 },
+    horizon: { url: `${DOSSIER}/espace-horizon.svg`, hauteur: 110, tuile: 600, opacite: 0.55 },
+    detail: `${DOSSIER}/espace-detail.svg`,
     packs: ["COL-0070"],
     themes: ["TAG-0130"],
     periodes: [],

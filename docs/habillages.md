@@ -1,7 +1,8 @@
 # Habillages de frise par période (#97)
 
 Quand on joue un pack, un thème ou une période liée à une époque retenue, la frise prend l'habillage de cette époque :
-un fond (couleur, trame), un décor d'horizon posé sur la bande des époques, parfois la variante de nuit de la charte.
+un fond (couleur, trame), un décor d'horizon très discret en arrière-plan, de petits détails posés sur l'axe, parfois la variante de nuit de la charte.
+La frise (axe, dates, repères, réponse) reste toujours au premier plan : l'habillage n'est qu'un fond.
 Sans habillage, la frise reste celle de la V1.
 
 > **Choix provisoires.** L'issue #86 (périodes retenues et exemple de Maxou) n'était pas tranchée au moment du développement.
@@ -30,15 +31,17 @@ Il n'est pas appliqué à la frise du bilan ni à « Découvrir » (cartes péda
 ## Mécanique
 
 - `Frise` reçoit `habillage` (identifiant). Le fond est posé sur la racine de la frise (couleur, trame SVG, dégradé) ;
-  le décor est un `div` sans interaction (`pointer-events: none`, `aria-hidden`) dont l'image est une tuile SVG répétée,
-  posée juste au-dessus de la bande des époques. Il grandit avec le ciel sur les grands écrans et disparaît sur un écran bas
+  le décor d'horizon est un `div` sans interaction (`pointer-events: none`, `aria-hidden`) dont l'image est une tuile SVG répétée,
+  en arrière-plan à 40-55 % d'opacité, juste au-dessus de la bande des époques. Il grandit avec le ciel sur les grands écrans et disparaît sur un écran bas
   (téléphone couché) pour ne pas passer sous la question.
+- Petits détails sur la frise : à chaque graduation, un petit motif (piquet de barbelés avec un coquelicot, colonne, étoile) se pose sur l'axe,
+  au-dessus de la ligne, loin des dates qui sont dessous. Les noms d'époques passent par-dessus avec un halo de la couleur du fond.
 - Le décor glisse lentement (parallaxe) quand on parcourt la frise, selon la place de la vue dans la période jouée.
   Il ne dépend jamais de la date visible ni de la réponse : **il ne donne aucun indice**. Les motifs gravés de la V1 (qui varient avec l'époque) laissent la place au décor.
 - Les bandeaux d'époques deviennent translucides pour laisser voir le fond ; leur texte reste opaque.
 - Fond sombre (`espace`) : la bande de la frise passe en thème de nuit (`data-theme="dark"`), donc dates, repères et marqueurs prennent
   leurs couleurs claires. La question, « Quitter » et les boîtes du bas gardent le thème normal, sur une carte claire opaque (`data-fond="sombre"` dans `partie.module.css`).
-- Poids : six SVG de 0,6 à 5,6 Ko (moins de 24 Ko en tout), chargés seulement quand la période est jouée (le fond est une image CSS posée en ligne, pas une image de page).
+- Poids : neuf SVG de 0,2 à 5,6 Ko (moins de 26 Ko en tout), chargés seulement quand la période est jouée (le fond est une image CSS posée en ligne, pas une image de page).
   Ils sont produits par `scripts/generer-habillages.mjs` (déterministe).
 
 ## Lisibilité

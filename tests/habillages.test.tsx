@@ -53,7 +53,7 @@ describe("habillageDe", () => {
 // ---------- Poids et indépendance des SVG ----------
 
 describe("fichiers d'habillage", () => {
-  const fichiers = LISTE_HABILLAGES.flatMap((h) => [h.horizon.url, h.fond.image.match(/url\(([^)]+)\)/)![1]]);
+  const fichiers = LISTE_HABILLAGES.flatMap((h) => [h.horizon.url, h.detail, h.fond.image.match(/url\(([^)]+)\)/)![1]]);
 
   it("sont de petits SVG autonomes, chargés seulement quand la période est jouée", () => {
     let total = 0;

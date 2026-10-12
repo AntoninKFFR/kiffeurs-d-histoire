@@ -88,3 +88,13 @@ const ecrire = (nom, s) => { writeFileSync(`${sortie}/${nom}`, s); console.log(n
   c += '<g fill="none" stroke="#9db4d8" stroke-opacity=".28" stroke-width="1"><ellipse cx="120" cy="102" rx="26" ry="3"/><ellipse cx="300" cy="104" rx="38" ry="3.5"/><ellipse cx="520" cy="103" rx="20" ry="2.5"/></g>';
   ecrire("espace-horizon.svg", svg(600, 110, c));
 }
+
+// ---------- Petits détails posés sur l'axe, aux graduations majeures (18×24) ----------
+ecrire("tranchees-detail.svg", svg(18, 24,
+  '<rect x="8" y="7" width="2" height="17" fill="#3a2d1f"/><path d="M1 12l2-3 2 3 2-3 2 3 2-3 2 3 2-3 1 2M1 18l2 3 2-3 2 3 2-3 2 3 2-3 2 3 1-2" stroke="#3a2d1f" stroke-width="1" fill="none"/>'
+  + '<circle cx="9" cy="4" r="3" fill="#8a2f2b"/><circle cx="9" cy="4" r="1" fill="#2a1d14"/>'));
+ecrire("mosaique-detail.svg", svg(18, 24,
+  '<g fill="#6e4328"><rect x="2" y="2" width="14" height="3"/><rect x="3" y="5" width="12" height="2"/><rect x="5" y="7" width="8" height="13"/><rect x="2" y="20" width="14" height="3"/></g>'
+  + '<path d="M7.5 8v11M10.5 8v11" stroke="#f4ead0" stroke-opacity=".6" stroke-width="1"/>'));
+ecrire("espace-detail.svg", svg(18, 24,
+  '<path d="M9 5l1.8 6.2L17 13l-6.2 1.8L9 21l-1.8-6.2L1 13l6.2-1.8z" fill="#f2efe2"/><circle cx="9" cy="13" r="7" fill="#f2efe2" fill-opacity=".12"/>'));

@@ -357,7 +357,7 @@ export function Frise({
         data-fond={hab?.sombre ? "sombre" : undefined}
         style={{
           ...(scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : null),
-          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition } : null),
+          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, "--detail-axe": `url(${hab.detail})`, "--frise-fond": hab.fond.couleur } : null),
         }}
         aria-label={
           selection
@@ -384,6 +384,7 @@ export function Frise({
             className={s.horizon}
             aria-hidden="true"
             style={{
+              opacity: hab.horizon.opacite,
               height: hauteurHorizon,
               top: 172 - hauteurHorizon, // pose le décor sur le bandeau des époques (172 px dans la bande)
               backgroundImage: `url(${hab.horizon.url})`,

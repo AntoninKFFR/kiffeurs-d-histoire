@@ -41,7 +41,7 @@ it("oublie immédiatement le décompte du niveau précédent et ignore une répo
   mocks.compter.mockReturnValueOnce(new Promise((resolve) => { terminer = resolve; }));
   render(<ChoixSolo />);
   await waitFor(() => expect(mocks.compter).toHaveBeenCalledTimes(1));
-  fireEvent.click(screen.getByRole("button", { name: /^Expert/ }));
+  fireEvent.click(screen.getByRole("button", { name: /^Intermédiaire/ }));
   await screen.findByText(/42 questions réellement jouables/);
   terminer({ YEAR: 1, MONTH: 0, DAY: 0 });
   await waitFor(() => expect(longueurs().getByRole("button", { name: /^20 questions/ }).getAttribute("disabled")).toBeNull());

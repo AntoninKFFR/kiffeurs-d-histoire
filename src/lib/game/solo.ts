@@ -1,7 +1,7 @@
 // Contrat des RPC solo. Le calcul et les transitions restent entièrement en SQL.
 export type SoloDifficulty = "YEAR" | "MONTH" | "DAY";
 export type SoloDirection = "date" | "inverse";
-/** Niveau de la partie : 1 Débutant, 2 Intermédiaire (niveaux 1 et 2), 3 Expert (tous les événements). */
+/** Contrat cumulatif : 1, 1+2, 1+2+3. Expert exclusif exige expertOnly en plus de 3. */
 export type SoloNiveau = 1 | 2 | 3;
 export type SoloFilters = {
   /** Tirage mystère, ou relance du gagnant si packId/tagId est fourni. */
@@ -18,6 +18,8 @@ export type SoloFilters = {
   difficulty?: SoloDifficulty;
   /** Absent : aucun filtre de niveau (mode scolaire). */
   niveau?: SoloNiveau;
+  /** Niveau 3 exclusivement ; absent/false : contrat cumulatif historique. */
+  expertOnly?: boolean;
   questionCount?: number;
   // questionCount = 0 : « Tout », résolu atomiquement en 1 à 100 par start_game (#93).
   /** Test d'un chapitre : le serveur ne tire que parmi les événements de ses cartes pédagogiques. */

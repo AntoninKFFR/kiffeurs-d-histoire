@@ -61,18 +61,23 @@ async function mesurer(name: string, args: Record<string, unknown>) {
 }
 
 export async function startGame(filters: SoloFilters = {}): Promise<SoloGame> {
+  if (filters.expertOnly && (filters.niveau !== 3 || filters.chapterTest || filters.chapterIds?.length || filters.levelId)) {
+    throw new Error("Choix Expert invalide.");
+  }
   const account = await getAccount();
   if (account && !account.username) throw new Error("Choisis ton pseudo KFFR dans le profil avant de lancer une partie connectée.");
   const token = randomBytes(32).toString("hex");
   // Questions période (#94) : seulement en jeu de dates, hors test de chapitre. Signature dédiée côté SQL.
   const periodes = filters.direction !== "inverse" && !filters.chapterTest ? { p_periodes: filters.periods ?? true } : {};
+  // La nouvelle surcharge exige ces deux indicateurs ; les anciens appels restent identiques.
+  const expert = filters.expertOnly ? { p_expert_only: true, p_periodes: filters.direction === "inverse" ? false : filters.periods ?? true } : {};
   // Test de chapitre : fonction dédiée, qui ne tire que parmi les événements des cartes du chapitre.
   const game = filters.mystery
     ? await rpc<SoloGame>("start_mystery_game", {
       p_token: token, p_niveau: filters.niveau ?? 1,
       p_difficulty: filters.difficulty ?? "YEAR", p_direction: filters.direction ?? "date",
       p_question_count: filters.questionCount ?? 10,
-      p_pack_id: filters.packId ?? null, p_tag_id: filters.tagId ?? null, ...periodes,
+      p_pack_id: filters.packId ?? null, p_tag_id: filters.tagId ?? null, ...periodes, ...expert,
     })
     : filters.chapterTest && filters.chapterIds?.length === 1
     ? await rpc<SoloGame>("start_chapter_test", {
@@ -94,6 +99,7 @@ export async function startGame(filters: SoloFilters = {}): Promise<SoloGame> {
       p_direction: filters.direction ?? "date",
       ...(filters.niveau ? { p_niveau: filters.niveau } : {}),
       ...periodes,
+      ...expert,
     });
   if (game.anonymous) {
     (await cookies()).set(cookieName(game.game_id), token, {

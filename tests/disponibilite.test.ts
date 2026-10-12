@@ -17,6 +17,10 @@ it("refuse les entrées invalides avant une RPC", async () => {
   await expect(compterQuestions("mode=general&difficulte=YEAR&longueur=101")).rejects.toThrow("Choix de partie invalide");
   expect(mocks.rpc).not.toHaveBeenCalled();
 });
+it("Expert envoie le filtre exact, y compris en inversé, sans soustraire de comptes", async () => {
+  await compterQuestions("mode=pack&pack=COL-0105&difficulte=DAY&niveau=3&expertOnly=1&sens=inverse");
+  expect(mocks.rpc).toHaveBeenCalledWith("available_questions",expect.objectContaining({p_niveau:3,p_expert_only:true,p_direction:"inverse",p_pack_id:"COL-0105"}));
+});
 it("masque les erreurs SQL et refuse un décompte corrompu", async () => {
   mocks.rpc.mockResolvedValueOnce({ data: null, error: { message: "secret SQL" } });
   await expect(compterQuestions("mode=general&difficulte=YEAR")).rejects.toThrow("momentanément indisponible");

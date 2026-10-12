@@ -7,9 +7,10 @@ import { preparerMystere } from "@/app/solo/mystere";
 import type { TirageMystere } from "@/lib/solo/mystere";
 import { RouletteMystere } from "./RouletteMystere";
 import styles from "./mystere.module.css";
+import choixStyles from "./choix.module.css";
 
-export function BoutonMystere({ choix, relance = false, memoriser }: {
-  choix: string; relance?: boolean; memoriser?: (c: string) => void;
+export function BoutonMystere({ choix, relance = false, memoriser, resume }: {
+  choix: string; relance?: boolean; memoriser?: (c: string) => void; resume?: React.ReactNode;
 }) {
   const router = useRouter();
   const verrou = useRef(false);
@@ -31,11 +32,12 @@ export function BoutonMystere({ choix, relance = false, memoriser }: {
       } catch { setErreur({ texte: "Le thème mystère est momentanément indisponible. Réessaie dans un instant." }); verrou.current = false; }
     });
   }
-  return <div className={styles.action}>
-    <button type="button" className={styles.bouton} onClick={lancer} disabled={attente || Boolean(tirage)}>
-      <span aria-hidden="true">✦</span> {attente ? "Préparation du tirage…" : relance ? "Relancer la roulette" : "Thème mystère"}
+  return <div className={resume !== undefined ? choixStyles.lancer : styles.action}>
+    {resume !== undefined && <p className={choixStyles.resume}>{resume}</p>}
+    <button type="button" className={resume !== undefined ? choixStyles.jouer : styles.bouton} onClick={lancer} disabled={attente || Boolean(tirage)}>
+      {resume === undefined && <span aria-hidden="true">✦</span>} {attente ? "Préparation du tirage…" : resume !== undefined ? "Jouer" : relance ? "Relancer la roulette" : "Thème mystère"}
     </button>
-    {!relance && <small>Un pack ou un thème surprise, avec ton niveau, ta précision et ta longueur.</small>}
+    {!relance && resume === undefined && <small>Un pack ou un thème surprise, avec ton niveau, ta précision et ta longueur.</small>}
     {erreur && <p role="alert">{erreur.texte} {erreur.profil && <Link href={erreur.profil}>Compléter mon profil</Link>}</p>}
     {tirage && <RouletteMystere tirage={tirage} terminer={terminer} />}
   </div>;

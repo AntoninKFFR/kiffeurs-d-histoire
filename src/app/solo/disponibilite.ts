@@ -14,6 +14,7 @@ export async function compterQuestions(texte: string): Promise<Comptes> {
     p_year_min: f.yearMin ?? null, p_year_max: f.yearMax ?? null,
     p_level_id: f.levelId ?? null, p_chapter_ids: f.chapterIds ?? null,
     p_direction: f.direction ?? "date",
+    ...(f.expertOnly ? { p_expert_only: true } : {}),
   });
   if (error || !data || !["YEAR", "MONTH", "DAY"].every((d) => Number.isSafeInteger(data[d]) && data[d] >= 0)) {
     throw new Error("Le nombre de questions est momentanément indisponible.");

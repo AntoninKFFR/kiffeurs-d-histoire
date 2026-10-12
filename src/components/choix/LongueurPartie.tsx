@@ -24,22 +24,23 @@ export function useDisponibilite(choix: Choix | null) {
     reessayer: () => { setLecture(undefined); reessayer((n) => n + 1); } };
 }
 
-export function LongueurPartie({ valeur, disponibles, erreur, reessayer, onChange }: {
-  valeur: Longueur; disponibles: number | null; erreur: boolean; reessayer: () => void; onChange: (v: Longueur) => void;
+export function LongueurPartie({ valeur, disponibles, erreur, reessayer, onChange, mystere = false }: {
+  valeur: Longueur; disponibles: number | null; erreur: boolean; reessayer: () => void; onChange: (v: Longueur) => void; mystere?: boolean;
 }) {
   return <>
     <div className={`${styles.difficultes} ${styles.longueurs}`} role="group" aria-label="Longueur de la partie">
       {([5, 10, 20, "tout"] as const).map((v) => {
         const n = nombreQuestions(v, disponibles);
         return <button key={v} className={styles.difficulte} type="button" aria-pressed={valeur === v}
-          disabled={n === null} onClick={() => onChange(v)}>
+          disabled={!mystere && n === null} onClick={() => onChange(v)}>
           <b>{v === "tout" ? "Tout" : `${v} questions`}</b>
-          <small>{v === "tout" ? n === null ? "100 questions au maximum" : `${n} question${n > 1 ? "s" : ""}${disponibles! > 100 ? " · maximum 100" : ""}` : n === null && disponibles !== null ? "Pas assez de questions" : v === 10 ? "La partie classique" : v === 5 ? "Quelques repères" : "Une longue traversée"}</small>
+          <small>{v === "tout" ? n === null ? "100 questions au maximum" : `${n} question${n > 1 ? "s" : ""}${disponibles! > 100 ? " · maximum 100" : ""}` : !mystere && n === null && disponibles !== null ? "Pas assez de questions" : v === 10 ? "La partie classique" : v === 5 ? "Quelques repères" : "Une longue traversée"}</small>
         </button>;
       })}
     </div>
     <p role={erreur ? "alert" : "status"} className="m-0 text-sm text-encre-douce">
-      {erreur ? <>Décompte indisponible. <button type="button" className="cible underline" onClick={reessayer}>Réessayer</button></>
+      {mystere ? "La roulette choisira un thème disponible pour ces réglages."
+        : erreur ? <>Décompte indisponible. <button type="button" className="cible underline" onClick={reessayer}>Réessayer</button></>
         : disponibles === null ? "Vérification des questions jouables…"
         : `${disponibles} question${disponibles > 1 ? "s" : ""} réellement jouable${disponibles > 1 ? "s" : ""}.`}
     </p>

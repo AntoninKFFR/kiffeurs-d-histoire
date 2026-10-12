@@ -109,7 +109,10 @@ it("le bouton du choix garde les réglages bruts même si le pack courant est in
   localStorage.setItem("histoire-choix-inverse", "mode=general&sens=inverse&difficulte=DAY&niveau=3&longueur=20");
   mocks.compter.mockResolvedValue({ YEAR: 0, MONTH: 0, DAY: 0 });
   render(<ChoixSolo inverse />);
-  await act(async () => { fireEvent.click(screen.getByRole("button", { name: /Thème mystère/ })); });
+  fireEvent.click(screen.getByRole("button", { name: "Thème" }));
+  fireEvent.click(screen.getByRole("button", { name: /Thème mystère/ }));
+  expect(mocks.preparer).not.toHaveBeenCalled();
+  await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Jouer" })); });
   const c = new URLSearchParams(mocks.preparer.mock.calls[0][0]);
   expect(c.get("sens")).toBe("inverse"); expect(c.get("longueur")).toBe("20"); expect(c.get("niveau")).toBe("3");
   cleanup(); render(<ChoixScolaire />);
@@ -139,9 +142,73 @@ it("conserve un gagnant dynamique confirmé et ses réglages pour la roulette", 
   expect(c.get("mode")).toBe("pack"); expect(c.get("pack")).toBe("M95-PACK");
   expect(screen.queryByText(/Ce pack n’est plus disponible/)).toBeNull();
   expect(screen.getByRole("button", { name: "Jouer" }).hasAttribute("disabled")).toBe(false);
-  await act(async () => { fireEvent.click(screen.getByRole("button", { name: /Thème mystère/ })); });
+  fireEvent.click(screen.getByRole("button", { name: "Thème" }));
+  fireEvent.click(screen.getByRole("button", { name: /Thème mystère/ }));
+  expect(mocks.preparer).not.toHaveBeenCalled();
+  await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Jouer" })); });
   const mystere = new URLSearchParams(mocks.preparer.mock.calls[0][0]);
   expect(mystere.get("mode")).toBe("general"); expect(mystere.get("pack")).toBeNull();
   expect(mystere.get("niveau")).toBe("2"); expect(mystere.get("difficulte")).toBe("MONTH");
   expect(mystere.get("longueur")).toBe("tout");
+});
+
+it.each([false, true].flatMap(inverse => ([5, 10, 20, "tout"] as const).map(longueur => ({ inverse, longueur }))))(
+  "la tuile attend Jouer, transmet les réglages et ne crée qu'une partie : $inverse / $longueur", async ({ inverse, longueur }) => {
+    const { container } = render(<ChoixSolo inverse={inverse} />);
+    fireEvent.click(screen.getByRole("button", { name: "Thème" }));
+    fireEvent.click(screen.getByRole("button", { name: /Thème mystère/ }));
+    expect(mocks.preparer).not.toHaveBeenCalled();
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(container.querySelector('input[name="c"]')).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /^Intermédiaire/ }));
+    if (!inverse) fireEvent.click(screen.getByRole("button", { name: /^Mois/ }));
+    fireEvent.click(screen.getByRole("button", { name: longueur === "tout" ? /^Tout100/ : new RegExp(`^${longueur} questions`) }));
+    const jouer = screen.getByRole("button", { name: "Jouer" });
+    await act(async () => { fireEvent.click(jouer); fireEvent.click(jouer); });
+    expect(mocks.preparer).toHaveBeenCalledTimes(1);
+    expect(mocks.lancer).not.toHaveBeenCalled();
+    const choix = new URLSearchParams(mocks.preparer.mock.calls[0][0]);
+    expect(choix.get("mode")).toBe("general");
+    expect(choix.get("niveau")).toBe("2");
+    expect(choix.get("difficulte")).toBe(inverse ? "DAY" : "MONTH");
+    expect(choix.get("longueur")).toBe(String(longueur));
+    expect(choix.get("sens")).toBe(inverse ? "inverse" : null);
+    expect(choix.has("periodes")).toBe(false);
+    expect(screen.getByRole("dialog", { name: "Thème mystère" })).toBeTruthy();
+    expect(localStorage.getItem(inverse ? "histoire-choix-inverse" : "histoire-choix-solo")).toBe(tirage.choix);
+  });
+
+it("la roulette depuis Jouer permet de corriger un réglage après une erreur", async () => {
+  mocks.preparer.mockResolvedValueOnce({ erreur: "Aucun thème disponible." });
+  render(<ChoixSolo />);
+  fireEvent.click(screen.getByRole("button", { name: "Thème" }));
+  fireEvent.click(screen.getByRole("button", { name: /Thème mystère/ }));
+  await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Jouer" })); });
+  expect(screen.getByRole("alert").textContent).toContain("Aucun thème disponible.");
+  expect(screen.queryByRole("dialog")).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: /^5 questions/ }));
+  await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Jouer" })); });
+  expect(new URLSearchParams(mocks.preparer.mock.calls[1][0]).get("longueur")).toBe("5");
+  expect(screen.getByRole("dialog")).toBeTruthy();
+  expect(mocks.lancer).not.toHaveBeenCalled();
+});
+it.each([false,true])("Expert garde son filtre dans la roulette puis les deux relances, inverse=%s", async (inverse) => {
+  const expert={...tirage,choix:`mode=pack&pack=M95-PACK&mystere=1&niveau=3&expertOnly=1&difficulte=DAY&longueur=5${inverse?"&sens=inverse":""}`};
+  mocks.preparer.mockResolvedValue({tirage:expert});
+  render(<ChoixSolo inverse={inverse} />);
+  fireEvent.click(screen.getByRole("button",{name:"Thème"}));
+  fireEvent.click(screen.getByRole("button",{name:/Thème mystère/}));
+  fireEvent.click(screen.getByRole("button",{name:/^Expert/}));
+  fireEvent.click(screen.getByRole("button",{name:/^5 questions/}));
+  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:"Jouer"}));});
+  expect(mocks.preparer).toHaveBeenCalledTimes(1);
+  expect(new URLSearchParams(mocks.preparer.mock.calls[0][0]).get("expertOnly")).toBe("1");
+  expect(localStorage.getItem(inverse?"histoire-choix-inverse":"histoire-choix-solo")).toContain("expertOnly=1");
+  cleanup();mocks.preparer.mockClear();
+  const {container}=render(<Bilan resultat={{...partieBilan,replay_filters:{mystery:true,mysteryLabel:"Cabinet surprise",expertOnly:true,niveau:3,packId:"M95-PACK",difficulty:"DAY",questionCount:5,...(inverse?{direction:"inverse" as const}:{})}}}
+    connecte anonyme={false} relance="mode=general&niveau=3&difficulte=YEAR" />);
+  expect(new URLSearchParams(container.querySelector<HTMLInputElement>('input[name="c"]')!.value).get("expertOnly")).toBe("1");
+  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:/Relancer la roulette/}));});
+  const relance=new URLSearchParams(mocks.preparer.mock.calls[0][0]);
+  expect(relance.get("expertOnly")).toBe("1");expect(relance.get("pack")).toBeNull();
 });

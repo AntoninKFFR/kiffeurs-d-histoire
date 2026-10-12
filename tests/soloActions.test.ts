@@ -51,6 +51,17 @@ it("un claim refusé garde le cookie et masque les détails SQL", async () => {
   expect(mocks.remove).not.toHaveBeenCalled();
 });
 afterEach(() => vi.unstubAllEnvs());
+it.each(["date","inverse","mystere"])("Expert conserve son filtre au lancement %s", async (mode) => {
+  mocks.rpc.mockResolvedValue({data:{game_id:gameId,question_count:5,anonymous:false},error:null});
+  await startGame({expertOnly:true,niveau:3,difficulty:"DAY",direction:mode==="inverse"?"inverse":"date",questionCount:5,mystery:mode==="mystere"});
+  expect(gameCalls()).toHaveLength(1);
+  expect(gameCalls()[0]).toEqual([mode==="mystere"?"start_mystery_game":"start_game",expect.objectContaining({p_expert_only:true,p_niveau:3,p_periodes:mode!=="inverse",p_question_count:5})]);
+});
+it("refuse Expert avec un autre niveau ou un test pédagogique avant toute RPC", async () => {
+  await expect(startGame({expertOnly:true,niveau:2})).rejects.toThrow("Expert invalide");
+  await expect(startGame({expertOnly:true,niveau:3,chapterTest:true,chapterIds:["CH"]})).rejects.toThrow("Expert invalide");
+  expect(gameCalls()).toHaveLength(0);
+});
 
 it.each([5, 10, 20, 100, 0])("transmet la longueur %s sans la recalculer, y compris Tout", async (n) => {
   mocks.rpc.mockResolvedValue({ data: { game_id: gameId, question_count: n || 100, anonymous: false }, error: null });

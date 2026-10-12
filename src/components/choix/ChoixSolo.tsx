@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { lancer } from "@/app/partie/actions";
-import { DIFFICULTES, ecrireChoix, lireChoix, nombreQuestions, NIVEAU_PAR_DEFAUT, NIVEAUX, PACKS, PERIODES, THEMES, type Choix, type Longueur } from "@/lib/solo/choix";
+import { DIFFICULTES, ecrireChoix, lireChoix, nombreQuestions, NIVEAU_PAR_DEFAUT, libelleNiveau, PACKS, PERIODES, THEMES, type Choix, type Longueur } from "@/lib/solo/choix";
 import type { SoloDifficulty, SoloNiveau } from "@/lib/game/solo";
 import { BarreLancer, ChoixDifficulte, ChoixNiveau, difficulteJouable, ecrireMemoire, Etape, lireMemoire } from "./communs";
 import { LongueurPartie, useDisponibilite } from "./LongueurPartie";
@@ -10,13 +10,12 @@ import { BoutonMystere } from "./BoutonMystere";
 import { chargerPacksJouables } from "@/app/solo/packs";
 import type { PackJouable } from "@/lib/solo/packs";
 import { SelectionPacks } from "./SelectionPacks";
-import { QuestionsPeriode } from "./QuestionsPeriode";
 import styles from "./choix.module.css";
 
 const MEMOIRE = "histoire-choix-solo";
 const MEMOIRE_INVERSE = "histoire-choix-inverse";
 type ModeSolo = "general" | "periode" | "pack" | "theme";
-type Etat = { mode: ModeSolo; periode: string; de: string; a: string; pack: string; theme: string; niveau: SoloNiveau; difficulte: SoloDifficulty; longueur: Longueur; periodes: boolean };
+type Etat = { mode: ModeSolo; periode: string; de: string; a: string; pack: string; theme: string; niveau: SoloNiveau; expertOnly: boolean; difficulte: SoloDifficulty; longueur: Longueur; mystere: boolean };
 
 const ONGLETS: { mode: ModeSolo; titre: string }[] = [
   { mode: "general", titre: "Général" },
@@ -25,12 +24,13 @@ const ONGLETS: { mode: ModeSolo; titre: string }[] = [
   { mode: "theme", titre: "Thème" },
 ];
 
-const DEPART: Etat = { mode: "general", periode: PERIODES[0].id, de: "", a: "", pack: PACKS[0].id, theme: THEMES[0].id, niveau: NIVEAU_PAR_DEFAUT, difficulte: "YEAR", longueur: 10, periodes: true };
+// Les nouveaux choix utilisent toute la base ; lireChoix garde le défaut historique des anciens liens.
+const DEPART: Etat = { mode: "general", periode: PERIODES[0].id, de: "", a: "", pack: PACKS[0].id, theme: THEMES[0].id, niveau: 3, expertOnly: false, difficulte: "YEAR", longueur: 10, mystere: false };
 
 function versChamps(e: Etat, inverse: boolean) {
   const p = new URLSearchParams({ mode: e.mode, difficulte: e.difficulte, niveau: String(e.niveau), longueur: String(e.longueur) });
   if (inverse) p.set("sens", "inverse");
-  else if (!e.periodes) p.set("periodes", "0");
+  if (e.expertOnly) p.set("expertOnly", "1");
   if (e.mode === "periode") {
     p.set("periode", e.periode);
     if (e.periode === "libre") {
@@ -54,8 +54,10 @@ function depuisMemoire(c: Choix): Etat | null {
     mode: (c.mode === "pack" && !packConnu) || (c.mode === "theme" && !themeConnu) ? "general" : c.mode,
     difficulte: c.difficulte,
     longueur: c.longueur ?? 10,
-    periodes: c.periodes !== false,
+    // La mémoire prépare une nouvelle partie : les périodes sont automatiques.
+    // Les URLs et relances explicites restent traitées telles quelles par lireChoix.
     niveau: c.niveau ?? NIVEAU_PAR_DEFAUT,
+    expertOnly: Boolean(c.expertOnly),
     periode: c.periode ?? DEPART.periode,
     de: c.de != null ? String(c.de) : "",
     a: c.a != null ? String(c.a) : "",
@@ -78,12 +80,13 @@ function libelle(c: Choix, packs: PackJouable[]) {
 export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
   const memoire = inverse ? MEMOIRE_INVERSE : MEMOIRE;
   const [etat, setEtat] = useState<Etat>(DEPART);
-  const [ouvert, ouvrir] = useState<string | null>(null);
+  // undefined : reprendre la vue du choix mémorisé ; null : liste principale demandée.
+  const [ouvert, ouvrir] = useState<string | null | undefined>(undefined);
   const [packAbsent, signalerPackAbsent] = useState(false);
   const packMemorise = useRef<string | null>(null);
   const [catalogue, setCatalogue] = useState<{ cle: string; packs?: PackJouable[]; erreur?: boolean }>();
   const [tentative, reessayerPacks] = useState(0);
-  const clePacks = `${etat.niveau}:${inverse}`;
+  const clePacks = `${etat.niveau}:${etat.expertOnly}:${inverse}`;
   const packs = catalogue?.cle === clePacks ? catalogue.packs ?? [] : [];
   const maj = (partiel: Partial<Etat>) => {
     if (partiel.mode !== undefined || partiel.pack !== undefined) signalerPackAbsent(false);
@@ -103,7 +106,7 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
   useEffect(() => {
     if (etat.mode !== "pack") return;
     let actif = true;
-    chargerPacksJouables(etat.niveau, inverse).then((packs) => {
+    (etat.expertOnly ? chargerPacksJouables(etat.niveau, inverse, null, true) : chargerPacksJouables(etat.niveau, inverse)).then((packs) => {
       if (!actif) return;
       setCatalogue({ cle: clePacks, packs });
       // Une absence confirmée (suppression/inactivation) diffère d'un pack
@@ -117,30 +120,36 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
       }
     }).catch(() => { if (actif) setCatalogue({ cle: clePacks, erreur: true }); });
     return () => { actif = false; };
-  }, [etat.mode, etat.niveau, etat.pack, inverse, clePacks, tentative]);
+  }, [etat.mode, etat.niveau, etat.expertOnly, etat.pack, inverse, clePacks, tentative]);
 
   // Restaurer le contexte de navigation du pack mémorisé, même s'il vient d'un import récent.
   const choisi = packs.find((p) => p.id === etat.pack);
-  const contextePack = ouvert ?? choisi?.parent_id ??
-    (packs.some((p) => p.parent_id === choisi?.id) ? choisi?.id ?? null : null);
+  const contextePack = ouvert === undefined ? choisi?.parent_id ?? null : ouvert;
 
   const contenu = { mode: etat.mode, periode: etat.periode, pack: etat.pack, theme: etat.theme };
   // Inversé : toujours la date exacte, sans choix de précision.
   const precisions: SoloDifficulty[] = inverse ? ["DAY"] : ["YEAR", "MONTH", "DAY"];
   const niveau = etat.niveau;
+  const mystere = etat.mode === "theme" && etat.mystere;
   const selection = lireChoix(versChamps(etat, inverse));
-  const disponibilite = useDisponibilite(etat.mode === "pack" ? null : selection);
+  const disponibilite = useDisponibilite(etat.mode === "pack" || mystere ? null : selection);
   const comptes = etat.mode === "pack" ? choisi?.comptes ?? null : disponibilite.comptes;
   const difficulte = inverse ? (comptes === null || comptes.DAY > 0 ? "DAY" : null) : difficulteJouable(comptes, etat.difficulte, 1);
   const choix = niveau && difficulte ? lireChoix(versChamps({ ...etat, niveau, difficulte }, inverse)) : null;
   const disponibles = difficulte ? comptes?.[difficulte] ?? null : comptes ? 0 : null;
   const nombre = nombreQuestions(etat.longueur, disponibles);
   const libreInvalide = etat.mode === "periode" && etat.periode === "libre" && !selection && (etat.de !== "" || etat.a !== "");
+  const choixMystere = ecrireChoix({ mode: "general", difficulte: inverse ? "DAY" : etat.difficulte,
+    niveau: etat.niveau, longueur: etat.longueur,
+    ...(etat.expertOnly ? { expertOnly: true as const } : {}),
+    ...(inverse ? { sens: "inverse" as const } : {}) });
 
   return (
-    <form action={lancer} onSubmit={() => choix && ecrireMemoire(memoire, ecrireChoix(choix))}
-      className={etat.mode === "pack" ? `${styles.soloPacks} grid gap-[22px]` : "grid gap-[22px]"}>
-      {choix && <input type="hidden" name="c" value={ecrireChoix(choix)} />}
+    <form action={mystere ? undefined : lancer} onSubmit={(event) => {
+      if (mystere) event.preventDefault();
+      else if (choix) ecrireMemoire(memoire, ecrireChoix(choix));
+    }} className={`${styles.soloPacks} grid gap-[22px]`}>
+      {choix && !mystere && <input type="hidden" name="c" value={ecrireChoix(choix)} />}
       {packAbsent && etat.mode === "general" && <p role="status" className="m-0 text-encre-douce">
         Ce pack n’est plus disponible. Tes réglages sont conservés pour jouer en Général ou choisir un autre pack.
       </p>}
@@ -199,16 +208,23 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
           : catalogue?.cle !== clePacks || !catalogue.packs ? <p role="status">Chargement des packs…</p>
           : <SelectionPacks packs={packs} ouvert={contextePack} selection={etat.pack}
             precision={inverse ? "DAY" : difficulte ?? etat.difficulte} longueur={etat.longueur}
-            onOuvrir={(id) => { ouvrir(id); maj({ pack: "" }); }}
+            onOuvrir={ouvrir}
             onChoisir={(pack) => maj({ pack })} />)}
 
         {etat.mode === "theme" && (
           <ul className={`${styles.tuiles} ${styles.petites}`}>
+            <li>
+              <button type="button" className={styles.tuile} aria-pressed={mystere} onClick={() => maj({ mystere: true })}>
+                <b>✦ Thème mystère</b>
+                <small>Un pack ou un thème surprise</small>
+              </button>
+            </li>
             {THEMES.map((t) => (
               <li key={t.id}>
-                <button type="button" className={styles.tuile} aria-pressed={etat.theme === t.id} onClick={() => maj({ theme: t.id })}>
+                <button type="button" className={styles.tuile} aria-pressed={!mystere && etat.theme === t.id} onClick={() => maj({ theme: t.id, mystere: false })}>
                   <b>{t.nom}</b>
-                  <small>{t.n[2].YEAR} événements au catalogue</small>
+                  <small>{!mystere && etat.theme === t.id && disponibles !== null
+                    ? `${disponibles} questions disponibles` : etat.expertOnly ? "Niveau 3 uniquement" : "Choisir ce thème"}</small>
                 </button>
               </li>
             ))}
@@ -217,34 +233,28 @@ export function ChoixSolo({ inverse = false }: { inverse?: boolean }) {
       </Etape>
 
       <Etape numero={2} titre="Niveau">
-        <ChoixNiveau contenu={contenu} precisions={precisions} valeur={niveau} onChange={(n) => maj({ niveau: n })} verifierCatalogue={false} />
+        <ChoixNiveau contenu={contenu} precisions={precisions} valeur={niveau} expertOnly={etat.expertOnly} onChange={(n, expertOnly) => maj({ niveau: n, expertOnly })} verifierCatalogue={false} />
       </Etape>
 
       {!inverse && (
         <Etape numero={3} titre="Précision">
-          <ChoixDifficulte comptes={comptes} valeur={difficulte} onChange={(d) => maj({ difficulte: d })} minimum={1} />
+          <ChoixDifficulte comptes={mystere ? null : comptes} valeur={mystere ? etat.difficulte : difficulte} onChange={(d) => maj({ difficulte: d })} minimum={1} />
         </Etape>
       )}
 
       <Etape numero={inverse ? 3 : 4} titre="Longueur de la partie">
-        <LongueurPartie valeur={etat.longueur} disponibles={disponibles} erreur={disponibilite.erreur}
+        <LongueurPartie valeur={etat.longueur} disponibles={mystere ? null : disponibles} erreur={disponibilite.erreur} mystere={mystere}
           reessayer={disponibilite.reessayer} onChange={(longueur) => maj({ longueur })} />
       </Etape>
-      {!inverse && (
-        <Etape numero={5} titre="Questions période">
-          <QuestionsPeriode valeur={etat.periodes} onChange={(periodes) => maj({ periodes })} />
-        </Etape>
-      )}
-      <BoutonMystere choix={ecrireChoix({ mode: "general", difficulte: inverse ? "DAY" : difficulte ?? etat.difficulte,
-        niveau: etat.niveau, longueur: etat.longueur, ...(inverse ? { sens: "inverse" as const } : etat.periodes ? {} : { periodes: false as const }) })}
-        memoriser={(c) => ecrireMemoire(memoire, c)} />
-      <BarreLancer
+      {mystere ? <BoutonMystere choix={choixMystere} memoriser={(c) => ecrireMemoire(memoire, c)}
+        resume={<><b>{etat.longueur === "tout" ? "Toutes les questions · maximum 100" : `${etat.longueur} questions`}</b> · Thème mystère · {libelleNiveau({ niveau, ...(etat.expertOnly ? { expertOnly: true } : {}) })} · {inverse ? "date exacte" : DIFFICULTES.find((d) => d.valeur === etat.difficulte)?.titre.toLowerCase()}</>} />
+        : <BarreLancer
         pret={choix != null && nombre !== null}
         resume={
-          choix && nombre !== null ? <><b>{nombre} question{nombre > 1 ? "s" : ""}</b> · {libelle(choix, packs)} · {NIVEAUX.find((n) => n.valeur === choix.niveau)?.titre} {inverse ? " · date exacte" : <> · {DIFFICULTES.find((d) => d.valeur === choix.difficulte)?.titre.toLowerCase()}</>}</>
+          choix && nombre !== null ? <><b>{nombre} question{nombre > 1 ? "s" : ""}</b> · {libelle(choix, packs)} · {libelleNiveau(choix)} {inverse ? " · date exacte" : <> · {DIFFICULTES.find((d) => d.valeur === choix.difficulte)?.titre.toLowerCase()}</>}</>
             : disponibles !== null && disponibles > 0 ? "Choisis une longueur disponible pour jouer." : "Termine ton choix et vérifie les questions disponibles."
         }
-      />
+      />}
     </form>
   );
 }

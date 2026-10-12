@@ -9,12 +9,20 @@ import { attendreQuestion, idPartie, lireBilan, repondreAuClavier, repondreInver
 for (const inverse of [false,true]) {
   test(`vrai Sport : six sous-packs, partie et replay, inverse=${inverse}`, async ({ page }, info) => {
     await page.goto(inverse ? "/inverse" : "/solo");
-    await page.getByRole("group", { name: "Niveau" }).getByRole("button", { name: /^Expert/ }).click();
+    await page.getByRole("group", { name: "Niveau" }).getByRole("button", { name: /^Toutes les questions/ }).click();
     await page.getByRole("group", { name: "Longueur de la partie" }).getByRole("button", { name: /^5 questions/ }).click();
     await page.getByRole("button", { name: "Pack", exact: true }).click();
-    const parent = page.getByRole("button", { name: /^Sport\s/ });
+    const parent = page.getByRole("button", { name: /^Jouer tout Sport/ });
     await parent.focus(); await page.keyboard.press("Enter");
+    await expect(page.getByRole("heading", { name: "Packs disponibles" })).toBeVisible();
+    await page.getByRole("button", { name: "Voir les sous-thèmes de Sport" }).click();
     await expect(page.getByRole("heading", { name: "Sport", exact: true })).toBeFocused();
+    expect(new URLSearchParams(await page.locator('input[name="c"]').inputValue()).get("pack")).toBe("COL-0105");
+    await expect(page.getByRole("button", { name: "Jouer", exact: true })).toBeEnabled();
+    await page.getByRole("button", { name: /Tous les packs/ }).click();
+    await expect(parent).toHaveAttribute("aria-pressed", "true");
+    expect(new URLSearchParams(await page.locator('input[name="c"]').inputValue()).get("pack")).toBe("COL-0105");
+    await page.getByRole("button", { name: "Voir les sous-thèmes de Sport" }).click();
     for (const p of sport.packs.slice(1)) {
       const bouton = page.getByRole("button", { name: p.title, exact: false });
       if (inverse && p.comptes.inverse[2]<5) await expect(bouton).toBeDisabled();

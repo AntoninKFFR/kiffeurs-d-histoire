@@ -1,7 +1,13 @@
 # Thème mystère (#95)
 
-Le bouton de `/solo` et `/inverse` remplace le contenu choisi par un pack ou un thème
-surprise. Il garde le niveau, la précision, le sens et la longueur 5/10/20/Tout.
+Dans `/solo` et `/inverse`, la tuile « ✦ Thème mystère » est dans la grille de
+l'onglet Thème. Elle sélectionne un pack ou un thème surprise à préparer : le joueur
+règle son niveau, sa précision et sa longueur, puis clique sur le bouton final Jouer
+pour ouvrir la roulette. La tuile elle-même ne lance aucune partie. Le lancement
+réutilise `BoutonMystere`, `preparerMystere` et `RouletteMystere` ; il garde le niveau,
+le choix Expert exclusif (`expertOnly`) ou Toutes les questions,
+la précision, le sens et la longueur 5/10/20/Tout. Les quatre longueurs sont proposées,
+la RPC existante vérifiant les thèmes éligibles sans décompte fictif dans la grille.
 Le scolaire et les tests pédagogiques conservent leur parcours.
 
 ## Tirage et coût
@@ -46,6 +52,8 @@ depuis le profil. « Rejouer ce thème » fournit l'identifiant du gagnant à la
 RPC ; s'il n'est plus jouable, la relance échoue sans changer silencieusement
 de thème. « Relancer la roulette » enlève uniquement le filtre de contenu.
 Un nouveau tirage peut naturellement retomber sur le même thème.
+Le choix Expert est conservé dans l'instantané, le bilan et les deux relances.
+Voir [le contrat des quatre niveaux](niveaux-expert.md).
 
 Les statistiques et indicateurs conservent le contexte pack/thème du moteur,
 les scores et leur normalisation par question. Les anciennes URLs conservent
@@ -67,6 +75,7 @@ de mouvement initiale et modifiée, double clic, erreurs réessayables, mémoire
 contexte du bilan, deux relances et parcours navigateur à 375 px.
 Les tests existants couvrent les parcours classiques, scolaires et inversés.
 
-Conformément à la demande : seul `git diff --check` est exécuté ; pas de lint,
-typecheck, build, Vitest, Playwright, test SQL ou test sur KFFR. Ces vérifications
-restent à exécuter dans le cadre de la revue. Pas d'attente de CI/Vercel ni de fusion.
+La relecture initiale de #95 était limitée à `git diff --check`. Les vérifications
+ultérieures de #109 sont consignées dans [choix-parties.md](choix-parties.md) et
+[niveaux-expert.md](niveaux-expert.md) : Vitest, lint, types, build, navigateur local
+et six suites SQL embarquées. Aucun test sur KFFR, aucune attente de CI ni fusion.

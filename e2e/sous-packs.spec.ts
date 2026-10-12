@@ -15,12 +15,14 @@ test.afterEach(() => executerSql(`
 for (const inverse of [false, true]) {
   test(`navigation et partie de sous-pack, inverse=${inverse}`, async ({ page }, info) => {
     await page.goto(inverse ? "/inverse" : "/solo");
-    await page.getByRole("group", { name: "Niveau" }).getByRole("button", { name: /^Expert/ }).click();
+    await page.getByRole("group", { name: "Niveau" }).getByRole("button", { name: /^Toutes les questions/ }).click();
     await expect(page.getByText(/questions? réellement jouables?/)).toBeVisible();
     await page.getByRole("group", { name: "Longueur de la partie" }).getByRole("button", { name: /^5 questions/ }).click();
     await page.getByRole("button", { name: "Pack", exact: true }).click();
-    const parent = page.getByRole("button", { name: /^Guerres et batailles/ });
+    const parent = page.getByRole("button", { name: /^Jouer tout Guerres et batailles/ });
     await parent.focus(); await page.keyboard.press("Enter");
+    await expect(page.getByRole("heading", { name: "Packs disponibles" })).toBeVisible();
+    await page.getByRole("button", { name: "Voir les sous-thèmes de Guerres et batailles" }).click();
     await expect(page.getByRole("heading", { name: "Guerres et batailles", exact: true })).toBeFocused();
     await expect(page.getByRole("button", { name: /^Sous-pack vide/ })).toBeDisabled();
     if (info.project.name === "ordinateur") {

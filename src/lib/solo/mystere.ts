@@ -5,6 +5,7 @@ import type { MysteryTheme } from "@/lib/game/solo";
 export function choixMystere(choix: Choix): Choix {
   return { mode: "general", mystere: true, difficulte: choix.sens ? "DAY" : choix.difficulte,
     longueur: choix.longueur ?? 10, niveau: choix.niveau ?? NIVEAU_PAR_DEFAUT,
+    ...(choix.expertOnly ? { expertOnly: true as const } : {}),
     ...(choix.sens ? { sens: choix.sens } : {}), ...(choix.periodes === false ? { periodes: false as const } : {}) };
 }
 

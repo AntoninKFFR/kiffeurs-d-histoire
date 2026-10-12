@@ -35,7 +35,7 @@ export default async function PartiePage({ params, searchParams }: PageProps<"/p
   let bornes = choix ? bornesDe(choix) : null;
   if (choix?.mode === "pack" && choix.pack) {
     try {
-      const [pack] = await chargerPacksJouables(choix.niveau ?? 1, Boolean(choix.sens), choix.pack);
+      const [pack] = await chargerPacksJouables(choix.niveau ?? 1, Boolean(choix.sens), choix.pack, Boolean(choix.expertOnly));
       if (pack?.b) {
         const [debut, fin] = pack.b;
         const milieu = (debut + fin) / 2;

@@ -1,11 +1,18 @@
 # Sous-packs jouables — #89
 
-Un pack possédant des enfants ouvre une vue dédiée sur `/solo` et `/inverse` :
+Un pack possédant des enfants propose deux boutons sur `/solo` et `/inverse` :
+« Jouer tout [pack] » sélectionne le parent sans lancer la partie ni ouvrir ses
+enfants ; « Voir les sous-thèmes » ouvre la vue dédiée. Seul le bouton final
+« Jouer » lance une partie. La vue des enfants conserve
 « Tout le pack », sous-packs, nombre de questions disponibles au niveau,
 à la précision et dans le sens choisis. Un enfant insuffisant pour la longueur
 est désactivé ; Tout permet une sélection non vide, avec le plafond existant de
 100 questions. Retour remonte d’un niveau, puis vers la liste des packs.
 Les boutons sont utilisables au clavier ; le focus suit le titre de navigation.
+Explorer les sous-thèmes ou revenir à Tous les packs ne change pas la sélection :
+le résumé, le décompte et Jouer utilisent toujours le pack choisi. Choisir un enfant
+remplace le parent. La vue initiale d'un sous-pack mémorisé se restaure chez son parent,
+mais un retour explicite à la liste principale reste possible sans effacer ce sous-pack.
 
 La liste vivante vient de `playable_packs`, sans cache partagé : les imports,
 retraits et corrections éditoriales sont pris en compte au prochain chargement

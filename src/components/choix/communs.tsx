@@ -38,13 +38,13 @@ export function niveauJouable(contenu: Contenu, voulu: SoloNiveau, precisions: S
   return ordre.find((n) => niveauPossible(contenu, n, precisions)) ?? null;
 }
 
-export function ChoixNiveau({ contenu, precisions, valeur, onChange, verifierCatalogue = true }: { contenu: Contenu; precisions: SoloDifficulty[]; valeur: SoloNiveau | null; onChange: (n: SoloNiveau) => void; verifierCatalogue?: boolean }) {
+export function ChoixNiveau({ contenu, precisions, valeur, expertOnly = false, onChange, verifierCatalogue = true }: { contenu: Contenu; precisions: SoloDifficulty[]; valeur: SoloNiveau | null; expertOnly?: boolean; onChange: (n: SoloNiveau, expertOnly: boolean) => void; verifierCatalogue?: boolean }) {
   return (
-    <div className={styles.difficultes} role="group" aria-label="Niveau">
+    <div className={`${styles.difficultes} ${styles.niveaux}`} role="group" aria-label="Niveau">
       {NIVEAUX.map((n) => {
-        const possible = !verifierCatalogue || niveauPossible(contenu, n.valeur, precisions);
+        const possible = !verifierCatalogue || n.expertOnly || niveauPossible(contenu, n.valeur, precisions);
         return (
-          <button key={n.valeur} type="button" className={styles.difficulte} aria-pressed={valeur === n.valeur} disabled={!possible} onClick={() => onChange(n.valeur)}>
+          <button key={`${n.valeur}:${Boolean(n.expertOnly)}`} type="button" className={styles.difficulte} aria-pressed={valeur === n.valeur && expertOnly === Boolean(n.expertOnly)} disabled={!possible} onClick={() => onChange(n.valeur, Boolean(n.expertOnly))}>
             <b>{n.titre}</b>
             <small>{possible ? n.aide : "Pas assez de questions ici"}</small>
           </button>

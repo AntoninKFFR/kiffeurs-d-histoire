@@ -58,6 +58,12 @@ Une question période expirée vaut 0 aux deux bornes. La correction et `finish_
 
 ## Réglage
 
-L'écran de choix (solo et scolaire, hors inversé) propose « Questions période : Activées / Coupées »,
-activées par défaut. Le réglage voyage dans l'URL (`periodes=0` quand coupé), Rejouer et
-`replay_filters.periods`.
+Les nouvelles parties Solo libre utilisent automatiquement les questions période ;
+le sélecteur « Activées / Coupées » a été retiré de cet écran. Le scolaire conserve
+son réglage existant et les tests de chapitre restent exclus, comme le mode inversé.
+La restauration de la mémoire locale conserve le contenu, le niveau, la précision
+et la longueur, mais ignore une ancienne préférence `periodes=0` pour préparer une
+nouvelle partie Solo libre. Les anciennes URLs et les relances historiques explicites
+avec `periodes=0` restent comprises dans Rejouer et `replay_filters.periods`.
+Le filtre supérieur « Période »
+reste disponible pour choisir une époque. Le tirage et les fonctions SQL ne changent pas.

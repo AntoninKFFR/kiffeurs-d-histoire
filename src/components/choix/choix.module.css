@@ -39,6 +39,11 @@
 .tuile b { font-size: 16px; line-height: 1.25; }
 .tuile small { font-size: 13px; color: var(--color-encre-douce); line-height: 1.3; }
 .tuile input { position: absolute; opacity: 0; pointer-events: none; }
+.packParent { display: grid; grid-template-rows: 1fr auto; }
+.packParent .tuile { border-bottom: 0; }
+.actionPack { font-size: 13px; font-weight: 700; margin-top: 6px; color: var(--color-oxyde); }
+.sousThemes { min-height: 44px; padding: 8px 14px; border: 1px solid var(--color-filet); background: var(--color-papier); color: var(--color-encre); text-align: left; font-size: 13px; font-weight: 700; }
+.sousThemes:hover { border-color: var(--color-laiton); }
 .case { position: relative; cursor: pointer; height: 100%; grid-template-columns: 22px minmax(0, 1fr); column-gap: 10px; align-items: start; }
 .coche { width: 18px; height: 18px; border: 1.5px solid var(--color-encre); margin-top: 2px; display: grid; place-items: center; font-size: 13px; line-height: 1; }
 .case:has(input:checked) .coche { background: var(--color-encre); color: var(--color-papier); }
@@ -56,6 +61,7 @@
 .difficulte[aria-pressed="true"] { border-color: var(--color-encre); box-shadow: inset 0 0 0 2px var(--color-encre); background: var(--color-fond-resultat); }
 .difficulte:disabled { opacity: 0.45; cursor: not-allowed; }
 .longueurs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.niveaux { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
 /* Barre de lancement, collée en bas de l'écran */
 .lancer { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 12px 16px; border: 1px solid var(--color-encre); background: rgb(251 251 248 / 0.97); }
@@ -86,11 +92,15 @@ a.entree:hover { box-shadow: inset 0 0 0 2px var(--color-laiton); }
   .longueurs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .longueurs .difficulte { grid-template-columns: minmax(0, 1fr); min-height:74px; }
   .difficulte { grid-template-columns: auto minmax(0, 1fr); align-items: baseline; column-gap: 10px; }
+  .soloPacks .difficulte { grid-template-columns: minmax(0, 1fr); }
+  .niveaux { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .niveaux .difficulte { min-height: 80px; }
+  .soloPacks .listePacks, .soloPacks .tuiles { max-height: min(440px, 55dvh); overflow-y: auto; padding: 4px; scroll-padding: 4px; }
   .jouer { width: 100%; }
 }
 
 @media (min-width: 1000px) and (min-height: 700px) {
-  .ecran:has(.soloPacks) { padding-block: 12px 16px; }
+  .ecran:has(.soloPacks) { padding-block: 8px 12px; }
   .ecran:has(.soloPacks) .colonne { gap: 12px; }
   .ecran:has(.soloPacks) .titre h1 { font-size: 32px; }
   .ecran:has(.soloPacks) .titre p { font-size: 14px; }
@@ -98,23 +108,18 @@ a.entree:hover { box-shadow: inset 0 0 0 2px var(--color-laiton); }
   .ecran .soloPacks { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 24px; align-items: start; }
   .soloPacks .etape { gap: 6px; }
   .soloPacks .etape > h2 { line-height: 1.2; }
-  .soloPacks > section:first-of-type { grid-row: span 4; min-height: 0; }
-  .soloPacks .listePacks { max-height: min(320px, calc(100dvh - 460px)); overflow-y: auto; align-content: start; }
+  .soloPacks > section:first-of-type { grid-row: span 3; min-height: 0; }
+  .soloPacks .listePacks, .soloPacks .tuiles { max-height: min(320px, calc(100dvh - 400px)); overflow-y: auto; align-content: start; padding: 4px; scroll-padding: 4px; }
   /* Réserver une ligne supplémentaire aux titres longs et au statut du décompte en inversé. */
-  .ecran:has(.colonne > nav.onglets) .soloPacks .listePacks { max-height: min(224px, calc(100dvh - 576px)); }
+  .ecran:has(.colonne > nav.onglets) .soloPacks .listePacks,
+  .ecran:has(.colonne > nav.onglets) .soloPacks .tuiles { max-height: min(224px, calc(100dvh - 576px)); }
   .soloPacks .difficulte { padding: 8px 10px; }
-  .soloPacks .difficulte b { font-size: 22px; }
+  .soloPacks .difficulte b { font-size: 20px; line-height: 1.15; }
+  .soloPacks .niveaux .difficulte { padding: 8px 6px; }
+  .soloPacks .niveaux .difficulte b { font-size: 18px; }
   .soloPacks .difficulte small { font-size: 12px; line-height: 1.25; }
   .soloPacks .longueurs .difficulte b { font-size: 18px; white-space: nowrap; }
   .soloPacks .lancer { grid-column: 1 / -1; position: static; }
-  /* Questions période (#94) : une seule ligne serrée, pour que l'écran des packs tienne sans défiler. */
-  .soloPacks:has(.options) > section:first-of-type { grid-row: span 5; }
-  .soloPacks .etape:has(> .options) { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 16px; margin-top: -4px; }
-  .soloPacks .etape:has(> .options) > h2 { font-size: 18px; line-height: 1; }
-  .soloPacks .etape:has(> .options) > h2 b { font-size: 22px; }
-  .soloPacks .options .difficulte { padding: 1px 10px; }
-  .soloPacks .options .difficulte b { font-size: 16px; line-height: 1.2; }
-  .soloPacks .options small { display: none; }
 }
 
 /* Option des questions période (#94) : deux choix seulement. */

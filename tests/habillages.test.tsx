@@ -53,7 +53,7 @@ describe("habillageDe", () => {
 // ---------- Poids et indépendance des SVG ----------
 
 describe("fichiers d'habillage", () => {
-  const fichiers = LISTE_HABILLAGES.flatMap((h) => [h.horizon.url, h.detail, h.fond.image.match(/url\(([^)]+)\)/)![1]]);
+  const fichiers = LISTE_HABILLAGES.flatMap((h) => [...h.fond.image.matchAll(/url\(([^)]+)\)/g)].map((m) => m[1]));
 
   it("sont de petits SVG autonomes, chargés seulement quand la période est jouée", () => {
     let total = 0;
@@ -65,7 +65,7 @@ describe("fichiers d'habillage", () => {
       const svg = readFileSync(chemin, "utf8");
       expect(svg, url).not.toMatch(/<image|<script|href=|data:/);
     }
-    expect(total).toBeLessThan(32 * 1024);
+    expect(total).toBeLessThan(40 * 1024);
   });
 });
 
@@ -129,13 +129,12 @@ const vue: Vue = { debut: 1900, fin: 1935 };
 const controle = { vue, vueRef: { current: vue }, placer: vi.fn(), animer: vi.fn(), zoomer: vi.fn(), arreter: vi.fn(), bornes: vue } as ReturnType<typeof useVue>;
 
 describe("Frise habillée", () => {
-  it("sans habillage, reste la frise de la V1 : pas de décor d'horizon, pas de fond posé", () => {
+  it("sans habillage, reste la frise de la V1 : pas de fond posé", () => {
     const { container } = render(<Frise precision="annee" remplir controle={controle} />);
     const racine = container.querySelector(`.${s.frise}`) as HTMLElement;
     expect(racine.dataset.habillage).toBeUndefined();
     expect(racine.classList.contains(s.habille)).toBe(false);
     expect(racine.style.backgroundColor).toBe("");
-    expect(container.querySelector(`.${s.horizon}`)).toBeNull();
     expect(container.querySelector(`.${s.motif}`)).not.toBeNull();
   });
 
@@ -145,27 +144,25 @@ describe("Frise habillée", () => {
     const h = HABILLAGES[id];
     expect(racine.dataset.habillage).toBe(id);
     expect(racine.classList.contains(s.habille)).toBe(true);
-    expect(racine.style.backgroundImage).toContain(h.fond.image.match(/url\(([^)]+)\)/)![1]);
-    const horizon = container.querySelector(`.${s.horizon}`) as HTMLElement;
-    expect(horizon).not.toBeNull();
-    // Le décor ne capte jamais les clics ni la lecture d'écran.
-    expect(horizon.getAttribute("aria-hidden")).toBe("true");
-    expect(horizon.style.backgroundImage).toContain(h.horizon.url);
+    // Toute la scène est portée par le fond de la frise : aucun élément de décor n'est ajouté dans la frise, donc rien ne capte un clic.
+    for (const [, url] of h.fond.image.matchAll(/url\(([^)]+)\)/g)) expect(racine.style.backgroundImage).toContain(url);
+    expect(racine.style.backgroundPosition).toBe(h.fond.position.replaceAll(" 0", " 0px"));
+    expect(container.querySelectorAll("img, svg[aria-hidden]").length).toBe(0);
     // Le fond sombre n'allume le thème de nuit que sur la bande, jamais sur les boîtes posées dessus.
     const nuit = container.querySelector('[data-theme="dark"]');
     expect(Boolean(nuit)).toBe(h.sombre);
     if (nuit) expect(racine.contains(nuit) && racine !== nuit).toBe(true);
-    // Les motifs gravés de la V1 laissent la place au décor de l'habillage.
+    // Les motifs gravés de la V1 laissent la place à la scène de fond.
     expect(container.querySelector(`.${s.motif}`)).toBeNull();
   });
 
-  it("le décor est le même quelle que soit la date : seul le défilement le déplace", () => {
+  it("le fond est le même quelle que soit la date : la scène ne donne aucun indice", () => {
     const vue2: Vue = { debut: 1920, fin: 1935 };
     const c2 = { ...controle, vue: vue2, vueRef: { current: vue2 } } as ReturnType<typeof useVue>;
-    const a = render(<Frise precision="annee" remplir habillage="tranchees" controle={controle} />).container.querySelector(`.${s.horizon}`) as HTMLElement;
-    const imageA = a.style.backgroundImage;
+    const a = render(<Frise precision="annee" remplir habillage="tranchees" controle={controle} />).container.querySelector(`.${s.frise}`) as HTMLElement;
+    const fondA = [a.style.backgroundImage, a.style.backgroundPosition, a.style.backgroundSize];
     cleanup();
-    const b = render(<Frise precision="annee" remplir habillage="tranchees" controle={c2} />).container.querySelector(`.${s.horizon}`) as HTMLElement;
-    expect(b.style.backgroundImage).toBe(imageA);
+    const b = render(<Frise precision="annee" remplir habillage="tranchees" controle={c2} />).container.querySelector(`.${s.frise}`) as HTMLElement;
+    expect([b.style.backgroundImage, b.style.backgroundPosition, b.style.backgroundSize]).toEqual(fondA);
   });
 });

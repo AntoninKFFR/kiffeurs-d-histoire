@@ -1,6 +1,6 @@
 // Habillages de frise propres à certaines périodes (#97).
-// Un habillage est un petit jeu de réglages : un fond (couleur, trame, dégradé), un décor d'horizon
-// posé sur la bande des époques et, pour la nuit, la variante sombre de la charte. Tout est en SVG léger
+// Un habillage est un petit jeu de réglages : un fond (couleur, trame, grande scène très pâle qui remplit tout l'écran)
+// et, pour la nuit, la variante sombre de la charte. Rien n'est posé sur la frise elle-même. Tout est en SVG léger
 // (public/habillages/) et n'est chargé que quand une partie de la période est jouée.
 // Aucun habillage ne dépend de la date : le décor est le même sur toute la frise, il ne donne aucun indice.
 
@@ -15,17 +15,14 @@ export type Habillage = {
   sombre: boolean;
   fond: {
     couleur: string;
-    /** Valeur CSS de `background-image` (trame, dégradé). */
+    /** Valeur CSS de `background-image` : la scène plein écran d'abord (dessus), puis la trame et le dégradé. */
     image: string;
     taille: string;
     repetition: string;
+    position: string;
   };
-  /** Couleurs les plus défavorables sous les dates : le fond et ses trames les plus marquées (aplats, pas les traits de 1 px), pour le contrôle de contraste (tests). */
+  /** Couleurs les plus défavorables sous les dates : le fond, la trame et la scène à leur plus marqué (aplats, pas les traits fins), pour le contrôle de contraste (tests). */
   fondsPires: string[];
-  /** Décor d'horizon : tuile SVG répétée sur la largeur, en arrière-plan très discret au-dessus de la bande des époques. */
-  horizon: { url: string; hauteur: number; tuile: number; opacite: number };
-  /** Petit détail posé sur l'axe à chaque graduation (piquet, colonne, étoile) : la frise reste au premier plan. */
-  detail: string;
   /** Où il s'applique, voir `habillageDe`. */
   packs: string[];
   themes: string[];
@@ -37,37 +34,45 @@ export type Habillage = {
 const DOSSIER = "/habillages";
 
 export const HABILLAGES: Record<HabillageId, Habillage> = {
-  // Grande Guerre : carte d'état-major jaunie, parapet de sacs de sable et barbelés.
+  // Grande Guerre : carte d'état-major jaunie, ciel de fumée, avions, crêtes dévastées et barbelés.
   tranchees: {
     id: "tranchees",
     nom: "Tranchées",
     periode: "Première Guerre mondiale",
     sombre: false,
-    fond: { couleur: "#e8dec3", image: `url(${DOSSIER}/tranchees-fond.svg)`, taille: "240px 240px", repetition: "repeat" },
-    fondsPires: ["#e8dec3", "#ded2b5"], // le fond, puis sous la tache de trame la plus marquée
-    horizon: { url: `${DOSSIER}/tranchees-horizon.svg`, hauteur: 110, tuile: 480, opacite: 0.4 },
-    detail: `${DOSSIER}/tranchees-detail.svg`,
+    fond: {
+      couleur: "#efe6cd",
+      image: `url(${DOSSIER}/tranchees-scene.svg), url(${DOSSIER}/tranchees-fond.svg)`,
+      taille: "cover, 240px 240px",
+      repetition: "no-repeat, repeat",
+      position: "center bottom, 0 0",
+    },
+    fondsPires: ["#efe6cd", "#decfae"], // le fond, puis les grands aplats de la scène et de la trame (mesurés, voir docs/habillages.md)
     packs: ["COL-0063"],
     themes: [],
     periodes: [],
     plage: [1900, 1935],
   },
-  // Antiquité : tesselles de mosaïque, colonnade et frise de grecques.
+  // Antiquité : tesselles de mosaïque, temple, mer, olivier, trirème et frise de grecques.
   mosaique: {
     id: "mosaique",
     nom: "Mosaïque",
     periode: "Antiquité",
     sombre: false,
-    fond: { couleur: "#efe4c6", image: `url(${DOSSIER}/mosaique-fond.svg)`, taille: "96px 96px", repetition: "repeat" },
-    fondsPires: ["#efe4c6", "#e5d1b2", "#e2d4b4"], // le fond, puis sous les tesselles les plus marquées
-    horizon: { url: `${DOSSIER}/mosaique-horizon.svg`, hauteur: 110, tuile: 400, opacite: 0.4 },
-    detail: `${DOSSIER}/mosaique-detail.svg`,
+    fond: {
+      couleur: "#f5ecd2",
+      image: `url(${DOSSIER}/mosaique-scene.svg), url(${DOSSIER}/mosaique-fond.svg)`,
+      taille: "cover, 96px 96px",
+      repetition: "no-repeat, repeat",
+      position: "center bottom, 0 0",
+    },
+    fondsPires: ["#f5ecd2", "#ddceaf"], // le fond, puis les grands aplats de la scène et des tesselles (mesurés)
     packs: ["COL-0078"],
     themes: [],
     periodes: ["antiquite"],
     plage: [-3500, 500],
   },
-  // Conquête spatiale : ciel étoilé et horizon lunaire. Le pack « Espace » remonte à Galilée : on l'associe par son identifiant.
+  // Conquête spatiale : ciel étoilé, Terre qui se lève sur la Lune, fusée et satellite. Le pack « Espace » remonte à Galilée : on l'associe par son identifiant.
   espace: {
     id: "espace",
     nom: "Ciel étoilé",
@@ -75,13 +80,12 @@ export const HABILLAGES: Record<HabillageId, Habillage> = {
     sombre: true,
     fond: {
       couleur: "#0d1630",
-      image: `url(${DOSSIER}/espace-fond.svg), linear-gradient(180deg, #080e24 0%, #14224a 100%)`,
-      taille: "400px 400px, 100% 100%",
-      repetition: "repeat, no-repeat",
+      image: `url(${DOSSIER}/espace-scene.svg), url(${DOSSIER}/espace-fond.svg), linear-gradient(180deg, #080e24 0%, #14224a 100%)`,
+      taille: "cover, 400px 400px, 100% 100%",
+      repetition: "no-repeat, repeat, no-repeat",
+      position: "center bottom, 0 0, 0 0",
     },
-    fondsPires: ["#080e24", "#14224a"], // les deux bouts du dégradé du ciel
-    horizon: { url: `${DOSSIER}/espace-horizon.svg`, hauteur: 110, tuile: 600, opacite: 0.55 },
-    detail: `${DOSSIER}/espace-detail.svg`,
+    fondsPires: ["#080e24", "#282354"], // le bas du ciel, puis les nébuleuses les plus claires (mesurés)
     packs: ["COL-0070"],
     themes: ["TAG-0130"],
     periodes: [],

@@ -65,7 +65,7 @@ type Props = {
    * posées sur son fond. Les clics hors des boîtes continuent de placer la réponse.
    */
   haut?: ReactNode;
-  /** Habillage propre à la période jouée (#97) : fond, trame et décor d'horizon. Sans lui, la frise de la V1. */
+  /** Habillage propre à la période jouée (#97) : fond (scène et trame). Sans lui, la frise de la V1. */
   habillage?: HabillageId | null;
   /** Sous l'axe, directement sous la frise (bande des époques). */
   sous?: ReactNode;
@@ -329,16 +329,6 @@ export function Frise({
       )
     : [];
   const hab = habillage ? HABILLAGES[habillage] : null;
-  // Le décor glisse lentement quand on parcourt la frise, selon la place de la vue dans la période jouée (jamais selon la date).
-  const parcours = bornes.fin > bornes.debut ? clamp((vue.debut - bornes.debut) / (bornes.fin - bornes.debut), 0, 1) : 0;
-  // Le décor grandit avec le ciel sur les grands écrans, comme les motifs de la V1.
-  // Sur un écran bas, il s'arrête sous la boîte de la question (le ciel libre au-dessus des époques) ou disparaît.
-  const cielLibre = (scene ? axeY - ciel : 210) - 38 - 6;
-  // Échelle au dixième : la tuile garde une taille entière et ses raccords restent nets.
-  const echelleHorizon = Math.round(echelleDecor * 10) / 10;
-  const hauteurTuile = Math.round((hab?.horizon.hauteur ?? 0) * echelleHorizon);
-  const hauteurHorizon = Math.min(hauteurTuile, Math.round(cielLibre));
-  const tuileHorizon = Math.round((hab?.horizon.tuile ?? 0) * echelleHorizon);
   const outils = (
     <div className={s.outils}>
       <span className={s.echelle}>{legendePas(pas)}</span>
@@ -357,7 +347,7 @@ export function Frise({
         data-fond={hab?.sombre ? "sombre" : undefined}
         style={{
           ...(scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : null),
-          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, "--detail-axe": `url(${hab.detail})`, "--frise-fond": hab.fond.couleur } : null),
+          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, backgroundPosition: hab.fond.position } : null),
         }}
         aria-label={
           selection
@@ -379,20 +369,6 @@ export function Frise({
           </div>
         )}
         <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined} data-theme={hab?.sombre ? "dark" : undefined}>
-        {hab && hauteurHorizon >= 30 && (
-          <div
-            className={s.horizon}
-            aria-hidden="true"
-            style={{
-              opacity: hab.horizon.opacite,
-              height: hauteurHorizon,
-              top: 172 - hauteurHorizon, // pose le décor sur le bandeau des époques (172 px dans la bande)
-              backgroundImage: `url(${hab.horizon.url})`,
-              backgroundSize: `${tuileHorizon}px ${hauteurTuile}px`,
-              backgroundPosition: `${-Math.round(parcours * tuileHorizon * 2.5)}px 100%`,
-            }}
-          />
-        )}
         {EPOQUES.map((ep) => {
           const l = X(ep.debut);
           const r = X(ep.fin);

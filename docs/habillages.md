@@ -1,21 +1,22 @@
 # Habillages de frise par période (#97)
 
 Quand on joue un pack, un thème ou une période liée à une époque retenue, la frise prend l'habillage de cette époque :
-un fond (couleur, trame), un décor d'horizon très discret en arrière-plan, de petits détails posés sur l'axe, parfois la variante de nuit de la charte.
-La frise (axe, dates, repères, réponse) reste toujours au premier plan : l'habillage n'est qu'un fond.
+**uniquement un fond**. Une grande scène très pâle remplit tout l'écran derrière la frise (ciel, paysage, objets de l'époque),
+sur une trame de papier, et, pour la nuit, la variante sombre de la charte. Rien n'est posé sur la frise ni collé à l'axe :
+l'axe, les dates, les repères et la réponse restent seuls au premier plan.
 Sans habillage, la frise reste celle de la V1.
 
 > **Choix provisoires.** L'issue #86 (périodes retenues et exemple de Maxou) n'était pas tranchée au moment du développement.
 > Les trois habillages ci-dessous reprennent les exemples cités dans #86 et #97. Ajouter, retirer ou renommer un habillage
-> ne demande que de modifier `src/lib/game/habillages.ts` et d'ajouter ses deux SVG.
+> ne demande que de modifier `src/lib/game/habillages.ts` et d'ajouter ses deux SVG (trame et scène).
 
 ## Les habillages
 
-| Habillage | Période | Où il s'applique | Fond | Décor d'horizon |
+| Habillage | Période | Où il s'applique | Trame | Scène de fond |
 | --- | --- | --- | --- | --- |
-| Tranchées (`tranchees`) | Première Guerre mondiale | Pack « Première Guerre mondiale » (`COL-0063`), ou toute partie dont les dates tiennent dans 1900-1935 | Carte d'état-major jaunie | Parapet de sacs de sable, barbelés, arbres brisés |
-| Mosaïque (`mosaique`) | Antiquité | Pack « Antiquité » (`COL-0078`), période « Antiquité », ou toute partie dans -3500…500 | Tesselles de mosaïque | Colonnade, frise de grecques |
-| Ciel étoilé (`espace`) | Conquête spatiale | Pack « Espace » (`COL-0070`) et thème « Espace » (`TAG-0130`), par identifiant | Ciel de nuit étoilé | Horizon lunaire, planète à anneau |
+| Tranchées (`tranchees`) | Première Guerre mondiale | Pack « Première Guerre mondiale » (`COL-0063`), ou toute partie dont les dates tiennent dans 1900-1935 | Carte d'état-major jaunie | Ciel de fumée, avions biplans, crêtes dévastées aux arbres brisés, barbelés et coquelicots |
+| Mosaïque (`mosaique`) | Antiquité | Pack « Antiquité » (`COL-0078`), période « Antiquité », ou toute partie dans -3500…500 | Tesselles de mosaïque | Soleil, temple à fronton, olivier, cyprès, mer et trirème, hirondelles, amphores et frise de grecques |
+| Ciel étoilé (`espace`) | Conquête spatiale | Pack « Espace » (`COL-0070`) et thème « Espace » (`TAG-0130`), par identifiant | Ciel de nuit étoilé | Nébuleuses, planète à anneaux, Terre, Spoutnik, fusée, module lunaire et drapeau sur l'horizon lunaire |
 
 ## Règle d'application
 
@@ -30,25 +31,27 @@ Il n'est pas appliqué à la frise du bilan ni à « Découvrir » (cartes péda
 
 ## Mécanique
 
-- `Frise` reçoit `habillage` (identifiant). Le fond est posé sur la racine de la frise (couleur, trame SVG, dégradé) ;
-  le décor d'horizon est un `div` sans interaction (`pointer-events: none`, `aria-hidden`) dont l'image est une tuile SVG répétée,
-  en arrière-plan à 40-55 % d'opacité, juste au-dessus de la bande des époques. Il grandit avec le ciel sur les grands écrans et disparaît sur un écran bas
-  (téléphone couché) pour ne pas passer sous la question.
-- Petits détails sur la frise : à chaque graduation, un petit motif (piquet de barbelés avec un coquelicot, colonne, étoile) se pose sur l'axe,
-  au-dessus de la ligne, loin des dates qui sont dessous. Les noms d'époques passent par-dessus avec un halo de la couleur du fond.
-- Le décor glisse lentement (parallaxe) quand on parcourt la frise, selon la place de la vue dans la période jouée.
-  Il ne dépend jamais de la date visible ni de la réponse : **il ne donne aucun indice**. Les motifs gravés de la V1 (qui varient avec l'époque) laissent la place au décor.
+- `Frise` reçoit `habillage` (identifiant). Le fond est posé sur la racine de la frise, en CSS : la scène SVG (1600×900, `cover`, calée en bas),
+  puis la trame répétée et, pour l'espace, le dégradé du ciel. Aucun élément n'est ajouté dans la frise : le décor ne peut ni capter un clic ni gêner la lecture d'écran.
+- La scène est dessinée pour que son sujet occupe le ciel libre, entre la carte de la question et l'axe, et pour que son horizon passe derrière la bande des époques.
+  Le bas de l'écran (sous la bande des époques) est caché par les boîtes de réponse, donc il ne porte que du sol.
+- La scène est la même sur toute la frise et à tout zoom : elle ne dépend jamais de la date visible ni de la réponse, **elle ne donne aucun indice**.
+  Les motifs gravés de la V1 (qui varient avec l'époque) laissent la place à la scène.
 - Les bandeaux d'époques deviennent translucides pour laisser voir le fond ; leur texte reste opaque.
 - Fond sombre (`espace`) : la bande de la frise passe en thème de nuit (`data-theme="dark"`), donc dates, repères et marqueurs prennent
   leurs couleurs claires. La question, « Quitter » et les boîtes du bas gardent le thème normal, sur une carte claire opaque (`data-fond="sombre"` dans `partie.module.css`).
-- Poids : neuf SVG de 0,2 à 5,6 Ko (moins de 26 Ko en tout), chargés seulement quand la période est jouée (le fond est une image CSS posée en ligne, pas une image de page).
-  Ils sont produits par `scripts/generer-habillages.mjs` (déterministe).
+- Poids : six SVG de 2 à 8 Ko (moins de 36 Ko en tout), chargés seulement quand la période est jouée.
+  Ils sont produits par `scripts/generer-habillages.mjs` (déterministe : `node scripts/generer-habillages.mjs public/habillages`).
 
 ## Lisibilité
 
-`tests/habillages.test.tsx` vérifie, pour chaque habillage, sur le fond et sur ses trames les plus marquées :
+La scène est volontairement très pâle (couleurs proches du fond, opacité de 5 à 20 %). Les couleurs de `fondsPires` ont été
+**mesurées** sur la scène rendue (captures à 1366×768, 667×375 et 375×667 : 5 % des pixels les plus marqués au-dessus du bas de l'écran, hors traits très fins).
+Si on retouche une scène, on remesure et on met à jour `fondsPires`.
+`tests/habillages.test.tsx` vérifie, pour chaque habillage, sur ces couleurs :
 contraste ≥ 4,5:1 pour les dates (`encre`), les petites étiquettes (`encre-douce`), les années en gras (`oxyde`) et les noms d'époques sur le bandeau translucide ;
-repère d'axe ≥ 3:1. Il vérifie aussi que la frise sans habillage n'a ni fond posé ni décor, et que le décor ne change pas avec la date visible.
+repère d'axe ≥ 3:1. Il vérifie aussi que la frise sans habillage n'a pas de fond posé, que l'habillage ne pose que le fond (aucun élément ajouté),
+et que le fond ne change pas avec la date visible.
 
 ## Aperçu
 

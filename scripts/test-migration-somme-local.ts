@@ -5,8 +5,9 @@ import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
 const FICHIER = "supabase/migrations/20261007143355_corrige_somme_day_range.sql";
-const sql = (requete: string) => execFileSync("docker", ["exec", "-i", "supabase_db_kiffeurs-histoire",
-  "psql", "-X", "-U", "postgres", "-v", "ON_ERROR_STOP=1", "-q", "-A", "-t"],
+let cible={container:"supabase_db_kiffeurs-histoire",database:"postgres"};
+const sql = (requete: string) => execFileSync("docker", ["exec", "-i", cible.container,
+  "psql", "-X", "-U", "postgres", "-d",cible.database,"-v", "ON_ERROR_STOP=1", "-q", "-A", "-t"],
   { input: requete, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).trim();
 const EMPREINTE = `select md5(jsonb_build_object(
   'events', (select jsonb_agg(to_jsonb(e) order by id) from histoire.events e),
@@ -16,6 +17,14 @@ const EMPREINTE = `select md5(jsonb_build_object(
   'aliases', (select jsonb_agg(to_jsonb(a) order by event_id, alias) from histoire.event_aliases a)
 )::text);`;
 const AVANT = `
+  -- Reconstituer la fixture d'octobre antérieure à #92, dans la transaction
+  -- annulée seulement. Les protections et les 18 brouillons sont restaurés par ROLLBACK.
+  drop trigger if exists protected_card on histoire.chapter_cards;
+  drop trigger if exists protected_chapter on histoire.chapters;
+  drop trigger if exists protected_curriculum on histoire.event_chapters;
+  drop table if exists histoire.pedagogical_units;
+  delete from histoire.event_chapters where chapter_id between 'THM-047' and 'THM-064';
+  delete from histoire.chapters where id between 'THM-047' and 'THM-064';
   -- Reconstituer le registre à la date de cette migration, même si de nouvelles
   -- migrations existent. Ces suppressions restent dans la transaction annulée.
   delete from histoire.migrations_appliquees where version > '20261007143355';
@@ -26,7 +35,11 @@ const AVANT = `
   update histoire.event_tags set tag_id=case tag_id when 'TAG-0067' then 'TAG-0064' when 'TAG-0069' then 'TAG-0071' end where event_id='EVT-0210' and tag_id in ('TAG-0067','TAG-0069');
 `;
 
-export function testerMigrationSommeLocale() {
+export function testerMigrationSommeLocale(fixture?:{container:string;database:string}) {
+  if(fixture){
+    assert(/^kffr-issue92-phase2(?:-[a-z0-9]+)?$/.test(fixture.container)&&/^kffr_api_[a-f0-9]+$/.test(fixture.database),"Cible de fixture inconnue");
+    cible=fixture;
+  }
   const migration = readFileSync(FICHIER, "utf8");
   assert.match(migration, /\nbegin;\s/);
   assert.match(migration, /\ncommit;\s*$/);

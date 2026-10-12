@@ -2,12 +2,17 @@ import "server-only";
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { lireCsv } from "../../../scripts/csv";
-import { motifChapitre } from "./catalogue";
+import { motifChapitre,CHAPITRES } from "./catalogue";
 
 let cartes: Map<string, { event: string; chapitre: string }> | undefined;
 function correspondances() {
-  cartes ??= new Map(lireCsv(path.join(process.cwd(), "content/pedagogie/cartes-v1.csv"))
-    .map((c) => [c.card_id, { event: c.event_id, chapitre: c.chapter_id }]));
+  if (!cartes) {
+    // Chemin littéral pour limiter le traçage Turbopack à ce fichier optionnel.
+    const enfant = path.join(process.cwd(),"content/pedagogie/cartes-sous-chapitres.csv");
+    const lignes = [...lireCsv(path.join(process.cwd(), "content/pedagogie/cartes-v1.csv")),...(existsSync(enfant) ? lireCsv(enfant) : [])];
+    const disponibles=new Set(CHAPITRES.map(c=>c.id));
+    cartes = new Map(lignes.filter(c=>disponibles.has(c.chapter_id)).map(c => [c.card_id,{event:c.event_id,chapitre:c.chapter_id}]));
+  }
   return cartes;
 }
 

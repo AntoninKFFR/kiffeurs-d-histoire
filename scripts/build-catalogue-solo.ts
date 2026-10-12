@@ -4,12 +4,15 @@
 // Aucune date d'événement n'y figure : des identifiants, des libellés, des décomptes et, pour cadrer
 // la frise, l'étendue de chaque choix arrondie à la dizaine d'années avec 10 ans de marge.
 // Usage : npm run content:catalogue-solo
-import { writeFileSync } from "node:fs";
+import { writeFileSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { lireCsv, type LigneCsv } from "./csv";
 import { PERIODES } from "../src/lib/solo/periodes";
 import { contenuPacksHierarchiques } from "./catalogue-packs";
 import sport from "../content/sport/packs-proposes.json";
+import { chargerStructure, type Unite } from "./structure-pedagogique";
+import { FICHIER_CARTES_ENFANTS } from "./fichiers-pedagogiques";
+import { chargerCartesSousChapitres } from "./import-cartes";
 
 const dossier = join(import.meta.dirname, "..", "content", "dataset-v18");
 const csv = (nom: string) => lireCsv(join(dossier, `kiffeurs-${nom}-v18.csv`));
@@ -87,14 +90,26 @@ for (const l of csv("curriculum-links")) {
 }
 // Test d'un chapitre (#23) : seulement les événements de ses cartes pédagogiques, ce que le joueur vient d'apprendre.
 const cartesChapitres = new Map<string, string[]>();
-for (const c of lireCsv(join(import.meta.dirname, "..", "content", "pedagogie", "cartes-v1.csv"))) {
+const sourceDates = new Map<string,LigneCsv>();
+const registre = JSON.parse(readFileSync(join(import.meta.dirname,"..","src/lib/apprendre/structure.json"),"utf8")) as Unite[];
+const disponibles = new Set(registre.filter(c=>c.etat!=="inactif").map(c=>c.id));
+const fichierEnfants=join(import.meta.dirname,"..",FICHIER_CARTES_ENFANTS);
+if (existsSync(fichierEnfants)) chargerCartesSousChapitres(fichierEnfants);
+for (const c of [...lireCsv(join(import.meta.dirname, "..", "content", "pedagogie", "cartes-v1.csv")),...(existsSync(fichierEnfants)?lireCsv(fichierEnfants):[])]) {
   if (!c.event_id) continue;
   cartesChapitres.set(c.chapter_id, [...(cartesChapitres.get(c.chapter_id) ?? []), redirection.get(c.event_id) ?? c.event_id]);
+  sourceDates.set(c.chapter_id+"\0"+c.event_id,c);
+}
+for (const c of chargerStructure(join(import.meta.dirname,"..")).sous_chapitres) if (disponibles.has(c.id)) {
+  const cards=cartesChapitres.get(c.id)??[];
+  if (c.event_ids.some(id=>!cards.includes(id))) throw new Error("Catalogue enfant incomplet");
+  contenuChapitres.set(c.id,c.event_ids);
 }
 const chapitres = Object.fromEntries([...contenuChapitres].sort().map(([id, ids]) => {
   const test = cartesChapitres.get(id) ?? [];
+  const versionApprise=deIds(test).map(e=>({...e,...Object.fromEntries(["start_year","start_month","start_day"].map(k=>[k,sourceDates.get(id+"\0"+e.event_id)?.[k]??e[k]]))}));
   // Le mode scolaire n'a pas de niveau : tous les événements du chapitre comptent.
-  return [id, { n: compter(deIds(ids)), b: bornes(deIds(ids)), t: compter(deIds(test)), tb: bornes(deIds(test)) }];
+  return [id, { n: compter(deIds(ids)), b: bornes(deIds(ids)), t: compter(versionApprise), tb: bornes(versionApprise) }];
 }));
 
 const catalogue = { general: parNiveau(evenements), packs, themes, periodes, bornesPeriodes, chapitres };

@@ -10,6 +10,7 @@ import { lireCsv } from "./csv";
 import { estUrlLocale, FICHIER_CARTES, importerCartesLocales, validerCartes } from "./import-cartes";
 import { fusionnerDescriptions } from "./import-descriptions";
 import { verifierCollectionsSport } from "./import-sport";
+import { chargerStructure } from "./structure-pedagogique";
 
 type Ligne = Record<string, string>;
 
@@ -123,6 +124,23 @@ type Bilan = { element: string; crees: number; misAJour: number; retires?: numbe
 async function importer() {
   const { dossier } = lireArguments();
   const db = connecter();
+  const structure = chargerStructure();
+  // Préflight avant le premier upsert : la migration préparée doit être installée.
+  // Cette phase n'exécute ce chemin que sur ses fixtures locales.
+  const { data: unitesExistantes,error: erreurStructure } = await db.from("pedagogical_units").select("chapter_id").limit(1);
+  if (erreurStructure) throw new Error("Migration de préparation pédagogique absente : import arrêté avant écriture");
+  if (!unitesExistantes?.length) {
+    const {count,error} = await db.from("chapter_cards").select("card_id",{count:"exact",head:true});
+    if (error) throw new Error("Préflight des cartes historiques indisponible");
+    if (count) {
+      // Une base déjà remplie est figée AVANT le premier upsert. L'amorçage
+      // vide en fixture ne l'est qu'après import complet des 41 chapitres.
+      const {error: erreurGel} = await db.rpc("register_pedagogical_structure",{
+        p_units:[...structure.chapitres_historiques,...structure.sous_chapitres],
+      });
+      if (erreurGel) throw new Error("Historique existant incompatible : import arrêté avant écriture");
+    }
+  }
   const bilan: Bilan[] = [];
   const csv = (nom: string) => lireCsv(trouverFichier(dossier, nom));
 
@@ -139,7 +157,7 @@ async function importer() {
   // Pilote en attente de relecture : jamais envoyé à une base distante.
   // Tout valider avant le premier upsert du dataset.
   const cartes = estUrlLocale(process.env.SUPABASE_URL!) && path.basename(path.resolve(dossier)) === "dataset-v18"
-    ? validerCartes(lireCsv(FICHIER_CARTES), evenements, themes, liensProgramme) : null;
+    ? validerCartes(lireCsv(FICHIER_CARTES), evenements, themes, liensProgramme,structure) : null;
   // Fichier facultatif : les brouillons sont testables uniquement en local.
   const fichierDescriptions = readdirSync(dossier).find((f) => /^kiffeurs-description-additions-v\d+\.csv$/.test(f));
   const propositionsDescriptions = fichierDescriptions ? lireCsv(path.join(dossier, fichierDescriptions)) : [];
@@ -298,10 +316,11 @@ async function importer() {
   });
   bilan.push({
     element: "Événements ↔ chapitres",
-    ...(await synchroniserLiens(
-      db, "event_chapters", "event_id", "chapter_id", idsEvenements, [...liensChapitres.values()],
-      "event_id, chapter_id, curriculum_status",
-    )),
+    ...(await (async () => {
+      const { error } = await db.rpc("sync_pedagogical_links", { p_links: [...liensChapitres.values()], p_event_ids: [...idsEvenements] });
+      if (error) throw new Error(`Import des liens pédagogiques : ${error.message}`);
+      return { crees: 0, misAJour: liensChapitres.size, retires: 0 };
+    })()),
     ignores: liensIgnores,
     note: liensIgnores ? `${liensIgnores} lignes du programme sans événement` : undefined,
   });
@@ -389,6 +408,11 @@ async function importer() {
 
   if (cartes) await importerCartesLocales(cartes, process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
   else console.log("Cartes pilotes ignorées : import automatique uniquement pour le v18 en LOCAL.");
+  // Enregistrer après l'import canonique complet ; aucun enfant n'est activé ni rempli.
+  const { error: erreurManifeste } = await db.rpc("register_pedagogical_structure", {
+    p_units: [...structure.chapitres_historiques, ...structure.sous_chapitres],
+  });
+  if (erreurManifeste) throw new Error(`Enregistrement de la structure pédagogique : ${erreurManifeste.message}`);
 
   // Résumé.
   console.log(`\nImport de ${dossier} terminé.\n`);

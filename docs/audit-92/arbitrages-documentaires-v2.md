@@ -4,7 +4,7 @@
 
 ## Han — EVT-0040
 
-**État réel du dépôt.** Le titre et date_text indiquent la dynastie Han de −206 à 220, mais start_year/end_year sont **9/25**, sans mois ni jour. La carte `CARD-006-han` reprend les valeurs canoniques ; l’accord carte/canon ne rend pas la date historiquement correcte. Le filtre de jeu compte néanmoins ce repère dans les cinq de THM-006-S3.
+**État réel du dépôt — attribution de carte corrigée en phase 2.** Le titre et date_text de **EVT-0040** indiquent la dynastie Han de −206 à 220, mais start_year/end_year sont **9/25**, sans mois ni jour. **Cet événement n’a pas de carte actuelle**. Malgré son nom, `CARD-006-han` concerne **EVT-0041, le règne de Wudi (−141 à −87)**, avec ses dates canoniques propres. L’audit V2 attribuait à tort cette carte à la période globale ; la partition et les décomptes de couverture étaient corrects. Le filtre mécanique compte EVT-0040 parmi les cinq événements potentiellement jouables de THM-006-S3, sans rendre sa date historiquement correcte.
 
 **Faits étayés.** Le Met distingue Han occidentaux **−206 à 9** et Han orientaux **25 à 220**. Sa chronologie nomme **9–25 « interrègne de Wang Mang »** : cette interruption ne doit pas être décrite comme le règne entier de la dynastie Xin. Le début de Han à −206 est la convention de périodisation retenue par cette institution ; cela ne transforme pas toutes les étapes d’établissement dynastique en faits ponctuels précisément datés. [Met, dynastie Han](https://www.metmuseum.org/fr/essays/han-dynasty-206-b-c-220-a-d), [Met, chronologie Chine 1–500](https://www.metmuseum.org/toah/ht/05/eac.html).
 

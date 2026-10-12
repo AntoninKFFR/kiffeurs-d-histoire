@@ -8,7 +8,7 @@ Rien n'est posé sur la frise ni collé à l'axe : l'axe, les dates, les repère
 Sans habillage, la frise reste celle de la V1.
 
 > **Choix provisoires.** L'issue #86 (périodes retenues et exemple de Maxou) n'était pas tranchée au moment du développement.
-> Les trois premiers habillages reprennent les exemples cités dans #86 et #97, les huit autres (#112) ont été validés en images par Maxou le 12 octobre 2026 ; les packs et périodes auxquels ils s'appliquent sont des choix par défaut. Ajouter, retirer ou renommer un habillage
+> Les trois premiers habillages reprennent les exemples cités dans #86 et #97, les huit suivants (#112) et les douze d'après (#114) ont été validés en images par Maxou le 12 octobre 2026 ; les packs et périodes auxquels ils s'appliquent sont des choix par défaut. Ajouter, retirer ou renommer un habillage
 > ne demande que de modifier `src/lib/game/habillages.ts` et d'ajouter ses deux SVG (trame et scène).
 
 ## Les habillages
@@ -26,6 +26,18 @@ Sans habillage, la frise reste celle de la V1.
 | Vapeur (`industrielle`) | Révolution industrielle | Pack « XIXe siècle » (`COL-0081`), période « XIXe siècle », ou parties dans 1789…1914 (hors Révolution et Empire) | Plan d'ingénieur | Locomotive à vapeur, usine et cheminées, engrenage |
 | Affiche rouge (`guerre-froide`) | Guerre froide | Pack « Guerre froide » (`COL-0065`), ou parties dans 1947…1991 | Hachures constructivistes | Spoutnik et ses orbites sur un disque rouge, mur et mirador |
 | Stade (`sport`) | Sport | Pack « Sport » (`COL-0105`) et ses six sous-packs (`COL-0106` à `COL-0111`) | Pelouse tondue | Flamme dans sa vasque, stade et mâts d'éclairage, piste en terre battue |
+| Laboratoire (`sciences`) | Sciences | Pack « Sciences » (`COL-0071`), thèmes « Sciences » (`TAG-0127`) et « Savoirs et connaissance » (`TAG-0144`) | Cercles et losanges d'astrolabe | Sphère armillaire, télescope de Galilée, lune et constellations |
+| Vitrail (`religions`) | Religions | Pack « Religions » (`COL-0072`), thèmes « Religions » (`TAG-0119`) et « Religions et États » (`TAG-0120`) | Losanges de verrière | Rosace de vitrail, flèches de cathédrale, minaret et pagode en silhouette |
+| Parchemin (`droits`) | Droits et libertés | Pack « Droits et libertés » (`COL-0073`), thèmes « Droits et libertés » (`TAG-0110`) et « Droit et législation » (`TAG-0109`) | Lignes de parchemin et étoiles dorées | Balance de la justice sur un texte de loi, colonnes de temple |
+| Étoiles (`europe`) | Construction européenne | Packs « Construction européenne » (`COL-0074`) et « Europe » (`COL-0062`), thème « Construction européenne » (`TAG-0136`) | Étoiles dorées sur bleu pâle | Couronne de douze étoiles, constellation, tours de verre |
+| Horizons (`decolonisation`) | Décolonisation | Pack « Décolonisation » (`COL-0075`), thèmes « Décolonisation » (`TAG-0117`) et « Colonisation et impérialisme » (`TAG-0116`) | Méridiens de mappemonde | Globe sur l'Afrique, paquebot à quai, palmiers et mouettes |
+| Nature (`environnement`) | Environnement | Pack « Environnement » (`COL-0076`), thème « Environnement » (`TAG-0134`) | Feuilles et vagues | Éoliennes, sapins et montagne sous un soleil pâle |
+| Étendards (`batailles`) | Guerres et batailles | Pack « Guerres et batailles » (`COL-0069`), thèmes « Batailles et opérations » (`TAG-0112`) et « Guerres et conflits » (`TAG-0111`) | Épées croisées | Écu aux épées croisées, étendards plantés dans la plaine, tentes au loin |
+| Hexagone (`france`) | France | Pack « France » (`COL-0061`) | Étoiles dorées | Tour Eiffel, Mont-Saint-Michel et ruban tricolore |
+| Papyrus (`egypte`) | Égypte antique | Aucune règle pour l'instant (pas de pack d'Égypte) : visible sur `/apercu?habillage=egypte`, à brancher dès qu'un pack ou un sous-pack existe | Hiéroglyphes | Pyramides sous un grand soleil, obélisque et palmier |
+| Forum (`rome`) | Rome antique | Aucune règle pour l'instant (pas de pack de Rome) : visible sur `/apercu?habillage=rome`, à brancher dès qu'un pack ou un sous-pack existe | Arcades | Colisée et aqueduc, pin parasol |
+| Rideau (`spectacle`) | Spectacle | Thème « Arts et culture » (`TAG-0132`) | Étoiles dorées et lampes | Rideau rouge, projecteurs, étoile dorée, pellicule au bas de l'écran |
+| Hémicycle (`politique`) | Politique | Thèmes « Politique » (`TAG-0106`), « Démocratie » (`TAG-0107`) et « Construction de l'État » (`TAG-0108`) | Bulletins cochés | Parlement à coupole, urne et bulletin, drapeaux |
 
 ## Règle d'application
 

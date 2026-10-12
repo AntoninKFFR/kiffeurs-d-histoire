@@ -357,3 +357,208 @@ const degrade = (id, col, o0, o1, radial = false) => radial
   for (let i = 0; i < 24; i++) t += `<circle cx="${r1(alea() * 160)}" cy="${r1(alea() * 160)}" r="${r1(0.5 + alea())}" fill="#1f3a2c" fill-opacity="${r1(0.05 + alea() * 0.06)}"/>`;
   ecrire("sport-fond.svg", svg(160, 160, t));
 }
+
+// ---------- Douze thèmes de plus (propositions) ----------
+const tuile = (nom, t, corps, n = 24, col = "#000", ofs = 0.06) => {
+  let c = corps;
+  for (let i = 0; i < n; i++) c += `<circle cx="${r1(alea() * t)}" cy="${r1(alea() * t)}" r="${r1(0.5 + alea() * 1.1)}" fill="${col}" fill-opacity="${r1(ofs * 0.6 + alea() * ofs)}"/>`;
+  ecrire(`${nom}-fond.svg`, svg(t, t, c));
+};
+const ciel = (g, glow, gx, gy, gr, o = 0.4) => `<defs>${degrade("s", glow, o, 0, true)}${degrade("h", g, 0, 0.12)}</defs><rect width="1600" height="640" fill="url(#h)"/><circle cx="${gx}" cy="${gy}" r="${gr}" fill="url(#s)"/>`;
+const sol = (c1, c2) => `<path d="${crete(580, 24)}" fill="${c1}" fill-opacity=".07"/><path d="${crete(700, 22, 60)}" fill="${c1}" fill-opacity=".1"/><rect x="-20" y="850" width="1640" height="160" fill="${c2}" fill-opacity=".1"/>`;
+
+// Sciences : cabinet de curiosités, télescope de Galilée, sphère armillaire, lune, constellations.
+{
+  let c = ciel("#5a6a8a", "#f4e0a0", 420, 220, 260, 0.35);
+  c += '<g fill="#2a3340" fill-opacity=".06">' + [[200, 140], [640, 120], [900, 360], [1450, 150], [300, 440], [1480, 330]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3"/>`).join("") + '</g>';
+  c += '<path d="M200 140L330 170L450 110L640 120M900 360L1000 410L1090 380" stroke="#2a3340" stroke-opacity=".12" stroke-width="2" stroke-dasharray="4 8" fill="none"/>';
+  // sphère armillaire
+  c += '<g transform="translate(430 300)" fill="none" stroke="#8a6a2a" stroke-opacity=".34" stroke-width="5"><circle r="120"/><ellipse rx="120" ry="40"/><ellipse rx="40" ry="120"/><ellipse rx="100" ry="100" transform="rotate(30)"/><path d="M-140 0H140M0 -140V140" stroke-width="3" stroke-opacity=".2"/></g><circle cx="430" cy="300" r="22" fill="#2a5aa0" fill-opacity=".3"/>';
+  // lune
+  c += '<circle cx="1290" cy="150" r="46" fill="#2a3340" fill-opacity=".12"/><circle cx="1308" cy="140" r="40" fill="#efe6d2"/>';
+  // télescope : le sujet de l'habillage
+  c += '<g stroke="#2a3340" stroke-opacity=".36" stroke-width="12" stroke-linecap="round"><path d="M1100 372L1010 478M1100 372L1190 478M1100 372L1100 486"/></g>';
+  c += '<g transform="translate(1100 372) rotate(-36)" fill="#2a3340" fill-opacity=".34"><rect x="-190" y="-24" width="380" height="48" rx="8"/><rect x="130" y="-34" width="70" height="68" rx="6"/><rect x="-216" y="-13" width="30" height="26" rx="4"/></g>';
+  c += '<g transform="translate(1100 372) rotate(-36)" stroke="#c9962f" stroke-opacity=".7" stroke-width="5"><path d="M-110 -24V24M-30 -24V24M50 -24V24"/></g>';
+  c += '<g fill="#c9962f" fill-opacity=".5"><path d="M1240 190l6 14 14 1-11 9 4 14-13-8-13 8 4-14-11-9 14-1z"/></g>';
+  c += sol("#2a3340", "#2a5aa0");
+  c += '<g fill="#2a3340" fill-opacity=".14"><path d="M130 880v-40q-30 0-30-26t30-26v-12h30v12q30 0 30 26t-30 26v40z"/><path d="M300 880v-50l14-22v-16h22v16l14 22v50z"/></g>';
+  ecrire("sciences-scene.svg", svg(1600, 900, monter(c)));
+  tuile("sciences", 160, '<g stroke="#2a3340" stroke-opacity=".08" stroke-width="1" fill="none"><circle cx="80" cy="80" r="50"/><path d="M0 80H160M80 0V160"/></g><path d="M30 30l5 9-5 9-5-9z" fill="#c9962f" fill-opacity=".14"/>', 22, "#2a3340");
+}
+
+// Religions : rosace de vitrail, silhouettes de cathédrale, mosquée et pagode.
+{
+  let c = ciel("#9a7aa0", "#f4d9a0", 1110, 300, 300, 0.35);
+  c += '<g transform="translate(1110 300)"><circle r="168" fill="#3a2438" fill-opacity=".3"/>';
+  const cols = ["#2f4aa0", "#b03030", "#c9962f", "#2f8a6a", "#6a3a9a", "#c9962f"];
+  for (let i = 0; i < 12; i++) { const a0 = i * Math.PI / 6, a1 = (i + 1) * Math.PI / 6; c += `<path d="M0 0L${r1(Math.cos(a0) * 150)} ${r1(Math.sin(a0) * 150)}A150 150 0 0 1 ${r1(Math.cos(a1) * 150)} ${r1(Math.sin(a1) * 150)}z" fill="${cols[i % 6]}" fill-opacity=".34"/>`; }
+  c += '<circle r="150" fill="none" stroke="#3a2438" stroke-opacity=".36" stroke-width="8"/><circle r="90" fill="none" stroke="#3a2438" stroke-opacity=".34" stroke-width="6"/><circle r="36" fill="#f4d9a0" fill-opacity=".7"/><path d="M0 -150V150M-150 0H150M-106 -106L106 106M-106 106L106 -106" stroke="#3a2438" stroke-opacity=".3" stroke-width="5"/></g>';
+  c += `<g fill="#3a2438" fill-opacity=".06">${nuage(500, 150, 1.4)}${nuage(1450, 400, 1)}</g>`;
+  // cathédrale, mosquée, pagode
+  c += '<g fill="#3a2438" fill-opacity=".16"><path d="M170 480V330l24-70 24 70v150z"/><path d="M250 480V360l30-90 30 90v120z"/><rect x="194" y="400" width="56" height="80"/>';
+  c += '<path d="M480 480V400q0-70 60-70t60 70v80z"/><rect x="620" y="300" width="14" height="180"/><path d="M613 300l14-34 14 34z"/><rect x="456" y="320" width="14" height="160"/><path d="M449 320l14-34 14 34z"/>';
+  c += '<path d="M760 480v-30h120v30zM780 450v-30h80v30zM796 420v-30h48v30zM808 390v-34l12-30 12 30v34z"/></g>';
+  c += sol("#3a2438", "#6a3a9a");
+  ecrire("religions-scene.svg", svg(1600, 900, monter(c)));
+  tuile("religions", 160, '<g stroke="#3a2438" stroke-opacity=".07" stroke-width="1" fill="none"><path d="M80 10l70 70-70 70-70-70z"/><circle cx="80" cy="80" r="26"/></g>', 18, "#3a2438");
+}
+
+// Droits et libertés : balance de la justice, parchemin de la Déclaration, plume, colonnes.
+{
+  let c = ciel("#8a9ac0", "#f4e4a8", 420, 220, 250, 0.35);
+  c += '<g fill="#2a3350" fill-opacity=".1"><rect x="150" y="260" width="30" height="220"/><rect x="230" y="260" width="30" height="220"/><rect x="310" y="260" width="30" height="220"/><rect x="390" y="260" width="30" height="220"/><path d="M130 260l160-60 160 60z"/></g>';
+  c += '<g fill="#f4ead0" fill-opacity=".6"><path d="M150 262l140-50 140 50z"/></g>';
+  // parchemin derrière la balance
+  c += '<path d="M900 230h400v230q0 14-14 14H914q-14 0-14-14z" fill="#d9c08a" fill-opacity=".34"/><g stroke="#2a3350" stroke-opacity=".2" stroke-width="3">' + Array.from({ length: 8 }, (_, i) => `<path d="M930 ${270 + i * 24}H1270"/>`).join("") + '</g>';
+  // balance : le sujet
+  c += '<g fill="#2a3350" fill-opacity=".36" stroke="#2a3350" stroke-opacity=".36"><rect x="1096" y="222" width="12" height="236" stroke="none"/><rect x="1060" y="450" width="84" height="16" rx="4" stroke="none"/><path d="M960 262Q1100 232 1244 262" stroke-width="10" fill="none"/><circle cx="1102" cy="222" r="14" stroke="none"/>';
+  c += '<path d="M962 262L930 380M962 262L1000 380M1242 262L1210 380M1242 262L1280 380" stroke-width="3" fill="none"/><path d="M920 380Q965 420 1010 380z M1200 380Q1245 420 1290 380z" stroke="none"/></g>';
+  c += '<path d="M1330 150q60 40 30 120M1360 270q-30 30-70 36" stroke="#2a3350" stroke-opacity=".3" stroke-width="5" fill="none"/>';
+  c += `<g fill="#2a3350" fill-opacity=".05">${nuage(700, 140, 1.4)}${nuage(1380, 180, 1)}</g>`;
+  c += sol("#2a3350", "#2f4a9a");
+  ecrire("droits-scene.svg", svg(1600, 900, monter(c)));
+  tuile("droits", 160, '<g stroke="#2a3350" stroke-opacity=".07" stroke-width="1"><path d="M0 40H160M0 80H160M0 120H160"/></g><path d="M80 20l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8z" fill="#c9962f" fill-opacity=".14"/>', 18, "#2a3350");
+}
+
+// Construction européenne : couronne de douze étoiles d'or sur disque bleu, réseau d'alliances, drapeaux.
+{
+  let c = ciel("#5a7ac0", "#f4e4a8", 1110, 300, 300, 0.3);
+  c += '<circle cx="1110" cy="300" r="170" fill="#14285a" fill-opacity=".34"/><circle cx="1110" cy="300" r="170" fill="none" stroke="#c9962f" stroke-opacity=".5" stroke-width="5"/>';
+  for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6 - Math.PI / 2, x = r1(1110 + Math.cos(a) * 118), y = r1(300 + Math.sin(a) * 118); c += `<path d="M${x} ${y - 20}l6 15 16 1-12 11 4 16-14-9-14 9 4-16-12-11 16-1z" fill="#e8b830" fill-opacity=".75"/>`; }
+  let r = "";
+  const pts = [[300, 170], [520, 260], [700, 150], [560, 380], [340, 360]];
+  pts.forEach(([x, y], i) => { const [x2, y2] = pts[(i + 1) % pts.length]; r += `M${x} ${y}L${x2} ${y2}`; });
+  c += `<path d="${r}M520 260L560 380M700 150L560 380" stroke="#14285a" stroke-opacity=".16" stroke-width="3" fill="none"/>` + pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="9" fill="#14285a" fill-opacity=".26"/>`).join("");
+  c += `<g fill="#14285a" fill-opacity=".05">${nuage(900, 120, 1.3)}${nuage(1450, 420, 1)}</g>`;
+  c += '<g fill="#14285a" fill-opacity=".14"><rect x="760" y="360" width="50" height="120"/><rect x="820" y="330" width="50" height="150"/><path d="M770 360l15-30 15 30z"/></g>';
+  c += sol("#14285a", "#c9962f");
+  ecrire("europe-scene.svg", svg(1600, 900, monter(c)));
+  tuile("europe", 160, '<path d="M80 40l4 10h10l-8 7 3 11-9-6-9 6 3-11-8-7h10z" fill="#c9962f" fill-opacity=".16"/><g stroke="#14285a" stroke-opacity=".06" stroke-width="1"><path d="M0 120H160M120 0V160"/></g>', 18, "#14285a");
+}
+
+// Décolonisation : globe et Afrique, paquebot, palmiers, mouettes.
+{
+  let c = ciel("#8aa070", "#f4d490", 420, 230, 260, 0.35);
+  c += '<g transform="translate(1230 320)"><circle r="150" fill="#2c3a2e" fill-opacity=".16"/><g fill="none" stroke="#2c3a2e" stroke-opacity=".3" stroke-width="3"><circle r="150"/><ellipse rx="150" ry="50"/><ellipse rx="150" ry="100"/><ellipse rx="50" ry="150"/><ellipse rx="100" ry="150"/></g>';
+  c += '<path d="M-10 -100C30 -112 78 -86 88 -44C104 -10 76 22 64 56C52 98 20 118 -4 104C-22 82 -32 42 -54 12C-88 -22 -66 -78 -10 -100z" fill="#7a5a2a" fill-opacity=".5"/><path d="M-96 -70C-70 -96 -36 -104 -24 -94C-40 -76 -64 -60 -96 -70z" fill="#7a5a2a" fill-opacity=".28"/></g>';
+  c += '<g fill="#2c3a2e" fill-opacity=".16"><path d="M300 470h260l-30-40H340z"/><rect x="390" y="396" width="90" height="34"/><rect x="420" y="360" width="20" height="36"/><rect x="450" y="372" width="14" height="24"/></g>';
+  c += '<path d="M240 486q40 10 80 0t80 0t80 0t80 0" stroke="#2c3a2e" stroke-opacity=".16" stroke-width="3" fill="none"/>';
+  c += '<g stroke="#2c3a2e" stroke-opacity=".28" stroke-width="4" fill="none"><path d="M760 480Q770 400 740 340M740 340q-40-10-60 10M740 340q40-20 70 0M740 340q-10-40-40-50M740 340q20-40 50-44"/></g>';
+  c += '<path d="M640 160q10 -9 20 0q10 -9 20 0M900 120q8 -7 16 0q8 -7 16 0" stroke="#2c3a2e" stroke-opacity=".3" stroke-width="2.4" fill="none"/>';
+  c += `<g fill="#2c3a2e" fill-opacity=".05">${nuage(560, 130, 1.3)}</g>`;
+  c += sol("#2c3a2e", "#7a5a2a");
+  ecrire("decolonisation-scene.svg", svg(1600, 900, monter(c)));
+  tuile("decolonisation", 160, '<g stroke="#2c3a2e" stroke-opacity=".07" stroke-width="1" fill="none"><circle cx="80" cy="80" r="56"/><ellipse cx="80" cy="80" rx="56" ry="20"/><path d="M80 24V136"/></g>', 20, "#2c3a2e");
+}
+
+// Environnement : éoliennes, forêt de sapins, glacier, soleil.
+{
+  const sapin = (x, y, h) => `<path d="M${x} ${y - h}l${h * 0.28} ${h * 0.4}h-${h * 0.14}l${h * 0.22} ${h * 0.3}h-${h * 0.12}l${h * 0.2} ${h * 0.3}h-${h * 1.08}l${h * 0.2}-${h * 0.3}h-${h * 0.12}l${h * 0.22}-${h * 0.3}h-${h * 0.14}z"/>`;
+  const eol = (x, y, h, a) => `<g transform="translate(${x} ${y})"><path d="M-6 0L-3 -${h}H3L6 0z"/><g transform="translate(0 -${h}) rotate(${a})"><circle r="9"/><path d="M-5 0L0 -${h * 0.5}L5 0zM-5 0L${h * 0.43} ${h * 0.25}L${h * 0.04} 5zM5 0L-${h * 0.43} ${h * 0.25}L-${h * 0.04} 5z"/></g></g>`;
+  let c = ciel("#7aa090", "#f4e8a0", 420, 220, 260, 0.4);
+  c += '<g fill="#6a8a8a" fill-opacity=".14"><path d="M200 480L330 290L400 360L470 300L600 480z"/></g><path d="M330 290L300 340L330 332L352 366L378 336L400 360z" fill="#f4f8f4" fill-opacity=".7"/>';
+  c += `<g fill="#1d3a2a" fill-opacity=".34">${eol(1110, 466, 250, 20)}</g><g fill="#1d3a2a" fill-opacity=".2">${eol(930, 466, 150, 70)}${eol(1300, 466, 170, 100)}</g>`;
+  c += '<g fill="#1d3a2a" fill-opacity=".16">' + [640, 690, 730, 780, 1360, 1410, 1460].map((x, i) => sapin(x, 480, 100 + (i % 3) * 30)).join("") + '</g>';
+  c += `<g fill="#1d3a2a" fill-opacity=".05">${nuage(700, 140, 1.4)}${nuage(1450, 220, 1)}</g>`;
+  c += sol("#1d3a2a", "#4f8a58");
+  ecrire("environnement-scene.svg", svg(1600, 900, monter(c)));
+  tuile("environnement", 160, '<g fill="#4f8a58" fill-opacity=".1"><path d="M40 60q20-30 40 0q-20 30-40 0zM100 110q16-26 32 0q-16 26-32 0z"/></g><path d="M0 130q40-12 80 0t80 0" stroke="#1d3a2a" stroke-opacity=".06" stroke-width="1.4" fill="none"/>', 20, "#1d3a2a");
+}
+
+// Guerres et batailles : écu aux épées croisées, bannières, lances et tentes.
+{
+  let c = ciel("#a07a5a", "#f0c880", 360, 230, 260, 0.35);
+  c += '<g transform="translate(1110 330)"><g stroke="#3a2a22" stroke-opacity=".36" stroke-width="16" stroke-linecap="round"><path d="M-130 -140L130 120M130 -140L-130 120"/></g><g stroke="#3a2a22" stroke-opacity=".34" stroke-width="12"><path d="M-70 78L-110 40M70 78L110 40"/></g>';
+  c += '<path d="M-100 -100H100V0Q100 80 0 130Q-100 80 -100 0z" fill="#3a2a22" fill-opacity=".3"/><path d="M-100 -100H100V0Q100 80 0 130Q-100 80 -100 0z" fill="none" stroke="#c9962f" stroke-opacity=".6" stroke-width="7"/><path d="M0 -100V130M-100 -10H100" stroke="#b03030" stroke-opacity=".5" stroke-width="22"/></g>';
+  c += '<g stroke="#3a2a22" stroke-opacity=".26" stroke-width="4">' + [180, 250, 320, 420, 500, 590, 690].map((x, i) => `<path d="M${x} 480V${300 + (i % 3) * 30}"/>`).join("") + '</g>';
+  c += '<g fill="#b03030" fill-opacity=".34">' + [180, 320, 500, 690].map((x, i) => `<path d="M${x} ${300 + (i % 3) * 30}l50 12-50 12z"/>`).join("") + '</g>';
+  c += '<g fill="#3a2a22" fill-opacity=".14"><path d="M780 480l40-60 40 60zM1340 480l36-54 36 54z"/></g>';
+  c += '<g fill="#3a2a22" fill-opacity=".05">' + `${nuage(620, 130, 1.5)}${nuage(1300, 140, 1.2)}` + '</g>';
+  c += sol("#3a2a22", "#b03030");
+  ecrire("batailles-scene.svg", svg(1600, 900, monter(c)));
+  tuile("batailles", 160, '<g stroke="#3a2a22" stroke-opacity=".07" stroke-width="1.4"><path d="M30 30L80 80M80 30L30 80"/></g><path d="M120 120l8 14h-16z" fill="#b03030" fill-opacity=".1"/>', 20, "#3a2a22");
+}
+
+// France : tour Eiffel, Mont-Saint-Michel, rubans tricolores.
+{
+  let c = ciel("#8a9ac0", "#f4dca0", 420, 230, 260, 0.35);
+  // tour Eiffel : le sujet de l'habillage
+  c += '<g fill="#1f2f55" fill-opacity=".34"><path d="M1010 470L1062 340L1076 340L1092 260L1100 200L1108 260L1124 340L1138 340L1190 470L1166 470L1124 372L1098 372L1072 372L1034 470z"/><rect x="1058" y="336" width="84" height="10"/><rect x="1080" y="256" width="40" height="8"/></g>';
+  c += '<g stroke="#f4ede2" stroke-opacity=".55" stroke-width="3" fill="none"><path d="M1040 470Q1100 400 1160 470"/><path d="M1076 372L1124 340M1124 372L1076 340M1092 340L1108 260M1108 340L1092 260"/></g><path d="M1100 200V150" stroke="#1f2f55" stroke-opacity=".34" stroke-width="4"/>';
+  // Mont-Saint-Michel
+  c += '<g fill="#1f2f55" fill-opacity=".16"><path d="M200 480Q300 400 360 360Q420 400 520 480z"/><path d="M340 372l20-80 20 80z"/><rect x="352" y="296" width="16" height="-20"/><path d="M350 292l10-50 10 50z"/><rect x="300" y="390" width="40" height="40"/><rect x="380" y="380" width="44" height="50"/></g>';
+  c += '<g fill="none" stroke-width="10" stroke-opacity=".13"><path d="M-20 170C300 80 560 250 840 150" stroke="#2f4a9a"/><path d="M-20 194C300 104 560 274 840 174" stroke="#f4f4ea" stroke-opacity=".5"/><path d="M-20 218C300 128 560 298 840 198" stroke="#b03030"/></g>';
+  c += `<g fill="#1f2f55" fill-opacity=".05">${nuage(700, 330, 1.2)}${nuage(1420, 180, 1.1)}</g>`;
+  c += sol("#1f2f55", "#2f4a9a");
+  ecrire("france-scene.svg", svg(1600, 900, monter(c)));
+  tuile("france", 160, '<path d="M80 30l6 12h12l-9 8 3 12-12-7-12 7 3-12-9-8h12z" fill="#c9962f" fill-opacity=".1"/><g stroke="#1f2f55" stroke-opacity=".06" stroke-width="1"><path d="M0 130H160"/></g>', 20, "#1f2f55");
+}
+
+// Égypte antique : pyramides, disque solaire, obélisque, frise de hiéroglyphes.
+{
+  let c = ciel("#d9a050", "#f4c470", 1300, 200, 300, 0.45);
+  c += '<circle cx="1300" cy="200" r="60" fill="#d9892f" fill-opacity=".22"/>';
+  c += '<g fill="#4a2f1a" fill-opacity=".34"><path d="M900 470L1110 240L1320 470z"/></g><path d="M1110 240L1320 470H1220z" fill="#2a1a10" fill-opacity=".16"/>';
+  c += '<g fill="#4a2f1a" fill-opacity=".2"><path d="M820 470L930 360L1040 470z"/><path d="M1320 470L1410 392L1500 470z"/></g>';
+  c += '<g stroke="#f4e4c0" stroke-opacity=".5" stroke-width="2"><path d="M1000 420H1220M1040 380H1180M1076 340H1144M1096 300H1124"/></g>';
+  c += '<g fill="#4a2f1a" fill-opacity=".18"><path d="M300 480V250l14-30 14 30v230z"/><rect x="296" y="480" width="36" height="10"/></g>';
+  c += '<g fill="#4a2f1a" fill-opacity=".14"><path d="M520 480q10-60 40-60l20-20h30l8 24q30 0 30 56z"/></g>';
+  c += '<g stroke="#4a2f1a" stroke-opacity=".28" stroke-width="4" fill="none"><path d="M640 480Q650 420 630 380M630 380q-30-8-44 8M630 380q30-16 54 4"/></g>';
+  c += sol("#4a2f1a", "#2f6a8a");
+  let k = "";
+  for (let x = 40; x < 1600; x += 90) k += `M${x} 810h20v20h-20zM${x + 40} 800q12 0 12 14t-12 14q-12 0-12-14t12-14zM${x + 62} 800v30`;
+  c += `<path d="${k}" stroke="#4a2f1a" stroke-opacity=".2" stroke-width="3" fill="none"/>`;
+  ecrire("egypte-scene.svg", svg(1600, 900, monter(c)));
+  tuile("egypte", 160, '<g stroke="#4a2f1a" stroke-opacity=".08" stroke-width="1.4" fill="none"><path d="M40 60h20v20H40zM100 50q10 0 10 12t-10 12q-10 0-10-12t10-12zM70 110v30"/></g>', 26, "#4a2f1a");
+}
+
+// Rome antique : Colisée, aqueduc, aigle légionnaire, lauriers.
+{
+  let c = ciel("#c08a5a", "#f4cc90", 420, 230, 260, 0.35);
+  // Colisée : le sujet
+  c += '<path d="M870 470V320Q1105 270 1340 320V470z" fill="#4a2418" fill-opacity=".3"/>';
+  for (const [y, h] of [[330, 40], [380, 40], [430, 36]]) for (let i = 0; i < 12; i++) c += `<path d="M${884 + i * 38} ${y + h}v-${h - 14}a10 10 0 0 1 20 0v${h - 14}z" fill="#f2e4cf" fill-opacity=".5"/>`;
+  c += '<path d="M870 372H1340M870 420H1340" stroke="#4a2418" stroke-opacity=".3" stroke-width="5"/>';
+  // aqueduc
+  c += '<g fill="#4a2418" fill-opacity=".16"><rect x="120" y="360" width="640" height="26"/>' + Array.from({ length: 7 }, (_, i) => `<path d="M${120 + i * 92} 480V420a30 30 0 0 1 60 0v60z"/>`).join("").replace(/<path/g, '<path fill-opacity="0"').replace('fill-opacity="0"', 'fill-opacity="0"') + '</g>';
+  c += '<g fill="#4a2418" fill-opacity=".16"><rect x="120" y="386" width="640" height="94"/></g><g fill="#f2e4cf" fill-opacity=".6">' + Array.from({ length: 7 }, (_, i) => `<path d="M${135 + i * 92} 480V430a28 28 0 0 1 56 0v50z"/>`).join("") + '</g>';
+  // aigle légionnaire
+  c += '<g fill="#4a2418" fill-opacity=".26"><rect x="1420" y="260" width="8" height="220"/><path d="M1424 240l-34 18 14 4-12 14 32-8 32 8-12-14 14-4z"/></g>';
+  c += `<g fill="#4a2418" fill-opacity=".05">${nuage(640, 140, 1.4)}${nuage(1250, 170, 1)}</g>`;
+  c += sol("#4a2418", "#a4552f");
+  ecrire("rome-scene.svg", svg(1600, 900, monter(c)));
+  tuile("rome", 160, '<g stroke="#4a2418" stroke-opacity=".07" stroke-width="1.4" fill="none"><path d="M0 120h160M30 120v-30a20 20 0 0 1 40 0v30M100 120v-30a20 20 0 0 1 40 0v30"/></g>', 22, "#4a2418");
+}
+
+// Spectacle : rideau rouge, projecteurs, étoile, pellicule.
+{
+  let c = ciel("#a05a6a", "#f4d490", 1100, 280, 280, 0.35);
+  c += '<g transform="translate(110 60)">';
+  c += '<g fill="#8a1f2f" fill-opacity=".3"><path d="M840 100H1380V150Q1110 190 840 150z"/><path d="M840 150Q900 280 870 470H840zM1380 150Q1320 280 1350 470H1380z"/><path d="M870 150Q960 260 930 470H870zM1350 150Q1260 260 1290 470H1350z"/></g>';
+  c += '<g stroke="#f4d490" stroke-opacity=".35" stroke-width="3" fill="none"><path d="M870 150Q910 300 900 470M1350 150Q1310 300 1320 470"/></g>';
+  c += '<path d="M1110 100L980 470H1240z" fill="#f4e0a0" fill-opacity=".34"/><path d="M1110 170l22 52 56 4-43 36 14 55-49-30-49 30 14-55-43-36 56-4z" fill="#c9962f" fill-opacity=".7"/></g>';
+  c += '<g fill="#3a1520" fill-opacity=".2"><circle cx="300" cy="150" r="26"/><rect x="290" y="170" width="20" height="40"/><path d="M270 150L180 290M330 150L420 290" stroke="#3a1520" stroke-opacity=".2" stroke-width="3"/></g>';
+  c += '<path d="M300 176L170 480H430z" fill="#f4e0a0" fill-opacity=".2"/>';
+  c += `<g fill="#3a1520" fill-opacity=".05">${nuage(640, 140, 1.4)}</g>`;
+  c += sol("#3a1520", "#8a1f2f");
+  let k = "";
+  for (let x = -20; x < 1620; x += 60) k += `M${x} 810h40v30h-40z`;
+  c += `<path d="${k}" stroke="#3a1520" stroke-opacity=".24" stroke-width="3" fill="none"/><g fill="#3a1520" fill-opacity=".1">${Array.from({ length: 27 }, (_, i) => `<rect x="${-10 + i * 60}" y="818" width="20" height="14"/>`).join("")}</g>`;
+  ecrire("spectacle-scene.svg", svg(1600, 900, monter(c)));
+  tuile("spectacle", 160, '<path d="M80 40l5 11h12l-10 8 4 12-11-7-11 7 4-12-10-8h12z" fill="#c9962f" fill-opacity=".12"/><g fill="#8a1f2f" fill-opacity=".06"><circle cx="30" cy="120" r="6"/><circle cx="130" cy="130" r="6"/></g>', 18, "#3a1520");
+}
+
+// Politique : parlement à coupole, urne et bulletin, drapeaux.
+{
+  let c = ciel("#7a8ab0", "#f4e4a8", 420, 230, 260, 0.35);
+  c += '<g fill="#1f2a44" fill-opacity=".32"><rect x="860" y="360" width="500" height="110"/><path d="M850 360L1110 300L1370 360z"/><rect x="1020" y="250" width="180" height="60"/><path d="M1020 250Q1110 120 1200 250z"/></g>';
+  c += '<g fill="#f4ede2" fill-opacity=".55">' + Array.from({ length: 9 }, (_, i) => `<rect x="${880 + i * 54}" y="372" width="18" height="90"/>`).join("") + '</g>';
+  // urne et bulletin
+  c += '<g fill="#1f2a44" fill-opacity=".24"><rect x="300" y="380" width="170" height="100" rx="6"/></g><rect x="350" y="396" width="70" height="10" rx="5" fill="#f4ede2" fill-opacity=".7"/><g transform="translate(360 300) rotate(-8)"><rect width="56" height="76" rx="3" fill="#f4ede2" fill-opacity=".8" stroke="#1f2a44" stroke-opacity=".3" stroke-width="3"/><path d="M12 24l12 12 20-26" stroke="#2f4a9a" stroke-opacity=".5" stroke-width="6" fill="none"/></g>';
+  c += '<g stroke="#1f2a44" stroke-opacity=".2" stroke-width="4"><path d="M560 480V320M620 480V300"/></g><g fill-opacity=".34"><path d="M560 320l46 10-46 12z" fill="#2f4a9a"/><path d="M620 300l46 10-46 12z" fill="#b03030"/></g>';
+  c += `<g fill="#1f2a44" fill-opacity=".05">${nuage(700, 130, 1.4)}${nuage(1450, 180, 1)}</g>`;
+  c += sol("#1f2a44", "#2f4a9a");
+  ecrire("politique-scene.svg", svg(1600, 900, monter(c)));
+  tuile("politique", 160, '<g stroke="#1f2a44" stroke-opacity=".07" stroke-width="1.4" fill="none"><rect x="50" y="50" width="60" height="60" rx="4"/><path d="M62 82l12 12 24-30"/></g>', 18, "#1f2a44");
+}

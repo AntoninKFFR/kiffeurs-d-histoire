@@ -61,3 +61,9 @@ Les guides Next.js 16.3.8 installés ont été consultés pour les routes dynami
 | verification.md | Résultats réellement exécutés et limites |
 
 Les tableaux CSV contiennent des cellules multilignes et des listes `;` : les ouvrir avec import CSV UTF-8 standard. Ils constituent des documents d’audit internes et ne doivent pas être embarqués dans des props publiques de l’application, car ils relient event_id et dates.
+
+## PHASE 1B — méthode de revue V2
+
+Le CSV de proposition existant est relu avec ses IDs explicites, sans reconstruction par indices. Seul EVT-0115 est déplacé dans la partition de référence ; toutes les métriques sont recalculées depuis les CSV canoniques et cartes, qui restent en lecture seule. La revue humaine examine chaque ensemble selon objet, période, relations causales, recouvrements de processus et programme officiel. Elle ne déduit pas cette cohérence de l’égalité des unions.
+
+Le CSV de cohérence fournit le tri des dates de début canoniques sans inventer mois/jour ; les périodes parallèles ou imbriquées ne deviennent pas des points successifs. Han, incohérent, est retiré du tri et explicitement signalé, mais reste dans les comptes mécaniques de référence pour exposer la différence. Les sources documentaires, variantes et limites de consultation sont dans arbitrages-documentaires-v2.md. Les alternatives ont leurs listes exactes et simulations séparées ; aucune n’est appliquée.

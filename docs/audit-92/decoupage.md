@@ -1,8 +1,10 @@
-# PROPOSITION NON VALIDÉE — AUDIT PHASE 1
+# PROPOSITION NON VALIDÉE — AUDIT PHASE 1B — V2
+
+Version du 12 octobre 2026 : déplacement de EVT-0115 uniquement dans la proposition. La [revue V2](phase-1b-v2.md) complète les 21 justifications, compare THM-012, examine les cinq tests fragiles et précise les [arbitrages documentaires](arbitrages-documentaires-v2.md). Les alternatives sont non appliquées. Les listes ci-dessous sont des ensembles de rattachement, pas un ordre de cours ; l’ordre des dates de début et ses limites sont dans [coherence-sequences-v2.csv](coherence-sequences-v2.csv).
 
 Les codes S1… sont des références de discussion, pas des nouveaux identifiants de production. Chaque partition conserve exactement tous les event_id du parent, une seule fois dans sa partition. Les dates sont conservées. Aucun découpage n’est appliqué.
 
-Six parents, 21 séquences proposées ; 56 unités pédagogiques finales si les six parents cessent d’être des unités actives. Les six parents restent stockés pour compatibilité (62 lignes possibles, à confirmer).
+Scénario de référence non validé : six parents, 21 séquences proposées ; 56 unités pédagogiques finales si les six parents cessent d’être des unités actives. Les six parents restent stockés pour compatibilité (62 lignes possibles, à confirmer).
 
 Les volumes « complets » sont une simulation conditionnelle : une carte créée pour chaque rattachement existant, avec la jouabilité canonique actuelle. Aucune carte n’a été rédigée.
 
@@ -46,7 +48,7 @@ Suivre un autre empire et les contacts à longue distance ; Qin prépare la comp
 
 **Cartes existantes :** CARD-006-han. Conserver leur contenu et leurs identifiants tant que la stratégie de compatibilité n’est pas validée. Le préfixe CARD du parent doit être accepté dans une nouvelle unité si un transfert est retenu ; l’import actuel le refuse.
 
-**Validation requise :** Confirmer la place des rappels républicains et du sac de Rome ; les cinq événements chinois sont un minimum de test, pas cinq repères officiellement obligatoires. Blocage spécifique : EVT-0040 est intitulé Dynastie Han (-206 à 220) mais structuré 9–25 (Xin). La section Chine a 5 événements selon le filtre mécanique, seulement 4 sans ce repère incohérent ; correction canonique séparée et validation documentaire nécessaires avant production.
+**Validation requise :** Confirmer la place des rappels républicains et du sac de Rome ; les cinq événements chinois sont un minimum de test, pas cinq repères officiellement obligatoires. Blocage spécifique : EVT-0040 est intitulé Dynastie Han (-206 à 220) mais structuré 9–25 (interrègne de Wang Mang, pas une période Han ni la durée du seul règne Xin). La section Chine a 5 événements selon le filtre mécanique, seulement 4 sans ce repère incohérent ; correction canonique séparée et validation documentaire nécessaires avant production.
 
 **Contextes :** Aucun contexte sans événement dans ce parent.
 
@@ -176,8 +178,8 @@ Référence : [programme/ressource officielle](https://eduscol.education.gouv.fr
 | --- | ---: | ---: | ---: | --- | --- | --- |
 | THM-017-S1 — Indépendances et affirmation de nouveaux États | 9 | 3 | 6 | 3/3/3 | 9/9/9 | 0 → 9 |
 | THM-017-S2 — La guerre froide : formation des blocs et crises | 15 | 4 | 11 | 4/4/4 | 15/15/15 | 0 → 10 |
-| THM-017-S3 — Construire l’Europe : de Schuman aux communautés | 6 | 3 | 3 | 3/3/3 | 6/6/6 | 0 → 6 |
-| THM-017-S4 — Nouveaux équilibres et fin de la guerre froide | 9 | 1 | 8 | 1/1/1 | 9/9/9 | 0 → 9 |
+| THM-017-S3 — Construire l’Europe : de Schuman aux communautés | 5 | 2 | 3 | 2/2/2 | 5/5/5 | 0 → 5 |
+| THM-017-S4 — Nouveaux équilibres et fin de la guerre froide | 10 | 2 | 8 | 2/2/2 | 10/10/10 | 0 → 10 |
 
 ### THM-017-S1 — Indépendances et affirmation de nouveaux États
 
@@ -197,19 +199,19 @@ Relier doctrines, alliances, Berlin, Cuba et contestations, sans réduire la bip
 
 ### THM-017-S3 — Construire l’Europe : de Schuman aux communautés
 
-**event_id exacts (6) :** EVT-0115, EVT-0018, EVT-0116, EVT-0117, EVT-0118, EVT-0119.
+**event_id exacts (5) :** EVT-0018, EVT-0116, EVT-0117, EVT-0118, EVT-0119.
 
 Faire comprendre la coopération institutionnelle et distinguer signature et entrée en vigueur ; le corpus ne couvre pas encore l’Union européenne ultérieure.
 
-**Cartes existantes :** CARD-017-schuman-cooperation;CARD-017-rome-marche-commun;CARD-017-fin-urss. Conserver leur contenu et leurs identifiants tant que la stratégie de compatibilité n’est pas validée. Le préfixe CARD du parent doit être accepté dans une nouvelle unité si un transfert est retenu ; l’import actuel le refuse.
+**Cartes existantes :** CARD-017-schuman-cooperation;CARD-017-rome-marche-commun. Conserver leur contenu et leurs identifiants tant que la stratégie de compatibilité n’est pas validée. Le préfixe CARD du parent doit être accepté dans une nouvelle unité si un transfert est retenu ; l’import actuel le refuse.
 
 ### THM-017-S4 — Nouveaux équilibres et fin de la guerre froide
 
-**event_id exacts (9) :** EVT-0114, EVT-0540, EVT-0541, EVT-0542, EVT-0543, EVT-0544, EVT-0545, EVT-0546, EVT-0547.
+**event_id exacts (10) :** EVT-0114, EVT-0540, EVT-0541, EVT-0542, EVT-0543, EVT-0544, EVT-0545, EVT-0546, EVT-0547, EVT-0115.
 
 Associer détente, transformations de la Chine, crises et effondrement soviétique à plusieurs trajectoires ; la fin de l’URSS n’explique pas seule les mutations mondiales.
 
-**Cartes existantes :** CARD-017-ouverture-mur. Conserver leur contenu et leurs identifiants tant que la stratégie de compatibilité n’est pas validée. Le préfixe CARD du parent doit être accepté dans une nouvelle unité si un transfert est retenu ; l’import actuel le refuse.
+**Cartes existantes :** CARD-017-ouverture-mur;CARD-017-fin-urss. Conserver leur contenu et leurs identifiants tant que la stratégie de compatibilité n’est pas validée. Le préfixe CARD du parent doit être accepté dans une nouvelle unité si un transfert est retenu ; l’import actuel le refuse.
 
 **Validation requise :** Valider le statut d’approfondissement des micro-dates algériennes et européennes. Maintenir une réserve explicite sur le programme après 1991 ; aucun événement supplémentaire n’est inventé dans cet audit.
 
@@ -245,7 +247,7 @@ Suivre la rupture politique et les conflits de représentation ; distinguer éta
 
 **event_id exacts (5) :** EVT-0180, EVT-0181, EVT-0182, EVT-0446, EVT-0448.
 
-Relier prise du pouvoir, Code civil, défaite et réorganisation diplomatique. Le congrès joue le rôle de charnière avec la séquence suivante.
+Relier prise du pouvoir, Code civil et réorganisation diplomatique. Le congrès de Vienne commence avant Waterloo et son acte final précède cette bataille ; ne pas présenter la défaite comme déclencheur du congrès. Le congrès joue le rôle de charnière avec la séquence suivante.
 
 **Cartes existantes :** CARD-024-brumaire-pouvoir;CARD-024-code-civil;CARD-024-vienne-restauration. Conserver leur contenu et leurs identifiants tant que la stratégie de compatibilité n’est pas validée. Le préfixe CARD du parent doit être accepté dans une nouvelle unité si un transfert est retenu ; l’import actuel le refuse.
 

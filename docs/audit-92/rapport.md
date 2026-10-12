@@ -1,8 +1,12 @@
 # Audit #92 — cartes d’apprentissage et structure des chapitres
 
-**PROPOSITION NON VALIDÉE — AUDIT PHASE 1**
+**PROPOSITION NON VALIDÉE — AUDIT PHASE 1B — V2**
 
 Audit du 12 octobre 2026 pour Antonin et Max. Base Git vérifiée : `main`, `c28d11eabe8aea1917f86b36839c289c899070ca`. Branche documentaire : `issue-92-cartes-chapitres`. Aucune carte, illustration, migration, fonction de jeu ou donnée joueur modifiée. Aucun SQL de production, import, merge ou déploiement exécuté.
+
+## Mise à jour V2
+
+La [PHASE 1B](phase-1b-v2.md) corrige EVT-0115 : THM-017-S3 **5 événements**, S4 **10**. Elle revoit historiquement les 21 séquences, compare les deux options THM-012 sans choisir, chiffre les remèdes aux cinq séquences au seuil et précise Han/Fachoda/Sargon/Becquerel. Les inventaires de phase 1 restent valables : les sources sont inchangées. Les 21 séquences et les 56 unités actives sont le scénario de référence, conditionnel aux décisions ; les alternatives modifient ces totaux.
 
 ## A. Synthèse exécutive
 
@@ -21,6 +25,8 @@ Il manque **231 cartes événementielles si chaque rattachement reçoit sa carte
 **Six chapitres dépassent 20 événements** : THM-006 (24), THM-012 (21), THM-016 (55), THM-017 (39), THM-024 (26), THM-025 (23). La proposition les répartit en **21 séquences de 5 à 17 événements**, soit **56 unités actives** si les six parents deviennent des références historiques. Les parents ne doivent pas être supprimés. Les listes exactes, justifications et simulations sont dans [decoupage.md](decoupage.md) et [decoupage-propose.csv](decoupage-propose.csv).
 
 **Trois tests restent indisponibles** : THM-004, THM-005 et THM-046, chacun avec quatre événements couverts jouables à l’année. **18 des 21 séquences proposées n’auraient pas encore de test** avec les seules cartes existantes : le découpage ne doit pas être activé avant complétion. Après complétion, le filtre mécanique permet cinq questions ou plus partout ; **la section Chine demeure bloquée éditorialement par l’anomalie Han**, et n’en aurait que quatre si ce repère était exclu.
+
+**Fragilité V2 : cinq séquences ont exactement cinq événements à l’année** (006-S3, 012-S2, 017-S3, 024-S2, 025-S2). Une exclusion suffit à désactiver leur test ; les regroupements proposés ne sont pas adoptés.
 
 Risques majeurs : suppression en cascade de la progression ; invisibilité des anciennes lignes dans le profil ; contraintes d’import limitées à 12 cartes ; perte des anciens liens lors d’une synchronisation ; micro-dates surreprésentées ; couverture du programme insuffisante malgré une couverture complète des événements actuels.
 
@@ -80,11 +86,11 @@ Il ne s’agit pas d’une liste des lacunes de tout le programme officiel. Les 
 | THM-006, 6e | 11 / 8 / 5 | Pouvoir romain ; juifs et chrétiens ; Chine et échanges |
 | THM-012, 5e | 7 / 5 / 9 | Circulations ; transformations religieuses ; pouvoirs monarchiques, avec réserves sur les rappels médiévaux |
 | THM-016, 3e | 17 / 7 / 9 / 14 / 8 | Grande Guerre et conséquences ; crises politiques ; France occupée ; guerre mondiale ; génocide et fin du conflit |
-| THM-017, 3e | 9 / 15 / 6 / 9 | Indépendances ; blocs et crises ; construction européenne ; recompositions et fin de la guerre froide |
+| THM-017, 3e | 9 / 15 / 5 / 10 | Indépendances ; blocs et crises ; construction européenne ; recompositions et fin de la guerre froide |
 | THM-024, Première | 15 / 5 / 6 | Révolution ; Empire/restauration ; nationalités |
 | THM-025, Première | 10 / 5 / 8 | République/Empire ; industrialisation ; guerre et diplomatie |
 
-Ces partitions conservent chaque événement du parent une seule fois ; elles ne sont pas un équilibrage arithmétique. Elles reposent sur les sujets et processus, avec des transitions explicites et des réserves de corpus. Les 35 autres chapitres sont identifiés séparément dans [decoupage.md](decoupage.md). THM-028 est à 20 exactement, THM-005 à 19 : aucun ne franchit le seuil demandé.
+Ces partitions conservent chaque événement du parent une seule fois. Cette propriété ne valide pas leur cohérence historique : la revue V2 signale notamment le mélange de THM-016-S5, les discontinuités de THM-012-S3, Vienne avant Waterloo et les doublons de processus. Les choix de regroupement restent ouverts. Les 35 autres chapitres sont identifiés séparément dans [decoupage.md](decoupage.md). THM-028 est à 20 exactement, THM-005 à 19 : aucun ne franchit le seuil demandé.
 
 La vérification des sources actuelles confirme que **l’ancien programme de CM2/6e reste applicable en 2026–2027** ; le nouveau programme entre en vigueur pour ces classes en 2027–2028. La proposition de 6e doit donc rester rattachée à l’ancien programme pour ce millésime. [Calendrier officiel Éduscol](https://eduscol.education.gouv.fr/4791/ressources-d-accompagnement-du-programme-d-histoire-et-geographie-au-cycle-3), [arrêté du 28 mai 2026](https://www.education.gouv.fr/bo/2026/Hebdo22/MENE2608631A).
 
@@ -163,6 +169,8 @@ Le PRD évoque Storage pour les illustrations d’événements de jeu, et `uploa
 Tests à prévoir : partitions exactes sans pertes/doublons, ne tester que les cartes de l’unité, seuils 4/5/10/11, A/M/J et plages, contextes exclus, RPC/bilan/Replay visiteurs et comptes, anciens IDs résolus même archivés, nouvelle progression vide, snapshots historiques inchangés, comptes isolés par RLS, import hors périmètre refusé, réimport conservant anciens et nouveaux liens, cartes déplacées/copieuses et route SVG, profil actif/historique sans double comptage, absence d’event_id/sources dans HTML/RSC/props. Les SQL de test restent locaux/CI ; aucun test de partie n’est lancé sur KFFR ici.
 
 ## G. Décisions à trancher
+
+**La liste exacte V2 est D1–D11 dans [phase-1b-v2.md](phase-1b-v2.md)** : elle précise les destinations THM-012, les alternatives aux cinq séquences fragiles, THM-016-S5, les quatre arbitrages et la compatibilité. Les questions générales ci-dessous restent le cadre de la phase 1 ; elles ne remplacent pas les arbitrages détaillés V2.
 
 1. Valider les six partitions et les titres proposés ; conserver THM-012 comme parcours de compléments ou réaffecter ses rappels médiévaux ?
 2. Exiger une carte pour chaque micro-date actuelle, ou distinguer repères essentiels et approfondissements, avec exceptions documentées au critère de couverture ?

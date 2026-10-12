@@ -11,6 +11,7 @@ import { useVue } from "@/components/frise/useVue";
 import { ChronoCirculaire } from "@/components/ui/ChronoCirculaire";
 import { BandeEpoques } from "./BandeEpoques";
 import { useSaisieVisible } from "./useSaisieVisible";
+import type { HabillageId } from "@/lib/game/habillages";
 import s from "./partie.module.css";
 
 // Mode inversé : la date est donnée (en grand et sur la frise), le joueur écrit l'événement.
@@ -31,9 +32,11 @@ type Props = {
   suivante: { libelle: string; action: () => Promise<void> };
   /** Période jouée : la frise ne montre qu'elle. */
   bornes?: Vue | null;
+  /** Habillage de frise de la période jouée (#97). */
+  habillage?: HabillageId | null;
 };
 
-export function EcranInverse({ question, corriger, chrono, suivante, bornes }: Props) {
+export function EcranInverse({ question, corriger, chrono, suivante, bornes, habillage }: Props) {
   const { precision } = question;
   const date = useMemo(() => aLaPrecision(question.date, precision), [question.date, precision]);
   const { debut, fin } = bornes ?? VUE_DE_BASE;
@@ -226,6 +229,7 @@ export function EcranInverse({ question, corriger, chrono, suivante, bornes }: P
       <Frise
         precision={precision}
         mode="lecture"
+        habillage={habillage}
         controle={controle}
         dateDonnee={date}
         correction={correction && { bonne: date, titre: correction.titre }}

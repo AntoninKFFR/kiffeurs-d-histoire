@@ -17,6 +17,7 @@ import {
   versT,
   type Vue,
 } from "@/lib/game/frise";
+import { HABILLAGES, type HabillageId } from "@/lib/game/habillages";
 import { empiler, regrouper, type MarqueurFrise } from "@/lib/game/marqueurs";
 import { Motif } from "@/components/charte/Motif";
 import { useVue } from "./useVue";
@@ -64,6 +65,8 @@ type Props = {
    * posées sur son fond. Les clics hors des boîtes continuent de placer la réponse.
    */
   haut?: ReactNode;
+  /** Habillage propre à la période jouée (#97) : fond (scène et trame). Sans lui, la frise de la V1. */
+  habillage?: HabillageId | null;
   /** Sous l'axe, directement sous la frise (bande des époques). */
   sous?: ReactNode;
   /** En bas de la scène. Chaque boîte se déclare elle-même avec `data-superposition`. */
@@ -100,6 +103,7 @@ export function Frise({
   toutVoir = false,
   remplir = false,
   onMarqueur,
+  habillage = null,
   haut,
   sous,
   bas,
@@ -324,6 +328,7 @@ export function Frise({
         1 + Math.floor(((scene ? axeY - ciel : 210) - 38 - ECART_BANDEAU - 52) / PAS_COULOIR),
       )
     : [];
+  const hab = habillage ? HABILLAGES[habillage] : null;
   const outils = (
     <div className={s.outils}>
       <span className={s.echelle}>{legendePas(pas)}</span>
@@ -337,8 +342,13 @@ export function Frise({
       {!scene && outils}
       <div
         ref={ref}
-        className={`${selection ? s.frise : `${s.frise} ${s.lecture}`}${scene ? ` ${s.scene}` : ""}`}
-        style={scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : undefined}
+        className={`${selection ? s.frise : `${s.frise} ${s.lecture}`}${scene ? ` ${s.scene}` : ""}${hab ? ` ${s.habille}` : ""}`}
+        data-habillage={hab?.id}
+        data-fond={hab?.sombre ? "sombre" : undefined}
+        style={{
+          ...(scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : null),
+          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, backgroundPosition: hab.fond.position, "--frise-fond": hab.fond.couleur, color: "var(--color-encre)", ...hab.palette } as React.CSSProperties : null),
+        }}
         aria-label={
           selection
             ? "Frise chronologique : molette pour zoomer, glisser pour se déplacer, cliquer pour placer sa réponse"
@@ -352,19 +362,19 @@ export function Frise({
         onKeyDown={surTouche}
       >
         {scene && (
-          <div ref={refHaut} className={s.zoneScene}>
+          <div ref={refHaut} className={s.zoneScene} data-theme={hab?.sombre ? "dark" : undefined}>
             {haut != null && <div data-superposition className={s.superposition}>{haut}</div>}
             <div data-superposition className={toutVoir && remplir ? `${s.outilsScene} ${s.outilsBas}` : s.outilsScene}
               style={toutVoir && remplir ? { top: axeY + 10 } : undefined}>{outils}</div>
           </div>
         )}
-        <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined}>
+        <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined} data-theme={hab?.sombre ? "dark" : undefined}>
         {EPOQUES.map((ep) => {
           const l = X(ep.debut);
           const r = X(ep.fin);
           if (r < 0 || l > largeur) return null;
           return (
-            <div key={ep.nom} className={s.bandeau} style={{ left: l, width: r - l, background: ep.couleur }}>
+            <div key={ep.nom} className={s.bandeau} style={{ left: l, width: r - l, background: hab ? `color-mix(in srgb, ${ep.couleur} 62%, transparent)` : ep.couleur }}>
               {r - Math.max(l, 0) > 90 && <span style={{ left: Math.max(0, -l) + 8 }}>{ep.nom}</span>}
             </div>
           );
@@ -395,7 +405,7 @@ export function Frise({
         <div className={s.axe} />
         {rappel && <div className={`${s.rappel} date`}>{rappel}</div>}
 
-        {!aDesMarqueurs && !paysage && decor(vue, largeur, scene ? 90 : 34).map((m) => {
+        {!aDesMarqueurs && !paysage && !hab && decor(vue, largeur, scene ? 90 : 34).map((m) => {
           const { top, taille } = placerMotif(m.haut, m.taille);
           return (
             <div
@@ -546,8 +556,8 @@ export function Frise({
         )}
         </div>
         {scene && (
-          <div ref={refBas} className={s.zoneBasScene}>
-            {sous != null && <div data-superposition data-sous className={s.zoneSous}>{sous}</div>}
+          <div ref={refBas} className={s.zoneBasScene} data-theme={hab?.sombre ? "dark" : undefined}>
+            {sous != null && <div data-superposition data-sous className={s.zoneSous} >{sous}</div>}
             {bas != null && <div className={s.zoneBas}>{bas}</div>}
           </div>
         )}

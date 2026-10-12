@@ -7,6 +7,7 @@ import type { Vue } from "@/lib/game/frise";
 import { capitaliser, chronoDepuis, correctionDepuis, precisionDepuis, urlIllustration } from "@/lib/game/partie";
 import type { MethodeSaisie, SoloCorrection, SoloDate, SoloDateQuestion, SoloQuestion, SoloResult } from "@/lib/game/solo";
 import { Bilan } from "./Bilan";
+import type { HabillageId } from "@/lib/game/habillages";
 import { EcranPartie, type Correction, type ReponsePeriode } from "./EcranPartie";
 
 // Les trois appels au moteur serveur (src/app/solo/actions.ts), passés par la page.
@@ -30,9 +31,11 @@ type Props = {
   relance?: string;
   /** Période couverte par le choix : la frise s'y limite. */
   bornes?: Vue | null;
+  /** Habillage de frise de la période jouée (#97). */
+  habillage?: HabillageId | null;
 };
 
-export function Partie({ gameId, total, question: premiere, actions, connecte, anonyme, relance, bornes }: Props) {
+export function Partie({ gameId, total, question: premiere, actions, connecte, anonyme, relance, bornes, habillage }: Props) {
   const [question, setQuestion] = useState(premiere);
   const [chrono, setChrono] = useState(() => chronoDepuis(premiere, Date.now()));
   const [resultat, setResultat] = useState<SoloResult | null>(null);
@@ -80,6 +83,7 @@ export function Partie({ gameId, total, question: premiere, actions, connecte, a
         corrigerPeriode={actions.soumettrePeriode ? corrigerPeriode : undefined}
         chrono={chrono}
         bornes={bornes}
+        habillage={habillage}
         suivante={{ libelle: question.position >= nombre ? "Voir le bilan" : "Question suivante", action: suivante }}
         question={{
           id: question.question_id,

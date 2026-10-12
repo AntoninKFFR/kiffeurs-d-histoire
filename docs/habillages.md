@@ -15,8 +15,8 @@ Sans habillage, la frise reste celle de la V1.
 
 | Habillage | Période | Où il s'applique | Trame | Scène de fond |
 | --- | --- | --- | --- | --- |
-| Tranchées (`tranchees`) | Première Guerre mondiale | Pack « Première Guerre mondiale » (`COL-0063`), ou toute partie dont les dates tiennent dans 1900-1935 | Carte d'état-major jaunie | Ciel de fumée, avions biplans, crêtes dévastées aux arbres brisés, barbelés et coquelicots |
-| Mosaïque (`mosaique`) | Antiquité | Pack « Antiquité » (`COL-0078`), période « Antiquité », ou toute partie dans -3500…500 | Tesselles de mosaïque | Soleil, temple à fronton, olivier, cyprès, mer et trirème, hirondelles, amphores et frise de grecques |
+| Tranchées (`tranchees`) | Première Guerre mondiale | Pack « Première Guerre mondiale » (`COL-0063`), ou toute partie dont les dates tiennent dans 1900-1935 | Carte d'état-major jaunie | Ciel de fumée, un zeppelin en vedette et des biplans, crêtes dévastées aux arbres brisés, barbelés et coquelicots |
+| Mosaïque (`mosaique`) | Antiquité | Pack « Antiquité » (`COL-0078`), période « Antiquité », ou toute partie dans -3500…500 | Tesselles de mosaïque | Soleil, temple à fronton posé sur un rocher qui descend vers la mer, olivier, cyprès, trirème, hirondelles, amphores et frise de grecques |
 | Ciel étoilé (`espace`) | Conquête spatiale | Pack « Espace » (`COL-0070`) et thème « Espace » (`TAG-0130`), par identifiant | Ciel de nuit étoilé | Nébuleuses, une Terre qui se lève et l'horizon lunaire (volontairement peu d'éléments) |
 
 ## Règle d'application
@@ -38,15 +38,18 @@ Il n'est pas appliqué à la frise du bilan ni à « Découvrir » (cartes péda
   Le bas de l'écran (sous la bande des époques) est caché par les boîtes de réponse, donc il ne porte que du sol.
 - La scène est la même sur toute la frise et à tout zoom : elle ne dépend jamais de la date visible ni de la réponse, **elle ne donne aucun indice**.
   Les motifs gravés de la V1 (qui varient avec l'époque) laissent la place à la scène.
-- Couleurs de la frise : chaque habillage porte une `palette` (variables de la charte redéfinies : encre, encre douce, couleurs des époques), posée sur la bande de la frise
-  et sur la bande des époques du bas. Tranchées : encre sépia, époques kaki, ocre et olive. Mosaïque : encre brun-rouge, époques ocre, terre cuite et turquoise passé.
+- Couleurs de la frise : chaque habillage porte une `palette` (variables de la charte redéfinies : encre, encre douce, couleurs des époques), posée sur la racine de la frise ;
+  la bande des époques du bas, les boîtes, le bouton « Quitter » et les boutons de zoom l'héritent. Tranchées : encre sépia, époques kaki, ocre et olive. Mosaïque : encre brun-rouge, époques ocre, terre cuite et turquoise passé.
   Ciel étoilé : thème de nuit de la charte, sans palette.
 - Halo : une bande du fond (`--frise-fond` à 90 %), de 160 px autour de l'axe, estompée en haut et en bas (`.habille .bandeScene::before`). Pas de halo en thème de nuit.
   L'axe passe à 6 px et les dates à 18 px.
 - Les bandeaux d'époques deviennent translucides pour laisser voir le fond ; leur texte reste opaque.
-- Fond sombre (`espace`) : la bande de la frise et la bande des époques du bas passent en thème de nuit (`data-theme="dark"`), donc dates, repères et marqueurs prennent
-  leurs couleurs claires. La question, « Quitter » et les boîtes du bas gardent le thème normal, sur une carte claire opaque (`data-fond="sombre"` dans `partie.module.css`).
-- Poids : six SVG de 2 à 8 Ko (moins de 30 Ko en tout), chargés seulement quand la période est jouée.
+- Fond sombre (`espace`) : la bande de la frise, la zone de la scène et le bas (bande des époques) passent en thème de nuit (`data-theme="dark"`), donc dates, repères et marqueurs prennent
+  leurs couleurs claires.
+- Intégration des boîtes : sur un habillage, la carte de la question n'a plus de cadre (texte à halo de la couleur du fond), et les boîtes de réponse et de correction, les cases de saisie,
+  « Quitter » et les boutons de zoom sont translucides, teintés de `--frise-fond` avec un léger flou, bordés d'encre et de laiton (fin de `partie.module.css`, sélecteurs `[data-habillage]`).
+- Élément phare : chaque scène a un sujet bien visible au-dessus du halo, loin du texte de la question (zeppelin, temple, Terre). Il ne doit jamais dépasser le haut du halo (≈ 300 px à 1366×768).
+- Poids : six SVG de 2 à 9 Ko (moins de 40 Ko en tout), chargés seulement quand la période est jouée.
   Ils sont produits par `scripts/generer-habillages.mjs` (déterministe : `node scripts/generer-habillages.mjs public/habillages`).
 
 ## Lisibilité

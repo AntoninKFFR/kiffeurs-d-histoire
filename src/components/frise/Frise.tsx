@@ -347,7 +347,7 @@ export function Frise({
         data-fond={hab?.sombre ? "sombre" : undefined}
         style={{
           ...(scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : null),
-          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, backgroundPosition: hab.fond.position, "--frise-fond": hab.fond.couleur } as React.CSSProperties : null),
+          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition, backgroundPosition: hab.fond.position, "--frise-fond": hab.fond.couleur, color: "var(--color-encre)", ...hab.palette } as React.CSSProperties : null),
         }}
         aria-label={
           selection
@@ -362,13 +362,13 @@ export function Frise({
         onKeyDown={surTouche}
       >
         {scene && (
-          <div ref={refHaut} className={s.zoneScene}>
+          <div ref={refHaut} className={s.zoneScene} data-theme={hab?.sombre ? "dark" : undefined}>
             {haut != null && <div data-superposition className={s.superposition}>{haut}</div>}
             <div data-superposition className={toutVoir && remplir ? `${s.outilsScene} ${s.outilsBas}` : s.outilsScene}
               style={toutVoir && remplir ? { top: axeY + 10 } : undefined}>{outils}</div>
           </div>
         )}
-        <div className={scene ? s.bandeScene : s.bande} style={{ ...(scene ? { top: decalage } : null), ...hab?.palette } as React.CSSProperties} data-theme={hab?.sombre ? "dark" : undefined}>
+        <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined} data-theme={hab?.sombre ? "dark" : undefined}>
         {EPOQUES.map((ep) => {
           const l = X(ep.debut);
           const r = X(ep.fin);
@@ -556,8 +556,8 @@ export function Frise({
         )}
         </div>
         {scene && (
-          <div ref={refBas} className={s.zoneBasScene}>
-            {sous != null && <div data-superposition data-sous className={s.zoneSous} style={hab?.palette as React.CSSProperties | undefined} data-theme={hab?.sombre ? "dark" : undefined}>{sous}</div>}
+          <div ref={refBas} className={s.zoneBasScene} data-theme={hab?.sombre ? "dark" : undefined}>
+            {sous != null && <div data-superposition data-sous className={s.zoneSous} >{sous}</div>}
             {bas != null && <div className={s.zoneBas}>{bas}</div>}
           </div>
         )}

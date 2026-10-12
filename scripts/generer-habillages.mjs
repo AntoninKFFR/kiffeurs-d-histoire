@@ -65,6 +65,9 @@ const crete = (base, amp, pas = 40) => {
   c += '<g fill="#7d6a48" fill-opacity=".045"><ellipse cx="330" cy="150" rx="260" ry="26"/><ellipse cx="900" cy="95" rx="320" ry="22"/><ellipse cx="1330" cy="380" rx="240" ry="20"/><ellipse cx="620" cy="320" rx="200" ry="16"/></g>';
   // avions
   c += `<g fill="#3a2d1f" fill-opacity=".2" stroke-opacity=".2">${avion(430, 190, 1.5, -6)}${avion(760, 120, 1, 4)}${avion(1240, 210, 1.3, -3)}</g>`;
+  // zeppelin : le sujet de l'habillage, dans le ciel libre à droite
+  c += '<g opacity=".30" fill="#3a2d1f"><ellipse cx="1180" cy="270" rx="230" ry="46"/><path d="M958 270l-44-52h20l48 36zM958 270l-44 52h20l48-36z"/><path d="M1120 312h86v22h-86z"/></g>';
+  c += '<g stroke="#efe6cd" stroke-opacity=".5" stroke-width="2.5" fill="none">' + Array.from({ length: 9 }, (_, k) => `<path d="M${1000 + k * 46} 226V314"/>`).join("") + '<path d="M960 270H1410"/></g>';
   // crête lointaine, souches brisées et fumées
   c += `<path d="${crete(560, 26)}" fill="#7a6544" fill-opacity=".08"/>`;
   c += `<g fill="#4a3a26" fill-opacity=".08">${souche(180, 566, 50)}${souche(700, 566, 38)}${souche(1010, 562, 56)}${souche(1460, 568, 44)}</g>`;
@@ -84,8 +87,6 @@ const crete = (base, amp, pas = 40) => {
 
 // Antiquité : temple à fronton, mer, olivier, trirème, hirondelles et frise de grecques.
 {
-  const colonne = (x, y, h) => `<rect x="${x - 18}" y="${y - 9}" width="36" height="9"/><rect x="${x - 13}" y="${y}" width="26" height="${h}"/><rect x="${x - 18}" y="${y + h}" width="36" height="9"/>`;
-  const canne = (x, y, h) => `M${x - 5} ${y}V${y + h}M${x} ${y}V${y + h}M${x + 5} ${y}V${y + h}`;
   let c = '<defs><radialGradient id="s"><stop offset="0" stop-color="#f4c26b" stop-opacity=".4"/><stop offset="1" stop-color="#f4c26b" stop-opacity="0"/></radialGradient>';
   c += '<linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f8f8a" stop-opacity="0"/><stop offset=".3" stop-color="#5f8f8a" stop-opacity=".08"/><stop offset="1" stop-color="#5f8f8a" stop-opacity="0"/></linearGradient><linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3a65a" stop-opacity="0"/><stop offset="1" stop-color="#e3a65a" stop-opacity=".1"/></linearGradient></defs>';
   c += '<rect width="1600" height="600" fill="url(#h)"/><circle cx="1230" cy="200" r="260" fill="url(#s)"/><circle cx="1230" cy="200" r="64" fill="#d9892f" fill-opacity=".14"/>';
@@ -96,16 +97,19 @@ const crete = (base, amp, pas = 40) => {
   for (let y = 574; y < 620; y += 16) for (let x = (y % 32) * 2; x < 1600; x += 70) vagues += `M${x} ${y}q9 -6 18 0t18 0`;
   c += `<path d="${vagues}" stroke="#4d7d78" stroke-opacity=".2" stroke-width="2" fill="none"/>`;
   // trirème à voile carrée
-  c += '<g fill="#6e4328" fill-opacity=".12"><path d="M1230 586h200l-26 22h-150z"/><rect x="1328" y="506" width="4" height="82"/><path d="M1290 510h82l-10 52h-62z" fill="#a4552f" fill-opacity=".2"/></g>';
-  // temple
-  c += '<g fill="#6e4328" fill-opacity=".08">';
-  c += '<path d="M520 400L800 318L1080 400z"/><rect x="540" y="400" width="520" height="22"/>';
-  c += [600, 700, 800, 900, 1000].map((x) => colonne(x, 440, 92)).join("");
-  c += '<rect x="520" y="541" width="560" height="10"/><rect x="500" y="551" width="600" height="10"/><rect x="480" y="561" width="640" height="10"/></g>';
-  c += `<path d="${[600, 700, 800, 900, 1000].map((x) => canne(x, 449, 74)).join("")}" stroke="#f4ead0" stroke-opacity=".32" stroke-width="2" fill="none"/>`;
+  c += '<g fill="#6e4328" fill-opacity=".12" transform="translate(-640 0)"><path d="M1230 586h200l-26 22h-150z"/><rect x="1328" y="506" width="4" height="82"/><path d="M1290 510h82l-10 52h-62z" fill="#a4552f" fill-opacity=".2"/></g>';
+  // temple sur son rocher : le sujet de l'habillage, dans le ciel libre à droite ; le rocher descend jusqu'à la mer, derrière la frise
+  const colonnes = Array.from({ length: 7 }, (_, k) => 895 + 55 * k);
+  c += '<path d="M730 604C800 564 836 510 880 470H1240C1290 510 1330 564 1400 604z" fill="#8a6a3a" opacity=".2"/>';
+  c += '<path d="M800 570l40-32M880 556l60-52M1010 540l-40-40M1180 548l50-48M1250 520l60 44" stroke="#6e4328" stroke-opacity=".12" stroke-width="3" fill="none"/>';
+  c += '<g opacity=".34" fill="#6e4328"><path d="M860 322L1060 258L1260 322z"/><rect x="870" y="326" width="380" height="20"/>';
+  c += colonnes.map((x) => `<rect x="${x - 15}" y="346" width="30" height="8"/><rect x="${x - 11}" y="354" width="22" height="84"/><rect x="${x - 15}" y="438" width="30" height="7"/>`).join("");
+  c += '<rect x="860" y="445" width="400" height="9"/><rect x="850" y="454" width="420" height="9"/></g>';
+  c += '<path d="M940 270L1060 232L1180 270" stroke="#f4ead0" stroke-opacity=".5" stroke-width="3" fill="none"/>';
+  c += `<path d="${colonnes.map((x) => `M${x - 4} 356V436M${x + 4} 356V436`).join("")}" stroke="#f4ead0" stroke-opacity=".45" stroke-width="2" fill="none"/>`;
   // second temple lointain et cyprès
   c += '<g fill="#6e4328" fill-opacity=".06"><path d="M140 470l90-34 90 34zM150 470h160v66H150z"/>' + [190, 235, 280].map((x) => `<rect x="${x - 6}" y="470" width="12" height="66" fill="#f4ead0" fill-opacity=".5"/>`).join("") + '</g>';
-  c += '<g fill="#4b5f3a" fill-opacity=".09"><path d="M1160 560c-20-60-14-110 0-150c14 40 20 90 0 150z"/><path d="M1200 560c-16-48-10-90 0-120c10 30 16 70 0 120z"/></g>';
+  c += '<g fill="#4b5f3a" fill-opacity=".09" transform="translate(300 40)"><path d="M1160 560c-20-60-14-110 0-150c14 40 20 90 0 150z"/><path d="M1200 560c-16-48-10-90 0-120c10 30 16 70 0 120z"/></g>';
   // olivier
   c += '<path d="M360 700c4-60 10-90-10-130l16-8c10 22 14 40 16 60c8-26 24-44 40-60l10 12c-22 22-30 50-30 100z" fill="#6e4328" fill-opacity=".12"/><g fill="#4b5f3a" opacity=".11"><ellipse cx="330" cy="540" rx="80" ry="38"/><ellipse cx="430" cy="520" rx="90" ry="40"/><ellipse cx="380" cy="490" rx="70" ry="30"/></g>';
   // hirondelles

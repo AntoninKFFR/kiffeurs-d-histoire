@@ -61,7 +61,7 @@ describe("fichiers d'habillage", () => {
       const chemin = `public${url}`;
       const taille = statSync(chemin).size;
       total += taille;
-      expect(taille, url).toBeLessThan(8 * 1024);
+      expect(taille, url).toBeLessThan(10 * 1024);
       const svg = readFileSync(chemin, "utf8");
       expect(svg, url).not.toMatch(/<image|<script|href=|data:/);
     }
@@ -161,9 +161,8 @@ describe("Frise habillée", () => {
     const nuit = container.querySelector('[data-theme="dark"]');
     expect(Boolean(nuit)).toBe(h.sombre);
     if (nuit) expect(racine.contains(nuit) && racine !== nuit).toBe(true);
-    // Les couleurs de l'habillage sont posées sur la bande de la frise.
-    const bande = container.querySelector(`.${s.bande}, .${s.bandeScene}`) as HTMLElement;
-    for (const [variable, valeur] of Object.entries(h.palette)) expect(bande.style.getPropertyValue(variable)).toBe(valeur);
+    // Les couleurs de l'habillage sont posées sur la racine de la frise : bande, boîtes et boutons les héritent.
+    for (const [variable, valeur] of Object.entries(h.palette)) expect(racine.style.getPropertyValue(variable)).toBe(valeur);
     // Les motifs gravés de la V1 laissent la place à la scène de fond.
     expect(container.querySelector(`.${s.motif}`)).toBeNull();
   });

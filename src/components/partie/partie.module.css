@@ -19,12 +19,13 @@
 .titreLong .carteTexte h2 { font-size: 20px; line-height: 1.2; }
 .consigne { margin: 0; font-size: 14px; font-weight: 700; color: var(--color-encre); }
 
-/* Habillage de nuit (#97) : posés directement sur la frise, la question et « Quitter » prennent une carte claire,
-   et les boîtes du bas deviennent opaques pour que les étoiles ne les traversent pas. */
-:global([data-fond="sombre"]) .carteH { background: var(--color-blanc-cartel); border: 1px solid var(--color-encre); padding: 8px 14px; }
-:global([data-fond="sombre"]) .quitter { background: var(--color-blanc-cartel); border: 1px solid var(--color-encre); padding: 0 10px; min-height: 36px; margin-top: 4px; }
-:global([data-fond="sombre"]) .boite { background: var(--color-blanc-cartel); }
-:global([data-fond="sombre"]) .resultat { background: var(--color-fond-resultat); }
+/* Habillages (#97) : « Quitter », la question et les boîtes du bas se fondent dans le décor. Pas de pastille ni de carte :
+   le texte se pose sur le fond avec un halo de sa couleur ; les boîtes prennent la couleur du fond, translucide et floutée.
+   Les couleurs (clair, palette de l'habillage ou thème de nuit) viennent des variables de la charte, posées sur la frise. */
+:global([data-habillage]) .carteH { background: none; border: 0; padding: 4px 0; text-shadow: 0 0 8px var(--frise-fond), 0 0 16px var(--frise-fond); }
+:global([data-habillage]) .quitter { color: var(--color-encre); text-shadow: 0 0 6px var(--frise-fond), 0 0 12px var(--frise-fond); }
+:global([data-habillage]) .illustration { background: color-mix(in srgb, #fff 40%, transparent); border-color: color-mix(in srgb, var(--color-encre) 20%, transparent); }
+:global([data-fond="sombre"]) .illustration { background: rgb(236 233 221 / 0.85); color: #1d2a3a; border-color: transparent; }
 
 /* ---------- Saisie jour / mois / année ---------- */
 .saisie { display: grid; gap: 4px; padding: 12px 14px; background: var(--color-papier); border: 1px solid var(--color-filet); }
@@ -250,3 +251,11 @@
   .colonneSaisie:has(> .bornes) { position: relative; }
   .colonneSaisie > .bornes { position: absolute; left: 0; right: 0; bottom: calc(100% + 4px); }
 }
+
+/* Habillages (#97) : boîtes du bas aux couleurs du décor. À la fin du fichier pour l'emporter sur les règles de base. */
+:global([data-habillage]) .boite { background: color-mix(in srgb, var(--frise-fond) 70%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-color: color-mix(in srgb, var(--color-encre) 40%, transparent); }
+:global([data-habillage]) .resultat { background: color-mix(in srgb, var(--frise-fond) 78%, transparent); border-color: color-mix(in srgb, var(--color-laiton) 70%, transparent); }
+:global([data-habillage]) .case input, :global([data-habillage]) .champTexte { background: color-mix(in srgb, var(--color-blanc-cartel) 45%, transparent); border-color: color-mix(in srgb, var(--color-encre) 30%, transparent); }
+:global([data-habillage]) .valider:hover { background: color-mix(in srgb, var(--color-encre) 85%, #000); }
+:global([data-habillage]) .valider:disabled { background: color-mix(in srgb, var(--color-encre) 38%, transparent); }
+:global([data-fond="sombre"]) .valider:disabled { color: var(--color-encre); }

@@ -6,6 +6,7 @@ import { Bilan } from "@/components/partie/Bilan";
 import { Partie } from "@/components/partie/Partie";
 import { PartieInverse } from "@/components/partie/PartieInverse";
 import { getAccount } from "@/lib/account";
+import { habillageDe } from "@/lib/game/habillages";
 import { estInverse } from "@/lib/game/partie";
 import { bornesDe, lireChoix } from "@/lib/solo/choix";
 import { chargerPacksJouables } from "@/app/solo/packs";
@@ -44,6 +45,7 @@ export default async function PartiePage({ params, searchParams }: PageProps<"/p
       }
     } catch { /* Une lecture du catalogue échouée ne bloque pas la reprise de partie. */ }
   }
+  const habillage = habillageDe(choix, bornes);
   const requete = new URLSearchParams();
   if (typeof n === "string") requete.set("n", n);
   if (relance) requete.set("c", relance);
@@ -73,6 +75,7 @@ export default async function PartiePage({ params, searchParams }: PageProps<"/p
           anonyme={anonyme}
           relance={relance}
           bornes={bornes}
+          habillage={habillage}
         />
       </main>
     );
@@ -90,6 +93,7 @@ export default async function PartiePage({ params, searchParams }: PageProps<"/p
           anonyme={anonyme}
           relance={relance}
           bornes={bornes}
+          habillage={habillage}
         />
       </main>
     );

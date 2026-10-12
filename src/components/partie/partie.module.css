@@ -19,6 +19,13 @@
 .titreLong .carteTexte h2 { font-size: 20px; line-height: 1.2; }
 .consigne { margin: 0; font-size: 14px; font-weight: 700; color: var(--color-encre); }
 
+/* Habillage de nuit (#97) : posés directement sur la frise, la question et « Quitter » prennent une carte claire,
+   et les boîtes du bas deviennent opaques pour que les étoiles ne les traversent pas. */
+:global([data-fond="sombre"]) .carteH { background: var(--color-blanc-cartel); border: 1px solid var(--color-encre); padding: 8px 14px; }
+:global([data-fond="sombre"]) .quitter { background: var(--color-blanc-cartel); border: 1px solid var(--color-encre); padding: 0 10px; min-height: 36px; margin-top: 4px; }
+:global([data-fond="sombre"]) .boite { background: var(--color-blanc-cartel); }
+:global([data-fond="sombre"]) .resultat { background: var(--color-fond-resultat); }
+
 /* ---------- Saisie jour / mois / année ---------- */
 .saisie { display: grid; gap: 4px; padding: 12px 14px; background: var(--color-papier); border: 1px solid var(--color-filet); }
 .consigneSaisie { font-size: 12px; color: var(--color-encre-douce); }

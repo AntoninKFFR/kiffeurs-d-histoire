@@ -14,7 +14,7 @@
 .etiquette { position: absolute; top: 224px; transform: translateX(-50%); font-size: 16px; color: var(--color-encre); white-space: nowrap; }
 .etiquette b { color: var(--color-oxyde); }
 .etiquette small { font-family: var(--font-texte); font-size: 10px; font-weight: 400; color: var(--color-encre-douce); }
-.rappel { position: absolute; left: 12px; top: 8px; font-size: 18px; color: var(--color-encre-douce); background: rgb(251 251 248 / 0.85); padding: 0 6px; pointer-events: none; z-index: 2; }
+.rappel { position: absolute; left: 12px; top: 8px; font-size: 18px; color: var(--color-encre-douce); background: color-mix(in srgb, var(--color-blanc-cartel) 85%, transparent); padding: 0 6px; pointer-events: none; z-index: 2; }
 .motif { position: absolute; color: var(--color-encre); opacity: 0.85; pointer-events: none; }
 .motif svg { width: 100%; height: 100%; display: block; overflow: visible; }
 .discret { opacity: 0.45; }
@@ -36,8 +36,16 @@
 .fantome { position: absolute; top: 0; height: 222px; pointer-events: none; z-index: 2; }
 .fantome i { position: absolute; left: 0; top: 0; bottom: 0; border-left: 1px dashed var(--color-oxyde); }
 .fantome span { position: absolute; left: 6px; top: 6px; background: var(--color-blanc-cartel); border: 1px solid var(--color-oxyde); color: var(--color-oxyde); padding: 0 6px; font-size: 16px; white-space: nowrap; }
-.aide { position: absolute; right: 10px; bottom: 8px; font-size: 12px; color: var(--color-encre-douce); background: rgb(251 251 248 / 0.85); padding: 2px 6px; }
+.aide { position: absolute; right: 10px; bottom: 8px; font-size: 12px; color: var(--color-encre-douce); background: color-mix(in srgb, var(--color-blanc-cartel) 85%, transparent); padding: 2px 6px; }
 
+
+/* ---------- Habillages par période (#97) ----------
+   Le fond (couleur, trame) est posé en ligne par le composant ; le décor d'horizon n'est qu'une tuile SVG répétée.
+   Pour un fond sombre, la bande passe en thème de nuit de la charte : les dates, marqueurs et réponses prennent leurs
+   couleurs claires, alors que les boîtes de la question et de la réponse gardent le thème normal. */
+.habille { border-color: color-mix(in srgb, var(--color-encre) 22%, transparent); }
+.bandeScene[data-theme], .bande[data-theme] { background: transparent; }
+.horizon { position: absolute; left: 0; right: 0; background-repeat: repeat-x; pointer-events: none; }
 
 /* Mode lecture : pas de réponse à poser, curseur de déplacement. */
 .lecture { cursor: grab; }

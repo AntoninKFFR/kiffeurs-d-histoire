@@ -6,6 +6,7 @@ import type { Vue } from "@/lib/game/frise";
 import { chronoDepuis, correctionInverseDepuis, dateDepuis, estInverse, precisionDepuis } from "@/lib/game/partie";
 import type { SoloCorrection, SoloInverseQuestion, SoloQuestion, SoloResult } from "@/lib/game/solo";
 import { Bilan } from "./Bilan";
+import type { HabillageId } from "@/lib/game/habillages";
 import { EcranInverse } from "./EcranInverse";
 
 // Les trois appels au moteur serveur (src/app/solo/actions.ts), passés par la page.
@@ -24,9 +25,11 @@ type Props = {
   anonyme: boolean;
   relance?: string;
   bornes?: Vue | null;
+  /** Habillage de frise de la période jouée (#97). */
+  habillage?: HabillageId | null;
 };
 
-export function PartieInverse({ gameId, total, question: premiere, actions, connecte, anonyme, relance, bornes }: Props) {
+export function PartieInverse({ gameId, total, question: premiere, actions, connecte, anonyme, relance, bornes, habillage }: Props) {
   const [question, setQuestion] = useState(premiere);
   const [chrono, setChrono] = useState(() => chronoDepuis(premiere, Date.now()));
   const [resultat, setResultat] = useState<SoloResult | null>(null);
@@ -64,6 +67,7 @@ export function PartieInverse({ gameId, total, question: premiere, actions, conn
         key={question.question_id}
         chrono={chrono}
         bornes={bornes}
+        habillage={habillage}
         corriger={async (questionId, reponse) => correctionInverseDepuis(await actions.soumettre(gameId, questionId, reponse))}
         suivante={{ libelle: question.position >= nombre ? "Voir le bilan" : "Question suivante", action: suivante }}
         question={{

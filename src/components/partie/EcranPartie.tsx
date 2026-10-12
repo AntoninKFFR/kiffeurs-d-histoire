@@ -14,6 +14,7 @@ import { useSaisieFrise } from "@/components/saisie/useSaisieFrise";
 import { ChronoCirculaire } from "@/components/ui/ChronoCirculaire";
 import { SaisieDate } from "./SaisieDate";
 import { useSaisieVisible } from "./useSaisieVisible";
+import type { HabillageId } from "@/lib/game/habillages";
 import s from "./partie.module.css";
 
 // Ce que le navigateur sait d'une question : jamais la date attendue, ni la description avant la réponse.
@@ -61,6 +62,8 @@ type Props = {
   suivante?: { libelle: string; action: () => Promise<void> };
   /** Période jouée (pack, thème, chapitres…) : la frise ne montre qu'elle. Sans elle, toute l'histoire. */
   bornes?: Vue | null;
+  /** Habillage de frise de la période jouée (#97). */
+  habillage?: HabillageId | null;
 };
 
 const BRAVO: Record<Precision, string> = { annee: "Pile la bonne année !", mois: "Pile le bon mois !", jour: "Pile le bon jour !" };
@@ -70,7 +73,7 @@ const PILE: Record<Precision, string> = { annee: "pile la bonne année", mois: "
 const finAvantDebut = (debut: HistoricDate, fin: HistoricDate, precision: Precision) =>
   versT(aLaPrecision(fin, precision)) < versT(aLaPrecision(debut, precision));
 
-export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suivante, bornes }: Props) {
+export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suivante, bornes, habillage }: Props) {
   const { precision } = question;
   const periode = Boolean(question.periode && corrigerPeriode);
   const { debut, fin } = bornes ?? VUE_DE_BASE;
@@ -315,6 +318,7 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
     <section ref={ecran} className={s.jeu} aria-label="Écran de partie">
       <Frise
         precision={precision}
+        habillage={habillage}
         controle={controle}
         reponse={correction && periode ? debutJoueur : reponse}
         onReponse={poserSurFrise}

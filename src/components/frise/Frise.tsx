@@ -17,6 +17,7 @@ import {
   versT,
   type Vue,
 } from "@/lib/game/frise";
+import { HABILLAGES, type HabillageId } from "@/lib/game/habillages";
 import { empiler, regrouper, type MarqueurFrise } from "@/lib/game/marqueurs";
 import { Motif } from "@/components/charte/Motif";
 import { useVue } from "./useVue";
@@ -64,6 +65,8 @@ type Props = {
    * posées sur son fond. Les clics hors des boîtes continuent de placer la réponse.
    */
   haut?: ReactNode;
+  /** Habillage propre à la période jouée (#97) : fond, trame et décor d'horizon. Sans lui, la frise de la V1. */
+  habillage?: HabillageId | null;
   /** Sous l'axe, directement sous la frise (bande des époques). */
   sous?: ReactNode;
   /** En bas de la scène. Chaque boîte se déclare elle-même avec `data-superposition`. */
@@ -100,6 +103,7 @@ export function Frise({
   toutVoir = false,
   remplir = false,
   onMarqueur,
+  habillage = null,
   haut,
   sous,
   bas,
@@ -324,6 +328,17 @@ export function Frise({
         1 + Math.floor(((scene ? axeY - ciel : 210) - 38 - ECART_BANDEAU - 52) / PAS_COULOIR),
       )
     : [];
+  const hab = habillage ? HABILLAGES[habillage] : null;
+  // Le décor glisse lentement quand on parcourt la frise, selon la place de la vue dans la période jouée (jamais selon la date).
+  const parcours = bornes.fin > bornes.debut ? clamp((vue.debut - bornes.debut) / (bornes.fin - bornes.debut), 0, 1) : 0;
+  // Le décor grandit avec le ciel sur les grands écrans, comme les motifs de la V1.
+  // Sur un écran bas, il s'arrête sous la boîte de la question (le ciel libre au-dessus des époques) ou disparaît.
+  const cielLibre = (scene ? axeY - ciel : 210) - 38 - 6;
+  // Échelle au dixième : la tuile garde une taille entière et ses raccords restent nets.
+  const echelleHorizon = Math.round(echelleDecor * 10) / 10;
+  const hauteurTuile = Math.round((hab?.horizon.hauteur ?? 0) * echelleHorizon);
+  const hauteurHorizon = Math.min(hauteurTuile, Math.round(cielLibre));
+  const tuileHorizon = Math.round((hab?.horizon.tuile ?? 0) * echelleHorizon);
   const outils = (
     <div className={s.outils}>
       <span className={s.echelle}>{legendePas(pas)}</span>
@@ -337,8 +352,13 @@ export function Frise({
       {!scene && outils}
       <div
         ref={ref}
-        className={`${selection ? s.frise : `${s.frise} ${s.lecture}`}${scene ? ` ${s.scene}` : ""}`}
-        style={scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : undefined}
+        className={`${selection ? s.frise : `${s.frise} ${s.lecture}`}${scene ? ` ${s.scene}` : ""}${hab ? ` ${s.habille}` : ""}`}
+        data-habillage={hab?.id}
+        data-fond={hab?.sombre ? "sombre" : undefined}
+        style={{
+          ...(scene ? { minHeight: remplir && bas == null && sous == null ? hautHaut + 240 : ciel + cielMin + sousAxe + hautBas } : null),
+          ...(hab ? { backgroundColor: hab.fond.couleur, backgroundImage: hab.fond.image, backgroundSize: hab.fond.taille, backgroundRepeat: hab.fond.repetition } : null),
+        }}
         aria-label={
           selection
             ? "Frise chronologique : molette pour zoomer, glisser pour se déplacer, cliquer pour placer sa réponse"
@@ -358,13 +378,26 @@ export function Frise({
               style={toutVoir && remplir ? { top: axeY + 10 } : undefined}>{outils}</div>
           </div>
         )}
-        <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined}>
+        <div className={scene ? s.bandeScene : s.bande} style={scene ? { top: decalage } : undefined} data-theme={hab?.sombre ? "dark" : undefined}>
+        {hab && hauteurHorizon >= 30 && (
+          <div
+            className={s.horizon}
+            aria-hidden="true"
+            style={{
+              height: hauteurHorizon,
+              top: 172 - hauteurHorizon, // pose le décor sur le bandeau des époques (172 px dans la bande)
+              backgroundImage: `url(${hab.horizon.url})`,
+              backgroundSize: `${tuileHorizon}px ${hauteurTuile}px`,
+              backgroundPosition: `${-Math.round(parcours * tuileHorizon * 2.5)}px 100%`,
+            }}
+          />
+        )}
         {EPOQUES.map((ep) => {
           const l = X(ep.debut);
           const r = X(ep.fin);
           if (r < 0 || l > largeur) return null;
           return (
-            <div key={ep.nom} className={s.bandeau} style={{ left: l, width: r - l, background: ep.couleur }}>
+            <div key={ep.nom} className={s.bandeau} style={{ left: l, width: r - l, background: hab ? `color-mix(in srgb, ${ep.couleur} 62%, transparent)` : ep.couleur }}>
               {r - Math.max(l, 0) > 90 && <span style={{ left: Math.max(0, -l) + 8 }}>{ep.nom}</span>}
             </div>
           );
@@ -395,7 +428,7 @@ export function Frise({
         <div className={s.axe} />
         {rappel && <div className={`${s.rappel} date`}>{rappel}</div>}
 
-        {!aDesMarqueurs && !paysage && decor(vue, largeur, scene ? 90 : 34).map((m) => {
+        {!aDesMarqueurs && !paysage && !hab && decor(vue, largeur, scene ? 90 : 34).map((m) => {
           const { top, taille } = placerMotif(m.haut, m.taille);
           return (
             <div

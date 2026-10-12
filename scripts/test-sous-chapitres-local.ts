@@ -98,14 +98,20 @@ try {
   }
   // Les anciennes RPC et cartes restent exactes, tous les enfants et données privées sont fermés.
   for (const c of structure.chapitres_historiques) {
-    const visible = json<{card_id:string}[]>(anon+`select coalesce(jsonb_agg(x),'[]') from histoire.get_chapter_cards('${c.id}') x;`);
-    assert.deepEqual(visible.map(v=>v.card_id),cards.filter(v=>v.chapter_id===c.id).map(v=>v.card_id));
-    assert(!JSON.stringify(visible).includes('"event_id"')); assert(!JSON.stringify(visible).includes('"sources"'));
+    for (const role of [anon,asPlayer(A,'')]) {
+      const visible = json<{card_id:string}[]>(role+`select coalesce(jsonb_agg(x),'[]') from histoire.get_chapter_cards('${c.id}') x;`);
+      assert.deepEqual(visible.map(v=>v.card_id),cards.filter(v=>v.chapter_id===c.id).map(v=>v.card_id));
+      assert(!JSON.stringify(visible).includes('"event_id"')); assert(!JSON.stringify(visible).includes('"sources"'));
+    }
   }
   assert.equal(sql(anon+"select count(*) from histoire.chapters"),"41");
   for (const c of structure.sous_chapitres) {
-    assert.equal(sql(anon+`select count(*) from histoire.get_chapter_cards('${c.id}')`),"0");
-    rejects(anon+`select histoire.start_chapter_test('${"a".repeat(64)}','${c.id}','YEAR',5);`);
+    for (const role of [anon,asPlayer(A,'')]) {
+      assert.equal(sql(role+`select count(*) from histoire.get_chapter_cards('${c.id}')`).split('\n').at(-1),"0");
+      assert.equal(sql(role+`select count(*) from histoire.get_chapter_cards_version('${c.id}','sous-chapitres-v1')`).split('\n').at(-1),"0");
+      rejects(role+`select histoire.start_chapter_test('${"a".repeat(64)}','${c.id}','YEAR',5);`);
+      rejects(role+`select histoire.start_chapter_test_version('${"a".repeat(64)}','${c.id}','YEAR',5,'sous-chapitres-v1');`);
+    }
     rejects(asPlayer(A,`select histoire.mark_chapter_discovered('${c.id}');`));
   }
   for (const table of ["chapter_cards","event_answers","event_aliases","pedagogical_units","pedagogical_card_lineage","pedagogical_registry","pedagogical_editions"]) {
@@ -167,6 +173,15 @@ try {
       if (select best_accuracy from histoire.learning_progress where user_id='${A}' and chapter_id='THM-059')<>50
         or (select best_accuracy from histoire.learning_progress where user_id='${A}' and chapter_id='THM-017')<>83 then raise exception 'Progression non indépendante'; end if;
     end $$;
+    ${['anon','authenticated'].map(role=>`set local role ${role};
+      select set_config('request.jwt.claim.sub','${role==='authenticated'?A:''}',true);
+      do $$declare g jsonb; begin
+        if not histoire.pedagogical_available('THM-017') or not histoire.pedagogical_available('THM-059')
+          or (select count(*) from histoire.get_chapter_cards_version('THM-059','sous-chapitres-v1'))<>${technical.filter(c=>c.chapter_id==='THM-059').length}
+        then raise exception 'Historique/actif inaccessible au rôle ${role}'; end if;
+        g:=histoire.start_chapter_test('${'a'.repeat(64)}','THM-059','YEAR',5);
+        if g ? 'candidates' or g ? 'expected_year' then raise exception 'Réponses exposées au lancement'; end if;
+      end $$; reset role;`).join('\n')}
     select histoire.export_pedagogical_structure();
     select histoire.set_pedagogical_group_active('THM-017',false,null);
     ${register}

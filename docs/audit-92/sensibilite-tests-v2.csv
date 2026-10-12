@@ -1,0 +1,6 @@
+section,event_ids,actuel_A_M_J,complet_mecanique_A_M_J,apres_retrait_un_jouable_annee,questions_apres_retrait_annee,scenario_cible,statut
+THM-006-S3,EVT-0040;EVT-0041;EVT-0370;EVT-0371;EVT-0392,1/0/0,5/0/0,4,0,EVT-0040 exclu : 4,Simulation seulement ; aucun retrait source ni seuil modifié
+THM-012-S2,EVT-0064;EVT-0072;EVT-0073;EVT-0065;EVT-0416,3/1/1,5/3/3,4,0,Un seul repère exclu : 4,Simulation seulement ; aucun retrait source ni seuil modifié
+THM-017-S3,EVT-0018;EVT-0116;EVT-0117;EVT-0118;EVT-0119,2/2/2,5/5/5,4,0,Un seul repère exclu : 4,Simulation seulement ; aucun retrait source ni seuil modifié
+THM-024-S2,EVT-0180;EVT-0181;EVT-0182;EVT-0446;EVT-0448,3/3/3,5/5/5,4,0,Un seul repère exclu : 4,Simulation seulement ; aucun retrait source ni seuil modifié
+THM-025-S2,EVT-0192;EVT-0193;EVT-0194;EVT-0195;EVT-0196,2/1/1,5/2/2,4,0,EVT-0192 et EVT-0196 exclus : 3,Simulation seulement ; aucun retrait source ni seuil modifié

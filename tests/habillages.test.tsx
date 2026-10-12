@@ -21,6 +21,21 @@ describe("habillageDe", () => {
     expect(habillageDe({ mode: "theme", theme: "TAG-0130" }, { debut: 1600, fin: 2030 })).toBe("espace");
   });
 
+  it("associe les huit autres habillages à leurs packs, périodes et plages", () => {
+    expect(habillageDe({ mode: "pack", pack: "COL-0064" }, { debut: 1938, fin: 1946 })).toBe("seconde-guerre");
+    expect(habillageDe({ mode: "pack", pack: "COL-0065" }, { debut: 1945, fin: 1992 })).toBe("guerre-froide");
+    expect(habillageDe({ mode: "pack", pack: "COL-0066" }, { debut: 1788, fin: 1799 })).toBe("revolution");
+    expect(habillageDe({ mode: "pack", pack: "COL-0067" }, { debut: 1799, fin: 1815 })).toBe("revolution");
+    expect(habillageDe({ mode: "pack", pack: "COL-0079" }, { debut: 476, fin: 1492 })).toBe("moyen-age");
+    expect(habillageDe({ mode: "periode", periode: "moyen-age" }, { debut: 460, fin: 1510 })).toBe("moyen-age");
+    expect(habillageDe({ mode: "periode", periode: "epoque-moderne" }, { debut: 1492, fin: 1789 })).toBe("renaissance");
+    expect(habillageDe({ mode: "periode", periode: "xixe" }, { debut: 1789, fin: 1914 })).toBe("industrielle");
+    // Sport : le pack et chacun de ses sous-packs.
+    for (const id of ["COL-0105", "COL-0106", "COL-0111"]) expect(habillageDe({ mode: "pack", pack: id }, { debut: -776, fin: 2025 })).toBe("sport");
+    // Une partie qui tient dans la préhistoire, loin avant l'Antiquité.
+    expect(habillageDe({ mode: "scolaire" }, { debut: -40000, fin: -9000 })).toBe("prehistoire");
+  });
+
   it("applique aussi l'habillage à une partie dont les dates tiennent dans la plage (chapitre, sous-pack)", () => {
     expect(habillageDe({ mode: "scolaire" }, { debut: 1901, fin: 1931 })).toBe("tranchees");
     expect(habillageDe({ mode: "pack", pack: "COL-9999" }, { debut: -800, fin: -300 })).toBe("mosaique");
@@ -30,7 +45,7 @@ describe("habillageDe", () => {
     expect(habillageDe(null, null)).toBeNull();
     expect(habillageDe({ mode: "general" }, null)).toBeNull();
     expect(habillageDe({ mode: "pack", pack: "COL-0060" }, { debut: -770, fin: 2030 })).toBeNull();
-    expect(habillageDe({ mode: "periode", periode: "moyen-age" }, { debut: 460, fin: 1510 })).toBeNull();
+    expect(habillageDe({ mode: "periode", periode: "depuis-1945" }, { debut: 1945, fin: 2030 })).toBeNull();
     // Guerres mondiales : deux guerres, pas l'habillage d'une seule.
     expect(habillageDe({ mode: "periode", periode: "guerres-mondiales" }, { debut: 1900, fin: 1960 })).toBeNull();
     // Les années folles débordent de la plage de la Grande Guerre.
@@ -53,19 +68,20 @@ describe("habillageDe", () => {
 // ---------- Poids et indépendance des SVG ----------
 
 describe("fichiers d'habillage", () => {
-  const fichiers = LISTE_HABILLAGES.flatMap((h) => [...h.fond.image.matchAll(/url\(([^)]+)\)/g)].map((m) => m[1]));
-
   it("sont de petits SVG autonomes, chargés seulement quand la période est jouée", () => {
-    let total = 0;
-    for (const url of fichiers) {
-      const chemin = `public${url}`;
-      const taille = statSync(chemin).size;
-      total += taille;
-      expect(taille, url).toBeLessThan(10 * 1024);
-      const svg = readFileSync(chemin, "utf8");
-      expect(svg, url).not.toMatch(/<image|<script|href=|data:/);
+    for (const h of LISTE_HABILLAGES) {
+      let total = 0;
+      for (const [, url] of h.fond.image.matchAll(/url\(([^)]+)\)/g)) {
+        const chemin = `public${url}`;
+        const taille = statSync(chemin).size;
+        total += taille;
+        expect(taille, url).toBeLessThan(10 * 1024);
+        const svg = readFileSync(chemin, "utf8");
+        expect(svg, url).not.toMatch(/<image|<script|href=|data:/);
+      }
+      // Seuls la scène et la trame de la période jouée sont téléchargées.
+      expect(total, h.id).toBeLessThan(16 * 1024);
     }
-    expect(total).toBeLessThan(40 * 1024);
   });
 });
 

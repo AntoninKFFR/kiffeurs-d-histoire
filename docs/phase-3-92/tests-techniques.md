@@ -47,6 +47,8 @@ La première simulation de corpus s'est arrêtée au refus attendu de réimporte
 
 Les builds signalent l'avertissement existant de Next sur les métriques de police de secours `Big Shoulders`. Compilation, types et rendu passent. Cet avertissement ne concerne ni les données historiques ni la couverture.
 
+Le premier job GitHub de vérification a réussi les tests unitaires, puis a échoué à lire le commit de référence #111 dans un checkout superficiel. Le job récupère désormais l'historique Git complet avant de comparer les octets. La référence et toutes les assertions d'intégrité restent inchangées ; aucune comparaison n'a été supprimée pour contourner cet échec.
+
 Les scripts Python ont été exécutés avec le Python embarqué de l'environnement, l'alias `python` de Windows n'étant pas installé. Le détecteur de plages reste conservateur ; son résultat ne remplace pas la relecture documentaire. Les tests techniques ne certifient pas une datation historiquement contestée, une source non lue ou une illustration future.
 
 ## Commandes de reproduction locale

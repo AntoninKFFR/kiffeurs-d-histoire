@@ -1,0 +1,36 @@
+{
+  "base_main": "a4759cea8bebd66003c2d69592bf8fd5af24b264",
+  "historiques": 325,
+  "completions": 104,
+  "enfants": 188,
+  "filiations": 61,
+  "manques_audit_couverts": 231,
+  "unites": 59,
+  "svg_inchanges": 331,
+  "sha256_cartes_historiques_main_git": "3a44ce68f68ab47273ce7d4dd03e165bc72c1986493590f83e665e3f2ade95d7",
+  "sha256_cartes_historiques_main_checkout": "466e5e766ad6fc23471c99fe2f3407e791c772e70d98550fce413f02a2fb622c",
+  "sha256_cartes_historiques_phase3": "466e5e766ad6fc23471c99fe2f3407e791c772e70d98550fce413f02a2fb622c",
+  "illustrations_evenements_uniques": 285,
+  "illustrations_a_creer": 203,
+  "illustrations_a_reutiliser": 82,
+  "nouvelles_cartes_sources_consultees": 231,
+  "copies_sources_conservees": 61,
+  "activation_production": false,
+  "chemins_proteges_identiques_main": [
+    "content/dataset-v18",
+    "content/illustrations",
+    "content/pedagogie/chapitres-v2.json",
+    "scripts/illustrations-pedagogiques",
+    "docs/illustrations/generalisation",
+    "docs/audit-92",
+    "docs/phase-2-92",
+    "supabase",
+    "src"
+  ],
+  "blocages": [
+    {
+      "chapter_id": "THM-049",
+      "blocages": "han-canon-incoherent"
+    }
+  ]
+}

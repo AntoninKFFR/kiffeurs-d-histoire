@@ -24,6 +24,7 @@ jobs:
       - run: python3 scripts/test-verifier-descriptions.py
       - run: npm test
       - run: npx tsx scripts/build-structure-pedagogique.ts --check
+      - run: npx tsx scripts/phase3-pedagogie.ts
       - run: npm run content:audit-plages -- --strict
       - run: npm run content:relecture-cartes -- --check
       - run: npm run lint
@@ -123,5 +124,7 @@ jobs:
           exit 1
       - run: npx tsx scripts/test-sous-chapitres-local.ts --container kffr-issue92-phase2
       - run: npx tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2
+      - run: npx playwright install --with-deps chromium
+      - run: npx tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2 --corpus-phase3 --build-phase3
       - if: always()
         run: docker rm -f kffr-issue92-phase2

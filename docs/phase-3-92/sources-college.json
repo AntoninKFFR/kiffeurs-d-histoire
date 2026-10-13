@@ -1,0 +1,861 @@
+[
+  {
+    "event_ids": [
+      "EVT-0431"
+    ],
+    "url": "https://history.state.gov/milestones/1750-1775/french-indian-war",
+    "titre": "Office of the Historian — French and Indian War/Seven Years’ War",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Guerre nord-américaine dès 1754, conflit européen dès 1756, paix en 1763 ; rivalités coloniales, acteurs autochtones, coûts et fiscalité britannique.",
+    "reserves": "La date 1756 est celle de l’élargissement européen, non du début des combats américains.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0433"
+    ],
+    "url": "https://www.nps.gov/bost/learn/historyculture/osmh.htm",
+    "titre": "NPS — Old South Meeting House",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "16 décembre 1773 : réunion contre le thé taxé et destruction des cargaisons ; sanctions britanniques et fermeture du port en 1774.",
+    "reserves": "Les déguisements ne font pas des participants des acteurs autochtones.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0435"
+    ],
+    "url": "https://www.nps.gov/sara/learn/historyculture/campaign-timeline.htm",
+    "titre": "NPS — Campaign Timeline",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Burgoyne veut isoler la Nouvelle-Angleterre ; Gates prend le commandement ; batailles des 19 septembre et 7 octobre, reddition le 17 octobre 1777.",
+    "reserves": "La reddition et les deux batailles sont des jalons distincts.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0436"
+    ],
+    "url": "https://www.nps.gov/york/index.htm?target=_parent",
+    "titre": "NPS — Yorktown Battlefield",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Siège par Washington et alliés français ; Cornwallis capitule le 19 octobre 1781.",
+    "reserves": "Victoire militaire décisive ; la reconnaissance diplomatique suit en 1783.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0437"
+    ],
+    "url": "https://www.archives.gov/milestone-documents/treaty-of-paris",
+    "titre": "National Archives — Treaty of Paris (1783)",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature le 3 septembre 1783 ; reconnaissance britannique de l’indépendance ; frontières et rôle de Franklin, Adams et Jay.",
+    "reserves": "Ne pas confondre accord préliminaire et traité définitif.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0438"
+    ],
+    "url": "https://www.archives.gov/milestone-documents/constitution",
+    "titre": "National Archives — Constitution of the United States (1787)",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature le 17 septembre 1787 ; convention de Philadelphie, pouvoirs fédéraux et compromis de représentation.",
+    "reserves": "Signature distincte de ratification et mise en application.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0454"
+    ],
+    "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/houseofcommons/reformacts/overview/reformact1832/",
+    "titre": "UK Parliament — The Reform Act 1832",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Réforme de la représentation, suppression de bourgs, nouvelles circonscriptions ; élargissement limité par la propriété ; femmes et majorité des ouvriers exclus.",
+    "reserves": "La page confirme l’année ; jour exact à corroborer.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0455",
+      "EVT-0548"
+    ],
+    "url": "https://ials.sas.ac.uk/news-events/blogs/day-28-august-1833-abolition-slavery-act",
+    "titre": "IALS — Abolition of Slavery Act",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Assentiment royal le 28 août 1833, application le 1er août 1834, apprentissage jusqu’en 1838 dans les Caraïbes.",
+    "reserves": "Abolition de la traite en 1807, loi d’abolition et libération effective sont distinctes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0456"
+    ],
+    "url": "https://www.senate.gov/artandhistory/senate-stories/morses-telegraph-in-the-capitol.htm",
+    "titre": "U.S. Senate — Morse’s Telegraph in the Capitol",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "24 mai 1844 : Washington–Baltimore ; coopération de Morse avec Gale et Vail, transmission codée électrique.",
+    "reserves": "Démonstration longue distance distincte des expériences antérieures.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0461",
+      "EVT-0462"
+    ],
+    "url": "https://www.nam.ac.uk/explore/crimean-war",
+    "titre": "National Army Museum — Crimean War",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Rivalité russe et ottomane ; coalition France, Royaume-Uni, Empire ottoman, Sardaigne ; siège de Sébastopol ; traité le 30 mars 1856, neutralisation de la mer Noire.",
+    "reserves": "La page intitule la guerre 1854–56, suivant la participation britannique ; le canon commence en 1853. Ne pas modifier les dates structurées.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0464"
+    ],
+    "url": "https://guides.loc.gov/this-month-in-business-history/august/first-transatlantic-telegraph-cable",
+    "titre": "Library of Congress — First Transatlantic Telegraph Cable Sent",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "16 août 1858 : premier message officiel après des essais ; panne après quelques semaines, liaison fiable en 1866.",
+    "reserves": "Pose, essais et échange officiel ne sont pas le même jalon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0466"
+    ],
+    "url": "https://www.nps.gov/fosu/learn/historyculture/index.htm",
+    "titre": "NPS — Fort Sumter, History & Culture",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "12 avril 1861 : forces confédérées ouvrent le feu sur la garnison fédérale.",
+    "reserves": "Début militaire distinct de la sécession.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0466",
+      "EVT-0467"
+    ],
+    "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+    "titre": "National Archives — Emancipation Proclamation",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "1er janvier 1863 : émancipation limitée aux territoires rebelles, engagement des soldats noirs ; centralité de l’esclavage dans le conflit.",
+    "reserves": "N’abolit pas immédiatement l’esclavage sur tout le territoire.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0466"
+    ],
+    "url": "https://www.nps.gov/apco/learn/historyculture/the-surrender-meeting.htm",
+    "titre": "NPS — The Surrender Meeting",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "9 avril 1865 : Lee remet son armée à Grant ; autres capitulations jusqu’au début juin.",
+    "reserves": "La borne canonique du 9 avril est symbolique : pas de capitulation générale de la Confédération ce jour.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0470"
+    ],
+    "url": "https://blogs.icrc.org/cross-files/diplomatic-conferences/",
+    "titre": "CICR — Diplomatic Conferences",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Conférence du 8 au 22 août 1864 ; convention de Genève adoptée le 22 août.",
+    "reserves": "La conférence est convoquée par le gouvernement suisse.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0470"
+    ],
+    "url": "https://www.icrc.org/en/document/founding-and-early-years-icrc-1863-1914",
+    "titre": "CICR — Founding and early years",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Dunant, Solférino, comité en 1863 ; convention de 1864 impose le soin de tous les blessés sans distinction de camp.",
+    "reserves": "Protection initialement limitée aux militaires blessés et services sanitaires.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0087"
+    ],
+    "url": "https://www.justice.gouv.fr/justice-france/lhistoire-justice/cinq-grandes-figures-xixe-xxe-siecles",
+    "titre": "Ministère de la justice — Cinq grandes figures",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Loi du 1er décembre 1900 ouvre le barreau ; Olga Balachowsky-Petit prête serment le 5 décembre, Jeanne Chauvin le 19 ; Chauvin plaide en janvier 1901.",
+    "reserves": "Remplace la référence initiale à une loi de 2007 ; accès, serment et première plaidoirie distincts.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0092",
+      "EVT-0486"
+    ],
+    "url": "https://history.state.gov/milestones/1914-1920/paris-peace",
+    "titre": "Office of the Historian — Paris Peace Conference",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Conférence en janvier 1919 ; domination des vainqueurs, exclusion des vaincus ; traité de Versailles, réparations, territoires et SDN.",
+    "reserves": "Les jours 18 janvier et 28 juin ne figurent pas dans ce passage ; compléter pour le canon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0093",
+      "EVT-0095",
+      "EVT-0096"
+    ],
+    "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/troisieme-republique/adoption-et-publication-du-programme-du-rassemblement-populaire-victoire-du-front-populaire",
+    "titre": "Assemblée nationale — Victoire du Front populaire",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "4 juin 1936 : Blum désigné président du Conseil ; coalition, soutien communiste extérieur, grèves, Matignon ; lois sociales des 20 et 21 juin.",
+    "reserves": "Congés payés et réduction du travail relèvent des lois, pas directement des accords de Matignon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0095"
+    ],
+    "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000325218",
+    "titre": "Légifrance — Loi du 20 juin 1936",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Intitulé authentifie la loi du 20 juin instituant un congé annuel payé dans plusieurs secteurs.",
+    "reserves": "Le contenu est proposé en document JO ; détail des droits corroboré par l’Assemblée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0098"
+    ],
+    "url": "https://history.blog.gov.uk/2019/09/03/diplomatic-countdown-to-war/",
+    "titre": "Foreign Office Historians — Diplomatic countdown to war",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Invasion de la Pologne, garanties franco-britanniques, ultimatums ; guerre déclarée le 3 septembre 1939.",
+    "reserves": "Chronologie diplomatique distincte de l’invasion du 1er septembre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0099"
+    ],
+    "url": "https://encyclopedia.ushmm.org/content/en/article/invasion-of-the-soviet-union-june-1941",
+    "titre": "USHMM — Invasion of the Soviet Union",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "22 juin 1941 ; Barbarossa, conquête, anticommunisme, racisme ; massacres de civils juifs et mortalité des prisonniers.",
+    "reserves": "Le génocide résulte de politiques et acteurs multiples.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0017"
+    ],
+    "url": "https://www.nationalww2museum.org/war/articles/d-day-allies-invade-europe",
+    "titre": "National WWII Museum — D-Day",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "6 juin 1944 : débarquement en Normandie ; coordination terrestre, aérienne, navale ; Eisenhower ; front occidental.",
+    "reserves": "La page comporte une coquille sur la date de Téhéran ; ne pas la reprendre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0100"
+    ],
+    "url": "https://www.museeliberation-leclerc-moulin.paris.fr/sites/default/files/2022-01/ressource_pour_les_enseignants.pdf",
+    "titre": "Musée de la Libération de Paris — Ressource pour les enseignants",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Insurrection parisienne, FFI, Leclerc, division blindée ; activité pédagogique consacrée au 25 août 1944.",
+    "reserves": "Libération par plusieurs acteurs, pas par un individu seul.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0102"
+    ],
+    "url": "https://www.archives.gov/college-park/highlights/japanese-surrender",
+    "titre": "National Archives — Japanese Instrument of Surrender",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature le 2 septembre 1945 à bord du Missouri ; MacArthur, Shigemitsu et Umezu ; acceptation de Potsdam.",
+    "reserves": "Annonce de la reddition et signature formelle distinctes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0014",
+      "EVT-0105",
+      "EVT-0506",
+      "EVT-0508"
+    ],
+    "url": "https://www.musee-armee.fr/collections/ressources/ressources-a-telecharger/annee-40.html",
+    "titre": "Musée de l’Armée — Comme en 40",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "10 mai invasion, 14 juin entrée dans Paris, 18 juin appel BBC ; armistice signé le 22 juin appliqué le 25 ; exode et division du territoire.",
+    "reserves": "Affiche À tous les Français postérieure à l’appel radiophonique.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0109"
+    ],
+    "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-guerre-mondiale/creation-du-conseil-de-la-resistance-et-programme-du-cnr",
+    "titre": "Assemblée nationale — Création et programme du CNR",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Unification par Moulin ; première réunion le 27 mai 1943 ; programme le 15 mars 1944, démocratie et réformes sociales.",
+    "reserves": "Ne pas confondre création du conseil et adoption du programme.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0478",
+      "EVT-0479",
+      "EVT-0480",
+      "EVT-0481"
+    ],
+    "url": "https://ww1.nam.ac.uk/timeline/",
+    "titre": "National Army Museum — First World War Timeline",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "28 juin assassinat ; 1er août guerre à la Russie ; 3 août guerre à la France ; 4 août invasion de Belgique et déclaration britannique.",
+    "reserves": "Distinguer alliances, mobilisation et décisions gouvernementales.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0483"
+    ],
+    "url": "https://history.state.gov/milestones/1914-1920/wwi",
+    "titre": "Office of the Historian — U.S. Entry into World War I",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Guerre sous-marine, télégramme Zimmermann, demande de Wilson le 2 avril, vote Sénat le 4 et guerre le 6 avril 1917.",
+    "reserves": "Demande présidentielle et déclaration du Congrès distinctes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0485"
+    ],
+    "url": "https://documentsdedroitinternational.fr/1918-3-mars-traite-de-brest-litovsk/",
+    "titre": "CERIC Aix-Marseille — Traité de Brest-Litovsk",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Texte primaire : signature le 3 mars 1918 ; paix séparée, pertes territoriales et démobilisation russe.",
+    "reserves": "Le commentaire causal sur la guerre civile est simplificateur ; s’appuyer sur les clauses.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0487"
+    ],
+    "url": "https://history.state.gov/milestones/1914-1920/league",
+    "titre": "Office of the Historian — The League of Nations",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Sécurité collective, arbitrage, sanctions ; absence américaine après refus du Sénat.",
+    "reserves": "La date d’entrée en vigueur du 10 janvier 1920 nécessite un support complémentaire.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0488",
+      "EVT-0489"
+    ],
+    "url": "https://histoire-image.org/etudes/rome-1922-autre-revolution-octobre",
+    "titre": "Histoire par l’image — Rome, 1922",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Marche du 28 octobre, violence fasciste, pression des élites et choix du roi ; réception de Mussolini le 30 octobre.",
+    "reserves": "Photographie souvent présentée comme la marche prise à Naples le 24 octobre ; nomination et prise de fonctions distinctes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0489"
+    ],
+    "url": "https://leg15.camera.it/organiparlamentariSM/241/4405/5342/documentotesto.ASP?cost=1",
+    "titre": "Camera dei Deputati — Governi dall’Unità d’Italia",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Table institutionnelle : gouvernement Mussolini du 31 octobre 1922 au 25 janvier 1924.",
+    "reserves": "Borne institutionnelle distincte de la réception par le roi le 30.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0490"
+    ],
+    "url": "https://encyclopedia.ushmm.org/content/en/article/beer-hall-putsch-munich-putsch",
+    "titre": "USHMM — Beer Hall Putsch",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "8–9 novembre 1923 : tentative nazie, absence d’appui de l’armée et de la police, répression, procès et réorientation de stratégie.",
+    "reserves": "Échec ne signifie pas disparition du mouvement.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0491"
+    ],
+    "url": "https://history.state.gov/milestones/1921-1936/dawes",
+    "titre": "Office of the Historian — Dawes and Young Plans",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Réparations, occupation de la Ruhr, hyperinflation, prêts américains et rééchelonnement en 1924.",
+    "reserves": "Le rapport est remis en avril ; le 16 août est l’accord de Londres, à corroborer.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0492"
+    ],
+    "url": "https://weimar.bundesarchiv.de/WEIMAR/DE/Content/Dokumente-zur-Zeitgeschichte/1925-10-05_locarno-annahme-reichstag.html",
+    "titre": "Bundesarchiv — Annahme der Locarno-Verträge",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Conférence du 5 au 16 octobre 1925 ; frontières occidentales, arbitrage, signature à Londres le 1er décembre.",
+    "reserves": "Garantie occidentale distincte des frontières orientales.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0493"
+    ],
+    "url": "https://history.state.gov/milestones/1921-1936/kellogg",
+    "titre": "Office of the Historian — Kellogg-Briand Pact",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "27 août 1928 : signature à Paris ; Briand et Kellogg, renonciation à la guerre, règlement pacifique.",
+    "reserves": "Mécanisme coercitif insuffisant, légitime défense ambiguë.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0505"
+    ],
+    "url": "https://encyclopedia.ushmm.org/content/en/article/german-soviet-pact",
+    "titre": "USHMM — German-Soviet Pact",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "23 août 1939 : Molotov et Ribbentrop ; non-agression et protocole secret de partage de zones d’influence.",
+    "reserves": "Accord tactique ne rapproche pas les idéologies.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0506",
+      "EVT-0507"
+    ],
+    "url": "https://www.nam.ac.uk/explore/defeat-west",
+    "titre": "National Army Museum — Defeat in the West",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Offensive le 10 mai ; Ardennes, Sedan, encerclement ; évacuation ordonnée le 26 mai, rôle naval et arrière-garde.",
+    "reserves": "La page donne un bilan au 3 juin, non la fin du 4 juin ; compléter.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0510"
+    ],
+    "url": "https://www.nps.gov/perl/learn/historyculture/index.htm",
+    "titre": "NPS — Pearl Harbor History and Culture",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Attaque du 7 décembre 1941 et portée pour les États-Unis.",
+    "reserves": "Page d’orientation ; compléter pour le mécanisme militaire et l’entrée en guerre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0511"
+    ],
+    "url": "https://encyclopedia.ushmm.org/content/en/article/wannsee-conference-and-the-final-solution",
+    "titre": "USHMM — Wannsee Conference",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "20 janvier 1942 ; coordination administrative sous Heydrich ; décisions exterminatrices et massacres déjà engagés.",
+    "reserves": "La conférence ne marque pas le commencement du génocide.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0512"
+    ],
+    "url": "https://www.nationalww2museum.org/war/articles/battle-midway",
+    "titre": "National WWII Museum — Battle of Midway",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Attaque le 4 juin 1942, cryptanalyse, destruction de porte-avions japonais ; Yorktown coulé le 7.",
+    "reserves": "La victoire ouvre une reprise progressive de l’initiative, pas une fin de guerre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0513"
+    ],
+    "url": "https://www.nationalww2museum.org/war/articles/stalingrad-experimentation-adaptation-implementation",
+    "titre": "National WWII Museum — Stalingrad",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Approche de la ville le 23 août 1942 ; pétrole du Caucase ; adaptation soviétique, combats urbains et encerclement par Uranus en novembre.",
+    "reserves": "La capitulation du 2 février est à compléter ; refuser les récits de victoire due au seul climat.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0514"
+    ],
+    "url": "https://www.nam.ac.uk/explore/battle-alamein",
+    "titre": "National Army Museum — Second Battle of El Alamein",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "23 octobre–4 novembre 1942 ; Montgomery, Rommel, armée multinationale, approvisionnement et recul de l’Axe.",
+    "reserves": "Contradiction explicite avec canon 23 octobre–11 novembre : conserver canon mais réserve de validation, sans prétendre la borne finale vérifiée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0515"
+    ],
+    "url": "https://collection.nam.ac.uk/detail.php?acc=1975-03-63-13-114",
+    "titre": "National Army Museum — Invasion shipping off Sicily",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Photographie et notice : débarquement du 10 juillet 1943 ; forces de l’Axe évacuées le 17 août.",
+    "reserves": "Pas de confusion avec débarquements en Italie continentale.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0515",
+      "EVT-0516"
+    ],
+    "url": "https://www.nationalww2museum.org/war/articles/allied-campaign-italy-1943-45-timeline-part-one",
+    "titre": "National WWII Museum — Allied Campaign in Italy Timeline",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Husky nuit du 9–10 juillet ; Mussolini destitué le 25 juillet ; armistice secret le 3 septembre, annoncé le 8 ; occupation allemande et poursuite des combats.",
+    "reserves": "Statut de cobelligérant présenté trop tôt par la page : ne pas le reprendre pour le 8 septembre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0517"
+    ],
+    "url": "https://history.state.gov/milestones/1937-1945/tehran-conf",
+    "titre": "Office of the Historian — Tehran Conference",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "28 novembre–1er décembre 1943 ; Roosevelt, Churchill, Staline ; Overlord et offensive soviétique.",
+    "reserves": "Accords préparatoires distincts des décisions finales de l’après-guerre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0519"
+    ],
+    "url": "https://history.state.gov/milestones/1937-1945/yalta-conf",
+    "titre": "Office of the Historian — Yalta Conference",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "4–11 février 1945 ; Allemagne, Europe orientale, ONU et veto ; entrée soviétique future contre le Japon.",
+    "reserves": "Ne pas réduire Yalta à un partage définitif du monde.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0520",
+      "EVT-0521"
+    ],
+    "url": "https://www.nationalww2museum.org/war/articles/atomic-bombings",
+    "titre": "National WWII Museum — The Atomic Bombings",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Hiroshima le 6 août 1945 ; Truman, arme atomique et débats contemporains sur son usage.",
+    "reserves": "La justification militaire demeure discutée ; pas de nécessité incontestable.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0521"
+    ],
+    "url": "https://www.nationalww2museum.org/war/articles/bombing-nagasaki-august-9-1945",
+    "titre": "National WWII Museum — Bombing of Nagasaki",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "9 août 1945 ; cible secondaire après Kokura, conséquences civiles et radiations.",
+    "reserves": "Estimations de victimes variables ; aucun chiffre certain dans la carte.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0112"
+    ],
+    "url": "https://history.state.gov/milestones/1945-1952/berlin-airlift",
+    "titre": "Office of the Historian — Berlin Airlift",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Blocus commencé le 24 juin 1948 ; ravitaillement aérien ; première synthèse donne levée le 12 mai 1949.",
+    "reserves": "La même page mentionne ensuite le 11 mai : corroborer le 12 par autre institution.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0116",
+      "EVT-0119"
+    ],
+    "url": "https://european-union.europa.eu/principles-countries-history/history-eu/1945-59_fr",
+    "titre": "Union européenne — Histoire 1945–1959",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "18 avril 1951 : signature CECA à six ; charbon et acier ; CEE et Euratom entrent en vigueur le 1er janvier 1958.",
+    "reserves": "La date d’application CECA est vérifiée dans Accords fondateurs.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0117",
+      "EVT-0116",
+      "EVT-0119"
+    ],
+    "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_fr",
+    "titre": "Union européenne — Accords fondateurs",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "CECA : signature le 18 avril 1951, application le 23 juillet 1952 ; traités de Rome : application le 1er janvier 1958.",
+    "reserves": "Signature et entrée en vigueur distinctes ; fournit la source auparavant absente pour EVT-0117.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0121",
+      "EVT-0123"
+    ],
+    "url": "https://treaties.un.org/doc/Publication/UNTS/Volume%20507/v507.pdf",
+    "titre": "Nations unies — Recueil des traités, volume 507",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Pages 37–38 PDF : cessez-le-feu le 19 mars 1962 à midi ; lettre du 3 juillet reconnaissant indépendance et transfert de souveraineté.",
+    "reserves": "OCR imparfait ; négociations terminées le 18 mars, application le 19, reconnaissance le 3 juillet.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0121",
+      "EVT-0122",
+      "EVT-0124"
+    ],
+    "url": "https://www.musee-armee.fr/ExpositionAlgerie/independent-algeria-1962.html",
+    "titre": "Musée de l’Armée — Independent Algeria",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Accords du 18 mars, référendum le 1er juillet, reconnaissance le 3, célébrations le 5 ; poursuite de violences, OAS, exode et massacres de harkis.",
+    "reserves": "Indépendance, reconnaissance et fête ne sont pas interchangeables.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0122",
+      "EVT-0123"
+    ],
+    "url": "https://www.cvce.eu/content/publication/2017/4/6/05d4d86f-da65-4c7e-b4d7-e09999516f68/publishable_fr.pdf",
+    "titre": "CVCE — Reconnaissance de l’indépendance de l’Algérie",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Déclaration primaire datée du 3 juillet 1962 ; référence au scrutin d’autodétermination du 1er juillet ; publication au JO le 4.",
+    "reserves": "Publication et décision distinctes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0523"
+    ],
+    "url": "https://history.state.gov/milestones/1945-1952/marshall-plan",
+    "titre": "Office of the Historian — Marshall Plan",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Discours Harvard le 5 juin 1947 ; reconstruction, aide, motivations économiques et endiguement ; refus soviétique.",
+    "reserves": "Annonce distincte de mise en œuvre en 1948 ; poids économique discuté.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0524"
+    ],
+    "url": "https://history.state.gov/milestones/1945-1952/nato",
+    "titre": "Office of the Historian — NATO",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Alliance de 1949, défense collective, États-Unis, Canada et Europe occidentale.",
+    "reserves": "La date précise du 4 avril doit être corroborée ; aide pas automatiquement identique pour chaque membre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0525"
+    ],
+    "url": "https://history.state.gov/milestones/1945-1952/chinese-rev",
+    "titre": "Office of the Historian — Chinese Revolution",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mao proclame la République populaire le 1er octobre 1949 ; guerre civile, soutien rural, retrait nationaliste à Taïwan.",
+    "reserves": "La proclamation ne signifie pas l’achèvement de tous les conflits.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0527"
+    ],
+    "url": "https://history.state.gov/milestones/1953-1960/warsaw-treaty",
+    "titre": "Office of the Historian — Warsaw Treaty Organization",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "14 mai 1955 : alliance sous domination soviétique, contexte entrée RFA dans OTAN.",
+    "reserves": "Alliance déclarée égalitaire mais décisions dominées par Moscou.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0528"
+    ],
+    "url": "https://history.state.gov/milestones/1953-1960/suez",
+    "titre": "Office of the Historian — Suez Crisis",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Nationalisation par Nasser ; offensive israélienne le 29 octobre, intervention franco-britannique, pressions américaines et ONU ; cessez-le-feu accepté le 6 novembre.",
+    "reserves": "Canon fin le 7 novembre : accord et arrêt des opérations à distinguer.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0529"
+    ],
+    "url": "https://history.state.gov/historicaldocuments/frus1958-60v06/d257",
+    "titre": "FRUS — Despatch from Embassy in Cuba",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Dépêche de 1959 : fuite Batista dans la nuit du 1er janvier, succès du mouvement de Castro, installation du gouvernement les 1er–2 janvier.",
+    "reserves": "Source diplomatique américaine située ; ne pas reprendre ses jugements sociaux comme faits universels.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0530"
+    ],
+    "url": "https://www.cvce.eu/content/publication/1999/6/9/b0fbcd19-ae1a-444e-ac80-2ad8fcfe913c/publishable_fr.pdf",
+    "titre": "CVCE — Chronologie de la guerre d’Algérie",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Entrée en action du FLN le 1er novembre 1954, insurrection et guerre d’indépendance.",
+    "reserves": "Chronologie nécessite complément pour causes et acteurs.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0532"
+    ],
+    "url": "https://history.state.gov/milestones/1961-1968/bay-of-pigs",
+    "titre": "Office of the Historian — Bay of Pigs",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "17 avril 1961 : débarquement d’exilés financés et entraînés CIA, Kennedy, défaite rapide, pouvoir de Castro renforcé.",
+    "reserves": "La synthèse parle de deux jours ; borne du 20 avril à corroborer.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0534"
+    ],
+    "url": "https://www.jfklibrary.org/learn/about-jfk/jfk-in-history/november-22-1963-death-of-the-president",
+    "titre": "JFK Library — Death of the President",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "22 novembre 1963 à Dallas : assassinat, décès au Parkland Hospital, Johnson prête serment le même jour.",
+    "reserves": "Ne pas transformer des théories non démontrées en récit certain.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0535"
+    ],
+    "url": "https://history.state.gov/milestones/1961-1968/gulf-of-tonkin",
+    "titre": "Office of the Historian — Gulf of Tonkin",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Incident le 2 août 1964 ; seconde attaque rapportée le 4 contestée ; résolution du 7 août, extension des opérations.",
+    "reserves": "Distinguer incident établi, allégation et décision politique.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0536"
+    ],
+    "url": "https://history.state.gov/milestones/1961-1968/soviet-invasion-czechoslavkia",
+    "titre": "Office of the Historian — Soviet Invasion of Czechoslovakia",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Dubček remplace Novotný en janvier ; libéralisation ; intervention soviétique dans la nuit du 20–21 août 1968, répression.",
+    "reserves": "Le 5 janvier n’est pas donné dans cette page ; intervention nocturne à distinguer de la borne du 21.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0538"
+    ],
+    "url": "https://history.state.gov/milestones/1961-1968/npt",
+    "titre": "Office of the Historian — Nuclear Non-Proliferation Treaty",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature le 1er juillet 1968 ; non-transfert, non-acquisition, nucléaire civil et désarmement.",
+    "reserves": "La page est retirée de maintenance et contient ailleurs des raccourcis sur essais ; utiliser seulement le passage traité.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0540"
+    ],
+    "url": "https://history.state.gov/milestones/1969-1976/helsinki",
+    "titre": "Office of the Historian — Helsinki Final Act",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "1er août 1975 ; sécurité, coopération, droits humains et usage par les dissidents.",
+    "reserves": "Engagement politique ; éviter de présenter les frontières comme éternellement immuables.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0540"
+    ],
+    "url": "https://www.osce.org/helsinki-final-act",
+    "titre": "OSCE — Helsinki Final Act",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Notice officielle de l’acte final du sommet CSCE datée du 1er août 1975.",
+    "reserves": "Notice de dépôt ; détail des principes confirmé par la synthèse et texte primaire lié.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0542"
+    ],
+    "url": "https://www.iranicaonline.org/articles/kianuri-nur-al-din/",
+    "titre": "Encyclopaedia Iranica — Kiānuri, Nur-al-Din",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Paragraphe sur 1979 : régime du shah renversé le 11 février après retour Khomeini ; pluralité des oppositions, dont Tudeh.",
+    "reserves": "Biographie universitaire et angle parti Tudeh ; compléter pour portée générale de la révolution.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0543"
+    ],
+    "url": "https://history.state.gov/milestones/1977-1980/soviet-invasion-afghanistan",
+    "titre": "Office of the Historian — Soviet Invasion of Afghanistan",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Fin décembre 1979 : entrée de troupes, lutte contre insurrection, Amin remplacé par Karmal, longue guerre.",
+    "reserves": "La page indique Christmas Eve, soit le 24, contre canon 25 ; distinguer arrivée initiale, offensive et coup du 27 ; réserve explicite.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0544"
+    ],
+    "url": "https://ecs.gda.pl/en/ecs/history/",
+    "titre": "European Solidarity Centre — History",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Le centre identifie la salle où les grévistes signent avec le gouvernement le 31 août 1980 ; rôle de Wałęsa et mouvement Solidarność.",
+    "reserves": "Page surtout sur histoire du musée ; compléter sur droits syndicaux.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0545"
+    ],
+    "url": "https://www.iaea.org/sites/default/files/21/04/iaea-background-document-chornobyl.pdf",
+    "titre": "AIEA — Background document Chornobyl",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Accident, études sanitaires, coopération internationale et révision des évaluations.",
+    "reserves": "Effets sanitaires et nombres de décès soumis aux méthodes d’estimation ; pas de bilan global certain.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0546"
+    ],
+    "url": "https://history.state.gov/milestones/1989-1992/tiananmen-square",
+    "titre": "Office of the Historian — Tiananmen Square",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Manifestations anticorruption, société mobilisée ; dirigeants divisés ; répression nuit du 3–4 juin 1989 ; bilans variables.",
+    "reserves": "Violences au-delà de la place et nombre de victimes contesté.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0547"
+    ],
+    "url": "https://www.bundesregierung.de/breg-en/service/archive/federal-chancellor-day-of-unity-2313492",
+    "titre": "Gouvernement fédéral allemand — German Unity 2024",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Discours commémoratif : fin de la division le 3 octobre 1990 et rôle de la révolution pacifique.",
+    "reserves": "Discours commémoratif ; compléter sur mécanisme juridique et accord international.",
+    "statut": "consultee"
+  }
+]

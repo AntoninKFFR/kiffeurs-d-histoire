@@ -1,14 +1,12 @@
 // Régression de la migration sur le vrai import LOCAL complet. Toutes les
 // variantes sont transactionnelles et annulées ; aucune connexion distante.
 import assert from "node:assert/strict";
-import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
+import { executerSqlDockerLocal } from "./verifier-docker-fixture";
 
 const FICHIER = "supabase/migrations/20261007143355_corrige_somme_day_range.sql";
 let cible={container:"supabase_db_kiffeurs-histoire",database:"postgres"};
-const sql = (requete: string) => execFileSync("docker", ["exec", "-i", cible.container,
-  "psql", "-X", "-U", "postgres", "-d",cible.database,"-v", "ON_ERROR_STOP=1", "-q", "-A", "-t"],
-  { input: requete, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).trim();
+const sql = (requete: string) => executerSqlDockerLocal(cible.container,cible.database,requete);
 const EMPREINTE = `select md5(jsonb_build_object(
   'events', (select jsonb_agg(to_jsonb(e) order by id) from histoire.events e),
   'answers', (select jsonb_agg(to_jsonb(a) order by event_id) from histoire.event_answers a),

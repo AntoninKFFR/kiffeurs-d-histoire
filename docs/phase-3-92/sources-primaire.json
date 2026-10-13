@@ -1,0 +1,805 @@
+[
+  {
+    "event_ids": [
+      "EVT-0007",
+      "EVT-0008"
+    ],
+    "url": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/le-suffrage-universel/la-conquete-de-la-citoyennete-politique-des-femmes/chronologie-du-droit-de-vote-et-d-eligibilite-des-femmes",
+    "titre": "Assemblée nationale — Chronologie du droit de vote des femmes",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Entrées du 21 avril 1944, 29 avril–13 mai 1945 et 21 octobre 1945 : droits politiques, municipales, référendum et constituante.",
+    "reserves": "La première participation est distinguée de l’octroi du droit.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0116"
+    ],
+    "url": "https://european-union.europa.eu/principles-countries-history/history-eu/1945-59_fr",
+    "titre": "Union européenne — Histoire 1945–1959",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "18 avril 1951 : signature à six ; mise en commun charbon/acier ; institution effective en 1952.",
+    "reserves": "Signature et entrée en vigueur distinctes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0271"
+    ],
+    "url": "https://www.consilium.europa.eu/en/maastricht-treaty/",
+    "titre": "Conseil de l’Union européenne — How Maastricht changed Europe",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "7 février 1992 : signature ; Union européenne, citoyenneté et préparation euro.",
+    "reserves": "La signature prépare une entrée en vigueur ultérieure.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0339"
+    ],
+    "url": "https://www.mnhn.fr/fr/qu-est-ce-que-la-prehistoire",
+    "titre": "MNHN — Qu’est-ce que la préhistoire ?",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Définition, critères de début variables, frontières non uniformes, traces matérielles et science évolutive.",
+    "reserves": "Aucune date ponctuelle universelle ; pas de borne numérique inventée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0553"
+    ],
+    "url": "https://www.metmuseum.org/essays/the-akkadian-period-ca-2350-2150-b-c",
+    "titre": "Met — The Akkadian Period",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Sargon conquiert cités sumériennes ; chronologie reconstruite vers -2340/-2285 ; Agadé possiblement antérieure.",
+    "reserves": "Ne soutient pas -2334 comme fondation exacte.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0553"
+    ],
+    "url": "https://collections.louvre.fr/en/ark:/53355/cl010171737",
+    "titre": "Louvre — Sceau-cylindre MNB 1914",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Datation de classement -2334/-2279 attribuée au règne de Sargon.",
+    "reserves": "Convention d’objet ; aucune preuve d’un acte de fondation.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0025"
+    ],
+    "url": "https://museicapitolini.org/en/sede/campidoglio_antico/le_origini",
+    "titre": "Musei Capitolini — Origins",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Vestiges protohistoriques, huttes, sépultures et métallurgie ; distinction avec récits antiques.",
+    "reserves": "Processus urbain, aucun jour de fondation archéologique.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0030"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/personnage/P%C3%A9ricl%C3%A8s/137626",
+    "titre": "Larousse — Périclès",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Vers 495–429 ; stratège réélu, indemnités, citoyenneté restreinte et travaux de l’Acropole.",
+    "reserves": "Ne pas assimiler démocratie antique à suffrage universel.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0373"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/ville/Marathon/131649",
+    "titre": "Larousse — Marathon",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Année -490, Miltiade, Athéniens et Platéens ; attaque perse ; légende du coureur distinguée.",
+    "reserves": "Le jour indiqué par la source n’est pas ajouté au canon annuel.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0374"
+    ],
+    "url": "https://www.larousse.fr/dictionnaires/college/bataille_de_Salamine/35945",
+    "titre": "Larousse — Bataille de Salamine",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Victoire navale grecque, Thémistocle et Xerxès, année -480.",
+    "reserves": "Ni jour ni total de pertes ajouté.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0375"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/autre-region/D%C3%A9los/116036",
+    "titre": "Larousse — Délos",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Organisation maritime autour de Délos ; transfert du trésor à Athènes ; évolution du pouvoir athénien.",
+    "reserves": "Le récit situe l’organisation en -478, la chronologie donne aussi -477 ; canon -478 conservé, jalon de mise en place à relire.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0376"
+    ],
+    "url": "https://www.larousse.fr/dictionnaires/college/guerre_du_P%C3%A9loponn%C3%A8se/29991",
+    "titre": "Larousse — Guerre du Péloponnèse",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bornes -431/-404 ; rivalité Sparte/Athènes, expédition de Sicile, perte de l’empire athénien.",
+    "reserves": "Pauses et retournements : guerre non présentée comme combat continu.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0377"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/personnage/Socrate/144665",
+    "titre": "Larousse — Socrate",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mort en -399 ; accusations religieuses et corruption jeunesse, procès ; témoignages de disciples.",
+    "reserves": "Socrate n’a pas écrit son propre récit ; ne pas confondre voix de Platon et témoignage neutre.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0378",
+      "EVT-0379",
+      "EVT-0381"
+    ],
+    "url": "https://www.iranicaonline.org/articles/alexander-the-great-356-23-bc/",
+    "titre": "Encyclopaedia Iranica — Alexander the Great, Pierre Briant",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Accession -336 après assassinat Philippe ; Issos -333 et fuite Darius ; mort -323 et succession.",
+    "reserves": "La cause précise de la mort n’est pas affirmée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0380"
+    ],
+    "url": "https://www.iranicaonline.org/articles/gaugamela/",
+    "titre": "Encyclopaedia Iranica — Gaugamela",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bataille -331, victoire Alexandre/Darius, conséquences perses.",
+    "reserves": "Le canon annuel n’est pas enrichi du jour fourni.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0382",
+      "EVT-0386",
+      "EVT-0025"
+    ],
+    "url": "https://www.metmuseum.org/essays/the-roman-republic",
+    "titre": "Met — The Roman Republic",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "République traditionnellement -509, aristocratie, conflits politiques ; assassinat César le 15 mars -44.",
+    "reserves": "Début républicain issu d’une chronologie traditionnelle ; assemblées et institutions expliquées sans démocratie moderne.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0032",
+      "EVT-0038",
+      "EVT-0390"
+    ],
+    "url": "https://www.metmuseum.org/essays/the-roman-empire-27-b-c-393-a-d",
+    "titre": "Met — The Roman Empire",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Auguste -27/14 ; réunion des deux parties de l’empire en 324 ; sac Alaric en 410.",
+    "reserves": "Source de contexte et année pour Constantin ; ne suffit pas à toutes les composantes journalières.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0035"
+    ],
+    "url": "https://www.metmuseum.org/exhibitions/listings/2019/world-between-empires-art-and-identity-ancient-middle-east/exhibition-galleries",
+    "titre": "Met — The World between Empires, galleries",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Galerie Judaea : guerre débutant en 66, domination impériale et destruction du Temple.",
+    "reserves": "Ne pas réduire les causes au seul culte impérial.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0040",
+      "EVT-0392"
+    ],
+    "url": "https://www.metmuseum.org/essays/han-dynasty-206-b-c-220-a-d",
+    "titre": "Met — Han Dynasty",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Han occidentaux -206/9, Han orientaux 25/220 ; fonctionnaires, échanges et Confucius.",
+    "reserves": "Contredit start/end 9/25 de EVT-0040 : blocage conservé.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0040",
+      "EVT-0392"
+    ],
+    "url": "https://www.metmuseum.org/toah/ht/05/eac.html",
+    "titre": "Met — China, 1–500 A.D.",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Interrègne Wang Mang 9–25 entre deux périodes Han ; fin Han 220 et division.",
+    "reserves": "9–25 ne décrit pas le règne entier de Xin.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0370"
+    ],
+    "url": "https://www.metmuseum.org/essays/qin-dynasty-221-206-b-c",
+    "titre": "Met — Qin Dynasty",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Unification en -221 ; Premier empereur ; administration et standardisation.",
+    "reserves": "Processus de conquête culminant en unification ; éviter Chine moderne identique.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0371"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Zhang_Qian",
+    "titre": "Wikipédia — Zhang Qian",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mission envoyée par Wudi en -138, capture Xiongnu, voyage vers Yuezhi et informations sur Asie centrale.",
+    "reserves": "Complément chronologique ; date également -139 dans catalogue du Met The Year One indexé. Canon -138 inchangé, corroboration scientifique précise reste à relire.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0371"
+    ],
+    "url": "https://whc.unesco.org/en/list/1442/",
+    "titre": "UNESCO — Silk Roads: Chang’an–Tianshan Corridor",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Réseau développé à partir de l’époque Han, circulations entre Chine et Asie centrale.",
+    "reserves": "Source de contexte des échanges ; ne certifie pas le jour ou l’année du départ.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0383"
+    ],
+    "url": "https://www.worldhistory.org/First_Punic_War/",
+    "titre": "World History Encyclopedia — First Punic War",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "264–241 av. J.-C., enjeu sicilien, flotte romaine, province de Sicile.",
+    "reserves": "Synthèse secondaire documentée ; sans effectifs contestables.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0384"
+    ],
+    "url": "https://www.worldhistory.org/carthage/",
+    "titre": "World History Encyclopedia — Carthage",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Destruction -146 par Scipion, esclavage des survivants, province Africa.",
+    "reserves": "Pas de légende du sel répandue.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0385",
+      "EVT-0386"
+    ],
+    "url": "https://www.worldhistory.org/Julius_Caesar/",
+    "titre": "World History Encyclopedia — Julius Caesar",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Franchissement Rubicon -49 contre ordre du Sénat ; guerre civile ; assassinat Brutus/Cassius en mars -44.",
+    "reserves": "Pour le jour du Rubicon, consulter le complément ; traditions du calendrier antique.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0385"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Crossing_the_Rubicon",
+    "titre": "Wikipédia — Crossing the Rubicon",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "10 janvier -49 dans notice ; frontière et casus belli.",
+    "reserves": "Support du jour à contrôler en relecture savante ; aucune modification de canon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0387"
+    ],
+    "url": "https://www.worldhistory.org/Battle_of_Actium/",
+    "titre": "World History Encyclopedia — Battle of Actium",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "2 septembre -31 ; Octavien/Agrippa contre Antoine/Cléopâtre ; issue guerre civile.",
+    "reserves": "Victoire navale ne confond pas conquête Égypte ultérieure.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0389"
+    ],
+    "url": "https://www.newadvent.org/cathen/05491a.htm",
+    "titre": "Catholic Encyclopedia — Council of Ephesus",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Première séance 22 juin 431, dernière 31 juillet ; Cyril/Nestorius et rôle impérial.",
+    "reserves": "Synthèse confessionnelle de 1909 ; fin assortie d’une réserve dans source (« it seems ») ; aucun jugement confessionnel repris.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0390"
+    ],
+    "url": "https://www.worldhistory.org/Alaric/",
+    "titre": "World History Encyclopedia — Alaric",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Entrée à Rome le 24 août 410, négociations et pillage.",
+    "reserves": "Sac distingué de chute de l’Empire ; récit anecdotique non repris.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0391"
+    ],
+    "url": "https://www.newadvent.org/cathen/03555a.htm",
+    "titre": "Catholic Encyclopedia — Council of Chalcedon",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "8 octobre–1 novembre 451 ; Christ en deux natures, convocation Marcien.",
+    "reserves": "Source confessionnelle de 1908 ; formulation des croyances attribuée au concile.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0391"
+    ],
+    "url": "https://www.worldhistory.org/Council_of_Chalcedon/",
+    "titre": "World History Encyclopedia — Council of Chalcedon",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Contexte doctrinal, deux natures et divisions de l’Église.",
+    "reserves": "Complément moderne ; ne soutient pas le jour de clôture.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0043"
+    ],
+    "url": "https://aa.usno.navy.mil/downloads/c15_usb_online.pdf",
+    "titre": "US Naval Observatory — Calendars, Explanatory Supplement",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Page 22, section 15.6.3 : époque généralement vendredi 16 juillet 622 julien, début au coucher du soleil précédent ; mise en place sous Umar.",
+    "reserves": "Époque conventionnelle distincte du jour réel de la migration ; autres conventions jeudi.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0393"
+    ],
+    "url": "https://www.larousse.fr/archives/histoire_de_france/page/1296",
+    "titre": "Larousse — Vouillé, Dictionnaire de l’Histoire de France",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Clovis bat Alaric en 507 ; conquête Aquitaine, limites Septimanie/Provence.",
+    "reserves": "Source confirme année, pas jour ; printemps conservé selon canon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0394"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/groupe-personnage/Carolingiens/111832",
+    "titre": "Larousse — Carolingiens",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Conquête de Pavie en 774, Didier, appel du pape, titre roi des Lombards.",
+    "reserves": "Royaume lombard distingué des pouvoirs lombards du sud.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0395"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/personnage/Charles_Martel/112818",
+    "titre": "Larousse — Charles Martel",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Victoire sur Abd al-Rahman à Poitiers, 732, intervention demandée par Eudes, raids ultérieurs en Provence.",
+    "reserves": "Canon conventionnel avec variante 733 conservé ; récit héroïque d’arrêt définitif de l’islam non repris.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0396"
+    ],
+    "url": "https://www.normandie.fr/lhistoire-passionnante-de-la-normandie",
+    "titre": "Région Normandie — Histoire de la Normandie",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "911 : Charles le Simple confie région à Rollon ; accord et constitution progressive normande.",
+    "reserves": "Résumé régional confirme année, pas saison précise.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0397"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/autre-region/Saint_Empire_romain_germanique/142245",
+    "titre": "Larousse — Saint Empire romain germanique",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Otton couronné à Rome le 2 février 962 ; autorité en Germanie/Italie et rapports au pape.",
+    "reserves": "Éviter de prêter immédiatement la dénomination tardive complète au pouvoir d’Otton.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0398"
+    ],
+    "url": "https://www.english-heritage.org.uk/visit/places/1066-battle-of-hastings-abbey-and-battlefield/history-and-stories/history/",
+    "titre": "English Heritage — History of Battle Abbey and Battlefield",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "14 octobre 1066, Guillaume contre Harold, succession Édouard, mort Harold et conquête.",
+    "reserves": "Détails du déroulement comportent incertitudes ; pas flèche dans œil affirmée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0406",
+      "EVT-0407"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/divers/guerre_de_Cent_Ans/112327",
+    "titre": "Larousse — Guerre de Cent Ans",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Crécy 26 août 1346 ; Poitiers 19 septembre 1356, capture Jean ; fiscalité et troubles.",
+    "reserves": "Ne pas faire du conflit un combat ininterrompu ; pas nationalismes modernes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0407"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/ville/Poitiers_86000/138572",
+    "titre": "Larousse — Poitiers",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "19 septembre 1356 : Jean le Bon battu et capturé par le Prince Noir à Maupertuis.",
+    "reserves": "Différencier strictement bataille de Charles Martel et bataille de la guerre de Cent Ans.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0409"
+    ],
+    "url": "https://www.larousse.fr/archives/histoire_de_france/page/556",
+    "titre": "Larousse — Grand Schisme",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "20 septembre 1378 : élection Robert de Genève/Clément, rivalité avec Urbain, obédiences divisées.",
+    "reserves": "Division de l’Occident distincte de séparation Orient/Occident.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0410"
+    ],
+    "url": "https://www.worldhistory.org/Battle_of_Agincourt/",
+    "titre": "World History Encyclopedia — Battle of Agincourt",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "25 octobre 1415 : Henri vainqueur, archers, terrain et pertes françaises ; rivalités politiques.",
+    "reserves": "Effectifs très débattus non repris ; pas infériorité numérique exacte.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0054"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/divers/Bouvines/109899",
+    "titre": "Larousse — Bataille de Bouvines",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "27 juillet 1214 : Philippe Auguste vainqueur coalition Otton/Ferrand/Renaud soutenue par Jean.",
+    "reserves": "Jean sans Terre n’est pas présenté comme présent à Bouvines.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0067",
+      "EVT-0074",
+      "EVT-0077"
+    ],
+    "url": "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/louis-xiv",
+    "titre": "Château de Versailles — Louis XIV",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Minorité/régence, Fronde 1648–1653, Versailles, gouvernement ; mort 1 septembre 1715 et héritier enfant.",
+    "reserves": "La page mêle vie et règne dans certaines rubriques ; bornes canoniques règne 1643–1715 conservées.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0075"
+    ],
+    "url": "https://en.chateauversailles.fr/discover/resources/versailles-and-royal-court",
+    "titre": "Château de Versailles — Versailles and the Royal Court",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "10 mars 1661 après mort Mazarin : annonce gouvernement sans premier ministre.",
+    "reserves": "Présence de ministres maintenue ; pas gouvernement solitaire de tout.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0077"
+    ],
+    "url": "https://www.chateauversailles.fr/decouvrir/histoire/les-grandes-dates/mort-louis-xiv",
+    "titre": "Château de Versailles — La mort de Louis XIV",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mort au château le 1 septembre 1715 ; succession Louis XV et régence Philippe d’Orléans.",
+    "reserves": "Aucun changement du canon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0421"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Peace_of_Augsburg",
+    "titre": "Wikipédia — Peace of Augsburg",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "25 septembre 1555, choix confession catholique/luthérienne des princes, exclusion calvinisme.",
+    "reserves": "Jour soutenu par synthèse secondaire ; consultation institutionnelle précise reste souhaitable, pas de liberté individuelle universelle.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0422"
+    ],
+    "url": "https://museeprotestant.org/notice/la-saint-barthelemy-24-aout-1572/",
+    "titre": "Musée protestant — La Saint-Barthélemy",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "24 août 1572, meurtre chefs puis massacre plus large, Coligny, Paris/provinces.",
+    "reserves": "Rôle exact des décideurs et nombre victimes discutés ; aucun chiffre de victimes ni complot entièrement certain.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0424"
+    ],
+    "url": "https://www.nps.gov/jame/learn/historyculture/a-short-history-of-jamestown.htm",
+    "titre": "NPS — A Short History of Jamestown",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Virginie, Virginia Company, choix du site le 13 mai, établissement anglais durable ; difficultés et Powhatan.",
+    "reserves": "Source distingue choix le 13, canon fondation le 14 : précision du jalon nécessite relecture, dates inchangées.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0425"
+    ],
+    "url": "https://home.nps.gov/caco/learn/historyculture/pilgrims.htm",
+    "titre": "NPS — Pilgrims, Mayflower Compact",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Pacte au cap Cod 11 novembre 1620 dans texte transcrit ; corps politique et fidélité à Jacques ; suite Plymouth.",
+    "reserves": "Date julienne à conserver avec équivalent grégorien ; aucune démocratie universelle ni terre vide.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0426"
+    ],
+    "url": "https://www.larousse.fr/archives/histoire_de_france/page/1227",
+    "titre": "Larousse — Guerre de Trente Ans",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "23 mai 1618 défenestration ; extension, Habsbourg, France catholique alliée protestants.",
+    "reserves": "Page lue traite origines/diplomatie ; borne de fin au jour fournie par complément Westphalie.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0426"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Peace_of_Westphalia",
+    "titre": "Wikipédia — Peace of Westphalia",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "24 octobre 1648 : traités clôturant guerre de Trente Ans ; France/Espagne continuent leur guerre.",
+    "reserves": "Ne pas étendre fin de Trente Ans à toutes les guerres européennes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0062"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/ville/Constantinople/114504",
+    "titre": "Larousse — Constantinople",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "29 mai 1453 : assaut Mehmed, chute empire byzantin, capitale ottomane.",
+    "reserves": "Conquête sans prétendre disparition de toutes cultures byzantines ni interruption totale du commerce.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0065"
+    ],
+    "url": "https://museeprotestant.org/notice/ledit-de-nantes-1598/",
+    "titre": "Musée protestant — L’édit de Nantes",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Henri, coexistence, conscience et culte limité, charges/justice ; maintien religion royale catholique.",
+    "reserves": "Page ne certifie pas jour 13 avril ; date exacte reste à valider sans correction du canon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0065"
+    ],
+    "url": "https://museeprotestant.org/notice/les-huit-guerres-de-religion-1562-1598/",
+    "titre": "Musée protestant — Les huit Guerres de religion",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Rubrique L’édit de Nantes (30 avril 1598), prose avril 1598 ; compromis de paix.",
+    "reserves": "Écart explicite avec canon 13 avril 1598 ; aucune harmonisation silencieuse.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0404",
+      "EVT-0405"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/personnage/Marco_Polo/138629",
+    "titre": "Larousse — Marco Polo",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Départ avec père/oncle 1271 ; retour 1295 ; récit Rusticien et cour Kubilay.",
+    "reserves": "Récit et observations distingués ; date de capture discutée non ajoutée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0411",
+      "EVT-0412",
+      "EVT-0413"
+    ],
+    "url": "https://citeroyaleloches.fr/decouvrez/personnages/jeanne-darc",
+    "titre": "Cité royale de Loches — Jeanne d’Arc",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "8 mai 1429 Orléans ; 17 juillet Reims ; 30 mai 1431 Rouen, procès Cauchon.",
+    "reserves": "Récit institutionnel de synthèse ; vocabulaire neutre, voix attribuées à Jeanne.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0415",
+      "EVT-0416",
+      "EVT-0417"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/personnage/Isabelle_I_re_la_Catholique/125202",
+    "titre": "Larousse — Isabelle la Catholique",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mariage 1469, autorité royale, Inquisition 1478, Grenade 2 janvier 1492.",
+    "reserves": "Discours ancien de reconquête/unité non repris comme disparition immédiate des musulmans.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0415"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Isabella_I_of_Castile",
+    "titre": "Wikipédia — Isabella I of Castile",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "19 octobre 1469 à Valladolid, mariage sans assentiment Henri.",
+    "reserves": "Complément de date du jour ; corroboration institutionnelle de ce jour reste à relire.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0416"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Spanish_Inquisition",
+    "titre": "Wikipédia — Spanish Inquisition",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "1 novembre 1478 autorisation pontificale ; nomination inquisiteurs 1480 ; contrôle couronne et personnes converties.",
+    "reserves": "Date d’autorisation distinguée début activité ; pas de total de victimes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0416"
+    ],
+    "url": "https://www.newadvent.org/cathen/08026a.htm",
+    "titre": "Catholic Encyclopedia — Inquisition",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Section Inquisition in Spain, 1 novembre 1478 : Sixte autorise souverains ; juges nommés 1480.",
+    "reserves": "Source confessionnelle ancienne, rhétorique apologétique rejetée ; utilisée seulement corroboration jalon.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0417",
+      "EVT-0415"
+    ],
+    "url": "https://www.larousse.fr/archives/grande-encyclopedie/page/5367",
+    "titre": "Larousse — Ferdinand le Catholique",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Union dynastique et prise Grenade 2 janvier 1492 ; royaumes aux institutions conservées.",
+    "reserves": "Union personnelle distincte État national unitaire.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0378",
+      "EVT-0379",
+      "EVT-0380",
+      "EVT-0381"
+    ],
+    "url": "https://www.larousse.fr/encyclopedie/personnage/Alexandre_III_le_Grand/104737",
+    "titre": "Larousse — Alexandre le Grand",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Règne 336–323 av. J.-C., Issos 333, Gaugamèles 331 et mort à Babylone.",
+    "reserves": "Complément lisible à Iranica ; causalité mort incertaine, pas effectifs.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0271"
+    ],
+    "url": "https://www.europarl.europa.eu/about-parliament/en/in-the-past/the-parliament-and-the-treaties/maastricht-treaty",
+    "titre": "Parlement européen — Maastricht",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Aucune depuis le contenu intégral.",
+    "reserves": "Protection JavaScript : contenu non lu ; remplacé par Conseil UE.",
+    "statut": "inaccessible"
+  },
+  {
+    "event_ids": [
+      "EVT-0371"
+    ],
+    "url": "https://whc.unesco.org/archive/2014/whc14-38com-inf8B1-en.pdf",
+    "titre": "UNESCO — Évaluation 2014",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Aucune depuis le contenu intégral.",
+    "reserves": "PDF inaccessible au web ; extrait indexé -138 repéré mais pas déclaré consulté. Page patrimoine utilisée seulement contexte.",
+    "statut": "inaccessible"
+  },
+  {
+    "event_ids": [
+      "EVT-0416"
+    ],
+    "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/46283",
+    "titre": "PARES — Conseil Inquisition",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Aucune depuis le contenu intégral.",
+    "reserves": "Notice intégrale inaccessible ; extrait de recherche 1 novembre 1478 non utilisé comme lecture de pièce.",
+    "statut": "inaccessible"
+  },
+  {
+    "event_ids": [
+      "EVT-0379"
+    ],
+    "url": "https://www.worldhistory.org/Battle_of_Issus/",
+    "titre": "Battle of Issus",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bataille en trois cent trente-trois avant notre ère ; Darius fuit et Alexandre capture la mère, l’épouse et les filles du roi.",
+    "reserves": "Source secondaire de synthèse ; la datation canonique est conservée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0380"
+    ],
+    "url": "https://www.worldhistory.org/Battle_of_Gaugamela/",
+    "titre": "Battle of Gaugamela",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bataille le premier octobre trois cent trente et un avant notre ère ; Alexandre ouvre une brèche par ses manœuvres et Darius prend la fuite.",
+    "reserves": "La description tactique simplifie une bataille reconstituée à partir de récits antiques.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0381"
+    ],
+    "url": "https://www.worldhistory.org/article/2366/death-of-alexander-the-great/",
+    "titre": "Death of Alexander the Great",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mort à Babylone en juin trois cent vingt-trois avant notre ère ; les causes de la mort restent discutées.",
+    "reserves": "Aucune cause médicale ou hypothèse d’empoisonnement n’est affirmée dans la carte.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0381"
+    ],
+    "url": "https://www.metmuseum.org/essays/art-of-the-hellenistic-age-and-the-hellenistic-tradition",
+    "titre": "Art of the Hellenistic Age and the Hellenistic Tradition",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "La mort d’Alexandre ouvre l’époque hellénistique ; ses successeurs divisent ses conquêtes en royaumes ; les contacts culturels se poursuivent.",
+    "reserves": "L’héritage culturel ne suppose pas une fusion uniforme des populations ni des traditions.",
+    "statut": "consultee"
+  }
+]

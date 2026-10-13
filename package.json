@@ -30,6 +30,7 @@
     "content:illustrations": "tsx --env-file-if-exists=.env.local scripts/upload-illustrations.ts",
     "content:catalogue-solo": "tsx scripts/build-catalogue-solo.ts",
     "content:structure-pedagogique": "tsx scripts/build-structure-pedagogique.ts",
+    "content:verifier-phase3": "tsx scripts/phase3-pedagogie.ts",
     "test:sous-chapitres-sql": "tsx scripts/test-sous-chapitres-local.ts --container kffr-issue92-phase2",
     "test:sous-chapitres-http": "tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2"
   },

@@ -6,7 +6,7 @@ import { randomBytes } from "node:crypto";
 import { lireCsv } from "./csv";
 import { chargerCartes } from "./import-cartes";
 import { chargerStructure } from "./structure-pedagogique";
-import {verifierDockerFixture} from "./verifier-docker-fixture";
+import {verifierDockerFixture,executerSqlDockerLocal} from "./verifier-docker-fixture";
 import {planCompletions} from "./completions-pedagogiques";
 
 const container = process.argv[process.argv.indexOf("--container") + 1];
@@ -14,8 +14,7 @@ verifierDockerFixture(container);
 const database = "kffr_phase2_" + randomBytes(6).toString("hex");
 execFileSync("docker", ["exec", container, "createdb", "-U", "postgres", database]);
 function sql(text: string) {
-  return execFileSync("docker", ["exec", "-i", container, "psql", "-U", "postgres", "-d", database, "-v", "ON_ERROR_STOP=1", "-X", "-Atq"],
-    { input: text, encoding: "utf8", maxBuffer: 10_000_000, stdio: ["pipe", "pipe", "pipe"] }).trim();
+  return executerSqlDockerLocal(container,database,text);
 }
 const quote = (x: unknown) => "'" + JSON.stringify(x).replace(/'/g, "''") + "'::jsonb";
 function insertRecords(table: string, rows: object[]) {

@@ -1,0 +1,110 @@
+[
+  {
+    "event_ids": ["EVT-0040", "EVT-0392"],
+    "url": "https://www.metmuseum.org/essays/han-dynasty-206-b-c-220-a-d",
+    "titre": "Metropolitan Museum — Han Dynasty, relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Passages historiques lus : Han occidentaux −206/9 puis Han orientaux 25/220 ; administration lettrée, contacts en Asie centrale et échanges ; rupture entre les deux périodes.",
+    "reserves": "Les bornes structurées 9/25 de EVT-0040 ne désignent pas l’ensemble de la dynastie. La lecture n’autorise aucune modification du canon ni levée du blocage.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0040", "EVT-0392"],
+    "url": "https://www.metmuseum.org/toah/ht/05/eac.html",
+    "titre": "Metropolitan Museum — China, 1–500 A.D., relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Chronologie lue : Wang Mang interregnum 9–25 entre Han occidentaux et orientaux ; période de division après 220. La période 9–25 n’est pas présentée comme durée exacte du règne Xin.",
+    "reserves": "Source de périodisation ; la formulation moderne du sentiment national dans son aperçu n’est pas reprise dans les cartes.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0553"],
+    "url": "https://collections.louvre.fr/en/ark:/53355/cl010171737",
+    "titre": "Louvre — Sceau-cylindre MNB 1914, relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Notice et section datation lues : rubrique Akkad : Sargon d’Akkad, −2334/−2279. Cette datation d’objet soutient la convention retenue.",
+    "reserves": "La notice ne certifie pas un acte de fondation de l’empire à −2334. La borne conventionnelle du canon demeure inchangée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0553"],
+    "url": "https://www.metmuseum.org/essays/the-akkadian-period-ca-2350-2150-b-c",
+    "titre": "Metropolitan Museum — The Akkadian Period, relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Texte historique lu : cités rivales réunies par conquête ; Sargon vers −2340/−2285 ; ville d’Agadé probablement antérieure à Sargon ; construction puis fragmentation du pouvoir akkadien.",
+    "reserves": "Chronologie reconstruite différente de la convention Louvre ; aucune correction automatique du canon −2334.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0323"],
+    "url": "https://cedricvanrompay.fr/archives-num%C3%A9ris%C3%A9es/acad%C3%A9mie-des-sciences/becquerel-1896-03-23-radiation-invisibles-%C3%A9mises-sels-uranium/",
+    "titre": "Becquerel — transcription indépendante de la note du 23 mars",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Transcription intégrale lue : séance du 23 mars 1896 ; décharge des corps électrisés et électroscope Hurmuzescu ; rapprochement des feuilles d’or permettant de comparer les intensités ; absorption selon les matériaux.",
+    "reserves": "Transcription indépendante comportant des coquilles ; passage utilisé dans la carte ensuite confronté visuellement au fac-similé original pp. 689–690. Aucune expérimentation de cette note n’est présentée comme première découverte.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0323"],
+    "url": "https://www.academie-sciences.fr/pdf/dossiers/Becquerel/Becquerel_pdf/CR1896_p689.pdf",
+    "titre": "Académie des sciences — Fac-similé de la note de Becquerel, pp. 689–690 effectivement examinées",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "PDF de sept pages téléchargé par Invoke-WebRequest, 604500 octets, SHA256 BE7A2294582E00E803853F14AB2F2C15281BED3A6E1C44938B66BF209777CF8B. Pages PDF 2 et 3 rendues par Poppler puis lues visuellement en entier : séance du lundi 23 mars 1896 ; titre et auteur de la note ; poursuite d’une observation antérieure au moyen de l’électroscope Hurmuzescu ; traversée de l’aluminium et du cuivre, absorption du platine ; vitesse du rapprochement des feuilles d’or et intensités relatives ; comparaison d’absorption au travers du quartz. Le passage scientifique de la prose EVT-0323 est directement soutenu par l’original.",
+    "reserves": "L’extraction web ne montrait que la couverture, et les captures web ne fournissaient pas d’image. Ces limitations ont été résolues par téléchargement natif et rendu local. Seules pp. 689–690 ont été examinées visuellement ; ne pas certifier une lecture visuelle des pp. 691–694. Les réserves des premières tentatives dans sources-lycee.json restent des traces véridiques de ces tentatives.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0065"],
+    "url": "https://museeprotestant.org/notice/ledit-de-nantes-1598/",
+    "titre": "Musée protestant — L’édit de Nantes, relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Texte lu : objectif de paix civile, compromis, liberté de conscience, accès aux charges et culte protestant limité, garanties juridiques et place privilégiée de la religion catholique. La prose THM-012/EVT-0065 restitue ces limites.",
+    "reserves": "La page ne certifie pas le 13 avril. Cette consultation soutient le récit, pas toutes les composantes de la date canonique ; réserve documentaire maintenue.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0424"],
+    "url": "https://www.nps.gov/jame/learn/historyculture/a-short-history-of-jamestown.htm",
+    "titre": "National Park Service — A Short History of Jamestown, relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Passages historiques lus : site choisi le 13 mai, financement Virginia Company, installation durable, territoire de chasse Powhatan, maladies, faim, aide et conflits. La prose ne décrit pas une terre vide.",
+    "reserves": "La source donne le 13 mai pour le choix du site, non le 14 mai canonique pour la fondation. Les étapes ne sont pas fusionnées et le canon n’est pas changé ; jour à corroborer.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0422"],
+    "url": "https://museeprotestant.org/notice/la-saint-barthelemy-24-aout-1572/",
+    "titre": "Musée protestant — La Saint-Barthélemy, relecture indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Texte lu : mariage de réconciliation, attentat contre Coligny, décision du Conseil royal contre des chefs protestants, massacre élargi puis propagation dans plusieurs villes et reprise de la guerre. La causalité de la carte correspond au récit de la source.",
+    "reserves": "La source propose des nombres de victimes et une interprétation des responsabilités ; les nombres ne sont pas repris et la carte maintient une réserve sur les responsabilités précises.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0475"],
+    "url": "https://www.senat.fr/senateur-3eme-republique/dupuy_charles0513r3.html",
+    "titre": "Sénat — Charles Dupuy, passage Fachoda relu indépendamment",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Biographie 1889–1940 lue pour les passages utiles : ordre d’évacuation de la région du Nil signé le 3 novembre 1898 pour éviter un conflit avec l’Angleterre ; accord colonial franco-britannique du 21 mars 1899. Décision de retrait et règlement diplomatique sont des étapes distinctes.",
+    "reserves": "Ne prouve pas le jour du départ physique de Marchand ni celui de l’arrivée britannique. Le 3 novembre ne doit pas être décrit comme évacuation effective. Copie historique à préserver ; correction documentaire séparée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0535"],
+    "url": "https://www.archives.gov/milestone-documents/tonkin-gulf-resolution",
+    "titre": "National Archives — Tonkin Gulf Resolution, confrontation indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Notice explicative et transcription lues : premier affrontement du 2 août, deuxième attaque annoncée le 4, doutes contemporains non relayés et conclusion d’un rapport NSA ultérieur selon laquelle cette deuxième attaque n’a pas eu lieu. Résolution du Congrès du 7 août donnant une large autorisation militaire, ensuite utilisée pour l’escalade. La distinction factuelle et le mécanisme politique de la carte sont corroborés.",
+    "reserves": "La résolution originale contient le récit politique d’attaques répétées ; ne pas reprendre ce préambule comme preuve de la deuxième attaque. Le rapport NSA lui-même n’a pas été lu intégralement dans cette consultation.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": ["EVT-0514"],
+    "url": "https://www.nam.ac.uk/explore/battle-alamein",
+    "titre": "National Army Museum — Second Battle of El Alamein, confrontation indépendante",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Récit historique lu : Montgomery commande une armée multinationale ; difficultés d’approvisionnement de l’Axe, mines, offensive du 23 octobre, percée décisive le 4 novembre puis poursuite. La prose décrit des causes et conséquences conformes à la source.",
+    "reserves": "La page donne 23 octobre–4 novembre 1942 pour la bataille, alors que le canon conserve une fin le 11 novembre. Contradiction documentaire certaine, sans modification autorisée du canon ; objet et borne finale à valider humainement. La source ne certifie pas le 11 novembre.",
+    "statut": "consultee"
+  }
+]

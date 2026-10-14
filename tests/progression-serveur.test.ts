@@ -2,6 +2,11 @@ import { beforeEach, expect, it, vi } from "vitest";
 import { enregistrerTest, lireProgressionJoueur, marquerDecouvert } from "@/lib/progression/serveur";
 
 vi.mock("server-only", () => ({}));
+// Lecture de progression avant publication : le contrat initial reste couvert.
+vi.mock('../src/lib/apprendre/structure.json',async()=>{
+  const {chargerStructure,projectionStructure}=await import('../scripts/structure-pedagogique');
+  return {default:projectionStructure(chargerStructure()).filter(c=>c.etat!=='inactif')};
+});
 vi.mock("@/lib/supabase/server", () => ({ createClient: vi.fn() }));
 vi.mock("@/lib/supabase/config", () => ({ isSupabaseConfigured: true }));
 

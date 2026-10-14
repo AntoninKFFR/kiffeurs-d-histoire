@@ -1,0 +1,1743 @@
+[
+  {
+    "chapter_id": "THM-019",
+    "event_id": "EVT-0032",
+    "title": "Auguste : un pouvoir impérial derrière les institutions républicaines",
+    "body": "Après les guerres civiles, Octavien devient Auguste et organise un régime appelé principat. Le Sénat et les magistratures subsistent, mais le prince concentre les principaux pouvoirs et contrôle l’armée. Cette continuité institutionnelle rend acceptable une profonde transformation politique. La stabilité retrouvée favorise l’administration des provinces et de grands travaux. Les monuments et les portraits diffusent l’image d’un dirigeant garant de la paix. L’Empire romain se construit ainsi autour d’un pouvoir personnel qui conserve les formes de la République.",
+    "takeaway": "À retenir : Auguste concentre le pouvoir tout en conservant les institutions républicaines.",
+    "key_concepts": [
+      "principat",
+      "Sénat",
+      "pouvoir impérial",
+      "propagande"
+    ],
+    "sources": [
+      "https://www.metmuseum.org/de/essays/augustan-rule-27-b-c-14-a-d",
+      "https://www.louvre.fr/decouvrir/vie-du-musee/l-empereur-romain-un-mortel-parmi-les-dieux"
+    ],
+    "illustration": {
+      "intention": "Mettre le Sénat à côté du laurier impérial pour rendre visible la concentration du pouvoir derrière les formes républicaines.",
+      "objets_stock": [
+        "assemblee",
+        "laurier",
+        "colonne"
+      ],
+      "vigilances": "Ne pas représenter Auguste comme un roi couronné ; institutions et pouvoir personnel doivent rester lisibles."
+    }
+  },
+  {
+    "chapter_id": "THM-020",
+    "event_id": "EVT-0146",
+    "title": "Michel-Ange s’engage à peindre la voûte de la Sixtine",
+    "body": "Le contrat pour la voûte de la chapelle Sixtine engage Michel-Ange dans une commande du pape Jules. La papauté finance une œuvre destinée à un lieu de cérémonie et d’affirmation de son autorité. Le projet initial évolue vers un vaste ensemble de scènes bibliques. La commande révèle les relations entre artistes et mécènes : le financement impose un cadre, mais le créateur négocie aussi ses choix. Elle ouvre un chantier majeur de la Renaissance, distinct de l’inauguration de la voûte achevée.",
+    "takeaway": "À retenir : La commande pontificale associe création artistique, financement et prestige religieux.",
+    "key_concepts": [
+      "mécénat",
+      "commande artistique",
+      "Renaissance",
+      "papauté"
+    ],
+    "sources": [
+      "https://www.museivaticani.va/content/museivaticani/fr/collezioni/musei/cappella-sistina/storia-cappella-sistina.html",
+      "https://fr.wikipedia.org/wiki/Plafond_de_la_chapelle_Sixtine"
+    ],
+    "illustration": {
+      "intention": "Associer un parchemin de commande, une plume et un pinceau devant la voûte suggérée.",
+      "objets_stock": [
+        "parchemin",
+        "plume",
+        "pinceau"
+      ],
+      "vigilances": "Montrer une commande artistique ; aucune fresque du Jugement dernier."
+    }
+  },
+  {
+    "chapter_id": "THM-020",
+    "event_id": "EVT-0148",
+    "title": "La voûte achevée de la Sixtine est inaugurée",
+    "body": "Une messe solennelle de la Toussaint marque l’inauguration de la voûte peinte par Michel-Ange dans la chapelle Sixtine. Les scènes de la Genèse, les prophètes et les sibylles composent un ensemble qui met les figures humaines au service d’un récit religieux. L’achèvement concrétise la commande pontificale après un long travail. La Renaissance renouvelle ici les formes de la peinture sans rompre avec les fonctions chrétiennes du lieu. Cette inauguration concerne la voûte, et non le Jugement dernier, réalisé plus tard.",
+    "takeaway": "À retenir : La voûte renouvelle la peinture religieuse et manifeste le mécénat de la papauté.",
+    "key_concepts": [
+      "fresque",
+      "Genèse",
+      "Renaissance",
+      "mécénat"
+    ],
+    "sources": [
+      "https://www.museivaticani.va/content/museivaticani/fr/collezioni/musei/cappella-sistina/storia-cappella-sistina.html"
+    ],
+    "illustration": {
+      "intention": "Encadrer un pinceau par une coupole et des figures humaines suggérant une œuvre religieuse achevée.",
+      "objets_stock": [
+        "coupole",
+        "pinceau",
+        "citoyens"
+      ],
+      "vigilances": "Coupole simple symbole architectural : ne pas la présenter comme la forme réelle du plafond ; évoquer la voûte."
+    }
+  },
+  {
+    "chapter_id": "THM-021",
+    "event_id": "EVT-0153",
+    "title": "Le pouvoir royal soutient les compagnies des Indes",
+    "body": "Une déclaration royale accorde des avantages aux officiers du roi intéressés aux compagnies des Indes orientales et occidentales. Ces sociétés associent des capitaux privés à des privilèges accordés par la monarchie pour développer le commerce lointain. Le pouvoir cherche à renforcer la richesse et l’influence du royaume face aux concurrents européens. Le document montre que l’expansion maritime s’appuie sur des décisions juridiques et financières. Cette déclaration de soutien ne doit pas être confondue avec une fondation simultanée de toutes les compagnies.",
+    "takeaway": "À retenir : La monarchie soutient le commerce lointain par des compagnies privilégiées.",
+    "key_concepts": [
+      "compagnie de commerce",
+      "privilège royal",
+      "mercantilisme",
+      "expansion maritime"
+    ],
+    "sources": [
+      "https://catalogue.bnf.fr/ark:/12148/cb33821225q"
+    ],
+    "illustration": {
+      "intention": "Relier un document royal à un navire et des pièces pour expliquer soutien financier et commerce lointain.",
+      "objets_stock": [
+        "parchemin",
+        "navire",
+        "monnaie"
+      ],
+      "vigilances": "Ne pas suggérer la création simultanée de toutes les compagnies ; garder la déclaration de soutien au centre."
+    }
+  },
+  {
+    "chapter_id": "THM-021",
+    "event_id": "EVT-0158",
+    "title": "Voltaire découvre l’Angleterre pendant son exil",
+    "body": "Contraint de quitter la France après un conflit avec un noble et un emprisonnement, Voltaire séjourne en Angleterre. Il y observe les pratiques religieuses, les institutions politiques, les sciences et le commerce. La comparaison nourrit sa critique des contraintes qui pèsent sur la pensée et la société françaises. Le voyage devient ainsi un moyen de faire circuler des idées. Ses écrits transforment cette expérience en réflexion philosophique, sans faire de l’Angleterre une société parfaitement libre ni réduire les Lumières à une influence unique.",
+    "takeaway": "À retenir : Le séjour anglais nourrit chez Voltaire une réflexion comparative sur la liberté.",
+    "key_concepts": [
+      "Lumières",
+      "exil",
+      "comparaison",
+      "tolérance"
+    ],
+    "sources": [
+      "https://voltaire.ox.ac.uk/publication/lettres-sur-les-anglais-ii/"
+    ],
+    "illustration": {
+      "intention": "Montrer une valise et un livre ouverts sur une réflexion politique et scientifique.",
+      "objets_stock": [
+        "valise",
+        "ouvert",
+        "parlement"
+      ],
+      "vigilances": "Le déplacement est un exil ; aucun portrait non documenté."
+    }
+  },
+  {
+    "chapter_id": "THM-021",
+    "event_id": "EVT-0159",
+    "title": "Les lettres de Voltaire paraissent d’abord en anglais",
+    "body": "Les Letters concerning the English Nation donnent une forme publique aux observations de Voltaire sur l’Angleterre. L’ouvrage traite des religions, du gouvernement, du commerce, des sciences et des lettres. En mettant ces pratiques en regard de celles de la France, il invite à examiner les institutions plutôt qu’à les accepter comme immuables. La publication anglaise précède la version française des Lettres philosophiques. Ce passage entre langues et espaces éditoriaux montre comment les idées des Lumières circulent, se remanient et atteignent des publics différents.",
+    "takeaway": "À retenir : La publication anglaise diffuse une critique comparative avant la version française.",
+    "key_concepts": [
+      "Lumières",
+      "publication",
+      "circulation des idées",
+      "tolérance"
+    ],
+    "sources": [
+      "https://catalogue.bnf.fr/ark:/12148/cb316049240",
+      "https://voltaire.ox.ac.uk/publication/lettres-sur-les-anglais-ii/"
+    ],
+    "illustration": {
+      "intention": "Associer presse et livre ouvert à des documents en circulation.",
+      "objets_stock": [
+        "presse",
+        "ouvert",
+        "documents"
+      ],
+      "vigilances": "Ne pas inventer de titre manuscrit ou de citation ; distinction publication anglaise et version française."
+    }
+  },
+  {
+    "chapter_id": "THM-021",
+    "event_id": "EVT-0423",
+    "title": "L’Angleterre et l’Écosse partagent un même roi",
+    "body": "À la mort d’Élisabeth, le roi d’Écosse Jacques hérite de la couronne d’Angleterre. Les royaumes ont désormais le même souverain, mais conservent leurs parlements, leurs lois et leurs institutions religieuses. Cette union personnelle illustre le poids des successions dynastiques dans la formation des ensembles politiques. Jacques souhaite une union plus complète, qui rencontre des résistances. Le partage d’un monarque ne crée donc pas immédiatement un État unifié : la concentration du pouvoir royal doit composer avec les traditions de chaque royaume.",
+    "takeaway": "À retenir : L’union des couronnes réunit le souverain, tandis que les institutions restent séparées.",
+    "key_concepts": [
+      "union dynastique",
+      "monarchie",
+      "Parlement",
+      "État"
+    ],
+    "sources": [
+      "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/act-of-union-1707/overview/union-of-the-crowns/",
+      "https://www.royal.uk/james-vi-and-i-r-1567-1625"
+    ],
+    "illustration": {
+      "intention": "Une couronne commune au-dessus de deux édifices parlementaires séparés.",
+      "objets_stock": [
+        "couronne",
+        "parlement"
+      ],
+      "vigilances": "La composition doit conserver deux institutions ; aucune fusion immédiate des royaumes."
+    }
+  },
+  {
+    "chapter_id": "THM-021",
+    "event_id": "EVT-0429",
+    "title": "La Glorieuse Révolution renforce le Parlement",
+    "body": "La fuite du roi Jacques ouvre une crise de la succession en Angleterre. Guillaume et Marie reçoivent la couronne dans un cadre où le Parlement affirme ses droits et limite les prérogatives royales. Le changement consolide une monarchie soumise à des règles, sans instaurer une démocratie fondée sur l’égalité politique de tous. Les tensions religieuses restent déterminantes. Le nom de Glorieuse Révolution présente un récit favorable du changement anglais ; il ne doit pas faire oublier les conflits et les violences dans les autres royaumes.",
+    "takeaway": "À retenir : La monarchie anglaise est davantage encadrée par les droits du Parlement.",
+    "key_concepts": [
+      "monarchie parlementaire",
+      "droits",
+      "succession",
+      "conflit religieux"
+    ],
+    "sources": [
+      "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/revolution/overview/billofrights/"
+    ],
+    "illustration": {
+      "intention": "Placer un Parlement et un document de droits auprès d’une couronne.",
+      "objets_stock": [
+        "parlement",
+        "parchemin",
+        "couronne"
+      ],
+      "vigilances": "Ne pas représenter l’égalité politique universelle ou une absence totale de violence."
+    }
+  },
+  {
+    "chapter_id": "THM-022",
+    "event_id": "EVT-0430",
+    "title": "Saint-Pétersbourg : une ville voulue par le pouvoir",
+    "body": "Pierre le Grand fait établir une forteresse à l’embouchure de la Neva, point de départ de Saint-Pétersbourg. Ce site donne à la Russie un accès stratégique à la Baltique et soutient son ouverture vers l’Europe. La ville se développe ensuite selon la volonté du souverain, avec des constructions monumentales et de lourdes contraintes de travail. Le repère de fondation désigne le lancement du projet, pas son achèvement. Saint-Pétersbourg illustre la capacité d’un pouvoir monarchique à transformer un territoire pour servir ses ambitions.",
+    "takeaway": "À retenir : La fondation de Saint-Pétersbourg sert les ambitions politiques et maritimes de Pierre le Grand.",
+    "key_concepts": [
+      "ville planifiée",
+      "monarchie",
+      "Baltique",
+      "ouverture européenne"
+    ],
+    "sources": [
+      "https://whc.unesco.org/en/list/540/",
+      "https://fr.wikipedia.org/wiki/Saint-P%C3%A9tersbourg"
+    ],
+    "illustration": {
+      "intention": "Relier une forteresse au navire pour signifier construction urbaine et ouverture baltique.",
+      "objets_stock": [
+        "donjon",
+        "navire",
+        "ville"
+      ],
+      "vigilances": "Éviter une ville déjà achevée au moment de la fondation ; aucun palais non documenté."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0171",
+    "title": "L’arrestation de Madame Roland : la rupture entre républicains",
+    "body": "Madame Roland est arrêtée durant le coup de force qui frappe les Girondins. Son salon et son travail auprès de son mari, ancien ministre, l’ont placée au cœur des débats révolutionnaires, sans lui donner de mandat électif. L’arrestation nocturne montre que la lutte entre républicains gagne l’entourage des députés. En prison, elle écrit pour défendre ses convictions et témoigner. Ses Mémoires constituent une source précieuse, mais engagée : ils donnent le regard d’une actrice vaincue sur les conflits de la Révolution.",
+    "takeaway": "À retenir : L’arrestation de Madame Roland révèle la violence des divisions républicaines.",
+    "key_concepts": [
+      "Girondins",
+      "engagement féminin",
+      "répression",
+      "mémoires"
+    ],
+    "sources": [
+      "https://fr.wikisource.org/wiki/Lettres_de_Madame_Roland_de_1780_%C3%A0_1793/Lettres/1793"
+    ],
+    "illustration": {
+      "intention": "Associer une femme, des barreaux et un livre pour montrer l’actrice politique écrivant en prison.",
+      "objets_stock": [
+        "femme",
+        "barreaux",
+        "ouvert"
+      ],
+      "vigilances": "Aucun portrait fantaisiste ; distinguer arrestation et exécution."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0176",
+    "title": "La Convention décide de juger le roi déchu",
+    "body": "La monarchie abolie, le roi déchu est emprisonné et la Convention doit déterminer son sort. Les députés décident de le juger eux-mêmes. Ce choix transforme l’assemblée représentant la nation en tribunal pour une affaire exceptionnelle. Il pose la question de la responsabilité d’un souverain longtemps considéré comme inviolable. Les soupçons d’entente avec les puissances étrangères alimentent l’accusation. Décider du procès ne revient pas encore à condamner : la procédure, la défense et les votes restent à venir.",
+    "takeaway": "À retenir : La Convention affirme la responsabilité du roi déchu en décidant de le juger.",
+    "key_concepts": [
+      "Convention",
+      "souveraineté nationale",
+      "responsabilité",
+      "procès"
+    ],
+    "sources": [
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/proces-et-execution-de-louis-xvi",
+      "https://histoire-image.org/etudes/abolition-royaute-21-septembre-1792"
+    ],
+    "illustration": {
+      "intention": "Un hémicycle et une balance devant une couronne déposée.",
+      "objets_stock": [
+        "assemblee",
+        "balance",
+        "couronne"
+      ],
+      "vigilances": "Distinguer décision de juger et condamnation ; aucune guillotine."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0177",
+    "title": "Un rapport organise l’accusation contre le roi",
+    "body": "Un rapport présenté à la Convention rassemble les crimes imputés au roi déchu. Il met en accusation son attitude face aux transformations révolutionnaires, sa fuite et ses relations avec les puissances étrangères. Le document prépare l’interrogatoire et donne aux députés un cadre pour juger. Ces griefs expriment aussi une lecture politique du conflit entre monarchie et souveraineté nationale. Leur présentation ne vaut pas condamnation : l’accusé dispose d’avocats et le jugement résulte ensuite de votes distincts.",
+    "takeaway": "À retenir : Le rapport prépare le procès en organisant les griefs contre le roi.",
+    "key_concepts": [
+      "accusation",
+      "Convention",
+      "défense",
+      "souveraineté nationale"
+    ],
+    "sources": [
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/proces-et-execution-de-louis-xvi"
+    ],
+    "illustration": {
+      "intention": "Mettre en évidence un dossier d’accusation sur une table d’assemblée.",
+      "objets_stock": [
+        "documents",
+        "table",
+        "balance"
+      ],
+      "vigilances": "Le dossier expose des griefs ; ne pas représenter le verdict."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0178",
+    "title": "Les votes de la Convention condamnent le roi",
+    "body": "Les députés de la Convention votent successivement sur la culpabilité du roi déchu, l’appel au peuple, la peine et un éventuel sursis. Ils retiennent la condamnation à mort sans remettre le jugement à un référendum. Les divergences portent donc aussi sur la manière d’exercer la souveraineté nationale. La décision ferme les possibilités de compromis autour de l’ancien roi et approfondit les divisions révolutionnaires. Cette série de votes constitue la condamnation ; elle doit être distinguée de l’exécution qui suit.",
+    "takeaway": "À retenir : Des votes successifs déterminent la culpabilité, la peine et le refus du sursis.",
+    "key_concepts": [
+      "Convention",
+      "condamnation",
+      "appel au peuple",
+      "souveraineté"
+    ],
+    "sources": [
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/proces-et-execution-de-louis-xvi"
+    ],
+    "illustration": {
+      "intention": "Combiner votes à l’assemblée et balance pour montrer la série de décisions judiciaires.",
+      "objets_stock": [
+        "assemblee",
+        "urne",
+        "balance"
+      ],
+      "vigilances": "L’urne est un symbole de vote ; pas de référendum populaire ni de scène d’exécution."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0182",
+    "title": "L’acte final de Vienne réorganise l’Europe",
+    "body": "L’acte final du congrès de Vienne fixe une réorganisation de l’Europe après les guerres napoléoniennes. Les grandes puissances recherchent un équilibre empêchant une nouvelle domination continentale. Elles invoquent la légitimité des dynasties et restaurent des pouvoirs monarchiques, sans revenir partout à la situation antérieure. Ce règlement diplomatique privilégie les États et les souverains plutôt que la volonté des populations. Il installe un ordre conservateur qui doit ensuite affronter les revendications libérales et nationales portées par les héritages révolutionnaires.",
+    "takeaway": "À retenir : Vienne recherche un équilibre européen fondé sur les puissances et la légitimité monarchique.",
+    "key_concepts": [
+      "équilibre des puissances",
+      "restauration",
+      "légitimité",
+      "diplomatie"
+    ],
+    "sources": [
+      "https://www.bundeskanzleramt.gv.at/bundeskanzleramt/besuchen-sie-uns/gang-der-geschichte/1815.html"
+    ],
+    "illustration": {
+      "intention": "Réunir diplomates autour d’une table et d’un document, avec globe suggérant l’Europe.",
+      "objets_stock": [
+        "table",
+        "parchemin",
+        "globe"
+      ],
+      "vigilances": "Ne pas dessiner de frontières exactes sans référence ; aucun partage du monde."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0440",
+    "title": "La Convention abolit la monarchie",
+    "body": "Lors de sa première séance, la Convention décrète l’abolition de la royauté. La chute du trône avait déjà suspendu le roi ; la décision supprime maintenant l’institution monarchique. La souveraineté doit être exercée au nom de la nation, sans roi héréditaire. La rupture intervient dans un pays en guerre, traversé par des conflits politiques et sociaux. Elle ouvre la construction de la République, mais ne règle pas ses institutions ni les désaccords sur la place du peuple dans les décisions.",
+    "takeaway": "À retenir : L’abolition de la royauté ouvre la construction de la République.",
+    "key_concepts": [
+      "Convention",
+      "République",
+      "souveraineté nationale",
+      "rupture politique"
+    ],
+    "sources": [
+      "https://histoire-image.org/etudes/abolition-royaute-21-septembre-1792"
+    ],
+    "illustration": {
+      "intention": "Couronne brisée devant une assemblée et un bonnet républicain.",
+      "objets_stock": [
+        "couronne-brisee",
+        "assemblee",
+        "bonnet"
+      ],
+      "vigilances": "Illustrer abolition institutionnelle, pas exécution du roi."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0441",
+    "title": "Valmy : la Révolution résiste à l’invasion",
+    "body": "À Valmy, les armées françaises commandées par Dumouriez et Kellermann résistent aux forces prussiennes qui avancent vers Paris. L’affrontement montre qu’une armée liée à la Révolution peut tenir face à l’invasion. Sa portée politique dépasse le résultat militaire : l’échec de l’avancée ennemie donne du temps aux nouvelles institutions. La Convention abolit ensuite la royauté. Valmy devient ainsi un symbole de défense de la nation, sans signifier que la guerre est terminée ni que toutes les menaces ont disparu.",
+    "takeaway": "À retenir : Valmy freine l’invasion et renforce la possibilité d’un changement républicain.",
+    "key_concepts": [
+      "nation",
+      "armée révolutionnaire",
+      "invasion",
+      "République"
+    ],
+    "sources": [
+      "https://presidence-16-braun-pivet.assemblee-nationale.fr/activites/discours/32452",
+      "https://histoire-image.org/etudes/abolition-royaute-21-septembre-1792"
+    ],
+    "illustration": {
+      "intention": "Associer artillerie et citoyens pour rendre visible la défense de la Révolution.",
+      "objets_stock": [
+        "artillerie",
+        "citoyens",
+        "bonnet"
+      ],
+      "vigilances": "Pas de chars ni de casques modernes ; éviter un bilan humain inventé."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0443",
+    "title": "Marie-Antoinette est exécutée après un procès révolutionnaire",
+    "body": "L’ancienne reine Marie-Antoinette est condamnée par le Tribunal révolutionnaire puis exécutée. Son origine autrichienne et son rôle supposé dans les intrigues de la cour ont nourri une hostilité ancienne, amplifiée par les pamphlets. Dans une République en guerre, elle incarne aux yeux de ses adversaires la monarchie renversée et la menace extérieure. Le procès relève de la justice révolutionnaire d’exception. Son exécution révèle la violence politique du moment ; les accusations propagandistes contre elle ne doivent pas toutes être prises pour des faits.",
+    "takeaway": "À retenir : L’exécution de Marie-Antoinette s’inscrit dans la justice d’exception de la Révolution.",
+    "key_concepts": [
+      "Tribunal révolutionnaire",
+      "propagande",
+      "monarchie",
+      "Terreur"
+    ],
+    "sources": [
+      "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/marie-antoinette",
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/la-terreur"
+    ],
+    "illustration": {
+      "intention": "Une ancienne reine suggérée par une figure féminine et une couronne déposée face à la justice d’exception.",
+      "objets_stock": [
+        "femme",
+        "couronne",
+        "balance"
+      ],
+      "vigilances": "Éviter violence graphique et accusations propagandistes présentées comme des faits."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0444",
+    "title": "Robespierre est arrêté à la Convention",
+    "body": "À la Convention, une coalition de députés se retourne contre Robespierre et ses proches. Les divisions au sein du gouvernement révolutionnaire, la crainte de nouvelles accusations et le recul des urgences militaires fragilisent leur pouvoir. Mis en minorité, Robespierre est arrêté ; son exécution intervient le lendemain. La rupture ouvre la période thermidorienne et le démantèlement progressif du gouvernement d’exception. Elle ne supprime pas immédiatement la violence politique. La chute d’un acteur central transforme donc les rapports de pouvoir autant que les orientations de la République.",
+    "takeaway": "À retenir : L’arrestation de Robespierre ouvre une transformation progressive du gouvernement révolutionnaire.",
+    "key_concepts": [
+      "Convention",
+      "Thermidor",
+      "Terreur",
+      "coalition politique"
+    ],
+    "sources": [
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/la-terreur"
+    ],
+    "illustration": {
+      "intention": "Mettre une assemblée en relation avec des barreaux pour montrer la mise en minorité puis l’arrestation.",
+      "objets_stock": [
+        "assemblee",
+        "barreaux"
+      ],
+      "vigilances": "Ne pas confondre arrestation et exécution le lendemain."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0445",
+    "title": "Le Directoire installe un exécutif collégial",
+    "body": "Le Directoire entre en fonction avec un exécutif partagé entre plusieurs directeurs. Les législateurs répartissent aussi leurs travaux entre des conseils distincts pour éviter la concentration du pouvoir. Ce régime républicain veut stabiliser la Révolution après la Terreur et protéger la propriété. Le suffrage censitaire limite cependant la participation politique, tandis que les royalistes et les courants populaires contestent le régime. L’installation des dirigeants ne se confond pas avec l’adoption antérieure de la Constitution : elle rend concrète une nouvelle organisation des pouvoirs.",
+    "takeaway": "À retenir : Le Directoire répartit les pouvoirs pour stabiliser une République à participation limitée.",
+    "key_concepts": [
+      "exécutif collégial",
+      "suffrage censitaire",
+      "République",
+      "séparation des pouvoirs"
+    ],
+    "sources": [
+      "https://www.worldhistory.org/trans/fr/1-21337/directoire/",
+      "https://fr.wikipedia.org/wiki/Directoire"
+    ],
+    "illustration": {
+      "intention": "Montrer une table collégiale et deux espaces parlementaires reliés à la Constitution.",
+      "objets_stock": [
+        "table",
+        "parlement",
+        "parchemin"
+      ],
+      "vigilances": "Ne pas confondre date de Constitution et installation du gouvernement."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0448",
+    "title": "Waterloo met fin au retour de Napoléon",
+    "body": "À Waterloo, Napoléon affronte une coalition commandée par Wellington et Blücher. Revenu au pouvoir après son premier exil, il cherche une victoire rapide pour empêcher ses adversaires de réunir leurs forces. La résistance de l’armée de Wellington et l’intervention prussienne conduisent à la défaite française. Celle-ci ruine le retour impérial et provoque une nouvelle abdication. Les puissances européennes imposent ensuite leur règlement. Waterloo relie ainsi une bataille décisive à la consolidation d’un ordre européen hostile à la domination napoléonienne.",
+    "takeaway": "À retenir : La défaite de Waterloo met fin au retour impérial de Napoléon.",
+    "key_concepts": [
+      "coalition",
+      "Empire",
+      "abdication",
+      "équilibre européen"
+    ],
+    "sources": [
+      "https://www.nam.ac.uk/explore/battle-waterloo",
+      "https://www.bundeskanzleramt.gv.at/bundeskanzleramt/besuchen-sie-uns/gang-der-geschichte/1815.html"
+    ],
+    "illustration": {
+      "intention": "Évoquer un affrontement de coalitions par artillerie, cavalier et bicorne.",
+      "objets_stock": [
+        "artillerie",
+        "cavalier",
+        "bicorne"
+      ],
+      "vigilances": "Pas de troupes modernes ; présence de la coalition, pas duel de deux seuls chefs."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0449",
+    "title": "L’indépendance grecque : une lutte aux débuts multiples",
+    "body": "Les soulèvements grecs contestent la domination ottomane et portent une revendication d’indépendance. Le repère retenu correspond à une date commémorative devenue fête nationale ; les insurrections commencent dans plusieurs lieux et ne se déclenchent pas toutes au même moment. La lutte associe projets nationaux, mobilisations religieuses et soutiens européens. Elle transforme une revendication collective en conflit armé, puis en question diplomatique. Le début symbolique de la guerre ne doit donc être confondu ni avec une indépendance déjà obtenue ni avec un départ unique.",
+    "takeaway": "À retenir : Le repère grec est commémoratif : les soulèvements et l’indépendance constituent un processus.",
+    "key_concepts": [
+      "nationalités",
+      "Empire ottoman",
+      "insurrection",
+      "commémoration"
+    ],
+    "sources": [
+      "https://www.mfa.gr/missionsabroad/en/about-greece/government-and-politics/greek-independence-day.html",
+      "https://en.wikipedia.org/wiki/Treaty_of_Constantinople_(1832)"
+    ],
+    "illustration": {
+      "intention": "Associer plusieurs groupes de citoyens à une chaîne rompue et un document.",
+      "objets_stock": [
+        "citoyens",
+        "chaine-rompue",
+        "parchemin"
+      ],
+      "vigilances": "Éviter un départ unique de tous les soulèvements ou une indépendance déjà acquise."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0450",
+    "title": "Le royaume grec reçoit un règlement international",
+    "body": "Le traité de Constantinople participe au règlement international du nouveau royaume de Grèce après la guerre d’indépendance. Les représentants des grandes puissances négocient avec l’Empire ottoman les frontières du nouvel État. L’indépendance avait déjà fait l’objet d’une reconnaissance : ce jalon concerne le règlement du royaume et de ses limites territoriales. La naissance de l’État grec résulte donc des luttes des populations comme des rapports entre puissances. Le choix monarchique et les garanties diplomatiques encadrent la réalisation d’une aspiration nationale.",
+    "takeaway": "À retenir : Le règlement du royaume grec associe indépendance nationale, frontières et diplomatie des puissances.",
+    "key_concepts": [
+      "État national",
+      "frontière",
+      "monarchie",
+      "diplomatie"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Treaty_of_Constantinople_(1832)"
+    ],
+    "illustration": {
+      "intention": "Montrer une négociation diplomatique associée à une couronne et un document.",
+      "objets_stock": [
+        "table",
+        "couronne",
+        "parchemin"
+      ],
+      "vigilances": "Règlement du royaume, pas première reconnaissance de l’indépendance ; pas de frontière inventée."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0451",
+    "title": "L’insurrection belge commence à Bruxelles",
+    "body": "À Bruxelles, des désordres éclatent après une représentation de La Muette de Portici. La contestation s’inscrit dans un climat agité par la révolution parisienne, les difficultés sociales et les tensions avec le pouvoir du royaume des Pays-Bas. L’opposition réunit des groupes aux motivations différentes, dont des libéraux et des catholiques. Le mouvement gagne en ampleur et conduit à des affrontements. Ce début d’insurrection ne constitue pas encore une indépendance proclamée : la rupture politique et l’organisation d’un nouvel État viennent ensuite.",
+    "takeaway": "À retenir : L’agitation bruxelloise transforme des tensions sociales et politiques en mouvement révolutionnaire.",
+    "key_concepts": [
+      "insurrection",
+      "libéralisme",
+      "Pays-Bas",
+      "revendication nationale"
+    ],
+    "sources": [
+      "https://www.belgium.be/fr/la_belgique/connaitre_le_pays/histoire/la_belgique_a_partir_de_1830/origine_et_essor/revolution_belge"
+    ],
+    "illustration": {
+      "intention": "Des citoyens derrière une barricade suggèrent le passage de l’agitation à l’insurrection.",
+      "objets_stock": [
+        "citoyens",
+        "barricade"
+      ],
+      "vigilances": "Pas encore de proclamation d’indépendance ; les tensions ont plusieurs causes."
+    }
+  },
+  {
+    "chapter_id": "THM-024",
+    "event_id": "EVT-0452",
+    "title": "Le gouvernement provisoire proclame l’indépendance belge",
+    "body": "Après les combats et le retrait des troupes néerlandaises, le gouvernement provisoire proclame l’indépendance des provinces belges. L’annonce transforme l’insurrection en projet de souveraineté, mais l’État reste à organiser. Un congrès national est élu pour préparer une constitution ; le suffrage censitaire réserve la participation à une minorité d’hommes. Les nouvelles libertés politiques ne signifient donc pas égalité immédiate de tous les citoyens. La reconnaissance extérieure et les choix institutionnels prolongent la proclamation dans un processus de construction nationale.",
+    "takeaway": "À retenir : La proclamation belge ouvre une construction de l’État dont la participation politique reste limitée.",
+    "key_concepts": [
+      "indépendance",
+      "gouvernement provisoire",
+      "constitution",
+      "suffrage censitaire"
+    ],
+    "sources": [
+      "https://www.belgium.be/fr/la_belgique/connaitre_le_pays/histoire/la_belgique_a_partir_de_1830/origine_et_essor/gouvernement_provisoire_et_congres_national"
+    ],
+    "illustration": {
+      "intention": "Associer une proclamation, une assemblée et une couronne future pour suggérer l’État à construire.",
+      "objets_stock": [
+        "parchemin",
+        "assemblee",
+        "couronne"
+      ],
+      "vigilances": "Le choix monarchique n’est pas encore accompli au seul instant de proclamation."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0185",
+    "title": "La révolution de Février renverse la monarchie de Juillet",
+    "body": "À Paris, les manifestations pour une réforme électorale deviennent une révolution après les violences et les barricades. La monarchie de Juillet, fondée sur un suffrage réservé aux plus aisés, perd le contrôle de la capitale. Louis-Philippe abdique et un gouvernement provisoire républicain se forme. Le changement ouvre des attentes de liberté politique et d’amélioration sociale, sans garantir leur accord durable. Ces journées relient donc la contestation des institutions à l’action populaire ; l’établissement de la République ne résout pas d’emblée les tensions sociales.",
+    "takeaway": "À retenir : La révolution de Février renverse une monarchie censitaire et ouvre des attentes républicaines.",
+    "key_concepts": [
+      "révolution",
+      "suffrage censitaire",
+      "barricades",
+      "République"
+    ],
+    "sources": [
+      "https://www.carnavalet.paris.fr/le-nouveau-parcours"
+    ],
+    "illustration": {
+      "intention": "Citoyens et barricade face à une couronne déposée, ouvrant vers une urne.",
+      "objets_stock": [
+        "citoyens",
+        "barricade",
+        "couronne-brisee"
+      ],
+      "vigilances": "Pas de représentation de l’égalité électorale des femmes ; garder l’action populaire."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0189",
+    "title": "La Constitution organise la Deuxième République",
+    "body": "La Constitution de la Deuxième République organise un pouvoir législatif confié à une assemblée et un pouvoir exécutif confié à un président. Tous deux tirent leur légitimité du suffrage universel masculin. Ce dispositif cherche à concilier participation politique et stabilité après les affrontements révolutionnaires. Il crée cependant une concurrence possible entre des pouvoirs élus séparément, sans moyen simple de résoudre un conflit durable. Les droits reconnus n’incluent toujours pas le vote des femmes : l’élargissement de la citoyenneté demeure partiel.",
+    "takeaway": "À retenir : La Constitution fait coexister une assemblée et un président élus, avec un risque de conflit.",
+    "key_concepts": [
+      "Constitution",
+      "séparation des pouvoirs",
+      "suffrage universel masculin",
+      "légitimité"
+    ],
+    "sources": [
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-republique/la-constitution-republicaine"
+    ],
+    "illustration": {
+      "intention": "Relier une Constitution à une assemblée et à une figure exécutive séparées.",
+      "objets_stock": [
+        "parchemin",
+        "assemblee",
+        "citoyens"
+      ],
+      "vigilances": "Président et assemblée ont des légitimités différentes ; suffrage masculin."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0190",
+    "title": "Louis-Napoléon Bonaparte est élu président",
+    "body": "L’élection présidentielle porte Louis-Napoléon Bonaparte à la tête de la Deuxième République. Le suffrage universel masculin ouvre le choix du chef de l’exécutif à un électorat beaucoup plus large que sous la monarchie de Juillet. Le nom de Bonaparte évoque une mémoire impériale susceptible de réunir des attentes différentes, notamment l’ordre et la grandeur nationale. L’élection donne au président une légitimité personnelle puissante. Elle précède sa prestation de serment et son entrée effective dans les fonctions prévues par la Constitution.",
+    "takeaway": "À retenir : L’élection de Louis-Napoléon combine suffrage masculin élargi et force de la mémoire impériale.",
+    "key_concepts": [
+      "élection présidentielle",
+      "bonapartisme",
+      "suffrage universel masculin",
+      "légitimité"
+    ],
+    "sources": [
+      "https://www.elysee.fr/louis-napoleon-bonaparte",
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-republique/la-constitution-republicaine"
+    ],
+    "illustration": {
+      "intention": "Placer une urne devant un souvenir impérial symbolisé par un bicorne.",
+      "objets_stock": [
+        "urne",
+        "bicorne",
+        "citoyens"
+      ],
+      "vigilances": "Ne pas confondre élection présidentielle et proclamation de l’Empire."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0191",
+    "title": "Le président élu prête serment",
+    "body": "Louis-Napoléon Bonaparte prête serment devant l’Assemblée constituante et entre en fonction comme président de la République. Le serment engage le chef de l’exécutif envers les institutions issues de la révolution de Février. Cette étape se distingue du vote des électeurs : elle installe officiellement le président dans ses responsabilités. L’Assemblée et le président disposent désormais de légitimités électives concurrentes. Leurs relations deviennent un enjeu majeur, car le texte constitutionnel limite le mandat présidentiel et n’autorise pas sa prolongation par la seule volonté de l’élu.",
+    "takeaway": "À retenir : La prestation de serment installe le président élu dans un cadre constitutionnel contraignant.",
+    "key_concepts": [
+      "serment",
+      "Constitution",
+      "présidence",
+      "séparation des pouvoirs"
+    ],
+    "sources": [
+      "https://www.elysee.fr/louis-napoleon-bonaparte",
+      "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-republique/la-constitution-republicaine"
+    ],
+    "illustration": {
+      "intention": "Document de serment présenté devant l’assemblée.",
+      "objets_stock": [
+        "parchemin",
+        "assemblee",
+        "plume"
+      ],
+      "vigilances": "Serment après l’élection ; ne pas représenter le coup d’État ultérieur."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0193",
+    "title": "Haussmann reçoit la mission de transformer Paris",
+    "body": "Nommé préfet de la Seine, Georges-Eugène Haussmann devient un acteur central des transformations de Paris sous le Second Empire. Le pouvoir veut embellir, assainir et faciliter la circulation dans la capitale. Les percées, les réseaux d’eau et les équipements mobilisent administration, entrepreneurs et financements. Cette modernisation recompose les quartiers et les conditions de logement, avec des déplacements de populations. Le repère concerne la nomination du préfet, pas l’achèvement des travaux : l’aménagement urbain s’inscrit dans une entreprise durable et socialement inégale.",
+    "takeaway": "À retenir : La nomination d’Haussmann engage une transformation urbaine ambitieuse aux effets sociaux inégaux.",
+    "key_concepts": [
+      "urbanisme",
+      "préfet",
+      "modernisation",
+      "inégalités sociales"
+    ],
+    "sources": [
+      "https://www.paris.fr/pages/haussmann-l-homme-qui-a-transforme-paris-23091"
+    ],
+    "illustration": {
+      "intention": "Un document de nomination ouvre vers boulevard, ville et réseaux urbains.",
+      "objets_stock": [
+        "documents",
+        "boulevard",
+        "ville"
+      ],
+      "vigilances": "La nomination précède les transformations ; éviter une ville totalement achevée."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0194",
+    "title": "Les frères Pereire associent finance et industrialisation",
+    "body": "Émile et Isaac Pereire développent des entreprises et des financements qui accompagnent l’industrialisation. Influencés par le saint-simonisme, ils considèrent le crédit et les infrastructures comme des moyens de transformer la société. Leurs initiatives relient banques, chemins de fer et aménagement urbain. Cette activité repose sur la mobilisation de capitaux et sur des réseaux de partenaires ; elle rencontre aussi des rivalités financières. Le repère désigne une période d’activité, plutôt qu’un acte unique : ces entrepreneurs incarnent une modernisation économique progressive, porteuse de possibilités et de risques.",
+    "takeaway": "À retenir : Les Pereire mobilisent la finance pour développer les entreprises et les infrastructures.",
+    "key_concepts": [
+      "entrepreneur",
+      "saint-simonisme",
+      "crédit",
+      "industrialisation"
+    ],
+    "sources": [
+      "https://www.persee.fr/doc/rhmc_0048-8003_1956_num_3_3_3093",
+      "https://fr.wikipedia.org/wiki/Cr%C3%A9dit_mobilier"
+    ],
+    "illustration": {
+      "intention": "Relier banque, monnaie, train et usine pour montrer l’articulation finance et industrie.",
+      "objets_stock": [
+        "monnaie",
+        "train",
+        "usine"
+      ],
+      "vigilances": "Ne pas figer une période d’activité en un acte unique ; aucune promesse de croissance garantie."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0195",
+    "title": "Le Crédit mobilier finance les grandes entreprises",
+    "body": "Les frères Pereire créent le Crédit mobilier pour orienter des capitaux vers les entreprises. La banque prend des participations et finance notamment des activités liées aux transports et à l’industrie. Elle illustre une évolution du capitalisme : de grands projets exigent des moyens que des entrepreneurs isolés ne peuvent pas toujours réunir. Les relations entre banques et entreprises accélèrent l’investissement, mais renforcent aussi les risques de spéculation et de dépendance financière. La création de cette institution accompagne donc l’industrialisation sans rendre la croissance régulière ni garantie.",
+    "takeaway": "À retenir : Le Crédit mobilier rassemble des capitaux pour financer de grands projets industriels.",
+    "key_concepts": [
+      "banque d’affaires",
+      "capital",
+      "investissement",
+      "spéculation"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Cr%C3%A9dit_mobilier",
+      "https://www.persee.fr/doc/rhmc_0048-8003_1956_num_3_3_3093"
+    ],
+    "illustration": {
+      "intention": "Des capitaux convergent vers une usine et une voie ferrée depuis une institution bancaire.",
+      "objets_stock": [
+        "monnaie",
+        "usine",
+        "rails"
+      ],
+      "vigilances": "Évoquer financement des entreprises sans inventer un bâtiment bancaire historique."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0198",
+    "title": "Nice et la Savoie deviennent françaises",
+    "body": "La réunion de Nice et de la Savoie à la France s’inscrit dans la diplomatie du Second Empire et la construction de l’unité italienne. Un traité avec le royaume de Sardaigne précède des consultations de la population, puis des transferts de souveraineté et d’administration. Le rattachement effectif désigne ce processus, plutôt qu’un simple jour de signature. La frontière change parce que des intérêts dynastiques, des alliances et des votes se rencontrent. L’épisode montre que les constructions nationales passent aussi par des négociations entre États.",
+    "takeaway": "À retenir : Le rattachement de Nice et de la Savoie combine diplomatie, consultations et transfert de souveraineté.",
+    "key_concepts": [
+      "frontière",
+      "plébiscite",
+      "souveraineté",
+      "unité italienne"
+    ],
+    "sources": [
+      "https://www.elysee.fr/louis-napoleon-bonaparte"
+    ],
+    "illustration": {
+      "intention": "Document diplomatique, urne et transfert administratif suggèrent les étapes du rattachement.",
+      "objets_stock": [
+        "parchemin",
+        "urne",
+        "documents"
+      ],
+      "vigilances": "Pas de frontière cartographique sans contrôle ; conserver plusieurs étapes du processus."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0199",
+    "title": "L’Empire allemand existe juridiquement avant sa proclamation",
+    "body": "Les accords entre les États allemands entrent en application et donnent une existence constitutionnelle au nouvel Empire. La Prusse joue un rôle dominant, mais les États fédérés conservent des institutions et négocient des droits particuliers. L’unité politique résulte ainsi de compromis autant que de la guerre contre la France. La cérémonie organisée ensuite à Versailles confirme symboliquement la dignité impériale ; elle ne crée pas à elle seule l’État. Distinguer le droit et la proclamation permet de comprendre comment une nation se transforme en organisation politique.",
+    "takeaway": "À retenir : L’unité allemande possède un fondement constitutionnel antérieur à la cérémonie impériale.",
+    "key_concepts": [
+      "État fédéral",
+      "Prusse",
+      "Constitution",
+      "unification"
+    ],
+    "sources": [
+      "https://www.dhm.de/lemo/rueckblick/lemo-rueckblick-1871-reichsgruendung-im-krieg"
+    ],
+    "illustration": {
+      "intention": "Une Constitution associe plusieurs États sous un symbole impérial.",
+      "objets_stock": [
+        "parchemin",
+        "couronne",
+        "assemblee"
+      ],
+      "vigilances": "Montrer existence juridique ; aucune confusion avec cérémonie de Versailles ultérieure."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0473",
+    "title": "Sedan précipite la chute du Second Empire",
+    "body": "À Sedan, l’armée française capitule et l’empereur Napoléon est fait prisonnier pendant la guerre contre la Prusse et ses alliés. La défaite discrédite le régime impérial, qui avait engagé le pays dans le conflit. À Paris, la République est proclamée ensuite, mais la guerre continue sous un nouveau gouvernement. Un échec militaire provoque donc une rupture politique sans apporter immédiatement la paix. Sedan participe aussi à l’affirmation de la puissance prussienne et au rapprochement des États allemands autour d’un projet d’unité.",
+    "takeaway": "À retenir : Sedan provoque l’effondrement du régime impérial, tandis que la guerre continue.",
+    "key_concepts": [
+      "défaite militaire",
+      "Second Empire",
+      "République",
+      "unité allemande"
+    ],
+    "sources": [
+      "https://www.elysee.fr/louis-napoleon-bonaparte",
+      "https://www.dhm.de/lemo/rueckblick/lemo-rueckblick-1871-reichsgruendung-im-krieg"
+    ],
+    "illustration": {
+      "intention": "Une pièce d’artillerie et un bicorne déposés devant une couronne brisée.",
+      "objets_stock": [
+        "artillerie",
+        "bicorne",
+        "couronne-brisee"
+      ],
+      "vigilances": "La chute du régime suit la défaite ; la guerre continue."
+    }
+  },
+  {
+    "chapter_id": "THM-025",
+    "event_id": "EVT-0474",
+    "title": "Le traité de Francfort impose une paix lourde à la France",
+    "body": "Le traité de Francfort règle la paix entre la France vaincue et le nouvel Empire allemand. Il impose des cessions territoriales en Alsace et en Lorraine, une indemnité et des modalités d’occupation. Les habitants des territoires annexés doivent composer avec un changement de souveraineté et des choix de nationalité encadrés. La paix met fin à la guerre entre États, mais laisse des tensions durables. Le traité montre comment une victoire militaire transforme des frontières, des finances publiques et la vie des populations concernées.",
+    "takeaway": "À retenir : La paix de Francfort transforme les frontières et impose de lourdes conséquences à la France.",
+    "key_concepts": [
+      "traité de paix",
+      "annexion",
+      "indemnité",
+      "nationalité"
+    ],
+    "sources": [
+      "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/hl6dcmjtnzgp"
+    ],
+    "illustration": {
+      "intention": "Un traité entre États associe pièces d’indemnité et documents de nationalité.",
+      "objets_stock": [
+        "parchemin",
+        "monnaie",
+        "documents"
+      ],
+      "vigilances": "Éviter carte approximative de l’Alsace-Lorraine ; pas de paix sociale immédiate."
+    }
+  },
+  {
+    "chapter_id": "THM-026",
+    "event_id": "EVT-0202",
+    "title": "Paris élit le conseil de la Commune",
+    "body": "Après le soulèvement parisien et le départ du gouvernement pour Versailles, le comité central de la Garde nationale organise des élections. Les hommes inscrits choisissent un conseil où siègent des républicains et des socialistes de tendances diverses. Le scrutin cherche à donner une légitimité à un pouvoir local né de l’insurrection. L’abstention et le retrait de certains élus limitent cependant le consensus. Le vote précède la proclamation de la Commune et révèle le conflit entre autonomie parisienne et autorité nationale.",
+    "takeaway": "À retenir : Le scrutin donne une légitimité élective au pouvoir parisien issu du soulèvement.",
+    "key_concepts": [
+      "élection",
+      "Commune",
+      "Garde nationale",
+      "autonomie municipale"
+    ],
+    "sources": [
+      "https://www.paris.fr/pages/les-150-ans-de-la-commune-l-origine-1-5-16961"
+    ],
+    "illustration": {
+      "intention": "Une urne relie citoyens et Hôtel de Ville symbolisé par un édifice municipal.",
+      "objets_stock": [
+        "urne",
+        "citoyens",
+        "ville"
+      ],
+      "vigilances": "Élection masculine, abstention importante ; ne pas confondre scrutin et proclamation."
+    }
+  },
+  {
+    "chapter_id": "THM-026",
+    "event_id": "EVT-0203",
+    "title": "La Commune de Paris est proclamée",
+    "body": "Le conseil élu est proclamé Commune de Paris devant l’Hôtel de Ville. L’annonce donne une forme institutionnelle au pouvoir né du soulèvement et affirme la volonté d’administrer la capitale autrement. Des républicains, des socialistes et des militants ouvriers portent des projets parfois différents, entre autonomie municipale et transformation sociale. Face à eux, le gouvernement établi à Versailles revendique l’autorité nationale. La proclamation transforme donc une rupture locale en affrontement politique majeur, sans faire disparaître les divergences au sein du mouvement.",
+    "takeaway": "À retenir : La proclamation institue un pouvoir parisien concurrent du gouvernement national.",
+    "key_concepts": [
+      "Commune",
+      "autonomie",
+      "République sociale",
+      "conflit de légitimité"
+    ],
+    "sources": [
+      "https://www.paris.fr/pages/les-150-ans-de-la-commune-l-origine-1-5-16961"
+    ],
+    "illustration": {
+      "intention": "Assemblée locale et document de proclamation devant une ville.",
+      "objets_stock": [
+        "assemblee",
+        "parchemin",
+        "ville"
+      ],
+      "vigilances": "Pas d’unanimité populaire suggérée ; pouvoir concurrent du gouvernement de Versailles."
+    }
+  },
+  {
+    "chapter_id": "THM-026",
+    "event_id": "EVT-0205",
+    "title": "La Commune est vaincue au terme de la Semaine sanglante",
+    "body": "Les troupes du gouvernement de Versailles écrasent les dernières résistances de la Commune de Paris. La reconquête de la capitale s’accompagne de combats de rue, d’exécutions et d’arrestations massives. La victoire militaire met fin à l’expérience du pouvoir communal, puis la répression se poursuit par des condamnations et des déportations. Ce dénouement marque durablement les relations entre République et mouvement ouvrier. Le bilan des victimes reste discuté : retenir la violence de la répression n’oblige pas à présenter une estimation unique comme incontestable.",
+    "takeaway": "À retenir : La défaite de la Commune s’accompagne d’une répression dont les effets se prolongent.",
+    "key_concepts": [
+      "Semaine sanglante",
+      "répression",
+      "mouvement ouvrier",
+      "mémoire"
+    ],
+    "sources": [
+      "https://www.paris.fr/pages/les-150-ans-de-la-commune-l-origine-1-5-16961",
+      "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/hl6dcmjtnzgp"
+    ],
+    "illustration": {
+      "intention": "Barricade abandonnée et barreaux figurent défaite puis répression.",
+      "objets_stock": [
+        "barricade",
+        "barreaux",
+        "ville"
+      ],
+      "vigilances": "Pas de violence graphique ni chiffre de victimes contesté."
+    }
+  },
+  {
+    "chapter_id": "THM-026",
+    "event_id": "EVT-0227",
+    "title": "L’Exposition universelle met en scène le progrès",
+    "body": "Le président Émile Loubet inaugure une Exposition universelle destinée à présenter les réalisations techniques, artistiques et économiques de nombreux pays. L’ouverture au public intervient ensuite : la cérémonie officielle et l’accueil des visiteurs sont des étapes distinctes. Paris devient une vitrine de la modernité, grâce aux bâtiments, aux machines et aux transports. Cette mise en scène valorise aussi le prestige de la République et des puissances participantes. Le progrès exposé ne reflète cependant pas également les conditions de vie de toutes les populations.",
+    "takeaway": "À retenir : L’Exposition associe démonstration du progrès et prestige politique, avec une ouverture publique distincte.",
+    "key_concepts": [
+      "Exposition universelle",
+      "progrès",
+      "modernité",
+      "prestige national"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Exposition_universelle_de_1900"
+    ],
+    "illustration": {
+      "intention": "Un portique d’exposition rassemble machine, transport et citoyens visiteurs.",
+      "objets_stock": [
+        "portique",
+        "machine",
+        "transport"
+      ],
+      "vigilances": "Distinguer inauguration et ouverture publique ; pas de modernité uniformément partagée."
+    }
+  },
+  {
+    "chapter_id": "THM-026",
+    "event_id": "EVT-0477",
+    "title": "La tour Eiffel : une prouesse industrielle inaugurée",
+    "body": "Gustave Eiffel inaugure la tour achevée en y hissant un drapeau français, avant l’ouverture de l’Exposition universelle. La construction repose sur la préparation des pièces métalliques, leur assemblage et une organisation précise du chantier. Elle rend visible la puissance de l’ingénierie et de l’industrie françaises. L’ouvrage suscite pourtant des critiques artistiques : la modernité technique ne fait pas consensus. L’inauguration transforme une réalisation industrielle en symbole public, tandis que sa fréquentation et ses usages prolongent ensuite son histoire.",
+    "takeaway": "À retenir : La tour Eiffel devient un symbole de l’industrie, malgré les critiques qu’elle suscite.",
+    "key_concepts": [
+      "ingénierie",
+      "industrie métallique",
+      "Exposition universelle",
+      "symbole"
+    ],
+    "sources": [
+      "https://www.toureiffel.paris/fr/actualites/130-ans/1889-2019-130-ans-demerveillement"
+    ],
+    "illustration": {
+      "intention": "Tour métallique stylisée entourée d’outils et de figures de chantier.",
+      "objets_stock": [
+        "tour",
+        "machine",
+        "citoyens"
+      ],
+      "vigilances": "L’objet tour est un symbole à adapter à la silhouette réelle de la tour Eiffel ; éviter une fortification."
+    }
+  },
+  {
+    "chapter_id": "THM-027",
+    "event_id": "EVT-0209",
+    "title": "Les Alliés débarquent à Gallipoli",
+    "body": "Des forces alliées débarquent sur la péninsule de Gallipoli pour tenter d’ouvrir les détroits et de mettre l’Empire ottoman en difficulté. L’opération prolonge l’échec d’une tentative navale et mobilise des soldats venus de plusieurs empires. La défense ottomane, le terrain et les problèmes de coordination empêchent une percée décisive. La campagne devient une guerre d’usure avant l’évacuation alliée. Ces débarquements montrent que le conflit dépasse le front occidental et que les ambitions stratégiques se heurtent aux réalités du terrain.",
+    "takeaway": "À retenir : Gallipoli révèle l’extension mondiale de la guerre et les limites d’une opération combinée.",
+    "key_concepts": [
+      "Dardanelles",
+      "débarquement",
+      "Empire ottoman",
+      "guerre d’usure"
+    ],
+    "sources": [
+      "https://www.nam.ac.uk/explore/gallipoli"
+    ],
+    "illustration": {
+      "intention": "Un navire et des soldats suggèrent un débarquement face à une défense de terrain.",
+      "objets_stock": [
+        "navire",
+        "casque",
+        "artillerie"
+      ],
+      "vigilances": "Stock casque anachronique à remplacer si forme inadaptée ; montrer soldats de la Grande Guerre."
+    }
+  },
+  {
+    "chapter_id": "THM-027",
+    "event_id": "EVT-0211",
+    "title": "L’offensive Michael cherche une décision sur le front occidental",
+    "body": "L’armée allemande déclenche l’opération Michael contre les positions britanniques du front occidental. Elle concentre artillerie et troupes pour désorganiser les défenses et obtenir une percée avant que les renforts américains ne pèsent pleinement. La progression initiale est importante, mais les difficultés de ravitaillement, les pertes et la résistance alliée limitent le résultat. Une réussite tactique ne devient pas nécessairement une victoire stratégique. L’offensive ouvre une série d’attaques qui épuise les moyens allemands et précède le retournement du rapport de force.",
+    "takeaway": "À retenir : L’opération Michael obtient des gains initiaux sans assurer la décision stratégique recherchée.",
+    "key_concepts": [
+      "offensive",
+      "front occidental",
+      "ravitaillement",
+      "stratégie"
+    ],
+    "sources": [
+      "https://www.nam.ac.uk/explore/1918-victory"
+    ],
+    "illustration": {
+      "intention": "Artillerie et barbelés évoquent une offensive face à un front défendu.",
+      "objets_stock": [
+        "artillerie",
+        "barbeles",
+        "casque-adrian"
+      ],
+      "vigilances": "Le casque Adrian ne doit pas servir d’uniforme allemand ou britannique ; simple stock à adapter."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0241",
+    "title": "Roosevelt entre en fonction face à la crise",
+    "body": "Roosevelt devient président des États-Unis alors que la dépression provoque chômage massif, faillites et défiance envers les banques. Son discours d’investiture cherche à restaurer la confiance et annonce une action énergique du pouvoir fédéral. Dans les jours suivants, la fermeture temporaire des banques et les premières mesures du New Deal inaugurent une nouvelle intervention publique. L’investiture ouvre donc une réponse politique à la crise économique, dont les résultats et les limites se construisent progressivement plutôt que par une décision unique.",
+    "takeaway": "À retenir : Le New Deal commence par une mobilisation du pouvoir fédéral face à la dépression.",
+    "key_concepts": [
+      "crise économique",
+      "intervention publique",
+      "New Deal"
+    ],
+    "sources": [
+      "https://www.fdrlibrary.org/fdr-presidency",
+      "https://www.fdrlibrary.org/great-depression-facts"
+    ],
+    "illustration": {
+      "intention": "Document d’investiture devant une banque symbolisée par monnaie et citoyens.",
+      "objets_stock": [
+        "parchemin",
+        "monnaie",
+        "citoyens"
+      ],
+      "vigilances": "Investiture distincte des mesures ultérieures du New Deal ; aucun portrait non documenté."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0103",
+    "title": "Pétain prend la tête du gouvernement",
+    "body": "Face à l’effondrement militaire et à l’avancée allemande, Paul Reynaud quitte la présidence du Conseil. Le président de la République confie alors à Philippe Pétain la formation du gouvernement. Le nouveau chef du gouvernement privilégie la recherche d’un armistice, tandis que d’autres responsables envisagent de poursuivre la guerre depuis l’empire colonial. Cette nomination intervient encore dans le cadre institutionnel de la République. Elle constitue une étape décisive de la défaite politique, avant la demande d’armistice et la transformation ultérieure du régime.",
+    "takeaway": "À retenir : La nomination de Pétain précède l’armistice et la naissance du régime de Vichy.",
+    "key_concepts": [
+      "défaite",
+      "présidence du Conseil",
+      "choix politique"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Chronologie_de_la_France_pendant_la_Seconde_Guerre_mondiale",
+      "https://fr.wikipedia.org/wiki/Armistice_du_22_juin_1940"
+    ],
+    "illustration": {
+      "intention": "Une table gouvernementale et un document de nomination dans un contexte de défaite militaire.",
+      "objets_stock": [
+        "table",
+        "documents",
+        "casque"
+      ],
+      "vigilances": "Reste un gouvernement républicain à ce stade ; pas de symboles de Vichy déjà institué."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0246",
+    "title": "Le gouvernement demande l’armistice",
+    "body": "Pétain annonce à la radio que le gouvernement recherche un armistice avec l’Allemagne. Son appel à cesser le combat intervient alors que les conditions de cet accord ne sont pas encore fixées. La demande engage un choix politique : accepter la défaite militaire pour négocier l’arrêt des hostilités, plutôt que continuer la guerre avec les alliés. Elle ne signifie pourtant ni qu’un texte a déjà été signé, ni que les combats cessent immédiatement. D’autres Français refusent cette orientation et commencent à organiser la poursuite de la lutte.",
+    "takeaway": "À retenir : La demande d’armistice ouvre une négociation ; elle n’arrête pas immédiatement les combats.",
+    "key_concepts": [
+      "armistice",
+      "défaite",
+      "communication politique"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Chronologie_de_la_France_pendant_la_Seconde_Guerre_mondiale",
+      "https://fr.wikipedia.org/wiki/Armistice_du_22_juin_1940"
+    ],
+    "illustration": {
+      "intention": "Radio et document de négociation mettent en scène l’annonce politique.",
+      "objets_stock": [
+        "radio",
+        "parchemin"
+      ],
+      "vigilances": "La demande précède la signature et le cessez-le-feu."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0105",
+    "title": "L’armistice est signé à Rethondes",
+    "body": "Les représentants français signent avec l’Allemagne un armistice dans la clairière de Rethondes, choisie par Hitler pour mettre en scène le renversement de la victoire française précédente. L’accord prévoit notamment l’occupation d’une partie du territoire, le désarmement et le maintien de nombreux soldats en captivité. Il impose à la France des contraintes durables sans constituer un traité de paix. La signature fixe les conditions de l’arrêt des hostilités, mais son application dépend aussi de l’accord conclu ensuite avec l’Italie.",
+    "takeaway": "À retenir : La signature de Rethondes organise la défaite française et les conditions de l’occupation.",
+    "key_concepts": [
+      "armistice",
+      "occupation",
+      "captivité"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Armistice_du_22_juin_1940",
+      "https://www.agglo-compiegne.fr/exposition-frontstalag-170-kn-654"
+    ],
+    "illustration": {
+      "intention": "Une table de signature et un document dans un cadre ferroviaire suggéré.",
+      "objets_stock": [
+        "table",
+        "plume",
+        "train"
+      ],
+      "vigilances": "Adapter le train en wagon historique ; ne pas substituer signature et entrée en vigueur."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0248",
+    "title": "Le cessez-le-feu devient effectif",
+    "body": "Après la signature des accords avec l’Allemagne puis avec l’Italie, le cessez-le-feu entre en application. Cette étape met fin aux principaux combats entre les armées françaises et leurs adversaires sur les fronts concernés. Elle rend concrètes les dispositions de l’armistice, dans un pays bouleversé par l’exode, la captivité et l’occupation. L’arrêt des opérations militaires ne rétablit ni la souveraineté pleine de la France ni une paix générale. La guerre continue ailleurs et des Français s’engagent dans sa poursuite aux côtés des Britanniques.",
+    "takeaway": "À retenir : L’entrée en vigueur de l’armistice arrête les combats concernés sans mettre fin à la guerre mondiale.",
+    "key_concepts": [
+      "cessez-le-feu",
+      "occupation",
+      "souveraineté"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Armistice_du_22_juin_1940"
+    ],
+    "illustration": {
+      "intention": "Une pièce d’artillerie à l’arrêt accompagnée de documents d’application.",
+      "objets_stock": [
+        "artillerie",
+        "documents"
+      ],
+      "vigilances": "L’arrêt des combats concernés n’est pas la paix mondiale ni la fin de l’occupation."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0249",
+    "title": "Londres reconnaît le rôle de de Gaulle",
+    "body": "Le gouvernement britannique reconnaît de Gaulle comme chef des Français libres qui poursuivent la guerre aux côtés des alliés. Cette reconnaissance donne un appui diplomatique à un mouvement encore peu nombreux, organisé depuis Londres après le refus de l’armistice. Elle ne lui attribue pas immédiatement la représentation incontestée de toute la France. De Gaulle doit réunir des volontaires, des forces militaires et des territoires pour construire son autorité. Le soutien britannique aide ainsi à transformer un appel à résister en organisation politique et militaire.",
+    "takeaway": "À retenir : La reconnaissance britannique soutient la construction de la France libre et de son autorité.",
+    "key_concepts": [
+      "France libre",
+      "reconnaissance diplomatique",
+      "alliés"
+    ],
+    "sources": [
+      "https://www.charles-de-gaulle.org/lhomme/dossiers-thematiques/debuts-de-france-libre/",
+      "https://fr.wikipedia.org/wiki/Chronologie_de_la_France_pendant_la_Seconde_Guerre_mondiale"
+    ],
+    "illustration": {
+      "intention": "Un document diplomatique relie radio et volontaires.",
+      "objets_stock": [
+        "documents",
+        "radio",
+        "citoyens"
+      ],
+      "vigilances": "Reconnaissance du chef des Français libres ; pas encore représentation incontestée de toute la France."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0495",
+    "title": "Le mardi noir accélère le krach",
+    "body": "À la Bourse de New York, les ventes massives de titres aggravent l’effondrement engagé quelques jours auparavant. Des investisseurs cherchent à vendre tandis que les prix chutent, révélant la fragilité d’une hausse nourrie par la spéculation et les achats à crédit. Ce mardi noir devient un symbole du krach, mais la dépression ne se réduit pas à une séance boursière. Les difficultés bancaires, la contraction du crédit et le recul de l’activité transforment ensuite la crise financière en crise économique et sociale durable.",
+    "takeaway": "À retenir : Le krach révèle des fragilités financières qui contribuent à une dépression plus large.",
+    "key_concepts": [
+      "krach",
+      "spéculation",
+      "crédit",
+      "dépression"
+    ],
+    "sources": [
+      "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929",
+      "https://www.fdrlibrary.org/great-depression-facts"
+    ],
+    "illustration": {
+      "intention": "Des documents financiers et des pièces déséquilibrées suggèrent la chute boursière.",
+      "objets_stock": [
+        "documents",
+        "monnaie",
+        "balance"
+      ],
+      "vigilances": "Aucun graphique chiffré inventé ; krach distinct de l’ensemble de la dépression."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0496",
+    "title": "Gandhi marche contre le monopole du sel",
+    "body": "Gandhi conduit une marche de Sabarmati jusqu’à Dandi pour contester le monopole britannique du sel. À l’arrivée, il enfreint publiquement la loi en recueillant du sel sur le littoral. Le choix d’un produit indispensable rend la domination coloniale visible dans la vie quotidienne et permet de mobiliser au-delà des élites politiques. Cette action de désobéissance civile associe refus d’une règle injuste et non-violence. Elle nourrit une campagne nationale et attire l’attention internationale, sans obtenir immédiatement l’indépendance de l’Inde.",
+    "takeaway": "À retenir : La marche du sel transforme un besoin quotidien en symbole de résistance à la domination coloniale.",
+    "key_concepts": [
+      "désobéissance civile",
+      "non-violence",
+      "domination coloniale"
+    ],
+    "sources": [
+      "https://gandhiheritageportal.org/ta/dandi-march-details",
+      "https://www.mkgandhi.in/apinchofsalt/Chap01.htm"
+    ],
+    "illustration": {
+      "intention": "Un groupe de marcheurs et un récipient de sel au bord de mer symbolisent la désobéissance.",
+      "objets_stock": [
+        "citoyens",
+        "creuset",
+        "navire"
+      ],
+      "vigilances": "Creuset à adapter en récipient ordinaire ; pas d’acte violent, ne pas assimiler marche et indépendance immédiate."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0498",
+    "title": "L’incendie du Reichstag sert la répression",
+    "body": "Le bâtiment du Parlement allemand brûle peu après l’arrivée de Hitler à la chancellerie. Les nazis présentent l’incendie comme le signe d’une menace communiste et l’utilisent pour obtenir la suspension de libertés fondamentales. Arrestations et persécutions frappent les opposants, dans un contexte de campagne électorale et de violence politique. L’identité des responsables de l’incendie ne doit pas être confondue avec son exploitation par le régime. Cet événement accélère la destruction de l’État de droit et favorise la consolidation de la dictature.",
+    "takeaway": "À retenir : Les nazis exploitent l’incendie pour suspendre les libertés et éliminer leurs adversaires.",
+    "key_concepts": [
+      "État de droit",
+      "répression",
+      "dictature"
+    ],
+    "sources": [
+      "https://encyclopedia.ushmm.org/content/en/article/the-nazi-party-1?series=29"
+    ],
+    "illustration": {
+      "intention": "Un Parlement stylisé associé à des barreaux représente exploitation politique de l’incendie.",
+      "objets_stock": [
+        "parlement",
+        "barreaux",
+        "documents"
+      ],
+      "vigilances": "Ne pas attribuer graphiquement l’incendie à un auteur controversé ; éviter détail spectaculaire."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0500",
+    "title": "La purge renforce le pouvoir de Hitler",
+    "body": "Hitler fait assassiner les principaux dirigeants des SA, dont Ernst Röhm, ainsi que d’autres adversaires réels ou supposés. Cette purge répond notamment aux inquiétudes de l’armée devant les ambitions des SA et renforce la position personnelle du chef nazi. Les meurtres sont ensuite présentés comme une défense nécessaire de l’État. L’opération montre que la violence extrajudiciaire devient un instrument de gouvernement. Elle consolide la dictature en soumettant une organisation du mouvement nazi et en rassurant des soutiens militaires et conservateurs.",
+    "takeaway": "À retenir : La purge soumet les SA et transforme l’assassinat politique en outil du pouvoir nazi.",
+    "key_concepts": [
+      "SA",
+      "purge",
+      "violence politique",
+      "dictature"
+    ],
+    "sources": [
+      "https://encyclopedia.ushmm.org/content/en/timeline-event/holocaust/1933-1938/roehm-affair"
+    ],
+    "illustration": {
+      "intention": "Une chaîne rompue entre organisation armée et pouvoir central suggère purge et contrôle.",
+      "objets_stock": [
+        "chaine-rompue",
+        "casque",
+        "documents"
+      ],
+      "vigilances": "Éviter assassinat graphique et imagerie nazie décorative ; stock casque à contextualiser."
+    }
+  },
+  {
+    "chapter_id": "THM-028",
+    "event_id": "EVT-0503",
+    "title": "Guernica subit un bombardement aérien",
+    "body": "Pendant la guerre d’Espagne, des avions allemands et italiens engagés aux côtés des nationalistes bombardent la ville basque de Guernica. Les destructions et les victimes civiles illustrent la place croissante de l’aviation dans une guerre qui touche directement les populations. L’intervention de ces puissances révèle aussi la dimension internationale du conflit espagnol. Picasso donne à l’événement un retentissement durable avec une œuvre destinée au pavillon de la République espagnole. La peinture devient un symbole de dénonciation de la violence contre les civils.",
+    "takeaway": "À retenir : Guernica révèle l’internationalisation de la guerre d’Espagne et la vulnérabilité des civils.",
+    "key_concepts": [
+      "guerre d’Espagne",
+      "bombardement",
+      "civils",
+      "engagement artistique"
+    ],
+    "sources": [
+      "https://guernica.museoreinasofia.es/en",
+      "https://www.museoreinasofia.es/colecciones/obra/guernica/"
+    ],
+    "illustration": {
+      "intention": "Une ville et un avion en surplomb associés à un pinceau suggèrent attaque et mise en mémoire.",
+      "objets_stock": [
+        "ville",
+        "avion",
+        "pinceau"
+      ],
+      "vigilances": "Adapter l’avion aux appareils de l’époque ; aucune reproduction approximative du tableau de Picasso."
+    }
+  },
+  {
+    "chapter_id": "THM-029",
+    "event_id": "EVT-0252",
+    "title": "Diên Biên Phu marque une défaite coloniale",
+    "body": "Après un siège éprouvant, le camp retranché français de Diên Biên Phu tombe aux mains du Việt Minh. Les forces dirigées par Võ Nguyên Giáp ont encerclé la position et rendu son ravitaillement de plus en plus difficile. La défaite fragilise la poursuite de la guerre d’Indochine et pèse sur les négociations de Genève. Elle montre la capacité d’un mouvement anticolonial à vaincre une puissance européenne. Les accords qui suivent mettent fin à cette guerre sans régler durablement l’avenir politique du Vietnam.",
+    "takeaway": "À retenir : La défaite de Diên Biên Phu accélère la fin de la guerre d’Indochine et de la domination française.",
+    "key_concepts": [
+      "décolonisation",
+      "Việt Minh",
+      "guerre d’Indochine",
+      "négociation"
+    ],
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Bataille_de_Di%C3%AAn_Bi%C3%AAn_Phu"
+    ],
+    "illustration": {
+      "intention": "Une position encerclée, une pièce d’artillerie et un ravitaillement aérien évoquent le siège.",
+      "objets_stock": [
+        "barbeles",
+        "artillerie",
+        "avion"
+      ],
+      "vigilances": "Aucun cliché colonial ; ne pas fusionner défaite et accords de Genève."
+    }
+  },
+  {
+    "chapter_id": "THM-031",
+    "event_id": "EVT-0258",
+    "title": "Le dernier tunnel ferroviaire se rejoint",
+    "body": "Sous la Manche, les équipes françaises et britanniques réalisent la jonction du tunnel ferroviaire sud. Avec les percées précédentes, cette rencontre achève le creusement des galeries principales de la liaison entre les deux pays. Le chantier entre alors dans une autre étape : poser les équipements, préparer la circulation des trains et vérifier la sécurité. La jonction rend visible une coopération technique de grande ampleur et le rapprochement des réseaux européens. Elle précède l’ouverture commerciale, qui demande encore des travaux et des essais.",
+    "takeaway": "À retenir : La dernière jonction achève le creusement principal, avant l’équipement et l’ouverture du tunnel.",
+    "key_concepts": [
+      "infrastructure",
+      "coopération européenne",
+      "réseaux de transport"
+    ],
+    "sources": [
+      "https://www.lemonde.fr/archives/article/1991/06/29/le-percement-du-tunnel-sous-la-manche-est-acheve_4007187_1819218.html"
+    ],
+    "illustration": {
+      "intention": "Deux galeries se rejoignent autour de rails avec train encore en préparation.",
+      "objets_stock": [
+        "tunnel",
+        "rails",
+        "train-moderne"
+      ],
+      "vigilances": "Jonction du tube ferroviaire sud, pas ouverture commerciale ni première jonction du chantier."
+    }
+  },
+  {
+    "chapter_id": "THM-036",
+    "event_id": "EVT-0264",
+    "title": "Tocqueville approfondit sa réflexion démocratique",
+    "body": "Tocqueville publie la seconde partie de De la démocratie en Amérique. Son enquête dépasse les institutions des États-Unis pour analyser les effets de l’égalité des conditions sur les comportements et le pouvoir. Il s’inquiète notamment du retrait des individus dans la vie privée et d’une autorité centrale qui déciderait à leur place. La démocratie peut ainsi coexister avec une dépendance croissante des citoyens. Sa réflexion invite à examiner les conditions concrètes de la liberté, au-delà de la seule existence d’élections.",
+    "takeaway": "À retenir : Pour Tocqueville, l’égalité démocratique doit s’accompagner d’une participation qui protège la liberté.",
+    "key_concepts": [
+      "égalité des conditions",
+      "liberté",
+      "centralisation",
+      "participation"
+    ],
+    "sources": [
+      "https://catalogue.bnf.fr/ark:/12148/cb31476092k",
+      "https://www.persee.fr/doc/enphi_0035-1393_1979_num_30_2_18606"
+    ],
+    "illustration": {
+      "intention": "Un livre ouvert relie citoyens, urne et pouvoir central pour montrer la réflexion sur la liberté.",
+      "objets_stock": [
+        "ouvert",
+        "urne",
+        "citoyens"
+      ],
+      "vigilances": "Le livre approfondit une analyse antérieure ; ne pas résumer Tocqueville à un rejet de la démocratie."
+    }
+  },
+  {
+    "chapter_id": "THM-036",
+    "event_id": "EVT-0269",
+    "title": "Le roi sanctionne la Constitution espagnole",
+    "body": "Après l’approbation parlementaire et la ratification populaire, Juan Carlos sanctionne et promulgue la nouvelle Constitution espagnole. Ce geste royal accomplit une étape juridique du passage à un ordre démocratique. Le texte établit une monarchie parlementaire, affirme la souveraineté du peuple et garantit le pluralisme politique. Le roi intervient dans une procédure où la légitimité dépend des représentants et des citoyens. La sanction précède encore la publication officielle, dont le texte fait dépendre son entrée en vigueur : les étapes de la transition doivent donc être distinguées.",
+    "takeaway": "À retenir : La sanction royale accomplit une étape juridique distincte de la publication et de l’entrée en vigueur.",
+    "key_concepts": [
+      "transition démocratique",
+      "monarchie parlementaire",
+      "souveraineté populaire"
+    ],
+    "sources": [
+      "https://www.boe.es/buscar/doc.php?id=BOE-A-1978-31229"
+    ],
+    "illustration": {
+      "intention": "Plume royale, couronne et Constitution devant un Parlement.",
+      "objets_stock": [
+        "plume",
+        "couronne",
+        "parlement"
+      ],
+      "vigilances": "Sanction après Parlement et référendum, avant publication ; monarchie parlementaire."
+    }
+  },
+  {
+    "chapter_id": "THM-036",
+    "event_id": "EVT-0270",
+    "title": "La Constitution espagnole entre en vigueur",
+    "body": "La publication de la Constitution au bulletin officiel lui donne force juridique, conformément à sa disposition finale. L’Espagne dispose désormais d’un cadre qui affirme les libertés, le pluralisme et la souveraineté populaire, tout en organisant une monarchie parlementaire et l’autonomie territoriale. Cette entrée en vigueur transforme un texte approuvé et promulgué en norme fondamentale applicable. Elle offre des garanties institutionnelles à la transition, mais leur fonctionnement dépend aussi des pratiques des gouvernants, des partis et des citoyens dans la durée.",
+    "takeaway": "À retenir : La publication rend applicable le nouveau cadre constitutionnel de la démocratie espagnole.",
+    "key_concepts": [
+      "Constitution",
+      "État de droit",
+      "autonomie",
+      "pluralisme"
+    ],
+    "sources": [
+      "https://www.boe.es/buscar/doc.php?id=BOE-A-1978-31229"
+    ],
+    "illustration": {
+      "intention": "Document officiel diffusé vers assemblée et citoyens.",
+      "objets_stock": [
+        "documents",
+        "assemblee",
+        "citoyens"
+      ],
+      "vigilances": "Publication et application du texte ; éviter symboles de référendum déjà terminé."
+    }
+  },
+  {
+    "chapter_id": "THM-036",
+    "event_id": "EVT-0272",
+    "title": "Maastricht donne naissance à l’Union européenne",
+    "body": "Le traité de Maastricht entre en vigueur après sa signature et les ratifications nationales. Il institue l’Union européenne, développe la citoyenneté européenne et prépare l’union économique et monétaire. L’intégration ne concerne donc plus seulement les échanges : elle touche davantage les droits des citoyens et l’exercice du pouvoir. Les États conservent toutefois un rôle majeur et des procédures différentes selon les domaines. Ce nouvel ensemble pose une question démocratique durable : comment associer les citoyens aux décisions prises à plusieurs échelles institutionnelles ?",
+    "takeaway": "À retenir : Maastricht élargit l’intégration européenne et renforce la question de sa légitimité démocratique.",
+    "key_concepts": [
+      "Union européenne",
+      "citoyenneté européenne",
+      "intégration",
+      "ratification"
+    ],
+    "sources": [
+      "https://european-union.europa.eu/principles-countries-history/history-eu/1990-99_fr"
+    ],
+    "illustration": {
+      "intention": "Document européen relié à citoyens et réseau institutionnel.",
+      "objets_stock": [
+        "parchemin",
+        "citoyens",
+        "reseau"
+      ],
+      "vigilances": "Entrée en vigueur distincte de signature ; ne pas dessiner membres actuels comme ceux de l’époque."
+    }
+  },
+  {
+    "chapter_id": "THM-038",
+    "event_id": "EVT-0274",
+    "title": "L’acte de Berlin encadre les ambitions coloniales",
+    "body": "Les puissances réunies à Berlin adoptent un acte général concernant notamment le commerce, la navigation et les conditions des prises de possession sur les côtes africaines. Elles cherchent à organiser leurs rivalités coloniales et à fixer des règles de reconnaissance entre elles. Les populations africaines ne participent pas à cette négociation qui concerne pourtant leurs territoires. L’acte ne dessine pas toutes les frontières de l’Afrique en une seule fois. Il fournit un cadre diplomatique à l’expansion impériale, dont les conquêtes et les tracés se poursuivent ensuite.",
+    "takeaway": "À retenir : L’acte de Berlin règle les rapports entre puissances coloniales sans représenter les sociétés africaines.",
+    "key_concepts": [
+      "impérialisme",
+      "occupation",
+      "frontières",
+      "diplomatie"
+    ],
+    "sources": [
+      "https://archiv.diplo.de/arc-en/the-political-archive/general-act-2684414"
+    ],
+    "illustration": {
+      "intention": "Une table diplomatique et un globe montrent des puissances décidant sur l’Afrique.",
+      "objets_stock": [
+        "table",
+        "globe",
+        "parchemin"
+      ],
+      "vigilances": "Ne pas dessiner de partage intégral instantané ni confondre diplomates européens et représentation des peuples africains."
+    }
+  },
+  {
+    "chapter_id": "THM-038",
+    "event_id": "EVT-0279",
+    "title": "Le droit de la mer devient applicable",
+    "body": "La convention de Montego Bay entre en vigueur après un long processus de négociation et de ratification. Elle organise les espaces maritimes en attribuant des compétences différentes aux États selon les zones. La zone économique exclusive reconnaît ainsi des droits sur les ressources sans transformer l’espace concerné en territoire pleinement souverain. Le texte cherche à concilier les intérêts des États côtiers et la liberté de navigation. Il montre que les frontières maritimes reposent sur des règles négociées, même lorsque leur interprétation ou leur délimitation restent contestées.",
+    "takeaway": "À retenir : Le droit de la mer distingue souveraineté territoriale, droits sur les ressources et liberté de navigation.",
+    "key_concepts": [
+      "droit de la mer",
+      "zone économique exclusive",
+      "souveraineté",
+      "navigation"
+    ],
+    "sources": [
+      "https://treaties.un.org/Pages/showDetails.aspx?clang=_fr&objid=0800000280043ad5",
+      "https://www.senat.fr/rap/l95-021/l95-0210.html"
+    ],
+    "illustration": {
+      "intention": "Un navire, des poissons et un document juridique montrent les usages maritimes organisés.",
+      "objets_stock": [
+        "navire",
+        "poisson",
+        "parchemin"
+      ],
+      "vigilances": "Brief mutualisé entre les deux niveaux ; ZEE ne signifie pas pleine souveraineté territoriale."
+    }
+  },
+  {
+    "chapter_id": "THM-038",
+    "event_id": "EVT-0281",
+    "title": "Schengen prépare la circulation sans contrôles intérieurs",
+    "body": "Les représentants des pays signataires concluent une convention pour appliquer l’accord de Schengen. Le texte prévoit la suppression des contrôles de personnes aux frontières intérieures et organise des mesures communes concernant les frontières extérieures, les visas et la coopération policière. L’ouverture des passages s’accompagne donc d’une réorganisation du contrôle à une autre échelle. La signature ne provoque pas immédiatement la disparition des contrôles : des conditions juridiques et techniques doivent encore être réunies. Schengen transforme ainsi la fonction des frontières plutôt qu’il ne les efface.",
+    "takeaway": "À retenir : Schengen associe circulation intérieure facilitée et coopération dans le contrôle des frontières extérieures.",
+    "key_concepts": [
+      "frontières intérieures",
+      "frontières extérieures",
+      "coopération",
+      "circulation"
+    ],
+    "sources": [
+      "https://www.auswaertiges-amt.de/fr/02-entree-sejour/01-accord-schengen-1242704",
+      "https://www.cvce.eu/content/publication/2002/1/29/34df2451-3af1-48d1-bd61-132209a4e8e1/publishable_fr.pdf"
+    ],
+    "illustration": {
+      "intention": "Une porte ouverte relie voyageurs et réseau de coopération.",
+      "objets_stock": [
+        "porte-ouverte",
+        "valise",
+        "reseau"
+      ],
+      "vigilances": "Signature de convention distincte de disparition immédiate des contrôles ; frontières extérieures maintenues."
+    }
+  },
+  {
+    "chapter_id": "THM-041",
+    "event_id": "EVT-0288",
+    "title": "Apollo prend son envol vers la Lune",
+    "body": "La NASA lance depuis la Floride la mission Apollo destinée à conduire des astronautes sur la Lune. Ce départ mobilise des équipages, des ingénieurs, des centres de contrôle et une fusée conçue pour franchir les différentes étapes du voyage. Dans la compétition spatiale entre les États-Unis et l’Union soviétique, la réussite technique possède aussi une portée politique et symbolique. Le lancement constitue cependant une étape distincte de l’alunissage et du retour. La conquête spatiale exige une organisation collective et des moyens publics considérables.",
+    "takeaway": "À retenir : Le lancement d’Apollo associe prouesse technique, organisation collective et affirmation de puissance.",
+    "key_concepts": [
+      "NASA",
+      "conquête spatiale",
+      "guerre froide",
+      "puissance"
+    ],
+    "sources": [
+      "https://www.nasa.gov/history/apollo-11-mission-overview/"
+    ],
+    "illustration": {
+      "intention": "Un engin spatial en lancement devant le globe, relié à un réseau de contrôle.",
+      "objets_stock": [
+        "missile",
+        "globe",
+        "reseau"
+      ],
+      "vigilances": "Le stock missile doit être adapté en lanceur Saturn ; pas de scène d’alunissage au lancement."
+    }
+  },
+  {
+    "chapter_id": "THM-041",
+    "event_id": "EVT-0291",
+    "title": "La station spatiale accueille un équipage permanent",
+    "body": "Le premier équipage de longue durée rejoint la Station spatiale internationale et inaugure sa présence humaine continue. Des astronautes américains et russes y commencent une vie de travail fondée sur la coopération, les expériences scientifiques et l’entretien des équipements. La station réunit des contributions de plusieurs partenaires, après des décennies où la compétition avait fortement structuré l’espace. Elle montre que la recherche peut créer des interdépendances entre puissances. Cette coopération dépend toutefois d’institutions, de financements et de capacités techniques qui restent distribués de manière inégale.",
+    "takeaway": "À retenir : La présence permanente dans la station transforme la coopération spatiale en travail scientifique quotidien.",
+    "key_concepts": [
+      "coopération internationale",
+      "station spatiale",
+      "recherche",
+      "interdépendance"
+    ],
+    "sources": [
+      "https://www.nasa.gov/missions/station/iss-research/expedition-1-kicks-off-science-aboard-international-space-station/"
+    ],
+    "illustration": {
+      "intention": "Un ensemble orbital relie globe et réseau de partenaires scientifiques.",
+      "objets_stock": [
+        "globe",
+        "reseau",
+        "ordinateur"
+      ],
+      "vigilances": "Créer une silhouette fidèle de station à partir du brief ; objets stock ne suffisent pas à représenter des modules réels."
+    }
+  },
+  {
+    "chapter_id": "THM-041",
+    "event_id": "EVT-0279",
+    "title": "Montego Bay organise les usages des océans",
+    "body": "L’entrée en vigueur de la convention de Montego Bay donne un cadre commun aux usages des océans. Les États côtiers obtiennent des droits sur certaines ressources, tandis que la circulation maritime conserve des garanties internationales. Cette organisation répond à l’importance économique et stratégique croissante des espaces marins. Elle oblige à distinguer appropriation des ressources et souveraineté sur un territoire. Le droit devient ainsi un instrument de coopération et de puissance : il permet de revendiquer, de négocier et de contester des compétences dans des espaces convoités.",
+    "takeaway": "À retenir : La convention organise un compromis entre exploitation des ressources marines et libertés de circulation.",
+    "key_concepts": [
+      "océans",
+      "ressources",
+      "puissance",
+      "droit international"
+    ],
+    "sources": [
+      "https://treaties.un.org/Pages/showDetails.aspx?clang=_fr&objid=0800000280043ad5",
+      "https://www.senat.fr/rap/l95-021/l95-0210.html"
+    ],
+    "illustration": {
+      "intention": "Un navire, des poissons et un document juridique montrent les usages maritimes organisés.",
+      "objets_stock": [
+        "navire",
+        "poisson",
+        "parchemin"
+      ],
+      "vigilances": "Brief mutualisé entre les deux niveaux ; ZEE ne signifie pas pleine souveraineté territoriale."
+    }
+  },
+  {
+    "chapter_id": "THM-042",
+    "event_id": "EVT-0301",
+    "title": "La coalition arrête sa grande offensive",
+    "body": "Après avoir chassé les forces irakiennes du Koweït, la coalition dirigée par les États-Unis suspend ses principales opérations offensives. L’intervention, autorisée par le Conseil de sécurité, a mobilisé une supériorité aérienne et terrestre considérable. Le gouvernement de Saddam Hussein reste toutefois en place : la fin de la campagne ne règle pas toutes les causes ni les conséquences du conflit. Cette étape distingue victoire militaire, arrêt des combats et construction de la paix. Elle révèle à la fois la capacité d’action collective et ses limites politiques.",
+    "takeaway": "À retenir : La libération du Koweït termine la campagne principale sans résoudre durablement les tensions régionales.",
+    "key_concepts": [
+      "coalition",
+      "Conseil de sécurité",
+      "victoire militaire",
+      "paix"
+    ],
+    "sources": [
+      "https://history.state.gov/milestones/1989-1992/gulf-war"
+    ],
+    "illustration": {
+      "intention": "Document de coalition et arrêt d’une offensive figurée par avion et char.",
+      "objets_stock": [
+        "documents",
+        "avion",
+        "char"
+      ],
+      "vigilances": "Équipements contemporains contextualisés ; arrêt de campagne principale distinct de paix durable."
+    }
+  },
+  {
+    "chapter_id": "THM-045",
+    "event_id": "EVT-0319",
+    "title": "Le protocole de Kyoto entre en vigueur",
+    "body": "Le protocole de Kyoto devient applicable après que les conditions de ratification ont été réunies. Il impose des engagements de réduction des émissions à des pays industrialisés, en tenant compte de leur responsabilité particulière dans l’accumulation des gaz à effet de serre. La réponse climatique repose ainsi sur une coopération internationale où les obligations ne sont pas identiques pour tous. L’entrée en vigueur donne une portée juridique aux engagements, mais leur efficacité dépend de la participation des États et des politiques effectivement mises en œuvre.",
+    "takeaway": "À retenir : Kyoto transforme des engagements climatiques négociés en obligations pour les pays concernés.",
+    "key_concepts": [
+      "climat",
+      "gaz à effet de serre",
+      "ratification",
+      "responsabilités différenciées"
+    ],
+    "sources": [
+      "https://unfccc.int/process-and-meetings/the-kyoto-protocol"
+    ],
+    "illustration": {
+      "intention": "Document d’engagement associé à usine et thermomètre.",
+      "objets_stock": [
+        "parchemin",
+        "usine",
+        "thermometre"
+      ],
+      "vigilances": "Kyoto impose des engagements aux pays concernés, pas des obligations identiques à tous."
+    }
+  },
+  {
+    "chapter_id": "THM-045",
+    "event_id": "EVT-0321",
+    "title": "L’accord de Paris devient applicable",
+    "body": "L’accord de Paris entre en vigueur après le franchissement des seuils de ratification prévus. Il vise à limiter le réchauffement et associe les pays participants à une réponse collective fondée sur leurs contributions nationales. Les États doivent annoncer leurs efforts puis les renforcer progressivement dans un cadre commun de suivi. La coopération repose donc sur un équilibre entre objectif mondial et décisions nationales. L’application juridique de l’accord constitue une étape décisive, mais elle ne garantit pas à elle seule que les émissions suivront une trajectoire compatible avec l’objectif climatique.",
+    "takeaway": "À retenir : L’accord de Paris organise des efforts nationaux appelés à progresser vers un objectif climatique commun.",
+    "key_concepts": [
+      "accord climatique",
+      "contributions nationales",
+      "coopération",
+      "réchauffement"
+    ],
+    "sources": [
+      "https://unfccc.int/process-and-meetings/the-paris-agreement"
+    ],
+    "illustration": {
+      "intention": "Document climatique au centre d’un réseau d’États et d’un thermomètre.",
+      "objets_stock": [
+        "parchemin",
+        "reseau",
+        "thermometre"
+      ],
+      "vigilances": "Contributions nationales progressives ; aucune baisse automatique des émissions représentée."
+    }
+  },
+  {
+    "chapter_id": "THM-046",
+    "event_id": "EVT-0323",
+    "title": "Becquerel mesure les radiations de l’uranium",
+    "body": "Becquerel présente à l’Académie des sciences une nouvelle note sur les radiations invisibles des sels d’uranium. Il prolonge ses observations antérieures en utilisant un électroscope, dont les feuilles se rapprochent lorsque la charge électrique se dissipe. Cette méthode complète les traces obtenues sur des plaques photographiques et permet de comparer l’intensité des radiations après leur passage à travers différents matériaux. La communication montre comment un savoir se construit par essais successifs et instruments complémentaires. Elle appartient à une série de recherches, au-delà du premier constat du phénomène.",
+    "takeaway": "À retenir : Cette note approfondit une découverte antérieure par des mesures électriques et des comparaisons expérimentales.",
+    "key_concepts": [
+      "Académie des sciences",
+      "électroscope",
+      "expérimentation",
+      "radiations"
+    ],
+    "sources": [
+      "https://cedricvanrompay.fr/archives-num%C3%A9ris%C3%A9es/acad%C3%A9mie-des-sciences/becquerel-1896-03-23-radiation-invisibles-%C3%A9mises-sels-uranium/",
+      "https://www.academie-sciences.fr/pdf/dossiers/Becquerel/Becquerel_od1.htm",
+      "https://www.academie-sciences.fr/pdf/dossiers/Becquerel/Becquerel_pdf/CR1896_p689.pdf"
+    ],
+    "illustration": {
+      "intention": "Un minerai et des instruments expérimentaux associent électroscope à plaques photographiques.",
+      "objets_stock": [
+        "minerai",
+        "plaque-photo",
+        "documents"
+      ],
+      "vigilances": "Électroscope à dessiner avec référence historique ; pas de champignon nucléaire ni fusion avec première découverte."
+    }
+  }
+]

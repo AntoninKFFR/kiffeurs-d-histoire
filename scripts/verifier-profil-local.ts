@@ -13,6 +13,7 @@ import {
 } from "../tests/fixtures/profil";
 import { chargerCartes } from "./import-cartes";
 import { cartePublique } from "../src/lib/pedagogie";
+import { CHAPITRES_ACTIFS } from "../src/lib/apprendre/catalogue";
 const require = createRequire(import.meta.url);
 const user = {
   id: "00000000-0000-4000-8000-00000000000a",
@@ -60,7 +61,7 @@ const api = createServer((req, res) => {
     return res.end(JSON.stringify(value));
   }
   // Progression pédagogique (#23) : lecture REST de la table privée, avec les lignes du seul joueur simulé.
-  if (url.pathname === "/rest/v1/learning_progress") {
+  if (["/rest/v1/learning_progress","/rest/v1/learning_progress_editions"].includes(url.pathname)) {
     if (state === "error") {
       res.statusCode = 503;
       return res.end('{"message":"SQL privé de B"}');
@@ -68,7 +69,7 @@ const api = createServer((req, res) => {
     return res.end(
       JSON.stringify(
         state === "full"
-          ? [{ chapter_id: "THM-027", discovered_at: "2026-10-08T10:00:00Z", best_accuracy: 80, best_difficulty: "YEAR", tests_count: 1 }]
+          ? [{ chapter_id: "THM-027", ...(url.pathname.endsWith('_editions')?{version:'completion-v1'}:{}), discovered_at: "2026-10-08T10:00:00Z", best_accuracy: 80, best_difficulty: "YEAR", tests_count: 1 }]
           : [],
       ),
     );
@@ -191,7 +192,7 @@ async function main() {
     await page
       .getByRole("heading", { name: "Ton carnet de résultats" })
       .waitFor();
-    await page.getByText(/1 chapitre découvert sur 41/).waitFor();
+    await page.getByText(`1 chapitre découvert sur ${CHAPITRES_ACTIFS.length}`,{exact:false}).waitFor();
     state = "empty";
     await page.reload();
     await page.getByText("Une première partie, puis des repères.").waitFor();

@@ -4,16 +4,15 @@
 // 2. Importe le dataset v18 et les cartes pédagogiques.
 // 3. Crée le compte de test du parcours « connexion puis statistiques ».
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { createClient } from "@supabase/supabase-js";
 import { chargerCartes, estUrlLocale, importerCartesLocales } from "../scripts/import-cartes";
 import { COMPTE_TEST, CONTENEUR_DB, statutLocal } from "./local";
+import { chargerCorpus92, sqlPublication92, sqlRollback92, AUTORISATION_92, PROJET_92, SHA_APPROUVE_92, type Autorisation92 } from "../scripts/release-pedagogique-92";
+import { executerSqlDockerLocal } from '../scripts/verifier-docker-fixture';
 
 function psql(sql: string) {
-  return execFileSync("docker", ["exec", "-i", CONTENEUR_DB, "psql", "-U", "postgres", "-v", "ON_ERROR_STOP=1", "-qtA", "-f", "-"], {
-    input: sql,
-    encoding: "utf8",
-  }).trim();
+  return executerSqlDockerLocal(CONTENEUR_DB,'postgres',sql);
 }
 
 async function main() {
@@ -36,6 +35,17 @@ async function main() {
   // La garde locale ci-dessus s’applique aussi à cette migration de données idempotente.
   psql(readFileSync("supabase/migrations/20261011111510_pack_sport.sql", "utf8"));
   await importerCartesLocales(chargerCartes(), statut.API_URL, statut.SERVICE_ROLE_KEY);
+  if(existsSync('content/pedagogie/etats-publies-92.json')){
+    // Le site compilé contient le catalogue publié : sa fixture locale doit correspondre.
+    // La cible psql est le conteneur local constant, après la garde URL ; aucun transport distant.
+    const corpus=chargerCorpus92(),autorisation:Autorisation92={projectId:PROJET_92,endpoint:`https://${PROJET_92}.supabase.co`,autorisation:AUTORISATION_92,
+      preuve:{sha:SHA_APPROUVE_92,source:'objet de test isolé',confirmation:'fixture E2E locale exclusivement',cartes_validees:292,svg_nouveaux_valides:203,han_reste_bloque:true},
+      sauvegarde:{projectId:PROJET_92,fichier:'test-local-e2e',sha256:'a'.repeat(64),verifiee:true}};
+    psql(sqlPublication92(corpus,autorisation));
+    const etats=JSON.parse(readFileSync('content/pedagogie/etats-publies-92.json','utf8')) as {current_version?:string|null}[];
+    if(!etats.some(e=>e.current_version==='completion-v1'))psql(sqlRollback92(corpus,autorisation));
+    console.log('Corpus publié #92 préparé exclusivement dans la pile E2E locale.');
+  }
 
   // Compte de test : e-mail confirmé et pseudo KFFR déjà choisi, comme un joueur de Contrée.
   const admin = createClient(statut.API_URL, statut.SERVICE_ROLE_KEY, { auth: { persistSession: false } });
@@ -49,7 +59,7 @@ async function main() {
   }
   psql(`insert into public.profiles (id, username) values ('${id}', '${COMPTE_TEST.pseudo}') on conflict (id) do update set username = excluded.username;`);
   // Chaque lancement repart d'un historique vide pour ce compte.
-  psql(`delete from histoire.games where user_id = '${id}'; delete from histoire.learning_progress where user_id = '${id}';`);
+  psql(`delete from histoire.games where user_id = '${id}'; delete from histoire.learning_progress where user_id = '${id}'; delete from histoire.learning_progress_editions where user_id = '${id}';`);
   console.log(`Compte de test prêt : ${COMPTE_TEST.email} (LOCAL).`);
 }
 

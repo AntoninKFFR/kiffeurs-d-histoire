@@ -1,0 +1,832 @@
+[
+  {
+    "url": "https://www.metmuseum.org/de/essays/augustan-rule-27-b-c-14-a-d",
+    "titre": "Le règne d’Auguste — Metropolitan Museum",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Période du pouvoir d'Auguste ; transformations urbaines et usage politique des arts. Le fonctionnement du Principat est vérifié dans la source Louvre complémentaire.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0032"
+    ]
+  },
+  {
+    "url": "https://www.museivaticani.va/content/museivaticani/fr/collezioni/musei/cappella-sistina/storia-cappella-sistina.html",
+    "titre": "Chapelle Sixtine — Musées du Vatican",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Commande de Jules au peintre ; travaux achevés en octobre et messe d’inauguration de la Toussaint, premier novembre 1512 ; scènes de la Genèse, prophètes et sibylles.",
+    "reserves": "Le jour de signature du contrat n’est pas donné dans cette page.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0146",
+      "EVT-0148"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Plafond_de_la_chapelle_Sixtine",
+    "titre": "Plafond de la chapelle Sixtine",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Section programme iconographique : contrat signé le 8 mai 1508 ; commande initiale modifiée.",
+    "reserves": "Appui secondaire pour le jour du contrat ; source primaire du contrat à retrouver. La page distingue mal l’inauguration : son introduction mentionne le 31 octobre ; la messe du premier novembre est retenue avec la source Vatican.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0146"
+    ]
+  },
+  {
+    "url": "https://catalogue.bnf.fr/ark:/12148/cb33821225q",
+    "titre": "Déclarations du Roy — BnF",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Notice de l’acte royal daté du 27 août 1664 en faveur des officiers intéressés aux compagnies ; distingue déclaration d’établissement et déclaration de faveur.",
+    "reserves": "Notice bibliographique lue, exemplaire original non consulté ; ne pas affirmer deux fondations simultanées.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0153"
+    ]
+  },
+  {
+    "url": "https://voltaire.ox.ac.uk/publication/lettres-sur-les-anglais-ii/",
+    "titre": "Lettres sur les Anglais — Voltaire Foundation, Oxford",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Séjour anglais 1726–1728 ; thèmes religieux, politiques, scientifiques et littéraires ; remaniements et diffusion du texte.",
+    "reserves": "Notice scientifique de l’édition, pas lecture intégrale des Lettres.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0158",
+      "EVT-0159"
+    ]
+  },
+  {
+    "url": "https://catalogue.bnf.fr/ark:/12148/cb316049240",
+    "titre": "Lettres philosophiques — BnF",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Notice de l’édition française de 1734 ; note explicite sur l’édition originale anglaise dès 1733 ; table thématique.",
+    "reserves": "Notice française soutenant la publication anglaise par une note explicite, pas exemplaire anglais lu.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0159"
+    ]
+  },
+  {
+    "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/act-of-union-1707/overview/union-of-the-crowns/",
+    "titre": "Union of the Crowns — UK Parliament",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Union personnelle des couronnes en 1603 ; parlements et systèmes juridiques restent distincts.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0423"
+    ]
+  },
+  {
+    "url": "https://www.royal.uk/james-vi-and-i-r-1567-1625",
+    "titre": "James VI and I — Royal Family",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mort d’Élisabeth et succession de Jacques le 24 mars 1603 ; institutions écossaises conservées.",
+    "reserves": "Noms de règne évités en prose pédagogique, sans modifier l’identité de l’acteur.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0423"
+    ]
+  },
+  {
+    "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/revolution/overview/billofrights/",
+    "titre": "The Convention and Bill of Rights — UK Parliament",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Convention, droits parlementaires, monarchie de Guillaume et Marie et limites du pouvoir royal après la fuite de Jacques.",
+    "reserves": "La qualification glorieuse ne vaut pas absence de violence dans tous les royaumes.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0429"
+    ]
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/540/",
+    "titre": "Historic Centre of Saint Petersburg — UNESCO",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Création voulue par Pierre le Grand, ville planifiée, architecture et ouverture européenne.",
+    "reserves": "Page patrimoniale : ne vérifie pas le jour calendaire.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0430"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Saint-P%C3%A9tersbourg",
+    "titre": "Saint-Pétersbourg",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Fondation de la forteresse Pierre-et-Paul sous Pierre le Grand ; date fondatrice grégorienne correspondant au calendrier julien.",
+    "reserves": "Le jour est un repère fondateur, pas l’achèvement de la ville.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0430"
+    ]
+  },
+  {
+    "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/proces-et-execution-de-louis-xvi",
+    "titre": "Procès et exécution du roi — Assemblée nationale",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Décision de juger le 3 décembre ; rapport d’accusation le 10 décembre ; votes de culpabilité, appel au peuple, peine et sursis en janvier.",
+    "reserves": "Distinguer votes, condamnation et exécution.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0176",
+      "EVT-0177",
+      "EVT-0178"
+    ]
+  },
+  {
+    "url": "https://essentiels.bnf.fr/fr/article/dfafcf75-8903-420b-8344-4f97df270803-madame-roland-girondine-et-memorialiste",
+    "titre": "Madame Roland — BnF Essentiels",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Extrait indexé et résultats de recherche lus : arrestation le 31 mai 1793, salon et rôle girondin, mémoires rédigés en prison.",
+    "reserves": "Open a échoué ; statut inaccessible pour la page intégrale. L’extrait indexé est un support partiel à relire.",
+    "statut": "inaccessible",
+    "event_ids": [
+      "EVT-0171"
+    ]
+  },
+  {
+    "url": "https://www.bundeskanzleramt.gv.at/bundeskanzleramt/besuchen-sie-uns/gang-der-geschichte/1815.html",
+    "titre": "Wiener Kongress — Chancellerie autrichienne",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Acte final du 9 juin 1815 ; équilibre des puissances et légitimité monarchique ; rejet de la souveraineté populaire.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0182",
+      "EVT-0448"
+    ]
+  },
+  {
+    "url": "https://histoire-image.org/etudes/abolition-royaute-21-septembre-1792",
+    "titre": "L’abolition de la Royauté — Histoire par l’image",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Décret de la Convention du 21 septembre 1792 ; nouveau régime et rupture institutionnelle.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0176",
+      "EVT-0440",
+      "EVT-0441"
+    ]
+  },
+  {
+    "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/la-terreur",
+    "titre": "La Terreur — Assemblée nationale",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Robespierre mis en minorité et arrêté le 27 juillet, exécuté le lendemain ; nouvelle Convention thermidorienne.",
+    "reserves": "Récit institutionnel ancien simplificateur : ne pas reprendre l’attribution de tous les excès à un acteur unique.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0443",
+      "EVT-0444"
+    ]
+  },
+  {
+    "url": "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/marie-antoinette",
+    "titre": "Marie-Antoinette — Château de Versailles",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Pamphlets, discrédit politique, emprisonnement, Tribunal révolutionnaire et exécution le 16 octobre 1793.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0443"
+    ]
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/battle-waterloo",
+    "titre": "Battle of Waterloo — National Army Museum",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bataille du 18 juin 1815 ; Wellington, Blücher, Napoléon ; coalition et fin de son pouvoir impérial.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0448"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Directoire",
+    "titre": "Directoire",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Installation des directeurs au début de novembre ; pouvoir exécutif collégial, conseils législatifs et suffrage censitaire.",
+    "reserves": "Ne pas confondre adoption constitutionnelle, fin de la Convention et installation exécutive.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0445"
+    ]
+  },
+  {
+    "url": "https://www.belgium.be/fr/la_belgique/connaitre_le_pays/histoire/la_belgique_a_partir_de_1830/origine_et_essor/revolution_belge",
+    "titre": "L’insurrection — Belgium.be",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Agitation après la révolution parisienne, désordres à Bruxelles le 25 août après La Muette de Portici ; développement de l’insurrection.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0451"
+    ]
+  },
+  {
+    "url": "https://www.belgium.be/fr/la_belgique/connaitre_le_pays/histoire/la_belgique_a_partir_de_1830/origine_et_essor/gouvernement_provisoire_et_congres_national",
+    "titre": "Gouvernement provisoire et congrès national — Belgium.be",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Indépendance proclamée le 4 octobre ; processus constituant et élections censitaires.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0452"
+    ]
+  },
+  {
+    "url": "https://www.mfa.gr/missionsabroad/en/about-greece/government-and-politics/greek-independence-day.html",
+    "titre": "Greek Independence Day — Ministère grec des Affaires étrangères",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Le 25 mars comme fête nationale marquant la lutte d’indépendance contre l’Empire ottoman.",
+    "reserves": "Commémoration officielle ; ne suffit pas à établir un départ unique et simultané de tous les soulèvements.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0449"
+    ]
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Treaty_of_Constantinople_(1832)",
+    "titre": "Treaty of Constantinople",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Traité de Constantinople conclu le 21 juillet 1832 ; frontières du royaume et rôle des puissances ; protocole ultérieur de Londres.",
+    "reserves": "Appui secondaire pour le jour exact ; distinguer reconnaissance antérieure de l’indépendance et règlement du royaume.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0449",
+      "EVT-0450"
+    ]
+  },
+  {
+    "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-republique/la-constitution-republicaine",
+    "titre": "La Constitution républicaine — Assemblée nationale",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Constitution du 4 novembre 1848 ; séparation pouvoirs exécutif et législatif, président élu au suffrage universel masculin.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0189",
+      "EVT-0190",
+      "EVT-0191"
+    ]
+  },
+  {
+    "url": "https://www.elysee.fr/louis-napoleon-bonaparte",
+    "titre": "Louis-Napoléon Bonaparte — Élysée",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Élection du 10 décembre ; serment et installation du 20 décembre ; Sedan le 2 septembre ; Nice et Savoie après plébiscites.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0190",
+      "EVT-0191",
+      "EVT-0198",
+      "EVT-0473"
+    ]
+  },
+  {
+    "url": "https://www.paris.fr/pages/haussmann-l-homme-qui-a-transforme-paris-23091",
+    "titre": "Haussmann — Ville de Paris",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Nomination préfet de la Seine le 22 juin 1853 ; transformations de voirie, assainissement et habitat.",
+    "reserves": "Ne pas substituer une prise de fonctions à l’acte de nomination.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0193"
+    ]
+  },
+  {
+    "url": "https://www.persee.fr/doc/rhmc_0048-8003_1956_num_3_3_3093",
+    "titre": "Vieille banque et banque nouvelle — David Landes",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Première page intégrale extraite : frères Pereire fondateurs du Crédit mobilier ; saint-simonisme, crédit et chemins de fer.",
+    "reserves": "Lecture de la première page, pas de tout l’article.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0194",
+      "EVT-0195"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Cr%C3%A9dit_mobilier",
+    "titre": "Crédit mobilier",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Création en 1852 des frères Pereire, financement des entreprises et investissements industriels.",
+    "reserves": "Secondaire pour la date de création ; compléter par archives de fondation avant publication.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0194",
+      "EVT-0195"
+    ]
+  },
+  {
+    "url": "https://www.dhm.de/lemo/rueckblick/lemo-rueckblick-1871-reichsgruendung-im-krieg",
+    "titre": "Reichsgründung im Krieg — Deutsches Historisches Museum",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Existence constitutionnelle dès le premier janvier 1871 ; négociations fédérales et cérémonie du 18 janvier juridiquement distincte.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0199",
+      "EVT-0473"
+    ]
+  },
+  {
+    "url": "https://www.paris.fr/pages/les-150-ans-de-la-commune-l-origine-1-5-16961",
+    "titre": "Les origines de la Commune — Ville de Paris",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Élections du 26 mars, proclamation du 28 mars ; siège, fractures politiques et sociales ; semaine sanglante jusqu’au 28 mai.",
+    "reserves": "Ne pas reprendre un chiffre de morts comme estimation consensuelle.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0202",
+      "EVT-0203",
+      "EVT-0205"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Exposition_universelle_de_1900",
+    "titre": "Exposition universelle de Paris",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Inauguration par Loubet le 14 avril ; ouverture publique le lendemain ; bâtiments et nouveautés techniques.",
+    "reserves": "Appui secondaire pour le jour ; institution patrimoniale à compléter.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0227"
+    ]
+  },
+  {
+    "url": "https://www.toureiffel.paris/fr/actualites/130-ans/1889-2019-130-ans-demerveillement",
+    "titre": "L’année de l’inauguration — Tour Eiffel",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Inauguration le 31 mars 1889, démonstration technique en avant-première de l’Exposition.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0477"
+    ]
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/gallipoli",
+    "titre": "Gallipoli campaign — National Army Museum",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Débarquements du 25 avril 1915 ; objectifs sur les détroits, résistance ottomane et échec de la campagne.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0209"
+    ]
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/1918-victory",
+    "titre": "Year of victory — National Army Museum",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Déclenchement Michael le 21 mars 1918 ; attaque des armées britanniques, bombardements et offensives allemandes.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0211"
+    ]
+  },
+  {
+    "url": "https://www.fdrlibrary.org/fdr-presidency",
+    "titre": "Franklin Roosevelt’s Presidency — FDR Library",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Première investiture le 4 mars 1933 ; cadre de la présidence.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0241"
+    ]
+  },
+  {
+    "url": "https://www.fdrlibrary.org/great-depression-facts",
+    "titre": "Great Depression Facts — FDR Library",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Dépression, faillites bancaires, chômage et New Deal après l’investiture.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0241",
+      "EVT-0495"
+    ]
+  },
+  {
+    "url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929",
+    "titre": "Stock Market Crash — Federal Reserve History",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Mardi noir le 29 octobre 1929 ; spéculation et achats à crédit ; baisse et leçons monétaires.",
+    "reserves": "Ne pas réduire la Dépression à une cause boursière unique.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0495"
+    ]
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/the-nazi-party-1?series=29",
+    "titre": "The Nazi Party — USHMM",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Incendie le 27 février 1933 ; exploitation de l’événement par les nazis et suppression des libertés.",
+    "reserves": "Responsabilité précise de l’incendie historiquement débattue ; aucune attribution certaine dans la carte.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0498"
+    ]
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/timeline-event/holocaust/1933-1938/roehm-affair",
+    "titre": "Röhm Affair — USHMM",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Purge du 30 juin au 2 juillet ; assassinat de dirigeants SA et d’adversaires, légitimation rétroactive.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0500"
+    ]
+  },
+  {
+    "url": "https://www.museoreinasofia.es/colecciones/obra/guernica/",
+    "titre": "Guernica — Museo Reina Sofía",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Notice muséale : commande républicaine et œuvre de Picasso ; terreur de guerre, Légion Condor et mise en mémoire. Le jour précis est vérifié dans Rethinking Guernica.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0503"
+    ]
+  },
+  {
+    "url": "https://european-union.europa.eu/principles-countries-history/history-eu/1990-99_fr",
+    "titre": "Histoire de l’Union européenne — années de Maastricht",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Entrée en vigueur du premier novembre 1993 ; création Union, union monétaire et coopération politique.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0272"
+    ]
+  },
+  {
+    "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1978-31229",
+    "titre": "Constitución Española — texte original du BOE",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Sanction datée du 27 décembre 1978 ; publication et entrée en vigueur le 29 ; souveraineté du peuple, monarchie parlementaire, pluralisme et autonomie.",
+    "reserves": "Utiliser TEXTO ORIGINAL ; ne pas attribuer les révisions ultérieures à la rédaction initiale.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0269",
+      "EVT-0270"
+    ]
+  },
+  {
+    "url": "https://archiv.diplo.de/arc-en/the-political-archive/general-act-2684414",
+    "titre": "General Act of Berlin — Archives diplomatiques allemandes",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Acte du 26 février 1885 ; liberté navigation et commerce Congo/Niger, occupation effective et expansion coloniale.",
+    "reserves": "La conférence ne trace pas à elle seule toutes les frontières africaines.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0274"
+    ]
+  },
+  {
+    "url": "https://treaties.un.org/Pages/showDetails.aspx?clang=_fr&objid=0800000280043ad5",
+    "titre": "Convention des Nations Unies sur le droit de la mer — UNTC",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature de la Convention en 1982 ; entrée en vigueur 16 novembre 1994 après ratifications.",
+    "reserves": "Registre d’entrée en vigueur ; contenu juridique complété par le rapport du Sénat effectivement lu.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0279"
+    ]
+  },
+  {
+    "url": "https://www.nasa.gov/history/apollo-11-mission-overview/",
+    "titre": "Apollo Mission Overview — NASA",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Lancement le 16 juillet 1969 ; astronautes Armstrong, Collins, Aldrin, objectifs et fusée Saturn.",
+    "reserves": "Lancement distingué de l’alunissage.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0288"
+    ]
+  },
+  {
+    "url": "https://www.nasa.gov/missions/station/iss-research/expedition-1-kicks-off-science-aboard-international-space-station/",
+    "titre": "Expedition One and science — NASA",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Arrivée du premier équipage le 2 novembre 2000 ; Shepherd, Gidzenko, Krikalev ; laboratoire multinational.",
+    "reserves": "Occupation continue distinguée du premier lancement d’un module.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0291"
+    ]
+  },
+  {
+    "url": "https://history.state.gov/milestones/1989-1992/gulf-war",
+    "titre": "The Gulf War — Office of the Historian",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Retrait irakien du Koweït et fin campagne principale le 28 février 1991 ; mandat de l’ONU et coalition.",
+    "reserves": "Borne conventionnelle des opérations principales, pas règlement complet du conflit.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0301"
+    ]
+  },
+  {
+    "url": "https://unfccc.int/process-and-meetings/the-kyoto-protocol",
+    "titre": "The Kyoto Protocol — UNFCCC",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Entrée en vigueur 16 février 2005 ; objectifs contraignants des pays industrialisés, responsabilités différenciées.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0319"
+    ]
+  },
+  {
+    "url": "https://unfccc.int/process-and-meetings/the-paris-agreement",
+    "titre": "The Paris Agreement — UNFCCC",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Entrée en vigueur 4 novembre 2016 ; contributions nationales, progression et objectif collectif climatique.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0321"
+    ]
+  },
+  {
+    "url": "https://catalogue.bnf.fr/ark:/12148/cb31476092k",
+    "titre": "Œuvres complètes de Tocqueville — BnF",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Note explicite : deux premières parties publiées en 1835, deux autres pour la première fois en 1840.",
+    "reserves": "Notice éditoriale rétrospective.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0264"
+    ]
+  },
+  {
+    "url": "https://www.persee.fr/doc/enphi_0035-1393_1979_num_30_2_18606",
+    "titre": "Deux textes de Tocqueville — L’Enseignement philosophique",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Page de texte original : tension entre souveraineté populaire, centralisation, tutelle et liberté individuelle.",
+    "reserves": "Première page lue ; ne pas prétendre lire tout le commentaire.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0264"
+    ]
+  },
+  {
+    "url": "https://fr.wikisource.org/wiki/Lettres_de_Madame_Roland_de_1780_%C3%A0_1793/Lettres/1793",
+    "titre": "Lettres de Madame Roland, édition de l’Imprimerie nationale",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Avertissement : arrestation durant la nuit du 31 mai au premier juin, écrou le premier juin ; rôle politique et correspondance.",
+    "reserves": "L’édition documentaire distingue mandat, arrestation nocturne et écrou ; canon 31 mai préservé, vérification humaine du libellé requise.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0171"
+    ]
+  },
+  {
+    "url": "https://presidence-16-braun-pivet.assemblee-nationale.fr/activites/discours/32452",
+    "titre": "Anniversaire de Valmy — Assemblée nationale",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bataille du 20 septembre 1792, invasion prussienne, armée révolutionnaire ; contexte politique et symbole républicain.",
+    "reserves": "Discours commémoratif, à croiser pour le récit militaire.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0441"
+    ]
+  },
+  {
+    "url": "https://www.worldhistory.org/trans/fr/1-21337/directoire/",
+    "titre": "Directoire — World History Encyclopedia",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Installation du Directoire le 2 novembre 1795 ; pluralité de l’exécutif, conseils et suffrage censitaire.",
+    "reserves": "Source de synthèse éducative ; première séance également attestée par extrait indexé des Archives nationales, PDF inaccessible.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0445"
+    ]
+  },
+  {
+    "url": "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/hl6dcmjtnzgp",
+    "titre": "Guerre de 1870 — Archives diplomatiques",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Traité définitif de Francfort du 10 mai 1871 ; cessions territoriales, indemnité, occupation et options de nationalité.",
+    "reserves": "Instrument de recherche lu, acte diplomatique original non lu.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0474",
+      "EVT-0205"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Armistice_du_22_juin_1940",
+    "titre": "Armistice franco-allemand",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature le 22 juin et application du cessez-le-feu le 25 après l’accord franco-italien ; occupation, prisonniers et conditions militaires.",
+    "reserves": "Source secondaire recoupée par chronologie institutionnelle indexée ; sources publiques institutionnelles intégrales à relire.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0103",
+      "EVT-0246",
+      "EVT-0105",
+      "EVT-0248"
+    ]
+  },
+  {
+    "url": "https://www.carnavalet.paris.fr/le-nouveau-parcours",
+    "titre": "Parcours du Musée Carnavalet",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Révolution de février 1848, chute de la monarchie, République ; occupation et effondrement de la République ; cadres chronologiques de l’histoire parisienne.",
+    "reserves": "Page consultée uniquement pour le contexte parisien de février 1848.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0185"
+    ]
+  },
+  {
+    "url": "https://www.charles-de-gaulle.org/lhomme/dossiers-thematiques/debuts-de-france-libre/",
+    "titre": "Les débuts de la France Libre — Fondation Charles de Gaulle",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Reconnaissance britannique du 28 juin 1940 ; aide et accords ultérieurs ; noyau de volontaires français.",
+    "reserves": "Reconnaissance du chef des Français libres, pas immédiatement d’un gouvernement représentant tous les Français.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0249"
+    ]
+  },
+  {
+    "url": "https://fr.wikipedia.org/wiki/Bataille_de_Di%C3%AAn_Bi%C3%AAn_Phu",
+    "titre": "Bataille de Diên Biên Phu",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Chute du camp le 7 mai 1954 ; siège par le Viêt Minh, artillerie et ravitaillement aérien ; contexte de négociations de Genève.",
+    "reserves": "Source secondaire : Chemins de mémoire et SHD consultés seulement par extraits indexés car pages intégrales inaccessibles.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0252"
+    ]
+  },
+  {
+    "url": "https://www.lemonde.fr/archives/article/1991/06/29/le-percement-du-tunnel-sous-la-manche-est-acheve_4007187_1819218.html",
+    "titre": "Le percement du tunnel sous la Manche est achevé — Le Monde",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Article daté du 29 juin 1991 : jonction du dernier tube le vendredi 28 juin ; équipements et essais restent à réaliser.",
+    "reserves": "Le projet de mise en service indiqué dans cet article est prévisionnel : ne pas le reprendre comme date effective.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0258"
+    ]
+  },
+  {
+    "url": "https://cedricvanrompay.fr/archives-num%C3%A9ris%C3%A9es/acad%C3%A9mie-des-sciences/becquerel-1896-03-23-radiation-invisibles-%C3%A9mises-sels-uranium/",
+    "titre": "Note de Becquerel du 23 mars — transcription du texte original",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Séance du 23 mars 1896 : mesure de la décharge des corps électrisés par électroscope, traversée des métaux et absorption différente.",
+    "reserves": "Transcription indépendante lue ; collation au fac-similé original à achever, téléchargement Académie et Gallica refusés.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0323"
+    ]
+  },
+  {
+    "url": "https://www.academie-sciences.fr/pdf/dossiers/Becquerel/Becquerel_od1.htm",
+    "titre": "Henri Becquerel — Académie des sciences",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Série de communications sur la radioactivité de l’uranium, renvoi à la note page 689 ; distinction des recherches successives.",
+    "reserves": "Notice lue, PDF page 689 ouvert mais ne fournit que couverture bibliographique dans l’extraction web.",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0323"
+    ]
+  },
+  {
+    "url": "https://guernica.museoreinasofia.es/en",
+    "titre": "Rethinking Guernica — Museo Reina Sofía",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Bombardement le 26 avril 1937 par forces allemandes et italiennes soutenant les nationalistes ; tableau de Picasso et commande républicaine.",
+    "reserves": "",
+    "statut": "consultee",
+    "event_ids": [
+      "EVT-0503"
+    ]
+  },
+  {
+    "event_ids": [
+      "EVT-0032"
+    ],
+    "url": "https://www.louvre.fr/decouvrir/vie-du-musee/l-empereur-romain-un-mortel-parmi-les-dieux",
+    "titre": "Louvre — L'empereur romain, un mortel parmi les dieux",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Principat respectant en apparence les institutions républicaines ; concentration des magistratures ; légitimation par les arts.",
+    "reserves": "",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0496"
+    ],
+    "url": "https://gandhiheritageportal.org/ta/dandi-march-details",
+    "titre": "Gandhi Heritage Portal — Dandi March Details",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Tableau consulté : départ de Sabarmati le 12 mars 1930 ; arrivée à Dandi le 5 avril ; violation de la loi du sel le 6 avril.",
+    "reserves": "Page lue lors du premier accès ; un accès ultérieur a expiré. Distinguer fin du déplacement et geste de désobéissance.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0496"
+    ],
+    "url": "https://www.mkgandhi.in/apinchofsalt/Chap01.htm",
+    "titre": "A Pinch of Salt — chapitre introductif",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Monopole colonial du sel, méthode non violente, mobilisation par le parcours et les communications.",
+    "reserves": "Récit pédagogique institutionnel ; recoupement chronologique par Gandhi Heritage Portal.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0103",
+      "EVT-0246",
+      "EVT-0249"
+    ],
+    "url": "https://fr.wikipedia.org/wiki/Chronologie_de_la_France_pendant_la_Seconde_Guerre_mondiale",
+    "titre": "Chronologie de la France pendant la Seconde Guerre mondiale",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "16 juin : Pétain succède à Reynaud ; 17 juin : demande d'armistice annoncée ; 22 juin : signature ; 28 juin : reconnaissance de de Gaulle.",
+    "reserves": "Chronologie secondaire ; les pages institutionnelles ciblées n'ont pas toutes été accessibles.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0105"
+    ],
+    "url": "https://www.agglo-compiegne.fr/exposition-frontstalag-170-kn-654",
+    "titre": "Agglomération de Compiègne — Exposition Frontstalag 170 KN 654",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature de l'armistice franco-allemand le 22 juin à Rethondes ; captivité et occupation.",
+    "reserves": "Page effectivement lue au premier accès ; accès ultérieur en erreur.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0279"
+    ],
+    "url": "https://www.senat.fr/rap/l95-021/l95-0210.html",
+    "titre": "Sénat — Rapport de ratification de la convention sur le droit de la mer",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Compromis entre ressources des États côtiers et liberté de navigation ; ZEE distincte de souveraineté territoriale ; codification des espaces marins.",
+    "reserves": "",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0281"
+    ],
+    "url": "https://www.auswaertiges-amt.de/fr/02-entree-sejour/01-accord-schengen-1242704",
+    "titre": "Ministère fédéral des Affaires étrangères — Accord de Schengen",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Signature le 19 juin 1990 ; coopération policière et judiciaire ; distinction entrée juridique de 1993 et application pratique de 1995.",
+    "reserves": "Les informations sur les membres actuels sont anciennes ; seuls les paragraphes historiques sont utilisés.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0281"
+    ],
+    "url": "https://www.cvce.eu/content/publication/2002/1/29/34df2451-3af1-48d1-bd61-132209a4e8e1/publishable_fr.pdf",
+    "titre": "CVCE — Convention d'application de l'accord de Schengen",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Texte de la convention : frontières intérieures sans contrôles, possibilités temporaires de rétablissement ; contrôles aux frontières extérieures.",
+    "reserves": "Extraction textuelle lue, aucune illustration du fac-similé utilisée.",
+    "statut": "consultee"
+  },
+  {
+    "event_ids": [
+      "EVT-0323"
+    ],
+    "url": "https://www.academie-sciences.fr/pdf/dossiers/Becquerel/CR1896_p689.pdf",
+    "titre": "Académie des sciences — fac-similé de la note de Becquerel page 689",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Couverture bibliographique seulement accessible par extraction ; le texte expérimental du fac-similé n'a pas pu être lu.",
+    "reserves": "Téléchargement direct refusé ; capture PDF non fournie comme image par l'outil. Ne pas considérer le fac-similé comme vérifié.",
+    "statut": "inaccessible"
+  },
+  {
+    "event_ids": [
+      "EVT-0323"
+    ],
+    "url": "https://gallica.bnf.fr/ark:/12148/bpt6k30780/f691.item",
+    "titre": "Gallica — Comptes rendus de l'Académie, note de Becquerel",
+    "date_consultation": "2026-10-13",
+    "affirmations_verifiees": "Lien de la transcription suivi vers Gallica ; aucun texte original accessible.",
+    "reserves": "Accès refusé par l'outil ; collation originale non achevée.",
+    "statut": "inaccessible"
+  }
+]

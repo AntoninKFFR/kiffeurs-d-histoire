@@ -1,0 +1,17 @@
+# Finalisation de la relecture — phase 3 intégrale
+
+Le rapport indépendant conserve la portée réelle de ses travaux : **224 rédactions** lues et douze consultations indépendantes. La présente finalisation décrit le travail supplémentaire du coordinateur, sans attribuer rétrospectivement une lecture à un agent qui ne l'a pas achevée.
+
+Les **sept rédactions de THM-018** ont ensuite été lues entièrement, avec leurs titres, corps, takeaways et notions. Elles expliquent chacune un mécanisme précis : exercice municipal du vote après son octroi, scrutin national et représentation, responsabilité des époux, autonomie civile et électorale, solidarité et insertion, suffrage présidentiel indirect et continuité institutionnelle après démission. Le vocabulaire reste accessible en troisième ; aucune égalité légale n'est présentée comme disparition immédiate des inégalités, ni le RMI comme emploi garanti. Les sources ont été ouvertes, leurs passages utiles lus et journalisés dans `sources-finalisation.json`.
+
+Les deux formulations signalées par l'audit ont été corrigées en conservant le fait : les orientations du CNR et le nombre précis de victimes à Tiananmen. Le concept `tolérance` porte son accent. Le validateur existant accepte les fichiers assemblés ; aucune de ses règles n'a été assouplie.
+
+La source initialement absente de EVT-0117 a été ajoutée après lecture du Conseil de l'Union européenne. Les liens trop généraux ou non accessibles de Gettysburg, Dreyfus et du plénum chinois ont été remplacés **dans les seules rédactions nouvelles** par des pages directement consultées et adaptées. La source primaire de Becquerel a été ajoutée après collation des pages originales. Ces ajustements sont visibles dans le journal de finalisation.
+
+Les **61 copies** ont été lues et rapprochées de leur filiation et du journal documentaire. Elles ne présentent pas de réécriture destinée à masquer les réserves. Les appuis complémentaires manquant encore pour l'entrée en guerre, la révolution bolchevique et le Second Empire ont été ouverts et ajoutés au journal, tout en conservant les sources du CSV historique. Le tableau de relecture donne les 61 identifiants et tous leurs appuis exacts.
+
+La relecture a aussi rectifié deux descriptions de périmètre documentaire : Fachoda n'est pas une copie enfant dans ce plan ; sa carte historique reste conservée dans THM-026. La série Becquerel EVT-0322 est déjà représentée historiquement dans THM-046 ; seule la note EVT-0323 demande une rédaction nouvelle. Les deux objets figurent dans les dossiers sensibles.
+
+Les preuves automatiques finales portent sur les **292 enregistrements**, les **231 couples manquants**, les **59 unités**, les dates structurées, les rangs, les libellés, les **617 identifiants distincts**, les **61 contenus copiés** et les **325 empreintes historiques**. Les **331 SVG** sont comparés au main de référence. Les contrôles d'import réels ont ensuite vérifié les protections SQL et les parcours navigateur du corpus complet. Ces résultats figurent dans le rapport technique, et ne valent toujours pas validation humaine du corpus.
+
+Les divergences de sources restent explicitement ouvertes : Han, Fachoda, jours ou bornes non corroborés de certains jalons, fin d'El-Alamein, premier mouvement soviétique en Afghanistan, étapes de Nantes, Jamestown et autres dossiers listés. La préparation est complète pour un audit humain ; aucun champ de validation du manifeste n'a été renseigné, aucun SVG nouveau produit, aucun contenu publié en production.

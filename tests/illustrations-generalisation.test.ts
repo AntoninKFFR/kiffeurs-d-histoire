@@ -4,11 +4,15 @@ import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { lireCsv } from "../scripts/csv";
 import reference from "../content/illustrations/reference-validee.json";
+import { verifierIntegriteStockPhase4 } from "../scripts/illustrations-pedagogiques/phase4-verifier";
 
 it("conserve les 120 références validées et couvre tous les 211 événements encore manquants", () => {
   const fichiers = readdirSync("content/illustrations").filter(n => n.endsWith(".svg"));
+  const stock = verifierIntegriteStockPhase4();
   expect(Object.keys(reference.svg)).toHaveLength(120);
-  expect(fichiers).toHaveLength(331);
+  expect(stock.anciens).toHaveLength(331);
+  expect(stock.nouveaux).toHaveLength(203);
+  expect(fichiers).toHaveLength(534);
   for (const [nom, empreinte] of Object.entries(reference.svg)) {
     expect(createHash("sha256").update(readFileSync(`content/illustrations/${nom}`)).digest("hex"), nom).toBe(empreinte);
   }
@@ -18,7 +22,7 @@ it("conserve les 120 références validées et couvre tous les 211 événements 
   const manquants = [...new Set(cartes.filter(c => c.event_id && !historiques.has(`${c.event_id}.svg`)).map(c => c.event_id))].sort();
   expect(inventaire).toHaveLength(211);
   expect(inventaire.map(i => i.event_id).sort()).toEqual(manquants);
-  expect(inventaire.map(i => i.fichier_svg).sort()).toEqual(fichiers.filter(f => !historiques.has(f)).sort());
+  expect(inventaire.map(i => i.fichier_svg).sort()).toEqual(stock.anciens.filter(f => !historiques.has(f)).sort());
 });
 
 it("livre des SVG XML lisibles, sobres, distincts et conformes à l'enveloppe du stock", () => {

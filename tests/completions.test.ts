@@ -1,10 +1,15 @@
-import { expect,it } from "vitest";
+import { expect,it,vi } from "vitest";
 import { planCompletions,empreintesCartesPubliees } from "../scripts/completions-pedagogiques";
 import { chargerStructure,projectionStructure,appliquerEtatsPublies } from "../scripts/structure-pedagogique";
 import { lireCsv,type LigneCsv } from "../scripts/csv";
 import { validerCartes } from "../scripts/import-cartes";
 import { progressionParEditions } from "@/lib/progression/types";
 import { relanceEnregistree,lireChoix,filtresDepuis } from "@/lib/solo/choix";
+// Le refus des brouillons reste testé sur l’état initial, même après la release.
+vi.mock('../src/lib/apprendre/structure.json',async()=>{
+  const {chargerStructure,projectionStructure}=await import('../scripts/structure-pedagogique');
+  return {default:projectionStructure(chargerStructure()).filter(c=>c.etat!=='inactif')};
+});
 
 it("compare le plan exact aux 104 manques des 27 chapitres non découpés, sans créer de nouveaux IDs",()=>{
   const plan=planCompletions(),parents=new Set(chargerStructure().sous_chapitres.map(c=>c.parent_id));

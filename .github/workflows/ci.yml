@@ -119,7 +119,7 @@ jobs:
 
   tests-sous-chapitres-local:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -141,6 +141,6 @@ jobs:
       - run: npx tsx scripts/test-sous-chapitres-local.ts --container kffr-issue92-phase2
       - run: npx tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2
       - run: npx playwright install --with-deps chromium
-      - run: npx tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2 --corpus-phase3 --release92 --build-phase3
+      - run: npx tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2 --corpus-phase3 --release92 --han117 --build-phase3
       - if: always()
         run: docker rm -f kffr-issue92-phase2

@@ -14,6 +14,7 @@ import { chargerStructure, type Unite } from "./structure-pedagogique";
 import { FICHIER_CARTES_ENFANTS } from "./fichiers-pedagogiques";
 import { chargerCartesSousChapitres } from "./import-cartes";
 import { chargerCompletions } from "./completions-pedagogiques";
+import { lignesEnfantsCourantes117 } from './han-117';
 
 const dossier = join(import.meta.dirname, "..", "content", "dataset-v18");
 const csv = (nom: string) => lireCsv(join(dossier, `kiffeurs-${nom}-v18.csv`));
@@ -98,7 +99,7 @@ const fichierEnfants=join(import.meta.dirname,"..",FICHIER_CARTES_ENFANTS);
 const fichierCompletions=join(import.meta.dirname,"..","content/pedagogie/cartes-completions.csv");
 const ajouts=existsSync(fichierCompletions)?chargerCompletions(fichierCompletions,join(import.meta.dirname,"..")):[];
 if (existsSync(fichierEnfants)) chargerCartesSousChapitres(fichierEnfants);
-for (const c of [...lireCsv(join(import.meta.dirname, "..", "content", "pedagogie", "cartes-v1.csv")),...(existsSync(fichierEnfants)?lireCsv(fichierEnfants):[])]) {
+for (const c of [...lireCsv(join(import.meta.dirname, "..", "content", "pedagogie", "cartes-v1.csv")),...(existsSync(fichierEnfants)?lignesEnfantsCourantes117(fichierEnfants,join(import.meta.dirname,'..')):[])]) {
   if (!c.event_id) continue;
   cartesChapitres.set(c.chapter_id, [...(cartesChapitres.get(c.chapter_id) ?? []), redirection.get(c.event_id) ?? c.event_id]);
   sourceDates.set(c.chapter_id+"\0"+c.event_id,c);

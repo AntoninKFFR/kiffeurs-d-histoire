@@ -13,6 +13,7 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 from correction_somme import canon_pour_empreinte
+from correction_han import canon_han_pour_empreinte
 
 NIVEAUX = ["CM1", "CM2", "6e", "5e", "4e", "3e", "Seconde générale et technologique",
            "Première générale", "Première HGGSP", "Terminale générale", "Terminale HGGSP"]
@@ -68,7 +69,7 @@ def main():
     # Exception explicite et strictement contrôlée ; le hash complet historique
     # reste identique et protège aussi la prose et les métadonnées de la Somme.
     try:
-        normalises = canon_pour_empreinte(evenements)
+        normalises = canon_pour_empreinte(canon_han_pour_empreinte(evenements))
     except ValueError as erreur:
         erreurs.append(str(erreur))
         normalises = evenements

@@ -2,8 +2,8 @@
 import { writeFileSync,existsSync } from "node:fs";
 import { connecterCartes, estUrlLocale } from "./import-cartes";
 import { chargerStructure, appliquerEtatsPublies, type EtatPublie } from "./structure-pedagogique";
-import { lireCsv } from "./csv";
 import { empreintesCartesPubliees } from "./completions-pedagogiques";
+import { lignesEnfantsCourantes117 } from './han-117';
 async function main(){
   const url=process.env.SUPABASE_URL, cle=process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !cle || !estUrlLocale(url)) throw new Error("Export réservé à une pile locale explicite");
@@ -13,7 +13,7 @@ async function main(){
   const {data:editions,error:erreurEditions}=await connecterCartes(url,cle).from('pedagogical_editions').select('cards').eq('published',true);
   if(erreurEditions)throw new Error('Instantanés de complétion indisponibles');
   if(editions?.length) {
-    const lignes=['content/pedagogie/cartes-v1.csv','content/pedagogie/cartes-sous-chapitres.csv','content/pedagogie/cartes-completions.csv'].flatMap(file=>existsSync(file)?lireCsv(file):[]);
+    const lignes=['content/pedagogie/cartes-v1.csv','content/pedagogie/cartes-sous-chapitres.csv','content/pedagogie/cartes-completions.csv'].flatMap(file=>existsSync(file)?lignesEnfantsCourantes117(file):[]);
     const empreintes=empreintesCartesPubliees(lignes,editions.flatMap(e=>e.cards as Record<string,unknown>[]));
     writeFileSync('content/pedagogie/cartes-publiees.json',JSON.stringify(empreintes,null,2)+'\n');
   }

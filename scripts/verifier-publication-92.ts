@@ -5,16 +5,19 @@ import { createHash } from 'node:crypto';
 import { chromium } from '@playwright/test';
 import { CHAPITRES, cheminChapitre, cheminEdition } from '../src/lib/apprendre/catalogue';
 import { lireCsv } from './csv';
+import {lignesEnfantsCourantes117,verifierCanonHan117} from './han-117';
 const url=new URL(process.argv[2]);
 assert(url.protocol==='https:'&&!url.username&&!url.password&&!url.search&&!url.hash&&url.pathname==='/');
 assert(url.hostname==='k-iffeur-d-histoire.vercel.app'||/^k-iffeur-d-histoire-[a-z0-9]+-kffrh\.vercel\.app$/.test(url.hostname),'Origine de déploiement Kiffeurs d’Histoire requise');
 const origin=url.origin;
 const output=process.argv[3];assert(output,'Dossier explicite de preuves requis');mkdirSync(output,{recursive:true});
-const rows=['cartes-v1','cartes-sous-chapitres','cartes-completions'].flatMap(n=>lireCsv(`content/pedagogie/${n}.csv`));
+const rows=['cartes-v1','cartes-sous-chapitres','cartes-completions'].flatMap(n=>lignesEnfantsCourantes117(`content/pedagogie/${n}.csv`));
 const publicIds=new Set(CHAPITRES.map(c=>c.id));
 const publicCards=rows.filter(c=>publicIds.has(c.chapter_id)),han=rows.filter(c=>!publicIds.has(c.chapter_id));
 const oldIds=new Set(lireCsv('content/pedagogie/cartes-v1.csv').map(c=>c.card_id));
-assert.equal(publicCards.length,593);assert.equal(han.length,24);
+const hanPublie=CHAPITRES.filter(c=>c.parent_id==='THM-006').length;
+assert([0,3].includes(hanPublie),'Publication Han partielle');if(hanPublie)verifierCanonHan117();
+assert.equal(publicCards.length,hanPublie?617:593);assert.equal(han.length,hanPublie?0:24);
 const privateData=/event_id|EVT-\d+|official_wording|date_status|date_precision|["\\]sources["\\]/;
 async function get(path:string,status=200){
   const r=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(30_000)});
@@ -45,17 +48,17 @@ async function main(){
     else{assert(body.includes('translate(56 36)'));motifs++;}
   }));
   for(const c of han)assert.equal((await get('/api/pedagogie/illustration/'+c.card_id,404)).body,'');
-  for(const id of ['THM-047','THM-048','THM-049']){
+  for(const id of hanPublie?[]:['THM-047','THM-048','THM-049']){
     const etat=JSON.parse(readFileSync('content/pedagogie/chapitres-v2.json','utf8')).sous_chapitres.find((c:{id:string})=>c.id===id);
     await get(`/apprendre/${etat.niveauSlug}/${etat.slug}`,404);
   }
-  assert.equal(pages,56);assert.equal(archives,54);assert.equal(svg,571);assert.equal(motifs,22);
+  assert.equal(pages,hanPublie?59:56);assert.equal(archives,54);assert.equal(svg,hanPublie?595:571);assert.equal(motifs,22);
   const browser=await chromium.launch({headless:true});const errors:string[]=[];
   try{
     for(const width of [1280,375]){
       const page=await browser.newPage({viewport:{width,height:812}});
       page.on('pageerror',e=>errors.push(e.message));
-      for(const id of ['THM-001','THM-050','THM-056']){
+      for(const id of ['THM-001','THM-050','THM-056',...(hanPublie?['THM-047','THM-048','THM-049']:[])]){
         const u=CHAPITRES.find(c=>c.id===id)!;await page.goto(origin+cheminChapitre(u),{waitUntil:'networkidle'});
         assert.equal(await page.locator('h1').count(),1);
         const image=page.locator('article img').first();await image.waitFor();

@@ -1,0 +1,19 @@
+{
+  "version": "han-117-v1",
+  "event_id": "EVT-0040",
+  "date_decision": "2026-10-15",
+  "source_humaine": "Décision éditoriale donnée par l’utilisateur dans l’objectif de résolution intégrale de #117",
+  "trace_github": "https://github.com/Zazou13015/KIffeur-d-Histoire/issues/117#issuecomment-6180701113",
+  "start_year": -206,
+  "end_year": 220,
+  "precision": "YEAR_RANGE",
+  "date_status": "CONVENTIONAL",
+  "playable_mode": "RANGE",
+  "date_text": "206 av. J.-C.–220 apr. J.-C., avec une interruption entre 9 et 25 apr. J.-C. (interrègne de Wang Mang et transition jusqu’au rétablissement des Han)",
+  "sources": [
+    "https://www.metmuseum.org/essays/han-dynasty-206-b-c-220-a-d",
+    "https://www.metmuseum.org/toah/ht/05/eac.html"
+  ],
+  "identite_wudi": "EVT-0041 inchangé ; CARD-006-han conservée",
+  "portee": "Corriger le canon et le brouillon jamais publié de THM-049 ; conserver toutes les éditions, questions, scores et progressions déjà publiés. Cette décision humaine ne constitue pas un résultat de test."
+}

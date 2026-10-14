@@ -31,6 +31,9 @@
     "content:catalogue-solo": "tsx scripts/build-catalogue-solo.ts",
     "content:structure-pedagogique": "tsx scripts/build-structure-pedagogique.ts",
     "content:verifier-phase3": "tsx scripts/phase3-pedagogie.ts",
+    "content:generer-phase4": "tsx scripts/illustrations-pedagogiques/phase4-generer.ts",
+    "content:planches-phase4": "tsx scripts/illustrations-pedagogiques/phase4-planches.mjs",
+    "content:verifier-phase4": "tsx scripts/illustrations-pedagogiques/phase4-verifier.ts --exiger-planches",
     "test:sous-chapitres-sql": "tsx scripts/test-sous-chapitres-local.ts --container kffr-issue92-phase2",
     "test:sous-chapitres-http": "tsx scripts/test-import-sous-chapitres-http-local.ts --container kffr-issue92-phase2"
   },

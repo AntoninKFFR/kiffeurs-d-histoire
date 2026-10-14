@@ -1,6 +1,6 @@
 // Assemblage éditorial et contrôle des ensembles privés ; aucun import ni accès réseau.
 import assert from "node:assert/strict";
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { lireCsv, type LigneCsv } from "./csv";
@@ -9,6 +9,7 @@ import { chargerCompletions, planCompletions } from "./completions-pedagogiques"
 import { chargerCartesSousChapitres } from "./import-cartes";
 import { scenes } from "./illustrations-pedagogiques/catalogue";
 import { objets } from "./illustrations-pedagogiques/objets";
+import { verifierIntegriteStockPhase4 } from "./illustrations-pedagogiques/phase4-verifier";
 
 const BASE = "a4759cea8bebd66003c2d69592bf8fd5af24b264";
 const dossier = "docs/phase-3-92";
@@ -117,18 +118,22 @@ export function verifierPhase3() {
   const baselineGit = execFileSync("git", ["show", `${BASE}:${ancienFichier}`]);
   const protections = ["content/dataset-v18", "content/illustrations", "content/pedagogie/chapitres-v2.json",
     "scripts/illustrations-pedagogiques", "docs/illustrations/generalisation", "docs/audit-92", "docs/phase-2-92", "supabase", "src"];
-  execFileSync("git", ["diff", "--exit-code", BASE, "--", ...protections], { stdio: "pipe" });
+  const stock = verifierIntegriteStockPhase4({ exigerComplet: false });
+  // Seuls les fichiers ajoutés de phase 4 et le vérificateur HTTP adapté sont exclus.
+  // Tous les SVG historiques sont en outre comparés octet par octet aux deux bases.
+  execFileSync("git", ["diff", "--exit-code", BASE, "--", ...protections,
+    ...stock.nouveaux.map(e => `:(exclude)content/illustrations/${e.event_id}.svg`),
+    ":(exclude)scripts/illustrations-pedagogiques/phase4-*",
+    ":(exclude)scripts/illustrations-pedagogiques/verifier-routes.ts"], { stdio: "pipe" });
   // Comparer aussi les octets après les filtres du checkout Windows (LF → CRLF).
   const baseline = execFileSync("git", ["cat-file", "--filters", `${BASE}:${ancienFichier}`]);
   assert.equal(sha(readFileSync(ancienFichier)), sha(baseline), "CSV historique différent du checkout de main");
   assert.equal(sha(readFileSync(ancienFichier, "utf8").replaceAll("\r\n", "\n")), sha(baselineGit), "CSV historique différent du contenu Git");
-  const svg = readdirSync("content/illustrations").filter(n => n.endsWith(".svg")).sort();
-  const expectedSvg = execFileSync("git", ["ls-tree", "-r", "--name-only", BASE, "content/illustrations"], { encoding: "utf8" }).trim().split("\n").filter(n => n.endsWith(".svg")).map(n => n.split("/").at(-1)!);
-  assert.deepEqual(svg, expectedSvg); assert.equal(svg.length, 331);
-  const svgHashes = svg.map(n => {
-    const fichier = `content/illustrations/${n}`, before = sha(execFileSync("git", ["show", `${BASE}:${fichier}`])), after = sha(readFileSync(fichier));
-    assert.equal(after, before, `SVG modifié : ${n}`); return { fichier, sha256_main: before, sha256_phase3: after, identique: "oui" };
-  });
+  const svg = stock.anciens;
+  assert.equal(svg.length, 331);
+  // Le contrôle exhaustif ci-dessus a comparé chaque blob des deux bases à
+  // chaque fichier courant ; conserver exactement les 331 preuves historiques.
+  const svgHashes = stock.empreintes;
   mkdirSync(dossier, { recursive: true });
   ecrireCsv(`${dossier}/integrite-svg.csv`, svgHashes);
   ecrireCsv(`${dossier}/integrite-cartes-historiques.csv`, p.anciennes.map(c => ({ card_id: c.card_id,
@@ -227,7 +232,7 @@ export function verifierPhase3() {
   const redactions = lireRedactions();
   const byEvent = new Map(redactions.map(r => [r.event_id, r]));
   const briefs = [...new Set(ajouts.map(c => c.event_id))].sort().map(event_id => {
-    const existing = existsSync(`content/illustrations/${event_id}.svg`), scene = scenes.find(s => s.event === event_id);
+    const existing = svg.includes(`${event_id}.svg`), scene = scenes.find(s => s.event === event_id);
     const r = byEvent.get(event_id), intention = r?.illustration?.intention ?? scene?.intention ?? ajouts.find(c => c.event_id === event_id)!.title;
     const stock = r?.illustration?.objets_stock ?? scene?.objets ?? [];
     for (const nom of stock) assert(objets[nom], `Objet de stock inconnu : ${event_id}/${nom}`);

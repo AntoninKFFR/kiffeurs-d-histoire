@@ -3,11 +3,14 @@
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { lireCsv } from "../csv";
+import { verifierIntegriteStockPhase4 } from "./phase4-verifier";
 async function verifier() {
 const origine = process.argv[2];
 assert(origine && /^https?:\/\//.test(origine), "Fournir l'origine locale ou de l'aperçu à vérifier.");
 const cartes = lireCsv("content/pedagogie/cartes-v1.csv");
 const svgFiles = readdirSync("content/illustrations").filter(n => n.endsWith(".svg"));
+const stock = verifierIntegriteStockPhase4();
+assert.equal(stock.anciens.length, 331); assert.equal(stock.nouveaux.length, 203); assert.equal(svgFiles.length, 534);
 let dediees = 0, fallbacks = 0;
 // Petits groupes pour ne pas saturer le serveur ni les fonctions d'aperçu.
 for (let debut = 0; debut < cartes.length; debut += 8) {
@@ -36,6 +39,6 @@ const svgTraces = trace.files.filter(n => /content\/illustrations\/EVT-\d{4}\.sv
 // Turbopack peut tracer deux chemins relatifs équivalents sous Windows.
 assert.deepEqual([...new Set(svgTraces)].sort(), svgFiles.sort());
 assert(!trace.files.some(n => /illustrations-pedagogiques|generalisation-inventaire|reference-validee/.test(n)), "Atelier embarqué dans le bundle serveur.");
-console.log(`OK ${origine} : 325 routes exactes (303 dédiées, 22 motifs), 3 refus 404, aucun identifiant/source/chemin transmis, 331 SVG tracés côté serveur.`);
+console.log(`OK ${origine} : 325 routes exactes (303 dédiées, 22 motifs), 3 refus 404, aucun identifiant/source/chemin transmis, 534 SVG tracés côté serveur (331 intacts + 203 phase 4).`);
 }
 void verifier().catch(erreur => { console.error(erreur); process.exitCode = 1; });

@@ -4,7 +4,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { lireCsv, type LigneCsv } from "./csv";
-import { chargerStructure, empreinteLigne } from "./structure-pedagogique";
+import { appliquerEtatsPublies, chargerStructure, empreinteLigne, type EtatPublie } from "./structure-pedagogique";
 import { chargerCompletions, planCompletions } from "./completions-pedagogiques";
 import { chargerCartesSousChapitres } from "./import-cartes";
 import { scenes } from "./illustrations-pedagogiques/catalogue";
@@ -119,12 +119,21 @@ export function verifierPhase3() {
   const protections = ["content/dataset-v18", "content/illustrations", "content/pedagogie/chapitres-v2.json",
     "scripts/illustrations-pedagogiques", "docs/illustrations/generalisation", "docs/audit-92", "docs/phase-2-92", "supabase", "src"];
   const stock = verifierIntegriteStockPhase4({ exigerComplet: false });
+  const publication='content/pedagogie/etats-publies-92.json';
+  if(existsSync(publication)){
+    const exportReel=JSON.parse(readFileSync(publication,'utf8')) as EtatPublie[];
+    const projection=appliquerEtatsPublies(p.structure,exportReel).filter(c=>c.etat!=='inactif');
+    assert.equal(projection.length,56);
+    assert.equal(JSON.stringify(JSON.parse(readFileSync('src/lib/apprendre/structure.json','utf8'))),JSON.stringify(projection),'Projection différente de l’export publié');
+    assert(projection.every(c=>c.parent_id!=='THM-006'),'Han doit rester fermé');
+  }
   // Seuls les fichiers ajoutés de phase 4 et le vérificateur HTTP adapté sont exclus.
   // Tous les SVG historiques sont en outre comparés octet par octet aux deux bases.
   execFileSync("git", ["diff", "--exit-code", BASE, "--", ...protections,
     ...stock.nouveaux.map(e => `:(exclude)content/illustrations/${e.event_id}.svg`),
     ":(exclude)scripts/illustrations-pedagogiques/phase4-*",
-    ":(exclude)scripts/illustrations-pedagogiques/verifier-routes.ts"], { stdio: "pipe" });
+    ":(exclude)scripts/illustrations-pedagogiques/verifier-routes.ts",
+    ...(existsSync(publication)?[':(exclude)src/lib/apprendre/structure.json',':(exclude)src/lib/solo/catalogue.json']:[])], { stdio: "pipe" });
   // Comparer aussi les octets après les filtres du checkout Windows (LF → CRLF).
   const baseline = execFileSync("git", ["cat-file", "--filters", `${BASE}:${ancienFichier}`]);
   assert.equal(sha(readFileSync(ancienFichier)), sha(baseline), "CSV historique différent du checkout de main");

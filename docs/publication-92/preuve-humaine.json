@@ -1,0 +1,8 @@
+{
+  "sha": "31ab0d56dd87a3400101e112005d63292c544853",
+  "source": "Consigne humaine /goal de publication, reçue le 14 octobre 2026 dans ce chat",
+  "confirmation": "Contexte confirmé : 292 cartes validées humainement, 203 nouveaux SVG validés, 82 SVG réutilisés et 331 SVG historiques intacts. Autorisation de finaliser l’intégration en production avec les RPC existantes et maintien des protections. Cette preuve retranscrit la consigne ; elle ne prétend pas constituer une signature personnelle de Max.",
+  "cartes_validees": 292,
+  "svg_nouveaux_valides": 203,
+  "han_reste_bloque": true
+}

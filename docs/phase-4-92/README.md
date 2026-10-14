@@ -40,3 +40,6 @@ npx tsx scripts/illustrations-pedagogiques/phase4-dossier.ts
 ```
 
 La commande sans `--verifier` ne sert qu’à la première création lorsque les 203 fichiers sont absents. Ne pas relancer le générateur historique #66 ni l’upload Storage. Les documents de phase 3 décrivent l’état antérieur à cette campagne et restent conservés comme preuves.
+## État de préparation conservé
+
+Ce dossier conserve les preuves de préparation au SHA `31ab0d56dd87a3400101e112005d63292c544853`. La validation humaine des illustrations et la publication ultérieure sont consignées dans [le dossier de publication #92](../publication-92/README.md).

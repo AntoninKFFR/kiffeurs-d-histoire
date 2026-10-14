@@ -7,6 +7,8 @@ import { ChoisirChapitre } from "@/components/pedagogie/ChoisirChapitre";
 import { DecouvrirChapitre } from "@/components/pedagogie/DecouvrirChapitre";
 import { chargerDemoPedagogie } from "@/app/demo/pedagogie/donnees";
 import { lireCsv } from "../scripts/csv";
+import { existsSync, readFileSync } from "node:fs";
+import { appliquerEtatsPublies, chargerStructure, projectionStructure, type EtatPublie } from "../scripts/structure-pedagogique";
 import { versT } from "@/lib/game/frise";
 import { Frise } from "@/components/frise/Frise";
 import type { CartePedagogique } from "@/lib/pedagogie";
@@ -30,11 +32,15 @@ beforeEach(() => {
 });
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.clearAllMocks(); });
 
-it("propose les dix niveaux canoniques et les 41 chapitres, sans charger leurs cartes", () => {
+it("conserve les 41 chapitres historiques et propose exactement les unités publiques exportées, sans charger leurs cartes", () => {
   const themes = lireCsv("content/dataset-v18/kiffeurs-themes-v18.csv");
-  expect(CHAPITRES.map((c) => [c.id, c.titre, c.niveau])).toEqual(themes.map((t) => [t.theme_id, t.theme_title, t.level]));
+  expect(CHAPITRES.filter(c=>!c.parent_id).map((c) => [c.id, c.titre, c.niveau])).toEqual(themes.map((t) => [t.theme_id, t.theme_title, t.level]));
+  const s=chargerStructure(),file='content/pedagogie/etats-publies-92.json';
+  const expected=existsSync(file)?appliquerEtatsPublies(s,JSON.parse(readFileSync(file,'utf8')) as EtatPublie[]):projectionStructure(s);
+  expect(CHAPITRES).toEqual(expected.filter(c=>c.etat!=='inactif'));
+  const count=existsSync(file)?56:41;
   expect(NIVEAUX.map((n) => n.slug)).toEqual(["cm2", "6e", "5e", "4e", "3e", "seconde", "premiere", "terminale", "premiere-hggsp", "terminale-hggsp"]);
-  expect(new Set(CHAPITRES.map(cheminChapitre)).size).toBe(41);
+  expect(new Set(CHAPITRES.map(cheminChapitre)).size).toBe(count);
   expect(JSON.stringify(CHAPITRES)).not.toMatch(/EVT-|"(?:event_id|sources|start_year|body)"\s*:/);
   render(<ChoisirChapitre chapitres={CHAPITRES} />);
   const select = screen.getByRole("combobox", { name: "1. Choisir mon niveau" });
@@ -46,7 +52,7 @@ it("propose les dix niveaux canoniques et les 41 chapitres, sans charger leurs c
     expect(liens.map((l) => l.getAttribute("href"))).toEqual(CHAPITRES.filter((c) => c.niveauSlug === n.slug).map(cheminChapitre));
     total += liens.length;
   }
-  expect(total).toBe(41);
+  expect(total).toBe(count);
 });
 
 it("résout les slugs figés et refuse niveau inconnu, chapitre inconnu et mauvais niveau", () => {

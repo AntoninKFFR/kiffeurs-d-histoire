@@ -1,4 +1,4 @@
-import { describe,it,expect } from "vitest";
+import { describe,it,expect,vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { chargerStructure, projectionStructure, validerStructure, appliquerEtatsPublies, conserverLiensPedagogiques, type EtatPublie } from "../scripts/structure-pedagogique";
 import { lireCsv } from "../scripts/csv";
@@ -6,6 +6,12 @@ import { validerCartes, validerFiliationCartes } from "../scripts/import-cartes"
 import { CHAPITRES,CHAPITRES_ACTIFS,trouverChapitre,cheminChapitre } from "@/lib/apprendre/catalogue";
 import { lireChoix,relanceEnregistree } from "@/lib/solo/choix";
 import { progressionDepuisLignes } from "@/lib/progression/types";
+
+// Contrats de préparation #111 : l’état initial demeure testé après publication.
+vi.mock('../src/lib/apprendre/structure.json',async()=>{
+  const {chargerStructure,projectionStructure}=await import('../scripts/structure-pedagogique');
+  return {default:projectionStructure(chargerStructure()).filter(c=>c.etat!=='inactif')};
+});
 
 const s=chargerStructure(), cards=lireCsv("content/pedagogie/cartes-v1.csv"), themes=lireCsv("content/dataset-v18/kiffeurs-themes-v18.csv"),
   links=lireCsv("content/dataset-v18/kiffeurs-curriculum-links-v18.csv"),events=lireCsv("content/dataset-v18/kiffeurs-events-v18.csv");
@@ -28,7 +34,7 @@ describe("structure pédagogique additive #92",()=>{
     expect(s.sous_chapitres.find(c=>c.event_ids.includes('EVT-0115'))!.id).toBe('THM-060');
   });
   it("ne publie aucun enfant ni réponse dans le catalogue ou le choix scolaire",()=>{
-    const publicRegistry=JSON.parse(readFileSync('src/lib/apprendre/structure.json','utf8')) as typeof CHAPITRES;
+    const publicRegistry=projectionStructure(s).filter(c=>c.etat!=='inactif');
     expect(publicRegistry).toHaveLength(41);expect(publicRegistry.some(c=>c.etat==='inactif')).toBe(false);
     for(const c of s.sous_chapitres){expect(CHAPITRES.some(x=>x.id===c.id)).toBe(false);expect(trouverChapitre(c.niveauSlug,c.slug)).toBeUndefined();expect(lireChoix(new URLSearchParams({mode:'scolaire',difficulte:'YEAR',chapitres:c.id}))).toBeNull();}
     expect(JSON.stringify(projectionStructure(s))).not.toMatch(/EVT-|"(?:event_ids|start_year|end_year|sources|empreintes)"\s*:/);

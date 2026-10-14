@@ -12,6 +12,15 @@ import { progressionDepuisLignes } from "@/lib/progression/types";
 import { comptesDe, ecrireChoix, filtresDepuis, lireChoix } from "@/lib/solo/choix";
 
 const mocks = vi.hoisted(() => ({ lire: vi.fn(), decouvert: vi.fn(), test: vi.fn() }));
+// Scénario historique #27 conservé intégralement avec son catalogue initial.
+vi.mock('../src/lib/apprendre/structure.json',async()=>{
+  const {chargerStructure,projectionStructure}=await import('../scripts/structure-pedagogique');
+  return {default:projectionStructure(chargerStructure()).filter(c=>c.etat!=='inactif')};
+});
+vi.mock('../src/lib/solo/catalogue.json',async()=>{
+  const {execFileSync}=await import('node:child_process');
+  return {default:JSON.parse(execFileSync('git',['show','31ab0d56dd87a3400101e112005d63292c544853:src/lib/solo/catalogue.json'],{encoding:'utf8'}))};
+});
 vi.mock("@/app/apprendre/actions", () => ({ lireProgression: mocks.lire, marquerChapitreDecouvert: mocks.decouvert, enregistrerTestChapitre: mocks.test }));
 vi.mock("@/app/partie/actions", () => ({ lancer: vi.fn() }));
 beforeEach(() => { sessionStorage.clear(); });

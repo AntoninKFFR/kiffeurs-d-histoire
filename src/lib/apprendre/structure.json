@@ -7,7 +7,23 @@
     "slug": "thm-001-theme-1-le-temps-de-la-republique",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 6,
+        "YEAR": 6,
+        "MONTH": 6
+      },
+      "completion-v1": {
+        "DAY": 8,
+        "YEAR": 8,
+        "MONTH": 8
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-002",
@@ -27,7 +43,23 @@
     "slug": "thm-003-theme-3-guerres-mondiales-et-construction-europeenne",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 8,
+        "YEAR": 8,
+        "MONTH": 8
+      },
+      "completion-v1": {
+        "DAY": 10,
+        "YEAR": 10,
+        "MONTH": 10
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-004",
@@ -37,7 +69,23 @@
     "slug": "thm-004-theme-1-la-longue-histoire-de-l-humanite-et-des-migrations",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 0,
+        "YEAR": 4,
+        "MONTH": 0
+      },
+      "completion-v1": {
+        "DAY": 0,
+        "YEAR": 5,
+        "MONTH": 0
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-005",
@@ -47,7 +95,23 @@
     "slug": "thm-005-theme-2-recits-fondateurs-croyances-et-citoyennete-dans-la-mediterranee-antique",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 1,
+        "YEAR": 4,
+        "MONTH": 1
+      },
+      "completion-v1": {
+        "DAY": 1,
+        "YEAR": 14,
+        "MONTH": 1
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-006",
@@ -67,7 +131,23 @@
     "slug": "thm-007-theme-1-chretientes-et-islam-vie-xiiie-siecles-des-mondes-en-contact",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 4,
+        "YEAR": 7,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 5,
+        "YEAR": 11,
+        "MONTH": 6
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-008",
@@ -87,7 +167,23 @@
     "slug": "thm-009-theme-2-societe-eglise-et-pouvoir-politique-dans-l-occident-feodal-xie-xve-siecles",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 5,
+        "YEAR": 7,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 11,
+        "YEAR": 14,
+        "MONTH": 11
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-010",
@@ -97,7 +193,23 @@
     "slug": "thm-010-autres-evenements-directement-exploitables-pour-le-theme-2",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 1,
+        "YEAR": 7,
+        "MONTH": 1
+      },
+      "completion-v1": {
+        "DAY": 2,
+        "YEAR": 8,
+        "MONTH": 2
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-011",
@@ -107,7 +219,23 @@
     "slug": "thm-011-theme-3-transformations-de-l-europe-et-ouverture-sur-le-monde-aux-xvie-et-xviie-siecles",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 7,
+        "YEAR": 8,
+        "MONTH": 7
+      },
+      "completion-v1": {
+        "DAY": 12,
+        "YEAR": 14,
+        "MONTH": 12
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-012",
@@ -117,7 +245,7 @@
     "slug": "thm-012-evenements-complementaires-directement-utiles-au-theme-3",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "historique"
   },
   {
     "id": "THM-013",
@@ -127,7 +255,23 @@
     "slug": "thm-013-theme-1-le-xviiie-siecle-expansions-lumieres-et-revolutions",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 5,
+        "YEAR": 6,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 10,
+        "YEAR": 12,
+        "MONTH": 10
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-014",
@@ -137,7 +281,23 @@
     "slug": "thm-014-theme-2-l-europe-et-le-monde-au-xixe-siecle",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 4,
+        "YEAR": 5,
+        "MONTH": 4
+      },
+      "completion-v1": {
+        "DAY": 15,
+        "YEAR": 16,
+        "MONTH": 15
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-015",
@@ -147,7 +307,23 @@
     "slug": "thm-015-theme-3-societe-culture-et-politique-dans-la-france-du-xixe-siecle",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      },
+      "completion-v1": {
+        "DAY": 9,
+        "YEAR": 9,
+        "MONTH": 9
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-016",
@@ -157,7 +333,7 @@
     "slug": "thm-016-theme-1-l-europe-un-theatre-majeur-des-guerres-totales-1914-1945",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "historique"
   },
   {
     "id": "THM-017",
@@ -167,7 +343,7 @@
     "slug": "thm-017-theme-2-le-monde-depuis-1945",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "historique"
   },
   {
     "id": "THM-018",
@@ -177,7 +353,23 @@
     "slug": "thm-018-theme-3-francaises-et-francais-dans-une-republique-repensee",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 8,
+        "YEAR": 8,
+        "MONTH": 8
+      },
+      "completion-v1": {
+        "DAY": 15,
+        "YEAR": 15,
+        "MONTH": 15
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-019",
@@ -187,7 +379,23 @@
     "slug": "thm-019-theme-1-le-monde-mediterraneen-empreintes-de-l-antiquite-et-du-moyen-age",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 3,
+        "YEAR": 7,
+        "MONTH": 3
+      },
+      "completion-v1": {
+        "DAY": 3,
+        "YEAR": 8,
+        "MONTH": 3
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-020",
@@ -197,7 +405,23 @@
     "slug": "thm-020-theme-2-xve-xvie-siecles-un-nouveau-rapport-au-monde-un-temps-de-mutation-intellectuelle",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 4,
+        "YEAR": 7,
+        "MONTH": 4
+      },
+      "completion-v1": {
+        "DAY": 6,
+        "YEAR": 9,
+        "MONTH": 6
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-021",
@@ -207,7 +431,23 @@
     "slug": "thm-021-theme-3-l-etat-a-l-epoque-moderne-france-et-angleterre",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 9,
+        "YEAR": 11,
+        "MONTH": 10
+      },
+      "completion-v1": {
+        "DAY": 11,
+        "YEAR": 16,
+        "MONTH": 12
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-022",
@@ -217,7 +457,23 @@
     "slug": "thm-022-theme-4-dynamiques-et-ruptures-dans-les-societes-des-xviie-et-xviiie-siecles",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 1,
+        "YEAR": 6,
+        "MONTH": 2
+      },
+      "completion-v1": {
+        "DAY": 2,
+        "YEAR": 7,
+        "MONTH": 3
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-024",
@@ -227,7 +483,7 @@
     "slug": "thm-024-theme-1-l-europe-face-aux-revolutions",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "historique"
   },
   {
     "id": "THM-025",
@@ -237,7 +493,7 @@
     "slug": "thm-025-theme-2-la-france-dans-l-europe-des-nationalites-politique-et-societe-1848-1871",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "historique"
   },
   {
     "id": "THM-026",
@@ -247,7 +503,23 @@
     "slug": "thm-026-theme-3-la-troisieme-republique-avant-1914-un-regime-politique-un-empire-colonial",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 6,
+        "YEAR": 6,
+        "MONTH": 6
+      },
+      "completion-v1": {
+        "DAY": 11,
+        "YEAR": 11,
+        "MONTH": 11
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-027",
@@ -257,7 +529,23 @@
     "slug": "thm-027-theme-4-la-premiere-guerre-mondiale-le-suicide-de-l-europe-et-la-fin-des-empires-europeens",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 5,
+        "YEAR": 5,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-028",
@@ -267,7 +555,23 @@
     "slug": "thm-028-theme-1-fragilites-des-democraties-totalitarismes-et-seconde-guerre-mondiale-1929-1945",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 8,
+        "YEAR": 9,
+        "MONTH": 9
+      },
+      "completion-v1": {
+        "DAY": 19,
+        "YEAR": 20,
+        "MONTH": 20
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-029",
@@ -277,7 +581,23 @@
     "slug": "thm-029-theme-2-la-multiplication-des-acteurs-internationaux-dans-un-monde-bipolaire-1945-debut-des-annees-1970",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 5,
+        "YEAR": 5,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 6,
+        "YEAR": 6,
+        "MONTH": 6
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-030",
@@ -297,7 +617,23 @@
     "slug": "thm-031-theme-4-le-monde-l-europe-et-la-france-depuis-les-annees-1990-entre-cooperations-et-conflits",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 5,
+        "YEAR": 5,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 6,
+        "YEAR": 6,
+        "MONTH": 6
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-036",
@@ -307,7 +643,23 @@
     "slug": "thm-036-theme-1-comprendre-un-regime-politique-la-democratie",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 5,
+        "YEAR": 7,
+        "MONTH": 5
+      },
+      "completion-v1": {
+        "DAY": 8,
+        "YEAR": 11,
+        "MONTH": 8
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-037",
@@ -327,7 +679,23 @@
     "slug": "thm-038-theme-3-etudier-les-divisions-politiques-du-monde-les-frontieres",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      },
+      "completion-v1": {
+        "DAY": 10,
+        "YEAR": 10,
+        "MONTH": 10
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-039",
@@ -357,7 +725,23 @@
     "slug": "thm-041-theme-1-de-nouveaux-espaces-de-conquete",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      },
+      "completion-v1": {
+        "DAY": 10,
+        "YEAR": 10,
+        "MONTH": 10
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-042",
@@ -367,7 +751,23 @@
     "slug": "thm-042-theme-2-faire-la-guerre-faire-la-paix-formes-de-conflits-et-modes-de-resolution",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      },
+      "completion-v1": {
+        "DAY": 8,
+        "YEAR": 8,
+        "MONTH": 8
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-043",
@@ -397,7 +797,23 @@
     "slug": "thm-045-theme-5-l-environnement-entre-exploitation-et-protection-un-enjeu-planetaire",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      },
+      "completion-v1": {
+        "DAY": 9,
+        "YEAR": 9,
+        "MONTH": 9
+      }
+    },
+    "edition_active": "completion-v1"
   },
   {
     "id": "THM-046",
@@ -407,6 +823,277 @@
     "slug": "thm-046-theme-6-l-enjeu-de-la-connaissance",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "actif",
+    "editions": [
+      "completion-v1"
+    ],
+    "edition_counts": {
+      "legacy-v1": {
+        "DAY": 2,
+        "YEAR": 4,
+        "MONTH": 4
+      },
+      "completion-v1": {
+        "DAY": 3,
+        "YEAR": 5,
+        "MONTH": 5
+      }
+    },
+    "edition_active": "completion-v1"
+  },
+  {
+    "id": "THM-050",
+    "titre": "Voyages, circulations et diffusion des savoirs",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-050-sequence",
+    "parent_id": "THM-012",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 3,
+        "YEAR": 7,
+        "MONTH": 3
+      }
+    }
+  },
+  {
+    "id": "THM-051",
+    "titre": "Pouvoirs et transformations religieuses",
+    "niveau": "5e",
+    "niveauSlug": "5e",
+    "slug": "thm-051-sequence",
+    "parent_id": "THM-012",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 11,
+        "YEAR": 14,
+        "MONTH": 11
+      }
+    }
+  },
+  {
+    "id": "THM-052",
+    "titre": "La Première Guerre mondiale et ses conséquences",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-052-sequence",
+    "parent_id": "THM-016",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 17,
+        "YEAR": 17,
+        "MONTH": 17
+      }
+    }
+  },
+  {
+    "id": "THM-053",
+    "titre": "Crises politiques et sociales de l’entre-deux-guerres",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-053-sequence",
+    "parent_id": "THM-016",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 7,
+        "YEAR": 7,
+        "MONTH": 7
+      }
+    }
+  },
+  {
+    "id": "THM-054",
+    "titre": "La France défaite et occupée : Vichy, Résistance et Libération",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-054-sequence",
+    "parent_id": "THM-016",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 9,
+        "YEAR": 9,
+        "MONTH": 9
+      }
+    }
+  },
+  {
+    "id": "THM-055",
+    "titre": "La Seconde Guerre mondiale : extension et retournements militaires",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-055-sequence",
+    "parent_id": "THM-016",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 14,
+        "YEAR": 14,
+        "MONTH": 14
+      }
+    }
+  },
+  {
+    "id": "THM-056",
+    "titre": "Génocide, fin de guerre et recomposition du monde",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-056-sequence",
+    "parent_id": "THM-016",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 8,
+        "YEAR": 8,
+        "MONTH": 8
+      }
+    }
+  },
+  {
+    "id": "THM-057",
+    "titre": "Indépendances et affirmation de nouveaux États",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-057-sequence",
+    "parent_id": "THM-017",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 9,
+        "YEAR": 9,
+        "MONTH": 9
+      }
+    }
+  },
+  {
+    "id": "THM-058",
+    "titre": "La guerre froide : formation des blocs et crises",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-058-sequence",
+    "parent_id": "THM-017",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 15,
+        "YEAR": 15,
+        "MONTH": 15
+      }
+    }
+  },
+  {
+    "id": "THM-059",
+    "titre": "Construire l’Europe : de Schuman aux communautés",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-059-sequence",
+    "parent_id": "THM-017",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 5,
+        "YEAR": 5,
+        "MONTH": 5
+      }
+    }
+  },
+  {
+    "id": "THM-060",
+    "titre": "Nouveaux équilibres et fin de la guerre froide",
+    "niveau": "3e",
+    "niveauSlug": "3e",
+    "slug": "thm-060-sequence",
+    "parent_id": "THM-017",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 10,
+        "YEAR": 10,
+        "MONTH": 10
+      }
+    }
+  },
+  {
+    "id": "THM-061",
+    "titre": "Révolution française et Empire",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-061-sequence",
+    "parent_id": "THM-024",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 17,
+        "YEAR": 17,
+        "MONTH": 17
+      }
+    }
+  },
+  {
+    "id": "THM-062",
+    "titre": "Restauration, révolutions et nationalités",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-062-sequence",
+    "parent_id": "THM-024",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 8,
+        "YEAR": 9,
+        "MONTH": 9
+      }
+    }
+  },
+  {
+    "id": "THM-063",
+    "titre": "République, Empire et transformations sociales",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-063-sequence",
+    "parent_id": "THM-025",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 12,
+        "YEAR": 15,
+        "MONTH": 12
+      }
+    }
+  },
+  {
+    "id": "THM-064",
+    "titre": "Guerres, diplomatie et construction des États nationaux",
+    "niveau": "Première générale",
+    "niveauSlug": "premiere",
+    "slug": "thm-064-sequence",
+    "parent_id": "THM-025",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 7,
+        "YEAR": 8,
+        "MONTH": 7
+      }
+    }
   }
 ]

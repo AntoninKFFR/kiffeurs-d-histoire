@@ -61,3 +61,6 @@ npm run content:verifier-phase3
 La première commande reconstruit le plan sans contenu ; la deuxième assemble les rédactions et les copies ; la troisième contrôle les CSV livrés et régénère les pièces de relecture. Ces commandes n'importent rien et n'ont aucun accès réseau. Les simulations d'import et de publication utilisent seulement un Postgres local labellisé, une base aléatoire jetable et PostgREST local. Les états exportés et catalogues sont restaurés après les tests, y compris en cas d'erreur.
 
 La **validation de Max et Antonin reste nécessaire sur la totalité du corpus**. Aucun champ de validation du manifeste n'a été rempli. Les attestations artificielles des tests ne valent ni validation éditoriale ni validation des futures images. Toute publication, import distant ou campagne SVG relève d'une étape ultérieure explicitement autorisée.
+## État de préparation conservé
+
+Ce dossier conserve les preuves de préparation de la phase 3. La validation humaine du corpus et la publication ultérieure sont consignées dans [le dossier de publication #92](../publication-92/README.md).

@@ -2,9 +2,9 @@
 // Un Postgres labellisé et une base aléatoire jetable ; seules les données de fixture sont importées.
 import assert from "node:assert/strict";
 import { execFileSync, spawn } from "node:child_process";
-import { readFileSync,readdirSync,mkdtempSync,writeFileSync,unlinkSync,rmdirSync,existsSync } from "node:fs";
+import { readFileSync,readdirSync,mkdtempSync,writeFileSync,unlinkSync,rmdirSync,existsSync,rmSync } from "node:fs";
 import {tmpdir} from "node:os";
-import {join} from "node:path";
+import {join,resolve,sep} from "node:path";
 import { createServer } from "node:http";
 import { randomBytes,createHmac } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
@@ -16,8 +16,11 @@ import {testerMigrationSommeLocale} from "./test-migration-somme-local";
 import {planCompletions,importerCompletionsLocales} from "./completions-pedagogiques";
 import {lireCsv,type LigneCsv} from "./csv";
 import { verifierPhase3Navigateur } from "./verifier-phase3-browser";
+import { chargerCorpus92, sqlPublication92, sqlRollback92, sqlExport92, exporterArtefacts92, AUTORISATION_92, PROJET_92, SHA_APPROUVE_92, type Autorisation92 } from "./release-pedagogique-92";
 const container=process.argv[process.argv.indexOf('--container')+1];
 const corpusPhase3=process.argv.includes('--corpus-phase3');
+const release92=process.argv.includes('--release92');
+assert(!release92||corpusPhase3,'Le rehearsal release exige le corpus réel');
 verifierDockerFixture(container);
 const suffix=randomBytes(5).toString('hex'),database='kffr_api_'+suffix,network='kffr-issue92-api-'+suffix,api='kffr-issue92-rest-'+suffix;
 const secret=randomBytes(32).toString('hex');
@@ -133,6 +136,35 @@ async function main(){
         perform histoire.record_chapter_test((g->>'game_id')::uuid); end $$;`);
       const progressBefore=sql('select jsonb_agg(to_jsonb(p)) from histoire.learning_progress p');
       const structure=chargerStructure();
+      const corpus=release92?chargerCorpus92():undefined;
+      // Objet de test transmis exclusivement à psql dans le conteneur local vérifié.
+      // Il ne constitue ni une attestation humaine ni une sauvegarde production.
+      const autorisation:Autorisation92={projectId:PROJET_92,endpoint:`https://${PROJET_92}.supabase.co`,autorisation:AUTORISATION_92,
+        preuve:{sha:SHA_APPROUVE_92,source:'objet de test isolé',confirmation:'constructeur SQL testé dans PostgreSQL jetable',cartes_validees:292,svg_nouveaux_valides:203,han_reste_bloque:true},
+        sauvegarde:{projectId:PROJET_92,fichier:'test-local',sha256:'a'.repeat(64),verifiee:true}};
+      if(corpus){
+        const initial=sql("select jsonb_agg(to_jsonb(u) order by chapter_id) from histoire.pedagogical_units u");
+        const refusal=sqlPublication92(corpus,autorisation).replace("  for e in select chapter_id,md5(cards::text||candidates::text)","  perform histoire.set_pedagogical_group_active('THM-006',true,'test');\n  for e in select chapter_id,md5(cards::text||candidates::text)");
+        assert.throws(()=>sql(refusal),'Han doit annuler toute la transaction');
+        assert.equal(sql("select jsonb_agg(to_jsonb(u) order by chapter_id) from histoire.pedagogical_units u"),initial,'Écriture partielle après refus Han');
+        sql(sqlPublication92(corpus,autorisation));
+        const snapshot=sql("select jsonb_agg(to_jsonb(e) order by chapter_id,version) from histoire.pedagogical_editions e");
+        sql(sqlPublication92(corpus,autorisation));
+        assert.equal(sql("select jsonb_agg(to_jsonb(e) order by chapter_id,version) from histoire.pedagogical_editions e"),snapshot,'Publication non idempotente');
+        sql(sqlRollback92(corpus,autorisation));
+        assert.equal(sql("select count(*) from histoire.pedagogical_units where etat='actif'"),'41');
+        assert.equal(sql('select jsonb_agg(to_jsonb(p)) from histoire.learning_progress p'),progressBefore);
+        const exportDir=mkdtempSync(join(tmpdir(),'kffr-release-export-'));
+        try{
+          const repli=exporterArtefacts92(JSON.parse(sql(sqlExport92())),exportDir);
+          assert.deepEqual(repli,{unites:59,publiques:56,empreintes:593},'Les archives doivent rester exportables après rollback');
+        }finally{
+          assert(resolve(exportDir).startsWith(resolve(tmpdir())+sep));
+          rmSync(exportDir,{recursive:true,force:true});
+        }
+        sql(sqlPublication92(corpus,autorisation));
+        console.log('OK RELEASE #92 : transaction réelle exécutée deux fois, rollback et republication ; historique, joueurs et Han protégés.');
+      }else{
       // Attestations uniquement techniques dans une base jetable, sans valeur de revue humaine.
       sql(`update histoire.pedagogical_units set content_approval=histoire.pedagogical_fingerprint(chapter_id),
         illustration_approval='fixture-phase3',catalogue_approval='fixture-phase3' where parent_id is not null;`);
@@ -142,6 +174,7 @@ async function main(){
         sql(`select histoire.set_pedagogical_group_active('${parent}',true,'fixture-phase3')`);
       sql(`do $$declare e record; begin for e in select chapter_id,md5(cards::text||candidates::text) fp from histoire.pedagogical_editions where version='completion-v1' loop
         perform histoire.publish_pedagogical_completion(e.chapter_id,e.fp,'fixture-phase3','fixture-phase3'); end loop; end $$;`);
+      }
       assert.equal(sql("select count(*) from histoire.pedagogical_editions where version='completion-v1' and published"),'27');
       assert.equal(sql("select count(*) from histoire.pedagogical_units where parent_id is not null and etat='actif'"),'15');
       assert.equal(sql('select jsonb_agg(to_jsonb(p)) from histoire.learning_progress p'),progressBefore);

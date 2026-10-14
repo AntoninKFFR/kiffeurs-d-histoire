@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-14",
+  "phase": "publication_supabase_reussie_deploiement_en_attente",
+  "source_sha": "31ab0d56dd87a3400101e112005d63292c544853",
+  "project_id": "bskyfdjwcdvzhlugtknb",
+  "backup_sha256": "88439027006f1e9e8c5c3dac4f613650ba074482754a0d3c6481c53ef72670f2",
+  "publication": {
+    "han": "bloqué",
+    "cartes": 513,
+    "filiations": 61,
+    "project_id": "bskyfdjwcdvzhlugtknb",
+    "source_sha": "31ab0d56dd87a3400101e112005d63292c544853",
+    "enfants_actifs": 15,
+    "editions_publiees": 83,
+    "sauvegarde_sha256": "88439027006f1e9e8c5c3dac4f613650ba074482754a0d3c6481c53ef72670f2"
+  },
+  "verification": {
+    "checks": {
+      "games": true,
+      "game_questions": true,
+      "game_question_editorial_snapshots": true,
+      "players": true,
+      "kpi_games": true,
+      "solo_anonymous_limits": true,
+      "learning_progress": true,
+      "learning_progress_editions": true,
+      "event_chapters": true,
+      "chapters": true,
+      "pedagogical_registry": true,
+      "cartes_historiques": true,
+      "editions_initiales": true,
+      "han": true
+    },
+    "captured_at": "2026-10-14T12:51:22.114521+00:00",
+    "counts": {
+      "games": 43,
+      "players": 3,
+      "chapters": 59,
+      "kpi_games": 83,
+      "chapter_cards": 513,
+      "event_chapters": 722,
+      "game_questions": 368,
+      "learning_progress": 9,
+      "pedagogical_units": 59,
+      "pedagogical_editions": 83,
+      "pedagogical_registry": 1,
+      "solo_anonymous_limits": 1,
+      "pedagogical_card_lineage": 61,
+      "learning_progress_editions": 0,
+      "game_question_editorial_snapshots": 310
+    }
+  },
+  "vercel_confirmation": "Confirmation humaine reçue : « je confirme » en réponse à la vérification liaison GitHub/main/Vercel; accès administré par Max.",
+  "projections_anonymes": {
+    "editions": 83,
+    "cartes_projetees": 802,
+    "exactitude": true,
+    "prive_absent": true
+  },
+  "rls": {
+    "prive_illisible": true,
+    "publication_interdite_anon": true,
+    "progression": true,
+    "han_invisible": true
+  },
+  "tests_locaux": {
+    "vitest": "678 passés, 1 ignoré (Chromium réservé au job dédié), contrôle du catalogue publié inclus",
+    "import_descriptions": "6/6",
+    "sql": "contrats #111 et rehearsal transactionnel passés",
+    "navigateur": "56 routes, 268 images publiques / 24 Han 404 ; éditions, bilans, relance, mobile/desktop",
+    "build": "138 pages générées ; 56 routes + 54 archives ; contrôle 593 cartes / 571 SVG dédiés / 22 motifs",
+    "profil": "desktop/mobile, onglets, vide, erreur, session ; réussi",
+    "bilans": "66 cas/formats réussis",
+    "sous_packs": "six variantes desktop/mobile réussies",
+    "e2e": "À exécuter dans la CI sur pile neuve ; la pile locale préexistante ne contient pas la migration requise, son import s’est arrêté."
+  }
+}

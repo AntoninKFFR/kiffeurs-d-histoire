@@ -64,8 +64,9 @@ it("prévoit un rollback par RPC sans suppression ni restauration destructrice d
 it.skipIf(!existsSync('content/pedagogie/etats-publies-92.json'))('contrôle le catalogue réellement publié et les 593 empreintes, avec anciennes URLs et Han fermé',()=>{
   const c=chargerCorpus92(),etats=JSON.parse(readFileSync('content/pedagogie/etats-publies-92.json','utf8'));
   expect(CHAPITRES).toEqual(appliquerEtatsPublies(c.structure,etats).filter(u=>u.etat!=='inactif'));
-  expect(CHAPITRES).toHaveLength(56);expect(CHAPITRES_ACTIFS).toHaveLength(51);expect(CHAPITRES_HISTORIQUES).toHaveLength(5);
-  expect(CHAPITRES.filter(u=>u.edition_active==='completion-v1')).toHaveLength(27);
+  const active=etats.some((e:{current_version?:string|null})=>e.current_version==='completion-v1');
+  expect(CHAPITRES).toHaveLength(56);expect(CHAPITRES_ACTIFS).toHaveLength(active?51:41);expect(CHAPITRES_HISTORIQUES).toHaveLength(active?5:15);
+  expect(CHAPITRES.filter(u=>u.edition_active==='completion-v1')).toHaveLength(active?27:0);
   const cartes=['cartes-v1','cartes-sous-chapitres','cartes-completions'].flatMap(n=>lireCsv(`content/pedagogie/${n}.csv`))
     .filter(row=>CHAPITRES.some(u=>u.id===row.chapter_id));
   const ledger=JSON.parse(readFileSync('content/pedagogie/cartes-publiees.json','utf8'));

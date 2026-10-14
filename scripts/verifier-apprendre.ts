@@ -8,6 +8,7 @@ import { verifierIntegriteStockPhase4 } from "./illustrations-pedagogiques/phase
 const cartes = chargerCartes();
 const enfants=chargerCartesSousChapitres('content/pedagogie/cartes-sous-chapitres.csv'),completions=chargerCompletions('content/pedagogie/cartes-completions.csv');
 const publie=CHAPITRES.some(c=>c.parent_id);
+const completionActive=CHAPITRES.some(c=>c.edition_active==='completion-v1');
 const racine = ".next/server/app";
 const accueil = readFileSync(`${racine}/apprendre.html`, "utf8");
 const prive = /event_id|EVT-\d+|official_wording|date_status|date_precision|["\\]sources["\\]/;
@@ -39,8 +40,8 @@ for (const chapitre of CHAPITRES) {
   total += attendues.length;
 }
 assert.equal(CHAPITRES.length, publie?56:41);
-assert.equal(total, publie?593:325);
-assert.deepEqual({ dediees, motifs }, { dediees: publie?571:303, motifs: 22 });
+assert.equal(total, publie?(completionActive?593:489):325);
+assert.deepEqual({ dediees, motifs }, { dediees: publie?(completionActive?571:467):303, motifs: 22 });
 const trace = JSON.parse(readFileSync(`${racine}/apprendre/[niveau]/[chapitre]/page.js.nft.json`, "utf8")) as { files: string[] };
 const svgTraces = new Set(trace.files.filter(n => /content\/illustrations\/EVT-\d{4}\.svg$/.test(n)).map(n => n.split("/").at(-1)));
 const stock = verifierIntegriteStockPhase4();

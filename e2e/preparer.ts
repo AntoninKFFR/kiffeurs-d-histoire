@@ -8,7 +8,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { createClient } from "@supabase/supabase-js";
 import { chargerCartes, estUrlLocale, importerCartesLocales } from "../scripts/import-cartes";
 import { COMPTE_TEST, CONTENEUR_DB, statutLocal } from "./local";
-import { chargerCorpus92, sqlPublication92, AUTORISATION_92, PROJET_92, SHA_APPROUVE_92 } from "../scripts/release-pedagogique-92";
+import { chargerCorpus92, sqlPublication92, sqlRollback92, AUTORISATION_92, PROJET_92, SHA_APPROUVE_92, type Autorisation92 } from "../scripts/release-pedagogique-92";
 import { executerSqlDockerLocal } from '../scripts/verifier-docker-fixture';
 
 function psql(sql: string) {
@@ -38,9 +38,12 @@ async function main() {
   if(existsSync('content/pedagogie/etats-publies-92.json')){
     // Le site compilé contient le catalogue publié : sa fixture locale doit correspondre.
     // La cible psql est le conteneur local constant, après la garde URL ; aucun transport distant.
-    psql(sqlPublication92(chargerCorpus92(),{projectId:PROJET_92,endpoint:`https://${PROJET_92}.supabase.co`,autorisation:AUTORISATION_92,
+    const corpus=chargerCorpus92(),autorisation:Autorisation92={projectId:PROJET_92,endpoint:`https://${PROJET_92}.supabase.co`,autorisation:AUTORISATION_92,
       preuve:{sha:SHA_APPROUVE_92,source:'objet de test isolé',confirmation:'fixture E2E locale exclusivement',cartes_validees:292,svg_nouveaux_valides:203,han_reste_bloque:true},
-      sauvegarde:{projectId:PROJET_92,fichier:'test-local-e2e',sha256:'a'.repeat(64),verifiee:true}}));
+      sauvegarde:{projectId:PROJET_92,fichier:'test-local-e2e',sha256:'a'.repeat(64),verifiee:true}};
+    psql(sqlPublication92(corpus,autorisation));
+    const etats=JSON.parse(readFileSync('content/pedagogie/etats-publies-92.json','utf8')) as {current_version?:string|null}[];
+    if(!etats.some(e=>e.current_version==='completion-v1'))psql(sqlRollback92(corpus,autorisation));
     console.log('Corpus publié #92 préparé exclusivement dans la pile E2E locale.');
   }
 

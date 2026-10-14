@@ -156,8 +156,20 @@ async function main(){
         assert.equal(sql('select jsonb_agg(to_jsonb(p)) from histoire.learning_progress p'),progressBefore);
         const exportDir=mkdtempSync(join(tmpdir(),'kffr-release-export-'));
         try{
-          const repli=exporterArtefacts92(JSON.parse(sql(sqlExport92())),exportDir);
+          const exportRepli=JSON.parse(sql(sqlExport92()));
+          const repli=exporterArtefacts92(exportRepli,exportDir);
           assert.deepEqual(repli,{unites:59,publiques:56,empreintes:593},'Les archives doivent rester exportables après rollback');
+          if(process.argv.includes('--build-phase3')){
+            const fichiers=['src/lib/apprendre/structure.json','src/lib/solo/catalogue.json','content/pedagogie/cartes-publiees.json','content/pedagogie/etats-publies-92.json'];
+            const sauvegardes=new Map(fichiers.map(f=>[f,existsSync(f)?readFileSync(f):null]));
+            try{
+              exporterArtefacts92(exportRepli);
+              await command(['node_modules/tsx/dist/cli.mjs','scripts/build-catalogue-solo.ts']);
+              await command(['node_modules/tsx/dist/cli.mjs','scripts/build-apprendre-local.ts']);
+              await command(['node_modules/tsx/dist/cli.mjs','scripts/verifier-apprendre.ts']);
+              console.log('OK ROLLBACK : catalogues exportés du repli réel, build et 489 cartes courantes contrôlés, archives conservées.');
+            }finally{for(const[f,b]of sauvegardes)if(b)writeFileSync(f,b);else if(existsSync(f))unlinkSync(f);}
+          }
         }finally{
           assert(resolve(exportDir).startsWith(resolve(tmpdir())+sep));
           rmSync(exportDir,{recursive:true,force:true});

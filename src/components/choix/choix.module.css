@@ -35,6 +35,8 @@
 .selectionPacks { display: grid; gap: 6px; min-height: 0; }
 .selectionPacks h3 { font-size: 20px; }
 .listePacks { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin: 0; padding: 2px; list-style: none; }
+.rubriquePacks { grid-column: 1 / -1; margin-top: 4px; color: var(--color-oxyde, #914b36); }
+.rubriquePacks h4 { font-size: 16px; font-weight: 600; }
 .tuile[aria-pressed="true"], .tuile:has(input:checked) { border-color: var(--color-encre); box-shadow: inset 0 0 0 2px var(--color-encre); background: var(--color-fond-resultat); }
 .tuile b { font-size: 16px; line-height: 1.25; }
 .tuile small { font-size: 13px; color: var(--color-encre-douce); line-height: 1.3; }

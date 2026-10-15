@@ -62,3 +62,7 @@ bash scripts/tests-solo-concurrence.sh
 bash scripts/tests-admin-packs-concurrence.sh
 bash scripts/tests-corrections-concurrence.sh
 bash scripts/tests-sous-packs-concurrence.sh
+
+# #91 est testé après les régressions historiques : fixture du relevé, migration répétée,
+# vraie partie par pack/sens, retraits, corrections, historique et réponses privées.
+psql_q -f supabase/tests/fun/scenario.sql

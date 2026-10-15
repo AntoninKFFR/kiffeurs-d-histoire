@@ -62,7 +62,7 @@ it("garde les sept niveaux en proposition et la migration limitée aux nouvelles
   for (const id of sport.associations.map((a) => a.event_id)) expect(migration).toContain(`'${id}'`);
   const anciens = lireCsv("content/dataset-v18/kiffeurs-ready-collections-v18.csv");
   expect(anciens).toHaveLength(24);
-  expect(catalogue.packs).toHaveLength(31);
+  expect(catalogue.packs).toHaveLength(37);
   for (const p of anciens) {
     expect(catalogue.packs.find((c) => c.id === p.collection_id)).toMatchObject({ titre: p.title, description: p.description });
     expect(migration).not.toContain(`'${p.collection_id}'`);

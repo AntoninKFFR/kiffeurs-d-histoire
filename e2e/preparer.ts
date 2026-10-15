@@ -35,6 +35,7 @@ async function main() {
   // Les migrations d’une pile vide précèdent l’import : installer ensuite le vrai contenu Sport.
   // La garde locale ci-dessus s’applique aussi à cette migration de données idempotente.
   psql(readFileSync("supabase/migrations/20261011111510_pack_sport.sql", "utf8"));
+  psql(readFileSync("supabase/migrations/20261015120156_packs_fun.sql", "utf8"));
   await importerCartesLocales(chargerCartes(), statut.API_URL, statut.SERVICE_ROLE_KEY);
   if(existsSync('content/pedagogie/etats-publies-92.json')){
     // Le site compilé contient le catalogue publié : sa fixture locale doit correspondre.

@@ -131,14 +131,19 @@ export function verifierPhase3() {
     if(hanPublie)verifierCanonHan117();
     assert.equal(JSON.stringify(JSON.parse(readFileSync('src/lib/apprendre/structure.json','utf8'))),JSON.stringify(projection),'Projection différente de l’export publié');
   }
-  // Seuls les fichiers ajoutés de phase 4 et le vérificateur HTTP adapté sont exclus.
-  // Tous les SVG historiques sont en outre comparés octet par octet aux deux bases.
+  // Le gel #92 inclut historiquement tout src/supabase. Les seuls fichiers #91
+  // sans contenu pédagogique sont nommés explicitement, sans exclure de dossier.
+  // Les 31 anciens packs sont comparés séparément dans fun-contenu.test.ts ;
+  // tous les SVG historiques restent comparés octet par octet aux deux bases.
   execFileSync("git", ["diff", "--exit-code", BASE, "--", ...protections,
     ...stock.nouveaux.map(e => `:(exclude)content/illustrations/${e.event_id}.svg`),
     ":(exclude)scripts/illustrations-pedagogiques/phase4-*",
     ":(exclude)scripts/illustrations-pedagogiques/verifier-routes.ts",
     ...CANONS_CORRIGES_117.map(p=>`:(exclude)${p}`),
     ':(exclude)supabase/migrations/20261014232713_correction_han_117.sql',
+    ...['src/components/choix/SelectionPacks.tsx','src/components/choix/choix.module.css','src/lib/solo/packs-fun.ts',
+      'supabase/fixtures/fun_existants.sql','supabase/migrations/20261015120156_packs_fun.sql','supabase/tests/fun/scenario.sql']
+      .map(fichier=>`:(exclude)${fichier}`),
     ...(existsSync(publication)?[':(exclude)src/lib/apprendre/structure.json',':(exclude)src/lib/solo/catalogue.json']:[])], { stdio: "pipe" });
   // Comparer aussi les octets après les filtres du checkout Windows (LF → CRLF).
   const baseline = execFileSync("git", ["cat-file", "--filters", `${BASE}:${ancienFichier}`]);

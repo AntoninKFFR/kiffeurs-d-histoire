@@ -1,0 +1,6300 @@
+{
+  "at": "2026-10-15T22:05:02.639175+00:00",
+  "coverage": [
+    {
+      "id": "COL-0059",
+      "title": "50 dates incontournables",
+      "direct": 50,
+      "topics": [
+        {
+          "n": 19,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 17,
+          "name": "Politique"
+        },
+        {
+          "n": 10,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 10,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 10,
+          "name": "Empires"
+        },
+        {
+          "n": 8,
+          "name": "Religions"
+        },
+        {
+          "n": 7,
+          "name": "Démocratie"
+        },
+        {
+          "n": 7,
+          "name": "Géopolitique"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2022,
+        "min": -44,
+        "moderne": 3,
+        "1789_1900": 10,
+        "1901_2000": 24,
+        "antiquite": 1,
+        "moyen_age": 4,
+        "apres_2000": 8
+      },
+      "not_playable": 0,
+      "direct_unique": 50,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 50
+    },
+    {
+      "id": "COL-0060",
+      "title": "100 dates incontournables",
+      "direct": 100,
+      "topics": [
+        {
+          "n": 37,
+          "name": "Politique"
+        },
+        {
+          "n": 32,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 24,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 22,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 21,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 18,
+          "name": "Démocratie"
+        },
+        {
+          "n": 17,
+          "name": "Droits et libertés"
+        },
+        {
+          "n": 16,
+          "name": "Organisations internationales"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2024,
+        "min": -753,
+        "moderne": 8,
+        "1789_1900": 20,
+        "1901_2000": 51,
+        "antiquite": 2,
+        "moyen_age": 7,
+        "apres_2000": 12
+      },
+      "not_playable": 0,
+      "direct_unique": 100,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 100
+    },
+    {
+      "id": "COL-0061",
+      "title": "France",
+      "direct": 382,
+      "topics": [
+        {
+          "n": 149,
+          "name": "Politique"
+        },
+        {
+          "n": 105,
+          "name": "Sport"
+        },
+        {
+          "n": 85,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 81,
+          "name": "Démocratie"
+        },
+        {
+          "n": 71,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 66,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 52,
+          "name": "Droits et libertés"
+        },
+        {
+          "n": 52,
+          "name": "Guerres et conflits"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2025,
+        "min": 451,
+        "moderne": 34,
+        "1789_1900": 89,
+        "1901_2000": 183,
+        "antiquite": 1,
+        "moyen_age": 20,
+        "apres_2000": 55
+      },
+      "not_playable": 0,
+      "direct_unique": 382,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 382
+    },
+    {
+      "id": "COL-0062",
+      "title": "Europe",
+      "direct": 987,
+      "topics": [
+        {
+          "n": 244,
+          "name": "Politique"
+        },
+        {
+          "n": 235,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 205,
+          "name": "Sport"
+        },
+        {
+          "n": 193,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 172,
+          "name": "Médias et information"
+        },
+        {
+          "n": 166,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 132,
+          "name": "Religions"
+        },
+        {
+          "n": 110,
+          "name": "Histoire sociale"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2025,
+        "min": -776,
+        "moderne": 104,
+        "1789_1900": 169,
+        "1901_2000": 452,
+        "antiquite": 62,
+        "moyen_age": 78,
+        "apres_2000": 122
+      },
+      "not_playable": 0,
+      "direct_unique": 987,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 987
+    },
+    {
+      "id": "COL-0063",
+      "title": "Première Guerre mondiale",
+      "direct": 32,
+      "topics": [
+        {
+          "n": 22,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 11,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 8,
+          "name": "Batailles et opérations"
+        },
+        {
+          "n": 6,
+          "name": "Mémoire et patrimoine"
+        },
+        {
+          "n": 2,
+          "name": "Génocides et violences de masse"
+        },
+        {
+          "n": 2,
+          "name": "Organisations internationales"
+        },
+        {
+          "n": 1,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 1,
+          "name": "Construction européenne"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1923,
+        "min": 1914,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 32,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 32,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 32
+    },
+    {
+      "id": "COL-0064",
+      "title": "Seconde Guerre mondiale",
+      "direct": 40,
+      "topics": [
+        {
+          "n": 38,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 13,
+          "name": "Politique"
+        },
+        {
+          "n": 10,
+          "name": "Démocratie"
+        },
+        {
+          "n": 9,
+          "name": "Batailles et opérations"
+        },
+        {
+          "n": 8,
+          "name": "Totalitarismes"
+        },
+        {
+          "n": 7,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 7,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 6,
+          "name": "Génocides et violences de masse"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1947,
+        "min": 1933,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 40,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 40,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 40
+    },
+    {
+      "id": "COL-0065",
+      "title": "Guerre froide",
+      "direct": 55,
+      "topics": [
+        {
+          "n": 39,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 30,
+          "name": "Décolonisation"
+        },
+        {
+          "n": 29,
+          "name": "Organisations internationales"
+        },
+        {
+          "n": 19,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 17,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 11,
+          "name": "Politique"
+        },
+        {
+          "n": 10,
+          "name": "Frontières et territoires"
+        },
+        {
+          "n": 8,
+          "name": "Techniques et technologies"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2000,
+        "min": 1946,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 55,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 55,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 55
+    },
+    {
+      "id": "COL-0066",
+      "title": "Révolution française",
+      "direct": 19,
+      "topics": [
+        {
+          "n": 18,
+          "name": "Politique"
+        },
+        {
+          "n": 18,
+          "name": "Révolutions et insurrections"
+        },
+        {
+          "n": 16,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 9,
+          "name": "Empires"
+        },
+        {
+          "n": 5,
+          "name": "Colonisation et impérialisme"
+        },
+        {
+          "n": 5,
+          "name": "Économie"
+        },
+        {
+          "n": 5,
+          "name": "Esclavage et traites"
+        },
+        {
+          "n": 4,
+          "name": "Droits et libertés"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1799,
+        "min": 1789,
+        "moderne": 0,
+        "1789_1900": 19,
+        "1901_2000": 0,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 19,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 19
+    },
+    {
+      "id": "COL-0067",
+      "title": "Époque napoléonienne",
+      "direct": 4,
+      "topics": [
+        {
+          "n": 4,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 4,
+          "name": "Politique"
+        },
+        {
+          "n": 4,
+          "name": "Révolutions et insurrections"
+        },
+        {
+          "n": 1,
+          "name": "Batailles et opérations"
+        },
+        {
+          "n": 1,
+          "name": "Droit et législation"
+        },
+        {
+          "n": 1,
+          "name": "Empires"
+        },
+        {
+          "n": 1,
+          "name": "Guerres et conflits"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1815,
+        "min": 1804,
+        "moderne": 0,
+        "1789_1900": 4,
+        "1901_2000": 0,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 4,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 4
+    },
+    {
+      "id": "COL-0068",
+      "title": "Révolutions et insurrections",
+      "direct": 98,
+      "topics": [
+        {
+          "n": 98,
+          "name": "Révolutions et insurrections"
+        },
+        {
+          "n": 51,
+          "name": "Politique"
+        },
+        {
+          "n": 28,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 26,
+          "name": "Colonisation et impérialisme"
+        },
+        {
+          "n": 20,
+          "name": "Économie"
+        },
+        {
+          "n": 19,
+          "name": "Empires"
+        },
+        {
+          "n": 18,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 17,
+          "name": "Histoire sociale"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2010,
+        "min": -10000,
+        "moderne": 13,
+        "1789_1900": 55,
+        "1901_2000": 21,
+        "antiquite": 4,
+        "moyen_age": 4,
+        "apres_2000": 1
+      },
+      "not_playable": 0,
+      "direct_unique": 98,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 98
+    },
+    {
+      "id": "COL-0069",
+      "title": "Guerres et batailles",
+      "direct": 259,
+      "topics": [
+        {
+          "n": 256,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 84,
+          "name": "Batailles et opérations"
+        },
+        {
+          "n": 54,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 52,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 36,
+          "name": "Religions"
+        },
+        {
+          "n": 35,
+          "name": "Politique"
+        },
+        {
+          "n": 33,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 23,
+          "name": "Colonisation et impérialisme"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2023,
+        "min": -1457,
+        "moderne": 31,
+        "1789_1900": 35,
+        "1901_2000": 116,
+        "antiquite": 34,
+        "moyen_age": 36,
+        "apres_2000": 7
+      },
+      "not_playable": 0,
+      "direct_unique": 259,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 259
+    },
+    {
+      "id": "COL-0070",
+      "title": "Espace",
+      "direct": 24,
+      "topics": [
+        {
+          "n": 24,
+          "name": "Espace"
+        },
+        {
+          "n": 18,
+          "name": "Sciences"
+        },
+        {
+          "n": 6,
+          "name": "Frontières et territoires"
+        },
+        {
+          "n": 6,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 6,
+          "name": "Techniques et technologies"
+        },
+        {
+          "n": 1,
+          "name": "Construction de l’État"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2023,
+        "min": 1610,
+        "moderne": 2,
+        "1789_1900": 2,
+        "1901_2000": 13,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 7
+      },
+      "not_playable": 0,
+      "direct_unique": 24,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 24
+    },
+    {
+      "id": "COL-0071",
+      "title": "Sciences",
+      "direct": 71,
+      "topics": [
+        {
+          "n": 71,
+          "name": "Sciences"
+        },
+        {
+          "n": 18,
+          "name": "Espace"
+        },
+        {
+          "n": 15,
+          "name": "Médecine et santé"
+        },
+        {
+          "n": 14,
+          "name": "Savoirs et connaissance"
+        },
+        {
+          "n": 10,
+          "name": "Techniques et technologies"
+        },
+        {
+          "n": 5,
+          "name": "Religions"
+        },
+        {
+          "n": 3,
+          "name": "Économie"
+        },
+        {
+          "n": 3,
+          "name": "Environnement"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2023,
+        "min": 1543,
+        "moderne": 17,
+        "1789_1900": 19,
+        "1901_2000": 23,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 12
+      },
+      "not_playable": 0,
+      "direct_unique": 71,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 71
+    },
+    {
+      "id": "COL-0072",
+      "title": "Religions",
+      "direct": 90,
+      "topics": [
+        {
+          "n": 90,
+          "name": "Religions"
+        },
+        {
+          "n": 28,
+          "name": "Politique"
+        },
+        {
+          "n": 25,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 17,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 16,
+          "name": "Empires"
+        },
+        {
+          "n": 16,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 12,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 10,
+          "name": "Arts et culture"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2023,
+        "min": -1353,
+        "moderne": 24,
+        "1789_1900": 2,
+        "1901_2000": 5,
+        "antiquite": 9,
+        "moyen_age": 46,
+        "apres_2000": 4
+      },
+      "not_playable": 0,
+      "direct_unique": 90,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 90
+    },
+    {
+      "id": "COL-0073",
+      "title": "Droits et libertés",
+      "direct": 87,
+      "topics": [
+        {
+          "n": 87,
+          "name": "Droits et libertés"
+        },
+        {
+          "n": 48,
+          "name": "Politique"
+        },
+        {
+          "n": 32,
+          "name": "Démocratie"
+        },
+        {
+          "n": 31,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 31,
+          "name": "Droit et législation"
+        },
+        {
+          "n": 31,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 18,
+          "name": "Révolutions et insurrections"
+        },
+        {
+          "n": 16,
+          "name": "Économie"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2020,
+        "min": -776,
+        "moderne": 3,
+        "1789_1900": 33,
+        "1901_2000": 38,
+        "antiquite": 9,
+        "moyen_age": 1,
+        "apres_2000": 3
+      },
+      "not_playable": 0,
+      "direct_unique": 87,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 87
+    },
+    {
+      "id": "COL-0074",
+      "title": "Construction européenne",
+      "direct": 19,
+      "topics": [
+        {
+          "n": 19,
+          "name": "Construction européenne"
+        },
+        {
+          "n": 11,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 8,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 5,
+          "name": "Organisations internationales"
+        },
+        {
+          "n": 5,
+          "name": "Politique"
+        },
+        {
+          "n": 4,
+          "name": "Décolonisation"
+        },
+        {
+          "n": 3,
+          "name": "Démocratie"
+        },
+        {
+          "n": 3,
+          "name": "Frontières et territoires"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2024,
+        "min": 1951,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 13,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 6
+      },
+      "not_playable": 0,
+      "direct_unique": 19,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 19
+    },
+    {
+      "id": "COL-0075",
+      "title": "Décolonisation",
+      "direct": 31,
+      "topics": [
+        {
+          "n": 31,
+          "name": "Décolonisation"
+        },
+        {
+          "n": 17,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 15,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 14,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 14,
+          "name": "Organisations internationales"
+        },
+        {
+          "n": 10,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 5,
+          "name": "Mémoire et patrimoine"
+        },
+        {
+          "n": 2,
+          "name": "Colonisation et impérialisme"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2002,
+        "min": 1945,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 30,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 1
+      },
+      "not_playable": 0,
+      "direct_unique": 31,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 31
+    },
+    {
+      "id": "COL-0076",
+      "title": "Environnement",
+      "direct": 30,
+      "topics": [
+        {
+          "n": 30,
+          "name": "Environnement"
+        },
+        {
+          "n": 12,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 10,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 7,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 3,
+          "name": "Économie"
+        },
+        {
+          "n": 3,
+          "name": "Industrialisation"
+        },
+        {
+          "n": 3,
+          "name": "Sciences"
+        },
+        {
+          "n": 3,
+          "name": "Urbanisation"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2019,
+        "min": -10000,
+        "moderne": 3,
+        "1789_1900": 4,
+        "1901_2000": 12,
+        "antiquite": 2,
+        "moyen_age": 0,
+        "apres_2000": 9
+      },
+      "not_playable": 0,
+      "direct_unique": 30,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 30
+    },
+    {
+      "id": "COL-0077",
+      "title": "Mode expert — 50 dates",
+      "direct": 50,
+      "topics": [
+        {
+          "n": 22,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 19,
+          "name": "Politique"
+        },
+        {
+          "n": 19,
+          "name": "Religions"
+        },
+        {
+          "n": 18,
+          "name": "Démocratie"
+        },
+        {
+          "n": 15,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 13,
+          "name": "Droit et législation"
+        },
+        {
+          "n": 11,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 10,
+          "name": "Guerres et conflits"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2016,
+        "min": -7100,
+        "moderne": 5,
+        "1789_1900": 5,
+        "1901_2000": 17,
+        "antiquite": 13,
+        "moyen_age": 7,
+        "apres_2000": 3
+      },
+      "not_playable": 0,
+      "direct_unique": 50,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 50
+    },
+    {
+      "id": "COL-0078",
+      "title": "Antiquité",
+      "direct": 94,
+      "topics": [
+        {
+          "n": 47,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 45,
+          "name": "Religions"
+        },
+        {
+          "n": 44,
+          "name": "Empires"
+        },
+        {
+          "n": 34,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 23,
+          "name": "Politique"
+        },
+        {
+          "n": 18,
+          "name": "Batailles et opérations"
+        },
+        {
+          "n": 17,
+          "name": "Démocratie"
+        },
+        {
+          "n": 15,
+          "name": "Arts et culture"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 476,
+        "min": -3200,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 0,
+        "antiquite": 92,
+        "moyen_age": 2,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 94,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 94
+    },
+    {
+      "id": "COL-0079",
+      "title": "Moyen Âge",
+      "direct": 102,
+      "topics": [
+        {
+          "n": 69,
+          "name": "Religions"
+        },
+        {
+          "n": 36,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 35,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 30,
+          "name": "Politique"
+        },
+        {
+          "n": 24,
+          "name": "Batailles et opérations"
+        },
+        {
+          "n": 23,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 19,
+          "name": "Empires"
+        },
+        {
+          "n": 16,
+          "name": "Diplomatie"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1492,
+        "min": 476,
+        "moderne": 2,
+        "1789_1900": 0,
+        "1901_2000": 0,
+        "antiquite": 0,
+        "moyen_age": 100,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 102,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 102
+    },
+    {
+      "id": "COL-0080",
+      "title": "Époque moderne",
+      "direct": 151,
+      "topics": [
+        {
+          "n": 54,
+          "name": "Politique"
+        },
+        {
+          "n": 44,
+          "name": "Religions"
+        },
+        {
+          "n": 40,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 37,
+          "name": "Sciences"
+        },
+        {
+          "n": 32,
+          "name": "Colonisation et impérialisme"
+        },
+        {
+          "n": 31,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 30,
+          "name": "Explorations"
+        },
+        {
+          "n": 30,
+          "name": "Guerres et conflits"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1789,
+        "min": 1492,
+        "moderne": 143,
+        "1789_1900": 8,
+        "1901_2000": 0,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 151,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 151
+    },
+    {
+      "id": "COL-0081",
+      "title": "XIXe siècle",
+      "direct": 265,
+      "topics": [
+        {
+          "n": 102,
+          "name": "Politique"
+        },
+        {
+          "n": 64,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 59,
+          "name": "Révolutions et insurrections"
+        },
+        {
+          "n": 56,
+          "name": "Démocratie"
+        },
+        {
+          "n": 54,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 51,
+          "name": "Colonisation et impérialisme"
+        },
+        {
+          "n": 37,
+          "name": "Économie"
+        },
+        {
+          "n": 34,
+          "name": "Droits et libertés"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1900,
+        "min": 1801,
+        "moderne": 0,
+        "1789_1900": 265,
+        "1901_2000": 0,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 265,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 265
+    },
+    {
+      "id": "COL-0082",
+      "title": "XXe siècle",
+      "direct": 996,
+      "topics": [
+        {
+          "n": 295,
+          "name": "Médias et information"
+        },
+        {
+          "n": 280,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 270,
+          "name": "Sport"
+        },
+        {
+          "n": 155,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 134,
+          "name": "Politique"
+        },
+        {
+          "n": 102,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 101,
+          "name": "Géopolitique"
+        },
+        {
+          "n": 85,
+          "name": "Techniques et technologies"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2000,
+        "min": 1901,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 996,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 996,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 996
+    },
+    {
+      "id": "COL-0105",
+      "title": "Sport",
+      "direct": 397,
+      "topics": [
+        {
+          "n": 397,
+          "name": "Sport"
+        },
+        {
+          "n": 60,
+          "name": "Techniques et technologies"
+        },
+        {
+          "n": 40,
+          "name": "Médias et information"
+        },
+        {
+          "n": 1,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 1,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 1,
+          "name": "Démocratie"
+        },
+        {
+          "n": 1,
+          "name": "Droits et libertés"
+        },
+        {
+          "n": 1,
+          "name": "Explorations"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2025,
+        "min": -776,
+        "moderne": 0,
+        "1789_1900": 18,
+        "1901_2000": 270,
+        "antiquite": 1,
+        "moyen_age": 0,
+        "apres_2000": 108
+      },
+      "not_playable": 0,
+      "direct_unique": 397,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 397
+    },
+    {
+      "id": "COL-0106",
+      "title": "Football",
+      "direct": 49,
+      "topics": [
+        {
+          "n": 49,
+          "name": "Sport"
+        }
+      ],
+      "parent_id": "COL-0105",
+      "chronology": {
+        "max": 2024,
+        "min": 1930,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 31,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 18
+      },
+      "not_playable": 0,
+      "direct_unique": 49,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 49
+    },
+    {
+      "id": "COL-0107",
+      "title": "Tennis",
+      "direct": 86,
+      "topics": [
+        {
+          "n": 86,
+          "name": "Sport"
+        }
+      ],
+      "parent_id": "COL-0105",
+      "chronology": {
+        "max": 2025,
+        "min": 1877,
+        "moderne": 0,
+        "1789_1900": 15,
+        "1901_2000": 56,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 15
+      },
+      "not_playable": 0,
+      "direct_unique": 86,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 86
+    },
+    {
+      "id": "COL-0108",
+      "title": "Jeux olympiques",
+      "direct": 57,
+      "topics": [
+        {
+          "n": 57,
+          "name": "Sport"
+        },
+        {
+          "n": 1,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 1,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 1,
+          "name": "Démocratie"
+        },
+        {
+          "n": 1,
+          "name": "Droits et libertés"
+        },
+        {
+          "n": 1,
+          "name": "Génocides et violences de masse"
+        },
+        {
+          "n": 1,
+          "name": "Politique"
+        },
+        {
+          "n": 1,
+          "name": "Religions"
+        }
+      ],
+      "parent_id": "COL-0105",
+      "chronology": {
+        "max": 2024,
+        "min": -776,
+        "moderne": 0,
+        "1789_1900": 2,
+        "1901_2000": 42,
+        "antiquite": 1,
+        "moyen_age": 0,
+        "apres_2000": 12
+      },
+      "not_playable": 0,
+      "direct_unique": 57,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 57
+    },
+    {
+      "id": "COL-0109",
+      "title": "Cyclisme / Tour de France",
+      "direct": 91,
+      "topics": [
+        {
+          "n": 91,
+          "name": "Sport"
+        }
+      ],
+      "parent_id": "COL-0105",
+      "chronology": {
+        "max": 2025,
+        "min": 1903,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 71,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 20
+      },
+      "not_playable": 0,
+      "direct_unique": 91,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 91
+    },
+    {
+      "id": "COL-0110",
+      "title": "Sports mécaniques",
+      "direct": 60,
+      "topics": [
+        {
+          "n": 60,
+          "name": "Sport"
+        },
+        {
+          "n": 60,
+          "name": "Techniques et technologies"
+        }
+      ],
+      "parent_id": "COL-0105",
+      "chronology": {
+        "max": 2025,
+        "min": 1950,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 40,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 20
+      },
+      "not_playable": 0,
+      "direct_unique": 60,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 60
+    },
+    {
+      "id": "COL-0111",
+      "title": "Autres sports et exploits",
+      "direct": 54,
+      "topics": [
+        {
+          "n": 54,
+          "name": "Sport"
+        },
+        {
+          "n": 40,
+          "name": "Médias et information"
+        },
+        {
+          "n": 1,
+          "name": "Explorations"
+        }
+      ],
+      "parent_id": "COL-0105",
+      "chronology": {
+        "max": 2025,
+        "min": 1891,
+        "moderne": 0,
+        "1789_1900": 1,
+        "1901_2000": 30,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 23
+      },
+      "not_playable": 0,
+      "direct_unique": 54,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 54
+    },
+    {
+      "id": "COL-0112",
+      "title": "Grandes premières",
+      "direct": 35,
+      "topics": [
+        {
+          "n": 18,
+          "name": "Techniques et technologies"
+        },
+        {
+          "n": 13,
+          "name": "Sciences"
+        },
+        {
+          "n": 6,
+          "name": "Sport"
+        },
+        {
+          "n": 5,
+          "name": "Médecine et santé"
+        },
+        {
+          "n": 4,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 4,
+          "name": "Économie"
+        },
+        {
+          "n": 4,
+          "name": "Espace"
+        },
+        {
+          "n": 4,
+          "name": "Explorations"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2019,
+        "min": 1522,
+        "moderne": 2,
+        "1789_1900": 13,
+        "1901_2000": 17,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 3
+      },
+      "not_playable": 0,
+      "direct_unique": 35,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 35
+    },
+    {
+      "id": "COL-0113",
+      "title": "Inventions improbables",
+      "direct": 30,
+      "topics": [
+        {
+          "n": 5,
+          "name": "Techniques et technologies"
+        },
+        {
+          "n": 3,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 2,
+          "name": "Industrialisation"
+        },
+        {
+          "n": 2,
+          "name": "Médecine et santé"
+        },
+        {
+          "n": 2,
+          "name": "Sciences"
+        },
+        {
+          "n": 1,
+          "name": "Économie"
+        },
+        {
+          "n": 1,
+          "name": "Médias et information"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1990,
+        "min": 1769,
+        "moderne": 1,
+        "1789_1900": 8,
+        "1901_2000": 21,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 30,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 30
+    },
+    {
+      "id": "COL-0114",
+      "title": "Sorties de films cultes",
+      "direct": 50,
+      "topics": [
+        {
+          "n": 4,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 1,
+          "name": "Techniques et technologies"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2011,
+        "min": 1925,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 43,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 7
+      },
+      "not_playable": 0,
+      "direct_unique": 50,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 50
+    },
+    {
+      "id": "COL-0115",
+      "title": "Pop culture",
+      "direct": 35,
+      "topics": [
+        {
+          "n": 9,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 9,
+          "name": "Techniques et technologies"
+        },
+        {
+          "n": 6,
+          "name": "Médias et information"
+        },
+        {
+          "n": 5,
+          "name": "Économie"
+        },
+        {
+          "n": 2,
+          "name": "Savoirs et connaissance"
+        },
+        {
+          "n": 1,
+          "name": "Histoire sociale"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2012,
+        "min": 1913,
+        "moderne": 0,
+        "1789_1900": 0,
+        "1901_2000": 29,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 6
+      },
+      "not_playable": 0,
+      "direct_unique": 35,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 35
+    },
+    {
+      "id": "COL-0116",
+      "title": "Rois, scandales et trahisons",
+      "direct": 30,
+      "topics": [
+        {
+          "n": 23,
+          "name": "Politique"
+        },
+        {
+          "n": 16,
+          "name": "Construction de l’État"
+        },
+        {
+          "n": 15,
+          "name": "Religions"
+        },
+        {
+          "n": 6,
+          "name": "Empires"
+        },
+        {
+          "n": 6,
+          "name": "Révolutions et insurrections"
+        },
+        {
+          "n": 4,
+          "name": "Arts et culture"
+        },
+        {
+          "n": 4,
+          "name": "Diplomatie"
+        },
+        {
+          "n": 4,
+          "name": "Explorations"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 1936,
+        "min": -49,
+        "moderne": 14,
+        "1789_1900": 5,
+        "1901_2000": 2,
+        "antiquite": 2,
+        "moyen_age": 7,
+        "apres_2000": 0
+      },
+      "not_playable": 0,
+      "direct_unique": 30,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 30
+    },
+    {
+      "id": "COL-0117",
+      "title": "Quand l’histoire dérape",
+      "direct": 30,
+      "topics": [
+        {
+          "n": 3,
+          "name": "Droit et législation"
+        },
+        {
+          "n": 3,
+          "name": "Économie"
+        },
+        {
+          "n": 2,
+          "name": "Guerres et conflits"
+        },
+        {
+          "n": 2,
+          "name": "Histoire sociale"
+        },
+        {
+          "n": 2,
+          "name": "Politique"
+        },
+        {
+          "n": 2,
+          "name": "Religions"
+        },
+        {
+          "n": 2,
+          "name": "Sciences"
+        },
+        {
+          "n": 1,
+          "name": "Arts et culture"
+        }
+      ],
+      "parent_id": null,
+      "chronology": {
+        "max": 2006,
+        "min": 1605,
+        "moderne": 6,
+        "1789_1900": 6,
+        "1901_2000": 17,
+        "antiquite": 0,
+        "moyen_age": 0,
+        "apres_2000": 1
+      },
+      "not_playable": 0,
+      "direct_unique": 30,
+      "removed_direct": 0,
+      "removed_linked": 0,
+      "effective_memberships": 30
+    }
+  ],
+  "rpc_matrix": [
+    {
+      "dir": "date",
+      "label": "debutant",
+      "packs": [
+        {
+          "b": [
+            -60,
+            2030
+          ],
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 50,
+            "YEAR": 50,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": [
+            -770,
+            2030
+          ],
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 99,
+            "YEAR": 100,
+            "MONTH": 99
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            720,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 80,
+            "YEAR": 96,
+            "MONTH": 83
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 128,
+            "YEAR": 161,
+            "MONTH": 130
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1930
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1920,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 19,
+            "YEAR": 20,
+            "MONTH": 19
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            2010
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 24,
+            "YEAR": 24,
+            "MONTH": 24
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1770,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 13,
+            "YEAR": 13,
+            "MONTH": 13
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": [
+            1790,
+            1830
+          ],
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -3500,
+            1990
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 22,
+            "YEAR": 26,
+            "MONTH": 22
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -500,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 56,
+            "YEAR": 65,
+            "MONTH": 57
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1940,
+            1980
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1870,
+            1980
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 5,
+            "MONTH": 5
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            300,
+            1920
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 18,
+            "MONTH": 10
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -790,
+            2010
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 24,
+            "MONTH": 21
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2020
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            1980
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            720,
+            750
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 1,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -3210,
+            490
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 7,
+            "YEAR": 21,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            460,
+            1510
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 26,
+            "MONTH": 16
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 26,
+            "YEAR": 35,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 35,
+            "MONTH": 33
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2010
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 97,
+            "YEAR": 102,
+            "MONTH": 98
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1980,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": null,
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 3,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": null,
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": null,
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": null,
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1510,
+            2020
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": [
+            1860,
+            1940
+          ],
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": [
+            1960,
+            1990
+          ],
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": null,
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            -60,
+            1820
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 10,
+            "YEAR": 10,
+            "MONTH": 10
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": null,
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "inverse",
+      "label": "debutant",
+      "packs": [
+        {
+          "b": [
+            -60,
+            2030
+          ],
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 50,
+            "YEAR": 46,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": [
+            -770,
+            2030
+          ],
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 99,
+            "YEAR": 82,
+            "MONTH": 98
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            720,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 78,
+            "YEAR": 66,
+            "MONTH": 75
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 127,
+            "YEAR": 122,
+            "MONTH": 126
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1930
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 9,
+            "YEAR": 6,
+            "MONTH": 9
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1920,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 18,
+            "YEAR": 10,
+            "MONTH": 17
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            2010
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 17,
+            "MONTH": 22
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1770,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 5,
+            "MONTH": 9
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": [
+            1790,
+            1830
+          ],
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -3500,
+            1990
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 18,
+            "MONTH": 20
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -500,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 54,
+            "YEAR": 49,
+            "MONTH": 54
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1940,
+            1980
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1870,
+            1980
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 5
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            300,
+            1920
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 18,
+            "MONTH": 10
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -790,
+            2010
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 19,
+            "MONTH": 20
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2020
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            1980
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 5,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            720,
+            750
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 1,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -3210,
+            490
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 7,
+            "YEAR": 18,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            460,
+            1510
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 21,
+            "MONTH": 16
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 24,
+            "YEAR": 26,
+            "MONTH": 24
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 25,
+            "MONTH": 32
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2010
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 94,
+            "YEAR": 53,
+            "MONTH": 91
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1980,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": null,
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 3,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": null,
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": null,
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": null,
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1510,
+            2020
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": [
+            1860,
+            1940
+          ],
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": [
+            1960,
+            1990
+          ],
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": null,
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            -60,
+            1820
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 10,
+            "YEAR": 10,
+            "MONTH": 10
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": null,
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "date",
+      "label": "intermediaire_cumule",
+      "packs": [
+        {
+          "b": [
+            -60,
+            2030
+          ],
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 50,
+            "YEAR": 50,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": [
+            -770,
+            2030
+          ],
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 99,
+            "YEAR": 100,
+            "MONTH": 99
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            440,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 153,
+            "YEAR": 197,
+            "MONTH": 157
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 343,
+            "YEAR": 435,
+            "MONTH": 351
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1940
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 25,
+            "YEAR": 25,
+            "MONTH": 25
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1920,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 36,
+            "YEAR": 37,
+            "MONTH": 36
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 49,
+            "YEAR": 49,
+            "MONTH": 49
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1770,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 15,
+            "MONTH": 15
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": [
+            1790,
+            1830
+          ],
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -3500,
+            2000
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 49,
+            "YEAR": 63,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -1290,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 137,
+            "YEAR": 164,
+            "MONTH": 140
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1600,
+            2030
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 16,
+            "YEAR": 16,
+            "MONTH": 16
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1530,
+            2030
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 42,
+            "MONTH": 35
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            300,
+            2030
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 35,
+            "YEAR": 57,
+            "MONTH": 38
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 51,
+            "YEAR": 56,
+            "MONTH": 51
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 13,
+            "YEAR": 13,
+            "MONTH": 13
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            1990
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 16,
+            "YEAR": 16,
+            "MONTH": 16
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 23,
+            "MONTH": 21
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            -1760,
+            2030
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 32,
+            "MONTH": 15
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -3210,
+            490
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 14,
+            "YEAR": 52,
+            "MONTH": 17
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            460,
+            1510
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 35,
+            "YEAR": 62,
+            "MONTH": 38
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 63,
+            "YEAR": 93,
+            "MONTH": 67
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 104,
+            "YEAR": 128,
+            "MONTH": 107
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2020
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 307,
+            "YEAR": 319,
+            "MONTH": 308
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 28,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1920,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 9,
+            "YEAR": 13,
+            "MONTH": 9
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": [
+            1860,
+            1890
+          ],
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 10,
+            "YEAR": 11,
+            "MONTH": 10
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": [
+            1890,
+            1920
+          ],
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": null,
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": [
+            1880,
+            1970
+          ],
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1510,
+            2030
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 27,
+            "YEAR": 27,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": [
+            1750,
+            2010
+          ],
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 30,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": [
+            1910,
+            2030
+          ],
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 50,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 31,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            -60,
+            1930
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": [
+            1590,
+            2020
+          ],
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 26,
+            "MONTH": 15
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "inverse",
+      "label": "intermediaire_cumule",
+      "packs": [
+        {
+          "b": [
+            -60,
+            2030
+          ],
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 50,
+            "YEAR": 46,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": [
+            -770,
+            2030
+          ],
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 99,
+            "YEAR": 82,
+            "MONTH": 98
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            440,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 150,
+            "YEAR": 123,
+            "MONTH": 133
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 337,
+            "YEAR": 269,
+            "MONTH": 315
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1940
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 8,
+            "MONTH": 18
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1920,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 34,
+            "YEAR": 10,
+            "MONTH": 25
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 47,
+            "YEAR": 29,
+            "MONTH": 42
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1770,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 14,
+            "YEAR": 6,
+            "MONTH": 11
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": [
+            1790,
+            1830
+          ],
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -3500,
+            2000
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 48,
+            "YEAR": 45,
+            "MONTH": 45
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -1290,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 129,
+            "YEAR": 106,
+            "MONTH": 115
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1600,
+            2030
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 14,
+            "MONTH": 14
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1530,
+            2030
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 38,
+            "MONTH": 35
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            300,
+            2030
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 35,
+            "YEAR": 53,
+            "MONTH": 38
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 51,
+            "YEAR": 47,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 13,
+            "YEAR": 12,
+            "MONTH": 13
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            1990
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 16,
+            "YEAR": 10,
+            "MONTH": 14
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 22,
+            "MONTH": 21
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            -1760,
+            2030
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 32,
+            "MONTH": 15
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -3210,
+            490
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 14,
+            "YEAR": 46,
+            "MONTH": 17
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            460,
+            1510
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 35,
+            "YEAR": 52,
+            "MONTH": 38
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 59,
+            "YEAR": 69,
+            "MONTH": 62
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 104,
+            "YEAR": 61,
+            "MONTH": 98
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2020
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 296,
+            "YEAR": 94,
+            "MONTH": 250
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1920,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": [
+            1860,
+            1890
+          ],
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 10,
+            "YEAR": 11,
+            "MONTH": 10
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": [
+            1890,
+            1920
+          ],
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": null,
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": [
+            1880,
+            1970
+          ],
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1510,
+            2030
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 27,
+            "YEAR": 26,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": [
+            1750,
+            2010
+          ],
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 24,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": [
+            1910,
+            2030
+          ],
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 40,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 27,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            -60,
+            1930
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": [
+            1590,
+            2020
+          ],
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 25,
+            "MONTH": 15
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "date",
+      "label": "expert_exclusif",
+      "packs": [
+        {
+          "b": null,
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": null,
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            1190,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 185,
+            "MONTH": 32
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -630,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 129,
+            "YEAR": 552,
+            "MONTH": 132
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1940
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1950,
+            2010
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1780,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": null,
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -510,
+            2030
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 26,
+            "YEAR": 35,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -1470,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 60,
+            "YEAR": 95,
+            "MONTH": 61
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1790,
+            2030
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1590,
+            2030
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 29,
+            "MONTH": 21
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            -1370,
+            2030
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 20,
+            "YEAR": 33,
+            "MONTH": 20
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -100,
+            2030
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 31,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 15,
+            "MONTH": 15
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            1650,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 5,
+            "YEAR": 7,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            -3500,
+            2020
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 14,
+            "YEAR": 18,
+            "MONTH": 14
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -2350,
+            470
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 42,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            510,
+            1500
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 20,
+            "YEAR": 40,
+            "MONTH": 22
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 58,
+            "MONTH": 30
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 68,
+            "YEAR": 137,
+            "MONTH": 68
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2020
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 132,
+            "YEAR": 677,
+            "MONTH": 133
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            1860,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 369,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1920,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 36,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": [
+            1860,
+            2030
+          ],
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 85,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            1890,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 46,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": [
+            1890,
+            2030
+          ],
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 90,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 52,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1810,
+            2030
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": null,
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": null,
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": [
+            1900,
+            2020
+          ],
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            1240,
+            1950
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": [
+            1710,
+            2000
+          ],
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "inverse",
+      "label": "expert_exclusif",
+      "packs": [
+        {
+          "b": null,
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": null,
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            1190,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 129,
+            "MONTH": 31
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -630,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 128,
+            "YEAR": 243,
+            "MONTH": 128
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1940
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 7,
+            "YEAR": 5,
+            "MONTH": 7
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1950,
+            2010
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1780,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 2,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": null,
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -510,
+            2030
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 26,
+            "YEAR": 31,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -1470,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 60,
+            "YEAR": 89,
+            "MONTH": 59
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1790,
+            2030
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1590,
+            2030
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 21,
+            "YEAR": 27,
+            "MONTH": 21
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            -1370,
+            2030
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 20,
+            "YEAR": 31,
+            "MONTH": 20
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -100,
+            2030
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 26,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 15,
+            "YEAR": 11,
+            "MONTH": 14
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            1650,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 5,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            -3500,
+            2020
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 14,
+            "YEAR": 16,
+            "MONTH": 13
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -2350,
+            470
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 41,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            510,
+            1500
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 20,
+            "YEAR": 39,
+            "MONTH": 22
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 48,
+            "MONTH": 30
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 67,
+            "YEAR": 77,
+            "MONTH": 66
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2020
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 132,
+            "YEAR": 98,
+            "MONTH": 125
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            1860,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 128,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1920,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 34,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": [
+            1860,
+            2030
+          ],
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 85,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            1890,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 33,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": [
+            1890,
+            2030
+          ],
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 90,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 2,
+            "YEAR": 46,
+            "MONTH": 2
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1810,
+            2030
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": null,
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": null,
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": [
+            1900,
+            2020
+          ],
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            1240,
+            1950
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": [
+            1710,
+            2000
+          ],
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "date",
+      "label": "tous",
+      "packs": [
+        {
+          "b": [
+            -60,
+            2030
+          ],
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 50,
+            "YEAR": 50,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": [
+            -770,
+            2030
+          ],
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 99,
+            "YEAR": 100,
+            "MONTH": 99
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            440,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 184,
+            "YEAR": 382,
+            "MONTH": 189
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 472,
+            "YEAR": 987,
+            "MONTH": 483
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1940
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 32,
+            "YEAR": 32,
+            "MONTH": 32
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1920,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 39,
+            "YEAR": 40,
+            "MONTH": 39
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 55,
+            "YEAR": 55,
+            "MONTH": 55
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1770,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 19,
+            "YEAR": 19,
+            "MONTH": 19
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": [
+            1790,
+            1830
+          ],
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 75,
+            "YEAR": 98,
+            "MONTH": 77
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -1470,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 197,
+            "YEAR": 259,
+            "MONTH": 201
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1600,
+            2030
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 24,
+            "YEAR": 24,
+            "MONTH": 24
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1530,
+            2030
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 52,
+            "YEAR": 71,
+            "MONTH": 56
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            -1370,
+            2030
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 55,
+            "YEAR": 90,
+            "MONTH": 58
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 74,
+            "YEAR": 87,
+            "MONTH": 74
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 19,
+            "YEAR": 19,
+            "MONTH": 19
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 31,
+            "MONTH": 31
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 26,
+            "YEAR": 30,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 50,
+            "MONTH": 29
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -3210,
+            490
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 20,
+            "YEAR": 94,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            460,
+            1510
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 55,
+            "YEAR": 102,
+            "MONTH": 60
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 92,
+            "YEAR": 151,
+            "MONTH": 97
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 172,
+            "YEAR": 265,
+            "MONTH": 175
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2020
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 439,
+            "YEAR": 996,
+            "MONTH": 441
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 397,
+            "MONTH": 29
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1920,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 11,
+            "YEAR": 49,
+            "MONTH": 11
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": [
+            1860,
+            2030
+          ],
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 86,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 57,
+            "MONTH": 12
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": [
+            1890,
+            2030
+          ],
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 91,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": [
+            1880,
+            2030
+          ],
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 54,
+            "MONTH": 4
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1510,
+            2030
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 35,
+            "YEAR": 35,
+            "MONTH": 35
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": [
+            1750,
+            2010
+          ],
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 30,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": [
+            1910,
+            2030
+          ],
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 50,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": [
+            1900,
+            2030
+          ],
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 27,
+            "YEAR": 35,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            -60,
+            1950
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 30,
+            "MONTH": 29
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": [
+            1590,
+            2020
+          ],
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 18,
+            "YEAR": 30,
+            "MONTH": 18
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    },
+    {
+      "dir": "inverse",
+      "label": "tous",
+      "packs": [
+        {
+          "b": [
+            -60,
+            2030
+          ],
+          "id": "COL-0059",
+          "titre": "50 dates incontournables",
+          "comptes": {
+            "DAY": 50,
+            "YEAR": 46,
+            "MONTH": 50
+          },
+          "parent_id": null,
+          "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours."
+        },
+        {
+          "b": [
+            -770,
+            2030
+          ],
+          "id": "COL-0060",
+          "titre": "100 dates incontournables",
+          "comptes": {
+            "DAY": 99,
+            "YEAR": 82,
+            "MONTH": 98
+          },
+          "parent_id": null,
+          "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables."
+        },
+        {
+          "b": [
+            440,
+            2030
+          ],
+          "id": "COL-0061",
+          "titre": "France",
+          "comptes": {
+            "DAY": 181,
+            "YEAR": 204,
+            "MONTH": 156
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à la France."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0062",
+          "titre": "Europe",
+          "comptes": {
+            "DAY": 465,
+            "YEAR": 408,
+            "MONTH": 425
+          },
+          "parent_id": null,
+          "description": "Événements directement rattachés à l’espace européen."
+        },
+        {
+          "b": [
+            1900,
+            1940
+          ],
+          "id": "COL-0063",
+          "titre": "Première Guerre mondiale",
+          "comptes": {
+            "DAY": 30,
+            "YEAR": 10,
+            "MONTH": 24
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Première Guerre mondiale."
+        },
+        {
+          "b": [
+            1920,
+            1960
+          ],
+          "id": "COL-0064",
+          "titre": "Seconde Guerre mondiale",
+          "comptes": {
+            "DAY": 37,
+            "YEAR": 10,
+            "MONTH": 26
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Seconde Guerre mondiale."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0065",
+          "titre": "Guerre froide",
+          "comptes": {
+            "DAY": 53,
+            "YEAR": 32,
+            "MONTH": 48
+          },
+          "parent_id": null,
+          "description": "Événements du contexte Guerre froide."
+        },
+        {
+          "b": [
+            1770,
+            1810
+          ],
+          "id": "COL-0066",
+          "titre": "Révolution française",
+          "comptes": {
+            "DAY": 18,
+            "YEAR": 6,
+            "MONTH": 13
+          },
+          "parent_id": null,
+          "description": "Événements directement associés à la Révolution française."
+        },
+        {
+          "b": [
+            1790,
+            1830
+          ],
+          "id": "COL-0067",
+          "titre": "Époque napoléonienne",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "parent_id": null,
+          "description": "Consulat, Empire et principaux jalons napoléoniens."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0068",
+          "titre": "Révolutions et insurrections",
+          "comptes": {
+            "DAY": 74,
+            "YEAR": 68,
+            "MONTH": 68
+          },
+          "parent_id": null,
+          "description": "Révolutions, soulèvements et ruptures politiques."
+        },
+        {
+          "b": [
+            -1470,
+            2030
+          ],
+          "id": "COL-0069",
+          "titre": "Guerres et batailles",
+          "comptes": {
+            "DAY": 189,
+            "YEAR": 182,
+            "MONTH": 169
+          },
+          "parent_id": null,
+          "description": "Guerres, conflits, batailles et opérations militaires."
+        },
+        {
+          "b": [
+            1600,
+            2030
+          ],
+          "id": "COL-0070",
+          "titre": "Espace",
+          "comptes": {
+            "DAY": 23,
+            "YEAR": 22,
+            "MONTH": 22
+          },
+          "parent_id": null,
+          "description": "Exploration spatiale, satellites, vols habités et stations orbitales."
+        },
+        {
+          "b": [
+            1530,
+            2030
+          ],
+          "id": "COL-0071",
+          "titre": "Sciences",
+          "comptes": {
+            "DAY": 52,
+            "YEAR": 63,
+            "MONTH": 56
+          },
+          "parent_id": null,
+          "description": "Découvertes, savants et événements scientifiques."
+        },
+        {
+          "b": [
+            -1370,
+            2030
+          ],
+          "id": "COL-0072",
+          "titre": "Religions",
+          "comptes": {
+            "DAY": 55,
+            "YEAR": 81,
+            "MONTH": 58
+          },
+          "parent_id": null,
+          "description": "Événements religieux directement identifiés."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0073",
+          "titre": "Droits et libertés",
+          "comptes": {
+            "DAY": 74,
+            "YEAR": 69,
+            "MONTH": 73
+          },
+          "parent_id": null,
+          "description": "Droits civiques, libertés publiques, suffrage et égalité juridique."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0074",
+          "titre": "Construction européenne",
+          "comptes": {
+            "DAY": 19,
+            "YEAR": 18,
+            "MONTH": 19
+          },
+          "parent_id": null,
+          "description": "CECA, traités européens, Schengen et autres jalons associés."
+        },
+        {
+          "b": [
+            1930,
+            2020
+          ],
+          "id": "COL-0075",
+          "titre": "Décolonisation",
+          "comptes": {
+            "DAY": 31,
+            "YEAR": 15,
+            "MONTH": 24
+          },
+          "parent_id": null,
+          "description": "Indépendances et conflits de décolonisation."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0076",
+          "titre": "Environnement",
+          "comptes": {
+            "DAY": 26,
+            "YEAR": 27,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Protection de l’environnement, climat et grands accords."
+        },
+        {
+          "b": [
+            -3500,
+            2030
+          ],
+          "id": "COL-0077",
+          "titre": "Mode expert — 50 dates",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 47,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire."
+        },
+        {
+          "b": [
+            -3210,
+            490
+          ],
+          "id": "COL-0078",
+          "titre": "Antiquité",
+          "comptes": {
+            "DAY": 20,
+            "YEAR": 84,
+            "MONTH": 23
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés entre les premières écritures et 476."
+        },
+        {
+          "b": [
+            460,
+            1510
+          ],
+          "id": "COL-0079",
+          "titre": "Moyen Âge",
+          "comptes": {
+            "DAY": 55,
+            "YEAR": 84,
+            "MONTH": 60
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 476 à 1492."
+        },
+        {
+          "b": [
+            1480,
+            1800
+          ],
+          "id": "COL-0080",
+          "titre": "Époque moderne",
+          "comptes": {
+            "DAY": 87,
+            "YEAR": 110,
+            "MONTH": 90
+          },
+          "parent_id": null,
+          "description": "Événements jouables conventionnellement situés de 1492 à 1789."
+        },
+        {
+          "b": [
+            1790,
+            1920
+          ],
+          "id": "COL-0081",
+          "titre": "XIXe siècle",
+          "comptes": {
+            "DAY": 171,
+            "YEAR": 93,
+            "MONTH": 155
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1801 à 1900."
+        },
+        {
+          "b": [
+            1890,
+            2020
+          ],
+          "id": "COL-0082",
+          "titre": "XXe siècle",
+          "comptes": {
+            "DAY": 428,
+            "YEAR": 100,
+            "MONTH": 345
+          },
+          "parent_id": null,
+          "description": "Événements jouables de 1901 à 2000."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0105",
+          "titre": "Sport",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 131,
+            "MONTH": 28
+          },
+          "parent_id": null,
+          "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits."
+        },
+        {
+          "b": [
+            1920,
+            2030
+          ],
+          "id": "COL-0106",
+          "titre": "Football",
+          "comptes": {
+            "DAY": 11,
+            "YEAR": 39,
+            "MONTH": 11
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde, championnats d’Europe et grandes victoires du football."
+        },
+        {
+          "b": [
+            1860,
+            2030
+          ],
+          "id": "COL-0107",
+          "titre": "Tennis",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 86,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus."
+        },
+        {
+          "b": [
+            -790,
+            2030
+          ],
+          "id": "COL-0108",
+          "titre": "Jeux olympiques",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 39,
+            "MONTH": 12
+          },
+          "parent_id": "COL-0105",
+          "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants."
+        },
+        {
+          "b": [
+            1890,
+            2030
+          ],
+          "id": "COL-0109",
+          "titre": "Cyclisme / Tour de France",
+          "comptes": {
+            "DAY": 1,
+            "YEAR": 91,
+            "MONTH": 1
+          },
+          "parent_id": "COL-0105",
+          "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus."
+        },
+        {
+          "b": [
+            1940,
+            2030
+          ],
+          "id": "COL-0110",
+          "titre": "Sports mécaniques",
+          "comptes": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "parent_id": "COL-0105",
+          "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus."
+        },
+        {
+          "b": [
+            1880,
+            2030
+          ],
+          "id": "COL-0111",
+          "titre": "Autres sports et exploits",
+          "comptes": {
+            "DAY": 4,
+            "YEAR": 48,
+            "MONTH": 4
+          },
+          "parent_id": "COL-0105",
+          "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs."
+        },
+        {
+          "b": [
+            1510,
+            2030
+          ],
+          "id": "COL-0112",
+          "titre": "Grandes premières",
+          "comptes": {
+            "DAY": 35,
+            "YEAR": 34,
+            "MONTH": 35
+          },
+          "parent_id": null,
+          "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle."
+        },
+        {
+          "b": [
+            1750,
+            2010
+          ],
+          "id": "COL-0113",
+          "titre": "Inventions improbables",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 24,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien."
+        },
+        {
+          "b": [
+            1910,
+            2030
+          ],
+          "id": "COL-0114",
+          "titre": "Sorties de films cultes",
+          "comptes": {
+            "DAY": 12,
+            "YEAR": 40,
+            "MONTH": 12
+          },
+          "parent_id": null,
+          "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué."
+        },
+        {
+          "b": [
+            1900,
+            2030
+          ],
+          "id": "COL-0115",
+          "titre": "Pop culture",
+          "comptes": {
+            "DAY": 27,
+            "YEAR": 29,
+            "MONTH": 27
+          },
+          "parent_id": null,
+          "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films."
+        },
+        {
+          "b": [
+            -60,
+            1950
+          ],
+          "id": "COL-0116",
+          "titre": "Rois, scandales et trahisons",
+          "comptes": {
+            "DAY": 29,
+            "YEAR": 30,
+            "MONTH": 29
+          },
+          "parent_id": null,
+          "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir."
+        },
+        {
+          "b": [
+            1590,
+            2020
+          ],
+          "id": "COL-0117",
+          "titre": "Quand l’histoire dérape",
+          "comptes": {
+            "DAY": 18,
+            "YEAR": 29,
+            "MONTH": 18
+          },
+          "parent_id": null,
+          "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision."
+        }
+      ]
+    }
+  ],
+  "fingerprints": {
+    "events": "5e78f7914832e15de97240b0686851cc",
+    "answers": "a75b79b13ee7b9306ff8fc1444f2b719",
+    "removals": "d41d8cd98f00b204e9800998ecf8427e",
+    "pack_events": "8213640d690ec5d32b3cefca5927d2b0"
+  },
+  "confidentiality": [
+    {
+      "role": "anon",
+      "aliases_select": false,
+      "answers_select": false
+    },
+    {
+      "role": "authenticated",
+      "aliases_select": false,
+      "answers_select": false
+    }
+  ]
+}

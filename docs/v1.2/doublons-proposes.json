@@ -1,0 +1,123 @@
+{
+  "at": "2026-10-16",
+  "method": "Normalisation SQL courante et similarité trigramme >= 0,6, seuil plus prudent que 0,8 de #120. Lecture seule ; pas de création de question.",
+  "matches": [
+    {
+      "id": "A1-009",
+      "proposed_title": "Sortie de WALL-E (États-Unis)",
+      "existing_id": "EVT-2133",
+      "title": "Sortie de Rocky (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.636364,
+      "same_date": false
+    },
+    {
+      "id": "A1-009",
+      "proposed_title": "Sortie de WALL-E (États-Unis)",
+      "existing_id": "EVT-2161",
+      "title": "Sortie de Matrix (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.617647,
+      "same_date": false
+    },
+    {
+      "id": "A1-009",
+      "proposed_title": "Sortie de WALL-E (États-Unis)",
+      "existing_id": "EVT-2154",
+      "title": "Sortie de Aladdin (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.6,
+      "same_date": false
+    },
+    {
+      "id": "A1-009",
+      "proposed_title": "Sortie de WALL-E (États-Unis)",
+      "existing_id": "EVT-2160",
+      "title": "Sortie de Titanic (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.6,
+      "same_date": false
+    },
+    {
+      "id": "A1-010",
+      "proposed_title": "Sortie de Là-haut (États-Unis)",
+      "existing_id": "EVT-2153",
+      "title": "Sortie de La Belle et la Bête (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.615385,
+      "same_date": false
+    },
+    {
+      "id": "A1-010",
+      "proposed_title": "Sortie de Là-haut (États-Unis)",
+      "existing_id": "EVT-2131",
+      "title": "Sortie de Les Dents de la mer (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.615385,
+      "same_date": false
+    },
+    {
+      "id": "A1-010",
+      "proposed_title": "Sortie de Là-haut (États-Unis)",
+      "existing_id": "EVT-2133",
+      "title": "Sortie de Rocky (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.6,
+      "same_date": false
+    },
+    {
+      "id": "A1-013",
+      "proposed_title": "Sortie de Zootopie (États-Unis)",
+      "existing_id": "EVT-2133",
+      "title": "Sortie de Rocky (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.6,
+      "same_date": false
+    },
+    {
+      "id": "A1-015",
+      "proposed_title": "Sortie de Encanto (États-Unis)",
+      "existing_id": "EVT-2133",
+      "title": "Sortie de Rocky (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.617647,
+      "same_date": false
+    },
+    {
+      "id": "A1-015",
+      "proposed_title": "Sortie de Encanto (États-Unis)",
+      "existing_id": "EVT-2148",
+      "title": "Sortie de Fantasia (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.611111,
+      "same_date": false
+    },
+    {
+      "id": "A1-015",
+      "proposed_title": "Sortie de Encanto (États-Unis)",
+      "existing_id": "EVT-2161",
+      "title": "Sortie de Matrix (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.6,
+      "same_date": false
+    },
+    {
+      "id": "A1-016",
+      "proposed_title": "Sortie de La Belle au bois dormant (États-Unis)",
+      "existing_id": "EVT-2153",
+      "title": "Sortie de La Belle et la Bête (États-Unis)",
+      "identical_normalized": false,
+      "similarity": 0.638298,
+      "same_date": false
+    },
+    {
+      "id": "A1-031",
+      "proposed_title": "Super Mario Kart sort au Japon",
+      "existing_id": "EVT-2171",
+      "title": "Sortie de Super Mario Bros. au Japon",
+      "identical_normalized": false,
+      "similarity": 0.6,
+      "same_date": false
+    }
+  ]
+}

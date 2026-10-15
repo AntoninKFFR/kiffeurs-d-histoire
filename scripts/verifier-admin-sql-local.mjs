@@ -22,9 +22,15 @@ try {
     if(f==='20261010232237_corrections_editoriales.sql') await run('supabase/fixtures/corrections_apres_migration.sql');
   }
   for (const file of ['supabase/seed.sql','supabase/fixtures/sport_397.sql','supabase/migrations/20261011111510_pack_sport.sql']) await run(file);
-  for (const f of readdirSync('supabase/tests').filter(f=>f.endsWith('.sql')).sort()) {
-    await run(join('supabase/tests',f)); console.log(f+' : vert');
+  if(process.argv.includes('--a0-seul')) {
+    await run('supabase/fixtures/fun_existants.sql');
+    await run('supabase/migrations/20261015120156_packs_fun.sql');
+  } else {
+    for (const f of readdirSync('supabase/tests').filter(f=>f.endsWith('.sql')).sort()) {
+      await run(join('supabase/tests',f)); console.log(f+' : vert');
+    }
+    await run('supabase/tests/fun/scenario.sql'); console.log('fun/scenario.sql : vert');
   }
-  await run('supabase/tests/fun/scenario.sql'); console.log('fun/scenario.sql : vert');
+  await run('supabase/tests/enrichissement_a0/scenario.sql'); console.log('enrichissement_a0/scenario.sql : vert');
 } catch(e) { console.error(step, e.message); process.exitCode=1; }
 finally { await db.close(); }

@@ -17,6 +17,13 @@ insert into histoire.event_answers(event_id,start_year) select 'EVT-'||(120000+i
 create temp table new_events(id text);
 grant all on new_events to authenticated;
 
+set local role service_role;
+select pg_temp.refuser('select * from histoire.admin_event_creations','42501');
+select pg_temp.refuser('select * from histoire.admin_content_audit','42501');
+select pg_temp.refuser('select histoire.admin_create_event(gen_random_uuid(),''B120'',''{}'')','42501');
+select count(*) from histoire.admin_pack_additions;
+reset role;
+
 set local role anon;
 select pg_temp.refuser('select histoire.admin_access()','42501');
 select pg_temp.refuser('select histoire.admin_search_events(''B120'')','42501');

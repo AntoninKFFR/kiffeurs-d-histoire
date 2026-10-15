@@ -7,7 +7,7 @@ set local statement_timeout = '60s';
 -- Espace numérique réservé aux créations manuelles, compatible avec EVT-[0-9]+.
 -- Pas de changement de la contrainte des imports v18 ni de leurs identifiants.
 create sequence histoire.manual_event_ids start with 900000000000;
-revoke all on sequence histoire.manual_event_ids from public,anon,authenticated;
+revoke all on sequence histoire.manual_event_ids from public,anon,authenticated,service_role;
 
 create table histoire.admin_event_creations (
   request_id uuid primary key,
@@ -37,11 +37,10 @@ alter table histoire.admin_event_creations enable row level security;
 alter table histoire.admin_pack_additions enable row level security;
 alter table histoire.admin_content_audit enable row level security;
 revoke all on histoire.admin_event_creations,histoire.admin_pack_additions,histoire.admin_content_audit
-  from public,anon,authenticated;
-revoke all on sequence histoire.admin_content_audit_id_seq from public,anon,authenticated;
+  from public,anon,authenticated,service_role;
+revoke all on sequence histoire.admin_content_audit_id_seq from public,anon,authenticated,service_role;
 -- Le seul lecteur direct supplémentaire est l'import serveur déjà privilégié.
 grant select on histoire.admin_pack_additions to service_role;
-create index events_admin_title_idx on histoire.events(histoire.normalize_answer(title));
 
 create function histoire.admin_access()
 returns boolean language sql stable security definer set search_path = '' as $$
@@ -230,7 +229,7 @@ $$;
 
 revoke all on function histoire.admin_access(),histoire.admin_search_events(text,text,integer,integer,integer,integer),
   histoire.admin_add_pack_events(text,text[]),histoire.admin_create_event(uuid,text,jsonb),histoire.admin_content_history(text)
-  from public,anon,authenticated;
+  from public,anon,authenticated,service_role;
 grant execute on function histoire.admin_access(),histoire.admin_search_events(text,text,integer,integer,integer,integer),
   histoire.admin_add_pack_events(text,text[]),histoire.admin_create_event(uuid,text,jsonb),histoire.admin_content_history(text)
   to authenticated;

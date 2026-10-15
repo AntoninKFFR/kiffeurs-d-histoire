@@ -121,7 +121,34 @@ Il réutilise le runtime optionnel décrit dans `docs/niveaux-expert.md` ; il ne
 prouve pas la concurrence multiprocessus ni le transport Supabase. Ces contrôles
 restent obligatoires dans les jobs CI PostgreSQL, HTTP et E2E.
 
-État de livraison : migration non appliquée, aucune publication revendiquée.
+La migration a été appliquée sur KFFR le **15 octobre 2026 à 22 h 48 (Paris)**,
+après le GO explicite d’Antonin dans le chat, via le fichier SQL transactionnel
+exact du commit de code validé `ac42dcc`. Le registre confirme
+`2026-10-15T20:48:44.107421Z`. Aucun `db push` ni `apply_migration`.
+Les empreintes des 2 105 événements/réponses, 37 packs et 5 040 associations sont
+strictement identiques avant/après. RLS et ACL réelles contrôlées ; rôle sans
+entrée dans `admins` refusé sur recherche, ajout, création et historique.
+
+Sur l’aperçu avec le vrai compte Antonin : connexion Google normale, profil et
+ses deux accès, inventaire des packs, recherche serveur paginée et filtres antiques,
+question déjà rattachée désactivée. Une soumission de création reprenant un titre
+existant est refusée comme doublon : aucune création, association ni entrée d’audit
+et séquence toujours inutilisée. Aucun contenu de test n’a été ajouté à KFFR.
+Preuves : [relevé SQL](captures/issue-120/migration-kffr.json) et
+[refus réel du doublon](captures/issue-120/apercu-refus-doublon.jpg).
+
+Les avis Supabase attendus sont documentés : tables privées avec RLS sans policy
+API ([avis 0008](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy))
+et RPC `SECURITY DEFINER` accordées à `authenticated`, avec autorisation interne
+dans `admins` ([avis 0029](https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable)).
+Les fonctions nouvelles restent interdites à `anon` et `service_role` ; aucune
+permission sensible n’est élargie hors de `histoire`.
+
+La compilation de l’aperçu est confirmée par GitHub/Vercel. Le connecteur Vercel
+renvoie 403 sur l’équipe `kffrh` et les CLI en cache n’ont pas de session ; aucun
+accès aux journaux Vercel n’est revendiqué. L’état courant de publication et les
+vérifications après fusion sont consignés dans la
+[PR unique #121](https://github.com/Zazou13015/KIffeur-d-Histoire/pull/121).
 
 Vérifications locales du 15 octobre 2026 : lint et types réussis ; 699 tests Vitest
 et six tests d’import des descriptions réussis (deux workers, après dépassement

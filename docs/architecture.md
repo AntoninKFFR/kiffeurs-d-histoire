@@ -190,7 +190,8 @@ Détails : [Indicateurs](indicateurs.md).
 #120 ajoute une recherche serveur paginée, un rattachement multiple et une création
 atomique sourcée, ainsi qu’un accès depuis le profil décidé par une RPC booléenne.
 Les sources/audits restent privés ; une séquence et des marqueurs d’association
-préservent les ajouts aux imports. Migration préparée, non appliquée :
+préservent les ajouts aux imports. Migration appliquée sur KFFR le 15 octobre 2026
+après GO d’Antonin, avec empreintes du contenu existant inchangées :
 [Administration des questions](administration-questions.md).
 
 `/admin/packs` réutilise `histoire.admins` et des RPC réservées aux administrateurs.

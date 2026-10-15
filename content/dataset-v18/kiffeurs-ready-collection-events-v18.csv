@@ -564,7 +564,7 @@ COL-0062,europe,Europe,30,EVT-0387,Bataille d’Actium,2 septembre 31 av. J.-C.,
 COL-0062,europe,Europe,31,EVT-0032,Règne d’Auguste,27 av. J.-C. - 14 apr. J.-C.,4,2,RANGE,,HIGH,SCHOOL
 COL-0062,europe,Europe,32,EVT-0033,Pax Romana,"conventionnellement de l’époque d’Auguste jusqu’au IIe siècle, souvent env. 27 av. J.-C.-180 apr. J.-C.",4,2,RANGE,,HIGH,SCHOOL
 COL-0062,europe,Europe,33,EVT-0031,Octavien reçoit le titre d’Auguste,16 janvier 27 av. J.-C.,4,3,DAY,,HIGH,SCHOOL
-COL-0062,europe,Europe,34,EVT-0040,Dynastie Han,"206 av. J.-C.-220 apr. J.-C., interrompue par le régime de Wang Mang/Xin (9-25 apr. J.-C.)",3,3,RANGE,,HIGH,SCHOOL
+"COL-0062","europe","Europe","34","EVT-0040","Dynastie Han","206 av. J.-C.–220 apr. J.-C., avec une interruption entre 9 et 25 apr. J.-C. (interrègne de Wang Mang et transition jusqu’au rétablissement des Han)","3","3","RANGE","","HIGH","SCHOOL"
 COL-0062,europe,Europe,35,EVT-0561,Défaite romaine dans la forêt de Teutoburg,septembre 9,4,3,MONTH,,HIGH,GENERAL_CULTURE_V1
 COL-0062,europe,Europe,36,EVT-1060,Conquête romaine de la Bretagne sous Claude,43,3,4,YEAR,,HIGH,GENERAL_CULTURE_V2
 COL-0062,europe,Europe,37,EVT-1061,Révolte de Boadicée contre Rome,60,3,4,YEAR,,HIGH,GENERAL_CULTURE_V2
@@ -2486,7 +2486,7 @@ COL-0078,antiquite,Antiquité,56,EVT-0387,Bataille d’Actium,2 septembre 31 av.
 COL-0078,antiquite,Antiquité,57,EVT-0032,Règne d’Auguste,27 av. J.-C. - 14 apr. J.-C.,4,2,RANGE,,DATE_RULE,SCHOOL
 COL-0078,antiquite,Antiquité,58,EVT-0033,Pax Romana,"conventionnellement de l’époque d’Auguste jusqu’au IIe siècle, souvent env. 27 av. J.-C.-180 apr. J.-C.",4,2,RANGE,,DATE_RULE,SCHOOL
 COL-0078,antiquite,Antiquité,59,EVT-0031,Octavien reçoit le titre d’Auguste,16 janvier 27 av. J.-C.,4,3,DAY,,DATE_RULE,SCHOOL
-COL-0078,antiquite,Antiquité,60,EVT-0040,Dynastie Han,"206 av. J.-C.-220 apr. J.-C., interrompue par le régime de Wang Mang/Xin (9-25 apr. J.-C.)",3,3,RANGE,,DATE_RULE,SCHOOL
+"COL-0078","antiquite","Antiquité","60","EVT-0040","Dynastie Han","206 av. J.-C.–220 apr. J.-C., avec une interruption entre 9 et 25 apr. J.-C. (interrègne de Wang Mang et transition jusqu’au rétablissement des Han)","3","3","RANGE","","DATE_RULE","SCHOOL"
 COL-0078,antiquite,Antiquité,61,EVT-0561,Défaite romaine dans la forêt de Teutoburg,septembre 9,4,3,MONTH,,DATE_RULE,GENERAL_CULTURE_V1
 COL-0078,antiquite,Antiquité,62,EVT-1060,Conquête romaine de la Bretagne sous Claude,43,3,4,YEAR,,DATE_RULE,GENERAL_CULTURE_V2
 COL-0078,antiquite,Antiquité,63,EVT-1061,Révolte de Boadicée contre Rome,60,3,4,YEAR,,DATE_RULE,GENERAL_CULTURE_V2

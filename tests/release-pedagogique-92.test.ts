@@ -3,7 +3,7 @@
 import { expect, it } from "vitest";
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from 'node:fs';
-import { lireCsv } from '../scripts/csv';
+import { lignesEnfantsCourantes117, verifierCanonHan117 } from '../scripts/han-117';
 import { empreinteLigne, appliquerEtatsPublies } from '../scripts/structure-pedagogique';
 import { CHAPITRES, CHAPITRES_ACTIFS, CHAPITRES_HISTORIQUES } from '@/lib/apprendre/catalogue';
 import { lireChoix, filtresDepuis } from '@/lib/solo/choix';
@@ -61,19 +61,22 @@ it("prévoit un rollback par RPC sans suppression ni restauration destructrice d
   expect(sql).not.toMatch(/delete|truncate|drop|update\s+histoire\.(?:games|learning_progress)/i);
 },30_000);
 
-it.skipIf(!existsSync('content/pedagogie/etats-publies-92.json'))('contrôle le catalogue réellement publié et les 593 empreintes, avec anciennes URLs et Han fermé',()=>{
+it.skipIf(!existsSync('content/pedagogie/etats-publies-92.json'))('contrôle le catalogue réellement publié, ses empreintes et les anciennes URLs',()=>{
   const c=chargerCorpus92(),etats=JSON.parse(readFileSync('content/pedagogie/etats-publies-92.json','utf8'));
   expect(CHAPITRES).toEqual(appliquerEtatsPublies(c.structure,etats).filter(u=>u.etat!=='inactif'));
   const active=etats.some((e:{current_version?:string|null})=>e.current_version==='completion-v1');
-  expect(CHAPITRES).toHaveLength(56);expect(CHAPITRES_ACTIFS).toHaveLength(active?51:41);expect(CHAPITRES_HISTORIQUES).toHaveLength(active?5:15);
+  const han=CHAPITRES.filter(u=>u.parent_id==='THM-006');expect([0,3]).toContain(han.length);
+  if(han.length)verifierCanonHan117();
+  const hanActif=han.some(u=>u.etat==='actif');
+  expect(CHAPITRES).toHaveLength(56+han.length);expect(CHAPITRES_ACTIFS).toHaveLength((active?51:41)+(hanActif?2:0));expect(CHAPITRES_HISTORIQUES).toHaveLength((active?5:15)+(hanActif?1:han.length));
   expect(CHAPITRES.filter(u=>u.edition_active==='completion-v1')).toHaveLength(active?27:0);
-  const cartes=['cartes-v1','cartes-sous-chapitres','cartes-completions'].flatMap(n=>lireCsv(`content/pedagogie/${n}.csv`))
+  const cartes=['cartes-v1','cartes-sous-chapitres','cartes-completions'].flatMap(n=>lignesEnfantsCourantes117(`content/pedagogie/${n}.csv`))
     .filter(row=>CHAPITRES.some(u=>u.id===row.chapter_id));
   const ledger=JSON.parse(readFileSync('content/pedagogie/cartes-publiees.json','utf8'));
-  expect(cartes).toHaveLength(593);expect(ledger).toEqual(Object.fromEntries(cartes.map(row=>[row.card_id,empreinteLigne(row)])));
+  expect(cartes).toHaveLength(593+(han.length?24:0));expect(ledger).toEqual(Object.fromEntries(cartes.map(row=>[row.card_id,empreinteLigne(row)])));
   for(const u of c.structure.sous_chapitres){
     const choice=lireChoix(new URLSearchParams({mode:'scolaire',difficulte:'YEAR',chapitres:u.id,test:'chapitre'}));
-    if(u.parent_id==='THM-006')expect(choice).toBeNull();else{
+    if(u.parent_id==='THM-006'&&!hanActif)expect(choice).toBeNull();else{
       expect(filtresDepuis(choice!)).toMatchObject({chapterIds:[u.id],chapterTest:true});
       expect(CHAPITRES.find(c=>c.id===u.id)?.content_version).toBe('sous-chapitres-v1');
       expect(filtresDepuis(choice!).questionCount).toBeGreaterThanOrEqual(5);

@@ -4,7 +4,10 @@ export type LigneCsv = Record<string, string>;
 
 // CSV UTF-8/BOM, virgules, guillemets échappés et cellules multilignes.
 export function lireCsv(fichier: string): LigneCsv[] {
-  const texte = readFileSync(fichier, "utf8").replace(/^\uFEFF/, "");
+  return lireTexteCsv(readFileSync(fichier,"utf8"),fichier);
+}
+export function lireTexteCsv(contenu:string,fichier='contenu CSV'):LigneCsv[]{
+  const texte = contenu.replace(/^\uFEFF/, "");
   const lignes: string[][] = [];
   let ligne: string[] = [], cellule = "", guillemets = false;
   for (let i = 0; i < texte.length; i++) {

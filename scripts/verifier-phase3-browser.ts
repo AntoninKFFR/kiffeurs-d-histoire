@@ -8,8 +8,9 @@ import { estUrlLocale } from "./import-cartes";
 import { lireCsv } from "./csv";
 import { attendreQuestion, repondreAuClavier, validerEtContinuer, lireBilan } from "../e2e/outils";
 import { verifierIntegriteStockPhase4 } from "./illustrations-pedagogiques/phase4-verifier";
+import { lignesEnfantsCourantes117,verifierCanonHan117 } from './han-117';
 
-export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv) {
+export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv,han117=false) {
   assert(env.NEXT_PUBLIC_SUPABASE_URL && estUrlLocale(env.NEXT_PUBLIC_SUPABASE_URL));
   const reserver = createServer();
   await new Promise<void>(resolve => reserver.listen(0, "127.0.0.1", resolve));
@@ -22,7 +23,7 @@ export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv) {
   const registry = JSON.parse(readFileSync("src/lib/apprendre/structure.json", "utf8")) as {
     id: string; niveauSlug: string; slug: string; parent_id: string | null; edition_active?: string;
   }[];
-  const old = lireCsv("content/pedagogie/cartes-v1.csv"), children = lireCsv("content/pedagogie/cartes-sous-chapitres.csv"),
+  const old = lireCsv("content/pedagogie/cartes-v1.csv"), children = lignesEnfantsCourantes117("content/pedagogie/cartes-sous-chapitres.csv"),
     completions = lireCsv("content/pedagogie/cartes-completions.csv");
   const route = (u: (typeof registry)[number]) => `/apprendre/${u.niveauSlug}/${u.slug}`;
   const confidential = /event_id|EVT-\d+|official_wording|date_status|date_precision|["\\]sources["\\]/;
@@ -30,8 +31,11 @@ export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv) {
   const ajouts = [...completions, ...children], idsPublics = new Set(registry.map(u => u.id));
   const fermees = ajouts.filter(c => !idsPublics.has(c.chapter_id));
   const publiques = ajouts.filter(c => idsPublics.has(c.chapter_id));
+  const imagesNavigateur=han117?publiques.filter(c=>['THM-047','THM-048','THM-049'].includes(c.chapter_id)):publiques;
   assert.equal(ajouts.length, 292); assert.equal(publiques.length + fermees.length, 292);
-  assert.deepEqual([...new Set(fermees.map(c => c.chapter_id))].sort(), ["THM-047", "THM-048", "THM-049"]);
+  assert.equal(registry.length,han117?59:56);
+  assert.deepEqual([...new Set(fermees.map(c => c.chapter_id))].sort(), han117?[]:["THM-047", "THM-048", "THM-049"]);
+  if(han117)verifierCanonHan117();
   const app = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)],
     { env: { ...env, NEXT_PUBLIC_SITE_URL: origin }, stdio: ["ignore", "pipe", "pipe"] });
   app.stdout.on("data", b => logs.push(String(b))); app.stderr.on("data", b => logs.push(String(b)));
@@ -70,7 +74,7 @@ export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv) {
       const page = await context.newPage(); page.on("pageerror", e => errors.push(e.message));
       let imagesVerifiees = 0;
       for (const u of registry) {
-        const cartes = publiques.filter(c => c.chapter_id === u.id); if (!cartes.length) continue;
+        const cartes = imagesNavigateur.filter(c => c.chapter_id === u.id); if (!cartes.length) continue;
         await page.goto(origin + route(u));
         const liste = page.getByRole("navigation", { name: "Cartes du chapitre" });
         for (const c of cartes) {
@@ -90,7 +94,7 @@ export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv) {
           imagesVerifiees++;
         }
       }
-      assert.equal(imagesVerifiees, publiques.length, `${width} : toutes les images publiques`);
+      assert.equal(imagesVerifiees, imagesNavigateur.length, `${width} : toutes les images du scénario`);
       for (const id of ["THM-001", "THM-004", "THM-046", "THM-056", "THM-059"]) {
         const u = registry.find(c => c.id === id)!;
         await page.goto(origin + route(u));
@@ -118,14 +122,28 @@ export async function verifierPhase3Navigateur(env: NodeJS.ProcessEnv) {
       // L'archive garde ses six cartes, indépendamment des huit de la complétion.
       await page.goto(origin + route(target) + "/edition/legacy-v1");
       assert.equal(await page.getByRole("navigation", { name: "Cartes du chapitre" }).getByRole("button").count(), 6);
-      await page.goto(origin + "/apprendre/6e/thm-049-sequence");
-      await expect(page.getByRole("heading", { name: /introuvable|404/i }).first()).toBeVisible();
+      if(han117){
+        const han=registry.find(c=>c.id==='THM-049')!;
+        await page.goto(origin+route(han));
+        assert.equal(await page.getByRole('navigation',{name:'Cartes du chapitre'}).getByRole('button').count(),5);
+        await page.getByRole('button',{name:'Me tester sur ce chapitre'}).click();
+        await expect(page).toHaveURL(/\/partie\//);
+        const nombre=await attendreQuestion(page,1);assert.equal(nombre,5);
+        for(let n=1;n<=nombre;n++){await attendreQuestion(page,n);await repondreAuClavier(page,-206);await validerEtContinuer(page);}
+        const {bilan:hanBilan}=await lireBilan(page);await expect(hanBilan.getByText(/Test du chapitre/)).toBeVisible();
+        assert.equal(await page.getByRole('link',{name:'Revoir le chapitre'}).getAttribute('href'),route(han));
+        assert.match((await page.locator('form input[name="c"]').inputValue()),/edition=sous-chapitres-v1/);
+        await page.getByRole('button',{name:'Rejouer'}).click();await expect(page).toHaveURL(/\/partie\//);assert.equal(await attendreQuestion(page,1),5);
+      }else{
+        await page.goto(origin + "/apprendre/6e/thm-049-sequence");
+        await expect(page.getByRole("heading", { name: /introuvable|404/i }).first()).toBeVisible();
+      }
       await context.close();
     }
     assert.deepEqual(errors, []);
-    console.log(`OK navigateur PHASE 3 / 4 : 56 routes/projections complétées ; ${publiques.length} routes SVG exactes et images publiques desktop/mobile, ${fermees.length} images Han refusées 404 sur le catalogue réel ; 534 SVG tracés ; aucune fuite ; test réel de 8 questions, bilan/relance completion-v1, archive legacy-v1 à 6 cartes et Han inaccessible. Les 292 réponses exactes du catalogue technique sont vérifiées séparément.`);
+    console.log(`OK navigateur : ${registry.length} routes/projections ; ${publiques.length} SVG publics exacts ; ${imagesNavigateur.length} images décodées desktop/mobile ; ${fermees.length} images privées refusées ; 534 SVG tracés ; aucune fuite ; test de 8 questions, bilan/relance completion-v1 et archive legacy-v1 à 6 cartes${han117?' ; Han : 24 cartes, test réel de 5 questions, bilan et relance sous-chapitres-v1':' ; Han inaccessible'}.`);
   } finally {
     await browser?.close(); app.kill();
-    mkdirSync("test-results", { recursive: true }); writeFileSync("test-results/phase3-browser.log", logs.join(""));
+    mkdirSync("test-results", { recursive: true }); writeFileSync(`test-results/${han117?'han-117':'phase3'}-browser.log`, logs.join(""));
   }
 }

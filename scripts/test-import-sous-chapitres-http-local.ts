@@ -17,6 +17,7 @@ import {planCompletions,importerCompletionsLocales} from "./completions-pedagogi
 import {lireCsv,type LigneCsv} from "./csv";
 import { verifierPhase3Navigateur } from "./verifier-phase3-browser";
 import { chargerCorpus92, sqlPublication92, sqlRollback92, sqlExport92, exporterArtefacts92, AUTORISATION_92, PROJET_92, SHA_APPROUVE_92, type Autorisation92 } from "./release-pedagogique-92";
+import {testerHan117Local} from './test-han-117-local';
 const container=process.argv[process.argv.indexOf('--container')+1];
 const corpusPhase3=process.argv.includes('--corpus-phase3');
 const release92=process.argv.includes('--release92');
@@ -232,6 +233,7 @@ async function main(){
           await verifierPhase3Navigateur(buildEnv);
         }
       }finally{for(const[f,backup]of backups)if(backup)writeFileSync(f,backup);else if(existsSync(f))unlinkSync(f);}
+      if(process.argv.includes('--han117'))await testerHan117Local(sql,publicDb,{...env,HAN_ANON_KEY:token('anon')},process.argv.includes('--build-phase3'));
       // Retour arrière complet : progression et anciens instantanés restent présents.
       for(const c of planCompletions())sql(`select histoire.rollback_pedagogical_completion('${c.chapter_id}')`);
       for(const parent of new Set(active.map(c=>c.parent_id)))sql(`select histoire.set_pedagogical_group_active('${parent}',false,null)`);
@@ -253,4 +255,4 @@ async function main(){
     execFileSync('docker',['exec',container,'dropdb','-U','postgres','--force',database]);
   }
 }
-main().catch((error:unknown)=>{console.error(error instanceof Error?error.message:String(error));process.exitCode=1;});
+main().catch((error:unknown)=>{console.error(error instanceof Error?error.stack:String(error));process.exitCode=1;});

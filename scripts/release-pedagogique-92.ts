@@ -9,6 +9,7 @@ import { chargerCompletions, planCompletions, empreintesCartesPubliees } from ".
 import { appliquerEtatsPublies, chargerStructure, type EtatPublie } from "./structure-pedagogique";
 import { lireCsv } from "./csv";
 import { verifierPhase4 } from "./illustrations-pedagogiques/phase4-verifier";
+import { lignesEnfantsCourantes117, verifierCanonHan117 } from './han-117';
 
 export const PROJET_92 = "bskyfdjwcdvzhlugtknb";
 export const SHA_APPROUVE_92 = "31ab0d56dd87a3400101e112005d63292c544853";
@@ -226,11 +227,13 @@ export function exporterArtefacts92(data: { project_id: string; source_sha: stri
   const s = chargerStructure(), registre = appliquerEtatsPublies(s,data.etats);
   assert.equal(registre.length,59);
   const actif=registre.filter(u=>u.etat==='actif').length,historique=registre.filter(u=>u.etat==='historique').length;
-  assert((actif===51&&historique===5)||(actif===41&&historique===15),'Seuls publication complète ou rollback complet sont exportables');
-  assert.equal(registre.filter(u=>u.etat==='inactif').length,3);
-  assert.equal(data.cartes_publiees.length,83);
-  for(const u of registre)if(u.parent_id==='THM-006')assert.equal(u.etat,'inactif');
-  const lignes = ["cartes-v1", "cartes-sous-chapitres", "cartes-completions"].flatMap(n=>lireCsv(`content/pedagogie/${n}.csv`));
+  const hanPublie=registre.some(u=>u.parent_id==='THM-006'&&u.etat!=='inactif');
+  if(hanPublie)verifierCanonHan117();
+  const etatsPermis=hanPublie?[[53,6],[51,8],[43,16],[41,18]]:[[51,5],[41,15]];
+  assert(etatsPermis.some(([a,h])=>a===actif&&h===historique),'Publication ou rollback incomplet');
+  assert.equal(registre.filter(u=>u.etat==='inactif').length,hanPublie?0:3);
+  assert.equal(data.cartes_publiees.length,hanPublie?86:83);
+  const lignes = [...lireCsv('content/pedagogie/cartes-v1.csv'),...lignesEnfantsCourantes117('content/pedagogie/cartes-sous-chapitres.csv'),...lireCsv('content/pedagogie/cartes-completions.csv')];
   const ledger = empreintesCartesPubliees(lignes,data.cartes_publiees.flat());
   const sorties = { "src/lib/apprendre/structure.json": registre.filter(u=>u.etat!=="inactif"), "content/pedagogie/cartes-publiees.json": ledger,
     "content/pedagogie/etats-publies-92.json": data.etats };

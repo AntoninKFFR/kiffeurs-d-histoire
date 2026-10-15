@@ -35,7 +35,7 @@ EVT-0036,Prise de Jérusalem et destruction du Second Temple,4,3,TRUE,YEAR,YEAR,
 EVT-0037,Concile de Nicée,4,2,TRUE,YEAR,YEAR,EXACT,6e;Seconde générale et technologique,EXTENSION_PROGRAMME,0,,Jouable à l’année.
 EVT-0038,Constantin devient seul maître de l’Empire,3,3,TRUE,YEAR,YEAR,EXACT,6e;Seconde générale et technologique,,1,Constantin devient seul empereur,Jouable à l’année.
 EVT-0039,Édit de Thessalonique,2,3,TRUE,DAY,DAY,EXACT,6e,EXTENSION_PROGRAMME,0,,Jouable au jour.
-EVT-0040,Dynastie Han,3,3,TRUE,RANGE,YEAR_RANGE,EXACT,6e,REPERE_EDUSCOL,0,,Jouable comme plage/période.
+"EVT-0040","Dynastie Han","3","3","TRUE","RANGE","YEAR_RANGE","CONVENTIONAL","6e","REPERE_EDUSCOL","0","","Jouable comme plage/période."
 EVT-0041,Règne de l’empereur Wu/Wudi,2,3,TRUE,RANGE,YEAR_RANGE,EXACT,6e,EXTENSION_PROGRAMME,0,,Jouable comme plage/période.
 EVT-0042,"Hégire, migration de Muhammad et de ses compagnons de La Mecque vers Médine",4,2,TRUE,YEAR,YEAR,EXACT,5e,REPERE_EDUSCOL,1,Hégire,Jouable à l’année.
 EVT-0043,Début conventionnel de l'ère du calendrier hégirien,2,3,TRUE,DAY,DAY,CONVENTIONAL,5e,EXTENSION_PROGRAMME,0,,Jouable au jour.

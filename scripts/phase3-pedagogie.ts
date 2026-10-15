@@ -3,13 +3,14 @@ import assert from "node:assert/strict";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { lireCsv, type LigneCsv } from "./csv";
+import { lireCsv, lireTexteCsv, type LigneCsv } from "./csv";
 import { appliquerEtatsPublies, chargerStructure, empreinteLigne, type EtatPublie } from "./structure-pedagogique";
 import { chargerCompletions, planCompletions } from "./completions-pedagogiques";
 import { chargerCartesSousChapitres } from "./import-cartes";
 import { scenes } from "./illustrations-pedagogiques/catalogue";
 import { objets } from "./illustrations-pedagogiques/objets";
 import { verifierIntegriteStockPhase4 } from "./illustrations-pedagogiques/phase4-verifier";
+import { CANONS_CORRIGES_117, verifierDeltaCanon117, verifierCanonHan117 } from './han-117';
 
 const BASE = "a4759cea8bebd66003c2d69592bf8fd5af24b264";
 const dossier = "docs/phase-3-92";
@@ -75,6 +76,7 @@ export function inventaireIndependant() {
 }
 
 export function assemblerPhase3() {
+  assert(!existsSync('content/pedagogie/decision-han-117.json'),'La source approuvée #92 est archivée ; utiliser la correction versionnée #117');
   const p = inventaireIndependant(), redactions = lireRedactions();
   assert.equal(new Set(redactions.map(paire)).size, redactions.length, "Rédaction dupliquée");
   assert.deepEqual(redactions.map(paire).sort(), p.manques.map(paire).sort(), "Rédaction incomplète ou hors corpus");
@@ -119,13 +121,15 @@ export function verifierPhase3() {
   const protections = ["content/dataset-v18", "content/illustrations", "content/pedagogie/chapitres-v2.json",
     "scripts/illustrations-pedagogiques", "docs/illustrations/generalisation", "docs/audit-92", "docs/phase-2-92", "supabase", "src"];
   const stock = verifierIntegriteStockPhase4({ exigerComplet: false });
+  for(const fichier of CANONS_CORRIGES_117)verifierDeltaCanon117(fichier,execFileSync('git',['show',`${BASE}:${fichier}`],{encoding:'utf8',maxBuffer:8_000_000}));
   const publication='content/pedagogie/etats-publies-92.json';
   if(existsSync(publication)){
     const exportReel=JSON.parse(readFileSync(publication,'utf8')) as EtatPublie[];
     const projection=appliquerEtatsPublies(p.structure,exportReel).filter(c=>c.etat!=='inactif');
-    assert.equal(projection.length,56);
+    const hanPublie=projection.some(c=>c.parent_id==='THM-006');
+    assert.equal(projection.length,hanPublie?59:56);
+    if(hanPublie)verifierCanonHan117();
     assert.equal(JSON.stringify(JSON.parse(readFileSync('src/lib/apprendre/structure.json','utf8'))),JSON.stringify(projection),'Projection différente de l’export publié');
-    assert(projection.every(c=>c.parent_id!=='THM-006'),'Han doit rester fermé');
   }
   // Seuls les fichiers ajoutés de phase 4 et le vérificateur HTTP adapté sont exclus.
   // Tous les SVG historiques sont en outre comparés octet par octet aux deux bases.
@@ -133,6 +137,8 @@ export function verifierPhase3() {
     ...stock.nouveaux.map(e => `:(exclude)content/illustrations/${e.event_id}.svg`),
     ":(exclude)scripts/illustrations-pedagogiques/phase4-*",
     ":(exclude)scripts/illustrations-pedagogiques/verifier-routes.ts",
+    ...CANONS_CORRIGES_117.map(p=>`:(exclude)${p}`),
+    ':(exclude)supabase/migrations/20261014232713_correction_han_117.sql',
     ...(existsSync(publication)?[':(exclude)src/lib/apprendre/structure.json',':(exclude)src/lib/solo/catalogue.json']:[])], { stdio: "pipe" });
   // Comparer aussi les octets après les filtres du checkout Windows (LF → CRLF).
   const baseline = execFileSync("git", ["cat-file", "--filters", `${BASE}:${ancienFichier}`]);
@@ -147,7 +153,9 @@ export function verifierPhase3() {
   ecrireCsv(`${dossier}/integrite-svg.csv`, svgHashes);
   ecrireCsv(`${dossier}/integrite-cartes-historiques.csv`, p.anciennes.map(c => ({ card_id: c.card_id,
     empreinte_manifeste: p.structure.empreintes_cartes_historiques[c.card_id], empreinte_phase3: empreinteLigne(c), identique: "oui" })));
-  const events = new Map(lireCsv("content/dataset-v18/kiffeurs-events-v18.csv").map(e => [e.event_id, e]));
+  // Les pièces #92 décrivent leur canon historique ; le delta courant #117 est contrôlé plus haut.
+  const archiveCanon=execFileSync('git',['show',`${BASE}:content/dataset-v18/kiffeurs-events-v18.csv`],{encoding:'utf8',maxBuffer:8_000_000});
+  const events = new Map(lireTexteCsv(archiveCanon).map(e => [e.event_id, e]));
   const eligible = (c: LigneCsv, historique: boolean) => historique ? p.structure.eligibilite_tests_historiques[c.chapter_id].includes(c.event_id) :
     events.get(c.event_id)?.playable === "TRUE" && ["YEAR", "MONTH", "DAY", "RANGE"].includes(events.get(c.event_id)!.playable_mode) && !!c.start_year;
   const count = (cards: LigneCsv[], historique = false) => {

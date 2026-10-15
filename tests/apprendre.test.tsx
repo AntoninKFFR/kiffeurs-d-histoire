@@ -38,7 +38,9 @@ it("conserve les 41 chapitres historiques et propose exactement les unités publ
   const s=chargerStructure(),file='content/pedagogie/etats-publies-92.json';
   const expected=existsSync(file)?appliquerEtatsPublies(s,JSON.parse(readFileSync(file,'utf8')) as EtatPublie[]):projectionStructure(s);
   expect(CHAPITRES).toEqual(expected.filter(c=>c.etat!=='inactif'));
-  const count=existsSync(file)?56:41;
+  const han=expected.filter(c=>['THM-047','THM-048','THM-049'].includes(c.id)&&c.etat!=='inactif');
+  expect([0,3]).toContain(han.length);
+  const count=existsSync(file)?56+han.length:41;
   expect(NIVEAUX.map((n) => n.slug)).toEqual(["cm2", "6e", "5e", "4e", "3e", "seconde", "premiere", "terminale", "premiere-hggsp", "terminale-hggsp"]);
   expect(new Set(CHAPITRES.map(cheminChapitre)).size).toBe(count);
   expect(JSON.stringify(CHAPITRES)).not.toMatch(/EVT-|"(?:event_id|sources|start_year|body)"\s*:/);

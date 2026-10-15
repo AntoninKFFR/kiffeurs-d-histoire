@@ -71,6 +71,13 @@ with tempfile.TemporaryDirectory(prefix='issue8-tests-') as temp:
    w=csv.DictWriter(f,fieldnames=list(evenements[0]));w.writeheader();w.writerows(modifiees)
   result=executer(cible);assert result.returncode==1 and 'EVT-0210 : attendu' in result.stdout, champ
   canon.write_bytes(canon_original)
+ for champ,valeur in [('start_year','9'),('end_year','25'),('date_status','EXACT'),('playable_mode','YEAR'),('title_canonical','Dynastie Xin')]:
+  modifiees=[dict(x) for x in evenements]
+  next(x for x in modifiees if x['event_id']=='EVT-0040')[champ]=valeur
+  with canon.open('w',encoding='utf-8-sig',newline='') as f:
+   w=csv.DictWriter(f,fieldnames=list(evenements[0]));w.writeheader();w.writerows(modifiees)
+  result=executer(cible);assert result.returncode==1 and 'EVT-0040 : décision #117 requise' in result.stdout, champ
+  canon.write_bytes(canon_original)
  audit=cible/'kiffeurs-description-source-review-v18.csv';audit_original=audit.read_bytes();revues=lire(audit)
  for champ in ['reserve_restante','suivi_qualite_differe','antonin_validation']:
   modifiees=[dict(x) for x in revues];next(x for x in modifiees if x['event_id']=='EVT-0151')[champ]=''
@@ -79,4 +86,4 @@ with tempfile.TemporaryDirectory(prefix='issue8-tests-') as temp:
   result=executer(cible,revue=True);assert result.returncode==1 and 'ERREUR :' in result.stdout, champ
   audit.write_bytes(audit_original)
  assert executer(cible,revue=True).returncode==0
-print(f'OK : {len(cas)+14} contrôles négatifs refusés ; 304 validations, anti-date, doublons, jouabilité, explications canoniques, correction Somme et notes historiques contrôlés ; empreinte historique protégée.')
+print(f'OK : {len(cas)+19} contrôles négatifs refusés ; 304 validations, anti-date, doublons, jouabilité, explications canoniques, corrections Somme/Han et notes historiques contrôlées ; empreinte historique protégée.')

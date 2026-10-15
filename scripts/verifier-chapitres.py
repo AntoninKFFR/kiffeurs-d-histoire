@@ -14,6 +14,7 @@ from collections import defaultdict
 from datetime import date
 from pathlib import Path
 from correction_somme import canon_pour_empreinte
+from correction_han import canon_han_pour_empreinte
 
 FUSIONS = {"THM-023": "THM-022", "THM-032": "THM-028", "THM-033": "THM-029", "THM-034": "THM-030", "THM-035": "THM-031"}
 CONSERVES = {"THM-030": 10, "THM-037": 8, "THM-040": 5}
@@ -78,7 +79,7 @@ def main():
     verifier(len(lignes_themes) == len(themes), "Identifiant de chapitre dupliqué.")
     verifier(len(lignes_events) == len(events) == 2001, "Événements dupliqués ou nombre différent des 2 001 canoniques.")
     try:
-        normalises = canon_pour_empreinte(lignes_events)
+        normalises = canon_pour_empreinte(canon_han_pour_empreinte(lignes_events))
     except ValueError as erreur:
         verifier(False, str(erreur))
         normalises = lignes_events
@@ -365,7 +366,7 @@ def main():
     print(f"Canonique : {len(themes)} chapitres titrés et non vides, {len(paires)} liens uniques, cinq fusions appliquées et THM-028/11 liens corrigés.")
     print("THM-030/037/040 : 10/8/5 événements jouables ; EVT-0905 : CONVENTIONAL et note du 17/19 octobre conservés.")
     print("THM-002/004/039/044 : 5/5/5/5 jouables ; Sargon : ANCRAGE_COMPLEMENTAIRE, CONVENTIONAL et réserves conservés.")
-    print("THM-004 : Çatalhöyük intégré comme EVT-2042 ; 2 001 événements. Somme : plage corrigée ; toutes les autres dates/statuts/jouabilités antérieures intactes.")
+    print("THM-004 : Çatalhöyük intégré comme EVT-2042 ; 2 001 événements. Corrections dédiées Somme et Han #117 vérifiées ; toutes les autres dates/statuts/jouabilités antérieures intactes.")
     print(f"Information hors des huit cas de l'issue #9 : chapitres préexistants avec moins de cinq événements jouables : {insuffisants}")
     return 0
 

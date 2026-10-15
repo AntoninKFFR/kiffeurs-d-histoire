@@ -5,6 +5,7 @@ import { lireCsv, type LigneCsv } from "./csv";
 import { periodeContexte } from "./periode-cartes";
 import { chargerStructure, empreinteLigne, type Structure } from "./structure-pedagogique";
 import { FICHIER_CARTES } from "./fichiers-pedagogiques";
+import { lignesEnfantsCourantes117 } from './han-117';
 
 export { FICHIER_CARTES, FICHIER_CARTES_ENFANTS } from "./fichiers-pedagogiques";
 const dates = ["start_year", "start_month", "start_day", "end_year", "end_month", "end_day"] as const;
@@ -120,7 +121,7 @@ export function chargerCartesSousChapitres(fichier: string, racine = ".") {
   const ledger=path.join(racine,'content/pedagogie/cartes-publiees.json');
   if(existsSync(ledger))s.empreintes_cartes_historiques={...s.empreintes_cartes_historiques,...JSON.parse(readFileSync(ledger,'utf8')) as Record<string,string>};
   const dossier = path.join(racine, "content/dataset-v18");
-  const lignes = lireCsv(fichier);
+  const lignes = lignesEnfantsCourantes117(fichier,racine);
   if (lignes.some(l => !s.sous_chapitres.some(c => c.id === l.chapter_id))) throw new Error("Lot enfant contenant un chapitre historique");
   validerFiliationCartes(lignes, lireCsv(path.join(racine,FICHIER_CARTES)), s);
   return validerCartes(lignes, lireCsv(path.join(dossier, "kiffeurs-events-v18.csv")),

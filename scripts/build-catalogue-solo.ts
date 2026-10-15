@@ -10,6 +10,7 @@ import { lireCsv, type LigneCsv } from "./csv";
 import { PERIODES } from "../src/lib/solo/periodes";
 import { contenuPacksHierarchiques } from "./catalogue-packs";
 import sport from "../content/sport/packs-proposes.json";
+import fun from "../content/fun/manifeste.json";
 import { chargerStructure, type Unite } from "./structure-pedagogique";
 import { FICHIER_CARTES_ENFANTS } from "./fichiers-pedagogiques";
 import { chargerCartesSousChapitres } from "./import-cartes";
@@ -24,8 +25,12 @@ type Comptes = { YEAR: number; MONTH: number; DAY: number };
 const evenements = csv("events").filter(
   (e) => e.playable === "TRUE" && ["YEAR", "MONTH", "DAY", "RANGE"].includes(e.playable_mode) && e.start_year !== "",
 );
+// #91 : ajouts hors des propriétaires du dataset ; les réponses restent dans les sources de build.
+for (const e of fun.events.filter(e => e.nouveau)) evenements.push({ event_id: e.id, start_year: String(e.start_year),
+  start_month: String(e.start_month ?? ""), start_day: String(e.start_day ?? ""), playable: "TRUE", playable_mode: e.playable_mode });
 const parId = new Map(evenements.map((e) => [e.event_id, e]));
 const niveaux = new Map(lireCsv(join(import.meta.dirname, "..", "content", "niveaux-evenements.csv")).map((r) => [r.event_id, Number(r.niveau)]));
+for (const e of fun.events.filter(e => e.nouveau)) niveaux.set(e.id, e.niveau);
 // Même règle que la base : un événement sans niveau est rangé en Expert.
 const niveauDe = (e: LigneCsv) => niveaux.get(e.event_id) ?? 3;
 function compter(liste: LigneCsv[]): Comptes {
@@ -63,6 +68,9 @@ for (const p of sport.packs) packsSource.push({ collection_id: p.id, title: p.ti
 for (const a of sport.associations) {
   for (const id of ["COL-0105", a.sous_pack]) contenuPacks.set(id, [...(contenuPacks.get(id) ?? []), a.event_id]);
 }
+for (const p of fun.packs) packsSource.push({ collection_id: p.id, title: p.title, description: p.description,
+  parent_id: "", active: "TRUE", ready_to_play: "TRUE" });
+for (const a of fun.associations) contenuPacks.set(a.pack_id, [...(contenuPacks.get(a.pack_id) ?? []), a.event_id]);
 const packsActifs = packsSource.filter((p) => p.active === "TRUE" && p.ready_to_play === "TRUE");
 const unionsPacks = contenuPacksHierarchiques(packsSource, contenuPacks);
 const packs = packsActifs.map((p) => ({ id: p.collection_id, titre: p.title, description: p.description,

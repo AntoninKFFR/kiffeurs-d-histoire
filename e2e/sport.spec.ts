@@ -63,15 +63,24 @@ test("réimport et migration répétée préservent les 24 packs, Sport et les r
   if (!estUrlLocale(statut.API_URL)) throw new Error("Test Sport exclusivement local");
   const anciens = () => lireSql("select p.*, coalesce((select jsonb_agg(to_jsonb(pe) order by pe.event_id) from histoire.pack_events pe where pe.pack_id=p.id),'[]') contenu from histoire.packs p where p.id between 'COL-0059' and 'COL-0082' order by p.id");
   const avant = anciens();
+  const fun = () => lireSql("select p.*, (select jsonb_agg(to_jsonb(pe) order by pe.event_id) from histoire.pack_events pe where pe.pack_id=p.id) contenu from histoire.packs p where p.id between 'COL-0112' and 'COL-0117' order by p.id");
+  const avantFun = fun();
+  const nouveauxFun = () => lireSql("select e.*,to_jsonb(a) reponse from histoire.events e join histoire.event_answers a on a.event_id=e.id where e.id between 'EVT-2100' and 'EVT-2203' order by e.id");
+  const evenementsFun = nouveauxFun();
+  expect(avantFun).toHaveLength(6);expect(evenementsFun).toHaveLength(104);
   expect(avant).toHaveLength(24);
   executerSql("insert into histoire.pack_event_status(pack_id,event_id,removed) values ('COL-0107','EVT-0759',true) on conflict(pack_id,event_id) do update set removed=true;");
+  executerSql("insert into histoire.pack_event_status(pack_id,event_id,removed) values ('COL-0113','EVT-2100',true) on conflict(pack_id,event_id) do update set removed=true;");
   try {
     execFileSync(process.execPath,["node_modules/tsx/dist/cli.mjs","scripts/import-dataset.ts","--dossier","content/dataset-v18"],{
       env: { ...process.env, SUPABASE_URL: statut.API_URL, SUPABASE_SERVICE_ROLE_KEY: statut.SERVICE_ROLE_KEY }, stdio: ["ignore","ignore","inherit"],
     });
     executerSql(readFileSync("supabase/migrations/20261011111510_pack_sport.sql","utf8"));
+    executerSql(readFileSync("supabase/migrations/20261015120156_packs_fun.sql","utf8"));
+    expect(fun()).toEqual(avantFun);expect(nouveauxFun()).toEqual(evenementsFun);
+    expect(lireSql<{removed:boolean}[]>("select removed from histoire.pack_event_status where pack_id='COL-0113' and event_id='EVT-2100'")[0].removed).toBe(true);
     expect(anciens()).toEqual(avant);
     const etat = lireSql<{ n: number; scope: number; removed: boolean; parent: string }[]>("select (select count(*)::int from histoire.pack_events where pack_id between 'COL-0105' and 'COL-0111') n, (histoire.available_questions(p_pack_id=>'COL-0107')->>'YEAR')::int scope, (select removed from histoire.pack_event_status where pack_id='COL-0107' and event_id='EVT-0759') removed, (select parent_id from histoire.packs where id='COL-0107') parent")[0];
     expect(etat).toEqual({ n:794, scope:85, removed:true, parent:"COL-0105" });
-  } finally { executerSql("delete from histoire.pack_event_status where pack_id='COL-0107' and event_id='EVT-0759';"); }
+  } finally { executerSql("delete from histoire.pack_event_status where (pack_id='COL-0107' and event_id='EVT-0759') or (pack_id='COL-0113' and event_id='EVT-2100');"); }
 });

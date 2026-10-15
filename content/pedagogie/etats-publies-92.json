@@ -114,7 +114,7 @@
   },
   {
     "id": "THM-006",
-    "etat": "actif",
+    "etat": "historique",
     "slug": "thm-006-theme-3-l-empire-romain-dans-le-monde-antique",
     "editions": [],
     "parent_id": null,
@@ -887,34 +887,52 @@
   },
   {
     "id": "THM-047",
-    "etat": "inactif",
+    "etat": "actif",
     "slug": "thm-047-sequence",
     "editions": [],
     "parent_id": "THM-006",
-    "published": false,
-    "edition_counts": {},
+    "published": true,
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 5,
+        "YEAR": 11,
+        "MONTH": 5
+      }
+    },
     "content_version": "sous-chapitres-v1",
     "current_version": null
   },
   {
     "id": "THM-048",
-    "etat": "inactif",
+    "etat": "actif",
     "slug": "thm-048-sequence",
     "editions": [],
     "parent_id": "THM-006",
-    "published": false,
-    "edition_counts": {},
+    "published": true,
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 3,
+        "YEAR": 8,
+        "MONTH": 4
+      }
+    },
     "content_version": "sous-chapitres-v1",
     "current_version": null
   },
   {
     "id": "THM-049",
-    "etat": "inactif",
+    "etat": "actif",
     "slug": "thm-049-sequence",
     "editions": [],
     "parent_id": "THM-006",
-    "published": false,
-    "edition_counts": {},
+    "published": true,
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 0,
+        "YEAR": 5,
+        "MONTH": 0
+      }
+    },
     "content_version": "sous-chapitres-v1",
     "current_version": null
   },

@@ -42,8 +42,8 @@ async function main() {
     const corpus=chargerCorpus92(),autorisation:Autorisation92={projectId:PROJET_92,endpoint:`https://${PROJET_92}.supabase.co`,autorisation:AUTORISATION_92,
       preuve:{sha:SHA_APPROUVE_92,source:'objet de test isolé',confirmation:'fixture E2E locale exclusivement',cartes_validees:292,svg_nouveaux_valides:203,han_reste_bloque:true},
       sauvegarde:{projectId:PROJET_92,fichier:'test-local-e2e',sha256:'a'.repeat(64),verifiee:true}};
-    const etats=JSON.parse(readFileSync('content/pedagogie/etats-publies-92.json','utf8')) as {chapter_id:string;etat:string;current_version?:string|null}[];
-    const han=etats.filter(e=>['THM-047','THM-048','THM-049'].includes(e.chapter_id)&&e.etat!=='inactif');
+    const etats=JSON.parse(readFileSync('content/pedagogie/etats-publies-92.json','utf8')) as {id:string;etat:string;current_version?:string|null}[];
+    const han=etats.filter(e=>['THM-047','THM-048','THM-049'].includes(e.id)&&e.etat!=='inactif');
     const hanDejaPublie=psql("select count(*) from histoire.pedagogical_editions where published and chapter_id=any(array['THM-047','THM-048','THM-049'])");
     if(hanDejaPublie==='0')psql(sqlPublication92(corpus,autorisation));
     else if(hanDejaPublie!=='3'||han.length!==3)throw new Error('Pile E2E incompatible avec les éditions attendues ; utiliser une pile jetable fraîche');

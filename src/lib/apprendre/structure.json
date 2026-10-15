@@ -121,7 +121,7 @@
     "slug": "thm-006-theme-3-l-empire-romain-dans-le-monde-antique",
     "parent_id": null,
     "content_version": "legacy-v1",
-    "etat": "actif"
+    "etat": "historique"
   },
   {
     "id": "THM-007",
@@ -840,6 +840,57 @@
       }
     },
     "edition_active": "completion-v1"
+  },
+  {
+    "id": "THM-047",
+    "titre": "De la République à l’Empire : pouvoir, conquêtes et citoyenneté",
+    "niveau": "6e",
+    "niveauSlug": "6e",
+    "slug": "thm-047-sequence",
+    "parent_id": "THM-006",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 5,
+        "YEAR": 11,
+        "MONTH": 5
+      }
+    }
+  },
+  {
+    "id": "THM-048",
+    "titre": "Juifs et chrétiens dans l’Empire romain",
+    "niveau": "6e",
+    "niveauSlug": "6e",
+    "slug": "thm-048-sequence",
+    "parent_id": "THM-006",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 3,
+        "YEAR": 8,
+        "MONTH": 4
+      }
+    }
+  },
+  {
+    "id": "THM-049",
+    "titre": "La Chine des Han et les échanges entre mondes anciens",
+    "niveau": "6e",
+    "niveauSlug": "6e",
+    "slug": "thm-049-sequence",
+    "parent_id": "THM-006",
+    "content_version": "sous-chapitres-v1",
+    "etat": "actif",
+    "edition_counts": {
+      "sous-chapitres-v1": {
+        "DAY": 0,
+        "YEAR": 5,
+        "MONTH": 0
+      }
+    }
   },
   {
     "id": "THM-050",

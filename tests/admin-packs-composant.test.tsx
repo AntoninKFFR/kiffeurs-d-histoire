@@ -3,6 +3,7 @@ import { act, cleanup, fireEvent, render, screen, within } from "@testing-librar
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import AdministrationPacks from "@/components/admin/AdministrationPacks";
 import type { AdminPack, PackQuestion } from "@/lib/admin-packs/types";
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
 
 const mocks = vi.hoisted(() => ({ modifier: vi.fn(), correction: vi.fn(), history: vi.fn() }));
 vi.mock("@/app/admin/packs/actions", () => ({ modifierQuestion: mocks.modifier,

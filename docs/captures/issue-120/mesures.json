@@ -1,0 +1,25 @@
+{
+  "fixture": "HTTP locale, aucune base distante",
+  "measurements": [
+    {
+      "viewport": 1280,
+      "document": 1280
+    },
+    {
+      "viewport": 375,
+      "document": 375
+    },
+    {
+      "viewport": 320,
+      "document": 320
+    }
+  ],
+  "checks": [
+    "profil admin/joueur",
+    "recherche",
+    "ajout",
+    "création",
+    "clavier et focus",
+    "absence de débordement"
+  ]
+}

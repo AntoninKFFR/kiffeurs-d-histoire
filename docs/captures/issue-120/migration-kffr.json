@@ -1,0 +1,41 @@
+{
+  "project": "bskyfdjwcdvzhlugtknb",
+  "version": "20261015201336",
+  "applied_at_utc": "2026-10-15T20:48:44.107421Z",
+  "code_commit": "ac42dcc1116d8ffdbcace2dd7d7b9d6d1cd6f44e",
+  "authorization": "GO explicite d’Antonin dans ce chat le 15 octobre 2026",
+  "transport": "execute_sql, fichier versionné exact, transaction et registre histoire",
+  "before_equals_after": {
+    "events": { "count": 2105, "hash": "5e78f7914832e15de97240b0686851cc" },
+    "answers": { "count": 2105, "hash": "a75b79b13ee7b9306ff8fc1444f2b719" },
+    "packs": { "count": 37, "hash": "aa329abd41c77f9457ed813d7a0d6d72" },
+    "memberships": { "count": 5040, "hash": "8213640d690ec5d32b3cefca5927d2b0" },
+    "admins": 3
+  },
+  "security": {
+    "private_tables_rls": true,
+    "anon_and_player_direct_read": false,
+    "service_direct_read": "admin_pack_additions seulement",
+    "all_five_rpcs_definer_empty_search_path": true,
+    "rpc_execute": "authenticated seulement ; admins vérifié en SQL",
+    "non_admin_subject_refused": ["recherche", "ajout", "creation", "historique"],
+    "verification": "transaction en lecture seule annulée, aucune écriture métier"
+  },
+  "preview_real_session": {
+    "google_login": true,
+    "admin_profile_navigation": true,
+    "search_pagination_and_filters": true,
+    "already_attached_disabled": true,
+    "duplicate_creation_refused": true,
+    "manual_creations": 0,
+    "manual_memberships": 0,
+    "content_audit": 0,
+    "manual_sequence_called": false
+  },
+  "limits": [
+    "Aucune création de contenu de test persistante sur KFFR",
+    "Création réussie, concurrence et réimport complet prouvés dans les fixtures SQL/HTTP/E2E de CI",
+    "État de production et vérifications après fusion dans la PR 121",
+    "Journaux internes Vercel indisponibles avec les connexions actuelles"
+  ]
+}

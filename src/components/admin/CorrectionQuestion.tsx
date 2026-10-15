@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { consulterHistorique, enregistrerCorrection } from "@/app/admin/packs/actions";
 import type { EditorialChange, EditorialResult, PackQuestion } from "@/lib/admin-packs/types";
 import styles from "./packs.module.css";
+import HistoriqueContenu from "./HistoriqueContenu";
 
 const NIVEAUX = { 1: "Débutant", 2: "Intermédiaire", 3: "Expert" } as const;
 
@@ -108,6 +109,7 @@ export default function CorrectionQuestion({ question, packId, mode, onClose, on
               <p className="text-sm">Administrateur : {change.admin_id}<br />Motif : {change.reason || "Non renseigné"}</p>
             </li>)}</ol>}
     </section>}
+    <HistoriqueContenu eventId={question.id} />
     {mode === "historique" && <div className={styles.dialogActions}>
       <button type="button" className={styles.action} onClick={fermer}>Fermer</button>
     </div>}

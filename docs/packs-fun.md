@@ -1,6 +1,8 @@
 # Packs fun — #91
 
-Statut au 15 octobre 2026 : **proposition préparée, migration non appliquée à KFFR, validation de la liste par Maxou attendue**. Le choix des six thèmes est une décision d’Antonin transmise dans le chat, consignée sur [#86](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/86#issuecomment-6191269403). La [proposition exhaustive](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/91#issuecomment-6191550991) a été publiée avant génération du SQL. Aucun accord de Maxou n’est supposé.
+Statut au 15 octobre 2026 : **liste validée par Antonin et migration appliquée à KFFR**. Son GO « tout est validé », transmis dans le chat, est [consigné dans #91](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/91#issuecomment-6193428564) ; il n’est pas attribué à Maxou. Le choix des six thèmes est consigné sur [#86](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/86#issuecomment-6191269403). La [proposition exhaustive](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/91#issuecomment-6191550991) a été publiée avant génération du SQL.
+
+Le registre KFFR atteste l’application de `20261015120156` le 15 octobre 2026 à 15 h 38 (Paris). Les six packs ont respectivement 35, 30, 50, 35, 30 et 30 questions ; les 104 ajouts sont présents. Les empreintes des 2 001 événements et réponses antérieurs, des 31 packs et de leurs 4 830 associations sont identiques avant/après. Les réponses et alias restent privés. Le fichier SQL conserve son en-tête de proposition historique : une migration appliquée ne se réécrit pas. La [PR #119](https://github.com/Zazou13015/KIffeur-d-Histoire/pull/119) suit la fusion et le contrôle du déploiement.
 
 ## Corpus et sources
 
@@ -46,7 +48,7 @@ La première application insère uniquement les nouveaux événements, réponses
 
 Avant publication : validation de la liste par Maxou sur #91, revue du commit et CI pertinente verte, réinspection des travaux de Max et du `main` récent. Relire en lecture seule les prérequis et les retraits/corrections courants ; refaire l’audit si l’état diffère. Exécuter le fichier SQL tel quel sur KFFR, dans la transaction qu’il contient, selon le README. Vérifier le registre, les six périmètres via `playable_packs`, une partie réelle et l’accessibilité des anciens packs. Fusion seulement après application et vérifications conformes. Contrôler ensuite le déploiement, les parcours Solo/Inversé et les anciennes fonctionnalités.
 
-Tant que la validation humaine manque, **pas de SQL distant ni de fusion** ; la PR reste en brouillon. #86 reste ouverte pour la consignation manquante des décisions d’habillage ; #91 reste en cours et la roadmap ne prétend pas à une livraison.
+La validation humaine et l’application SQL sont désormais acquises. Pour toute nouvelle publication, le même prérequis de validation reste applicable. #86 reste ouverte pour la consignation manquante des décisions d’habillage ; #91 et la roadmap sont finalisées après fusion et contrôle du déploiement.
 
 ## Vérifications
 

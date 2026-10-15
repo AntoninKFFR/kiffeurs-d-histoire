@@ -14,6 +14,8 @@ import {
 import { chargerCartes } from "./import-cartes";
 import { cartePublique } from "../src/lib/pedagogie";
 import { CHAPITRES_ACTIFS } from "../src/lib/apprendre/catalogue";
+import { adminFixture, verifierAdminBrowser } from "./fixture-admin-browser";
+const adminDemande = process.argv.includes("--administration");
 const require = createRequire(import.meta.url);
 const user = {
   id: "00000000-0000-4000-8000-00000000000a",
@@ -27,6 +29,7 @@ const user = {
 const cartes = chargerCartes().map(cartePublique);
 let state: "full" | "empty" | "error" = "full";
 const api = createServer((req, res) => {
+  if (adminDemande && adminFixture(req, res)) return;
   const url = new URL(req.url!, "http://127.0.0.1");
   res.setHeader("Content-Type", "application/json");
   if (["/rest/v1/rpc/get_chapter_cards","/rest/v1/rpc/get_chapter_cards_version"].includes(url.pathname))
@@ -111,7 +114,7 @@ async function main() {
   app.stdout?.on("data", (chunk) => log.push(String(chunk)));
   app.stderr?.on("data", (chunk) => log.push(String(chunk)));
   let browser: Browser | undefined;
-  const output = "docs/relecture-profil";
+  const output = adminDemande ? "docs/captures/issue-120" : "docs/relecture-profil";
   mkdirSync(output, { recursive: true });
   try {
     browser = await chromium.launch({
@@ -153,6 +156,11 @@ async function main() {
     const page = await context.newPage();
     const errors: string[] = [];
     page.on("pageerror", (error: Error) => errors.push(error.message));
+    if (adminDemande) {
+      await verifierAdminBrowser(page, `http://127.0.0.1:${port}`, output);
+      assert.deepEqual(errors, []);
+      return;
+    }
     const measurements: unknown[] = [];
     for (const width of [1440, 375]) {
       await page.setViewportSize({ width, height: 950 });

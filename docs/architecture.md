@@ -187,6 +187,12 @@ Détails : [Indicateurs](indicateurs.md).
 
 ### Administration des packs (#87, #104)
 
+#120 ajoute une recherche serveur paginée, un rattachement multiple et une création
+atomique sourcée, ainsi qu’un accès depuis le profil décidé par une RPC booléenne.
+Les sources/audits restent privés ; une séquence et des marqueurs d’association
+préservent les ajouts aux imports. Migration préparée, non appliquée :
+[Administration des questions](administration-questions.md).
+
 `/admin/packs` réutilise `histoire.admins` et des RPC réservées aux administrateurs.
 L’état privé par association et l’audit conservent les retraits/réintégrations.
 Le helper de candidats et la roulette filtrent les seules associations retirées ;

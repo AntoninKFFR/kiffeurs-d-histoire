@@ -7,6 +7,8 @@ import type { AdminPack, PackQuestion } from "@/lib/admin-packs/types";
 import { formatHistoricDate } from "@/lib/game/dates";
 import styles from "./packs.module.css";
 import CorrectionQuestion from "./CorrectionQuestion";
+import AjouterQuestions from "./AjouterQuestions";
+import { useRouter } from "next/navigation";
 
 const NIVEAUX = { 1: "Débutant", 2: "Intermédiaire", 3: "Expert" } as const;
 
@@ -31,6 +33,8 @@ export default function AdministrationPacks({ initialPacks, selectedId, initialQ
   const [reason, setReason] = useState("");
   const [pending, setPending] = useState(false);
   const [editor, setEditor] = useState<{ question: PackQuestion; mode: "edition" | "historique" } | null>(null);
+  const [adding, setAdding] = useState(false);
+  const router = useRouter();
   const busy = useRef(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const workspace = useRef<HTMLDivElement>(null);
@@ -113,6 +117,7 @@ export default function AdministrationPacks({ initialPacks, selectedId, initialQ
       </nav>
       <section aria-label="Questions du pack" className={styles.content} aria-busy={pending}>
         <h2 className="font-titre text-2xl">{selected?.title}</h2>
+        <button className={`${styles.confirm} self-start my-3`} disabled={pending || !selectedId} onClick={() => setAdding(true)}>Ajouter des questions</button>
         {packs.some((c) => c.parent_id === selectedId) && <p className="text-sm text-encre-douce">
           Pour les questions propres aux sous-packs, ouvrez le sous-pack correspondant dans la liste.</p>}
         <p className="text-sm text-encre-douce">{selected?.playable} questions jouables à l’année, tous niveaux.
@@ -162,6 +167,12 @@ export default function AdministrationPacks({ initialPacks, selectedId, initialQ
         </div>}
       </section>
     </div>}
+    {adding && selectedId && <AjouterQuestions packId={selectedId} packs={packs} onClose={() => setAdding(false)} onSaved={(data, destination) => {
+      setPacks(data.packs); setAdding(false);
+      if (destination === selectedId) { setQuestions(data.questions); setSearch(""); setNiveau(""); setStatus(""); }
+      else router.push(`/admin/packs?pack=${encodeURIComponent(destination)}`);
+      setNotice({ error: false, text: data.event_id ? "Question créée et ajoutée au pack." : `${data.added} question(s) ajoutée(s), ${data.restored} réintégrée(s). La liste est à jour.` });
+    }} />}
     {editor && selectedId && <CorrectionQuestion key={`${editor.question.id}-${editor.mode}`}
       question={editor.question} packId={selectedId} mode={editor.mode} onClose={() => setEditor(null)}
       onSaved={(data) => {

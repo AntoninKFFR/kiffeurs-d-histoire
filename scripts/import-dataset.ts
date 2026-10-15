@@ -99,7 +99,10 @@ async function synchroniserLiens(
   const cle = (l: Record<string, unknown>) => `${l[cleProprietaire]}\u0000${l[cleLien]}`;
   const nouvelles = new Set((lignes as Record<string, unknown>[]).map(cle));
   const deja = new Set(existants.map(cle));
-  const aRetirer = existants.filter((l) => proprietaires.has(l[cleProprietaire]) && !nouvelles.has(cle(l)));
+  // Les rattachements humains survivent à la synchronisation des packs du v18.
+  const proteges = table === "pack_events"
+    ? new Set((await toutLire(db, "admin_pack_additions", "pack_id,event_id", ["pack_id", "event_id"])).map(cle)) : new Set<string>();
+  const aRetirer = existants.filter((l) => proprietaires.has(l[cleProprietaire]) && !nouvelles.has(cle(l)) && !proteges.has(cle(l)));
 
   await upsert(db, table, lignes as object[], `${cleProprietaire},${cleLien}`);
 
@@ -125,6 +128,8 @@ type Bilan = { element: string; crees: number; misAJour: number; retires?: numbe
 async function importer() {
   const { dossier } = lireArguments();
   const db = connecter();
+  const { error: erreurAjouts } = await db.from("admin_pack_additions").select("pack_id").limit(1);
+  if (erreurAjouts) throw new Error("Migration administration #120 absente : import arrêté avant écriture");
   const structure = chargerStructure();
   // Préflight avant le premier upsert : la migration préparée doit être installée.
   // Cette phase n'exécute ce chemin que sur ses fixtures locales.
@@ -146,6 +151,9 @@ async function importer() {
   const csv = (nom: string) => lireCsv(trouverFichier(dossier, nom));
 
   let evenements = csv("events");
+  if (evenements.some((e) => /^EVT-\d+$/.test(e.event_id) && BigInt(e.event_id.slice(4)) >= BigInt("900000000000"))) {
+    throw new Error("Le dataset utilise un identifiant réservé aux créations administrateur (EVT-900000000000 et suivants).");
+  }
   const themes = csv("themes");
   const liensProgramme = csv("curriculum-links");
   const packs = csv("ready-collections");

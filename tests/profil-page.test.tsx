@@ -6,8 +6,10 @@ const mocks = vi.hoisted(() => ({
   account: vi.fn(),
   stats: vi.fn(),
   history: vi.fn(),
+  admin: vi.fn(),
 }));
 vi.mock("server-only", () => ({}));
+vi.mock("@/lib/admin-packs/serveur", () => ({ accesAdministrateur: mocks.admin }));
 vi.mock("@/lib/account", () => ({ getAccount: mocks.account }));
 vi.mock("@/lib/profil/serveur", () => ({
   chargerHistorique: mocks.history,
@@ -28,6 +30,7 @@ vi.mock("@/components/AccountForm", () => ({
 }));
 beforeEach(() => {
   vi.clearAllMocks();
+  mocks.admin.mockResolvedValue(false);
   mocks.account.mockResolvedValue({
     username: "Pseudo A",
     user: { email: "a@example.test" },
@@ -40,6 +43,16 @@ const page = (searchParams: Record<string, string | string[]> = {}) =>
     params: Promise.resolve({}),
     searchParams: Promise.resolve(searchParams),
   });
+it("affiche les deux accès uniquement après autorisation serveur", async () => {
+  let html = renderToStaticMarkup(await page());
+  expect(html).not.toContain("Mon espace administrateur");
+  expect(html).not.toContain("/admin/packs");
+  mocks.admin.mockResolvedValue(true);
+  html = renderToStaticMarkup(await page());
+  expect(html).toContain("Mon espace administrateur");
+  expect(html).toContain('href="/admin/packs"');
+  expect(html).toContain('href="/admin/indicateurs"');
+});
 it("redirige le visiteur sans session en gardant l'onglet demandé", async () => {
   mocks.account.mockResolvedValue(null);
   await expect(page({ onglet: "statistiques" })).rejects.toThrow(

@@ -13,6 +13,7 @@ import { chargerHistorique, chargerStatistiques } from "@/lib/profil/serveur";
 import { lireProgressionJoueur } from "@/lib/progression/serveur";
 import { cursorValide } from "@/lib/profil/types";
 import { ReessayerCarnet } from "@/components/profil/ReessayerCarnet";
+import { accesAdministrateur } from "@/lib/admin-packs/serveur";
 
 export const metadata = {
   title: "Mon profil · Kiffeurs d’Histoire",
@@ -74,6 +75,7 @@ export default async function ProfilPage({
   if (destination !== "/profil") returnQuery.set("next", destination);
   const returnPath = `/profil${returnQuery.size ? `?${returnQuery}` : ""}`;
   if (!account) redirect(`/connexion?next=${encodeURIComponent(returnPath)}`);
+  const admin = await accesAdministrateur();
   const historyHref =
     destination === "/profil"
       ? "/profil"
@@ -137,6 +139,14 @@ export default async function ProfilPage({
           />
         </Suspense>
       </div>
+      {admin && <section className={`${styles.paper} mt-5`} aria-labelledby="espace-admin-titre">
+        <p className="inventaire">Cabinet de l’équipe</p>
+        <h2 id="espace-admin-titre" className={styles.heading}>Mon espace administrateur</h2>
+        <nav aria-label="Administration" className="mt-4 grid gap-3 sm:grid-cols-2">
+          <Link href="/admin/indicateurs" prefetch={false} className="rounded border border-filet p-4 text-oxyde underline">Indicateurs et statistiques</Link>
+          <Link href="/admin/packs" prefetch={false} className="rounded border border-filet p-4 text-oxyde underline">Gestion des packs et questions</Link>
+        </nav>
+      </section>}
       <details className={`${styles.paper} ${styles.account}`}>
         <summary>Ton compte KFFR</summary>
         <div className={styles.accountBody}>

@@ -1,5 +1,12 @@
 # Administration des packs — #87 et corrections éditoriales #104
 
+L’ajout de questions existantes, la création sourcée et l’accès depuis le profil
+sont décrits dans [Administration des questions — #120](administration-questions.md).
+Ce guide complète les contrats historiques ci-dessous.
+Le registre KFFR a été consulté le 15 octobre 2026 : #104, #89 et #91 y sont
+appliquées. Les mentions « préparée/non appliquée » des sections anciennes
+décrivent leur état lors de rédaction, pas l’état actuel de la production.
+
 #89 préparée ajoute la parenté dans la liste et un total de questions incluant
 les descendants. L’inventaire direct et ses actions restent inchangés ; ouvrir
 un enfant pour gérer ses associations. Un retrait dans le parent masque aussi

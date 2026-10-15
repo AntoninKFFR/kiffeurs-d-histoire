@@ -144,6 +144,13 @@ export function verifierPhase3() {
     ...['src/components/choix/SelectionPacks.tsx','src/components/choix/choix.module.css','src/lib/solo/packs-fun.ts',
       'supabase/fixtures/fun_existants.sql','supabase/migrations/20261015120156_packs_fun.sql','supabase/tests/fun/scenario.sql']
       .map(fichier=>`:(exclude)${fichier}`),
+    // #120 : administration uniquement. Les moteurs et le corpus pédagogique restent gelés.
+    ...['src/app/admin/packs/actions.ts','src/app/profil/page.tsx',
+      'src/components/admin/AdministrationPacks.tsx','src/components/admin/CorrectionQuestion.tsx',
+      'src/components/admin/AjouterQuestions.tsx','src/components/admin/HistoriqueContenu.tsx','src/components/admin/packs.module.css',
+      'src/lib/admin-packs/serveur.ts','src/lib/admin-packs/types.ts','src/lib/admin-packs/validation.ts',
+      'supabase/migrations/20261015201336_administration_questions.sql','supabase/tests/administration_questions.sql']
+      .map(fichier=>`:(exclude)${fichier}`),
     ...(existsSync(publication)?[':(exclude)src/lib/apprendre/structure.json',':(exclude)src/lib/solo/catalogue.json']:[])], { stdio: "pipe" });
   // Comparer aussi les octets après les filtres du checkout Windows (LF → CRLF).
   const baseline = execFileSync("git", ["cat-file", "--filters", `${BASE}:${ancienFichier}`]);

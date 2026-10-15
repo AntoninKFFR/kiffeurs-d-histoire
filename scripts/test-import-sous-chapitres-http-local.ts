@@ -78,6 +78,32 @@ async function main(){
     await importer();assert.equal(sql("select jsonb_agg(to_jsonb(c) order by c.card_id) from histoire.chapter_cards c"),before);
     assert.equal(sql('select count(*) from histoire.events'),'2001');assert.equal(sql('select count(*) from histoire.chapters'),'59');assert.equal(sql('select count(*) from histoire.chapter_cards'),'325');
     assert.equal(sql('select count(*) from histoire.event_chapters'),'722');assert.equal(sql("select count(*) from histoire.pedagogical_units where etat='inactif'"),'18');
+    // #120 : le véritable import SDK conserve création, sources, rattachement au pack du v18 et retrait.
+    const manualPack=sql('select id from histoire.packs order by id limit 1');
+    const manual=JSON.parse(sql(`
+      insert into histoire.players(id) values('00000000-0000-0000-0000-000000000024') on conflict do nothing;
+      insert into histoire.admins(user_id) values('00000000-0000-0000-0000-000000000024');
+      set request.jwt.claim.sub='00000000-0000-0000-0000-000000000024';
+      select histoire.admin_create_event('12000000-0000-0000-0000-000000000001','${manualPack}',
+        '{"title":"Création manuelle avant réimport HTTP 120","description":"Description sourcée persistante","niveau":1,"kind":"event","date_status":"EXACT","start_year":-44,"sources":["Référence documentaire persistante p. 42"]}');
+    `)) as {event_id:string};
+    sql(`set request.jwt.claim.sub='00000000-0000-0000-0000-000000000024';
+      select histoire.admin_remove_pack_event('${manualPack}','${manual.event_id}','Retrait conservé au réimport');`);
+    const manualSnapshot=sql(`select jsonb_build_array(to_jsonb(e),to_jsonb(a),to_jsonb(c),to_jsonb(pe),to_jsonb(s))
+      from histoire.events e join histoire.event_answers a on a.event_id=e.id join histoire.admin_event_creations c on c.event_id=e.id
+      join histoire.pack_events pe on pe.event_id=e.id join histoire.pack_event_status s on s.event_id=e.id and s.pack_id=pe.pack_id where e.id='${manual.event_id}'`);
+    await importer();
+    assert.equal(sql(`select jsonb_build_array(to_jsonb(e),to_jsonb(a),to_jsonb(c),to_jsonb(pe),to_jsonb(s))
+      from histoire.events e join histoire.event_answers a on a.event_id=e.id join histoire.admin_event_creations c on c.event_id=e.id
+      join histoire.pack_events pe on pe.event_id=e.id join histoire.pack_event_status s on s.event_id=e.id and s.pack_id=pe.pack_id where e.id='${manual.event_id}'`),manualSnapshot);
+    sql(`delete from histoire.admin_content_audit where event_id='${manual.event_id}';
+      delete from histoire.admin_pack_additions where event_id='${manual.event_id}';
+      delete from histoire.admin_event_creations where event_id='${manual.event_id}';
+      delete from histoire.pack_event_status where event_id='${manual.event_id}';
+      delete from histoire.pack_event_audit where event_id='${manual.event_id}';
+      delete from histoire.events where id='${manual.event_id}';
+      delete from histoire.admins where user_id='00000000-0000-0000-0000-000000000024';`);
+    console.log('OK #120 HTTP : création, sources privées, association manuelle et retrait conservés après import v18 réel.');
     const cards=chargerCartes();
     for(const chapter of [...new Set(cards.map(c=>c.chapter_id))]){
       const {data,error}=await publicDb.rpc('get_chapter_cards',{p_chapter_id:chapter});assert.ifError(error);

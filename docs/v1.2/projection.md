@@ -1,6 +1,6 @@
 # Projection A0 + A1 — contenu non publié
 
-Calcul hors ligne après reproduction exacte des 888 cellules de production (aucun retrait présent au relevé). Aucun nouveau compte RPC après publication ne peut être revendiqué à ce stade.
+Calcul hors ligne après reproduction exacte des 888 cellules de production (aucun retrait présent au relevé). Aucun nouveau compte RPC après publication ne peut être revendiqué à ce stade. L’interface Inversé propose uniquement DAY : les comptes YEAR/MONTH restent des capacités RPC, sans option correspondante.
 
 | Pack | Sens | Précision | Débutant avant → projeté |
 | --- | --- | --- | --- |
@@ -43,4 +43,4 @@ Calcul hors ligne après reproduction exacte des 888 cellules de production (auc
 
 42 événements nouveaux proposés : 40 Débutant et 2 Intermédiaire. Le corpus passerait de 2 105 à 2 147 événements ; Débutant de 260 à 300, dont 238 à 278 jouables. Les dix rattachements ne créent aucun événement. Aucun reclassement. Aucun après mesuré.
 
-49 cellules cohorte/sens/précision franchiraient au moins un seuil 5/10/20/Tout. Le CSV donne les seuils individuellement ; les mêmes éligibilités valent pour les packs dans Mystère. Aucun tirage de partie exécuté sur KFFR.
+49 cellules RPC cohorte/sens/précision franchiraient au moins un seuil 5/10/20/Tout, dont 34 sur un réglage proposé dans l’interface. Le CSV sépare les deux. En Inversé date exacte, Films et Pop atteindraient 19 questions : 5/10/Tout, pas 20. Aucun tirage de partie exécuté sur KFFR.

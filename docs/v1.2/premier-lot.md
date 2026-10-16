@@ -2,6 +2,8 @@
 
 **Propositions du 16 octobre 2026. Non appliquées.** Validation éditoriale d’Antonin attendue avant migration de production. Les deux lots sont validables séparément. La PR de ce dossier ne publie aucun contenu jouable.
 
+Ce dossier est l’instantané soumis avant publication. Après contrôle de l’interface : l’Inversé utilise uniquement les dates exactes (DAY). Les projections à l’année sont des capacités RPC, pas une précision sélectionnable : avec A0+A1, Films et Pop atteignent chacun 19 en Inversé dans l’interface, donc 5/10/Tout. La validation et les mesures de production sont consignées séparément dans #122 et `docs/publication-v12-a0-a1.md`.
+
 ## Proposition
 
 **A0 : dix associations**, sans événement nouveau ni changement de titre, niveau ou date. [CSV](lot-a0-reemplois.csv), [instantané des seules lignes concernées](lot-a0-reemplois.json). Les sources institutionnelles complémentaires et leurs limites sont indiquées séparément des références v18.

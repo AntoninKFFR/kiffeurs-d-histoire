@@ -2,6 +2,8 @@
 
 Exécutées le 16 octobre 2026, sur main de référence `6a9cb8f`, dans la branche isolée. Les changements concernent documentation, propositions et génération hors ligne ; aucune migration ni code de l’application modifié.
 
+Complément après vérification du sélecteur public : Inversé propose DAY seulement, sans choix année/mois. Le CSV ajoute les colonnes explicites de disponibilité dans l’interface pour 592 des 888 cellules. Les comptes RPC des 296 autres cellules restent documentés, mais leurs seuils ne sont pas des options offertes. Les projections et le test navigateur utilisent maintenant cette distinction ; aucun moteur ni seuil modifié.
+
 | Contrôle | Résultat |
 | --- | --- |
 | Audit Supabase courant | Huit appels playable_packs en transaction de lecture seule ; 37 packs chacun, 888 cellules |

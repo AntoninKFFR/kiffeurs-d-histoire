@@ -62,19 +62,23 @@ for(const m of audit.rpc_matrix)for(const p of m.packs)for(const d of ['YEAR','M
 const apres=structuredClone(inv);
 for(const a of reemplois.associations)apres.find(e=>e.id===a.event_id).packs.push(a.pack_id);
 for(const e of lot.events)apres.push({...e,id:e.proposal_id,playable:true,playable_mode:e.precision});
-const projection=[['pack_id','pack','cohorte','sens','precision','avant_RPC','apres_PROJETE','gain','5_nouveau','10_nouveau','20_nouveau','Tout_nouveau']];
+const projection=[['pack_id','pack','cohorte','sens','precision','avant_RPC','apres_PROJETE','gain','5_nouveau','10_nouveau','20_nouveau','Tout_nouveau',
+ 'reglage_interface_propose','interface_5_nouveau','interface_10_nouveau','interface_20_nouveau','interface_Tout_nouveau']];
 for(const m of audit.rpc_matrix)for(const p of m.packs)for(const d of ['YEAR','MONTH','DAY']){
  const avant=p.comptes[d],ap=nQuestions(candidats(apres,p.id,m.label),d,m.dir);
- projection.push([p.id,p.titre,m.label,m.dir,d,avant,ap,ap-avant,avant<5&&ap>=5,avant<10&&ap>=10,avant<20&&ap>=20,avant===0&&ap>0]);
+ const ui=m.dir==='date'||d==='DAY';
+ projection.push([p.id,p.titre,m.label,m.dir,d,avant,ap,ap-avant,avant<5&&ap>=5,avant<10&&ap>=10,avant<20&&ap>=20,avant===0&&ap>0,
+ ui,ui&&avant<5&&ap>=5,ui&&avant<10&&ap>=10,ui&&avant<20&&ap>=20,ui&&avant===0&&ap>0]);
 }
 writeFileSync(dir+'projection-a0-a1.csv',csv(projection));
-const gains=projection.slice(1).filter(r=>r.slice(8).some(Boolean));
+const gains=projection.slice(1).filter(r=>r.slice(8,12).some(Boolean));
+const gainsInterface=projection.slice(1).filter(r=>r.slice(13,17).some(Boolean));
 const summary=['# Projection A0 + A1 — contenu non publié','',
-'Calcul hors ligne après reproduction exacte des 888 cellules de production (aucun retrait présent au relevé). Aucun nouveau compte RPC après publication ne peut être revendiqué à ce stade.','',
+'Calcul hors ligne après reproduction exacte des 888 cellules de production (aucun retrait présent au relevé). Aucun nouveau compte RPC après publication ne peut être revendiqué à ce stade. L’interface Inversé propose uniquement DAY : les comptes YEAR/MONTH restent des capacités RPC, sans option correspondante.','',
 '| Pack | Sens | Précision | Débutant avant → projeté |',
 '| --- | --- | --- | --- |',
 ...projection.slice(1).filter(r=>r[2]==='debutant'&&['COL-0114','COL-0115','COL-0112','COL-0113','COL-0067','COL-0074'].includes(r[0])).map(r=>'| '+[r[1],r[3],r[4],r[5]+' → '+r[6]].join(' | ')+' |'),
 '','42 événements nouveaux proposés : 40 Débutant et 2 Intermédiaire. Le corpus passerait de 2 105 à 2 147 événements ; Débutant de 260 à 300, dont 238 à 278 jouables. Les dix rattachements ne créent aucun événement. Aucun reclassement. Aucun après mesuré.','',
-gains.length+' cellules cohorte/sens/précision franchiraient au moins un seuil 5/10/20/Tout. Le CSV donne les seuils individuellement ; les mêmes éligibilités valent pour les packs dans Mystère. Aucun tirage de partie exécuté sur KFFR.'];
+gains.length+' cellules RPC cohorte/sens/précision franchiraient au moins un seuil 5/10/20/Tout, dont '+gainsInterface.length+' sur un réglage proposé dans l’interface. Le CSV sépare les deux. En Inversé date exacte, Films et Pop atteindraient 19 questions : 5/10/Tout, pas 20. Aucun tirage de partie exécuté sur KFFR.'];
 writeFileSync(dir+'projection.md',summary.join('\n')+'\n');
 console.log(n+' cellules reproduites exactement ; 42 ajouts sans doublon de titre normalisé ; '+gains.length+' cellules avec nouveau seuil. Projection sauvegardée.');

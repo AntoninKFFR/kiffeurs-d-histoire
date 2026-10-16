@@ -3,6 +3,8 @@
 **16 octobre 2026, 00 h 05 (Paris)**. Main : `6a9cb8f448dd3d68e8e7f5fccfb6707f6e98c5f6`.
 Audit et propositions uniquement : aucune publication, migration ou partie de test sur KFFR.
 
+**Précision ajoutée après contrôle de l’interface de production** : les 888 cellules ci-dessous décrivent les RPC. L’interface Inversé impose la date exacte (DAY) et n’expose pas YEAR/MONTH ; 592 cellules correspondent donc à une précision proposée. Le CSV distingue maintenant les seuils RPC et les longueurs réellement proposées. Après A0+A1, Films et Pop ont chacun 19 questions Inversé dans l’interface : 5/10/Tout, pas vingt. Les comptes Inversé année 16 et 20 restent mathématiquement exacts, sans option correspondante dans le sélecteur. Aucun changement de règle n’est proposé. Les sources, dates et associations validées restent identiques.
+
 ## Résultats mesurés
 
 | Indicateur | Avant mesuré | Après production |

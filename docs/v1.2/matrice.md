@@ -1,6 +1,6 @@
 # Matrice de tous les packs actifs
 
-Relevé SQL : 2026-10-15T22:05:02.639175+00:00. A/M/J = année/mois/jour. I est cumulatif ; E est exclusif. Longueurs et Mystère pour les 888 cellules : [CSV](disponibilites.csv). Tout est plafonné à 100.
+Relevé SQL : 2026-10-15T22:05:02.639175+00:00. A/M/J = année/mois/jour. I est cumulatif ; E est exclusif. Les 888 cellules sont des capacités RPC ; l’interface Inversé propose uniquement DAY (date exacte), donc 592 cellules correspondent à un réglage proposé. Le [CSV](disponibilites.csv) distingue explicitement seuils RPC et longueurs de l’interface. Tout est plafonné à 100.
 
 | Pack | Union | Jouable | D | I (1+2) | E seul | Tous A/M/J | Inversé D A/M/J | Longueurs D Solo année |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |

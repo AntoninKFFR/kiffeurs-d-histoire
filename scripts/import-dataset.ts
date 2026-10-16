@@ -11,6 +11,7 @@ import { estUrlLocale, FICHIER_CARTES, importerCartesLocales, validerCartes } fr
 import { fusionnerDescriptions } from "./import-descriptions";
 import { verifierCollectionsSport } from "./import-sport";
 import { verifierReservationsFun } from "./import-fun";
+import { verifierReservationsEnrichissement } from "./import-enrichissement-v12";
 import { chargerStructure } from "./structure-pedagogique";
 
 type Ligne = Record<string, string>;
@@ -151,6 +152,7 @@ async function importer() {
   const csv = (nom: string) => lireCsv(trouverFichier(dossier, nom));
 
   let evenements = csv("events");
+  verifierReservationsEnrichissement(evenements.map(e=>({event_id:e.event_id})));
   if (evenements.some((e) => /^EVT-\d+$/.test(e.event_id) && BigInt(e.event_id.slice(4)) >= BigInt("900000000000"))) {
     throw new Error("Le dataset utilise un identifiant réservé aux créations administrateur (EVT-900000000000 et suivants).");
   }

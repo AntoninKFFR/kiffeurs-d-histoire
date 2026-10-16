@@ -67,3 +67,6 @@ bash scripts/tests-sous-packs-concurrence.sh
 # #91 est testé après les régressions historiques : fixture du relevé, migration répétée,
 # vraie partie par pack/sens, retraits, corrections, historique et réponses privées.
 psql_q -f supabase/tests/fun/scenario.sql
+
+# #126 : contenu A1, intégrité, préconditions et vraie jouabilité.
+psql_q -f supabase/tests/enrichissement_a1/scenario.sql

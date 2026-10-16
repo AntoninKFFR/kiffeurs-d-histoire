@@ -1,5 +1,6 @@
 import { expect,test } from '@playwright/test';
 import fun from '../content/fun/manifeste.json';
+import a1 from '../content/enrichissement-v12/a1.json';
 import { lireSql } from './local';
 import { attendreQuestion,idPartie,repondreAuClavier,repondreInverse,validerEtContinuer,lireBilan } from './outils';
 for(const inverse of [false,true]){
@@ -20,7 +21,8 @@ for(const inverse of [false,true]){
     if(info.project.name==='ordinateur')expect(mesure.sh).toBeLessThanOrEqual(mesure.hauteur+2);
     await page.getByRole('button',{name:'Jouer',exact:true}).click();
     expect(await attendreQuestion(page,1)).toBe(5);
-    const id=idPartie(page),ids=new Set(fun.associations.filter(a=>a.pack_id==='COL-0114').map(a=>a.event_id));
+    const id=idPartie(page),ids=new Set([...fun.associations.filter(a=>a.pack_id==='COL-0114').map(a=>a.event_id),
+      ...a1.events.filter(e=>e.packs.includes('COL-0114')).map(e=>e.id)]);
     expect(lireSql<{event_id:string}[]>(`select event_id from histoire.game_questions where game_id='${id}'`).every(q=>ids.has(q.event_id))).toBe(true);
     for(let n=1;n<=5;n++){
       await attendreQuestion(page,n);

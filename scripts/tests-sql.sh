@@ -67,3 +67,9 @@ bash scripts/tests-sous-packs-concurrence.sh
 # #91 est testé après les régressions historiques : fixture du relevé, migration répétée,
 # vraie partie par pack/sens, retraits, corrections, historique et réponses privées.
 psql_q -f supabase/tests/fun/scenario.sql
+
+# Lots V1.2 après les régressions historiques : chaque PR apporte son scénario.
+# Le même point d’entrée évite un conflit d’ajouts entre deux lots indépendants.
+for f in supabase/tests/enrichissement_*/scenario.sql; do
+  psql_q -f "$f"
+done

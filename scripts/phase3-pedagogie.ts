@@ -151,6 +151,11 @@ export function verifierPhase3() {
       'src/lib/admin-packs/serveur.ts','src/lib/admin-packs/types.ts','src/lib/admin-packs/validation.ts',
       'supabase/migrations/20261015201336_administration_questions.sql','supabase/tests/administration_questions.sql']
       .map(fichier=>`:(exclude)${fichier}`),
+    // #124 : dix rattachements A0, sans modification du corpus pédagogique ni des moteurs.
+    ...['supabase/fixtures/enrichissement_a0.sql',
+      'supabase/migrations/20261015222704_enrichissement_v12_a0.sql',
+      'supabase/tests/enrichissement_a0/appliquer-test.sql','supabase/tests/enrichissement_a0/scenario.sql']
+      .map(fichier=>`:(exclude)${fichier}`),
     ...(existsSync(publication)?[':(exclude)src/lib/apprendre/structure.json',':(exclude)src/lib/solo/catalogue.json']:[])], { stdio: "pipe" });
   // Comparer aussi les octets après les filtres du checkout Windows (LF → CRLF).
   const baseline = execFileSync("git", ["cat-file", "--filters", `${BASE}:${ancienFichier}`]);

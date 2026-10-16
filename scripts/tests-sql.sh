@@ -68,5 +68,8 @@ bash scripts/tests-sous-packs-concurrence.sh
 # vraie partie par pack/sens, retraits, corrections, historique et réponses privées.
 psql_q -f supabase/tests/fun/scenario.sql
 
-# #126 : contenu A1, intégrité, préconditions et vraie jouabilité.
-psql_q -f supabase/tests/enrichissement_a1/scenario.sql
+# Lots V1.2 après les régressions historiques : chaque PR apporte son scénario.
+# Le même point d’entrée évite un conflit d’ajouts entre deux lots indépendants.
+for f in supabase/tests/enrichissement_*/scenario.sql; do
+  psql_q -f "$f"
+done

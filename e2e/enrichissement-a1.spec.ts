@@ -30,7 +30,7 @@ for(const inverse of [false,true])for(const pack of [
   await expect(page.getByRole('button',{name:'Jouer',exact:true})).toBeEnabled();
   await page.getByRole('button',{name:'Jouer',exact:true}).click();
   expect(await attendreQuestion(page,1)).toBe(n);
-  const jeu=idPartie(page),nouveaux=new Set(lot.events.map(e=>e.id));
+  const jeu=idPartie(page),nouveaux=new Set([...lot.events,...massif.events].map(e=>e.id));
   if(inverse)expect(new URLSearchParams(new URL(page.url()).searchParams.get('c')!).get('difficulte')).toBe('DAY');
   const questions=lireSql<{event_id:string;niveau:number;expected_year:number;answer:string}[]>(`select q.event_id,e.niveau,q.expected_year,
     coalesce((select a.alias from histoire.event_aliases a where a.event_id=q.event_id order by length(a.alias),a.alias limit 1),e.title) answer

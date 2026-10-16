@@ -85,6 +85,8 @@ Validations locales :
 - Lint, typecheck et gel pédagogique : verts. Compilation Next : verte via le serveur de fixture publique existant scripts/build-apprendre-local.ts. Le premier build sans serveur local a échoué avec ECONNREFUSED ; aucun problème de compilation du code.
 - Docker est arrêté sur ce poste. Les scénarios navigateur et le vrai réimport HTTP sont préparés pour la CI unique du commit final. Le test de réimport existant couvre désormais les 202 créations A1+Massif et les deux plages réservées.
 
+La première CI a validé les quatre jobs hors navigateur et 199 parcours sur 202. Trois anciens tests A0 supposaient encore qu’une partie aléatoire de cinq questions contiendrait forcément A0 ; cette hypothèse cesse d’être vraie avec les 13 nouveaux Débutant Napoléon. Les tests de tirage A0/A1 couvrent désormais l’ensemble des enrichissements, tandis que leurs tests de réimport continuent de vérifier chaque ancien ajout individuellement. Une nouvelle CI est nécessaire après cette correction de tests ; le SQL reste inchangé. L’aperçu Vercel a également échoué : ses logs n’ont pas pu être lus (connecteur 403, scope CLI kffrh inaccessible). Sa cause reste à établir avant toute fusion.
+
 **Risque élevé selon AGENTS.md (données Supabase partagées).** Tous les jobs CI pertinents, dont SQL/sécurité et E2E, doivent réussir sur le commit exact ; aucun contrôle échoué ou requis en attente ne permet une fusion. Consulter les résultats liés à la PR.
 
 ## Relais de publication

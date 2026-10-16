@@ -1,12 +1,12 @@
 # V1.2 — A1, 42 repères cinéma et pop culture (#126)
 
-**Préparé, non validé, non appliqué sur KFFR.** La validation éditoriale et le GO explicite d’Antonin pour A1 restent requis. A0 #124 est indépendant : dix réemplois, aucun événement nouveau.
+**Validé par Antonin et appliqué sur KFFR le 16 octobre 2026 à 13 h 13 Paris.** Le [GO explicite A0/A1](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/122#issuecomment-6214257559) répond à la demande de validation éditoriale et de publication SQL. A0 #124 reste indépendant : dix réemplois, aucun événement nouveau. La fusion A1 attend les contrôles du commit intégrant le nouveau main A0.
 
 La [liste détaillée soumise dans #122/#123](https://github.com/Zazou13015/KIffeur-d-Histoire/blob/495c86b03366dfa6088b110a2648b0db2cca3cc9/docs/v1.2/lot-a1.csv) comporte descriptions, dates, niveaux motivés, territoires, sources consultées et preuves de datation. Le [manifeste A1](../content/enrichissement-v12/a1.json) reprend ces 42 propositions avec leurs identifiants EVT-2300 à EVT-2341. Aucun reclassement d’événement existant ; les deux classiques asiatiques en prises de vues réelles restent Intermédiaire.
 
-## Gains projetés, aucun après de production
+## Gains confirmés par les RPC de production
 
-| Réglage Débutant | Avant | Après A1 seul | Après A0 + A1 |
+| Réglage Débutant | Avant | A1 seul, simulation | A0 + A1, production |
 | --- | --- | --- | --- |
 | Films Solo année | 1 | 21 | 21 |
 | Films Inversé année | 1 | 16 | 16 |
@@ -17,7 +17,9 @@ La [liste détaillée soumise dans #122/#123](https://github.com/Zazou13015/KIff
 
 A1 seul ouvre 5/10/20/Tout en Solo année pour Films et Pop, et 5/10/Tout en Inversé année. Les 16 années Films et 19 années Pop ne permettent pas 20 questions Inversé ; A0 apporte une vingtième année à Pop grâce à l’iPhone existant. Aucun millésime supplémentaire inventé pour contourner cette limite.
 
-Le total global passerait de 2 105 à 2 147 ; Débutant de 260 à 300, dont 238 à 278 jouables. Les 86 associations couvrent Films, Pop, Inventions improbables, France, Europe et XXe siècle. Les contrats 50/100 incontournables et Mode expert sont préservés. Aucun lien scolaire ni progression pédagogique ajouté.
+Le total global passe de 2 105 à 2 147 ; Débutant de 260 à 300, dont 238 à 278 jouables. Les 86 associations couvrent Films, Pop, Inventions improbables, France, Europe et XXe siècle. Les contrats 50/100 incontournables et Mode expert sont préservés. Aucun lien scolaire ni progression pédagogique ajouté.
+
+Après A0 puis A1, le registre contient les deux versions, 42 nouveaux événements et 86 nouveaux liens protégés sont présents. Les 888 cellules RPC sont exactement conformes au dossier projeté ; toutes les anciennes lignes des 35 tables histoire contrôlées sont inchangées. Réponses et alias restent privés pour anon/authenticated. [Preuves et limites de publication](publication-v12-a0-a1.md).
 
 Grande Vadrouille conserve décembre 1966 sans jour ; Belle au bois dormant, Lucky Luke et Wannabe restent à l’année. Les territoires figurent dans les titres des films et autres sorties géographiques. Les statuts et précisions ne prétendent pas résoudre les arbitrages documentaires du dossier initial.
 
@@ -50,6 +52,6 @@ node scripts/verifier-enrichissement-a1-local.mjs
 
 ## Publication après GO
 
-Risque élevé : base de production partagée. Attendre validation du contenu A1, GO de publication et CI pertinente verte du dernier commit (verifier, SQL natif, imports réels et E2E ; aucun échec terminé). Réinspecter main, PR et travaux de Max, puis réactualiser identifiants, doublons, corrections et retraits.
+Risque élevé : base de production partagée. Validation du contenu A1, GO et cinq contrôles du commit `23c33ff` obtenus avant publication. La tête intégrant main A0 doit encore avoir sa propre CI verte avant fusion (verifier, SQL natif, imports réels et E2E ; aucun échec terminé). Réinspecter main, PR et travaux de Max, puis réactualiser identifiants, doublons, corrections et retraits.
 
 Après GO seulement : relever les empreintes et RPC avant, exécuter le fichier SQL exact dans histoire (aucun db push/apply_migration), confirmer registre et 42 ajouts/86 protections, contrôler l’intégrité de l’existant et mesurer les disponibilités RPC. Appliquer avant fusion, vérifier compatibilité avec main et CI du commit final, fusionner, vérifier Vercel et parcours, puis consigner l’après mesuré dans #122. Les prévisions ci-dessus ne sont pas un résultat de production.

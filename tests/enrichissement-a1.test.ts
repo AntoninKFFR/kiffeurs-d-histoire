@@ -25,7 +25,7 @@ it('réserve tous les identifiants avant un import, même si le reste du dataset
  for(const e of lot.events)expect(()=>verifierReservationsEnrichissement([{event_id:e.id}])).toThrow(/réservés au lot V1.2 A1/);
 });
 it('génère uniquement de nouveaux événements, réponses privées et liens, sans DDL ni UPDATE',()=>{
- const sql=readFileSync(MIGRATION_A1,'utf8');expect(sql).toBe(sqlA1());
+ const sql=readFileSync(MIGRATION_A1,'utf8').replaceAll('\r\n','\n');expect(sql).toBe(sqlA1());
  const executable=sql.replace(/^\s*--.*$/gm,'').replace(/'(?:[^']|'')*'/g,"''");
  expect(executable).not.toMatch(/\b(public|auth|private|supabase_migrations)\./);
  expect(executable).not.toMatch(/\b(update|delete|truncate|drop|alter|create|grant|revoke)\s/i);

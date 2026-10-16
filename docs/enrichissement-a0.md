@@ -1,19 +1,21 @@
 # V1.2 — Lot A0 : dix rattachements existants (#124)
 
-**Préparé, non validé et non appliqué sur KFFR.** Ce lot ne crée aucune question et ne reclassifie aucun événement. Il est indépendant du lot A1 et de sa validation.
+**Validé par Antonin, appliqué sur KFFR le 16 octobre 2026 à 13 h 13 Paris, puis fusionné par #125.** Le [GO explicite A0/A1](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/122#issuecomment-6214257559) répond à la demande de validation éditoriale et de publication SQL. Ce lot ne crée aucune question et ne reclassifie aucun événement. Il reste indépendant d’A1.
 
 La [liste éditoriale complète](https://github.com/Zazou13015/KIffeur-d-Histoire/blob/495c86b03366dfa6088b110a2648b0db2cca3cc9/docs/v1.2/lot-a0-reemplois.csv) a été publiée dans #122 avant génération du SQL. Le [manifeste de ce lot](../content/enrichissement-v12/a0.json) reprend ces dix liens, les sources institutionnelles et l’instantané courant. Aucune proposition A1 n’est incluse ici.
 
-## Résultat attendu, pas encore publié
+## Résultat mesuré après A0 seul
 
-| Pack | Tous niveaux avant → projeté | Débutant Solo année | Débutant Inversé année |
+| Pack | Tous niveaux avant → mesuré | Débutant Solo année | Débutant Inversé année |
 | --- | --- | --- | --- |
 | Grandes premières | 35 → 40 | 8 → 13 | 8 → 12 |
 | Pop culture | 35 → 36 | 0 → 1 | 0 → 1 |
 | Construction européenne | 19 → 20 | 5 → 6 | 5 → 6 |
 | Époque napoléonienne | 4 → 7 | 3 → 6 | 3 → 5 |
 
-Les nouveaux rattachements ouvriraient cinq questions Débutant Napoléon dans les deux sens et dix Grandes premières dans les deux sens. Année/mois/jour demeurent ceux du canon : Gutenberg reste approximatif à l’année ; le vote national et le vote municipal ont la même année mais des jours différents. Aucun gain global d’événements ou de Débutant : 2 105 et 260, dont 238 jouables, resteraient inchangés en l’absence d’autre édition.
+Les nouveaux rattachements ouvrent cinq questions Débutant Napoléon dans les deux sens et dix Grandes premières dans les deux sens. Année/mois/jour demeurent ceux du canon : Gutenberg reste approximatif à l’année ; le vote national et le vote municipal ont la même année mais des jours différents. Après A0 seul, les totaux restent 2 105 événements et 260 Débutant, dont 238 jouables.
+
+Les RPC de production à 13 h 13 Paris ont confirmé tous les nombres du tableau, les dix liens et dix marqueurs. Le registre contient `20261015222704`. Les anciennes lignes des 35 tables histoire contrôlées, y compris réponses, alias, audits, corrections et joueurs, sont identiques avant/après. A1, appliqué ensuite, porte notamment Pop à 21 questions Débutant Solo et 20 années distinctes en Inversé : [mesure combinée](publication-v12-a0-a1.md).
 
 ## Migration et préconditions
 
@@ -59,6 +61,6 @@ Le premier passage CI (`e33c9c3`, run 38818387114) a réussi PostgreSQL natif, l
 
 ## Publication après validation seulement
 
-Risque élevé : contenu de la base partagée. La validation du contenu et le **GO explicite du lot A0** restent attendus. Tous les contrôles pertinents du dernier commit doivent réussir avant publication/fusion : verifier, SQL, vrais imports et E2E ; aucune annulation/absence n’est un succès. Réinspecter main, les PR et les travaux de Max, puis relire les préconditions et retraits/créations courants.
+Risque élevé : contenu de la base partagée. La validation du contenu et le **GO explicite du lot A0** ont été obtenus ; les cinq contrôles du commit `f2b0978` ont réussi avant publication/fusion. Protocole conservé : exiger verifier, SQL, vrais imports et E2E sur la tête exacte ; aucune annulation/absence n’est un succès. Réinspecter main, les PR et les travaux de Max, puis relire les préconditions et retraits/créations courants.
 
 Après GO : relever les empreintes et disponibilités vivantes, exécuter uniquement le fichier transactionnel exact (aucun db push/apply_migration), vérifier registre, liens/marqueurs, invariance des anciens contenus et nouvelles disponibilités avec les RPC, fusionner puis vérifier le déploiement. Mettre à jour #122 avec un **après mesuré**, distinct des projections ci-dessus.

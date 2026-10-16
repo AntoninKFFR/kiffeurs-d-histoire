@@ -1,0 +1,532 @@
+{
+  "at": "2026-10-15T22:04:17.081436+00:00",
+  "packs": [
+    {
+      "id": "COL-0059",
+      "slug": "50-incontournables",
+      "title": "50 dates incontournables",
+      "active": true,
+      "position": 1,
+      "parent_id": null,
+      "description": "Les 50 dates que tout le monde connaît, de l’Antiquité à nos jours.",
+      "target_size": 50
+    },
+    {
+      "id": "COL-0060",
+      "slug": "100-incontournables",
+      "title": "100 dates incontournables",
+      "active": true,
+      "position": 2,
+      "parent_id": null,
+      "description": "Les 100 dates de culture générale à connaître, dont les 50 incontournables.",
+      "target_size": 100
+    },
+    {
+      "id": "COL-0061",
+      "slug": "france",
+      "title": "France",
+      "active": true,
+      "position": 3,
+      "parent_id": null,
+      "description": "Événements directement rattachés à la France.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0062",
+      "slug": "europe",
+      "title": "Europe",
+      "active": true,
+      "position": 4,
+      "parent_id": null,
+      "description": "Événements directement rattachés à l’espace européen.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0063",
+      "slug": "premiere-guerre-mondiale",
+      "title": "Première Guerre mondiale",
+      "active": true,
+      "position": 5,
+      "parent_id": null,
+      "description": "Événements du contexte Première Guerre mondiale.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0064",
+      "slug": "seconde-guerre-mondiale",
+      "title": "Seconde Guerre mondiale",
+      "active": true,
+      "position": 6,
+      "parent_id": null,
+      "description": "Événements du contexte Seconde Guerre mondiale.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0065",
+      "slug": "guerre-froide",
+      "title": "Guerre froide",
+      "active": true,
+      "position": 7,
+      "parent_id": null,
+      "description": "Événements du contexte Guerre froide.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0066",
+      "slug": "revolution-francaise",
+      "title": "Révolution française",
+      "active": true,
+      "position": 8,
+      "parent_id": null,
+      "description": "Événements directement associés à la Révolution française.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0067",
+      "slug": "epoque-napoleonienne",
+      "title": "Époque napoléonienne",
+      "active": true,
+      "position": 9,
+      "parent_id": null,
+      "description": "Consulat, Empire et principaux jalons napoléoniens.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0068",
+      "slug": "revolutions",
+      "title": "Révolutions et insurrections",
+      "active": true,
+      "position": 10,
+      "parent_id": null,
+      "description": "Révolutions, soulèvements et ruptures politiques.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0069",
+      "slug": "guerres-batailles",
+      "title": "Guerres et batailles",
+      "active": true,
+      "position": 11,
+      "parent_id": null,
+      "description": "Guerres, conflits, batailles et opérations militaires.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0070",
+      "slug": "espace",
+      "title": "Espace",
+      "active": true,
+      "position": 12,
+      "parent_id": null,
+      "description": "Exploration spatiale, satellites, vols habités et stations orbitales.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0071",
+      "slug": "sciences",
+      "title": "Sciences",
+      "active": true,
+      "position": 13,
+      "parent_id": null,
+      "description": "Découvertes, savants et événements scientifiques.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0072",
+      "slug": "religions",
+      "title": "Religions",
+      "active": true,
+      "position": 14,
+      "parent_id": null,
+      "description": "Événements religieux directement identifiés.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0073",
+      "slug": "droits-libertes",
+      "title": "Droits et libertés",
+      "active": true,
+      "position": 15,
+      "parent_id": null,
+      "description": "Droits civiques, libertés publiques, suffrage et égalité juridique.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0074",
+      "slug": "construction-europeenne",
+      "title": "Construction européenne",
+      "active": true,
+      "position": 16,
+      "parent_id": null,
+      "description": "CECA, traités européens, Schengen et autres jalons associés.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0075",
+      "slug": "decolonisation",
+      "title": "Décolonisation",
+      "active": true,
+      "position": 17,
+      "parent_id": null,
+      "description": "Indépendances et conflits de décolonisation.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0076",
+      "slug": "environnement",
+      "title": "Environnement",
+      "active": true,
+      "position": 18,
+      "parent_id": null,
+      "description": "Protection de l’environnement, climat et grands accords.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0077",
+      "slug": "mode-expert-50",
+      "title": "Mode expert — 50 dates",
+      "active": true,
+      "position": 19,
+      "parent_id": null,
+      "description": "Les 50 événements jouables les plus difficiles, départagés par importance et diffusion scolaire.",
+      "target_size": 50
+    },
+    {
+      "id": "COL-0078",
+      "slug": "antiquite",
+      "title": "Antiquité",
+      "active": true,
+      "position": 20,
+      "parent_id": null,
+      "description": "Événements jouables conventionnellement situés entre les premières écritures et 476.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0079",
+      "slug": "moyen-age",
+      "title": "Moyen Âge",
+      "active": true,
+      "position": 21,
+      "parent_id": null,
+      "description": "Événements jouables conventionnellement situés de 476 à 1492.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0080",
+      "slug": "epoque-moderne",
+      "title": "Époque moderne",
+      "active": true,
+      "position": 22,
+      "parent_id": null,
+      "description": "Événements jouables conventionnellement situés de 1492 à 1789.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0081",
+      "slug": "xixe-siecle",
+      "title": "XIXe siècle",
+      "active": true,
+      "position": 23,
+      "parent_id": null,
+      "description": "Événements jouables de 1801 à 1900.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0082",
+      "slug": "xxe-siecle",
+      "title": "XXe siècle",
+      "active": true,
+      "position": 24,
+      "parent_id": null,
+      "description": "Événements jouables de 1901 à 2000.",
+      "target_size": null
+    },
+    {
+      "id": "COL-0105",
+      "slug": "sport",
+      "title": "Sport",
+      "active": true,
+      "position": 25,
+      "parent_id": null,
+      "description": "397 dates du sport : football, tennis, Jeux olympiques, cyclisme, sports mécaniques et autres exploits.",
+      "target_size": 397
+    },
+    {
+      "id": "COL-0106",
+      "slug": "sport-football",
+      "title": "Football",
+      "active": true,
+      "position": 26,
+      "parent_id": "COL-0105",
+      "description": "Coupes du monde, championnats d’Europe et grandes victoires du football.",
+      "target_size": 49
+    },
+    {
+      "id": "COL-0107",
+      "slug": "sport-tennis",
+      "title": "Tennis",
+      "active": true,
+      "position": 27,
+      "parent_id": "COL-0105",
+      "description": "Les débuts du tennis et les éditions de Wimbledon présentes dans le corpus.",
+      "target_size": 86
+    },
+    {
+      "id": "COL-0108",
+      "slug": "sport-jeux-olympiques",
+      "title": "Jeux olympiques",
+      "active": true,
+      "position": 28,
+      "parent_id": "COL-0105",
+      "description": "Jeux antiques, Jeux modernes d’été et d’hiver, performances et événements marquants.",
+      "target_size": 57
+    },
+    {
+      "id": "COL-0109",
+      "slug": "sport-cyclisme",
+      "title": "Cyclisme / Tour de France",
+      "active": true,
+      "position": 29,
+      "parent_id": "COL-0105",
+      "description": "Le premier départ et les éditions du Tour de France présentes dans le corpus.",
+      "target_size": 91
+    },
+    {
+      "id": "COL-0110",
+      "slug": "sport-mecanique",
+      "title": "Sports mécaniques",
+      "active": true,
+      "position": 30,
+      "parent_id": "COL-0105",
+      "description": "La saison inaugurale et les saisons de Formule 1 présentes dans le corpus.",
+      "target_size": 60
+    },
+    {
+      "id": "COL-0111",
+      "slug": "sport-autres-exploits",
+      "title": "Autres sports et exploits",
+      "active": true,
+      "position": 31,
+      "parent_id": "COL-0105",
+      "description": "Coupes du monde de rugby, Super Bowls, basket-ball, athlétisme, alpinisme et échecs.",
+      "target_size": 54
+    },
+    {
+      "id": "COL-0112",
+      "slug": "fun-grandes-premieres",
+      "title": "Grandes premières",
+      "active": true,
+      "position": 112,
+      "parent_id": null,
+      "description": "Des premiers vols aux exploits scientifiques : les étapes qui ont ouvert une voie nouvelle.",
+      "target_size": 35
+    },
+    {
+      "id": "COL-0113",
+      "slug": "fun-inventions-improbables",
+      "title": "Inventions improbables",
+      "active": true,
+      "position": 113,
+      "parent_id": null,
+      "description": "Trouvailles accidentelles, objets étonnants et idées devenues indispensables au quotidien.",
+      "target_size": 30
+    },
+    {
+      "id": "COL-0114",
+      "slug": "fun-films-cultes",
+      "title": "Sorties de films cultes",
+      "active": true,
+      "position": 114,
+      "parent_id": null,
+      "description": "Comédies, aventures, animation et science-fiction : retrouver les sorties originales, avec leur territoire indiqué.",
+      "target_size": 50
+    },
+    {
+      "id": "COL-0115",
+      "slug": "fun-pop-culture",
+      "title": "Pop culture",
+      "active": true,
+      "position": 115,
+      "parent_id": null,
+      "description": "Musique, jeux vidéo, télévision et internet : des repères populaires en dehors des sorties de films.",
+      "target_size": 35
+    },
+    {
+      "id": "COL-0116",
+      "slug": "fun-rois-scandales-trahisons",
+      "title": "Rois, scandales et trahisons",
+      "active": true,
+      "position": 116,
+      "parent_id": null,
+      "description": "Complots, affaires de cour, prises de pouvoir et abdications : les coulisses mouvementées du pouvoir.",
+      "target_size": 30
+    },
+    {
+      "id": "COL-0117",
+      "slug": "fun-histoire-derape",
+      "title": "Quand l’histoire dérape",
+      "active": true,
+      "position": 117,
+      "parent_id": null,
+      "description": "Canulars, erreurs et imprévus : des épisodes étonnants racontés sans tourner les victimes en dérision.",
+      "target_size": 30
+    }
+  ],
+  "events": 2105,
+  "levels": {
+    "1": 260,
+    "2": 601,
+    "3": 1244
+  },
+  "migrations": [
+    {
+      "nom": "schema_histoire",
+      "version": "20261003140000",
+      "appliquee_le": "2026-10-05T22:56:14.531474+00:00"
+    },
+    {
+      "nom": "registre_migrations",
+      "version": "20261005190000",
+      "appliquee_le": "2026-10-05T22:56:14.531474+00:00"
+    },
+    {
+      "nom": "modele_dataset_v18",
+      "version": "20261006084353",
+      "appliquee_le": "2026-10-06T20:32:10.215504+00:00"
+    },
+    {
+      "nom": "score",
+      "version": "20261006210000",
+      "appliquee_le": "2026-10-06T22:17:52.574647+00:00"
+    },
+    {
+      "nom": "solo_server",
+      "version": "20261006214244",
+      "appliquee_le": "2026-10-06T22:37:41.46937+00:00"
+    },
+    {
+      "nom": "solo_anonymous_retention",
+      "version": "20261006220620",
+      "appliquee_le": "2026-10-06T22:37:42.003309+00:00"
+    },
+    {
+      "nom": "inverse_server",
+      "version": "20261006225007",
+      "appliquee_le": "2026-10-06T23:25:34.925469+00:00"
+    },
+    {
+      "nom": "comptes_sauvegarde",
+      "version": "20261006233631",
+      "appliquee_le": "2026-10-07T00:21:49.003894+00:00"
+    },
+    {
+      "nom": "chapter_cards",
+      "version": "20261007102922",
+      "appliquee_le": "2026-10-07T13:01:05.620541+00:00"
+    },
+    {
+      "nom": "corrige_somme_day_range",
+      "version": "20261007143355",
+      "appliquee_le": "2026-10-07T15:00:37.239777+00:00"
+    },
+    {
+      "nom": "profil_statistiques",
+      "version": "20261008141312",
+      "appliquee_le": "2026-10-08T14:54:10.37033+00:00"
+    },
+    {
+      "nom": "progression_pedagogique",
+      "version": "20261008170000",
+      "appliquee_le": "2026-10-08T16:54:46.902893+00:00"
+    },
+    {
+      "nom": "test_chapitre_cartes",
+      "version": "20261009080000",
+      "appliquee_le": "2026-10-09T07:12:09.249439+00:00"
+    },
+    {
+      "nom": "indicateurs",
+      "version": "20261009100000",
+      "appliquee_le": "2026-10-09T07:48:42.32562+00:00"
+    },
+    {
+      "nom": "niveaux_evenements",
+      "version": "20261009180000",
+      "appliquee_le": "2026-10-09T18:11:47.92396+00:00"
+    },
+    {
+      "nom": "longueur_parties",
+      "version": "20261010160346",
+      "appliquee_le": "2026-10-10T18:17:17.190552+00:00"
+    },
+    {
+      "nom": "theme_mystere",
+      "version": "20261010184125",
+      "appliquee_le": "2026-10-10T19:09:42.981901+00:00"
+    },
+    {
+      "nom": "admin_packs",
+      "version": "20261010210813",
+      "appliquee_le": "2026-10-10T22:38:10.399592+00:00"
+    },
+    {
+      "nom": "corrections_editoriales",
+      "version": "20261010232237",
+      "appliquee_le": "2026-10-10T23:47:49.394879+00:00"
+    },
+    {
+      "nom": "sous_packs",
+      "version": "20261010235740",
+      "appliquee_le": "2026-10-11T00:36:49.819169+00:00"
+    },
+    {
+      "nom": "questions_periode",
+      "version": "20261011083000",
+      "appliquee_le": "2026-10-11T08:27:41.871243+00:00"
+    },
+    {
+      "nom": "pack_sport",
+      "version": "20261011111510",
+      "appliquee_le": "2026-10-11T13:30:26.993343+00:00"
+    },
+    {
+      "nom": "niveaux_expert_exclusif",
+      "version": "20261011161927",
+      "appliquee_le": "2026-10-12T12:21:42.533512+00:00"
+    },
+    {
+      "nom": "preparation_sous_chapitres",
+      "version": "20261012180633",
+      "appliquee_le": "2026-10-12T22:30:21.182525+00:00"
+    },
+    {
+      "nom": "correction_han_117",
+      "version": "20261014232713",
+      "appliquee_le": "2026-10-15T00:10:47.70521+00:00"
+    },
+    {
+      "nom": "packs_fun",
+      "version": "20261015120156",
+      "appliquee_le": "2026-10-15T13:38:21.826601+00:00"
+    },
+    {
+      "nom": "administration_questions",
+      "version": "20261015201336",
+      "appliquee_le": "2026-10-15T20:48:44.107421+00:00"
+    }
+  ],
+  "admin_counts": {
+    "additions": 0,
+    "creations": 0
+  },
+  "status_columns": [
+    "pack_id",
+    "event_id",
+    "removed"
+  ],
+  "playable_levels": {
+    "1": 238,
+    "2": 595,
+    "3": 1241
+  }
+}

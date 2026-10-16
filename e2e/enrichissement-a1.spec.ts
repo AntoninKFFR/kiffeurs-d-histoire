@@ -19,7 +19,8 @@ for(const inverse of [false,true])for(const pack of [
   await page.getByRole('button',{name:'Pack',exact:true}).click();
   await page.getByRole('button',{name:new RegExp('^'+pack.nom)}).click();
   if(inverse){
-   const disponibles=lireSql<{n:number}[]>(`select (histoire.available_questions(p_niveau=>1,p_pack_id=>'${pack.id}',p_direction=>'inverse')->>'YEAR')::int n`)[0].n;
+   // Le sélecteur Inversé propose exclusivement la date exacte, donc DAY.
+   const disponibles=lireSql<{n:number}[]>(`select (histoire.available_questions(p_niveau=>1,p_pack_id=>'${pack.id}',p_direction=>'inverse')->>'DAY')::int n`)[0].n;
    if(disponibles<20)await expect(longueurs.getByRole('button',{name:/^20 questions/})).toBeDisabled();
    else await expect(longueurs.getByRole('button',{name:/^20 questions/})).toBeEnabled();
   }
@@ -29,6 +30,7 @@ for(const inverse of [false,true])for(const pack of [
   await page.getByRole('button',{name:'Jouer',exact:true}).click();
   expect(await attendreQuestion(page,1)).toBe(n);
   const jeu=idPartie(page),nouveaux=new Set(lot.events.map(e=>e.id));
+  if(inverse)expect(new URLSearchParams(new URL(page.url()).searchParams.get('c')!).get('difficulte')).toBe('DAY');
   const questions=lireSql<{event_id:string;niveau:number;expected_year:number;answer:string}[]>(`select q.event_id,e.niveau,q.expected_year,
     coalesce((select a.alias from histoire.event_aliases a where a.event_id=q.event_id order by length(a.alias),a.alias limit 1),e.title) answer
     from histoire.game_questions q join histoire.events e on e.id=q.event_id where q.game_id='${jeu}' order by q.position`);

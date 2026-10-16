@@ -27,7 +27,9 @@ Mode expert, volontairement spécialisé, reste inclus dans les comptes de défi
 | Films cultes | 1 → 21 | 1 → 16 | 20 / 19 |
 | Pop culture | 0 → 21 | 0 → 20 | 19 / 19 |
 
-Les parties Débutant Solo de 5/10/20/Tout sont désormais disponibles à l’année pour Films et Pop ; Pop permet aussi 20 Inversé année. Films reste limité à 16 dates distinctes, donc 5/10/Tout en Inversé année. A0 ouvre cinq Napoléon et dix Grandes premières dans les deux sens. Aucun seuil, année ou jour inventé.
+Les parties Débutant Solo de 5/10/20/Tout sont désormais disponibles à l’année pour Films et Pop. **L’interface Inversé utilise exclusivement DAY (date exacte), sans choix année/mois** : Films et Pop y ont chacun 19 dates distinctes et permettent 5/10/Tout, mais pas 20. Les comptes Inversé année 16 et 20 du tableau sont des capacités RPC, pas des réglages proposés par l’interface. A0 ouvre cinq Napoléon et dix Grandes premières dans les deux sens. Aucun seuil, année ou jour inventé.
+
+Le contrôle du site public confirme Films Solo année 21 avec vingt sélectionnables, puis Pop Inversé date exacte 19 avec vingt désactivé. Le premier compte rendu avait confondu capacité RPC à l’année et option d’interface ; cette interprétation et le test E2E sont corrigés. Le produit continue d’appliquer sa règle existante, sans modification du moteur.
 
 ## Intégrité et vérification
 

@@ -15,7 +15,7 @@ La [liste détaillée soumise dans #122/#123](https://github.com/Zazou13015/KIff
 | Pop Inversé année | 0 | 19 | 20 |
 | Pop Solo mois / jour | 0 / 0 | 18 / 18 | 19 / 19 |
 
-A1 seul ouvre 5/10/20/Tout en Solo année pour Films et Pop, et 5/10/Tout en Inversé année. Les 16 années Films et 19 années Pop ne permettent pas 20 questions Inversé ; A0 apporte une vingtième année à Pop grâce à l’iPhone existant. Aucun millésime supplémentaire inventé pour contourner cette limite.
+A1 seul ouvre 5/10/20/Tout en Solo année pour Films et Pop. Les comptes Inversé année sont des capacités RPC : **l’interface Inversé ne propose que les dates exactes (DAY)**. Avec A0+A1, elle offre donc 19 questions pour Films et Pop, soit 5/10/Tout, et laisse vingt désactivé. La vingtième année Pop apportée par l’iPhone ne débloque pas vingt dans cette interface. Aucun millésime ni jour supplémentaire inventé pour contourner cette limite.
 
 Le total global passe de 2 105 à 2 147 ; Débutant de 260 à 300, dont 238 à 278 jouables. Les 86 associations couvrent Films, Pop, Inventions improbables, France, Europe et XXe siècle. Les contrats 50/100 incontournables et Mode expert sont préservés. Aucun lien scolaire ni progression pédagogique ajouté.
 

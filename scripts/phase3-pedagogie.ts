@@ -144,6 +144,10 @@ export function verifierPhase3() {
     ...['src/components/choix/SelectionPacks.tsx','src/components/choix/choix.module.css','src/lib/solo/packs-fun.ts',
       'supabase/fixtures/fun_existants.sql','supabase/migrations/20261015120156_packs_fun.sql','supabase/tests/fun/scenario.sql']
       .map(fichier=>`:(exclude)${fichier}`),
+    // #126 : ajout de contenu A1, sans changement du corpus pédagogique ni des moteurs.
+    ...['supabase/fixtures/enrichissement_a1.sql','supabase/migrations/20261016095716_enrichissement_v12_a1.sql',
+      'supabase/tests/enrichissement_a1/appliquer-test.sql','supabase/tests/enrichissement_a1/scenario.sql']
+      .map(fichier=>`:(exclude)${fichier}`),
     // #120 : administration uniquement. Les moteurs et le corpus pédagogique restent gelés.
     ...['src/app/admin/packs/actions.ts','src/app/profil/page.tsx',
       'src/components/admin/AdministrationPacks.tsx','src/components/admin/CorrectionQuestion.tsx',

@@ -60,6 +60,7 @@ async function main() {
 
   // A1 reste indépendant d’A0 ; le corpus et les packs ont été importés ci-dessus.
   psql(readFileSync("supabase/migrations/20261016095716_enrichissement_v12_a1.sql", "utf8"));
+  psql(readFileSync("supabase/migrations/20261016124921_enrichissement_v12_massif.sql", "utf8"));
   // Compte de test : e-mail confirmé et pseudo KFFR déjà choisi, comme un joueur de Contrée.
   const admin = createClient(statut.API_URL, statut.SERVICE_ROLE_KEY, { auth: { persistSession: false } });
   const { data: liste, error: erreurListe } = await admin.auth.admin.listUsers();

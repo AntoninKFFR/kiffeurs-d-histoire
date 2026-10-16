@@ -1,0 +1,3642 @@
+{
+  "statut": "SIMULATION_LOCALE_NON_PUBLIEE",
+  "baseline_main": "34a6298677be0fd7cd69730417a9f9706cf80666",
+  "migration": "20261016124921",
+  "base": {
+    "total": 2147,
+    "debutants": 300,
+    "debutants_jouables": 278
+  },
+  "fin": {
+    "total": 2307,
+    "debutants": 428,
+    "debutants_jouables": 406
+  },
+  "packs": [
+    {
+      "id": "COL-0061",
+      "title": "France",
+      "nouveaux": 48,
+      "niveaux": [
+        43,
+        5,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 86,
+            "YEAR": 103,
+            "MONTH": 90
+          },
+          "apres": {
+            "DAY": 123,
+            "YEAR": 146,
+            "MONTH": 127
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 84,
+            "YEAR": 72,
+            "MONTH": 82
+          },
+          "apres": {
+            "DAY": 121,
+            "YEAR": 103,
+            "MONTH": 115
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 159,
+            "YEAR": 204,
+            "MONTH": 164
+          },
+          "apres": {
+            "DAY": 201,
+            "YEAR": 252,
+            "MONTH": 206
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 156,
+            "YEAR": 128,
+            "MONTH": 140
+          },
+          "apres": {
+            "DAY": 198,
+            "YEAR": 157,
+            "MONTH": 176
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 185,
+            "MONTH": 32
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 185,
+            "MONTH": 32
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 129,
+            "MONTH": 31
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 129,
+            "MONTH": 31
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 190,
+            "YEAR": 389,
+            "MONTH": 196
+          },
+          "apres": {
+            "DAY": 232,
+            "YEAR": 437,
+            "MONTH": 238
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 187,
+            "YEAR": 204,
+            "MONTH": 163
+          },
+          "apres": {
+            "DAY": 229,
+            "YEAR": 219,
+            "MONTH": 197
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0062",
+      "title": "Europe",
+      "nouveaux": 88,
+      "niveaux": [
+        70,
+        17,
+        1
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 139,
+            "YEAR": 175,
+            "MONTH": 142
+          },
+          "apres": {
+            "DAY": 195,
+            "YEAR": 245,
+            "MONTH": 202
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 138,
+            "YEAR": 133,
+            "MONTH": 137
+          },
+          "apres": {
+            "DAY": 194,
+            "YEAR": 178,
+            "MONTH": 193
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 354,
+            "YEAR": 449,
+            "MONTH": 363
+          },
+          "apres": {
+            "DAY": 424,
+            "YEAR": 536,
+            "MONTH": 440
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 348,
+            "YEAR": 277,
+            "MONTH": 326
+          },
+          "apres": {
+            "DAY": 418,
+            "YEAR": 313,
+            "MONTH": 392
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 129,
+            "YEAR": 552,
+            "MONTH": 132
+          },
+          "apres": {
+            "DAY": 130,
+            "YEAR": 553,
+            "MONTH": 133
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 128,
+            "YEAR": 243,
+            "MONTH": 128
+          },
+          "apres": {
+            "DAY": 129,
+            "YEAR": 243,
+            "MONTH": 129
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 483,
+            "YEAR": 1001,
+            "MONTH": 495
+          },
+          "apres": {
+            "DAY": 554,
+            "YEAR": 1089,
+            "MONTH": 573
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 476,
+            "YEAR": 408,
+            "MONTH": 434
+          },
+          "apres": {
+            "DAY": 547,
+            "YEAR": 428,
+            "MONTH": 499
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0067",
+      "title": "Époque napoléonienne",
+      "nouveaux": 16,
+      "niveaux": [
+        13,
+        3,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 19,
+            "YEAR": 19,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 5,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 19,
+            "YEAR": 12,
+            "MONTH": 16
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 23,
+            "MONTH": 23
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 7,
+            "YEAR": 5,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 14,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 23,
+            "MONTH": 23
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 7,
+            "YEAR": 5,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 14,
+            "MONTH": 19
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0069",
+      "title": "Guerres et batailles",
+      "nouveaux": 7,
+      "niveaux": [
+        5,
+        2,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 56,
+            "YEAR": 65,
+            "MONTH": 57
+          },
+          "apres": {
+            "DAY": 59,
+            "YEAR": 70,
+            "MONTH": 60
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 54,
+            "YEAR": 49,
+            "MONTH": 54
+          },
+          "apres": {
+            "DAY": 57,
+            "YEAR": 54,
+            "MONTH": 57
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 137,
+            "YEAR": 164,
+            "MONTH": 140
+          },
+          "apres": {
+            "DAY": 142,
+            "YEAR": 171,
+            "MONTH": 145
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 129,
+            "YEAR": 106,
+            "MONTH": 115
+          },
+          "apres": {
+            "DAY": 134,
+            "YEAR": 110,
+            "MONTH": 120
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 60,
+            "YEAR": 95,
+            "MONTH": 61
+          },
+          "apres": {
+            "DAY": 60,
+            "YEAR": 95,
+            "MONTH": 61
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 60,
+            "YEAR": 89,
+            "MONTH": 59
+          },
+          "apres": {
+            "DAY": 60,
+            "YEAR": 89,
+            "MONTH": 59
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 197,
+            "YEAR": 259,
+            "MONTH": 201
+          },
+          "apres": {
+            "DAY": 202,
+            "YEAR": 266,
+            "MONTH": 206
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 189,
+            "YEAR": 182,
+            "MONTH": 169
+          },
+          "apres": {
+            "DAY": 194,
+            "YEAR": 186,
+            "MONTH": 174
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0070",
+      "title": "Espace",
+      "nouveaux": 15,
+      "niveaux": [
+        13,
+        2,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          },
+          "apres": {
+            "DAY": 18,
+            "YEAR": 18,
+            "MONTH": 18
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "apres": {
+            "DAY": 17,
+            "YEAR": 15,
+            "MONTH": 16
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 16,
+            "YEAR": 16,
+            "MONTH": 16
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 31,
+            "MONTH": 31
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 14,
+            "MONTH": 14
+          },
+          "apres": {
+            "DAY": 30,
+            "YEAR": 28,
+            "MONTH": 29
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 24,
+            "YEAR": 24,
+            "MONTH": 24
+          },
+          "apres": {
+            "DAY": 39,
+            "YEAR": 39,
+            "MONTH": 39
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 22,
+            "MONTH": 22
+          },
+          "apres": {
+            "DAY": 38,
+            "YEAR": 35,
+            "MONTH": 37
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0071",
+      "title": "Sciences",
+      "nouveaux": 17,
+      "niveaux": [
+        9,
+        7,
+        1
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 3,
+            "YEAR": 5,
+            "MONTH": 5
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 14,
+            "MONTH": 12
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 5
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 13,
+            "MONTH": 12
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 42,
+            "MONTH": 35
+          },
+          "apres": {
+            "DAY": 39,
+            "YEAR": 58,
+            "MONTH": 47
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 38,
+            "MONTH": 35
+          },
+          "apres": {
+            "DAY": 39,
+            "YEAR": 52,
+            "MONTH": 47
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 21,
+            "YEAR": 29,
+            "MONTH": 21
+          },
+          "apres": {
+            "DAY": 22,
+            "YEAR": 30,
+            "MONTH": 22
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 21,
+            "YEAR": 27,
+            "MONTH": 21
+          },
+          "apres": {
+            "DAY": 22,
+            "YEAR": 27,
+            "MONTH": 22
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 52,
+            "YEAR": 71,
+            "MONTH": 56
+          },
+          "apres": {
+            "DAY": 61,
+            "YEAR": 88,
+            "MONTH": 69
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 52,
+            "YEAR": 63,
+            "MONTH": 56
+          },
+          "apres": {
+            "DAY": 61,
+            "YEAR": 75,
+            "MONTH": 68
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0072",
+      "title": "Religions",
+      "nouveaux": 6,
+      "niveaux": [
+        3,
+        3,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 18,
+            "MONTH": 10
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 21,
+            "MONTH": 11
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 18,
+            "MONTH": 10
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 21,
+            "MONTH": 11
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 35,
+            "YEAR": 57,
+            "MONTH": 38
+          },
+          "apres": {
+            "DAY": 38,
+            "YEAR": 63,
+            "MONTH": 41
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 35,
+            "YEAR": 53,
+            "MONTH": 38
+          },
+          "apres": {
+            "DAY": 38,
+            "YEAR": 59,
+            "MONTH": 41
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 33,
+            "MONTH": 20
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 33,
+            "MONTH": 20
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 31,
+            "MONTH": 20
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 31,
+            "MONTH": 20
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 55,
+            "YEAR": 90,
+            "MONTH": 58
+          },
+          "apres": {
+            "DAY": 58,
+            "YEAR": 96,
+            "MONTH": 61
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 55,
+            "YEAR": 81,
+            "MONTH": 58
+          },
+          "apres": {
+            "DAY": 58,
+            "YEAR": 87,
+            "MONTH": 61
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0073",
+      "title": "Droits et libertés",
+      "nouveaux": 4,
+      "niveaux": [
+        4,
+        0,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 21,
+            "YEAR": 24,
+            "MONTH": 21
+          },
+          "apres": {
+            "DAY": 25,
+            "YEAR": 28,
+            "MONTH": 25
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 21,
+            "YEAR": 19,
+            "MONTH": 20
+          },
+          "apres": {
+            "DAY": 25,
+            "YEAR": 23,
+            "MONTH": 24
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 51,
+            "YEAR": 56,
+            "MONTH": 51
+          },
+          "apres": {
+            "DAY": 55,
+            "YEAR": 60,
+            "MONTH": 55
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 51,
+            "YEAR": 47,
+            "MONTH": 50
+          },
+          "apres": {
+            "DAY": 55,
+            "YEAR": 50,
+            "MONTH": 54
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 31,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 31,
+            "MONTH": 23
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 26,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 26,
+            "MONTH": 23
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 74,
+            "YEAR": 87,
+            "MONTH": 74
+          },
+          "apres": {
+            "DAY": 78,
+            "YEAR": 91,
+            "MONTH": 78
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 74,
+            "YEAR": 69,
+            "MONTH": 73
+          },
+          "apres": {
+            "DAY": 78,
+            "YEAR": 72,
+            "MONTH": 77
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0074",
+      "title": "Construction européenne",
+      "nouveaux": 4,
+      "niveaux": [
+        4,
+        0,
+        0
+      ],
+      "reemplois": 2,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 10,
+            "MONTH": 10
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 10,
+            "MONTH": 10
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 14,
+            "YEAR": 14,
+            "MONTH": 14
+          },
+          "apres": {
+            "DAY": 16,
+            "YEAR": 18,
+            "MONTH": 18
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 14,
+            "YEAR": 13,
+            "MONTH": 14
+          },
+          "apres": {
+            "DAY": 16,
+            "YEAR": 17,
+            "MONTH": 18
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 20,
+            "MONTH": 20
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 25,
+            "MONTH": 25
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 19,
+            "MONTH": 20
+          },
+          "apres": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0075",
+      "title": "Décolonisation",
+      "nouveaux": 1,
+      "niveaux": [
+        1,
+        0,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 5,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 6,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 16,
+            "YEAR": 16,
+            "MONTH": 16
+          },
+          "apres": {
+            "DAY": 17,
+            "YEAR": 17,
+            "MONTH": 17
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 16,
+            "YEAR": 10,
+            "MONTH": 14
+          },
+          "apres": {
+            "DAY": 17,
+            "YEAR": 11,
+            "MONTH": 15
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 15,
+            "MONTH": 15
+          },
+          "apres": {
+            "DAY": 15,
+            "YEAR": 15,
+            "MONTH": 15
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 11,
+            "MONTH": 14
+          },
+          "apres": {
+            "DAY": 15,
+            "YEAR": 11,
+            "MONTH": 14
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 31,
+            "MONTH": 31
+          },
+          "apres": {
+            "DAY": 32,
+            "YEAR": 32,
+            "MONTH": 32
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 15,
+            "MONTH": 24
+          },
+          "apres": {
+            "DAY": 32,
+            "YEAR": 16,
+            "MONTH": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0076",
+      "title": "Environnement",
+      "nouveaux": 5,
+      "niveaux": [
+        3,
+        2,
+        0
+      ],
+      "reemplois": 1,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 9,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 9,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 21,
+            "YEAR": 23,
+            "MONTH": 21
+          },
+          "apres": {
+            "DAY": 26,
+            "YEAR": 29,
+            "MONTH": 27
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 21,
+            "YEAR": 22,
+            "MONTH": 21
+          },
+          "apres": {
+            "DAY": 26,
+            "YEAR": 27,
+            "MONTH": 27
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 5,
+            "YEAR": 7,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 5,
+            "YEAR": 7,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 5,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 5,
+            "YEAR": 6,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 26,
+            "YEAR": 30,
+            "MONTH": 27
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 36,
+            "MONTH": 33
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 26,
+            "YEAR": 27,
+            "MONTH": 27
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 32,
+            "MONTH": 33
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0078",
+      "title": "Antiquité",
+      "nouveaux": 7,
+      "niveaux": [
+        5,
+        2,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 7,
+            "YEAR": 21,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 26,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 7,
+            "YEAR": 18,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 23,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 14,
+            "YEAR": 52,
+            "MONTH": 17
+          },
+          "apres": {
+            "DAY": 16,
+            "YEAR": 59,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 14,
+            "YEAR": 46,
+            "MONTH": 17
+          },
+          "apres": {
+            "DAY": 16,
+            "YEAR": 52,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 42,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 42,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 41,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 41,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 94,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 22,
+            "YEAR": 101,
+            "MONTH": 25
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 84,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 22,
+            "YEAR": 90,
+            "MONTH": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0079",
+      "title": "Moyen Âge",
+      "nouveaux": 8,
+      "niveaux": [
+        5,
+        3,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 26,
+            "MONTH": 16
+          },
+          "apres": {
+            "DAY": 16,
+            "YEAR": 31,
+            "MONTH": 17
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 21,
+            "MONTH": 16
+          },
+          "apres": {
+            "DAY": 16,
+            "YEAR": 26,
+            "MONTH": 17
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 35,
+            "YEAR": 62,
+            "MONTH": 38
+          },
+          "apres": {
+            "DAY": 38,
+            "YEAR": 70,
+            "MONTH": 41
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 35,
+            "YEAR": 52,
+            "MONTH": 38
+          },
+          "apres": {
+            "DAY": 38,
+            "YEAR": 60,
+            "MONTH": 41
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 40,
+            "MONTH": 22
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 40,
+            "MONTH": 22
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 20,
+            "YEAR": 39,
+            "MONTH": 22
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 39,
+            "MONTH": 22
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 55,
+            "YEAR": 102,
+            "MONTH": 60
+          },
+          "apres": {
+            "DAY": 58,
+            "YEAR": 110,
+            "MONTH": 63
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 55,
+            "YEAR": 84,
+            "MONTH": 60
+          },
+          "apres": {
+            "DAY": 58,
+            "YEAR": 92,
+            "MONTH": 63
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0080",
+      "title": "Époque moderne",
+      "nouveaux": 7,
+      "niveaux": [
+        5,
+        2,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 26,
+            "YEAR": 35,
+            "MONTH": 27
+          },
+          "apres": {
+            "DAY": 30,
+            "YEAR": 40,
+            "MONTH": 31
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 24,
+            "YEAR": 26,
+            "MONTH": 24
+          },
+          "apres": {
+            "DAY": 28,
+            "YEAR": 31,
+            "MONTH": 28
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 63,
+            "YEAR": 93,
+            "MONTH": 67
+          },
+          "apres": {
+            "DAY": 68,
+            "YEAR": 100,
+            "MONTH": 73
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 59,
+            "YEAR": 69,
+            "MONTH": 62
+          },
+          "apres": {
+            "DAY": 64,
+            "YEAR": 74,
+            "MONTH": 68
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 29,
+            "YEAR": 58,
+            "MONTH": 30
+          },
+          "apres": {
+            "DAY": 29,
+            "YEAR": 58,
+            "MONTH": 30
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 29,
+            "YEAR": 48,
+            "MONTH": 30
+          },
+          "apres": {
+            "DAY": 29,
+            "YEAR": 48,
+            "MONTH": 30
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 92,
+            "YEAR": 151,
+            "MONTH": 97
+          },
+          "apres": {
+            "DAY": 97,
+            "YEAR": 158,
+            "MONTH": 103
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 87,
+            "YEAR": 110,
+            "MONTH": 90
+          },
+          "apres": {
+            "DAY": 92,
+            "YEAR": 112,
+            "MONTH": 96
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0081",
+      "title": "XIXe siècle",
+      "nouveaux": 17,
+      "niveaux": [
+        14,
+        3,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 35,
+            "MONTH": 33
+          },
+          "apres": {
+            "DAY": 44,
+            "YEAR": 49,
+            "MONTH": 46
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 25,
+            "MONTH": 32
+          },
+          "apres": {
+            "DAY": 44,
+            "YEAR": 31,
+            "MONTH": 41
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 104,
+            "YEAR": 128,
+            "MONTH": 107
+          },
+          "apres": {
+            "DAY": 119,
+            "YEAR": 145,
+            "MONTH": 123
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 104,
+            "YEAR": 61,
+            "MONTH": 98
+          },
+          "apres": {
+            "DAY": 119,
+            "YEAR": 66,
+            "MONTH": 110
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 68,
+            "YEAR": 137,
+            "MONTH": 68
+          },
+          "apres": {
+            "DAY": 68,
+            "YEAR": 137,
+            "MONTH": 68
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 67,
+            "YEAR": 77,
+            "MONTH": 66
+          },
+          "apres": {
+            "DAY": 67,
+            "YEAR": 77,
+            "MONTH": 66
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 172,
+            "YEAR": 265,
+            "MONTH": 175
+          },
+          "apres": {
+            "DAY": 187,
+            "YEAR": 282,
+            "MONTH": 191
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 171,
+            "YEAR": 93,
+            "MONTH": 155
+          },
+          "apres": {
+            "DAY": 186,
+            "YEAR": 94,
+            "MONTH": 166
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0082",
+      "title": "XXe siècle",
+      "nouveaux": 88,
+      "niveaux": [
+        73,
+        14,
+        1
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 114,
+            "YEAR": 123,
+            "MONTH": 116
+          },
+          "apres": {
+            "DAY": 174,
+            "YEAR": 196,
+            "MONTH": 181
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 111,
+            "YEAR": 60,
+            "MONTH": 108
+          },
+          "apres": {
+            "DAY": 171,
+            "YEAR": 80,
+            "MONTH": 162
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 325,
+            "YEAR": 341,
+            "MONTH": 327
+          },
+          "apres": {
+            "DAY": 394,
+            "YEAR": 428,
+            "MONTH": 402
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 314,
+            "YEAR": 94,
+            "MONTH": 267
+          },
+          "apres": {
+            "DAY": 382,
+            "YEAR": 98,
+            "MONTH": 319
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 132,
+            "YEAR": 677,
+            "MONTH": 133
+          },
+          "apres": {
+            "DAY": 133,
+            "YEAR": 678,
+            "MONTH": 134
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 132,
+            "YEAR": 98,
+            "MONTH": 125
+          },
+          "apres": {
+            "DAY": 133,
+            "YEAR": 98,
+            "MONTH": 126
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 457,
+            "YEAR": 1018,
+            "MONTH": 460
+          },
+          "apres": {
+            "DAY": 527,
+            "YEAR": 1106,
+            "MONTH": 536
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 446,
+            "YEAR": 100,
+            "MONTH": 360
+          },
+          "apres": {
+            "DAY": 515,
+            "YEAR": 100,
+            "MONTH": 406
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0105",
+      "title": "Sport",
+      "nouveaux": 40,
+      "niveaux": [
+        35,
+        4,
+        1
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 39,
+            "YEAR": 40,
+            "MONTH": 39
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 5,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 39,
+            "YEAR": 32,
+            "MONTH": 36
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 28,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 62,
+            "YEAR": 67,
+            "MONTH": 62
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 62,
+            "YEAR": 46,
+            "MONTH": 55
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 369,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 370,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 128,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 128,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 29,
+            "YEAR": 397,
+            "MONTH": 29
+          },
+          "apres": {
+            "DAY": 69,
+            "YEAR": 437,
+            "MONTH": 69
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 29,
+            "YEAR": 131,
+            "MONTH": 28
+          },
+          "apres": {
+            "DAY": 69,
+            "YEAR": 131,
+            "MONTH": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0106",
+      "title": "Football",
+      "nouveaux": 6,
+      "niveaux": [
+        6,
+        0,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 9,
+            "YEAR": 13,
+            "MONTH": 9
+          },
+          "apres": {
+            "DAY": 15,
+            "YEAR": 19,
+            "MONTH": 15
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          },
+          "apres": {
+            "DAY": 15,
+            "YEAR": 15,
+            "MONTH": 15
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 36,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 2,
+            "YEAR": 36,
+            "MONTH": 2
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 34,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 2,
+            "YEAR": 34,
+            "MONTH": 2
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 11,
+            "YEAR": 49,
+            "MONTH": 11
+          },
+          "apres": {
+            "DAY": 17,
+            "YEAR": 55,
+            "MONTH": 17
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 11,
+            "YEAR": 39,
+            "MONTH": 11
+          },
+          "apres": {
+            "DAY": 17,
+            "YEAR": 44,
+            "MONTH": 17
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0107",
+      "title": "Tennis",
+      "nouveaux": 8,
+      "niveaux": [
+        7,
+        1,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 85,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 85,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 85,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 85,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 86,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 94,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 86,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 88,
+            "MONTH": 9
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0108",
+      "title": "Jeux olympiques",
+      "nouveaux": 9,
+      "niveaux": [
+        9,
+        0,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 3,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 11,
+            "YEAR": 12,
+            "MONTH": 11
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 3,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 11,
+            "YEAR": 10,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 10,
+            "YEAR": 11,
+            "MONTH": 10
+          },
+          "apres": {
+            "DAY": 19,
+            "YEAR": 20,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 10,
+            "YEAR": 11,
+            "MONTH": 10
+          },
+          "apres": {
+            "DAY": 19,
+            "YEAR": 14,
+            "MONTH": 14
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 46,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 2,
+            "YEAR": 46,
+            "MONTH": 2
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 33,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 2,
+            "YEAR": 33,
+            "MONTH": 2
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 12,
+            "YEAR": 57,
+            "MONTH": 12
+          },
+          "apres": {
+            "DAY": 21,
+            "YEAR": 66,
+            "MONTH": 21
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 12,
+            "YEAR": 39,
+            "MONTH": 12
+          },
+          "apres": {
+            "DAY": 21,
+            "YEAR": 39,
+            "MONTH": 15
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0109",
+      "title": "Cyclisme / Tour de France",
+      "nouveaux": 6,
+      "niveaux": [
+        5,
+        1,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 1,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 7,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 90,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 90,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 90,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 90,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 91,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 97,
+            "MONTH": 7
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 1,
+            "YEAR": 91,
+            "MONTH": 1
+          },
+          "apres": {
+            "DAY": 7,
+            "YEAR": 93,
+            "MONTH": 7
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0110",
+      "title": "Sports mécaniques",
+      "nouveaux": 6,
+      "niveaux": [
+        3,
+        2,
+        1
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 5,
+            "YEAR": 5,
+            "MONTH": 5
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 1,
+            "YEAR": 61,
+            "MONTH": 1
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 1,
+            "YEAR": 60,
+            "MONTH": 1
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 66,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 60,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 63,
+            "MONTH": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0111",
+      "title": "Autres sports et exploits",
+      "nouveaux": 8,
+      "niveaux": [
+        8,
+        0,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 10,
+            "YEAR": 10,
+            "MONTH": 10
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 2,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 10,
+            "YEAR": 10,
+            "MONTH": 10
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 52,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 2,
+            "YEAR": 52,
+            "MONTH": 2
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 2,
+            "YEAR": 46,
+            "MONTH": 2
+          },
+          "apres": {
+            "DAY": 2,
+            "YEAR": 46,
+            "MONTH": 2
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 54,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 12,
+            "YEAR": 62,
+            "MONTH": 12
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 48,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 12,
+            "YEAR": 50,
+            "MONTH": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0112",
+      "title": "Grandes premières",
+      "nouveaux": 25,
+      "niveaux": [
+        21,
+        3,
+        1
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 12,
+            "YEAR": 13,
+            "MONTH": 12
+          },
+          "apres": {
+            "DAY": 32,
+            "YEAR": 34,
+            "MONTH": 33
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 12,
+            "YEAR": 12,
+            "MONTH": 12
+          },
+          "apres": {
+            "DAY": 32,
+            "YEAR": 29,
+            "MONTH": 31
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 32,
+            "MONTH": 31
+          },
+          "apres": {
+            "DAY": 54,
+            "YEAR": 56,
+            "MONTH": 55
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 31,
+            "YEAR": 30,
+            "MONTH": 31
+          },
+          "apres": {
+            "DAY": 54,
+            "YEAR": 48,
+            "MONTH": 53
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 8,
+            "YEAR": 8,
+            "MONTH": 8
+          },
+          "apres": {
+            "DAY": 9,
+            "YEAR": 9,
+            "MONTH": 9
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 39,
+            "YEAR": 40,
+            "MONTH": 39
+          },
+          "apres": {
+            "DAY": 63,
+            "YEAR": 65,
+            "MONTH": 64
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 39,
+            "YEAR": 37,
+            "MONTH": 39
+          },
+          "apres": {
+            "DAY": 63,
+            "YEAR": 53,
+            "MONTH": 61
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0113",
+      "title": "Inventions improbables",
+      "nouveaux": 15,
+      "niveaux": [
+        12,
+        3,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "apres": {
+            "DAY": 10,
+            "YEAR": 15,
+            "MONTH": 10
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 3,
+            "YEAR": 3,
+            "MONTH": 3
+          },
+          "apres": {
+            "DAY": 10,
+            "YEAR": 15,
+            "MONTH": 10
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 13,
+            "YEAR": 31,
+            "MONTH": 13
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 46,
+            "MONTH": 20
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 13,
+            "YEAR": 25,
+            "MONTH": 13
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 36,
+            "MONTH": 20
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 13,
+            "YEAR": 31,
+            "MONTH": 13
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 46,
+            "MONTH": 20
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 13,
+            "YEAR": 25,
+            "MONTH": 13
+          },
+          "apres": {
+            "DAY": 20,
+            "YEAR": 36,
+            "MONTH": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0114",
+      "title": "Sorties de films cultes",
+      "nouveaux": 15,
+      "niveaux": [
+        13,
+        2,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 19,
+            "YEAR": 21,
+            "MONTH": 20
+          },
+          "apres": {
+            "DAY": 32,
+            "YEAR": 34,
+            "MONTH": 33
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 19,
+            "YEAR": 16,
+            "MONTH": 19
+          },
+          "apres": {
+            "DAY": 32,
+            "YEAR": 25,
+            "MONTH": 31
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 32,
+            "YEAR": 72,
+            "MONTH": 33
+          },
+          "apres": {
+            "DAY": 46,
+            "YEAR": 87,
+            "MONTH": 47
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 32,
+            "YEAR": 52,
+            "MONTH": 32
+          },
+          "apres": {
+            "DAY": 45,
+            "YEAR": 57,
+            "MONTH": 44
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 32,
+            "YEAR": 72,
+            "MONTH": 33
+          },
+          "apres": {
+            "DAY": 46,
+            "YEAR": 87,
+            "MONTH": 47
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 32,
+            "YEAR": 52,
+            "MONTH": 32
+          },
+          "apres": {
+            "DAY": 45,
+            "YEAR": 57,
+            "MONTH": 44
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0115",
+      "title": "Pop culture",
+      "nouveaux": 13,
+      "niveaux": [
+        13,
+        0,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 19,
+            "YEAR": 21,
+            "MONTH": 19
+          },
+          "apres": {
+            "DAY": 24,
+            "YEAR": 34,
+            "MONTH": 26
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 19,
+            "YEAR": 20,
+            "MONTH": 19
+          },
+          "apres": {
+            "DAY": 24,
+            "YEAR": 31,
+            "MONTH": 26
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 42,
+            "YEAR": 52,
+            "MONTH": 42
+          },
+          "apres": {
+            "DAY": 47,
+            "YEAR": 65,
+            "MONTH": 49
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 42,
+            "YEAR": 41,
+            "MONTH": 42
+          },
+          "apres": {
+            "DAY": 47,
+            "YEAR": 47,
+            "MONTH": 49
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          },
+          "apres": {
+            "DAY": 4,
+            "YEAR": 4,
+            "MONTH": 4
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 46,
+            "YEAR": 56,
+            "MONTH": 46
+          },
+          "apres": {
+            "DAY": 51,
+            "YEAR": 69,
+            "MONTH": 53
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 46,
+            "YEAR": 42,
+            "MONTH": 46
+          },
+          "apres": {
+            "DAY": 51,
+            "YEAR": 48,
+            "MONTH": 53
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0116",
+      "title": "Rois, scandales et trahisons",
+      "nouveaux": 12,
+      "niveaux": [
+        10,
+        2,
+        0
+      ],
+      "reemplois": 0,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 10,
+            "YEAR": 10,
+            "MONTH": 10
+          },
+          "apres": {
+            "DAY": 19,
+            "YEAR": 20,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 10,
+            "YEAR": 10,
+            "MONTH": 10
+          },
+          "apres": {
+            "DAY": 19,
+            "YEAR": 19,
+            "MONTH": 19
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 34,
+            "YEAR": 36,
+            "MONTH": 34
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 23,
+            "YEAR": 24,
+            "MONTH": 23
+          },
+          "apres": {
+            "DAY": 34,
+            "YEAR": 35,
+            "MONTH": 34
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 29,
+            "YEAR": 30,
+            "MONTH": 29
+          },
+          "apres": {
+            "DAY": 40,
+            "YEAR": 42,
+            "MONTH": 40
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 29,
+            "YEAR": 30,
+            "MONTH": 29
+          },
+          "apres": {
+            "DAY": 40,
+            "YEAR": 41,
+            "MONTH": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "COL-0117",
+      "title": "Quand l’histoire dérape",
+      "nouveaux": 10,
+      "niveaux": [
+        4,
+        6,
+        0
+      ],
+      "reemplois": 4,
+      "capacites": [
+        {
+          "cohorte": "debutant",
+          "direction": "date",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "debutant",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 0,
+            "YEAR": 0,
+            "MONTH": 0
+          },
+          "apres": {
+            "DAY": 6,
+            "YEAR": 6,
+            "MONTH": 6
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "date",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 26,
+            "MONTH": 15
+          },
+          "apres": {
+            "DAY": 28,
+            "YEAR": 40,
+            "MONTH": 29
+          }
+        },
+        {
+          "cohorte": "intermediaire_cumule",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 15,
+            "YEAR": 25,
+            "MONTH": 15
+          },
+          "apres": {
+            "DAY": 28,
+            "YEAR": 38,
+            "MONTH": 29
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "date",
+          "avant": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 3
+          },
+          "apres": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 3
+          }
+        },
+        {
+          "cohorte": "expert_exclusif",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 3
+          },
+          "apres": {
+            "DAY": 3,
+            "YEAR": 4,
+            "MONTH": 3
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "date",
+          "avant": {
+            "DAY": 18,
+            "YEAR": 30,
+            "MONTH": 18
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 44,
+            "MONTH": 32
+          }
+        },
+        {
+          "cohorte": "tous",
+          "direction": "inverse",
+          "avant": {
+            "DAY": 18,
+            "YEAR": 29,
+            "MONTH": 18
+          },
+          "apres": {
+            "DAY": 31,
+            "YEAR": 42,
+            "MONTH": 32
+          }
+        }
+      ]
+    }
+  ]
+}

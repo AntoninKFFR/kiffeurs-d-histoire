@@ -1,0 +1,5217 @@
+{
+  "status": "PROPOSITION_NON_PUBLIEE_RELAIS_CHATGPT",
+  "issue": 122,
+  "baseline_events": 2147,
+  "events": [
+    {
+      "proposal_id": "M-001",
+      "id": "EVT-2500",
+      "group": "histoire",
+      "title": "Naissance de Napoléon Bonaparte à Ajaccio",
+      "start_year": 1769,
+      "start_month": 8,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "Né en Corse peu après son rattachement à la France, Bonaparte grandit avant la Révolution qui accélérera sa carrière militaire.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/chronologies/vie-et-regne-de-napoleon/",
+          "checked_on": "2026-10-16",
+          "evidence": "Naissance à Ajaccio : 15 août 1769."
+        }
+      ],
+      "level_reason": "Personnage très connu ; début de sa biographie.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-002",
+      "id": "EVT-2501",
+      "group": "histoire",
+      "title": "Bonaparte épouse Joséphine de Beauharnais",
+      "start_year": 1796,
+      "start_month": 3,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0116"
+      ],
+      "description": "Le mariage civil unit le jeune général et Joséphine. Leur couple accompagne l’ascension politique de Bonaparte, avant leur séparation sous l’Empire.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/chronologies/vie-et-regne-de-napoleon/",
+          "checked_on": "2026-10-16",
+          "evidence": "Mariage avec Joséphine : 9 mars 1796."
+        }
+      ],
+      "level_reason": "Couple célèbre de l’histoire de France.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-003",
+      "id": "EVT-2502",
+      "group": "histoire",
+      "title": "Victoire de Bonaparte au pont de Lodi",
+      "start_year": 1796,
+      "start_month": 5,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0067",
+        "COL-0062",
+        "COL-0069"
+      ],
+      "description": "La campagne d’Italie fait connaître le jeune général. À Lodi, les Français forcent le passage face à une arrière-garde autrichienne.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/chronologies/vie-et-regne-de-napoleon/",
+          "checked_on": "2026-10-16",
+          "evidence": "Victoire de Lodi : 10 mai 1796."
+        }
+      ],
+      "level_reason": "Bataille secondaire nécessitant un repère de campagne.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-004",
+      "id": "EVT-2503",
+      "group": "histoire",
+      "title": "Victoire de Bonaparte à Rivoli",
+      "start_year": 1797,
+      "start_month": 1,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0067",
+        "COL-0062",
+        "COL-0069"
+      ],
+      "description": "En Italie du Nord, Bonaparte repousse une offensive autrichienne. Cette victoire contribue à assurer la position française autour de Mantoue.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/chronologies/vie-et-regne-de-napoleon/",
+          "checked_on": "2026-10-16",
+          "evidence": "Victoire de Rivoli : 14 janvier 1797."
+        }
+      ],
+      "level_reason": "Repère précis de la première campagne d’Italie.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-005",
+      "id": "EVT-2504",
+      "group": "histoire",
+      "title": "Victoire de Bonaparte à la bataille des Pyramides",
+      "start_year": 1798,
+      "start_month": 7,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0069"
+      ],
+      "description": "En Égypte, les troupes françaises affrontent les mamelouks près du Caire. La victoire ouvre la ville aux envahisseurs sans mettre fin à la campagne.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/biographies/napoleon-ier-1769-1821-empereur/",
+          "checked_on": "2026-10-16",
+          "evidence": "Victoire des Pyramides : 21 juillet 1798."
+        }
+      ],
+      "level_reason": "Bataille connue et lieu facile à identifier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-006",
+      "id": "EVT-2505",
+      "group": "histoire",
+      "title": "Victoire de Bonaparte à Marengo",
+      "start_year": 1800,
+      "start_month": 6,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0062",
+        "COL-0069",
+        "COL-0081"
+      ],
+      "description": "Le Premier consul affronte les Autrichiens en Italie. Une bataille d’abord mal engagée se renverse au profit des Français.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/biographies/napoleon-ier-1769-1821-empereur/",
+          "checked_on": "2026-10-16",
+          "evidence": "Marengo : 14 juin 1800."
+        }
+      ],
+      "level_reason": "Grande victoire associée à Bonaparte.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-007",
+      "id": "EVT-2506",
+      "group": "histoire",
+      "title": "La loi crée les lycées en France",
+      "start_year": 1802,
+      "start_month": 5,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Le Consulat organise un enseignement secondaire destiné à former notamment les futurs cadres de l’État. Les premiers établissements accueillent des garçons.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/articles/la-creation-des-lycees-et-des-proviseurs-par-napoleon-bonaparte/",
+          "checked_on": "2026-10-16",
+          "evidence": "Loi du 1er mai 1802 créant les lycées et la fonction de proviseur."
+        }
+      ],
+      "level_reason": "Institution scolaire familière, repère napoléonien accessible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-008",
+      "id": "EVT-2507",
+      "group": "histoire",
+      "title": "Création de la Légion d’honneur",
+      "start_year": 1802,
+      "start_month": 5,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Bonaparte institue une récompense pour des services militaires et civils. Elle réintroduit une distinction nationale après la disparition des anciens ordres royaux.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/articles/document-loi-du-29-floreal-an-x-19-mai-1802-portant-creation-dune-legion-dhonneur/",
+          "checked_on": "2026-10-16",
+          "evidence": "Loi du 29 floréal an X, soit le 19 mai 1802."
+        }
+      ],
+      "level_reason": "Distinction nationale connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-009",
+      "id": "EVT-2508",
+      "group": "histoire",
+      "title": "Sacre de Napoléon Ier à Notre-Dame de Paris",
+      "start_year": 1804,
+      "start_month": 12,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0116",
+        "COL-0081"
+      ],
+      "description": "Une cérémonie religieuse donne une mise en scène solennelle au régime impérial. Le sacre est distinct de la proclamation de l’Empire, intervenue plusieurs mois auparavant.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/enseignants/documents/chronologie-detaillee-et-illustree-du-consulat-et-du-premier-empire/",
+          "checked_on": "2026-10-16",
+          "evidence": "Sacre à Paris : 2 décembre 1804 ; distinct du 18 mai."
+        }
+      ],
+      "level_reason": "Image emblématique de Napoléon.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-010",
+      "id": "EVT-2509",
+      "group": "histoire",
+      "title": "Victoire de Napoléon à Austerlitz",
+      "start_year": 1805,
+      "start_month": 12,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0062",
+        "COL-0069",
+        "COL-0081"
+      ],
+      "description": "La Grande Armée bat les forces austro-russes. Cette victoire renforce la domination napoléonienne en Europe centrale.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/dossiers-thematiques/la-victoire-dausterlitz-2-decembre-1805/",
+          "checked_on": "2026-10-16",
+          "evidence": "Victoire d’Austerlitz : 2 décembre 1805."
+        }
+      ],
+      "level_reason": "L’une des batailles les plus connues de Napoléon.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-011",
+      "id": "EVT-2510",
+      "group": "histoire",
+      "title": "Première abdication de Napoléon, sans condition",
+      "start_year": 1814,
+      "start_month": 4,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0116",
+        "COL-0081"
+      ],
+      "description": "Après l’entrée des Alliés à Paris, Napoléon renonce aux couronnes de France et d’Italie pour lui et ses héritiers. Il partira pour l’île d’Elbe.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/chronologies/mars-avril-mai-1814-de-la-capitulation-au-traite-de-paris/",
+          "checked_on": "2026-10-16",
+          "evidence": "Renonciation sans condition dans la nuit du 5 au 6 avril ; traité signé le 11."
+        }
+      ],
+      "level_reason": "Chute du Premier Empire, repère majeur.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-012",
+      "id": "EVT-2511",
+      "group": "histoire",
+      "title": "Les adieux de Napoléon à la Garde à Fontainebleau",
+      "start_year": 1814,
+      "start_month": 4,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Avant de partir en exil, Napoléon s’adresse à ses soldats dans la cour du château. La scène devient une image célèbre de la fin de son règne.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/articles/les-adieux-de-fontainebleau-a-la-vieille-garde-20-avril-1814/",
+          "checked_on": "2026-10-16",
+          "evidence": "Adieux à la vieille Garde : 20 avril 1814."
+        }
+      ],
+      "level_reason": "Scène historique connue, distincte de l’abdication.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-013",
+      "id": "EVT-2512",
+      "group": "histoire",
+      "title": "Napoléon débarque à Golfe-Juan après son exil à Elbe",
+      "start_year": 1815,
+      "start_month": 3,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Revenu de l’île d’Elbe avec un petit groupe de fidèles, Napoléon remonte vers Paris. Son retour ouvre la séquence des Cent-Jours.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/jeunes-historiens/napodoc/1814-la-campagne-de-france/",
+          "checked_on": "2026-10-16",
+          "evidence": "Débarquement à Golfe-Juan : 1er mars 1815."
+        }
+      ],
+      "level_reason": "Retour spectaculaire d’un personnage connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-014",
+      "id": "EVT-2513",
+      "group": "histoire",
+      "title": "Seconde abdication de Napoléon",
+      "start_year": 1815,
+      "start_month": 6,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0116",
+        "COL-0081"
+      ],
+      "description": "Après Waterloo, Napoléon renonce une seconde fois au pouvoir. Cette abdication met fin à sa tentative de restauration impériale pendant les Cent-Jours.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/enseignants/documents/chronologie-detaillee-et-illustree-du-consulat-et-du-premier-empire/",
+          "checked_on": "2026-10-16",
+          "evidence": "Abdication après Waterloo : 22 juin 1815."
+        }
+      ],
+      "level_reason": "Fin définitive du règne, distincte de Waterloo.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-015",
+      "id": "EVT-2514",
+      "group": "histoire",
+      "title": "Mort de Napoléon à Sainte-Hélène",
+      "start_year": 1821,
+      "start_month": 5,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0081"
+      ],
+      "description": "L’ancien empereur meurt sur l’île de son dernier exil, dans l’Atlantique Sud. Sa disparition nourrit la mémoire et la légende napoléoniennes.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/enseignants/documents/chronologie-detaillee-et-illustree-du-consulat-et-du-premier-empire/",
+          "checked_on": "2026-10-16",
+          "evidence": "Mort à Sainte-Hélène : 5 mai 1821."
+        }
+      ],
+      "level_reason": "Repère biographique majeur d’un personnage célèbre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-016",
+      "id": "EVT-2515",
+      "group": "sciences",
+      "title": "La chienne Laïka est envoyée en orbite",
+      "start_year": 1957,
+      "start_month": 11,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Spoutnik 2 emporte Laïka, premier animal placé en orbite terrestre. La mission soviétique ne prévoit pas son retour vivant.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/history/60-years-ago-the-first-animal-in-orbit/",
+          "checked_on": "2026-10-16",
+          "evidence": "Spoutnik 2 et Laïka : 3 novembre 1957."
+        }
+      ],
+      "level_reason": "Animal et première spatiale largement connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-017",
+      "id": "EVT-2516",
+      "group": "sciences",
+      "title": "Valentina Terechkova devient la première femme dans l’espace",
+      "start_year": 1963,
+      "start_month": 6,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "La cosmonaute soviétique décolle à bord de Vostok 6. Son vol marque l’entrée des femmes dans les missions spatiales habitées.",
+      "sources": [
+        {
+          "url": "https://starchild.gsfc.nasa.gov/docs/StarChild/whos_who_level2/tereshkova.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Lancement de Vostok 6 le 16 juin 1963."
+        }
+      ],
+      "level_reason": "Grande première humaine accessible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-018",
+      "id": "EVT-2517",
+      "group": "sciences",
+      "title": "Alexeï Leonov effectue la première sortie dans l’espace",
+      "start_year": 1965,
+      "start_month": 3,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Sorti de Voskhod 2, le cosmonaute flotte à l’extérieur du vaisseau, relié par un cordon. Les sorties spatiales deviendront essentielles aux travaux en orbite.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/history/space-station-20th-spacewalking-history/",
+          "checked_on": "2026-10-16",
+          "evidence": "Première EVA de Leonov : 18 mars 1965."
+        }
+      ],
+      "level_reason": "Première sortie spatiale, événement facile à comprendre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-019",
+      "id": "EVT-2518",
+      "group": "sciences",
+      "title": "Luna 9 réussit le premier alunissage en douceur",
+      "start_year": 1966,
+      "start_month": 2,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0070",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "La sonde soviétique survit à son arrivée sur la Lune et transmet des images du sol. Elle précède les atterrissages habités.",
+      "sources": [
+        {
+          "url": "https://apod.nasa.gov/apod/ap960825.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Arrivée dans Oceanus Procellarum le 3 février 1966."
+        }
+      ],
+      "level_reason": "Première robotique moins connue qu’Apollo.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-020",
+      "id": "EVT-2519",
+      "group": "sciences",
+      "title": "Apollo 8 place les premiers humains en orbite lunaire",
+      "start_year": 1968,
+      "start_month": 12,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Frank Borman, Jim Lovell et William Anders tournent autour de la Lune. Leur mission prépare le futur alunissage et permet de photographier un lever de Terre.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/history/50-years-ago-apollo-8-in-lunar-orbit/",
+          "checked_on": "2026-10-16",
+          "evidence": "Insertion en orbite lunaire le 24 décembre 1968, après lancement le 21."
+        }
+      ],
+      "level_reason": "Étape majeure et image célèbre de la conquête lunaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-021",
+      "id": "EVT-2520",
+      "group": "sciences",
+      "title": "Lancement du télescope spatial Hubble",
+      "start_year": 1990,
+      "start_month": 4,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "La navette Discovery emporte le télescope au-dessus de l’atmosphère. Ses observations transformeront l’étude des galaxies et de l’expansion de l’Univers.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/history/30-years-ago-hubble-launched-to-unlock-the-secrets-of-the-universe/",
+          "checked_on": "2026-10-16",
+          "evidence": "Lancement le 24 avril 1990 ; déploiement le 25, non retenu ici."
+        }
+      ],
+      "level_reason": "Télescope célèbre et repère visuel familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-022",
+      "id": "EVT-2521",
+      "group": "sciences",
+      "title": "La sonde Huygens se pose sur Titan",
+      "start_year": 2005,
+      "start_month": 1,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0070",
+        "COL-0112"
+      ],
+      "description": "Transportée par Cassini, la sonde européenne descend sous parachute sur la plus grande lune de Saturne. Elle révèle un monde à l’atmosphère épaisse.",
+      "sources": [
+        {
+          "url": "https://www.esa.int/Newsroom/Press_Releases/Europe_reaches_new_frontier_Huygens_lands_on_Titan",
+          "checked_on": "2026-10-16",
+          "evidence": "Communiqué du 14 janvier 2005 confirmant l’atterrissage ce jour."
+        }
+      ],
+      "level_reason": "Mission scientifique importante mais moins familière.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-023",
+      "id": "EVT-2522",
+      "group": "sciences",
+      "title": "Philae se pose sur une comète",
+      "start_year": 2014,
+      "start_month": 11,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112"
+      ],
+      "description": "L’atterrisseur de la mission Rosetta atteint la comète 67P. Malgré plusieurs rebonds et une position difficile, il transmet des mesures prises sur place.",
+      "sources": [
+        {
+          "url": "https://blogs.esa.int/rosetta/2014/11/12/touchdown-rosettas-philae-probe-lands-on-comet/",
+          "checked_on": "2026-10-16",
+          "evidence": "Atterrissage confirmé le 12 novembre 2014."
+        }
+      ],
+      "level_reason": "Première spectaculaire largement médiatisée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-024",
+      "id": "EVT-2523",
+      "group": "sciences",
+      "title": "New Horizons survole Pluton pour la première fois",
+      "start_year": 2015,
+      "start_month": 7,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112"
+      ],
+      "description": "La sonde américaine photographie de près la planète naine et ses lunes. Les images révèlent notamment de vastes plaines glacées.",
+      "sources": [
+        {
+          "url": "https://science.nasa.gov/mission/new-horizons/",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier survol rapproché de Pluton le 14 juillet 2015."
+        }
+      ],
+      "level_reason": "Exploration d’un astre connu, événement très illustré.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-025",
+      "id": "EVT-2524",
+      "group": "sciences",
+      "title": "Premier lancement réussi d’Ariane 1",
+      "start_year": 1979,
+      "start_month": 12,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0061",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "La fusée décolle de Kourou en Guyane. Le programme européen donne à l’Europe un moyen indépendant d’envoyer des satellites dans l’espace.",
+      "sources": [
+        {
+          "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Ariane/40_years_of_Ariane",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier lancement d’Ariane 1 le 24 décembre 1979."
+        }
+      ],
+      "level_reason": "Fusée européenne connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-026",
+      "id": "EVT-2525",
+      "group": "sciences",
+      "title": "Thomas Pesquet décolle pour sa première mission spatiale",
+      "start_year": 2016,
+      "start_month": 11,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le Français rejoint l’équipage d’un Soyouz pour la mission Proxima. Son séjour à bord de l’ISS comprend des expériences et des sorties spatiales.",
+      "sources": [
+        {
+          "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Proxima/ESA_astronaut_Thomas_Pesquet_arrives_at_the_International_Space_Station",
+          "checked_on": "2026-10-16",
+          "evidence": "Décollage de Baïkonour le 17 novembre 2016 ; arrivée à l’ISS ultérieure."
+        }
+      ],
+      "level_reason": "Astronaute français très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-027",
+      "id": "EVT-2526",
+      "group": "sciences",
+      "title": "Sally Ride devient la première Américaine dans l’espace",
+      "start_year": 1983,
+      "start_month": 6,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "Ride s’envole avec la navette Challenger pour la mission STS-7. Elle est la première Américaine dans l’espace, après les vols de deux Soviétiques.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/former-astronaut-sally-ride/",
+          "checked_on": "2026-10-16",
+          "evidence": "Lancement de STS-7 le 18 juin 1983."
+        }
+      ],
+      "level_reason": "Pionnière identifiable ; territoire explicitement limité.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-028",
+      "id": "EVT-2527",
+      "group": "sciences",
+      "title": "Jean-Loup Chrétien devient le premier Français dans l’espace",
+      "start_year": 1982,
+      "start_month": 6,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0061",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "L’astronaute part à bord de Soyouz T-6 vers la station soviétique Saliout 7. Son vol inaugure la participation française aux missions habitées.",
+      "sources": [
+        {
+          "url": "https://cnes.fr/actualites/40-ans-pvh-24-juin-1982-un-francais-lespace",
+          "checked_on": "2026-10-16",
+          "evidence": "Le CNES retient le 24 juin 1982 pour le décollage."
+        }
+      ],
+      "level_reason": "Grande première française accessible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-029",
+      "id": "EVT-2528",
+      "group": "sciences",
+      "title": "Mars Pathfinder arrive sur Mars avec le rover Sojourner",
+      "start_year": 1997,
+      "start_month": 7,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0082"
+      ],
+      "description": "Protégé par des airbags, l’atterrisseur atteint le sol martien. Son petit rover Sojourner explorera ensuite les roches à proximité.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/history/25-years-ago-mars-pathfinder-launches-to-mars-to-deploy-sojourner-the-first-planetary-rover/",
+          "checked_on": "2026-10-16",
+          "evidence": "Atterrissage le 4 juillet 1997 ; ne pas confondre avec la sortie du rover le lendemain."
+        }
+      ],
+      "level_reason": "Premier petit rover martien célèbre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-030",
+      "id": "EVT-2529",
+      "group": "sciences",
+      "title": "Yang Liwei accomplit le premier vol habité chinois",
+      "start_year": 2003,
+      "start_month": 10,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0112"
+      ],
+      "description": "À bord de Shenzhou 5, Yang Liwei devient le premier astronaute envoyé dans l’espace par la Chine. Le pays acquiert une capacité autonome de vol habité.",
+      "sources": [
+        {
+          "url": "https://en.cmse.gov.cn/constitutes/astronautsystem/Taikonauts/201504/t20150417_21579.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Lancement le 15 octobre 2003 à 9 h, heure de Pékin."
+        }
+      ],
+      "level_reason": "Grande première nationale, diversification géographique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-031",
+      "id": "EVT-2530",
+      "group": "sciences",
+      "title": "Bíró fait breveter son stylo à bille",
+      "start_year": 1938,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Une petite bille distribue une encre adaptée à l’écriture. Le mécanisme de Bíró aide à transformer le stylo en objet courant.",
+      "sources": [
+        {
+          "url": "https://www.asme.org/about-asme/engineering-history/landmarks/236-birome-ballpoint-pen-collection",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier brevet hongrois du stylo de Bíró : 1938. Année seule retenue."
+        }
+      ],
+      "level_reason": "Objet quotidien connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-032",
+      "id": "EVT-2531",
+      "group": "sciences",
+      "title": "Démonstration publique de la souris d’ordinateur",
+      "start_year": 1968,
+      "start_month": 12,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0112",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "Douglas Engelbart présente un système interactif commandé par une souris. La démonstration montre aussi des façons nouvelles de manipuler et partager des documents.",
+      "sources": [
+        {
+          "url": "https://www.darpa.mil/about/innovation-timeline/on-line-system",
+          "checked_on": "2026-10-16",
+          "evidence": "Démonstration NLS à San Francisco le 9 décembre 1968."
+        }
+      ],
+      "level_reason": "Objet quotidien ; démonstration distinguée de l’invention.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-033",
+      "id": "EVT-2532",
+      "group": "sciences",
+      "title": "Otto Wichterle fabrique ses premières lentilles de contact souples",
+      "start_year": 1961,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0113",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "Le chimiste met au point des lentilles en hydrogel avec un appareil artisanal. Un montage construit chez lui aide à résoudre un problème de fabrication médicale.",
+      "sources": [
+        {
+          "url": "https://www.invent.org/inductees/otto-wichterle",
+          "checked_on": "2026-10-16",
+          "evidence": "Procédé de moulage par centrifugation développé en 1961."
+        }
+      ],
+      "level_reason": "Objet familier mais histoire technique moins connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-034",
+      "id": "EVT-2533",
+      "group": "sciences",
+      "title": "Brevet du code-barres de Woodland et Silver",
+      "start_year": 1952,
+      "start_month": 10,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Les deux inventeurs proposent un moyen de coder et lire automatiquement des informations. Les usages commerciaux se développeront bien après ce brevet.",
+      "sources": [
+        {
+          "url": "https://sova.si.edu/record/nmah.ac.1433",
+          "checked_on": "2026-10-16",
+          "evidence": "Brevet américain 2 612 994 accordé le 7 octobre 1952."
+        }
+      ],
+      "level_reason": "Objet omniprésent ; brevet distinct du premier passage en caisse.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-035",
+      "id": "EVT-2534",
+      "group": "sciences",
+      "title": "Willis Carrier conçoit un système moderne de climatisation",
+      "start_year": 1902,
+      "start_month": 7,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Le dispositif vise d’abord à maîtriser humidité et température dans une imprimerie. Cette technologie dépassera ensuite largement les besoins industriels.",
+      "sources": [
+        {
+          "url": "https://www.carrier.com/commercial/en/nl/about/willis-carrier/",
+          "checked_on": "2026-10-16",
+          "evidence": "Conception du système de climatisation moderne le 17 juillet 1902."
+        }
+      ],
+      "level_reason": "Technologie du quotidien au point de départ surprenant.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-036",
+      "id": "EVT-2535",
+      "group": "sciences",
+      "title": "Nick Holonyak met au point une LED rouge visible",
+      "start_year": 1962,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0113",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "Cette diode transforme directement l’électricité en lumière visible. Elle ouvre une voie importante pour les voyants puis l’éclairage électronique.",
+      "sources": [
+        {
+          "url": "https://ece.illinois.edu/news/2572",
+          "checked_on": "2026-10-16",
+          "evidence": "Première LED pratique de Holonyak : 1962 ; aucune précision journalière retenue."
+        }
+      ],
+      "level_reason": "Objet connu, principe scientifique plus spécialisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-037",
+      "id": "EVT-2536",
+      "group": "sciences",
+      "title": "Commercialisation de la console Magnavox Odyssey",
+      "start_year": 1972,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Issue des travaux de Ralph Baer, cette console permet de jouer sur un téléviseur domestique. Elle précède les consoles à cartouches devenues familières.",
+      "sources": [
+        {
+          "url": "https://www.invent.org/inductees/ralph-h-baer",
+          "checked_on": "2026-10-16",
+          "evidence": "Magnavox introduit l’Odyssey en 1972."
+        }
+      ],
+      "level_reason": "Début du jeu vidéo domestique, accessible par l’objet.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-038",
+      "id": "EVT-2537",
+      "group": "sciences",
+      "title": "Lancement du jeu électronique Simon",
+      "start_year": 1978,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Le joueur doit reproduire une suite de sons et de couleurs. La mémoire devient le ressort d’un jouet électronique immédiatement reconnaissable.",
+      "sources": [
+        {
+          "url": "https://www.invent.org/inductees/ralph-h-baer",
+          "checked_on": "2026-10-16",
+          "evidence": "Jeu Simon introduit en 1978."
+        }
+      ],
+      "level_reason": "Jouet populaire facile à identifier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-039",
+      "id": "EVT-2538",
+      "group": "sciences",
+      "title": "Lancement des nouilles instantanées Chicken Ramen au Japon",
+      "start_year": 1958,
+      "start_month": 8,
+      "start_day": 25,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Momofuku Ando commercialise des nouilles préparées pour être réhydratées rapidement. Le produit répond à un besoin de repas simples et faciles à conserver.",
+      "sources": [
+        {
+          "url": "https://www.nissin.com/en_jp/about/history/",
+          "checked_on": "2026-10-16",
+          "evidence": "Lancement de Chicken Ramen le 25 août 1958 au Japon."
+        }
+      ],
+      "level_reason": "Aliment quotidien dont l’origine est intéressante.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-040",
+      "id": "EVT-2539",
+      "group": "sciences",
+      "title": "Commercialisation des Cup Noodles au Japon",
+      "start_year": 1971,
+      "start_month": 9,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Les nouilles instantanées sont vendues dans un récipient qui sert à leur préparation. L’innovation associe aliment, emballage et service pratique.",
+      "sources": [
+        {
+          "url": "https://www.nissin.com/en_jp/about/history/",
+          "checked_on": "2026-10-16",
+          "evidence": "Cup Noodles lancé le 18 septembre 1971 ; distinct de Chicken Ramen."
+        }
+      ],
+      "level_reason": "Objet familier, innovation d’usage distincte.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-041",
+      "id": "EVT-2540",
+      "group": "sciences",
+      "title": "La surfaceuse à glace Zamboni devient opérationnelle",
+      "start_year": 1949,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "La machine de Frank Zamboni réunit plusieurs opérations de remise en état d’une patinoire. Elle réduit le travail nécessaire entre deux séances de patinage.",
+      "sources": [
+        {
+          "url": "https://zamboni.com/about/frequently-asked-questions-2/",
+          "checked_on": "2026-10-16",
+          "evidence": "Le modèle A produit régulièrement une bonne glace à l’été 1949."
+        }
+      ],
+      "level_reason": "Machine visible dans le sport, date moins connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-042",
+      "id": "EVT-2541",
+      "group": "sciences",
+      "title": "Volvo livre une voiture équipée de ceintures à trois points en série",
+      "start_year": 1959,
+      "start_month": 8,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "La ceinture conçue par Nils Bohlin retient à la fois le bassin et le haut du corps. Son adoption marque une étape de la sécurité automobile.",
+      "sources": [
+        {
+          "url": "https://www.volvocars.com/uk/media/press-releases/298CE0B0E914154D/",
+          "checked_on": "2026-10-16",
+          "evidence": "Première PV544 de série ainsi équipée livrée à Kristianstad le 13 août 1959."
+        }
+      ],
+      "level_reason": "Équipement quotidien immédiatement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-043",
+      "id": "EVT-2542",
+      "group": "sciences",
+      "title": "Denso présente le QR code",
+      "start_year": 1994,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Le code en deux dimensions permet de stocker plus d’informations qu’un code-barres simple. Il est conçu pour faciliter le suivi de pièces en usine.",
+      "sources": [
+        {
+          "url": "https://www.qrcode.com/en/history/",
+          "checked_on": "2026-10-16",
+          "evidence": "Annonce publique du QR code en 1994."
+        }
+      ],
+      "level_reason": "Objet désormais courant, origine industrielle surprenante.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-044",
+      "id": "EVT-2543",
+      "group": "sciences",
+      "title": "Laennec invente le stéthoscope",
+      "start_year": 1816,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0071",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Un tube permet d’écouter les bruits du thorax sans poser directement l’oreille sur le patient. Cet instrument devient un symbole de l’examen médical.",
+      "sources": [
+        {
+          "url": "https://collection.sciencemuseumgroup.org.uk/objects/co90986/laennecs-stethoscope",
+          "checked_on": "2026-10-16",
+          "evidence": "Invention de Laennec en 1816 ; année seule retenue."
+        }
+      ],
+      "level_reason": "Instrument médical familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-045",
+      "id": "EVT-2544",
+      "group": "sciences",
+      "title": "Enregistrement de la marque Aspirin en Allemagne",
+      "start_year": 1899,
+      "start_month": 3,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Bayer commercialise sous ce nom un médicament à base d’acide acétylsalicylique. La date concerne la marque, et non la première synthèse de la molécule.",
+      "sources": [
+        {
+          "url": "https://www.bayer.com/en/products/aspirin",
+          "checked_on": "2026-10-16",
+          "evidence": "Inscription au registre des marques à Berlin le 6 mars 1899."
+        }
+      ],
+      "level_reason": "Médicament connu ; type de jalon explicité.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-046",
+      "id": "EVT-2545",
+      "group": "sciences",
+      "title": "Publication des Principia de Newton",
+      "start_year": 1687,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "Newton formule les lois du mouvement et la gravitation universelle. Son ouvrage relie notamment l’étude des corps sur Terre aux mouvements célestes.",
+      "sources": [
+        {
+          "url": "https://royalsociety.org/blog/2014/07/principia/",
+          "checked_on": "2026-10-16",
+          "evidence": "Première édition imprimée en 1687."
+        }
+      ],
+      "level_reason": "Savant et découverte majeurs, repère scolaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-047",
+      "id": "EVT-2546",
+      "group": "sciences",
+      "title": "Faraday découvre l’induction électromagnétique",
+      "start_year": 1831,
+      "start_month": 8,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Une variation magnétique peut produire un courant électrique. Cette découverte fournit un principe essentiel aux générateurs et aux transformateurs.",
+      "sources": [
+        {
+          "url": "https://www.rigb.org/explore-science/explore/collection/michael-faradays-generator",
+          "checked_on": "2026-10-16",
+          "evidence": "Découverte de l’induction en août 1831. Mois retenu."
+        }
+      ],
+      "level_reason": "Principe technique demandant des connaissances scientifiques.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-048",
+      "id": "EVT-2547",
+      "group": "sciences",
+      "title": "Publication de la découverte du trou dans la couche d’ozone antarctique",
+      "start_year": 1985,
+      "start_month": 5,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "Les mesures de Farman, Gardiner et Shanklin révèlent de fortes pertes d’ozone au-dessus de l’Antarctique. Elles alertent sur une protection naturelle contre les ultraviolets.",
+      "sources": [
+        {
+          "url": "https://www.bas.ac.uk/news/30th-anniversary-of-the-discovery-of-ozone-hole/",
+          "checked_on": "2026-10-16",
+          "evidence": "Publication dans Nature en mai 1985."
+        }
+      ],
+      "level_reason": "Problème environnemental connu, découverte clairement définie.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-049",
+      "id": "EVT-2548",
+      "group": "sciences",
+      "title": "Wegener présente sa théorie de la dérive des continents",
+      "start_year": 1912,
+      "start_month": 1,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le chercheur propose que les continents se soient déplacés au cours du temps. Son hypothèse sera reprise dans une explication plus complète de la tectonique.",
+      "sources": [
+        {
+          "url": "https://www.awi.de/en/about-us/service/press/single-view/der-kopernikus-der-geowissenschaften-vor-fast-100-jahren-verkuendete-alfred-wegener-seine-revolutionaere-theorie-von-der-verschiebung-der-kontinente.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Présentation à Francfort le 6 janvier 1912."
+        }
+      ],
+      "level_reason": "Notion scientifique enseignée à l’école.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-050",
+      "id": "EVT-2549",
+      "group": "sciences",
+      "title": "Priestley isole le gaz aujourd’hui appelé oxygène",
+      "start_year": 1774,
+      "start_month": 8,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "En chauffant de l’oxyde de mercure, Priestley obtient un gaz qui entretient fortement la combustion. L’interprétation moderne s’établit au fil de plusieurs travaux.",
+      "sources": [
+        {
+          "url": "https://www.acs.org/education/whatischemistry/landmarks/josephpriestleyoxygen.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Expérience de Priestley le 1er août 1774 ; ne revendique pas une priorité exclusive."
+        }
+      ],
+      "level_reason": "Expérience de chimie et attribution demandant de la précision.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-051",
+      "id": "EVT-2550",
+      "group": "sciences",
+      "title": "Publication d’un mécanisme programmable de découpe de l’ADN par CRISPR-Cas9",
+      "start_year": 2012,
+      "start_month": 6,
+      "start_day": 28,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 3,
+      "packs": [
+        "COL-0071"
+      ],
+      "description": "L’équipe de Jinek, Charpentier et Doudna décrit une enzyme guidée par ARN. Le résultat ouvre une voie majeure à l’édition ciblée du génome.",
+      "sources": [
+        {
+          "url": "https://doi.org/10.1126/science.1225829",
+          "checked_on": "2026-10-16",
+          "evidence": "Publication électronique de Jinek et al. le 28 juin 2012 ; édition papier ultérieure."
+        }
+      ],
+      "level_reason": "Jalon moléculaire précis, niveau spécialisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-052",
+      "id": "EVT-2551",
+      "group": "sciences",
+      "title": "Leonard Thompson reçoit un premier traitement par insuline",
+      "start_year": 1922,
+      "start_month": 1,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "À Toronto, un adolescent diabétique reçoit un extrait pancréatique. Les premières injections sont ensuite améliorées grâce à une préparation plus purifiée.",
+      "sources": [
+        {
+          "url": "https://educationalgames.nobelprize.org/educational/medicine/insulin/discovery-insulin.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier patient humain décrit en janvier 1922 ; mois seul retenu."
+        }
+      ],
+      "level_reason": "Avancée médicale majeure, repère accessible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-053",
+      "id": "EVT-2552",
+      "group": "sciences",
+      "title": "Découverte de la grotte de Lascaux",
+      "start_year": 1940,
+      "start_month": 9,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Quatre adolescents découvrent les peintures d’une grotte en Dordogne. Le site renouvelle la connaissance de l’art préhistorique et pose des défis de conservation.",
+      "sources": [
+        {
+          "url": "https://archeologie.culture.gouv.fr/lascaux/fr/linventionla-decouverte",
+          "checked_on": "2026-10-16",
+          "evidence": "Exploration par les quatre jeunes le 12 septembre 1940."
+        }
+      ],
+      "level_reason": "Site préhistorique très connu ; date de découverte moderne.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-054",
+      "id": "EVT-2553",
+      "group": "sciences",
+      "title": "Découverte de la grotte Chauvet",
+      "start_year": 1994,
+      "start_month": 12,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Éliette Brunel, Jean-Marie Chauvet et Christian Hillaire explorent une grotte ornée en Ardèche. Ses représentations animales enrichissent la connaissance de l’art paléolithique.",
+      "sources": [
+        {
+          "url": "https://archeologie.culture.gouv.fr/chauvet/fr/une-conservation-originale",
+          "checked_on": "2026-10-16",
+          "evidence": "Découverte le dimanche 18 décembre 1994."
+        }
+      ],
+      "level_reason": "Grande découverte archéologique française.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-055",
+      "id": "EVT-2554",
+      "group": "sciences",
+      "title": "Franklin et Gosling réalisent la Photo 51 de l’ADN",
+      "start_year": 1952,
+      "start_month": 5,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "L’image de diffraction aux rayons X apporte des indications sur la structure de l’ADN. Elle précède le modèle en double hélice publié l’année suivante.",
+      "sources": [
+        {
+          "url": "https://www.kcl.ac.uk/the-story-behind-photograph-51",
+          "checked_on": "2026-10-16",
+          "evidence": "Photo 51 prise à King’s College London en mai 1952."
+        }
+      ],
+      "level_reason": "Document scientifique précis, distinct du modèle de 1953.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-056",
+      "id": "EVT-2555",
+      "group": "histoire",
+      "title": "Vercingétorix se rend à César après le siège d’Alésia",
+      "start_year": -52,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0078",
+        "COL-0061",
+        "COL-0062",
+        "COL-0069"
+      ],
+      "description": "Enfermé dans l’oppidum, Vercingétorix ne peut briser le siège romain. Sa reddition marque un tournant majeur de la conquête de la Gaule.",
+      "sources": [
+        {
+          "url": "https://musee-archeologienationale.fr/vercingetorix-et-alesia",
+          "checked_on": "2026-10-16",
+          "evidence": "Siège d’Alésia en 52 avant notre ère. Aucun jour retenu."
+        }
+      ],
+      "level_reason": "Repère scolaire et personnages très connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-057",
+      "id": "EVT-2556",
+      "group": "histoire",
+      "title": "Inauguration du Colisée à Rome",
+      "start_year": 80,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0078",
+        "COL-0062"
+      ],
+      "description": "L’empereur Titus ouvre l’amphithéâtre flavien par de grands spectacles. L’édifice accueille notamment des combats de gladiateurs et des chasses mises en scène.",
+      "sources": [
+        {
+          "url": "https://colosseo.it/en/event/blood-and-the-arena/",
+          "checked_on": "2026-10-16",
+          "evidence": "Jeux inauguraux de Titus en 80 de notre ère."
+        }
+      ],
+      "level_reason": "Monument emblématique de la Rome antique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-058",
+      "id": "EVT-2557",
+      "group": "histoire",
+      "title": "Mort de Cléopâtre VII à Alexandrie",
+      "start_year": -30,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0078",
+        "COL-0116"
+      ],
+      "description": "La mort de la dernière reine lagide survient après la victoire d’Octavien. L’Égypte passe sous la domination romaine ; le récit du serpent reste discuté.",
+      "sources": [
+        {
+          "url": "https://www.britishmuseum.org/collection/term/BIOG57627",
+          "checked_on": "2026-10-16",
+          "evidence": "Fin du règne de la dernière reine d’Égypte en 30 avant notre ère. Jour et cause non affirmés."
+        }
+      ],
+      "level_reason": "Reine très connue, fin de l’Égypte lagide.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-059",
+      "id": "EVT-2558",
+      "group": "histoire",
+      "title": "Début de la construction du Parthénon à Athènes",
+      "start_year": -447,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0078",
+        "COL-0062"
+      ],
+      "description": "Le programme de Périclès dote l’Acropole d’un temple dédié à Athéna. Architecture et sculptures expriment aussi la puissance d’Athènes.",
+      "sources": [
+        {
+          "url": "https://www.theacropolismuseum.gr/en/exhibit-halls/parthenon-gallery",
+          "checked_on": "2026-10-16",
+          "evidence": "Travaux commencés en 447 avant notre ère."
+        }
+      ],
+      "level_reason": "Monument grec très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-060",
+      "id": "EVT-2559",
+      "group": "histoire",
+      "title": "Mort de l’empereur Auguste",
+      "start_year": 14,
+      "start_month": 8,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0078",
+        "COL-0062",
+        "COL-0116"
+      ],
+      "description": "Le premier empereur romain meurt après un long règne. La succession de Tibère montre comment le nouveau régime se transmet au-delà de son fondateur.",
+      "sources": [
+        {
+          "url": "https://museedelaromanite.fr/en/temporary-exhibition/archives/the-roman-emperor-a-mortal-among-the-gods-from-the-13th-may-to-19th-september-2021/the-exhibition",
+          "checked_on": "2026-10-16",
+          "evidence": "Mort d’Auguste le 19 août 14. Date historique du calendrier romain, sans conversion grégorienne."
+        }
+      ],
+      "level_reason": "Succession impériale précise ; niveau intermédiaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-061",
+      "id": "EVT-2560",
+      "group": "histoire",
+      "title": "Mort de Néron, dernier empereur julio-claudien",
+      "start_year": 68,
+      "start_month": 6,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0078",
+        "COL-0062",
+        "COL-0116"
+      ],
+      "description": "Néron perd le pouvoir au milieu des révoltes. Sa disparition ouvre une lutte pour l’Empire et met fin à la première dynastie impériale romaine.",
+      "sources": [
+        {
+          "url": "https://www.britishmuseum.org/collection/term/BIOG59557",
+          "checked_on": "2026-10-16",
+          "evidence": "Notice biographique : 15 décembre 37 – 9 juin 68 ; déposition en 68."
+        }
+      ],
+      "level_reason": "Fin de dynastie, événement plus précis que le règne.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-062",
+      "id": "EVT-2561",
+      "group": "histoire",
+      "title": "Hannibal traverse les Alpes avec son armée",
+      "start_year": -218,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0078",
+        "COL-0062",
+        "COL-0069"
+      ],
+      "description": "Le chef carthaginois contourne les voies attendues pour porter la guerre en Italie. Les éléphants rendent cette traversée célèbre, mais son itinéraire exact reste débattu.",
+      "sources": [
+        {
+          "url": "https://www.livius.org/articles/person/hannibal-3-barca/",
+          "checked_on": "2026-10-16",
+          "evidence": "Marche depuis l’Èbre en mai 218 et passage des Alpes durant cette campagne."
+        }
+      ],
+      "level_reason": "Exploit antique très connu, distinct du début de la guerre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-063",
+      "id": "EVT-2562",
+      "group": "histoire",
+      "title": "Début traditionnel du sanctuaire du Mont-Saint-Michel",
+      "start_year": 708,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "TRADITIONAL",
+      "niveau": 1,
+      "packs": [
+        "COL-0079",
+        "COL-0061",
+        "COL-0062",
+        "COL-0072"
+      ],
+      "description": "La tradition attribue à l’évêque Aubert la création d’un sanctuaire dédié à saint Michel. Le lieu deviendra un grand centre de pèlerinage médiéval.",
+      "sources": [
+        {
+          "url": "https://montsaintmichel.gouv.fr/annexes/la-restauration-de-la-chapelle-saint-aubert",
+          "checked_on": "2026-10-16",
+          "evidence": "Le site officiel présente 708 explicitement comme une tradition."
+        }
+      ],
+      "level_reason": "Monument célèbre ; caractère traditionnel visible dans le titre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-064",
+      "id": "EVT-2563",
+      "group": "histoire",
+      "title": "Début conventionnel du chantier de Notre-Dame de Paris",
+      "start_year": 1163,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "CONVENTIONAL",
+      "niveau": 1,
+      "packs": [
+        "COL-0079",
+        "COL-0061",
+        "COL-0062",
+        "COL-0072"
+      ],
+      "description": "Sous l’impulsion de l’évêque Maurice de Sully, un vaste chantier gothique transforme l’île de la Cité. La construction de la cathédrale se poursuit sur plusieurs générations.",
+      "sources": [
+        {
+          "url": "https://francearchives.gouv.fr/fr/pages_histoire/38929",
+          "checked_on": "2026-10-16",
+          "evidence": "1163 est le jalon traditionnel du début ; le récit de la première pierre est tardif."
+        }
+      ],
+      "level_reason": "Monument connu, date conventionnelle explicitée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-065",
+      "id": "EVT-2564",
+      "group": "histoire",
+      "title": "Consécration du nouveau chevet de Saint-Denis",
+      "start_year": 1144,
+      "start_month": 6,
+      "start_day": 11,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0079",
+        "COL-0061",
+        "COL-0062",
+        "COL-0072"
+      ],
+      "description": "L’abbé Suger fait reconstruire une partie de l’abbatiale. Les grandes ouvertures et les voûtes contribuent au développement de l’architecture gothique.",
+      "sources": [
+        {
+          "url": "https://www.saintdenis.fr/basilique-cathedrale",
+          "checked_on": "2026-10-16",
+          "evidence": "Consécration du chevet le 11 juin 1144. Description indépendante de la mention erronée de Louis VI sur cette page."
+        }
+      ],
+      "level_reason": "Étape architecturale précise, niveau intermédiaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-066",
+      "id": "EVT-2565",
+      "group": "histoire",
+      "title": "Louis IX confirme la fondation du collège de Sorbon",
+      "start_year": 1257,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0079",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le collège accueille des étudiants en théologie disposant de peu de ressources. Il donne son nom à la Sorbonne, devenue un symbole de l’enseignement parisien.",
+      "sources": [
+        {
+          "url": "https://www.sorbonne.fr/la-sorbonne/histoire-de-la-sorbonne/la-fondation-de-la-sorbonne-au-moyen-age-par-le-theologien-robert-de-sorbon/",
+          "checked_on": "2026-10-16",
+          "evidence": "Collège créé en 1253 ; confirmation royale en 1257, objet exact de cette question."
+        }
+      ],
+      "level_reason": "Institution célèbre, distinction fondation/confirmation explicite.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-067",
+      "id": "EVT-2566",
+      "group": "histoire",
+      "title": "Début conventionnel de la forteresse médiévale du Louvre",
+      "start_year": 1190,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "CONVENTIONAL",
+      "niveau": 1,
+      "packs": [
+        "COL-0079",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Philippe Auguste fait renforcer les défenses de Paris. Le Louvre naît comme forteresse, bien avant ses transformations en palais et en musée.",
+      "sources": [
+        {
+          "url": "https://presse.louvre.fr/le-palais-et-ses-collections/?lang=fr",
+          "checked_on": "2026-10-16",
+          "evidence": "Le Louvre situe la naissance du château en 1190 ; chantier étalé, jalon conventionnel."
+        }
+      ],
+      "level_reason": "Origine surprenante d’un monument très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-068",
+      "id": "EVT-2567",
+      "group": "histoire",
+      "title": "Dédicace de la Sainte-Chapelle de Paris",
+      "start_year": 1248,
+      "start_month": 4,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0079",
+        "COL-0061",
+        "COL-0062",
+        "COL-0072"
+      ],
+      "description": "La chapelle de Louis IX abrite des reliques de la Passion. Ses vitraux font du monument un exemple célèbre de l’architecture gothique rayonnante.",
+      "sources": [
+        {
+          "url": "https://www.persee.fr/doc/bulmo_0007-473x_1948_num_106_1_9802",
+          "checked_on": "2026-10-16",
+          "evidence": "Étude de Marcel Aubert établissant le dimanche 26 avril 1248 et corrigeant le 25."
+        }
+      ],
+      "level_reason": "Monument connu lié à Saint Louis.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-069",
+      "id": "EVT-2568",
+      "group": "histoire",
+      "title": "Impression de l’exemplaire daté du Sūtra du Diamant",
+      "start_year": 868,
+      "start_month": 5,
+      "start_day": 11,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0079",
+        "COL-0072",
+        "COL-0112"
+      ],
+      "description": "Ce rouleau bouddhique chinois est produit par impression sur bois. Son colophon en fait un témoin exceptionnel, bien antérieur à l’imprimerie européenne de Gutenberg.",
+      "sources": [
+        {
+          "url": "https://idp.bl.uk/discover/learning/buddhism-on-the-silk-roads/articles/buddhism-on-the-ground/buddhist-texts-the-diamond-sutra/",
+          "checked_on": "2026-10-16",
+          "evidence": "Colophon : production achevée le 11 mai 868 ; plus ancien livre imprimé daté conservé."
+        }
+      ],
+      "level_reason": "Document célèbre en histoire du livre mais moins familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-070",
+      "id": "EVT-2569",
+      "group": "histoire",
+      "title": "Mansa Moussa accomplit son pèlerinage à La Mecque",
+      "start_year": 1324,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0079",
+        "COL-0072"
+      ],
+      "description": "Le souverain du Mali traverse le Sahara puis l’Égypte. Le voyage manifeste la richesse de son empire et son insertion dans les réseaux du monde musulman.",
+      "sources": [
+        {
+          "url": "https://www.arte.tv/fr/videos/086127-018-A/quand-l-histoire-fait-dates",
+          "checked_on": "2026-10-16",
+          "evidence": "Documentaire historique de la série Quand l’histoire fait dates consacré au pèlerinage de 1324."
+        }
+      ],
+      "level_reason": "Repère africain majeur, moins enseigné en France.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-071",
+      "id": "EVT-2570",
+      "group": "histoire",
+      "title": "Signature du protocole d’indépendance de la Tunisie",
+      "start_year": 1956,
+      "start_month": 3,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "La France reconnaît l’indépendance tunisienne après une période d’autonomie interne. Le protocole met fin au protectorat et ouvre une nouvelle étape politique pour le pays.",
+      "sources": [
+        {
+          "url": "https://www.justice.gov.tn/index.php?L=3&id=435",
+          "checked_on": "2026-10-16",
+          "evidence": "Protocole d’indépendance signé le 20 mars 1956."
+        }
+      ],
+      "level_reason": "Indépendance d’un pays proche, repère majeur du Maghreb.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-072",
+      "id": "EVT-2571",
+      "group": "histoire",
+      "title": "Premier élargissement des Communautés européennes à neuf États",
+      "start_year": 1973,
+      "start_month": 1,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le Danemark, l’Irlande et le Royaume-Uni rejoignent les six membres fondateurs. La construction européenne s’étend vers le nord et l’ouest.",
+      "sources": [
+        {
+          "url": "https://european-union.europa.eu/principles-countries-history/history-eu/1970-79_en",
+          "checked_on": "2026-10-16",
+          "evidence": "Adhésion des trois pays le 1er janvier 1973."
+        }
+      ],
+      "level_reason": "Premier élargissement, pays faciles à reconnaître.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-073",
+      "id": "EVT-2572",
+      "group": "histoire",
+      "title": "Le Conseil de l’Europe adopte le drapeau aux douze étoiles",
+      "start_year": 1955,
+      "start_month": 12,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le cercle d’étoiles devient un symbole européen. Son dessin sera ensuite repris par les Communautés européennes ; le nombre d’étoiles ne compte pas les États membres.",
+      "sources": [
+        {
+          "url": "https://www.coe.int/en/web/about-us/the-european-flag",
+          "checked_on": "2026-10-16",
+          "evidence": "Adoption en décembre 1955 ; sources officielles divergentes entre les 8 et 9, mois seul retenu."
+        }
+      ],
+      "level_reason": "Symbole européen très familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-074",
+      "id": "EVT-2573",
+      "group": "histoire",
+      "title": "Lancement du programme Erasmus",
+      "start_year": 1987,
+      "start_month": 6,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le programme soutient les échanges d’étudiants entre établissements européens. Il inscrit la mobilité et l’expérience d’un autre pays au cœur de la construction européenne.",
+      "sources": [
+        {
+          "url": "https://op.europa.eu/webpub/com/short-guide-eu/en/about-eu.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Programme lancé en juin 1987 ; mois retenu, les chronologies officielles donnent les 13 ou 15."
+        }
+      ],
+      "level_reason": "Programme étudiant largement connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-075",
+      "id": "EVT-2574",
+      "group": "histoire",
+      "title": "Simone Veil est élue présidente du Parlement européen",
+      "start_year": 1979,
+      "start_month": 7,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0061",
+        "COL-0073",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Les députés issus des premières élections européennes directes choisissent Simone Veil. Elle devient la première femme à présider cette assemblée.",
+      "sources": [
+        {
+          "url": "https://historicalarchives.europarl.europa.eu/en/presidents/simone-veil",
+          "checked_on": "2026-10-16",
+          "evidence": "Élection le 17 juillet 1979, au second tour."
+        }
+      ],
+      "level_reason": "Personnalité française et première institutionnelle connues.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-076",
+      "id": "EVT-2575",
+      "group": "histoire",
+      "title": "Adoption du protocole de Montréal sur la couche d’ozone",
+      "start_year": 1987,
+      "start_month": 9,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "L’accord prévoit de réduire les substances qui détruisent l’ozone stratosphérique. Il transforme une alerte scientifique en action internationale.",
+      "sources": [
+        {
+          "url": "https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol",
+          "checked_on": "2026-10-16",
+          "evidence": "Protocole adopté le 16 septembre 1987."
+        }
+      ],
+      "level_reason": "Accord environnemental majeur.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-077",
+      "id": "EVT-2576",
+      "group": "histoire",
+      "title": "Adoption de la convention de Ramsar sur les zones humides",
+      "start_year": 1971,
+      "start_month": 2,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "Des États réunis en Iran s’accordent pour préserver des milieux essentiels à l’eau et à la biodiversité. Le traité met notamment l’accent sur les habitats des oiseaux.",
+      "sources": [
+        {
+          "url": "https://www.ramsar.org/2-february-1971",
+          "checked_on": "2026-10-16",
+          "evidence": "Convention agréée à Ramsar le 2 février 1971 ; entrée en vigueur en 1975 distincte."
+        }
+      ],
+      "level_reason": "Traité spécialisé, niveau intermédiaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-078",
+      "id": "EVT-2577",
+      "group": "histoire",
+      "title": "Ouverture à la signature de la CITES à Washington",
+      "start_year": 1973,
+      "start_month": 3,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "La convention encadre le commerce international des espèces sauvages menacées. Elle organise une coopération entre États pour limiter la surexploitation.",
+      "sources": [
+        {
+          "url": "https://cites.org/eng/disc/what.php",
+          "checked_on": "2026-10-16",
+          "evidence": "Texte agréé le 2 mars ; ouvert à la signature le 3 mars 1973, jalon retenu."
+        }
+      ],
+      "level_reason": "Accord spécialisé, intitulé du jalon précis.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-079",
+      "id": "EVT-2578",
+      "group": "histoire",
+      "title": "Le premier bateau Greenpeace quitte Vancouver",
+      "start_year": 1971,
+      "start_month": 9,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "Des militants prennent la mer pour protester contre des essais nucléaires en Alaska. Cette expédition est un point de départ du mouvement Greenpeace.",
+      "sources": [
+        {
+          "url": "https://www.greenpeace.org/canada/en/press-release/50057/greenpeace-turns-50-today/",
+          "checked_on": "2026-10-16",
+          "evidence": "Départ de Vancouver le 15 septembre 1971."
+        }
+      ],
+      "level_reason": "Organisation écologique connue et action concrète.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-080",
+      "id": "EVT-2579",
+      "group": "histoire",
+      "title": "Création de la Cour des comptes par Napoléon",
+      "start_year": 1807,
+      "start_month": 9,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Une institution est chargée de contrôler les comptes publics. Elle fait partie des créations administratives durables du régime napoléonien.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/chronologies/vie-et-regne-de-napoleon/",
+          "checked_on": "2026-10-16",
+          "evidence": "Création de la Cour des comptes le 16 septembre 1807."
+        }
+      ],
+      "level_reason": "Institution connue, rattachement napoléonien moins évident.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-081",
+      "id": "EVT-2580",
+      "group": "culture",
+      "title": "Sortie de Les Quatre Cents Coups (France)",
+      "start_year": 1959,
+      "start_month": 6,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "François Truffaut suit les fugues et les difficultés d’Antoine Doinel. Le film fait de l’enfance un des grands sujets de la Nouvelle Vague.",
+      "sources": [
+        {
+          "url": "https://www.cnc.fr/professionnels/visas-et-classification/21414",
+          "checked_on": "2026-10-16",
+          "evidence": "Date de sortie en salle : 3 juin 1959, distincte de la présentation cannoise."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Les Quatre Cents Coups"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-082",
+      "id": "EVT-2581",
+      "group": "culture",
+      "title": "Sortie de À bout de souffle (France)",
+      "start_year": 1960,
+      "start_month": 3,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Jean-Luc Godard raconte la cavale d’un jeune délinquant et sa relation avec une Américaine à Paris. Le montage et le tournage bousculent les habitudes du cinéma.",
+      "sources": [
+        {
+          "url": "https://en.unifrance.org/movie/10/breathless",
+          "checked_on": "2026-10-16",
+          "evidence": "French release : 16 mars 1960 ; production 1959."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "À bout de souffle"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-083",
+      "id": "EVT-2582",
+      "group": "culture",
+      "title": "Sortie de Les Parapluies de Cherbourg (France)",
+      "start_year": 1964,
+      "start_month": 2,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Jacques Demy transforme une histoire d’amour et de séparation en film entièrement chanté. La musique de Michel Legrand accompagne les choix de Geneviève et Guy.",
+      "sources": [
+        {
+          "url": "https://www.unifrance.org/film/763/les-parapluies-de-cherbourg",
+          "checked_on": "2026-10-16",
+          "evidence": "Sortie en France : 19 février 1964."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Les Parapluies de Cherbourg"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-084",
+      "id": "EVT-2583",
+      "group": "culture",
+      "title": "Sortie de Les Tontons flingueurs (France)",
+      "start_year": 1963,
+      "start_month": 11,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Un ancien truand doit reprendre une affaire et protéger une jeune héritière. Les dialogues de Michel Audiard donnent à cette comédie policière une place durable dans la culture populaire.",
+      "sources": [
+        {
+          "url": "https://www.unifrance.org/film/2420/les-tontons-flingueurs",
+          "checked_on": "2026-10-16",
+          "evidence": "Sortie en France : 27 novembre 1963."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Les Tontons flingueurs"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-085",
+      "id": "EVT-2584",
+      "group": "culture",
+      "title": "Sortie de Les Bronzés (France)",
+      "start_year": 1978,
+      "start_month": 11,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Des vacanciers se rencontrent dans un club de vacances. Patrice Leconte et la troupe du Splendid tirent leur comédie des séductions, des rivalités et des maladresses du groupe.",
+      "sources": [
+        {
+          "url": "https://www.garance-patrimoine.fr/l/9678537",
+          "checked_on": "2026-10-16",
+          "evidence": "Fiche du catalogue patrimonial : 22 novembre 1978."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Les Bronzés"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-086",
+      "id": "EVT-2585",
+      "group": "culture",
+      "title": "Sortie de Le Roi et l’Oiseau (France)",
+      "start_year": 1980,
+      "start_month": 3,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Paul Grimault et Jacques Prévert imaginent une fuite dans le royaume autoritaire de Takicardie. L’animation oppose la liberté des personnages à la démesure du palais.",
+      "sources": [
+        {
+          "url": "https://lumiere.obs.coe.int/movie/16996",
+          "checked_on": "2026-10-16",
+          "evidence": "Observatoire européen de l’audiovisuel : sortie FR le 19 mars 1980 ; version achevée."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Le Roi et l’Oiseau"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-087",
+      "id": "EVT-2586",
+      "group": "culture",
+      "title": "Sortie de Les Enfants du paradis (France)",
+      "start_year": 1945,
+      "start_month": 3,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Marcel Carné et Jacques Prévert situent leurs amours théâtrales dans le Paris du boulevard du Crime. Le film a été réalisé pendant l’Occupation puis distribué à la Libération.",
+      "sources": [
+        {
+          "url": "https://cineuropa.org/fr/film/400913/",
+          "checked_on": "2026-10-16",
+          "evidence": "Sortie FR : 9 mars 1945."
+        }
+      ],
+      "level_reason": "Classique du cinéma demandant une culture plus approfondie.",
+      "aliases": [
+        "Les Enfants du paradis"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-088",
+      "id": "EVT-2587",
+      "group": "culture",
+      "title": "Sortie de Shrek (États-Unis)",
+      "start_year": 2001,
+      "start_month": 5,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114"
+      ],
+      "description": "Un ogre et un âne traversent un univers de conte détourné. Le film de DreamWorks joue avec les attentes du conte de fées et l’idée du héros séduisant.",
+      "sources": [
+        {
+          "url": "https://catalog.afi.com/Catalog/moviedetails/53918",
+          "checked_on": "2026-10-16",
+          "evidence": "AFI : sortie américaine du 18 mai 2001."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Shrek"
+      ],
+      "territory": "États-Unis",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-089",
+      "id": "EVT-2588",
+      "group": "culture",
+      "title": "Sortie de Blade Runner (États-Unis)",
+      "start_year": 1982,
+      "start_month": 6,
+      "start_day": 25,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0082"
+      ],
+      "description": "Dans une ville future, un policier recherche des êtres artificiels presque humains. Ridley Scott mêle enquête, science-fiction et interrogation sur l’identité.",
+      "sources": [
+        {
+          "url": "https://catalog.afi.com/Film/68260-BLADE-RUNNER",
+          "checked_on": "2026-10-16",
+          "evidence": "AFI : sortie du 25 juin 1982 ; version originale, non un remontage."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Blade Runner"
+      ],
+      "territory": "États-Unis",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-090",
+      "id": "EVT-2589",
+      "group": "culture",
+      "title": "Sortie de Terminator (États-Unis)",
+      "start_year": 1984,
+      "start_month": 10,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0082"
+      ],
+      "description": "Un cyborg venu du futur poursuit Sarah Connor. James Cameron associe film de poursuite et voyage dans le temps autour d’une menace technologique.",
+      "sources": [
+        {
+          "url": "https://catalog.afi.com/Film/57224-THE-TERMINATOR",
+          "checked_on": "2026-10-16",
+          "evidence": "AFI : ouverture nationale le 26 octobre 1984."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Terminator"
+      ],
+      "territory": "États-Unis",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-091",
+      "id": "EVT-2590",
+      "group": "culture",
+      "title": "Sortie de Piège de cristal (États-Unis, sortie initiale limitée)",
+      "start_year": 1988,
+      "start_month": 7,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0082"
+      ],
+      "description": "John McClane se retrouve seul contre un groupe armé dans une tour de bureaux. Le film renouvelle l’action en plaçant un héros vulnérable dans un espace fermé.",
+      "sources": [
+        {
+          "url": "https://catalog.afi.com/Catalog/moviedetails/55749",
+          "checked_on": "2026-10-16",
+          "evidence": "Die Hard ouvre le 15 juillet 1988 dans 21 salles, avant élargissement."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Piège de cristal",
+        "Die Hard"
+      ],
+      "territory": "États-Unis, sortie initiale limitée",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-092",
+      "id": "EVT-2591",
+      "group": "culture",
+      "title": "Sortie de Persépolis (France)",
+      "start_year": 2007,
+      "start_month": 6,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Marjane Satrapi et Vincent Paronnaud adaptent un récit autobiographique en animation. L’enfance en Iran et l’exil sont racontés à travers une voix personnelle.",
+      "sources": [
+        {
+          "url": "https://en.unifrance.org/movie/27390/persepolis",
+          "checked_on": "2026-10-16",
+          "evidence": "French release : 27 juin 2007."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Persépolis"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-093",
+      "id": "EVT-2592",
+      "group": "culture",
+      "title": "Sortie de Le Tombeau des lucioles (Japon)",
+      "start_year": 1988,
+      "start_month": 4,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0082"
+      ],
+      "description": "Isao Takahata suit un frère et une sœur dans le Japon en guerre. Le film d’animation montre les conséquences du conflit sur des enfants privés de protection.",
+      "sources": [
+        {
+          "url": "https://www.ghibli-museum-shop.jp/i/VWBS1356",
+          "checked_on": "2026-10-16",
+          "evidence": "Boutique officielle du musée Ghibli : sortie japonaise le 16 avril 1988."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "Le Tombeau des lucioles"
+      ],
+      "territory": "Japon",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-094",
+      "id": "EVT-2593",
+      "group": "culture",
+      "title": "Sortie de La Vie est belle (France)",
+      "start_year": 1998,
+      "start_month": 10,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0114",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Roberto Benigni raconte comment un père tente de protéger son fils dans un camp nazi. Le film mêle registre comique et tragédie, avec un parti pris de fable.",
+      "sources": [
+        {
+          "url": "https://www.cnc.fr/professionnels/visas-et-classification/95707",
+          "checked_on": "2026-10-16",
+          "evidence": "Sortie française en salle : 21 octobre 1998, non la première sortie italienne de 1997."
+        }
+      ],
+      "level_reason": "Film largement connu, titre et personnages accessibles.",
+      "aliases": [
+        "La Vie est belle"
+      ],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-095",
+      "id": "EVT-2594",
+      "group": "culture",
+      "title": "Sortie de Akira (Japon)",
+      "start_year": 1988,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0114",
+        "COL-0082"
+      ],
+      "description": "Katsuhiro Otomo porte son univers de manga à l’écran. Dans une métropole reconstruite, la violence politique et des pouvoirs incontrôlables font basculer les protagonistes.",
+      "sources": [
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000108.000029654.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Communiqué du producteur Bandai Namco Arts : film sorti en salles en 1988 ; année seule retenue."
+        }
+      ],
+      "level_reason": "Classique du cinéma demandant une culture plus approfondie.",
+      "aliases": [
+        "Akira"
+      ],
+      "territory": "Japon",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M-096",
+      "id": "EVT-2595",
+      "group": "culture",
+      "title": "Publication du Hobbit au Royaume-Uni",
+      "start_year": 1937,
+      "start_month": 9,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Bilbo quitte son quotidien pour accompagner des nains dans une aventure. Tolkien développe une Terre du Milieu qui accueillera ensuite Le Seigneur des anneaux.",
+      "sources": [
+        {
+          "url": "https://www.tolkienestate.com/life/timeline-1892-1949/",
+          "checked_on": "2026-10-16",
+          "evidence": "Chronologie : publication du Hobbit le 21 septembre 1937."
+        }
+      ],
+      "level_reason": "Livre populaire et personnages connus.",
+      "aliases": [
+        "Le Hobbit",
+        "Bilbo le Hobbit"
+      ],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-097",
+      "id": "EVT-2596",
+      "group": "culture",
+      "title": "Publication de La Communauté de l’anneau au Royaume-Uni",
+      "start_year": 1954,
+      "start_month": 7,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le premier volume du Seigneur des anneaux paraît en anglais. L’aventure de Frodon élargit le monde présenté dans Le Hobbit à une histoire de guerre et de pouvoir.",
+      "sources": [
+        {
+          "url": "https://www.tolkienestate.com/life/timeline-1950-2018/",
+          "checked_on": "2026-10-16",
+          "evidence": "Première publication de The Fellowship of the Ring en juillet 1954."
+        }
+      ],
+      "level_reason": "Œuvre mondialement connue ; premier volume identifié.",
+      "aliases": [
+        "Roman La Communauté de l’anneau"
+      ],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-098",
+      "id": "EVT-2597",
+      "group": "culture",
+      "title": "Superman apparaît dans Action Comics",
+      "start_year": 1938,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Jerry Siegel et Joe Shuster présentent un héros venu d’un autre monde. Le personnage devient une figure fondatrice des comics de super-héros.",
+      "sources": [
+        {
+          "url": "https://www.dc.com/graphic-novels/superman-through-the-years-2005/superman-in-the-forties",
+          "checked_on": "2026-10-16",
+          "evidence": "DC situe les débuts de Superman en 1938 ; année seule évite la confusion date de couverture/mise en vente."
+        }
+      ],
+      "level_reason": "Super-héros très familier.",
+      "aliases": [
+        "Première apparition de Superman"
+      ],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-099",
+      "id": "EVT-2598",
+      "group": "culture",
+      "title": "Batman apparaît dans Detective Comics",
+      "start_year": 1939,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Le justicier masqué de Gotham est introduit dans les comics. Contrairement à de nombreux super-héros, Bruce Wayne s’appuie sur l’entraînement et les moyens techniques.",
+      "sources": [
+        {
+          "url": "https://www.dc.com/blog/2019/03/19/batman-a-history-of-heroics-the-beginning",
+          "checked_on": "2026-10-16",
+          "evidence": "DC décrit les débuts de Batman en 1939 ; année seule retenue."
+        }
+      ],
+      "level_reason": "Héros mondialement connu.",
+      "aliases": [
+        "Première apparition de Batman"
+      ],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-100",
+      "id": "EVT-2599",
+      "group": "culture",
+      "title": "Spider-Man apparaît dans Amazing Fantasy",
+      "start_year": 1962,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Stan Lee et Steve Ditko font d’un adolescent un super-héros confronté à des soucis ordinaires. Peter Parker associe pouvoirs extraordinaires et responsabilités personnelles.",
+      "sources": [
+        {
+          "url": "https://www.marvel.com/comics/issue/16926",
+          "checked_on": "2026-10-16",
+          "evidence": "Amazing Fantasy (1962) numéro 15 : première apparition. Année seule, sans confondre couverture et vente."
+        }
+      ],
+      "level_reason": "Héros très connu de plusieurs générations.",
+      "aliases": [
+        "Première apparition de Spider-Man"
+      ],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-101",
+      "id": "EVT-2600",
+      "group": "culture",
+      "title": "Création du personnage Hello Kitty",
+      "start_year": 1974,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Sanrio crée un personnage destiné à un univers de petits objets et de cadeaux. Son dessin devient une figure internationale de la culture kawaii.",
+      "sources": [
+        {
+          "url": "https://corporate.sanrio.co.jp/en/business-info/brands/hello_kity/",
+          "checked_on": "2026-10-16",
+          "evidence": "Sanrio : personnage dessiné en 1974 ; distinct des premiers produits en 1975."
+        }
+      ],
+      "level_reason": "Personnage visuel mondialement reconnaissable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-102",
+      "id": "EVT-2601",
+      "group": "culture",
+      "title": "La PlayStation 2 sort au Japon",
+      "start_year": 2000,
+      "start_month": 3,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "La console de Sony combine jeux, compatibilité avec la première PlayStation et lecture de DVD. Elle participe à l’installation du jeu vidéo au centre du salon.",
+      "sources": [
+        {
+          "url": "https://sonyinteractive.com/en/press-releases/2004/playstation2-achieves-cumulative-worldwide-shipment-of-70-million-units/",
+          "checked_on": "2026-10-16",
+          "evidence": "Lancement japonais explicitement daté du 4 mars 2000."
+        }
+      ],
+      "level_reason": "Console très populaire ; marché précisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-103",
+      "id": "EVT-2602",
+      "group": "culture",
+      "title": "La première Xbox sort en Amérique du Nord",
+      "start_year": 2001,
+      "start_month": 11,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115"
+      ],
+      "description": "Microsoft entre sur le marché des consoles domestiques. La Xbox propose notamment Halo et prépare le développement de services de jeu en ligne.",
+      "sources": [
+        {
+          "url": "https://news.xbox.com/en-us/2021/05/13/celebrating-20-years-of-xbox/",
+          "checked_on": "2026-10-16",
+          "evidence": "Première Xbox disponible en Amérique du Nord le 15 novembre 2001."
+        }
+      ],
+      "level_reason": "Marque de console connue ; lancement initial précisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-104",
+      "id": "EVT-2603",
+      "group": "culture",
+      "title": "Lancement public de Spotify",
+      "start_year": 2008,
+      "start_month": 10,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0062"
+      ],
+      "description": "Le service propose d’écouter de la musique à la demande sur Internet. Son modèle accompagne le passage de la possession de fichiers à l’accès par abonnement ou publicité.",
+      "sources": [
+        {
+          "url": "https://newsroom.spotify.com/spotify-timeline/",
+          "checked_on": "2026-10-16",
+          "evidence": "Chronologie officielle : lancement en octobre 2008."
+        }
+      ],
+      "level_reason": "Service musical familier ; mois seulement documenté ici.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-105",
+      "id": "EVT-2604",
+      "group": "culture",
+      "title": "Netflix ouvre son site de location de DVD aux États-Unis",
+      "start_year": 1998,
+      "start_month": 4,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "Bien avant ses programmes en streaming, Netflix loue des DVD commandés en ligne. Le service utilise la poste pour acheminer les disques chez ses clients.",
+      "sources": [
+        {
+          "url": "https://about.netflix.com/en/news/first-online-dvd-rental-store-opens",
+          "checked_on": "2026-10-16",
+          "evidence": "Communiqué du 14 avril 1998 annonçant l’ouverture ce jour ; fondation en 1997 distincte."
+        }
+      ],
+      "level_reason": "Origine surprenante d’un service très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-106",
+      "id": "EVT-2605",
+      "group": "culture",
+      "title": "Henri IV est assassiné par Ravaillac",
+      "start_year": 1610,
+      "start_month": 5,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0061",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "Le roi est frappé à Paris alors que son carrosse circule en ville. Sa mort ouvre la régence de Marie de Médicis pendant la minorité de Louis XIII.",
+      "sources": [
+        {
+          "url": "https://chateau-pau.fr/salles-psyche-et-saint-jean",
+          "checked_on": "2026-10-16",
+          "evidence": "Le musée date l’assassinat du 14 mai 1610."
+        }
+      ],
+      "level_reason": "Roi et assassinat célèbres.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-107",
+      "id": "EVT-2606",
+      "group": "culture",
+      "title": "Exécution d’Anne Boleyn à la tour de Londres",
+      "start_year": 1536,
+      "start_month": 5,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "La deuxième épouse d’Henri VIII est condamnée à l’issue d’un procès politique. Sa mort illustre les dangers des rivalités à la cour des Tudor.",
+      "sources": [
+        {
+          "url": "https://www.hrp.org.uk/tower-of-london/history-and-stories/anne-boleyn/",
+          "checked_on": "2026-10-16",
+          "evidence": "Décapitation sur Tower Green le 19 mai 1536."
+        }
+      ],
+      "level_reason": "Reine bien connue et épisode emblématique des Tudor.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-108",
+      "id": "EVT-2607",
+      "group": "culture",
+      "title": "Couronnement d’Élisabeth II à Westminster",
+      "start_year": 1953,
+      "start_month": 6,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "La cérémonie est largement suivie à la télévision. Elle intervient plus d’un an après l’accession au trône, deux étapes qu’il faut distinguer.",
+      "sources": [
+        {
+          "url": "https://www.royal.uk/the-queens-accession-and-coronation",
+          "checked_on": "2026-10-16",
+          "evidence": "Couronnement le 2 juin 1953 ; accession le 6 février 1952 non reprise ici."
+        }
+      ],
+      "level_reason": "Cérémonie très connue d’une souveraine familière.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-109",
+      "id": "EVT-2608",
+      "group": "culture",
+      "title": "Mariage de Marie-Antoinette et du futur Louis XVI à Versailles",
+      "start_year": 1770,
+      "start_month": 5,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0061",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "L’union de deux adolescents s’inscrit dans le rapprochement entre la France et l’Autriche. Leur mariage est célébré dans la chapelle royale de Versailles.",
+      "sources": [
+        {
+          "url": "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/marie-antoinette",
+          "checked_on": "2026-10-16",
+          "evidence": "Mariage célébré le 16 mai 1770 ; festivités étalées sur plusieurs journées."
+        }
+      ],
+      "level_reason": "Couple royal très connu, alliance compréhensible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-110",
+      "id": "EVT-2609",
+      "group": "culture",
+      "title": "L’impératrice Élisabeth d’Autriche, dite Sissi, est assassinée",
+      "start_year": 1898,
+      "start_month": 9,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "En voyage à Genève, l’impératrice est mortellement frappée par un anarchiste. Son destin tragique contribue à la mémoire romanesque de Sissi.",
+      "sources": [
+        {
+          "url": "https://www.sisimuseum-hofburg.at/en/about-the-location/sisi-museum/rooms/death",
+          "checked_on": "2026-10-16",
+          "evidence": "Assassinat de l’impératrice le 10 septembre 1898."
+        }
+      ],
+      "level_reason": "Souveraine célèbre par l’histoire et les adaptations.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-111",
+      "id": "EVT-2610",
+      "group": "culture",
+      "title": "Vol de La Joconde au Louvre",
+      "start_year": 1911,
+      "start_month": 8,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Vincenzo Peruggia emporte le tableau de Léonard de Vinci. La disparition déclenche une immense attention médiatique avant la récupération de l’œuvre en Italie.",
+      "sources": [
+        {
+          "url": "https://www.louvre.fr/louvreplus/video-le-vol-de-la-joconde",
+          "checked_on": "2026-10-16",
+          "evidence": "Le Louvre situe le vol au 21 août 1911 ; constat le lendemain distinct."
+        }
+      ],
+      "level_reason": "Tableau mondialement connu et fait spectaculaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-112",
+      "id": "EVT-2611",
+      "group": "culture",
+      "title": "Une vague de mélasse ravage un quartier de Boston",
+      "start_year": 1919,
+      "start_month": 1,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0082"
+      ],
+      "description": "La rupture d’un réservoir industriel libère une masse de sirop dans les rues. Ce désastre meurtrier montre les conséquences d’installations dangereuses au cœur d’un quartier habité.",
+      "sources": [
+        {
+          "url": "https://www.sec.state.ma.us/divisions/state-house-tours/did-you-know/Molasses-Flood.htm",
+          "checked_on": "2026-10-16",
+          "evidence": "Rupture du réservoir le 15 janvier 1919."
+        }
+      ],
+      "level_reason": "Catastrophe insolite mais moins connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-113",
+      "id": "EVT-2612",
+      "group": "culture",
+      "title": "Une inondation de bière frappe Londres",
+      "start_year": 1814,
+      "start_month": 10,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Un réservoir de brasserie cède et le liquide envahit des habitations du quartier de St Giles. Derrière l’étrangeté de l’événement se trouve une catastrophe industrielle meurtrière.",
+      "sources": [
+        {
+          "url": "https://londonhistorians.wordpress.com/2010/10/17/the-london-beer-flood-of-1814/",
+          "checked_on": "2026-10-16",
+          "evidence": "London Historians : accident du 17 octobre 1814."
+        }
+      ],
+      "level_reason": "Histoire locale moins familière ; aucune anecdote légendaire ajoutée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-114",
+      "id": "EVT-2613",
+      "group": "culture",
+      "title": "Une épidémie de danse commence à Strasbourg",
+      "start_year": 1518,
+      "start_month": 7,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0062",
+        "COL-0080"
+      ],
+      "description": "Des habitants dansent de manière incontrôlée pendant plusieurs semaines. Les archives attestent le phénomène, mais ses causes et le bilan des victimes restent discutés.",
+      "sources": [
+        {
+          "url": "https://www.mediatheques.strasbourg.eu/doc/IGUANA_2/991055/1518-la-fievre-de-la-danse",
+          "checked_on": "2026-10-16",
+          "evidence": "Catalogue de l’exposition historique : commencement en juillet 1518."
+        }
+      ],
+      "level_reason": "Épisode surprenant demandant une contextualisation.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-115",
+      "id": "EVT-2614",
+      "group": "culture",
+      "title": "Le Costa Concordia fait naufrage près de l’île du Giglio",
+      "start_year": 2012,
+      "start_month": 1,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0062"
+      ],
+      "description": "Le paquebot heurte des rochers puis s’incline près du rivage italien. Le drame entraîne une vaste opération de secours et une réflexion sur la sécurité des croisières.",
+      "sources": [
+        {
+          "url": "https://www.protezionecivile.gov.it/en/notizia/13-january-2012--the-wreck-of-the-concordia-ship/",
+          "checked_on": "2026-10-16",
+          "evidence": "Collision et naufrage dans la soirée du 13 janvier 2012."
+        }
+      ],
+      "level_reason": "Naufrage récent et très médiatisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-116",
+      "id": "EVT-2615",
+      "group": "culture",
+      "title": "L’Ever Given s’échoue et bloque le canal de Suez",
+      "start_year": 2021,
+      "start_month": 3,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117"
+      ],
+      "description": "Le porte-conteneurs se met en travers de cette voie majeure du commerce mondial. Le blocage révèle la dépendance des échanges à quelques passages maritimes.",
+      "sources": [
+        {
+          "url": "https://www.imo.org/en/MediaCentre/SecretaryGeneral/Pages/MV-Ever-Given-incident.aspx",
+          "checked_on": "2026-10-16",
+          "evidence": "Incident du 23 mars 2021 ; renflouement le 29, distinct."
+        }
+      ],
+      "level_reason": "Images devenues célèbres dans l’actualité mondiale.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-117",
+      "id": "EVT-2616",
+      "group": "culture",
+      "title": "Le pont de Tacoma Narrows s’effondre sous l’effet du vent",
+      "start_year": 1940,
+      "start_month": 11,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "Le tablier oscille violemment avant de se rompre. Les images de l’effondrement feront de ce pont un cas majeur d’étude des effets du vent sur les structures.",
+      "sources": [
+        {
+          "url": "https://wsdot.wa.gov/TNBhistory/bridges-failure.htm",
+          "checked_on": "2026-10-16",
+          "evidence": "Effondrement le 7 novembre 1940. Éviter l’explication simpliste par une simple résonance forcée."
+        }
+      ],
+      "level_reason": "Cas d’ingénierie connu surtout dans un contexte scientifique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-118",
+      "id": "EVT-2617",
+      "group": "culture",
+      "title": "Le Millennium Bridge de Londres se met à osciller à son ouverture",
+      "start_year": 2000,
+      "start_month": 6,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0062",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "La passerelle réagit aux déplacements de la foule par des mouvements latéraux. Elle devra être fermée puis équipée de dispositifs pour limiter ces oscillations.",
+      "sources": [
+        {
+          "url": "https://www.fosterandpartners.com/news/millennium-bridge-reopens",
+          "checked_on": "2026-10-16",
+          "evidence": "Ouverture initiale le 10 juin 2000 ; fermeture ultérieure due aux mouvements excessifs."
+        }
+      ],
+      "level_reason": "Incident d’ingénierie moins familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-119",
+      "id": "EVT-2618",
+      "group": "culture",
+      "title": "Coca-Cola annonce la nouvelle formule New Coke",
+      "start_year": 1985,
+      "start_month": 4,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0115",
+        "COL-0082"
+      ],
+      "description": "La marque remplace sa recette emblématique et déclenche une vive réaction des consommateurs. L’ancienne formule reviendra rapidement sous le nom Coca-Cola Classic.",
+      "sources": [
+        {
+          "url": "https://www.coca-colacompany.com/about-us/history/new-coke-the-most-memorable-marketing-blunder-ever",
+          "checked_on": "2026-10-16",
+          "evidence": "Annonce de la nouvelle formule le 23 avril 1985."
+        }
+      ],
+      "level_reason": "Marque mondiale et erreur commerciale facile à saisir.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-120",
+      "id": "EVT-2619",
+      "group": "culture",
+      "title": "Une fausse alerte au missile est diffusée à Hawaï",
+      "start_year": 2018,
+      "start_month": 1,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117"
+      ],
+      "description": "Un message d’urgence avertit par erreur la population d’une attaque imminente. L’incident révèle les conséquences d’une alerte mal maîtrisée et conduit à revoir les procédures.",
+      "sources": [
+        {
+          "url": "https://dod.hawaii.gov/hiema/hawaii-emergency-management-agency-statement-on-missile-launch-false-alarm-january-13-2018/",
+          "checked_on": "2026-10-16",
+          "evidence": "Communiqué du 13 janvier 2018 : alerte erronée à 8 h 07, heure locale."
+        }
+      ],
+      "level_reason": "Incident important mais contexte local moins connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-121",
+      "id": "EVT-2620",
+      "group": "sport",
+      "title": "Marseille remporte la Ligue des champions face à Milan",
+      "start_year": 1993,
+      "start_month": 5,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Un but de Basile Boli permet à l’OM de gagner la finale. Marseille devient le premier club français sacré dans la plus prestigieuse compétition européenne de clubs.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefachampionsleague/match/50054/",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale du 26 mai 1993, score 1-0."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-122",
+      "id": "EVT-2621",
+      "group": "sport",
+      "title": "Liverpool renverse Milan dans la finale d’Istanbul",
+      "start_year": 2005,
+      "start_month": 5,
+      "start_day": 25,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "Mené de trois buts à la pause, Liverpool revient à égalité avant de s’imposer aux tirs au but. Le scénario donne à cette finale une place particulière dans l’histoire du football.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefachampionsleague/match/80813--liverpool-vs-milan/",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale le 25 mai 2005 : 3-3, puis 3-2 aux tirs au but."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-123",
+      "id": "EVT-2622",
+      "group": "sport",
+      "title": "Manchester United renverse le Bayern en finale dans le temps additionnel",
+      "start_year": 1999,
+      "start_month": 5,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Deux buts tardifs de Sheringham et Solskjær changent l’issue du match. Manchester United complète ainsi une saison couronnée de trois grands trophées.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b1e8213cf-ef53269cc81f-1000--1998-99-solskjaer-answers-united-s-prayers/",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale du 26 mai 1999 : Manchester United 2-1 Bayern."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-124",
+      "id": "EVT-2623",
+      "group": "sport",
+      "title": "Chelsea gagne sa première Ligue des champions",
+      "start_year": 2012,
+      "start_month": 5,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "Chelsea résiste au Bayern dans son stade de Munich. Après l’égalisation de Didier Drogba, le club londonien l’emporte lors de la séance de tirs au but.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefachampionsleague/match/2007693--bayern-vs-chelsea/",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale du 19 mai 2012, 1-1 puis 4-3 aux tirs au but pour Chelsea."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-125",
+      "id": "EVT-2624",
+      "group": "sport",
+      "title": "Barcelone réussit la remontada contre le PSG",
+      "start_year": 2017,
+      "start_month": 3,
+      "start_day": 8,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "Battu lourdement à l’aller, le Barça renverse le huitième de finale avec un succès 6-1 au retour. Le dernier but de Sergi Roberto scelle la qualification.",
+      "sources": [
+        {
+          "url": "https://de.uefa.com/uefachampionsleague/news/0237-0e966c32e138-1a9f76c64f88-1000--barcelona-gelingt-historische-aufholjagd/",
+          "checked_on": "2026-10-16",
+          "evidence": "Retour le 8 mars 2017 : 6-1 après une défaite 0-4 à l’aller."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-126",
+      "id": "EVT-2625",
+      "group": "sport",
+      "title": "Lyon remporte sa première Ligue des champions féminine",
+      "start_year": 2011,
+      "start_month": 5,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Les Lyonnaises battent Turbine Potsdam 2-0 à Londres. Le club français s’installe au premier plan du football européen féminin.",
+      "sources": [
+        {
+          "url": "https://fr.uefa.com/womenschampionsleague/news/01f1-0e12302667e9-2bbdf900fd3d-1000--un-match-parfait-offre-le-sacre-a-l-ol/",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale du 26 mai 2011 : Lyon 2-0 Potsdam, premier titre français."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-127",
+      "id": "EVT-2626",
+      "group": "sport",
+      "title": "Yannick Noah remporte Roland-Garros",
+      "start_year": 1983,
+      "start_month": 6,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Noah bat Mats Wilander en finale devant le public parisien. Son succès devient l’un des grands souvenirs collectifs du tennis français.",
+      "sources": [
+        {
+          "url": "https://www.rolandgarros.com/fr-fr/page/histoire-roland-garros-editions-passees-1983-yannick-noah-chris-evert",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale gagnée le dimanche 5 juin 1983."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-128",
+      "id": "EVT-2627",
+      "group": "sport",
+      "title": "Rafael Nadal gagne son premier Roland-Garros",
+      "start_year": 2005,
+      "start_month": 6,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "À sa première participation, Nadal remporte le titre face à Mariano Puerta. Ce succès inaugure une domination exceptionnelle sur la terre battue parisienne.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/-/media/ca94b3f359f2498d8e9a96804ed22eab.pdf",
+          "checked_on": "2026-10-16",
+          "evidence": "Notes officielles ATP : premier titre de Nadal le 5 juin 2005."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-129",
+      "id": "EVT-2628",
+      "group": "sport",
+      "title": "Roger Federer gagne Roland-Garros et complète son Grand Chelem en carrière",
+      "start_year": 2009,
+      "start_month": 6,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "Le Suisse bat Robin Söderling et décroche le seul tournoi majeur qui manquait à son palmarès. Il a désormais remporté les quatre compétitions du Grand Chelem.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/scores/results-archive?year=2009",
+          "checked_on": "2026-10-16",
+          "evidence": "Archives ATP : Roland-Garros du 25 mai au 7 juin 2009, champion Federer."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-130",
+      "id": "EVT-2629",
+      "group": "sport",
+      "title": "Novak Djokovic remporte son premier Roland-Garros",
+      "start_year": 2016,
+      "start_month": 6,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "Djokovic bat Andy Murray et complète sa collection de titres dans les quatre tournois majeurs. Il détient alors les quatre trophées simultanément.",
+      "sources": [
+        {
+          "url": "https://www.rolandgarros.com/fr-fr/article/djokovic-un-retour-en-5-etapes-roland-garros-wimbledon",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier titre parisien le 5 juin 2016."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-131",
+      "id": "EVT-2630",
+      "group": "sport",
+      "title": "Serena Williams gagne son premier titre du Grand Chelem à l’US Open",
+      "start_year": 1999,
+      "start_month": 9,
+      "start_day": 11,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0082"
+      ],
+      "description": "À dix-sept ans, Serena Williams bat Martina Hingis en finale. Ce premier grand titre ouvre l’une des carrières les plus marquantes du tennis.",
+      "sources": [
+        {
+          "url": "https://www.usopen.org/amp/en_US/news/articles/2020-09-07/serena_williams_a_us_open_retrospective.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Rétrospective officielle et légende du sacre : 11 septembre 1999."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-132",
+      "id": "EVT-2631",
+      "group": "sport",
+      "title": "Naomi Osaka devient la première Japonaise championne en simple du Grand Chelem",
+      "start_year": 2018,
+      "start_month": 9,
+      "start_day": 8,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107"
+      ],
+      "description": "Osaka bat Serena Williams en finale de l’US Open. Son premier grand titre donne au Japon une nouvelle place dans l’histoire du tennis.",
+      "sources": [
+        {
+          "url": "https://www.usopen.org/en_US/news/articles/2018-09-08/2018-09-07_my_first_grand_slam_title_us_open_womens_singles_champions.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Compte rendu du samedi 8 septembre 2018 : 6-2, 6-4."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-133",
+      "id": "EVT-2632",
+      "group": "sport",
+      "title": "Li Na devient la première Chinoise victorieuse en simple du Grand Chelem",
+      "start_year": 2011,
+      "start_month": 6,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "Li Na bat Francesca Schiavone en finale de Roland-Garros. Son succès contribue à élargir l’audience du tennis en Chine et en Asie.",
+      "sources": [
+        {
+          "url": "https://information.tv5monde.com/terriennes/un-jour-na-li-souffle-un-vent-de-liberte-2066",
+          "checked_on": "2026-10-16",
+          "evidence": "Reportage et photographie AFP de la finale du 4 juin 2011."
+        },
+        {
+          "url": "https://www.wtatennis.com/news/1675765/li-na-becomes-asias-first-grand-slam-champion-in-historic-2011-triumph",
+          "checked_on": "2026-10-16",
+          "evidence": "WTA : victoire historique sur Schiavone à Roland-Garros en 2011, 6-4, 7-6."
+        }
+      ],
+      "level_reason": "Repère important du sport, nécessitant une connaissance plus précise.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-134",
+      "id": "EVT-2633",
+      "group": "sport",
+      "title": "Steffi Graf complète le Grand Chelem calendaire à l’US Open",
+      "start_year": 1988,
+      "start_month": 9,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0082"
+      ],
+      "description": "Après l’Australie, Roland-Garros et Wimbledon, Graf gagne aussi à New York. Son titre olympique arrivera ensuite : le Golden Slam n’est pas encore achevé ce jour-là.",
+      "sources": [
+        {
+          "url": "https://www.tennismajors.com/us-open-news/september-10-1988-graf-grabs-calendar-grand-slam-287472.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale contre Sabatini le 10 septembre 1988 ; titre olympique ultérieur."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-135",
+      "id": "EVT-2634",
+      "group": "sport",
+      "title": "Nadia Comăneci obtient le premier 10 parfait olympique en gymnastique",
+      "start_year": 1976,
+      "start_month": 7,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "À Montréal, l’adolescente roumaine reçoit la note maximale aux barres asymétriques. L’afficheur, non prévu pour ce résultat, montre 1.00.",
+      "sources": [
+        {
+          "url": "https://montrealolympique.ca/lobtention-des-jeux/les-performances-qui-ont-marque-montreal-1976/",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier 10 parfait le 18 juillet 1976."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-136",
+      "id": "EVT-2635",
+      "group": "sport",
+      "title": "Bob Beamon porte le record du monde du saut en longueur à 8,90 mètres",
+      "start_year": 1968,
+      "start_month": 10,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0082"
+      ],
+      "description": "Aux Jeux de Mexico, Beamon réalise un saut qui dépasse largement l’ancien record. La performance devient un symbole de ces Jeux disputés en altitude.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/news/news/legendary-american-long-jumper-bob-beamon-don",
+          "checked_on": "2026-10-16",
+          "evidence": "Record olympique et mondial de 8,90 m établi le 18 octobre 1968."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-137",
+      "id": "EVT-2636",
+      "group": "sport",
+      "title": "Jesse Owens décroche sa quatrième médaille d’or aux Jeux de Berlin",
+      "start_year": 1936,
+      "start_month": 8,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le relais américain du 4 × 100 mètres complète les victoires d’Owens en sprint et en longueur. Ses performances marquent des Jeux organisés par le régime nazi.",
+      "sources": [
+        {
+          "url": "https://www.olympedia.org/athletes/78869",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale du relais le 9 août 1936 : quatrième médaille d’or."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-138",
+      "id": "EVT-2637",
+      "group": "sport",
+      "title": "Mark Spitz atteint sept médailles d’or aux Jeux de Munich",
+      "start_year": 1972,
+      "start_month": 9,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0082"
+      ],
+      "description": "La victoire américaine au relais quatre nages achève la série du nageur. Spitz remporte sept finales et participe à sept records du monde au cours de ces Jeux.",
+      "sources": [
+        {
+          "url": "https://www.worldaquatics.com/athletes/1149730/-/medals",
+          "checked_on": "2026-10-16",
+          "evidence": "Sept titres à Munich, dernier relais quatre nages le 4 septembre 1972."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-139",
+      "id": "EVT-2638",
+      "group": "sport",
+      "title": "Michael Phelps gagne sa huitième médaille d’or aux Jeux de Pékin",
+      "start_year": 2008,
+      "start_month": 8,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108"
+      ],
+      "description": "Le relais quatre nages américain donne à Phelps un huitième titre dans la même édition. Il dépasse ainsi les sept médailles d’or de Mark Spitz.",
+      "sources": [
+        {
+          "url": "https://www.worldaquatics.com/athletes/1001621/-/medals",
+          "checked_on": "2026-10-16",
+          "evidence": "Relais 4 × 100 m quatre nages le 17 août 2008 ; huitième or de ces Jeux."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-140",
+      "id": "EVT-2639",
+      "group": "sport",
+      "title": "Usain Bolt remporte le 100 mètres olympique de Pékin en 9,69 secondes",
+      "start_year": 2008,
+      "start_month": 8,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108"
+      ],
+      "description": "Le Jamaïcain s’impose avec un record du monde malgré son relâchement avant la ligne. Le sprint fait de lui une vedette mondiale.",
+      "sources": [
+        {
+          "url": "https://media.aws.iaaf.org/competitioninfo/1f118421-8c5e-4971-a143-799f0c75fabf.pdf",
+          "checked_on": "2026-10-16",
+          "evidence": "Livre statistique officiel : finale à Pékin le 16 août 2008, 9,69 secondes."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-141",
+      "id": "EVT-2640",
+      "group": "sport",
+      "title": "Eddy Merckx bat le record de l’heure à Mexico",
+      "start_year": 1972,
+      "start_month": 10,
+      "start_day": 25,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0082"
+      ],
+      "description": "Le champion belge se mesure seul à la distance parcourue en une heure sur piste. Son effort devient une référence durable de l’histoire du cyclisme.",
+      "sources": [
+        {
+          "url": "https://www.lemonde.fr/archives/article/1972/11/07/le-record-de-l-heure-de-merckx-est-il-exact_2398041_1819218.html",
+          "checked_on": "2026-10-16",
+          "evidence": "Article contemporain : record détenu depuis le 25 octobre 1972 ; distance controversée non donnée ici."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-142",
+      "id": "EVT-2641",
+      "group": "sport",
+      "title": "Bradley Wiggins porte le record de l’heure à 54,526 kilomètres",
+      "start_year": 2015,
+      "start_month": 6,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0062"
+      ],
+      "description": "À Londres, Wiggins réalise une tentative sur piste devant le public. L’exercice prolonge une tradition cycliste, dans le cadre des règles techniques alors en vigueur.",
+      "sources": [
+        {
+          "url": "https://www.uci.org/pressrelease/three-riders-to-make-uci-hour-record-timed-by-tissot-attempts-this-summer/3cBMIw0vTrGuZk4HZTfWzN",
+          "checked_on": "2026-10-16",
+          "evidence": "UCI : 54,526 km le 7 juin 2015 à Londres."
+        }
+      ],
+      "level_reason": "Repère important du sport, nécessitant une connaissance plus précise.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-143",
+      "id": "EVT-2642",
+      "group": "sport",
+      "title": "Première course Paris-Roubaix",
+      "start_year": 1896,
+      "start_month": 4,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0112",
+        "COL-0081"
+      ],
+      "description": "Des cyclistes partent de Paris vers le vélodrome de Roubaix. La course deviendra célèbre pour la difficulté de ses secteurs pavés.",
+      "sources": [
+        {
+          "url": "https://tourisme.pevelecarembault.fr/patrimoine/paris-roubaix/lenfer-du-nord-cest-quoi",
+          "checked_on": "2026-10-16",
+          "evidence": "Première édition le dimanche 19 avril 1896, non le dimanche de Pâques."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-144",
+      "id": "EVT-2643",
+      "group": "sport",
+      "title": "Départ du premier Giro d’Italia",
+      "start_year": 1909,
+      "start_month": 5,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Les coureurs s’élancent de Milan pour une course par étapes autour de l’Italie. Le Giro s’impose ensuite parmi les trois grands tours du cyclisme.",
+      "sources": [
+        {
+          "url": "https://archivio.giroditalia.it/eng/editions/1909-1922/",
+          "checked_on": "2026-10-16",
+          "evidence": "Départ de Milan le 13 mai 1909 ; arrivée finale distincte."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-145",
+      "id": "EVT-2644",
+      "group": "sport",
+      "title": "Départ de la première Vuelta a España",
+      "start_year": 1935,
+      "start_month": 4,
+      "start_day": 29,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "La première étape relie Madrid à Valladolid. Le tour d’Espagne complète le paysage des grandes courses cyclistes à étapes européennes.",
+      "sources": [
+        {
+          "url": "https://www.lavuelta.es/en/news/2025/90-years-of-la-vuelta-an-opportunity-to-look-to-the-future/46231",
+          "checked_on": "2026-10-16",
+          "evidence": "Première étape partie le 29 avril 1935."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-146",
+      "id": "EVT-2645",
+      "group": "sport",
+      "title": "Jeannie Longo devient championne olympique de la course sur route",
+      "start_year": 1996,
+      "start_month": 7,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0108",
+        "COL-0061",
+        "COL-0082"
+      ],
+      "description": "À Atlanta, Longo remporte la course en ligne féminine. L’or olympique vient compléter un palmarès déjà riche en titres mondiaux.",
+      "sources": [
+        {
+          "url": "https://www.olympedia.org/results/154918",
+          "checked_on": "2026-10-16",
+          "evidence": "Course sur route féminine le 21 juillet 1996 : Longo première."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-147",
+      "id": "EVT-2646",
+      "group": "sport",
+      "title": "Chenard et Walcker gagne les premières 24 Heures du Mans",
+      "start_year": 1923,
+      "start_month": 5,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "André Lagache et René Léonard remportent la nouvelle épreuve d’endurance. La course met à l’épreuve la fiabilité des automobiles pendant une journée et une nuit.",
+      "sources": [
+        {
+          "url": "https://www.24h-lemans.com/fr/actualites/lhistoire-du-jour-michelin-s-impose-aux-24-heures-du-mans-1923-avec-chenard-walcker-45105",
+          "checked_on": "2026-10-16",
+          "evidence": "Victoire le 27 mai 1923, après le départ le 26."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-148",
+      "id": "EVT-2647",
+      "group": "sport",
+      "title": "Ford signe sa première victoire et un triplé aux 24 Heures du Mans",
+      "start_year": 1966,
+      "start_month": 6,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Les Ford GT40 terminent aux trois premières places. Le succès met fin à une série de victoires de Ferrari et nourrit une célèbre rivalité sportive.",
+      "sources": [
+        {
+          "url": "https://www.24h-lemans.com/fr/actualites/le-mans-66-ce-qui-s-est-reellement-passe-lors-de-la-34e-edition-des-24-heures-du-mans-55724",
+          "checked_on": "2026-10-16",
+          "evidence": "Arrivée et première victoire Ford le 19 juin 1966."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-149",
+      "id": "EVT-2648",
+      "group": "sport",
+      "title": "Mazda devient le premier constructeur japonais vainqueur au Mans",
+      "start_year": 1991,
+      "start_month": 6,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "La Mazda 787B à moteur rotatif remporte les 24 Heures. La victoire donne à un constructeur japonais une place nouvelle dans l’histoire de l’endurance.",
+      "sources": [
+        {
+          "url": "https://www.mazda.com/en/experience/mspr/motorsports/lemans/episode/",
+          "checked_on": "2026-10-16",
+          "evidence": "Arrivée victorieuse de la 787B le 23 juin 1991."
+        }
+      ],
+      "level_reason": "Repère important du sport, nécessitant une connaissance plus précise.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-150",
+      "id": "EVT-2649",
+      "group": "sport",
+      "title": "Jabouille offre à Renault la première victoire d’une F1 à moteur turbo",
+      "start_year": 1979,
+      "start_month": 7,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "À Dijon-Prenois, Jean-Pierre Jabouille gagne le Grand Prix de France. Le résultat valide le pari du moteur turbocompressé engagé par Renault.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/results/1979/races/414/france/race-result",
+          "checked_on": "2026-10-16",
+          "evidence": "Classement officiel : 1er juillet 1979, Jabouille premier sur Renault."
+        }
+      ],
+      "level_reason": "Repère important du sport, nécessitant une connaissance plus précise.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-151",
+      "id": "EVT-2650",
+      "group": "sport",
+      "title": "Ayrton Senna remporte son premier Grand Prix de Formule 1",
+      "start_year": 1985,
+      "start_month": 4,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Sous une pluie intense à Estoril, Senna domine au volant de sa Lotus. Cette première victoire révèle son talent particulier dans les conditions difficiles.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/latest/article/he-obliterated-the-opposition-remembering-sennas-first-f1-win.6Wvqp8fZhQNwGQElkQJsVs.6Wvqp8fZhQNwGQElkQJsVs",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier succès au Grand Prix du Portugal le 21 avril 1985."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-152",
+      "id": "EVT-2651",
+      "group": "sport",
+      "title": "Lella Lombardi inscrit des points au championnat du monde de Formule 1",
+      "start_year": 1975,
+      "start_month": 4,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 3,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Sixième du Grand Prix d’Espagne interrompu, Lombardi reçoit un demi-point. Elle devient la première femme à inscrire des points au championnat du monde des pilotes.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/results/1975/drivers/LELLOM01/lella-lombardi",
+          "checked_on": "2026-10-16",
+          "evidence": "Espagne le 27 avril 1975 : sixième, 0,5 point ; résultat et portée confirmés par sa biographie officielle."
+        },
+        {
+          "url": "https://lellalombardi.it/",
+          "checked_on": "2026-10-16",
+          "evidence": "Biographie : première femme à marquer des points, le 27 avril 1975 au Montjuïc."
+        }
+      ],
+      "level_reason": "Repère spécialisé de l’histoire sportive.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-153",
+      "id": "EVT-2652",
+      "group": "sport",
+      "title": "Usain Bolt porte le record du monde du 100 mètres à 9,58 secondes",
+      "start_year": 2009,
+      "start_month": 8,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0062"
+      ],
+      "description": "En finale des Mondiaux de Berlin, Bolt améliore son propre record. Le chrono devient un des repères les plus célèbres de l’athlétisme.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/news/news/bolt-again-958-world-record-in-berlin-updat",
+          "checked_on": "2026-10-16",
+          "evidence": "Compte rendu du 16 août 2009 : 9,58 secondes à Berlin."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-154",
+      "id": "EVT-2653",
+      "group": "sport",
+      "title": "Michael Jordan et Chicago remportent leur premier titre NBA",
+      "start_year": 1991,
+      "start_month": 6,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "Les Bulls battent les Lakers et gagnent la finale en cinq matchs. Jordan remporte son premier championnat.",
+      "sources": [
+        {
+          "url": "https://www.nba.com/news/history-this-date-in-nba-june",
+          "checked_on": "2026-10-16",
+          "evidence": "12 juin 1991 : titre de Chicago."
+        },
+        {
+          "url": "https://www.nba.com/watch/list/collection/nba-id-1991-nba-finals-lakers-vs-bulls",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale 1991, match 5 : premier titre des Bulls."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-155",
+      "id": "EVT-2654",
+      "group": "sport",
+      "title": "Muhammad Ali bat George Foreman à Kinshasa",
+      "start_year": 1974,
+      "start_month": 10,
+      "start_day": 30,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "Ali récupère le titre mondial des poids lourds lors du Rumble in the Jungle. Le combat disputé au Zaïre devient un événement sportif et culturel mondial.",
+      "sources": [
+        {
+          "url": "https://alicenter.org/roadwork-to-the-rumble/",
+          "checked_on": "2026-10-16",
+          "evidence": "Combat le 30 octobre 1974 à 4 h locales, après report."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-156",
+      "id": "EVT-2655",
+      "group": "sport",
+      "title": "Les handballeurs français remportent leur premier titre olympique",
+      "start_year": 2008,
+      "start_month": 8,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0108",
+        "COL-0061"
+      ],
+      "description": "La France bat l’Islande en finale à Pékin. L’équipe complète ses succès mondiaux et européens par une première médaille d’or olympique.",
+      "sources": [
+        {
+          "url": "https://archive.ihf.info/en-us/mediacentre/news/newsdetails.aspx?ID=257",
+          "checked_on": "2026-10-16",
+          "evidence": "Compte rendu IHF du 24 août 2008 : France 28-23 Islande, premier or."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-157",
+      "id": "EVT-2656",
+      "group": "sport",
+      "title": "Les volleyeurs français deviennent champions olympiques à Tokyo",
+      "start_year": 2021,
+      "start_month": 8,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0108",
+        "COL-0061"
+      ],
+      "description": "La France bat l’équipe du Comité olympique russe au terme d’une finale en cinq sets. Le titre est remporté lors des Jeux de Tokyo 2020, reportés d’un an.",
+      "sources": [
+        {
+          "url": "https://www.cev.eu/articles/features/france-crowned-the-olympic-champions-at-tokyo-2020/",
+          "checked_on": "2026-10-16",
+          "evidence": "Finale et premier titre français le 7 août 2021."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-158",
+      "id": "EVT-2657",
+      "group": "sport",
+      "title": "Départ du premier Vendée Globe",
+      "start_year": 1989,
+      "start_month": 11,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0061",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Treize marins s’élancent des Sables-d’Olonne pour un tour du monde en solitaire, sans escale et sans assistance. L’épreuve devient un grand rendez-vous de la course au large.",
+      "sources": [
+        {
+          "url": "https://www.vendeeglobe.org/la-legende/titouan-lamazou-inaugure-lidee-folle",
+          "checked_on": "2026-10-16",
+          "evidence": "Premier départ le 26 novembre 1989."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-159",
+      "id": "EVT-2658",
+      "group": "sport",
+      "title": "Départ de la première Route du Rhum",
+      "start_year": 1978,
+      "start_month": 11,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0061",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Des navigateurs solitaires quittent Saint-Malo pour la Guadeloupe. La traversée de l’Atlantique associe innovations nautiques et aventure sportive.",
+      "sources": [
+        {
+          "url": "https://www.ina.fr/ina-eclaire-actu/route-du-rhum-1978-course-voile",
+          "checked_on": "2026-10-16",
+          "evidence": "Départ de 38 concurrents le 5 novembre 1978."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M-160",
+      "id": "EVT-2659",
+      "group": "sport",
+      "title": "Kipchoge court la distance du marathon en moins de deux heures à Vienne",
+      "start_year": 2019,
+      "start_month": 10,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0062",
+        "COL-0112"
+      ],
+      "description": "Le Kényan franchit une barrière symbolique dans une tentative spécialement organisée. Le temps n’est pas homologué comme record du monde, les conditions différant d’une compétition ordinaire.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/news/report/eliud-kipchoge-breaks-two-hours-vienna",
+          "checked_on": "2026-10-16",
+          "evidence": "Tentative du 12 octobre 2019 ; la fédération précise l’absence d’homologation comme record."
+        }
+      ],
+      "level_reason": "Exploit ou champion connu ; événement marquant et facilement identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    }
+  ],
+  "packs": [
+    {
+      "id": "COL-0061",
+      "slug": "france",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0062",
+      "slug": "europe",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0067",
+      "slug": "epoque-napoleonienne",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0069",
+      "slug": "guerres-batailles",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0070",
+      "slug": "espace",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0071",
+      "slug": "sciences",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0072",
+      "slug": "religions",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0073",
+      "slug": "droits-libertes",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0074",
+      "slug": "construction-europeenne",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0075",
+      "slug": "decolonisation",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0076",
+      "slug": "environnement",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0078",
+      "slug": "antiquite",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0079",
+      "slug": "moyen-age",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0080",
+      "slug": "epoque-moderne",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0081",
+      "slug": "xixe-siecle",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0082",
+      "slug": "xxe-siecle",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0105",
+      "slug": "sport",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0106",
+      "slug": "sport-football",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0107",
+      "slug": "sport-tennis",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0108",
+      "slug": "sport-jeux-olympiques",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0109",
+      "slug": "sport-cyclisme",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0110",
+      "slug": "sport-mecanique",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0111",
+      "slug": "sport-autres-exploits",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0112",
+      "slug": "fun-grandes-premieres",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0113",
+      "slug": "fun-inventions-improbables",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0114",
+      "slug": "fun-films-cultes",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0115",
+      "slug": "fun-pop-culture",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0116",
+      "slug": "fun-rois-scandales-trahisons",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0117",
+      "slug": "fun-histoire-derape",
+      "parent_id": null,
+      "active": true
+    }
+  ],
+  "associations": [
+    {
+      "event_id": "EVT-0018",
+      "pack_id": "COL-0074",
+      "reason": "La déclaration Schuman lance une construction européenne déjà évoquée dans le canon.",
+      "snapshot": {
+        "id": "EVT-0018",
+        "packs": [
+          "COL-0061",
+          "COL-0082"
+        ],
+        "title": "Déclaration Schuman",
+        "niveau": 1,
+        "topics": [
+          "Construction européenne",
+          "Décolonisation",
+          "Diplomatie",
+          "Géopolitique",
+          "Guerres et conflits",
+          "Organisations internationales"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 9,
+        "start_year": 1950,
+        "date_status": "EXACT",
+        "description": "Robert Schuman propose de gérer ensemble le charbon et l'acier de plusieurs pays européens. Cette coopération doit rendre une nouvelle guerre plus difficile et préparer une Europe unie.",
+        "start_month": 5,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://op.europa.eu/webpub/com/short-guide-eu/en/about-eu.html",
+          "evidence": "Déclaration du 9 mai 1950.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-0949",
+      "pack_id": "COL-0074",
+      "reason": "Organisation européenne fondée après la guerre ; conserver son niveau Expert existant.",
+      "snapshot": {
+        "id": "EVT-0949",
+        "packs": [
+          "COL-0062",
+          "COL-0073",
+          "COL-0082"
+        ],
+        "title": "Fondation du Conseil de l’Europe",
+        "niveau": 3,
+        "topics": [
+          "Droits et libertés",
+          "Organisations internationales"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 5,
+        "start_year": 1949,
+        "date_status": "EXACT",
+        "description": "Fondation du Conseil de l’Europe. Repère daté de 5 mai 1949, lié à Organisations internationales et Droits et libertés, avec un ancrage principal en Europe et Royaume-Uni / Angleterre.",
+        "start_month": 5,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://pace.coe.int/fr/pages/brief-origins",
+          "evidence": "Statut du Conseil de l’Europe signé le 5 mai 1949.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-0545",
+      "pack_id": "COL-0117",
+      "reason": "Catastrophe industrielle majeure ; événement existant réutilisé sans réécriture.",
+      "snapshot": {
+        "id": "EVT-0545",
+        "packs": [
+          "COL-0059",
+          "COL-0060",
+          "COL-0062",
+          "COL-0065",
+          "COL-0082"
+        ],
+        "title": "Catastrophe nucléaire de Tchernobyl",
+        "niveau": 1,
+        "topics": [
+          "Décolonisation",
+          "Géopolitique",
+          "Organisations internationales"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 26,
+        "start_year": 1986,
+        "date_status": "EXACT",
+        "description": "Catastrophe nucléaire de Tchernobyl — repère complémentaire du chapitre « Thème 2 — Le monde depuis 1945 », daté 26 avril 1986.",
+        "start_month": 4,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://www.energy.gov/management/april-26-1986-chernobyl",
+          "evidence": "Accident nucléaire du 26 avril 1986.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-0545",
+      "pack_id": "COL-0076",
+      "reason": "Conséquences environnementales d’un accident nucléaire majeur.",
+      "snapshot": {
+        "id": "EVT-0545",
+        "packs": [
+          "COL-0059",
+          "COL-0060",
+          "COL-0062",
+          "COL-0065",
+          "COL-0082"
+        ],
+        "title": "Catastrophe nucléaire de Tchernobyl",
+        "niveau": 1,
+        "topics": [
+          "Décolonisation",
+          "Géopolitique",
+          "Organisations internationales"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 26,
+        "start_year": 1986,
+        "date_status": "EXACT",
+        "description": "Catastrophe nucléaire de Tchernobyl — repère complémentaire du chapitre « Thème 2 — Le monde depuis 1945 », daté 26 avril 1986.",
+        "start_month": 4,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://www.energy.gov/management/april-26-1986-chernobyl",
+          "evidence": "Accident nucléaire du 26 avril 1986.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-0787",
+      "pack_id": "COL-0117",
+      "reason": "Naufrage connu ; ne pas créer une deuxième question sur le Titanic.",
+      "snapshot": {
+        "id": "EVT-0787",
+        "packs": [
+          "COL-0059",
+          "COL-0060",
+          "COL-0082"
+        ],
+        "title": "Naufrage du Titanic",
+        "niveau": 1,
+        "topics": [
+          "Histoire sociale",
+          "Transports"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 15,
+        "start_year": 1912,
+        "date_status": "EXACT",
+        "description": "Naufrage du Titanic. Repère daté de 15 avril 1912, lié à Histoire sociale et Transports, avec un ancrage principal en Monde atlantique et Monde / global.",
+        "start_month": 4,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://www.noaa.gov/office-of-general-counsel/gc-international-section/rms-titanic-history-and-significance",
+          "evidence": "Naufrage le 15 avril 1912, après la collision du 14.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1038",
+      "pack_id": "COL-0117",
+      "reason": "Catastrophe du dirigeable réutilisée avec sa date et son niveau actuels.",
+      "snapshot": {
+        "id": "EVT-1038",
+        "packs": [
+          "COL-0082"
+        ],
+        "title": "Catastrophe du dirigeable Hindenburg",
+        "niveau": 2,
+        "topics": [
+          "Techniques et technologies",
+          "Transports"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 6,
+        "start_year": 1937,
+        "date_status": "EXACT",
+        "description": "Catastrophe du dirigeable Hindenburg. Repère daté de 6 mai 1937, lié à Techniques et technologies et Transports, avec un ancrage principal en Amérique du Nord et États-Unis.",
+        "start_month": 5,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://www.archives.gov/exhibits/eyewitness/assets/html/5.intro.html",
+          "evidence": "Incendie du Hindenburg à Lakehurst le 6 mai 1937.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-0998",
+      "pack_id": "COL-0117",
+      "reason": "Accident nucléaire consécutif au séisme et tsunami ; événement déjà existant.",
+      "snapshot": {
+        "id": "EVT-0998",
+        "packs": [
+          "COL-0071",
+          "COL-0076"
+        ],
+        "title": "Séisme et accident nucléaire de Fukushima",
+        "niveau": 2,
+        "topics": [
+          "Environnement",
+          "Sciences"
+        ],
+        "end_day": null,
+        "end_year": null,
+        "playable": true,
+        "end_month": null,
+        "precision": "DAY",
+        "start_day": 11,
+        "start_year": 2011,
+        "date_status": "EXACT",
+        "description": "Séisme et accident nucléaire de Fukushima. Repère daté de 11 mars 2011, lié à Environnement et Sciences, avec un ancrage principal en Asie et Japon.",
+        "start_month": 3,
+        "playable_mode": "DAY",
+        "titre_question": null
+      },
+      "verified_sources": [
+        {
+          "url": "https://gnssn.iaea.org/FukushimaLessonsLearned/SitePages/default.aspx",
+          "evidence": "Accident consécutif au séisme et au tsunami du 11 mars 2011.",
+          "checked_on": "2026-10-16"
+        }
+      ]
+    }
+  ],
+  "relecture": {
+    "groupes": {
+      "histoire": 40,
+      "sciences": 40,
+      "culture": 40,
+      "sport": 40
+    },
+    "proximites_retenues": [
+      {
+        "ids": [
+          "EVT-2520",
+          "EVT-1022"
+        ],
+        "motif": "Hubble (1990) et James-Webb (2021) sont deux missions distinctes."
+      },
+      {
+        "ids": [
+          "EVT-2651",
+          "EVT-1502"
+        ],
+        "motif": "Premiers points de Lella Lombardi au GP d’Espagne ; l’autre ligne désigne la saison de F1 1975. Exploit individuel distinct, sans renommer la saison."
+      }
+    ],
+    "ecartes": [
+      "Pompéi : événement déjà présent, date de jour discutée hors périmètre.",
+      "Conseil de l’Europe : réemploi, sans création ni reclassement."
+    ],
+    "precisions_prudentes": [
+      "Drapeau européen : décembre 1955, divergence officielle entre les 8 et 9.",
+      "Erasmus : juin 1987, divergence officielle entre les 13 et 15."
+    ]
+  }
+}

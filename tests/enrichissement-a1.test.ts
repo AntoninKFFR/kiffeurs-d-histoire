@@ -21,7 +21,7 @@ it('conserve les précisions sourcées, territoires et niveaux individuels des 4
  expect(lot.events.find(e=>e.proposal_id==='A1-006')).toMatchObject({precision:'MONTH',start_month:12,start_day:null});
 });
 it('réserve tous les identifiants avant un import, même si le reste du dataset est inédit',()=>{
- expect(()=>verifierReservationsEnrichissement([{event_id:'EVT-0001'},{event_id:'EVT-2500'}])).not.toThrow();
+ expect(()=>verifierReservationsEnrichissement([{event_id:'EVT-0001'},{event_id:'EVT-2400'}])).not.toThrow();
  for(const e of lot.events)expect(()=>verifierReservationsEnrichissement([{event_id:e.id}])).toThrow(/réservés au lot V1.2 A1/);
 });
 it('génère uniquement de nouveaux événements, réponses privées et liens, sans DDL ni UPDATE',()=>{

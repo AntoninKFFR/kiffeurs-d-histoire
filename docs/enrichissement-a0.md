@@ -28,7 +28,7 @@ Les nouveaux rattachements ouvriraient cinq questions Débutant Napoléon dans l
 - Inscription dans `histoire.migrations_appliquees` ; rejouer une version inscrite ne fait rien, même après correction ou retrait ultérieur.
 - Pile vide : différer sans s’inscrire, puis réappliquer après import. Corpus partiel ou pack inactif : échec intégral.
 
-Les noms et sources restent privés au même titre qu’avant ; aucune nouvelle capacité API. Le manifeste est un document de relecture, importé uniquement par les scripts/tests, jamais par le code client.
+Les réponses, alias et marqueurs restent privés au même titre qu’avant ; aucune nouvelle capacité API. Le manifeste est un document de relecture, importé uniquement par les scripts/tests, jamais par le code client.
 
 ## Vérification
 
@@ -54,6 +54,8 @@ node scripts/verifier-admin-sql-local.mjs --a0-seul
 ```
 
 Le pilote sans `--a0-seul` exécute aussi toutes les suites historiques et fun. Le job PostgreSQL natif découvre explicitement le scénario A0 à la suite de fun. La préparation E2E rejoue A0 après le vrai import et les contenus Sport/fun, afin de ne pas déclarer la migration installée sur une pile vide.
+
+Le premier passage CI (`e33c9c3`, run 38818387114) a réussi PostgreSQL natif, les imports et les 184 E2E, dont les six parcours A0 PC/mobile. Le job `verifier` a révélé le gel historique de tout le dossier Supabase par #92 : ses quatre nouveaux fichiers A0 sont désormais nommés individuellement parmi les exceptions, comme #91 et #120. Aucun dossier n’est exclu ; les moteurs et le corpus pédagogique restent contrôlés. Le passage local du contrôle de gel, lint, typecheck et build a réussi après cette correction. Les résultats du dernier commit restent à vérifier avant toute publication.
 
 ## Publication après validation seulement
 

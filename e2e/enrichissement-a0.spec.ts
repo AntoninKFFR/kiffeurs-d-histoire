@@ -2,6 +2,7 @@ import {expect,test} from '@playwright/test';
 import {execFileSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
 import lot from '../content/enrichissement-v12/a0.json';
+import massif from '../content/enrichissement-v12/massif.json';
 import {estUrlLocale} from '../scripts/import-cartes';
 import {executerSql,lireSql,statutLocal} from './local';
 import {attendreQuestion,idPartie,lireBilan,repondreAuClavier,repondreInverse,validerEtContinuer} from './outils';
@@ -19,7 +20,10 @@ for(const inverse of [false,true]){
   expect(await attendreQuestion(page,1)).toBe(5);
   const game=idPartie(page);
   const questions=lireSql<{event_id:string;niveau:number}[]>(`select q.event_id,e.niveau from histoire.game_questions q join histoire.events e on e.id=q.event_id where game_id='${game}'`);
-  const ajouts=new Set(lot.associations.filter(a=>a.pack_id==='COL-0067').map(a=>a.event_id));
+  // La présence d’A0 dans cinq tirages n’est plus certaine après l’enrichissement.
+  // Vérifier le périmètre éditorial complet ; les dix liens A0 sont testés ci-dessous.
+  const ajouts=new Set([...lot.associations.filter(a=>a.pack_id==='COL-0067').map(a=>a.event_id),
+   ...massif.events.filter(e=>e.packs.includes('COL-0067')).map(e=>e.id)]);
   expect(questions).toHaveLength(5);expect(questions.every(q=>q.niveau===1)).toBe(true);
   expect(questions.some(q=>ajouts.has(q.event_id))).toBe(true);
   for(let n=1;n<=5;n++){

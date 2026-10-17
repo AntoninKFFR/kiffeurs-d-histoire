@@ -10,11 +10,11 @@ for (const inverse of [false,true]) {
     await expect(niveaux.getByRole("button",{name:/^Toutes les questions/})).toHaveAttribute("aria-pressed","true");
     await page.getByRole("button",{name:"Pack",exact:true}).click();
     await page.getByRole("button",{name:/^Jouer tout Sport/}).click();
-    await expect(page.getByText(inverse?"29 questions réellement jouables.":"397 questions réellement jouables.",{exact:true})).toBeVisible();
+    await expect(page.getByText(inverse?"69 questions réellement jouables.":"437 questions réellement jouables.",{exact:true})).toBeVisible();
     await niveaux.getByRole("button",{name:/^Expert/}).click();
     await expect(niveaux.getByRole("button",{name:/^Toutes les questions/})).toHaveAttribute("aria-pressed","false");
     const comptes=lireSql<{ n:number }[]>(`select (histoire.available_questions(p_expert_only=>true,p_niveau=>3,p_pack_id=>'COL-0105',p_direction=>'${inverse?"inverse":"date"}')->>'${inverse?"DAY":"YEAR"}')::int n`)[0].n;
-    if(!inverse) expect(comptes).toBe(369);
+    if(!inverse) expect(comptes).toBe(370);
     await expect(page.getByText(`${comptes} questions réellement jouables.`,{exact:true})).toBeVisible();
     for(const longueur of [10,20]) {
       const bouton=page.getByRole("button",{name:new RegExp(`^${longueur} questions`)});

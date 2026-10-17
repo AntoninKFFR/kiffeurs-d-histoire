@@ -4,6 +4,7 @@ import {readFileSync,writeFileSync,cpSync,mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve,sep} from 'node:path';
 import lot from '../content/enrichissement-v12/a1.json';
+import massif from '../content/enrichissement-v12/massif.json';
 import {estUrlLocale} from '../scripts/import-cartes';
 import {executerSql,lireSql,statutLocal} from './local';
 import {attendreQuestion,idPartie,lireBilan,repondreAuClavier,repondreInverse,validerEtContinuer} from './outils';
@@ -29,7 +30,7 @@ for(const inverse of [false,true])for(const pack of [
   await expect(page.getByRole('button',{name:'Jouer',exact:true})).toBeEnabled();
   await page.getByRole('button',{name:'Jouer',exact:true}).click();
   expect(await attendreQuestion(page,1)).toBe(n);
-  const jeu=idPartie(page),nouveaux=new Set(lot.events.map(e=>e.id));
+  const jeu=idPartie(page),nouveaux=new Set([...lot.events,...massif.events].map(e=>e.id));
   if(inverse)expect(new URLSearchParams(new URL(page.url()).searchParams.get('c')!).get('difficulte')).toBe('DAY');
   const questions=lireSql<{event_id:string;niveau:number;expected_year:number;answer:string}[]>(`select q.event_id,e.niveau,q.expected_year,
     coalesce((select a.alias from histoire.event_aliases a where a.event_id=q.event_id order by length(a.alias),a.alias limit 1),e.title) answer
@@ -48,10 +49,10 @@ for(const inverse of [false,true])for(const pack of [
   expect(choix.get('pack')).toBe(pack.id);expect(choix.get('niveau')).toBe('1');
  });
 }
-test('A1 : vrai réimport et refus des collisions avant toute écriture',()=>{
+test('V1.2 : vrai réimport préservant A1 et Massif, refus des collisions avant toute écriture',()=>{
  const statut=statutLocal();if(!estUrlLocale(statut.API_URL))throw new Error('A1 exclusivement local');
  const env={...process.env,SUPABASE_URL:statut.API_URL,SUPABASE_SERVICE_ROLE_KEY:statut.SERVICE_ROLE_KEY};
- const ids=lot.events.map(e=>"'"+e.id+"'").join(',');
+ const ids=[...lot.events,...massif.events].map(e=>"'"+e.id+"'").join(',');
  const nouvelles=()=>lireSql(`select e.id,to_jsonb(e) evenement,to_jsonb(a) reponse,
    (select jsonb_agg(x order by alias) from histoire.event_aliases x where x.event_id=e.id) alias,
    (select jsonb_agg(x order by pack_id) from histoire.pack_events x where x.event_id=e.id) liens,
@@ -64,9 +65,10 @@ test('A1 : vrai réimport et refus des collisions avant toute écriture',()=>{
  executerSql(`update histoire.events set title='Titre de fixture corrigé avant réimport A1',niveau=2 where id='EVT-2300';
    insert into histoire.pack_event_status values('COL-0114','EVT-2300',true) on conflict(pack_id,event_id) do update set removed=true;`);
  try{
-  const avant=nouvelles();expect(avant).toHaveLength(42);
+  const avant=nouvelles();expect(avant).toHaveLength(202);
   execFileSync(process.execPath,['node_modules/tsx/dist/cli.mjs','scripts/import-dataset.ts','--dossier','content/dataset-v18'],{env,stdio:['ignore','ignore','inherit']});
   executerSql(readFileSync(migration,'utf8'));
+  executerSql(readFileSync('supabase/migrations/20261016124921_enrichissement_v12_massif.sql','utf8'));
   expect(nouvelles()).toEqual(avant);
   expect(lireSql<{removed:boolean}[]>(`select removed from histoire.pack_event_status where pack_id='COL-0114' and event_id='EVT-2300'`)).toEqual([{removed:true}]);
   const tables=lireSql<{tablename:string}[]>(`select tablename from pg_tables where schemaname='histoire' order by tablename`);
@@ -77,10 +79,13 @@ test('A1 : vrai réimport et refus des collisions avant toute écriture',()=>{
   try{
    cpSync('content/dataset-v18',dossier,{recursive:true});
    const fichier=join(dossier,'kiffeurs-events-v18.csv');
-   writeFileSync(fichier,readFileSync(fichier,'utf8').replace(/\bEVT-\d+\b/,'EVT-2300'));
-   const refus=spawnSync(process.execPath,['node_modules/tsx/dist/cli.mjs','scripts/import-dataset.ts','--dossier',dossier],{env,encoding:'utf8'});
-   expect(refus.status).not.toBe(0);expect(refus.stderr).toContain('Identifiants réservés au lot V1.2 A1');
-   expect(empreintes()).toEqual(integrite);
+   const originalCsv=readFileSync(fichier,'utf8');
+   for(const [id,nom] of [['EVT-2300','A1'],['EVT-2500','Massif']]){
+    writeFileSync(fichier,originalCsv.replace(/\bEVT-\d+\b/,id));
+    const refus=spawnSync(process.execPath,['node_modules/tsx/dist/cli.mjs','scripts/import-dataset.ts','--dossier',dossier],{env,encoding:'utf8'});
+    expect(refus.status).not.toBe(0);expect(refus.stderr).toContain('Identifiants réservés au lot V1.2 '+nom);
+    expect(empreintes()).toEqual(integrite);
+   }
   }finally{
    const parent=resolve(tmpdir())+sep,cible=resolve(dossier);
    if(!cible.startsWith(parent)||!cible.slice(parent.length).startsWith('kffr-a1-import-'))throw new Error('Nettoyage hors fixture refusé');

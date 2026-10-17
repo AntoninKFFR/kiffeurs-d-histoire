@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import sport from "../content/sport/packs-proposes.json";
 import massif from '../content/enrichissement-v12/massif.json';
+import massif2 from '../content/enrichissement-v12/massif2.json';
 import { executerSql, lireSql, statutLocal } from "./local";
 import { estUrlLocale } from "../scripts/import-cartes";
 import { attendreQuestion, idPartie, lireBilan, repondreAuClavier, repondreInverse, validerEtContinuer } from "./outils";
@@ -26,12 +27,12 @@ for (const inverse of [false,true]) {
     await page.getByRole("button", { name: "Voir les sous-thèmes de Sport" }).click();
     for (const p of sport.packs.slice(1)) {
       const bouton = page.getByRole("button", { name: p.title, exact: false });
-      const ajouts=massif.events.filter(e=>e.packs.includes(p.id)&&e.precision==='DAY').length;
+      const ajouts=[...massif.events,...massif2.events].filter(e=>e.packs.includes(p.id)&&e.precision==='DAY').length;
       if (inverse && p.comptes.inverse[2]+ajouts<5) await expect(bouton).toBeDisabled();
       else await expect(bouton).toBeEnabled();
     }
     await page.getByRole("button", { name: /^Tout le pack/ }).click();
-    const total = inverse ? 69 : 437;
+    const total=lireSql<{n:number}[]>(`select (histoire.available_questions(p_pack_id=>'COL-0105',p_direction=>'${inverse?'inverse':'date'}')->>'${inverse?'DAY':'YEAR'}')::int n`)[0].n;
     await expect(page.getByText(`${total} questions réellement jouables.`, { exact: true })).toBeVisible();
     const mesure = await page.evaluate(() => ({ width: innerWidth, height: innerHeight, sw: document.documentElement.scrollWidth, sh: document.documentElement.scrollHeight }));
     expect(mesure.sw).toBeLessThanOrEqual(mesure.width);
@@ -42,7 +43,7 @@ for (const inverse of [false,true]) {
     const id = idPartie(page);
     const questions = lireSql<{ event_id: string }[]>(`select event_id from histoire.game_questions where game_id='${id}'`);
     const football = new Set([...sport.associations.filter((a) => a.sous_pack === "COL-0106").map((a) => a.event_id),
-      ...massif.events.filter(e=>e.packs.includes('COL-0106')).map(e=>e.id)]);
+      ...[...massif.events,...massif2.events].filter(e=>e.packs.includes('COL-0106')).map(e=>e.id)]);
     expect(questions.every((q) => football.has(q.event_id))).toBe(true);
     expect(new Set(questions.map((q) => q.event_id)).size).toBe(5);
     for (let n=1;n<=5;n++) {
@@ -84,6 +85,6 @@ test("réimport et migration répétée préservent les 24 packs, Sport et les r
     expect(lireSql<{removed:boolean}[]>("select removed from histoire.pack_event_status where pack_id='COL-0113' and event_id='EVT-2100'")[0].removed).toBe(true);
     expect(anciens()).toEqual(avant);
     const etat = lireSql<{ n: number; scope: number; removed: boolean; parent: string }[]>("select (select count(*)::int from histoire.pack_events where pack_id between 'COL-0105' and 'COL-0111') n, (histoire.available_questions(p_pack_id=>'COL-0107')->>'YEAR')::int scope, (select removed from histoire.pack_event_status where pack_id='COL-0107' and event_id='EVT-0759') removed, (select parent_id from histoire.packs where id='COL-0107') parent")[0];
-    expect(etat).toEqual({ n:877, scope:93, removed:true, parent:"COL-0105" });
+    expect(etat).toEqual({ n:877+massif2.events.reduce((n,e)=>n+e.packs.filter(p=>p>='COL-0105'&&p<='COL-0111').length,0), scope:93+massif2.events.filter(e=>e.packs.includes('COL-0107')).length, removed:true, parent:"COL-0105" });
   } finally { executerSql("delete from histoire.pack_event_status where (pack_id='COL-0107' and event_id='EVT-0759') or (pack_id='COL-0113' and event_id='EVT-2100');"); }
 });

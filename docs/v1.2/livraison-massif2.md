@@ -101,7 +101,7 @@ Les autres packs spécialisés et les contrats 50/100/Expert sont conservés. Le
 - RPC réels : quatre cohortes (Débutant, Intermédiaire cumulé, Expert exclusif et tous niveaux), trois précisions, deux sens, longueurs 5/10/20/Tout, Mystère et périmètres parent/enfant.
 - Le vrai import HTTP et les scénarios navigateur sont prolongés pour les 151 nouveaux identifiants ; trois sous-packs prioritaires ont chacun un parcours de 20 questions dans les deux sens, sur les deux formats d’écran. Leur résultat final relève de la CI.
 - Lint, typecheck et build de production verts, ce dernier via la fixture publique locale du dépôt. Seul avertissement du build : valeurs de repli absentes pour la police Big Shoulders, sans échec de compilation. Aucun E2E complet local répété : Docker local est arrêté, la CI utilise les piles jetables habituelles.
-- CI complète demandée sur le commit final ; les cinq jobs doivent être verts avant toute fusion future. Aucun accès Vercel demandé.
+- Première CI : quatre jobs verts, 213/214 parcours navigateur réussis. L’unique échec comparait les mêmes empreintes de tables dans des ordres différents ; le résultat du UNION ALL est désormais trié explicitement, sans retirer aucune table ni aucune comparaison. Le SQL de livraison est inchangé. CI complète du commit corrigé requise avant toute fusion future. Aucun accès Vercel demandé.
 
 ## SQL à transmettre à ChatGPT
 

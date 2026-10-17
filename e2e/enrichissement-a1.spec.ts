@@ -75,7 +75,9 @@ test('V1.2 : vrai réimport préservant A1, Massif et Massif2, refus des collisi
   expect(lireSql<{removed:boolean}[]>(`select removed from histoire.pack_event_status where pack_id='COL-0114' and event_id='EVT-2300'`)).toEqual([{removed:true}]);
   const tables=lireSql<{tablename:string}[]>(`select tablename from pg_tables where schemaname='histoire' order by tablename`);
   for(const t of tables)if(!/^[a-z_][a-z_0-9]*$/.test(t.tablename))throw new Error('Nom de table inattendu');
-  const empreintes=()=>lireSql(tables.map(t=>`select '${t.tablename}' tablename,md5(coalesce(string_agg(to_jsonb(x)::text,chr(10) order by to_jsonb(x)::text),'')) empreinte from histoire.${t.tablename} x`).join(' union all '));
+  // UNION ALL ne garantit pas l’ordre des tables, notamment avec Parallel Append.
+  // Les lignes de chaque table et la liste des tables ont chacune leur tri explicite.
+  const empreintes=()=>lireSql('select * from ('+tables.map(t=>`select '${t.tablename}' tablename,md5(coalesce(string_agg(to_jsonb(x)::text,chr(10) order by to_jsonb(x)::text),'')) empreinte from histoire.${t.tablename} x`).join(' union all ')+') empreintes order by tablename');
   const integrite=empreintes();
   const dossier=mkdtempSync(join(tmpdir(),'kffr-a1-import-'));
   try{

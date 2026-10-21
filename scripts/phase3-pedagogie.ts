@@ -144,6 +144,10 @@ export function verifierPhase3() {
     ...['src/components/choix/SelectionPacks.tsx','src/components/choix/choix.module.css','src/lib/solo/packs-fun.ts',
       'supabase/fixtures/fun_existants.sql','supabase/migrations/20261015120156_packs_fun.sql','supabase/tests/fun/scenario.sql']
       .map(fichier=>`:(exclude)${fichier}`),
+    // #122 : second lot de contenu, sans changement du corpus pédagogique.
+    ...['supabase/fixtures/enrichissement_massif2.sql','supabase/migrations/20261017172349_enrichissement_v12_massif2.sql',
+      'supabase/tests/enrichissement_massif2/appliquer-test.sql','supabase/tests/enrichissement_massif2/scenario.sql']
+      .map(fichier=>`:(exclude)${fichier}`),
     // #122 : contenu Massif uniquement ; fichiers nommés, sans exemption de dossier.
     ...['supabase/fixtures/enrichissement_massif.sql','supabase/migrations/20261016124921_enrichissement_v12_massif.sql',
       'supabase/tests/enrichissement_massif/appliquer-test.sql','supabase/tests/enrichissement_massif/scenario.sql']

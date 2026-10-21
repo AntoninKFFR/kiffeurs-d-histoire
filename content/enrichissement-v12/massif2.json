@@ -1,0 +1,4762 @@
+{
+  "status": "PREPARE_NON_PUBLIE_RELAIS_CHATGPT",
+  "issue": 122,
+  "baseline_main": "d5710fb36b4ef11a7ddc52c04c3ee0113aa9750e",
+  "baseline_events": 2307,
+  "events": [
+    {
+      "proposal_id": "M2-001",
+      "id": "EVT-2800",
+      "group": "sport",
+      "title": "Lewis Hamilton remporte sa première course de Formule 1 au Canada",
+      "start_year": 2007,
+      "start_month": 6,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062"
+      ],
+      "description": "Dès sa première saison chez McLaren, Hamilton gagne à Montréal. Cette victoire ouvre le palmarès de l’un des grands champions de la discipline.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/latest/article/the-first-win-david-tremayne-remembers-the-magical-day-in-montreal-when.7LcPipB3rPKUuGSqNVYF1U",
+          "evidence": "Première victoire à Montréal le 10 juin 2007 ; la mention erronée du samedi dans l’article n’est pas reprise.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Champion mondialement connu et début de son palmarès.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-002",
+      "id": "EVT-2801",
+      "group": "sport",
+      "title": "Michael Schumacher gagne son premier Grand Prix à Spa",
+      "start_year": 1992,
+      "start_month": 8,
+      "start_day": 30,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le pilote allemand gagne en Belgique au volant d’une Benetton. La course disputée sur le circuit de Spa marque une étape majeure de son ascension.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/results/1992/races/585/belgium/race-result",
+          "evidence": "Belgian Grand Prix, 30 Aug 1992 : Schumacher premier.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.formula1.com/en/latest/article/the-top-10-f1-drivers-with-the-longest-gap-between-their-first-and-last-wins.5EXRiYajNaTqFS5NzBtCXc",
+          "evidence": "F1 confirme que la première victoire de Schumacher est obtenue en Belgique en 1992.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier succès d’un champion très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-003",
+      "id": "EVT-2802",
+      "group": "sport",
+      "title": "Sebastian Vettel remporte le Grand Prix d’Italie avec Toro Rosso",
+      "start_year": 2008,
+      "start_month": 9,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062"
+      ],
+      "description": "À Monza, Vettel s’impose avec la petite équipe Toro Rosso sous la pluie. Cette victoire précède ses titres mondiaux obtenus avec Red Bull.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/results/2008/races/838/italy/race-result",
+          "evidence": "Italy, 14 Sep 2008 : Vettel vainqueur sur STR Ferrari.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire de révélation d’un champion connu, équipe identifiée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-004",
+      "id": "EVT-2803",
+      "group": "sport",
+      "title": "Max Verstappen devient le plus jeune vainqueur d’un Grand Prix de F1",
+      "start_year": 2016,
+      "start_month": 5,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062",
+        "COL-0112"
+      ],
+      "description": "Pour sa première course avec Red Bull, Verstappen gagne en Espagne à dix-huit ans. Il établit alors un record de précocité pour une victoire en Formule 1.",
+      "sources": [
+        {
+          "url": "https://www.fia.com/news/f1-verstappen-makes-history-sensational-spanish-grand-prix-win",
+          "evidence": "FIA : plus jeune vainqueur, Grand Prix d’Espagne 2016 ; résultats F1 officiels : 15 mai.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.formula1.com/en/results/2016/races",
+          "evidence": "Spain, 15 May : Max Verstappen, Red Bull Racing TAG Heuer.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record marquant associé à un champion connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-005",
+      "id": "EVT-2804",
+      "group": "sport",
+      "title": "Pierre Gasly remporte le Grand Prix d’Italie à Monza",
+      "start_year": 2020,
+      "start_month": 9,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le Français s’impose pour AlphaTauri dans une course bouleversée par des interruptions et des pénalités. Il résiste au retour de Carlos Sainz pour gagner.",
+      "sources": [
+        {
+          "url": "https://www.fia.com/news/f1-gasly-takes-shock-italian-gp-win-hamilton-penalised",
+          "evidence": "FIA : première victoire de Gasly en Italie ; calendrier officiel F1 : 6 septembre 2020.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.formula1.com/en/results/2020/races",
+          "evidence": "Italy, 06 Sep : Pierre Gasly, AlphaTauri Honda.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire française célèbre et pilote accessible au public français.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-006",
+      "id": "EVT-2805",
+      "group": "sport",
+      "title": "Danica Patrick devient la première femme victorieuse en IndyCar",
+      "start_year": 2008,
+      "start_month": 4,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0112",
+        "COL-0073"
+      ],
+      "description": "Patrick gagne à Motegi, au Japon. Son succès constitue une première pour une pilote dans la série IndyCar, sans être une première féminine dans toutes les catégories automobiles.",
+      "sources": [
+        {
+          "url": "https://www.indycar.com/Videos/2021/03/03-25-Classic-Rewind-Motegi2008",
+          "evidence": "IndyCar : victoire au Japon le 20 avril 2008, première femme gagnante de la série.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première féminine compréhensible, compétition explicitement nommée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-007",
+      "id": "EVT-2806",
+      "group": "sport",
+      "title": "Porsche remporte sa première victoire aux 24 Heures du Mans",
+      "start_year": 1970,
+      "start_month": 6,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "La Porsche 917 confiée à Hans Herrmann et Richard Attwood termine en tête. Le constructeur allemand commence ainsi un long palmarès de victoires dans cette course d’endurance.",
+      "sources": [
+        {
+          "url": "https://www.porsche.com/france/aboutporsche/pressreleases/pof/?id=2010-06-11&pool=france",
+          "evidence": "Porsche France : première victoire le 14 juin 1970.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Marque et compétition très connues ; premier succès identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-008",
+      "id": "EVT-2807",
+      "group": "sport",
+      "title": "Esteban Ocon remporte son premier Grand Prix de F1 en Hongrie",
+      "start_year": 2021,
+      "start_month": 8,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Au volant d’une Alpine, Ocon prend la tête après un départ mouvementé. Il résiste à la pression de ses poursuivants pour remporter sa première course de Formule 1.",
+      "sources": [
+        {
+          "url": "https://www.formula1.com/en/latest/article/ocon-beats-vettel-to-claim-shock-maiden-victory-in-action-packed-hungarian.4Ewxz6olluqX7Y4E1U8NOq.4Ewxz6olluqX7Y4E1U8NOq",
+          "evidence": "Compte rendu officiel de la première victoire ; calendrier F1 2021 : Hongrie le 1er août.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.formula1.com/en/results/2021/races",
+          "evidence": "Hungary, 01 Aug : Esteban Ocon, Alpine Renault.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire française marquante, pilote et équipe faciles à situer.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-009",
+      "id": "EVT-2808",
+      "group": "sport",
+      "title": "Valentino Rossi décroche son premier titre mondial en 500 cm³",
+      "start_year": 2001,
+      "start_month": 10,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110"
+      ],
+      "description": "À Phillip Island, Rossi remporte une course serrée et devient champion du monde de la catégorie reine. Ce titre précède le passage des 500 cm³ au MotoGP.",
+      "sources": [
+        {
+          "url": "https://www.motogp.com/fr/videos/2001/10/14/gara-della-500cc-gran-premio-daustralia-2001/108583",
+          "evidence": "Archive officielle de la course du 14 octobre 2001, décrite comme le premier sacre en catégorie reine.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Champion emblématique, première couronne dans la catégorie principale.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-010",
+      "id": "EVT-2809",
+      "group": "sport",
+      "title": "Marc Márquez devient le plus jeune champion du monde de MotoGP",
+      "start_year": 2013,
+      "start_month": 11,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062"
+      ],
+      "description": "Dès sa première saison dans la catégorie reine, Márquez obtient le titre avec Honda. À vingt ans, il établit un record de jeunesse pour cette couronne mondiale.",
+      "sources": [
+        {
+          "url": "https://www.motogp.com/en/videos/2013/11/10/marc-marquez-new-motogp-world-champion-2013-season/83128",
+          "evidence": "MotoGP : nouveau champion le 10 novembre 2013 ; biographie officielle : plus jeune champion en catégorie reine.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.motogp.com/fr/riders/marc-marquez/23e50438-a657-4fb0-a190-3262b5472f29",
+          "evidence": "La biographie confirme le titre dès sa première saison et le record de précocité.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record d’un champion connu, catégorie clairement précisée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-011",
+      "id": "EVT-2810",
+      "group": "sport",
+      "title": "Fabio Quartararo devient champion du monde de MotoGP",
+      "start_year": 2021,
+      "start_month": 10,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Quartararo assure le titre à Misano avant la dernière manche de la saison. Le pilote de Yamaha est le premier Français champion du monde de la catégorie reine.",
+      "sources": [
+        {
+          "url": "https://www.motogp.com/en/videos/2021/10/24/fabio-quartararo-your-2021-motogp-world-champion/29708",
+          "evidence": "MotoGP : titre acquis au Grand Prix d’Émilie-Romagne, le 24 octobre 2021.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier champion français de la catégorie principale, largement connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-012",
+      "id": "EVT-2811",
+      "group": "sport",
+      "title": "Michèle Mouton remporte le rallye de Sanremo en championnat du monde",
+      "start_year": 1981,
+      "start_month": 10,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0073"
+      ],
+      "description": "Avec sa copilote Fabrizia Pons, Mouton gagne au volant d’une Audi Quattro. Elle devient la première femme à remporter une manche du championnat du monde des rallyes.",
+      "sources": [
+        {
+          "url": "https://www.wrc.com/en/misc/wrc-season-archive/wrc-season-1981",
+          "evidence": "Archives WRC : Rallye Sanremo du 5 au 10 octobre 1981, vainqueure Michèle Mouton. Date de fin de l’épreuve retenue.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première féminine importante du sport automobile français.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-013",
+      "id": "EVT-2812",
+      "group": "sport",
+      "title": "Jutta Kleinschmidt devient la première femme à remporter le Dakar",
+      "start_year": 2001,
+      "start_month": 1,
+      "start_day": 21,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0073"
+      ],
+      "description": "La pilote allemande gagne le classement automobile du rallye-raid avec Mitsubishi. Sa victoire fait entrer une femme au palmarès de cette épreuve de longue distance.",
+      "sources": [
+        {
+          "url": "https://www1.rfi.fr/sportfr/articles/013/article_5240.asp",
+          "evidence": "Compte rendu RFI daté du 22 janvier 2001 : victoire la veille, le 21 janvier.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.dakar.com/en/news/2018/2001-miss-kleinschmidt-32-40-1",
+          "evidence": "L’organisateur confirme la victoire de Kleinschmidt au Dakar 2001.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première féminine dans une compétition très connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-014",
+      "id": "EVT-2813",
+      "group": "sport",
+      "title": "Première édition du Grand Prix de Monaco",
+      "start_year": 1929,
+      "start_month": 4,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Une course automobile est organisée dans les rues de la principauté. William Grover-Williams, appelé Williams, gagne au volant d’une Bugatti.",
+      "sources": [
+        {
+          "url": "https://acm.mc/automobile-club/le-club/lautomobile-club-de-monaco/histoire/",
+          "evidence": "Automobile Club de Monaco : premier Grand Prix le 14 avril 1929, victoire de Williams sur Bugatti.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Naissance d’une course emblématique, distincte de la création de la F1.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-015",
+      "id": "EVT-2814",
+      "group": "sport",
+      "title": "Départ du premier rallye Paris-Dakar",
+      "start_year": 1978,
+      "start_month": 12,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Les concurrents quittent Paris pour rejoindre Dakar à travers plusieurs pays africains. Le départ a lieu en décembre, bien que cette première édition soit généralement appelée Dakar 1979.",
+      "sources": [
+        {
+          "url": "https://www.dakar.com/en/historical/chapter-1",
+          "evidence": "Organisateur : départ le 26 décembre 1978, première épreuve achevée en 1979.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Départ d’une compétition très connue ; distinction entre année de départ et nom de l’édition.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-016",
+      "id": "EVT-2815",
+      "group": "sport",
+      "title": "Audi gagne les 24 Heures du Mans avec un moteur diesel",
+      "start_year": 2006,
+      "start_month": 6,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "L’Audi R10 TDI devient la première voiture à moteur diesel victorieuse au classement général du Mans. Ce succès montre une évolution importante des moteurs d’endurance.",
+      "sources": [
+        {
+          "url": "https://www.24h-lemans.com/fr/actualites/lhistoire-du-jour-audi-impose-le-diesel-pour-la-premiere-fois-au-mans-en-2006-45013",
+          "evidence": "ACO : première victoire diesel le 18 juin 2006.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Innovation de compétition compréhensible, marque et épreuve connues.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-017",
+      "id": "EVT-2816",
+      "group": "sport",
+      "title": "Toyota remporte ses premières 24 Heures du Mans avec Alonso, Buemi et Nakajima",
+      "start_year": 2018,
+      "start_month": 6,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le constructeur japonais obtient enfin une victoire au classement général du Mans. Fernando Alonso partage la voiture gagnante avec Sébastien Buemi et Kazuki Nakajima.",
+      "sources": [
+        {
+          "url": "https://newsroom.toyota.eu/toyota-gazoo-racing-wins-le-mans/",
+          "evidence": "Communiqué Toyota : première victoire lors de la 86e édition ; document de course daté du dimanche 17 juin 2018.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://newsroom.toyota.eu/download/555806/toyotagazooracing2018lemansrace.pdf",
+          "evidence": "Communiqué original : Sunday 17 June 2018, première victoire à la vingtième tentative.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première victoire d’un grand constructeur et présence d’un champion connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-018",
+      "id": "EVT-2817",
+      "group": "sport",
+      "title": "Janet Guthrie devient la première femme à prendre le départ des 500 miles d’Indianapolis",
+      "start_year": 1977,
+      "start_month": 5,
+      "start_day": 29,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0110",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "Après s’être qualifiée la semaine précédente, Guthrie participe à la course d’Indianapolis. La date du départ est distinguée de celle de sa qualification historique.",
+      "sources": [
+        {
+          "url": "https://www.indianapolismotorspeedway.com/news-multimedia/news/2019/06/06/1977-indianapolis-500-full-race-broadcast",
+          "evidence": "Organisateur : course le dimanche 29 mai 1977, Guthrie première femme qualifiée et participante.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pionnière importante mais moins connue du public français ; distinguer qualification et départ.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-019",
+      "id": "EVT-2818",
+      "group": "sport",
+      "title": "Greg LeMond gagne le Tour de France avec huit secondes d’avance sur Fignon",
+      "start_year": 1989,
+      "start_month": 7,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le dernier contre-la-montre renverse le classement général. LeMond termine devant Laurent Fignon avec le plus petit écart final de l’histoire du Tour.",
+      "sources": [
+        {
+          "url": "https://www.lemonde.fr/archives/article/1989/07/25/tour-de-france-lemond-vainqueur-de-fignon-reve-brise-pour-8-secondes_4140390_1819218.html",
+          "evidence": "Compte rendu contemporain : victoire le dimanche 23 juillet 1989, écart de huit secondes.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Dénouement très célèbre et chiffre marquant.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-020",
+      "id": "EVT-2819",
+      "group": "sport",
+      "title": "Bernard Hinault remporte le Tour de France",
+      "start_year": 1978,
+      "start_month": 7,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le Breton termine en tête du classement général à Paris. Ce succès inaugure son palmarès de vainqueur de la Grande Boucle.",
+      "sources": [
+        {
+          "url": "https://www.lequipe.fr/Cyclisme-sur-route/tour-de-france/annee-1978/page-classement-individuel/general",
+          "evidence": "Classement général daté du 23 juillet 1978 : Bernard Hinault premier.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première victoire sur le Tour d’un champion français emblématique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-021",
+      "id": "EVT-2820",
+      "group": "sport",
+      "title": "Annemiek van Vleuten remporte le Tour de France Femmes avec Zwift",
+      "start_year": 2022,
+      "start_month": 7,
+      "start_day": 31,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "La Néerlandaise gagne la dernière étape et le classement général. Il s’agit de l’édition inaugurale de cette course lancée en 2022, sans effacer les épreuves féminines antérieures.",
+      "sources": [
+        {
+          "url": "https://www.letourfemmes.fr/fr/actus/2022/etape-8/van-vleuten-le-triomphe-total/1293054",
+          "evidence": "Compte rendu de la dernière étape, 31 juillet 2022 : victoire d’étape et victoire finale.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Grande victoire féminine contemporaine, édition et intitulé précis.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-022",
+      "id": "EVT-2821",
+      "group": "sport",
+      "title": "Pauline Ferrand-Prévot devient championne olympique de VTT à Paris",
+      "start_year": 2024,
+      "start_month": 7,
+      "start_day": 28,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0108",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Sur la colline d’Élancourt, la Française s’échappe et remporte le cross-country féminin. Elle complète son palmarès mondial par un titre olympique.",
+      "sources": [
+        {
+          "url": "https://fr.uci.org/article/jeux-olympiques-de-paris-2024-pauline-ferrand-prevot-domine-le-cross-country/43tpCHQjpIrguz5Fbf0OKG",
+          "evidence": "UCI : victoire dans le cross-country féminin le dimanche 28 juillet 2024.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Championne française connue, victoire aux Jeux à domicile.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-023",
+      "id": "EVT-2822",
+      "group": "sport",
+      "title": "Mark Cavendish remporte sa trente-cinquième étape du Tour de France",
+      "start_year": 2024,
+      "start_month": 7,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le sprinteur britannique gagne à Saint-Vulbas. Avec cette victoire, il dépasse le nombre d’étapes remportées sur le Tour par Eddy Merckx.",
+      "sources": [
+        {
+          "url": "https://www.letour.fr/en/news/2024/stage-5/cavendish-breaks-win-record-in-saint-vulbas/1318776",
+          "evidence": "Organisateur : 35e victoire d’étape le 3 juillet 2024, record détenu seul devant Merckx.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record célèbre d’un grand sprinteur.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-024",
+      "id": "EVT-2823",
+      "group": "sport",
+      "title": "Julian Alaphilippe devient champion du monde sur route à Imola",
+      "start_year": 2020,
+      "start_month": 9,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le Français attaque dans le final de la course en ligne et rejoint l’arrivée seul. Il ramène le maillot arc-en-ciel en France après vingt-trois ans d’attente.",
+      "sources": [
+        {
+          "url": "https://imola-er2020.it/en/2020/09/27/in-imola-julian-alaphilippe-makes-his-biggest-dream-come-true-the-frenchman-is-the-world-champion/",
+          "evidence": "Organisateur des Mondiaux : victoire d’Alaphilippe le 27 septembre 2020.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://fr.uci.org/article/23-ans-apres-la-france-a-un-nouveau-champion-du-monde-uci-julian-alaphilippe-s-impose-a-imola/6lL8ectE6Ea18AWi3y4wE",
+          "evidence": "UCI confirme la victoire et les vingt-trois ans depuis le précédent titre français.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Titre d’un coureur français connu, lieu de victoire identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-025",
+      "id": "EVT-2824",
+      "group": "sport",
+      "title": "Première course cycliste Milan-Sanremo",
+      "start_year": 1907,
+      "start_month": 4,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Les coureurs relient Milan à la côte ligure. Le Français Lucien Petit-Breton gagne cette première édition d’une course appelée à devenir un grand classique du cyclisme.",
+      "sources": [
+        {
+          "url": "https://www.milanosanremo.it/en/news/milano-sanremo-a-legendary-sprint-finish/",
+          "evidence": "Organisateur : départ du premier Milan-Sanremo à Milan le 14 avril 1907.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Naissance de l’une des grandes classiques cyclistes.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-026",
+      "id": "EVT-2825",
+      "group": "sport",
+      "title": "Tadej Pogačar réalise le triplé Giro, Tour et championnat du monde la même année",
+      "start_year": 2024,
+      "start_month": 9,
+      "start_day": 29,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0062"
+      ],
+      "description": "À Zurich, le Slovène remporte la course en ligne mondiale. Il complète ainsi, après le Giro et le Tour de France, une triple couronne particulièrement rare dans le cyclisme masculin.",
+      "sources": [
+        {
+          "url": "https://www.uci.org/article/uci-road-and-para-cycling-road-world-champs-pogacars-closing-masterclass/fvr4cXIs9lVch7ZQ7PGCa",
+          "evidence": "UCI : victoire à Zurich le 29 septembre 2024 et triple couronne Giro-Tour-Mondiaux.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Exploit exceptionnel d’un champion contemporain très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-027",
+      "id": "EVT-2826",
+      "group": "sport",
+      "title": "Egan Bernal devient le premier Colombien vainqueur du Tour de France",
+      "start_year": 2019,
+      "start_month": 7,
+      "start_day": 28,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Le jeune grimpeur termine en jaune à Paris. Sa victoire est une première pour la Colombie, pays qui compte une longue tradition de grands coureurs de montagne.",
+      "sources": [
+        {
+          "url": "https://www.letour.fr/en/news/2019/stage-21/egan-ewan/1283291",
+          "evidence": "Film officiel de la dernière étape du 28 juillet 2019 : Bernal premier Colombien vainqueur du Tour.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première nationale marquante sur une course familière.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-028",
+      "id": "EVT-2827",
+      "group": "sport",
+      "title": "Bradley Wiggins devient le premier Britannique vainqueur du Tour de France",
+      "start_year": 2012,
+      "start_month": 7,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Wiggins achève le Tour en tête du classement général. Son équipe Sky place aussi Chris Froome à la deuxième place du podium final.",
+      "sources": [
+        {
+          "url": "https://www.letour.fr/en/news/2012/great-brit-wiggins-creates-history/1045209",
+          "evidence": "Compte rendu officiel du 22 juillet 2012 : premier vainqueur britannique.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première victoire britannique d’une compétition très connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-029",
+      "id": "EVT-2828",
+      "group": "sport",
+      "title": "Lizzie Deignan gagne la première édition de Paris-Roubaix Femmes",
+      "start_year": 2021,
+      "start_month": 10,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0073"
+      ],
+      "description": "La Britannique remporte l’épreuve après une longue échappée sur des pavés humides. Cette course introduit une version féminine du célèbre classique du Nord.",
+      "sources": [
+        {
+          "url": "https://www.uci.org/article/paris-roubaix-deignan-and-colbrelli-go-down-in-history/467XZfscDyboQ711cHTehI",
+          "evidence": "UCI : Deignan première gagnante le samedi 2 octobre 2021 ; galerie officielle datée du 02/10/2021.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.paris-roubaix-femmes.fr/en/image-gallery/best-of-2021",
+          "evidence": "Photos officielles de la course et du podium : 02/10/2021.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première édition féminine d’une course bien connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-030",
+      "id": "EVT-2829",
+      "group": "sport",
+      "title": "Biniam Girmay devient le premier Érythréen vainqueur d’une étape du Tour",
+      "start_year": 2024,
+      "start_month": 7,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Girmay remporte le sprint de Turin. Son succès est aussi la première victoire d’étape d’un coureur noir africain dans le Tour de France.",
+      "sources": [
+        {
+          "url": "https://www.letour.fr/fr/actus/2024/girmay-et-carapaz-ecrivent-lhistoire/1318097",
+          "evidence": "Organisateur : victoire à Turin le 1er juillet 2024 ; premières érythréenne et d’un coureur noir africain.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première historique contemporaine, sprint et compétition faciles à comprendre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-031",
+      "id": "EVT-2830",
+      "group": "sport",
+      "title": "Greg LeMond devient le premier Américain vainqueur du Tour de France",
+      "start_year": 1986,
+      "start_month": 7,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "LeMond termine la course en tête devant Bernard Hinault. Le cyclisme américain obtient son premier vainqueur du classement général de la Grande Boucle.",
+      "sources": [
+        {
+          "url": "https://www.upi.com/amp/Archives/1986/07/27/Greg-LeMond-became-the-first-American-to-win-Tour-de-France/6528522820800/",
+          "evidence": "Dépêche contemporaine UPI datée du 27 juillet 1986 : premier Américain vainqueur.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première nationale notable ; distincte du dénouement de 1989.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-032",
+      "id": "EVT-2831",
+      "group": "sport",
+      "title": "Anquetil et Poulidor s’affrontent au coude-à-coude dans la montée du puy de Dôme",
+      "start_year": 1964,
+      "start_month": 7,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Les deux rivaux se disputent le Tour dans une ascension restée célèbre. Poulidor reprend du temps mais Anquetil conserve le maillot jaune au terme de l’étape.",
+      "sources": [
+        {
+          "url": "https://www.lequipe.fr/Cyclisme-sur-route/tour-de-france/annee-1964/page-classement-individuel/20eme-etape-brive-puy-de-dome",
+          "evidence": "Classement de l’étape Brive-Puy de Dôme daté du 12 juillet 1964 ; écart de 42 secondes entre Poulidor et Anquetil.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.letour.fr/fr/actus/2022/voiture-101-une-equipe-qui-roule-vi-vi/1300217",
+          "evidence": "L’organisateur décrit le coude-à-coude au puy de Dôme et la rivalité de 1964.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Duel mythique de deux champions français.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-033",
+      "id": "EVT-2832",
+      "group": "sport",
+      "title": "Beryl Burton dépasse aussi le record masculin cycliste des douze heures",
+      "start_year": 1967,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0062",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "La Britannique parcourt 277,25 miles dans une épreuve contre la montre de douze heures. Sa performance dépasse alors le meilleur résultat masculin enregistré sur la même durée.",
+      "sources": [
+        {
+          "url": "https://www.britishcycling.org.uk/about/article/20230501-Obituary--Charlie-Burton-0",
+          "evidence": "British Cycling : 277,25 miles en douze heures en 1967, au-delà du record masculin. Aucun jour retenu sans preuve suffisante.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Performance historique moins connue, format d’endurance spécialisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-034",
+      "id": "EVT-2833",
+      "group": "sport",
+      "title": "Elsy Jacobs remporte le premier championnat du monde féminin sur route",
+      "start_year": 1958,
+      "start_month": 8,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0061",
+        "COL-0062",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "La Luxembourgeoise gagne à Reims la première course mondiale féminine sur route. Son succès marque une étape dans la reconnaissance du cyclisme féminin international.",
+      "sources": [
+        {
+          "url": "https://luxembourg.public.lu/fr/societe-et-culture/histoire/femmes-pionnieres-luxembourgeoises.html",
+          "evidence": "Portail gouvernemental luxembourgeois : victoire à Reims en août 1958 ; jour non précisé dans la référence.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pionnière importante mais moins familière au public général.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-035",
+      "id": "EVT-2834",
+      "group": "sport",
+      "title": "Richard Carapaz devient champion olympique de la course cycliste sur route",
+      "start_year": 2021,
+      "start_month": 7,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0109",
+        "COL-0108"
+      ],
+      "description": "L’Équatorien remporte la course en ligne des Jeux de Tokyo après avoir distancé ses rivaux. Il offre à son pays une médaille d’or dans le cyclisme olympique.",
+      "sources": [
+        {
+          "url": "https://dataride.uci.org/iframe/RiderRankingDetails/91656?baseRankingTypeId=2&categoryId=22&countryId=72&disciplineId=10&disciplineSeasonId=150&groupId=1&momentId=140531&raceTypeId=0&rankingId=1&teamId=1552",
+          "evidence": "Résultat UCI : Carapaz premier de l’épreuve olympique en ligne le 24 juillet 2021.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Champion olympique connu et victoire internationale notable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-036",
+      "id": "EVT-2835",
+      "group": "sport",
+      "title": "Billie Jean King bat Bobby Riggs dans la Bataille des sexes",
+      "start_year": 1973,
+      "start_month": 9,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "Ce match d’exhibition très médiatisé se déroule à Houston. La victoire de King devient un symbole dans son combat pour la place et l’égalité des femmes dans le sport.",
+      "sources": [
+        {
+          "url": "https://www.billiejeanking.com/equality/",
+          "evidence": "Site officiel de King : victoire sur Riggs le 20 septembre 1973. Les estimations d’audience ne sont pas reprises.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Match célèbre et enjeu d’égalité facile à comprendre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-037",
+      "id": "EVT-2836",
+      "group": "sport",
+      "title": "Björn Borg remporte son premier Roland-Garros",
+      "start_year": 1974,
+      "start_month": 6,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le Suédois gagne son premier titre majeur à Paris. Encore très jeune, il commence un palmarès qui fera de lui l’un des champions emblématiques de la terre battue.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/news/bjorn-borg-roland-garros-1974-50th-anniversary",
+          "evidence": "ATP : premier titre majeur remporté à Roland-Garros, le 16 juin 1974.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier succès d’un joueur emblématique, tournoi familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-038",
+      "id": "EVT-2837",
+      "group": "sport",
+      "title": "Borg bat McEnroe dans la célèbre finale de Wimbledon",
+      "start_year": 1980,
+      "start_month": 7,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Après un jeu décisif du quatrième set devenu légendaire, Borg gagne la finale. Ce match reste une image forte de la rivalité entre le Suédois et l’Américain.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/news/borg",
+          "evidence": "ATP Heritage : finale Borg-McEnroe le 5 juillet 1980 ; victoire de Borg après un match en cinq sets.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Finale mythique entre deux champions connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-039",
+      "id": "EVT-2838",
+      "group": "sport",
+      "title": "Venus Williams remporte son premier Wimbledon",
+      "start_year": 2000,
+      "start_month": 7,
+      "start_day": 8,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "L’Américaine bat Lindsay Davenport en finale du simple féminin. Après le titre majeur de sa sœur Serena l’année précédente, Venus gagne à son tour un tournoi du Grand Chelem.",
+      "sources": [
+        {
+          "url": "https://www.wtatennis.com/news/4307129/25-years-later-venus-williams-first-wimbledon-title-hasnt-lost-its-charge",
+          "evidence": "WTA : premier titre majeur de Venus à Wimbledon 2000 ; archive photographique de la finale datée du 8 juillet.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.gettyimages.co.uk/detail/news-photo/venus-williams-of-the-usa-is-congratulated-by-the-duchess-news-photo/967828928",
+          "evidence": "Photographie légendée de la victoire sur Davenport : 8 juillet 2000, Londres.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première victoire majeure de l’une des sœurs Williams.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-040",
+      "id": "EVT-2839",
+      "group": "sport",
+      "title": "Arthur Ashe remporte le premier US Open de l’ère Open",
+      "start_year": 1968,
+      "start_month": 9,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "Ashe bat Tom Okker en finale à Forest Hills. Il devient le premier homme noir vainqueur du championnat américain en simple et une figure importante du tennis.",
+      "sources": [
+        {
+          "url": "https://www.usopen.org/en_US/news/articles/2017-02-07/us_open_by_the_numbers_280.html",
+          "evidence": "Organisateur : Ashe vainqueur du premier US Open en 1968 ; archives ATP : finale le 9 septembre.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.atptour.com/en/scores/results-archive?year=1968",
+          "evidence": "US Open 1968 du 29 août au 9 septembre, vainqueur Arthur Ashe.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pionnier célèbre, victoire importante et intitulé Open précis.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-041",
+      "id": "EVT-2840",
+      "group": "sport",
+      "title": "Arthur Ashe remporte Wimbledon face à Jimmy Connors",
+      "start_year": 1975,
+      "start_month": 7,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "L’Américain surprend le favori de la finale. Cette victoire fait de lui le premier homme noir champion du simple à Wimbledon.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/news/atp-heritage-ashe-connors-1975-wimbledon",
+          "evidence": "ATP : Ashe bat Connors en finale le samedi 5 juillet 1975.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire d’un pionnier connu ; distincte de son titre américain.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-042",
+      "id": "EVT-2841",
+      "group": "sport",
+      "title": "Roger Federer remporte son premier Wimbledon",
+      "start_year": 2003,
+      "start_month": 7,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "Le Suisse bat Mark Philippoussis en finale. Il gagne ainsi le premier tournoi du Grand Chelem de sa carrière sur le gazon londonien.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/scores/results-archive?year=2003",
+          "evidence": "Archives ATP : Wimbledon du 23 juin au 6 juillet 2003, vainqueur Roger Federer.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier titre majeur d’un joueur mondialement connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-043",
+      "id": "EVT-2842",
+      "group": "sport",
+      "title": "Andy Murray met fin à l’attente britannique dans le simple masculin de Wimbledon",
+      "start_year": 2013,
+      "start_month": 7,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "Murray bat Novak Djokovic en finale. Il devient le premier Britannique vainqueur du simple masculin de Wimbledon depuis Fred Perry en 1936.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/news/rivalries-djokovic-murray-11-to-20",
+          "evidence": "ATP : finale gagnée le 7 juillet 2013, fin de soixante-dix-sept ans d’attente en simple masculin.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire nationale très médiatisée ; le périmètre masculin est explicite.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-044",
+      "id": "EVT-2843",
+      "group": "sport",
+      "title": "Carlos Alcaraz remporte Wimbledon face à Novak Djokovic",
+      "start_year": 2023,
+      "start_month": 7,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062"
+      ],
+      "description": "Le jeune Espagnol s’impose après cinq sets en finale. Cette victoire lui donne son premier Wimbledon face au joueur qui dominait alors le tournoi.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/news/alcaraz-djokovic-wimbledon-2023-sunday-final",
+          "evidence": "Compte rendu ATP du 16 juillet 2023 : victoire d’Alcaraz en finale.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Finale récente entre deux champions très connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-045",
+      "id": "EVT-2844",
+      "group": "sport",
+      "title": "Rafael Nadal remporte son premier Open d’Australie",
+      "start_year": 2009,
+      "start_month": 2,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107"
+      ],
+      "description": "Nadal bat Roger Federer en finale à Melbourne. Après ses titres à Roland-Garros et Wimbledon, il ajoute un nouveau tournoi majeur à son palmarès.",
+      "sources": [
+        {
+          "url": "https://ausopen.com/articles/features/ao-flashback-nadals-2009-title-winning-heroics",
+          "evidence": "Organisateur : titre australien de Nadal en 2009 ; archives ATP : tournoi terminé le 1er février.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.atptour.com/en/scores/results-archive?year=2009",
+          "evidence": "Australian Open du 19 janvier au 1er février 2009, vainqueur Rafael Nadal.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier succès dans un tournoi majeur d’un champion connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-046",
+      "id": "EVT-2845",
+      "group": "sport",
+      "title": "Martina Navratilova remporte son premier Wimbledon",
+      "start_year": 1978,
+      "start_month": 7,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Navratilova renverse Chris Evert en finale. Elle obtient son premier titre en simple dans le tournoi où elle construira une grande partie de sa légende.",
+      "sources": [
+        {
+          "url": "https://wtafiles.wtatennis.com/pdf/publications/2026MG/WTAMG26_WTARecordBook.pdf",
+          "evidence": "Archives WTA : Navratilova bat Evert en finale de Wimbledon 1978 ; photographie d’archive datée du vendredi 7 juillet.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.gettyimages.co.uk/detail/news-photo/ladies-singles-final-wimbledon-chris-evert-v-martina-news-photo/1010555252",
+          "evidence": "Légende de l’archive : finale féminine, vendredi 7 juillet 1978.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première victoire d’une championne emblématique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-047",
+      "id": "EVT-2846",
+      "group": "sport",
+      "title": "Iga Świątek devient la première championne polonaise en simple du Grand Chelem",
+      "start_year": 2020,
+      "start_month": 10,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Świątek bat Sofia Kenin en finale à Roland-Garros. Elle gagne le tournoi sans perdre un set lors d’une édition exceptionnellement disputée à l’automne.",
+      "sources": [
+        {
+          "url": "https://www.rolandgarros.com/en-us/article/polands-first-swiatek-completes-stunning-run-for-the-ages",
+          "evidence": "Compte rendu officiel du samedi 10 octobre 2020 : première championne polonaise en simple du Grand Chelem.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première nationale et victoire d’une championne contemporaine connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-048",
+      "id": "EVT-2847",
+      "group": "sport",
+      "title": "Boris Becker gagne Wimbledon à dix-sept ans",
+      "start_year": 1985,
+      "start_month": 7,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "L’Allemand bat Kevin Curren en finale. Il devient le plus jeune vainqueur du simple masculin de Wimbledon, encore adolescent.",
+      "sources": [
+        {
+          "url": "https://www.atptour.com/en/news/becker-no1-club-video-2025",
+          "evidence": "ATP : Becker devient le plus jeune champion de Wimbledon en 1985 ; archives ATP : tournoi achevé le 7 juillet.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.atptour.com/en/scores/results-archive?year=1985",
+          "evidence": "Wimbledon du 24 juin au 7 juillet 1985, vainqueur Boris Becker.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record de jeunesse célèbre d’un grand champion.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-049",
+      "id": "EVT-2848",
+      "group": "sport",
+      "title": "Althea Gibson devient la première joueuse noire victorieuse en Grand Chelem",
+      "start_year": 1956,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0061",
+        "COL-0062",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "L’Américaine gagne le simple féminin à Roland-Garros. Sa victoire intervient dans un tennis encore marqué par la ségrégation et ouvre la voie à d’autres champions noirs.",
+      "sources": [
+        {
+          "url": "https://www.rolandgarros.com/fr-fr/article/althea-gibson-hommage-titre-1958-billie-jean-king-interview-admiration-histoire-culture",
+          "evidence": "FFT : première joueuse noire gagnante d’un titre du Grand Chelem, Roland-Garros 1956. Le jour de publication de l’hommage n’est pas assimilé à la date de la finale.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pionnière majeure ; précision limitée à l’année effectivement confirmée par cette source.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-050",
+      "id": "EVT-2849",
+      "group": "sport",
+      "title": "Suzanne Lenglen remporte son premier titre en simple à Wimbledon",
+      "start_year": 1919,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0061",
+        "COL-0062",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "La Française bat Dorothea Lambert Chambers et devient une vedette internationale du tennis. Sa carrière contribue à transformer la place des sportives dans le spectacle sportif.",
+      "sources": [
+        {
+          "url": "https://www.wimbledon.com/pdf/Wimbledon_Compendium_2022.pdf",
+          "evidence": "Palmarès officiel : Lenglen championne 1919 devant Chambers. Aucun jour ajouté à partir d’une date insuffisamment attestée dans cette référence.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Championne historique nécessitant un repère plus ancien ; premier titre en simple précisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-051",
+      "id": "EVT-2850",
+      "group": "sport",
+      "title": "Le match Isner-Mahut s’achève après onze heures et cinq minutes à Wimbledon",
+      "start_year": 2010,
+      "start_month": 6,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0107",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Répartie sur trois journées, la rencontre se termine par une victoire de John Isner sur Nicolas Mahut. La date retenue est celle de la fin du match, et non celle de son début.",
+      "sources": [
+        {
+          "url": "https://www.guinnessworldrecords.com/world-records/longest-professional-tennis-match",
+          "evidence": "Guinness : rencontre débutée le 22 juin et terminée le 24 juin 2010, durée de 11 h 5.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record connu, mais joueurs et chronologie sur trois jours demandent davantage de précision.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-052",
+      "id": "EVT-2851",
+      "group": "sport",
+      "title": "Le Real Madrid remporte la première Coupe d’Europe des clubs champions",
+      "start_year": 1956,
+      "start_month": 6,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le club espagnol bat le Stade de Reims 4 à 3 au Parc des Princes. Cette finale inaugure le palmarès de la compétition devenue Ligue des champions.",
+      "sources": [
+        {
+          "url": "https://www.realmadrid.com/en-US/news/club/latest-news/66th-anniversary-of-the-first-european-cup-win",
+          "evidence": "Le club confirme la victoire du 13 juin 1956, 4-3 contre Reims.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première d’une compétition et club très connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-053",
+      "id": "EVT-2852",
+      "group": "sport",
+      "title": "Le Danemark remporte l’Euro de football à la surprise générale",
+      "start_year": 1992,
+      "start_month": 6,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Repêchés après l’exclusion de la Yougoslavie, les Danois battent l’Allemagne en finale. Leur succès reste l’une des grandes surprises du championnat d’Europe.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefaeuro/history/news/025a-0eb91faf9bf0-942d69c5a0a8-1000--uefaeuro1992-all-you-need-to-know/",
+          "evidence": "UEFA : finale Danemark-Allemagne 2-0, le 26 juin 1992.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Surprise célèbre du football européen.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-054",
+      "id": "EVT-2853",
+      "group": "sport",
+      "title": "La Grèce devient championne d’Europe de football",
+      "start_year": 2004,
+      "start_month": 7,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "La sélection grecque bat le Portugal, pays organisateur, grâce à une tête d’Angelos Charisteas. Son succès déjoue les pronostics.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefaeuro/history/news/025a-0ebef0f75f67-835dd959282d-1000--euro-2004-all-you-need-to-know/",
+          "evidence": "UEFA : finale gagnée 1-0 à Lisbonne le 4 juillet 2004.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire inattendue et mémorable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-055",
+      "id": "EVT-2854",
+      "group": "sport",
+      "title": "Le Portugal remporte son premier Euro de football",
+      "start_year": 2016,
+      "start_month": 7,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Malgré la sortie sur blessure de Cristiano Ronaldo, le Portugal bat la France au Stade de France. Éder inscrit le but décisif en prolongation.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefaeuro/history/news/0253-0d81bb224907-848e17427a3f-1000--portugal-become-tenth-different-euro-winner/",
+          "evidence": "UEFA : premier titre portugais le 10 juillet 2016.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Finale disputée en France et première victoire portugaise.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-056",
+      "id": "EVT-2855",
+      "group": "sport",
+      "title": "Le but en or de Trezeguet offre l’Euro à la France",
+      "start_year": 2000,
+      "start_month": 7,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Menés par l’Italie, les Bleus égalisent par Sylvain Wiltord avant de gagner en prolongation. Le but de David Trezeguet met immédiatement fin au match selon la règle alors en vigueur.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefaeuro/history/news/0253-0d8169e80114-dc6c2ff63958-1000--ten-great-euro-moments-trezeguet-s-golden-goal/",
+          "evidence": "UEFA : France-Italie, finale de 2000, date explicite 2 July 2000.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Moment célèbre de l’équipe de France.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-057",
+      "id": "EVT-2856",
+      "group": "sport",
+      "title": "Les Anglaises remportent leur premier Euro de football à Wembley",
+      "start_year": 2022,
+      "start_month": 7,
+      "start_day": 31,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "Les Lionesses battent l’Allemagne 2 à 1 après prolongation. Chloe Kelly inscrit le but décisif devant le public anglais.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/womenseuro/news/0277-15c1d9745f40-baafd6e58b36-1000--england-win-women-s-euro/",
+          "evidence": "Compte rendu officiel du dimanche 31 juillet 2022.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Succès majeur du football féminin européen.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-058",
+      "id": "EVT-2857",
+      "group": "sport",
+      "title": "L’Espagne gagne sa première Coupe du monde féminine de football",
+      "start_year": 2023,
+      "start_month": 8,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "Olga Carmona marque l’unique but de la finale contre l’Angleterre à Sydney. L’Espagne entre ainsi au palmarès du Mondial féminin.",
+      "sources": [
+        {
+          "url": "https://rfef.es/en/noticias/match-report-spain-wins-the-womens-world-cup",
+          "evidence": "La fédération espagnole confirme le sacre du 20 août 2023.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier sacre mondial récent et accessible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-059",
+      "id": "EVT-2858",
+      "group": "sport",
+      "title": "Brandi Chastain inscrit le tir au but du sacre mondial américain",
+      "start_year": 1999,
+      "start_month": 7,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0082"
+      ],
+      "description": "Les États-Unis et la Chine se départagent aux tirs au but au Rose Bowl. Le geste de célébration de Chastain devient une image marquante du football féminin.",
+      "sources": [
+        {
+          "url": "https://www.ussoccer.com/stories/2024/07/world-champions-and-game-changers",
+          "evidence": "US Soccer : finale du 10 juillet 1999, victoire 5-4 aux tirs au but.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Image sportive célèbre et finale identifiée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-060",
+      "id": "EVT-2859",
+      "group": "sport",
+      "title": "Les États-Unis remportent la première Coupe du monde féminine de football",
+      "start_year": 1991,
+      "start_month": 11,
+      "start_day": 30,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0082",
+        "COL-0112"
+      ],
+      "description": "La sélection américaine bat la Norvège 2 à 1 lors de la finale en Chine. Cette édition lance le palmarès de la compétition organisée par la FIFA.",
+      "sources": [
+        {
+          "url": "https://www.ussoccer.com/history/timeline",
+          "evidence": "Chronologie officielle, rubrique 1991 : victoire contre la Norvège le 30 novembre.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première édition et première équipe championne.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-061",
+      "id": "EVT-2860",
+      "group": "sport",
+      "title": "Les footballeuses de Barcelone gagnent leur première Ligue des champions",
+      "start_year": 2021,
+      "start_month": 5,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0062"
+      ],
+      "description": "Le Barça bat Chelsea 4 à 0 en finale à Göteborg. Les quatre buts sont inscrits avant la mi-temps.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/womenschampionsleague/news/0269-124ae310baea-93bc49bd8837-1000--chelsea-0-4-barcelona-barca-surge-to-first-women-s-champio/",
+          "evidence": "UEFA : premier titre, dimanche 16 mai 2021.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Club connu et premier titre européen féminin.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-062",
+      "id": "EVT-2861",
+      "group": "sport",
+      "title": "Le Sénégal remporte sa première Coupe d’Afrique des nations",
+      "start_year": 2022,
+      "start_month": 2,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106"
+      ],
+      "description": "Après un match sans but contre l’Égypte, les Lions de la Teranga gagnent aux tirs au but. Sadio Mané transforme la tentative décisive.",
+      "sources": [
+        {
+          "url": "https://www.cafonline.com/fr/coupe-dafrique-des-nations/infos/le-senegal-champion-d-afrique/",
+          "evidence": "CAF : premier titre ; fiche officielle de la finale contre l’Égypte : 6 février 2022.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.cafonline.com/caf-africa-cup-of-nations/news/finale-can-total-energie-cameroun-2021-senegal-egypte-a-qui-la-couronne",
+          "evidence": "Date de la finale : 6 February 2022, distincte de la publication du bilan le lendemain.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier titre africain d’une sélection connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-063",
+      "id": "EVT-2862",
+      "group": "sport",
+      "title": "L’Algérie remporte la CAN grâce à un but de Bounedjah",
+      "start_year": 2019,
+      "start_month": 7,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106"
+      ],
+      "description": "Un but précoce de Baghdad Bounedjah suffit pour battre le Sénégal en finale au Caire. L’Algérie retrouve le titre continental vingt-neuf ans après son premier sacre.",
+      "sources": [
+        {
+          "url": "https://inside.fifa.com/en/news/algeria-edge-senegal-to-win-first-title-in-29-years",
+          "evidence": "FIFA : finale 1-0, compte rendu daté du vendredi 19 juillet 2019.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire très suivie en France et sélection connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-064",
+      "id": "EVT-2863",
+      "group": "sport",
+      "title": "Le Maroc devient le premier demi-finaliste africain du Mondial de football",
+      "start_year": 2022,
+      "start_month": 12,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0112"
+      ],
+      "description": "Les Lions de l’Atlas éliminent le Portugal 1 à 0. Youssef En-Nesyri marque le but qui ouvre pour la première fois les demi-finales à une équipe africaine.",
+      "sources": [
+        {
+          "url": "https://www.fifa.com/en/articles/morocco-portugal",
+          "evidence": "FIFA : quart de finale du 10 décembre 2022, première qualification africaine en demi-finale.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première continentale et parcours mondial célèbre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-065",
+      "id": "EVT-2864",
+      "group": "sport",
+      "title": "La volée de Zidane donne la Ligue des champions au Real Madrid",
+      "start_year": 2002,
+      "start_month": 5,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0106",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Face au Bayer Leverkusen à Glasgow, Zidane reprend de volée un ballon venu de la gauche. Son but permet au Real de gagner la finale 2 à 1.",
+      "sources": [
+        {
+          "url": "https://www.uefa.com/uefachampionsleague/news/0185-0e6a414977dc-840dff896fae-1000--madrid-win-ninth-european-crown/",
+          "evidence": "UEFA : compte rendu du mercredi 15 mai 2002, volée décisive de Zidane.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "But emblématique, mais finale de club demandant un repère plus précis.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-066",
+      "id": "EVT-2865",
+      "group": "sport",
+      "title": "Mandela remet la Coupe du monde de rugby à l’Afrique du Sud",
+      "start_year": 1995,
+      "start_month": 6,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "Les Springboks battent les All Blacks après prolongation à Johannesburg. Nelson Mandela remet le trophée au capitaine François Pienaar, dans une image symbolisant le rapprochement après l’apartheid.",
+      "sources": [
+        {
+          "url": "https://www.world.rugby/news/572348/1995-mandela-williams-pienaar-afrique-du-sud?lang=en",
+          "evidence": "World Rugby : finale et remise du trophée le 24 juin 1995.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Image sportive et politique mondialement connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-067",
+      "id": "EVT-2866",
+      "group": "sport",
+      "title": "Les All Blacks gagnent la première Coupe du monde de rugby",
+      "start_year": 1987,
+      "start_month": 6,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082",
+        "COL-0112"
+      ],
+      "description": "La Nouvelle-Zélande bat la France 29 à 9 en finale à Auckland. Les All Blacks deviennent les premiers détenteurs du trophée Webb Ellis.",
+      "sources": [
+        {
+          "url": "https://www.world.rugby/beta/en/match/2205",
+          "evidence": "World Rugby : finale Nouvelle-Zélande–France du samedi 20 juin 1987.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première équipe championne, distincte de l’ouverture du tournoi.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-068",
+      "id": "EVT-2867",
+      "group": "sport",
+      "title": "Le XV de France réussit son premier Grand Chelem",
+      "start_year": 1968,
+      "start_month": 3,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "En battant le pays de Galles à Cardiff, la France termine le Tournoi des Cinq Nations sans défaite. Elle gagne ses quatre rencontres de cette édition.",
+      "sources": [
+        {
+          "url": "https://api.www.ffr.fr/wp-content/uploads/2019/06/Centenaire_complet_BAT.pdf",
+          "evidence": "Livre du centenaire FFR : 23 mars 1968, victoire 14-9 à Cardiff, premier Grand Chelem.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier Grand Chelem français, événement fondateur connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-069",
+      "id": "EVT-2868",
+      "group": "sport",
+      "title": "Jonah Lomu marque quatre essais contre l’Angleterre en demi-finale mondiale",
+      "start_year": 1995,
+      "start_month": 6,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "L’ailier néo-zélandais domine la défense anglaise au Cap. Cette performance le transforme en vedette mondiale du rugby.",
+      "sources": [
+        {
+          "url": "https://get.nzrplus.com/video/62",
+          "evidence": "Archive de la fédération néo-zélandaise : rencontre du 18 juin 1995, démonstration de Lomu.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Exploit emblématique du plus célèbre joueur de sa génération.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-070",
+      "id": "EVT-2869",
+      "group": "sport",
+      "title": "Tiger Woods remporte son premier Masters de golf",
+      "start_year": 1997,
+      "start_month": 4,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "À vingt et un ans, Woods gagne à Augusta avec douze coups d’avance. Il devient alors le plus jeune vainqueur du Masters.",
+      "sources": [
+        {
+          "url": "https://www.pga.com/story/tiger-woods-at-the-masters-the-ultimate-guide",
+          "evidence": "PGA : rubrique 1997 Masters, date April 13, 1997.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier grand titre d’un champion très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-071",
+      "id": "EVT-2870",
+      "group": "sport",
+      "title": "Jack Nicklaus gagne le Masters de golf à quarante-six ans",
+      "start_year": 1986,
+      "start_month": 4,
+      "start_day": 13,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "L’Américain remporte une sixième veste verte à Augusta. Il signe ce succès tardif après une remontée au dernier tour.",
+      "sources": [
+        {
+          "url": "https://www.guinnessworldrecords.com/world-records/783459-oldest-golfer-to-win-the-us-masters",
+          "evidence": "Guinness : plus âgé vainqueur du Masters, 13 avril 1986.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Longévité exceptionnelle d’un grand champion.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-072",
+      "id": "EVT-2871",
+      "group": "sport",
+      "title": "Mike Tyson devient le plus jeune champion du monde des poids lourds",
+      "start_year": 1986,
+      "start_month": 11,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "Tyson bat Trevor Berbick à Las Vegas et remporte le titre WBC. Il est âgé de vingt ans et cent quarante-cinq jours.",
+      "sources": [
+        {
+          "url": "https://www.guinnessworldrecords.com/world-records/64521-youngest-world-heavyweight-boxing-champion",
+          "evidence": "Guinness : victoire sur Berbick le 22 novembre 1986.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record de jeunesse d’un boxeur mondialement connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-073",
+      "id": "EVT-2872",
+      "group": "sport",
+      "title": "Cassius Clay, futur Muhammad Ali, devient champion du monde des poids lourds",
+      "start_year": 1964,
+      "start_month": 2,
+      "start_day": 25,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "Le jeune boxeur bat Sonny Liston à Miami. Ce premier sacre précède l’adoption du nom Muhammad Ali.",
+      "sources": [
+        {
+          "url": "https://transcription.si.edu/projects/nmaahc/7878?page=0",
+          "evidence": "Smithsonian, dossier de presse original : titre mondial remporté le 25 février 1964.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier sacre d’une figure majeure du sport.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-074",
+      "id": "EVT-2873",
+      "group": "sport",
+      "title": "Alex Honnold escalade El Capitan sans corde",
+      "start_year": 2017,
+      "start_month": 6,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111"
+      ],
+      "description": "L’Américain gravit la grande paroi de granit du Yosemite en solo intégral. Une équipe filme l’ascension qui sera au cœur du documentaire Free Solo.",
+      "sources": [
+        {
+          "url": "https://www.nationalgeographic.com/adventure/article/most-dangerous-free-solo-climb-yosemite-national-park-el-capitan?sf84838625=1",
+          "evidence": "Reportage de l’équipe présente : ascension achevée samedi 3 juin 2017.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Exploit spectaculaire diffusé dans un documentaire connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-075",
+      "id": "EVT-2874",
+      "group": "sport",
+      "title": "Felix Baumgartner franchit le mur du son en chute libre",
+      "start_year": 2012,
+      "start_month": 10,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111"
+      ],
+      "description": "Lors de la mission Stratos, Baumgartner saute depuis un ballon dans la stratosphère. Il dépasse la vitesse du son pendant sa chute avant d’ouvrir son parachute.",
+      "sources": [
+        {
+          "url": "https://www.redbull.com/us-en/best-of-2012-red-bull-stratos",
+          "evidence": "Organisateur : saut réalisé le 14 octobre 2012.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Exploit largement diffusé, sans qualifier la stratosphère d’espace.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-076",
+      "id": "EVT-2875",
+      "group": "sport",
+      "title": "Florence Griffith-Joyner court le 100 mètres en 10 secondes 49",
+      "start_year": 1988,
+      "start_month": 7,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0082"
+      ],
+      "description": "L’Américaine réalise cette performance lors des sélections olympiques à Indianapolis. Ce temps est enregistré comme record du monde par la fédération internationale.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/athletes/_/14359548",
+          "evidence": "World Athletics : record du 100 m en 10.49, 16 JUL 1988.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record emblématique d’une sprinteuse célèbre ; statut fédéral précisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-077",
+      "id": "EVT-2876",
+      "group": "sport",
+      "title": "Yelena Isinbayeva devient la première perchiste à franchir cinq mètres",
+      "start_year": 2005,
+      "start_month": 7,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0062",
+        "COL-0112"
+      ],
+      "description": "La Russe franchit la barre à cinq mètres lors du meeting de Londres. Elle repousse ainsi une limite symbolique du saut à la perche féminin.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/news/report/isinbayeva-tops-historic-night-at-the-palace",
+          "evidence": "Compte rendu fédéral du 22 juillet 2005 : première femme à cinq mètres.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Barrière symbolique facile à comprendre et championne connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-078",
+      "id": "EVT-2877",
+      "group": "sport",
+      "title": "Hicham El Guerrouj établit le record mondial du 1 500 mètres à Rome",
+      "start_year": 1998,
+      "start_month": 7,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le Marocain court la distance en 3 minutes 26 secondes. Cette performance illustre sa domination sur le demi-fond.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/download/download?filename=f5546df1-dd72-4a7e-a79d-554f2d86ffe3.pdf&urlSlug=all-time-top-lists-senior-outdoor-pdf-forma",
+          "evidence": "Table fédérale : WR 3:26.00, Roma, 14 Jul 1998.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record technique exigeant d’identifier la distance et le champion.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-079",
+      "id": "EVT-2878",
+      "group": "sport",
+      "title": "Wayde van Niekerk bat le record du monde du 400 mètres aux Jeux de Rio",
+      "start_year": 2016,
+      "start_month": 8,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0105",
+        "COL-0111",
+        "COL-0108"
+      ],
+      "description": "Le Sud-Africain gagne la finale olympique en 43 secondes 03. Il améliore le record mondial détenu par Michael Johnson.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/athletes/south-africa/wayde-van-niekerk-14417677",
+          "evidence": "Profil fédéral : record 43.03 à Rio, 14 AUG 2016.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Record précis d’une discipline, niveau intermédiaire conservé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-080",
+      "id": "EVT-2879",
+      "group": "sport",
+      "title": "Laure Manaudou devient championne olympique du 400 mètres nage libre",
+      "start_year": 2004,
+      "start_month": 8,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "À dix-sept ans, la Française gagne à Athènes et devient la première nageuse française championne olympique. Elle remporte ensuite deux autres médailles pendant ces Jeux.",
+      "sources": [
+        {
+          "url": "https://www.worldaquatics.com/athletes/1031767/laure-manaudou/medals",
+          "evidence": "World Aquatics : or olympique du 400 m nage libre, Athens, Aug 15 2004.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première victoire olympique d’une nageuse française très connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-081",
+      "id": "EVT-2880",
+      "group": "sport",
+      "title": "Marie-José Pérec réalise le doublé olympique 200 et 400 mètres à Atlanta",
+      "start_year": 1996,
+      "start_month": 8,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0061",
+        "COL-0082"
+      ],
+      "description": "Après avoir remporté le 400 mètres, Pérec gagne le 200 mètres. La sprinteuse française conclut ainsi un rare doublé olympique.",
+      "sources": [
+        {
+          "url": "https://worldathletics.org/heritage/news/atlanta-1996-olympics-johnson-perec",
+          "evidence": "Fédération internationale : soirée du 1er août 1996 et doublé de Pérec ; date du second titre.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Doublé célèbre d’une championne française emblématique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-082",
+      "id": "EVT-2881",
+      "group": "sport",
+      "title": "Martin Fourcade remporte son premier titre olympique en biathlon",
+      "start_year": 2014,
+      "start_month": 2,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "À Sotchi, Fourcade gagne la poursuite de 12,5 kilomètres. Cette victoire lui apporte le premier titre olympique de sa carrière.",
+      "sources": [
+        {
+          "url": "https://www.tf1info.fr/sport/martin-fourcade-champion-olympique-1542423.html",
+          "evidence": "Reportage du 10 février 2014 : victoire le jour même dans la poursuite.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier sacre d’un champion français très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-083",
+      "id": "EVT-2882",
+      "group": "sport",
+      "title": "La France d’Antoine Dupont devient championne olympique de rugby à sept",
+      "start_year": 2024,
+      "start_month": 7,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0111",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Les Français battent les Fidji 28 à 7 au Stade de France. Dupont inscrit deux essais dans la finale et participe au premier titre olympique français dans cette discipline.",
+      "sources": [
+        {
+          "url": "https://www.world.rugby/news/946193/olympic-games-paris-2024-mens-day-three-recap",
+          "evidence": "World Rugby : finale et or français le samedi 27 juillet 2024.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Moment majeur des Jeux de Paris et joueur très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-084",
+      "id": "EVT-2883",
+      "group": "sport",
+      "title": "Léon Marchand remporte deux titres olympiques dans la même soirée",
+      "start_year": 2024,
+      "start_month": 7,
+      "start_day": 31,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "À Paris, Marchand gagne le 200 mètres papillon puis le 200 mètres brasse. Les deux finales sont séparées de moins de deux heures.",
+      "sources": [
+        {
+          "url": "https://www.worldaquatics.com/news/4072580/deux-delight-marchand-delivers-two-olympic-records-on-night-five",
+          "evidence": "Compte rendu fédéral du 31 juillet 2024 : double victoire sur papillon et brasse.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Exploit très médiatisé d’un champion français.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-085",
+      "id": "EVT-2884",
+      "group": "sport",
+      "title": "La France gagne le premier tournoi olympique de judo par équipes mixtes",
+      "start_year": 2021,
+      "start_month": 7,
+      "start_day": 31,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0111",
+        "COL-0061"
+      ],
+      "description": "Les judokas français battent le Japon en finale à Tokyo. Cette épreuve collective mixte figure pour la première fois au programme olympique.",
+      "sources": [
+        {
+          "url": "https://resultats.equipedefrance.com/tokyo-2020/resultats/judo/2021-07-31",
+          "evidence": "Résultats officiels de l’équipe de France du 31 juillet 2021 : finale mixte et médaille d’or française.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Premier tournoi et victoire française marquante.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-086",
+      "id": "EVT-2885",
+      "group": "fun",
+      "title": "Un distributeur automatique de billets est inauguré à Enfield",
+      "start_year": 1967,
+      "start_month": 6,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0112",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Barclays installe près de Londres une machine permettant de retirer de l’argent hors des horaires du guichet. Ce premier dispositif utilise des bons spéciaux plutôt que les cartes bancaires actuelles.",
+      "sources": [
+        {
+          "url": "https://www.computinghistory.org.uk/det/5536/Barclays-Bank-installs-the-first-cash-dispenser/",
+          "evidence": "Musée de l’informatique : installation le 27 juin 1967.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Objet quotidien familier et première installation bien identifiée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-087",
+      "id": "EVT-2886",
+      "group": "fun",
+      "title": "Apple présente le premier iPod",
+      "start_year": 2001,
+      "start_month": 10,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0115"
+      ],
+      "description": "Le baladeur numérique à disque dur promet d’emporter une grande bibliothèque musicale dans la poche. La date retenue est celle de la présentation, avant sa mise en vente.",
+      "sources": [
+        {
+          "url": "https://www.apple.com/newsroom/2001/10/23Apple-Presents-iPod/",
+          "evidence": "Communiqué original Apple : 23 octobre 2001 ; disponibilité commerciale ultérieure.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Objet emblématique de la musique numérique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-088",
+      "id": "EVT-2887",
+      "group": "fun",
+      "title": "Apple présente sa tablette iPad",
+      "start_year": 2010,
+      "start_month": 1,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0115"
+      ],
+      "description": "Apple dévoile une tablette à écran tactile destinée à la lecture, au web et aux applications. L’annonce précède la commercialisation du produit.",
+      "sources": [
+        {
+          "url": "https://www.apple.com/hk/en/newsroom/2010/01/27Apple-Launches-iPad/",
+          "evidence": "Communiqué original du 27 janvier 2010 : présentation de l’iPad.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Objet numérique très connu, annonce clairement distinguée de la vente.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-089",
+      "id": "EVT-2888",
+      "group": "fun",
+      "title": "iRobot lance l’aspirateur robot Roomba aux États-Unis",
+      "start_year": 2002,
+      "start_month": 9,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113"
+      ],
+      "description": "Le robot se déplace dans la maison pour aspirer le sol. Ce produit contribue à diffuser la robotique domestique auprès du grand public.",
+      "sources": [
+        {
+          "url": "https://media.irobot.com/2002-09-18-iRobot-Introduces-Roomba-Intelligent-FloorVac-The-First-Automatic-Floor-Cleaner-In-The-U-S",
+          "evidence": "Communiqué original : introduction sur le marché américain le 18 septembre 2002.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Robot ménager reconnaissable, sans prétendre à la première mondiale de tout aspirateur robot.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-090",
+      "id": "EVT-2889",
+      "group": "fun",
+      "title": "Chester Carlson réalise la première image xérographique",
+      "start_year": 1938,
+      "start_month": 10,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0113",
+        "COL-0071",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Carlson obtient à Astoria une copie à sec portant le nom du lieu et la date. Le procédé électrostatique deviendra la base de nombreuses photocopieuses.",
+      "sources": [
+        {
+          "url": "https://news.xerox.co.uk/news/GBR_Xerography_100",
+          "evidence": "Xerox : première image xérographique le 22 octobre 1938.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Technique familière mais inventeur et procédé moins connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-091",
+      "id": "EVT-2890",
+      "group": "fun",
+      "title": "Levi Strauss et Jacob Davis obtiennent le brevet du pantalon à rivets",
+      "start_year": 1873,
+      "start_month": 5,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0081"
+      ],
+      "description": "Les rivets renforcent les points fragiles des pantalons de travail. Ce brevet marque une étape fondatrice du jean moderne, sans être l’invention du tissu denim.",
+      "sources": [
+        {
+          "url": "https://www.levistrauss.com/2016/05/19/happy-143rd-blue-jeans/",
+          "evidence": "Détenteur du brevet : brevet accordé à Strauss et Davis le 20 mai 1873.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Vêtement universel et détail technique facile à comprendre.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-092",
+      "id": "EVT-2891",
+      "group": "fun",
+      "title": "Le premier SMS transmet le message Merry Christmas",
+      "start_year": 1992,
+      "start_month": 12,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0112",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Neil Papworth envoie le message depuis un ordinateur vers un téléphone du réseau Vodafone. Le destinataire ne peut pas répondre par SMS avec cet appareil.",
+      "sources": [
+        {
+          "url": "https://www.vodafone.com/news/newsroom/technology/25-anniversary-text-message",
+          "evidence": "Vodafone : premier SMS envoyé le 3 décembre 1992.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première d’un usage quotidien largement connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-093",
+      "id": "EVT-2892",
+      "group": "fun",
+      "title": "Un paquet de chewing-gum inaugure le passage en caisse par code-barres",
+      "start_year": 1974,
+      "start_month": 6,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0113",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Dans un supermarché de l’Ohio, une caissière scanne un paquet de chewing-gum Wrigley. C’est le premier passage commercial en caisse avec le code UPC.",
+      "sources": [
+        {
+          "url": "https://support.gs1.org/support/solutions/articles/43000734073-gs1-historical-timeline",
+          "evidence": "GS1 : premier produit scanné au supermarché Marsh le 26 juin 1974.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Objet courant, premier usage précis et anecdote accessible.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-094",
+      "id": "EVT-2893",
+      "group": "fun",
+      "title": "Une erreur d’enveloppe fait annoncer La La Land à la place de Moonlight aux Oscars",
+      "start_year": 2017,
+      "start_month": 2,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0115"
+      ],
+      "description": "Les présentateurs lisent une mauvaise enveloppe pour le prix du meilleur film. L’erreur est corrigée sur scène et Moonlight reçoit finalement la récompense.",
+      "sources": [
+        {
+          "url": "https://www.oscars.org/news/statement-pricewaterhousecoopers",
+          "evidence": "Déclaration de l’organisateur : mauvaise enveloppe, annonce corrigée ; programme officiel : cérémonie du 26 février 2017 à Los Angeles.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.oscars.org/oscars/ceremonies/2017",
+          "evidence": "Date locale de la cérémonie : dimanche 26 février 2017.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Erreur télévisée célèbre, distincte de la simple tenue de la cérémonie.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-095",
+      "id": "EVT-2894",
+      "group": "fun",
+      "title": "Le premier vol d’Ariane 5 échoue après une erreur du système de guidage",
+      "start_year": 1996,
+      "start_month": 6,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0070",
+        "COL-0071",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "La fusée décolle de Kourou mais se désintègre peu après. L’enquête met en évidence une défaillance logicielle dans le traitement des informations de navigation.",
+      "sources": [
+        {
+          "url": "https://www.esa.int/Newsroom/Press_Releases/Ariane_501_-_Presentation_of_Inquiry_Board_report",
+          "evidence": "ESA : premier vol d’Ariane 5 en échec le 4 juin 1996 ; conclusions de l’enquête.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Échec célèbre de l’histoire spatiale européenne, sans victime humaine à bord.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-096",
+      "id": "EVT-2895",
+      "group": "fun",
+      "title": "La BBC diffuse un faux documentaire montrant des manchots volants",
+      "start_year": 2008,
+      "start_month": 4,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0115",
+        "COL-0062"
+      ],
+      "description": "Une séquence truquée accompagne un poisson d’avril de la BBC. Les oiseaux y quittent l’Antarctique en volant, un comportement impossible pour de vrais manchots.",
+      "sources": [
+        {
+          "url": "https://factcheck.afp.com/flying-penguins-animation-actually-spoof-produced-bbc-april-fools-day-2008",
+          "evidence": "Vérification AFP renvoyant à la vidéo originale BBC publiée le 1er avril 2008.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Canular visuel compréhensible, explicitement présenté comme faux.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-097",
+      "id": "EVT-2896",
+      "group": "fun",
+      "title": "La Suède bascule de la conduite à gauche à la conduite à droite",
+      "start_year": 1967,
+      "start_month": 9,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0117",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le jour H, la circulation est interrompue avant la réorganisation des véhicules sur l’autre côté des routes. Cette opération nationale exige une importante préparation.",
+      "sources": [
+        {
+          "url": "https://www.statensmuseermtf.se/vara-museer-och-samlingar/vara-samlingar/transporthistoria/vaghistoriska-samlingarna/trafikhistoria/hogertrafik",
+          "evidence": "Musées nationaux suédois des transports : changement dans la nuit du 3 septembre 1967.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Décision insolite aux conséquences concrètes faciles à imaginer.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-098",
+      "id": "EVT-2897",
+      "group": "fun",
+      "title": "Taco Bell prétend avoir acheté la Liberty Bell dans un poisson d’avril",
+      "start_year": 1996,
+      "start_month": 4,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0082"
+      ],
+      "description": "Une publicité annonce faussement l’achat et le changement de nom de la célèbre cloche américaine. L’enseigne révèle le jour même qu’il s’agit d’un canular.",
+      "sources": [
+        {
+          "url": "https://www.upi.com/Archives/1996/04/01/Taco-Bell-stages-April-Fools-hoax/8400828334800/",
+          "evidence": "Dépêche UPI originale du 1er avril 1996 rapportant le canular et son démenti.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Canular culturel américain demandant de connaître le monument.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-099",
+      "id": "EVT-2898",
+      "group": "fun",
+      "title": "La fraude de l’homme de Piltdown est révélée",
+      "start_year": 1953,
+      "start_month": 11,
+      "start_day": null,
+      "precision": "MONTH",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0117",
+        "COL-0071",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Des analyses démontrent que le prétendu fossile combine des restes humains et une mâchoire d’orang-outan. Le dévoilement de la fraude est distinct de sa présentation initiale en 1912.",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/CalmView/Record.aspx?id=DF%2FPAL%2F116%2F37%2F1&src=CalmView.Catalog",
+          "evidence": "Archives du musée : télégramme du 21 novembre 1953 confirmant la fraude ; correspondance voisine du 20 au 24 novembre. Mois retenu sans imposer un unique jour de révélation publique.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Canular scientifique historique nécessitant un repère spécialisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-100",
+      "id": "EVT-2899",
+      "group": "fun",
+      "title": "Alan Sokal révèle son canular publié dans la revue Social Text",
+      "start_year": 1996,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 3,
+      "packs": [
+        "COL-0117",
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "Le physicien explique avoir fait publier un texte volontairement absurde. L’affaire déclenche un débat sur la rigueur éditoriale et les rapports entre sciences et études culturelles.",
+      "sources": [
+        {
+          "url": "https://physics.nyu.edu/faculty/sokal/lingua_franca_v4/lingua_franca_v4.html",
+          "evidence": "Texte original de révélation dans Lingua Franca, numéro mai-juin 1996 ; seule l’année est retenue pour ce numéro double.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Affaire universitaire spécialisée, niveau expert ; aucune conclusion générale abusivement tirée du canular.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-101",
+      "id": "EVT-2900",
+      "group": "fun",
+      "title": "Sortie de Dangal (Inde)",
+      "start_year": 2016,
+      "start_month": 12,
+      "start_day": 23,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0114"
+      ],
+      "description": "Le film indien de Nitesh Tiwari, avec Aamir Khan, s’inspire d’un père qui entraîne ses filles à la lutte. Il associe récit familial et émancipation par le sport.",
+      "sources": [
+        {
+          "url": "https://akpfilms.com/films/dangal/",
+          "evidence": "Producteur Aamir Khan Productions : 23 December 2016 ; The Numbers précise sortie large en Inde à cette date.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://www.the-numbers.com/movie/Dangal-%282016-India%29",
+          "evidence": "Sortie large Inde le 23 décembre 2016, distincte de la sortie limitée nord-américaine du 21.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Grand succès du cinéma indien, repère moins familier au public français.",
+      "aliases": [],
+      "territory": "Inde",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M2-102",
+      "id": "EVT-2901",
+      "group": "fun",
+      "title": "Sortie de La Cité de Dieu (France)",
+      "start_year": 2003,
+      "start_month": 3,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0114",
+        "COL-0061"
+      ],
+      "description": "Fernando Meirelles et Kátia Lund mettent en scène la violence et les trajectoires de jeunes d’une favela de Rio. La date concerne la sortie française, après la sortie brésilienne.",
+      "sources": [
+        {
+          "url": "https://www.allocine.fr/article/fichearticle_gen_carticle%3D18351100.html",
+          "evidence": "Entretien original avec Meirelles, publié le 12 mars 2003 à l’occasion de la sortie en salles ce même jour.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Film brésilien marquant, territoire français explicitement distingué.",
+      "aliases": [],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M2-103",
+      "id": "EVT-2902",
+      "group": "fun",
+      "title": "Sortie de Le Labyrinthe de Pan (France)",
+      "start_year": 2006,
+      "start_month": 11,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0114",
+        "COL-0061",
+        "COL-0062"
+      ],
+      "description": "Guillermo del Toro mêle conte fantastique et violence de l’Espagne franquiste à travers le regard d’une enfant. La date retenue est celle des salles françaises.",
+      "sources": [
+        {
+          "url": "https://cineligue-hdf.org/films/le-labyrinthe-de-pan/",
+          "evidence": "Cinéligue Hauts-de-France : date de sortie française 1 novembre 2006.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Film marquant du cinéma hispanophone, niveau intermédiaire.",
+      "aliases": [],
+      "territory": "France",
+      "kind": "cinema"
+    },
+    {
+      "proposal_id": "M2-104",
+      "id": "EVT-2903",
+      "group": "fun",
+      "title": "William et Catherine Middleton se marient à Westminster",
+      "start_year": 2011,
+      "start_month": 4,
+      "start_day": 29,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0062"
+      ],
+      "description": "Le mariage du prince britannique et de Catherine Middleton est célébré à l’abbaye de Westminster. La cérémonie est largement retransmise à la télévision.",
+      "sources": [
+        {
+          "url": "https://www.royal.uk/wedding-prince-william-and-miss-catherine-middleton?ch=3&page=11",
+          "evidence": "Maison royale : vendredi 29 avril 2011, mariage à Westminster.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Mariage royal contemporain très connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-105",
+      "id": "EVT-2904",
+      "group": "fun",
+      "title": "Grace Kelly épouse religieusement le prince Rainier III de Monaco",
+      "start_year": 1956,
+      "start_month": 4,
+      "start_day": 19,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0116",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "L’actrice américaine épouse le prince à la cathédrale de Monaco. Le titre précise la cérémonie religieuse du 19 avril, après le mariage civil de la veille.",
+      "sources": [
+        {
+          "url": "https://institut-audiovisuel.mc/medias/au-pied-de-la-cathedrale/",
+          "evidence": "Archive audiovisuelle monégasque : jeudi 19 avril 1956, mariage religieux à la cathédrale.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Union célèbre entre cinéma et monarchie, cérémonie précisément identifiée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-106",
+      "id": "EVT-2905",
+      "group": "fun",
+      "title": "Fortnite Battle Royale devient gratuit sur ordinateurs et consoles",
+      "start_year": 2017,
+      "start_month": 9,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115"
+      ],
+      "description": "Le mode oppose cent joueurs dans une partie d’élimination. Son accès gratuit accompagne la diffusion mondiale de Fortnite, distinct du mode coopératif initial du jeu.",
+      "sources": [
+        {
+          "url": "https://www.fortnite.com/news/fortnite-battle-royale-goes-free?lang=fr",
+          "evidence": "Epic : accès gratuit annoncé pour le 26 septembre 2017 sur PC, Mac, PS4 et Xbox One.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Jeu très connu ; mode Battle Royale et lancement gratuit précisés.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-107",
+      "id": "EVT-2906",
+      "group": "fun",
+      "title": "Pokémon GO est lancé en Australie, en Nouvelle-Zélande et aux États-Unis",
+      "start_year": 2016,
+      "start_month": 7,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115"
+      ],
+      "description": "Le jeu sur téléphone fait chercher des Pokémon dans l’environnement réel. Sa diffusion commence dans ces trois pays avant d’être étendue ailleurs.",
+      "sources": [
+        {
+          "url": "https://pokemongo.com/news/launch",
+          "evidence": "Annonce originale du 6 juillet 2016 : disponible dans les trois territoires nommés.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Jeu populaire et lancement géographique explicitement limité.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-108",
+      "id": "EVT-2907",
+      "group": "fun",
+      "title": "ABBA remporte l’Eurovision avec Waterloo",
+      "start_year": 1974,
+      "start_month": 4,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le groupe suédois gagne le concours à Brighton. Cette victoire lance une carrière internationale majeure dans la musique pop.",
+      "sources": [
+        {
+          "url": "https://www.rte.ie/archives/2014/0404/606651-abba-win-eurovision/",
+          "evidence": "Archives du diffuseur RTÉ : victoire du 6 avril 1974 avec Waterloo.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Groupe et chanson très connus, distinct de la simple édition du concours.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-109",
+      "id": "EVT-2908",
+      "group": "fun",
+      "title": "Instagram est lancé comme application de partage de photos",
+      "start_year": 2010,
+      "start_month": 10,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0115"
+      ],
+      "description": "Instagram arrive sur iPhone avec ses filtres photographiques.",
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2010/10/06/instagram-launch/",
+          "evidence": "Annonce de lancement contemporaine, 6 octobre 2010.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Application familière à un large public.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-110",
+      "id": "EVT-2909",
+      "group": "histoire",
+      "title": "Le Cameroun sous tutelle française devient indépendant",
+      "start_year": 1960,
+      "start_month": 1,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082",
+        "COL-0061"
+      ],
+      "description": "Le territoire accède à la souveraineté sous le nom de République du Cameroun. Cette étape précède la réunification avec la partie méridionale du Cameroun britannique.",
+      "sources": [
+        {
+          "url": "https://mintoul.gov.cm/cameroun-en-decouverte/histoire-du-cameroun/lindependance-la-reunification/",
+          "evidence": "Ministère camerounais : indépendance du Cameroun oriental le 1er janvier 1960, réunification distincte en 1961.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Indépendance majeure d’un pays francophone connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-111",
+      "id": "EVT-2910",
+      "group": "histoire",
+      "title": "La Côte d’Ivoire devient indépendante",
+      "start_year": 1960,
+      "start_month": 8,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082",
+        "COL-0061"
+      ],
+      "description": "Le pays quitte la souveraineté française. Félix Houphouët-Boigny dirige le nouvel État dans le contexte des indépendances africaines de 1960.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/cote-divoire",
+          "evidence": "Archives diplomatiques : fin de la souveraineté française et indépendance le 7 août 1960.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pays francophone familier et grande vague de décolonisation.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-112",
+      "id": "EVT-2911",
+      "group": "histoire",
+      "title": "Le Gabon proclame son indépendance",
+      "start_year": 1960,
+      "start_month": 8,
+      "start_day": 17,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082",
+        "COL-0061"
+      ],
+      "description": "Léon M’ba dirige le nouvel État issu de l’Afrique-Équatoriale française. Le Gabon devient souverain dans la grande vague des indépendances africaines.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/gabon",
+          "evidence": "Office of the Historian : proclamation de l’indépendance le 17 août 1960.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Indépendance d’un pays francophone connu, située dans la vague de 1960.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-113",
+      "id": "EVT-2912",
+      "group": "histoire",
+      "title": "Le Dahomey, futur Bénin, devient indépendant",
+      "start_year": 1960,
+      "start_month": 8,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082",
+        "COL-0061"
+      ],
+      "description": "Le Dahomey sort de la souveraineté française. Le pays prendra le nom de Bénin plus tard, sans que ce changement de nom constitue une nouvelle indépendance.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/benin",
+          "evidence": "Archives diplomatiques : indépendance proclamée le 1er août 1960 ; nom Bénin adopté en 1975.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pays francophone identifié par son nom actuel et son ancien nom.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-114",
+      "id": "EVT-2913",
+      "group": "histoire",
+      "title": "Le Togo devient indépendant",
+      "start_year": 1960,
+      "start_month": 4,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082",
+        "COL-0061"
+      ],
+      "description": "L’ancien territoire sous tutelle des Nations unies et administration française accède à la souveraineté. Sylvanus Olympio dirige son gouvernement.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/togo",
+          "evidence": "Archives diplomatiques : indépendance reconnue le 27 avril 1960, fin de la tutelle administrée par la France.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Indépendance d’un pays francophone connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-115",
+      "id": "EVT-2914",
+      "group": "histoire",
+      "title": "Le Kenya devient indépendant",
+      "start_year": 1963,
+      "start_month": 12,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082"
+      ],
+      "description": "Le drapeau kényan remplace l’Union Jack lors des cérémonies d’indépendance. Jomo Kenyatta devient le premier Premier ministre de l’État souverain.",
+      "sources": [
+        {
+          "url": "https://presidentiallibrary.go.ke/presidents/he-mzee-jomo-kenyatta",
+          "evidence": "Bibliothèque présidentielle kényane : indépendance le 12 décembre 1963 ; passage à la république en 1964 distinct.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pays et dirigeant majeurs de la décolonisation africaine.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-116",
+      "id": "EVT-2915",
+      "group": "histoire",
+      "title": "La Jamaïque devient indépendante du Royaume-Uni",
+      "start_year": 1962,
+      "start_month": 8,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082"
+      ],
+      "description": "Le nouveau drapeau jamaïcain est hissé après plusieurs siècles de domination britannique. L’État demeure membre du Commonwealth.",
+      "sources": [
+        {
+          "url": "https://nlj.gov.jm/jamaicaindependence1962/",
+          "evidence": "Bibliothèque nationale de Jamaïque : indépendance le 6 août 1962.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pays caribéen familier et date nationale claire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-117",
+      "id": "EVT-2916",
+      "group": "histoire",
+      "title": "La Guinée proclame son indépendance après le non au référendum",
+      "start_year": 1958,
+      "start_month": 10,
+      "start_day": 2,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0075",
+        "COL-0082",
+        "COL-0061"
+      ],
+      "description": "Après le rejet du projet de Communauté française au référendum, la Guinée devient indépendante. Sékou Touré dirige le nouvel État.",
+      "sources": [
+        {
+          "url": "https://mjp.univ-perp.fr/constit/gn1958.htm",
+          "evidence": "Digithèque de l’université de Perpignan : indépendance proclamée le 2 octobre 1958, distincte du vote du 28 septembre.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Rupture majeure de la décolonisation française et dirigeant connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-118",
+      "id": "EVT-2917",
+      "group": "histoire",
+      "title": "Le Tanganyika devient indépendant avant la formation de la Tanzanie",
+      "start_year": 1961,
+      "start_month": 12,
+      "start_day": 9,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0075",
+        "COL-0082"
+      ],
+      "description": "Julius Nyerere dirige le nouvel État issu d’un territoire sous tutelle britannique. Le Tanganyika s’unira ultérieurement à Zanzibar pour former la Tanzanie.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/tanzania",
+          "evidence": "Archives diplomatiques : indépendance du Tanganyika le 9 décembre 1961.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Ancien nom et union ultérieure exigent une distinction historique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-119",
+      "id": "EVT-2918",
+      "group": "histoire",
+      "title": "La fédération de Malaya devient indépendante",
+      "start_year": 1957,
+      "start_month": 8,
+      "start_day": 31,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0075",
+        "COL-0082"
+      ],
+      "description": "La fédération sort de l’Empire britannique avec Tunku Abdul Rahman à sa tête. Cette indépendance précède la formation de la fédération de Malaysia élargie en 1963.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/malaysia",
+          "evidence": "Archives diplomatiques : fédération de Malaya indépendante le 31 août 1957 ; élargissement de 1963 distingué.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Entité de 1957 distinguée de l’État fédéral élargi de 1963.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-120",
+      "id": "EVT-2919",
+      "group": "histoire",
+      "title": "Le Botswana devient indépendant sous son nouveau nom",
+      "start_year": 1966,
+      "start_month": 9,
+      "start_day": 30,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0075",
+        "COL-0082"
+      ],
+      "description": "L’ancien protectorat britannique du Bechuanaland accède à la souveraineté. Le nouvel État prend le nom de Botswana.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/botswana",
+          "evidence": "Archives diplomatiques : indépendance du Botswana le 30 septembre 1966, ancien Bechuanaland.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Ancien protectorat moins familier, niveau intermédiaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-121",
+      "id": "EVT-2920",
+      "group": "histoire",
+      "title": "La Barbade devient indépendante",
+      "start_year": 1966,
+      "start_month": 11,
+      "start_day": 30,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0075",
+        "COL-0082"
+      ],
+      "description": "L’île caribéenne devient un État souverain au sein du Commonwealth après une conférence constitutionnelle avec le Royaume-Uni.",
+      "sources": [
+        {
+          "url": "https://history.state.gov/countries/barbados",
+          "evidence": "Archives diplomatiques : État indépendant le 30 novembre 1966.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Indépendance caribéenne moins connue que celle de la Jamaïque.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-122",
+      "id": "EVT-2921",
+      "group": "histoire",
+      "title": "Le manifeste de Morges lance le projet du WWF",
+      "start_year": 1961,
+      "start_month": 4,
+      "start_day": 29,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Des défenseurs de la nature proposent un fonds international pour financer la conservation. Ce manifeste est à l’origine du WWF, connu pour son emblème au panda.",
+      "sources": [
+        {
+          "url": "https://wwflac.awsassets.panda.org/downloads/enaccion_12_ing_8_web.pdf",
+          "evidence": "Publication WWF : manifeste établi le 29 avril 1961 en Suisse, distinct de l’ouverture ultérieure du bureau.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Organisation au panda très connue ; acte fondateur explicitement nommé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-123",
+      "id": "EVT-2922",
+      "group": "histoire",
+      "title": "L’Union internationale pour la protection de la nature est fondée à Fontainebleau",
+      "start_year": 1948,
+      "start_month": 10,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0076",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Des gouvernements et des organisations se rassemblent pour protéger la nature. L’institution prendra ensuite le nom d’Union internationale pour la conservation de la nature, ou UICN.",
+      "sources": [
+        {
+          "url": "https://iucn.org/about-iucn/history",
+          "evidence": "UICN : fondation à Fontainebleau le 5 octobre 1948.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Institution de conservation importante mais moins familière que le WWF.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-124",
+      "id": "EVT-2923",
+      "group": "histoire",
+      "title": "L’Amoco Cadiz s’échoue et provoque une marée noire en Bretagne",
+      "start_year": 1978,
+      "start_month": 3,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Après une panne de gouvernail, le pétrolier s’échoue près de Portsall. Le pétrole se répand sur une grande partie du littoral breton.",
+      "sources": [
+        {
+          "url": "https://www.itopf.org/in-action/case-studies/amoco-cadiz-france-1978/",
+          "evidence": "ITOPF, intervenu sur place : échouement le 16 mars 1978.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Catastrophe environnementale majeure et connue en France.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-125",
+      "id": "EVT-2924",
+      "group": "histoire",
+      "title": "L’Exxon Valdez provoque une marée noire en Alaska",
+      "start_year": 1989,
+      "start_month": 3,
+      "start_day": 24,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "Le pétrolier s’échoue dans le détroit du Prince-William. La pollution touche durablement les côtes et les écosystèmes marins d’Alaska.",
+      "sources": [
+        {
+          "url": "https://darrp.noaa.gov/oil-spills/exxon-valdez",
+          "evidence": "NOAA : échouement et déversement de pétrole le 24 mars 1989.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Marée noire mondialement connue.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-126",
+      "id": "EVT-2925",
+      "group": "histoire",
+      "title": "Le naufrage de l’Erika provoque une marée noire sur les côtes françaises",
+      "start_year": 1999,
+      "start_month": 12,
+      "start_day": 12,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le pétrolier se brise au large de la Bretagne. Le fioul transporté souille une partie du littoral atlantique français.",
+      "sources": [
+        {
+          "url": "https://documentservices.iopcfunds.org/wp-content/themes/iopcfunds/scripts/download-document.php?doc=19342&lang=en&name=IOPC-MAR11-3-3",
+          "evidence": "Fonds internationaux d’indemnisation : accident Erika daté du 12 décembre 1999, rupture et naufrage.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Catastrophe française très connue, traitée sobrement.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-127",
+      "id": "EVT-2926",
+      "group": "histoire",
+      "title": "La convention de Vienne organise la coopération pour protéger la couche d’ozone",
+      "start_year": 1985,
+      "start_month": 3,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0076",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Les États adoptent un cadre de recherche et de coopération face à l’appauvrissement de l’ozone. Les restrictions chiffrées sur certaines substances seront précisées par le protocole de Montréal.",
+      "sources": [
+        {
+          "url": "https://ozone.unep.org/system/files/documents/1985-03-22_Vienna-Convention_Final-Act.E.pdf",
+          "evidence": "Acte final de la conférence : adoption le 22 mars 1985.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Convention moins connue, clairement distinguée du protocole de Montréal déjà présent.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-128",
+      "id": "EVT-2927",
+      "group": "histoire",
+      "title": "La convention sur la diversité biologique est adoptée à Nairobi",
+      "start_year": 1992,
+      "start_month": 5,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0076",
+        "COL-0082"
+      ],
+      "description": "Le texte vise la conservation de la biodiversité, son utilisation durable et le partage des bénéfices des ressources génétiques. Son adoption précède l’ouverture à la signature au sommet de Rio.",
+      "sources": [
+        {
+          "url": "https://www.cbd.int/doc/legal/cbd-en.pdf",
+          "evidence": "Texte publié par le secrétariat : adoption initiale le 22 mai 1992.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Accord mondial sur un enjeu familier ; adoption distinguée de la signature à Rio.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-129",
+      "id": "EVT-2928",
+      "group": "histoire",
+      "title": "La convention de Stockholm cible les polluants organiques persistants",
+      "start_year": 2001,
+      "start_month": 5,
+      "start_day": 22,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0076",
+        "COL-0062"
+      ],
+      "description": "L’accord prévoit de réduire ou d’éliminer des substances toxiques qui persistent dans l’environnement et s’accumulent dans les organismes.",
+      "sources": [
+        {
+          "url": "https://www.pops.int/TheConvention/Overview",
+          "evidence": "Secrétariat : convention adoptée à Stockholm le 22 mai 2001.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Traité spécialisé, niveau intermédiaire et contenu expliqué simplement.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-130",
+      "id": "EVT-2929",
+      "group": "histoire",
+      "title": "La convention de Minamata sur le mercure est adoptée",
+      "start_year": 2013,
+      "start_month": 10,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0076"
+      ],
+      "description": "Adopté au Japon, l’accord vise à limiter l’utilisation et les rejets de mercure. Son nom rappelle la pollution qui a gravement touché la ville de Minamata.",
+      "sources": [
+        {
+          "url": "https://www.unep.org/globalmercurypartnership/resources/policy-and-strategy/minamata-convention-mercury",
+          "evidence": "PNUE : adoption le 10 octobre 2013 à Kumamoto, entrée en vigueur ultérieure en 2017.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Accord environnemental spécialisé, traité sans banaliser les victimes.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-131",
+      "id": "EVT-2930",
+      "group": "histoire",
+      "title": "Theodore Maiman fait fonctionner le premier laser",
+      "start_year": 1960,
+      "start_month": 5,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0112",
+        "COL-0113",
+        "COL-0082"
+      ],
+      "description": "Maiman obtient une impulsion de lumière cohérente avec un cristal de rubis. Le laser deviendra un outil de recherche et de nombreuses technologies quotidiennes.",
+      "sources": [
+        {
+          "url": "https://www.aps.org/apsnews/2010/05/physics-history",
+          "evidence": "American Physical Society : premier laser fonctionnel le 16 mai 1960.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Invention majeure au nom familier.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-132",
+      "id": "EVT-2931",
+      "group": "histoire",
+      "title": "Alec Jeffreys découvre le principe de l’empreinte génétique",
+      "start_year": 1984,
+      "start_month": 9,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "À Leicester, Jeffreys observe des motifs d’ADN permettant de distinguer des personnes. Sa découverte ouvrira de nouveaux usages en identification et en médecine légale.",
+      "sources": [
+        {
+          "url": "https://le.ac.uk/dna-fingerprinting/hotspots-and-minisatellites",
+          "evidence": "Université de Leicester : découverte le lundi 10 septembre 1984.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Technique connue, mais chercheur et étape expérimentale plus spécialisés.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-133",
+      "id": "EVT-2932",
+      "group": "histoire",
+      "title": "La découverte de l’exoplanète 51 Pegasi b est annoncée",
+      "start_year": 1995,
+      "start_month": 10,
+      "start_day": 6,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0070",
+        "COL-0061",
+        "COL-0062",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "Michel Mayor et Didier Queloz annoncent une planète en orbite autour d’une étoile semblable au Soleil. Ce résultat concerne une étoile de type solaire, et non les premières planètes déjà détectées autour d’un pulsar.",
+      "sources": [
+        {
+          "url": "https://www.hq.eso.org/public/announcements/ann19049/",
+          "evidence": "ESO : découverte annoncée le 6 octobre 1995 avec le spectrographe ELODIE en Haute-Provence.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Découverte majeure de planète extrasolaire, périmètre de la première précisé.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-134",
+      "id": "EVT-2933",
+      "group": "histoire",
+      "title": "James Chadwick publie l’annonce du neutron",
+      "start_year": 1932,
+      "start_month": 2,
+      "start_day": 27,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Dans une lettre à Nature, Chadwick propose qu’un rayonnement observé provienne de particules sans charge électrique. Le neutron devient un élément central de la description du noyau atomique.",
+      "sources": [
+        {
+          "url": "https://www.nature.com/articles/129312a0",
+          "evidence": "Article original Possible Existence of a Neutron, Nature 129, p. 312, numéro du 27 février 1932.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Constituant de l’atome connu mais publication scientifique précise.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-135",
+      "id": "EVT-2934",
+      "group": "histoire",
+      "title": "Stanley Miller publie la synthèse d’acides aminés dans une expérience sur la Terre primitive",
+      "start_year": 1953,
+      "start_month": 5,
+      "start_day": 15,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 3,
+      "packs": [
+        "COL-0071",
+        "COL-0082"
+      ],
+      "description": "Miller soumet un mélange de gaz et de vapeur d’eau à des décharges électriques. Il obtient des acides aminés, sans avoir créé de la vie ni démontré la composition exacte de l’atmosphère primitive.",
+      "sources": [
+        {
+          "url": "https://www.science.org/doi/10.1126/science.117.3046.528",
+          "evidence": "Référence originale : Science 117, 528-529, 15 mai 1953 ; date et résumé vérifiés dans la notice OpenAIRE, le site éditeur refusant la consultation automatisée.",
+          "checked_on": "2026-10-17"
+        },
+        {
+          "url": "https://explore.openaire.eu/search/publication?pid=10.1126%2Fscience.117.3046.528",
+          "evidence": "Notice de publication : 15 May 1953, Science, vol. 117, p. 528-529.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Expérience de chimie prébiotique spécialisée, limites explicitement formulées.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-136",
+      "id": "EVT-2935",
+      "group": "histoire",
+      "title": "Marie Curie donne son premier cours comme professeure à la Sorbonne",
+      "start_year": 1906,
+      "start_month": 11,
+      "start_day": 5,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0112",
+        "COL-0073",
+        "COL-0061",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Marie Curie devient la première femme à enseigner comme professeure à la Sorbonne. Elle reprend la chaire de physique laissée vacante après la mort de Pierre Curie.",
+      "sources": [
+        {
+          "url": "https://www.sorbonne.fr/pose-dune-plaque-commemorative-en-souvenir-de-marie-curie/",
+          "evidence": "Chancellerie des universités : premier cours le 5 novembre 1906, première femme professeure à la Sorbonne.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Scientifique très connue et première féminine claire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-137",
+      "id": "EVT-2936",
+      "group": "histoire",
+      "title": "Ada Lovelace publie ses notes sur la machine analytique de Babbage",
+      "start_year": 1843,
+      "start_month": null,
+      "start_day": null,
+      "precision": "YEAR",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0071",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Lovelace traduit un texte de Menabrea et l’enrichit de notes sur les possibilités de la machine. Elle y décrit notamment une méthode de calcul des nombres de Bernoulli.",
+      "sources": [
+        {
+          "url": "https://collection.sciencemuseumgroup.org.uk/objects/co8652385/book-sketch-of-the-analytical-engine-invented-by-charles-babbage-esq",
+          "evidence": "Exemplaire original conservé au Science Museum : édition de Londres 1843. Aucun jour ajouté.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pionnière de l’informatique connue ; titre évitant la revendication discutée de toute première programmeuse.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-138",
+      "id": "EVT-2937",
+      "group": "histoire",
+      "title": "Cassini devient la première sonde en orbite autour de Saturne",
+      "start_year": 2004,
+      "start_month": 7,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0071",
+        "COL-0112"
+      ],
+      "description": "Après un long trajet, Cassini freine pour être capturée par la gravité de Saturne. Elle commence une étude prolongée de la planète, de ses anneaux et de ses lunes.",
+      "sources": [
+        {
+          "url": "https://science.nasa.gov/mission/cassini/faq/",
+          "evidence": "NASA : arrivée le 1er juillet 2004 en temps universel, encore le 30 juin dans les fuseaux américains.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Planète familière et première exploration orbitale clairement définie.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-139",
+      "id": "EVT-2938",
+      "group": "histoire",
+      "title": "Voyager 2 réalise le premier survol rapproché de Neptune",
+      "start_year": 1989,
+      "start_month": 8,
+      "start_day": 25,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0071",
+        "COL-0112",
+        "COL-0082"
+      ],
+      "description": "La sonde observe Neptune et sa grande lune Triton. Ce passage conclut sa visite rapprochée des quatre planètes géantes du Système solaire.",
+      "sources": [
+        {
+          "url": "https://science.nasa.gov/mission/voyager/voyager-2/",
+          "evidence": "NASA : rencontre avec Neptune le 25 août 1989 à 03:56 UT.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Planète connue et première rencontre spatiale identifiable.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-140",
+      "id": "EVT-2939",
+      "group": "histoire",
+      "title": "Chang’e 4 réussit le premier alunissage en douceur sur la face cachée",
+      "start_year": 2019,
+      "start_month": 1,
+      "start_day": 3,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0071",
+        "COL-0112"
+      ],
+      "description": "La mission chinoise se pose dans le cratère Von Kármán. Un satellite relais permet les communications avec la Terre, invisible depuis ce côté de la Lune.",
+      "sources": [
+        {
+          "url": "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6805049/content.html",
+          "evidence": "Agence spatiale chinoise : premier alunissage sur la face cachée, 3 janvier 2019.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première spatiale majeure, lieu clairement distingué des alunissages antérieurs.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-141",
+      "id": "EVT-2940",
+      "group": "histoire",
+      "title": "Le rover Perseverance se pose sur Mars",
+      "start_year": 2021,
+      "start_month": 2,
+      "start_day": 18,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0070",
+        "COL-0071"
+      ],
+      "description": "Le robot américain atteint le cratère Jezero. Il recherche notamment des traces d’environnements anciens favorables à la vie et prépare des échantillons pour de futures études.",
+      "sources": [
+        {
+          "url": "https://www.nasa.gov/news-release/touchdown-nasas-mars-perseverance-rover-safely-lands-on-red-planet/",
+          "evidence": "Communiqué original NASA : atterrissage le 18 février 2021.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Mission martienne récente et largement diffusée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-142",
+      "id": "EVT-2941",
+      "group": "histoire",
+      "title": "Le traité de Lisbonne entre en vigueur",
+      "start_year": 2009,
+      "start_month": 12,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062"
+      ],
+      "description": "Le traité réforme les institutions de l’Union européenne et donne un statut juridique renforcé à la Charte des droits fondamentaux. Cette entrée en vigueur est distincte de la signature de 2007.",
+      "sources": [
+        {
+          "url": "https://www.consilium.europa.eu/cs/lisbon-treaty/",
+          "evidence": "Conseil de l’Union : entrée en vigueur le 1er décembre 2009.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Grand traité européen et changement institutionnel connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-143",
+      "id": "EVT-2942",
+      "group": "histoire",
+      "title": "Le traité de Nice est signé",
+      "start_year": 2001,
+      "start_month": 2,
+      "start_day": 26,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0061"
+      ],
+      "description": "Les États membres modifient les règles institutionnelles de l’Union européenne pour préparer son élargissement. La signature précède l’entrée en vigueur du traité.",
+      "sources": [
+        {
+          "url": "https://www.consilium.europa.eu/en/documents/treaties-agreements/agreement/?id=2001010",
+          "evidence": "Registre du Conseil : signature à Nice le 26 février 2001.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Traité moins connu que Maastricht ou Lisbonne.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-144",
+      "id": "EVT-2943",
+      "group": "histoire",
+      "title": "La Croatie rejoint l’Union européenne",
+      "start_year": 2013,
+      "start_month": 7,
+      "start_day": 1,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062"
+      ],
+      "description": "La Croatie devient le vingt-huitième État membre au moment de son adhésion. Cette étape suit un processus de négociation et de ratification.",
+      "sources": [
+        {
+          "url": "https://www.ecb.europa.eu/press/pr/date/2013/html/pr130701.en.html",
+          "evidence": "Communiqué original BCE du 1er juillet 2013 : adhésion effective ce jour.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Adhésion récente d’un pays européen connu.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-145",
+      "id": "EVT-2944",
+      "group": "histoire",
+      "title": "Les premières élections européennes au suffrage direct commencent",
+      "start_year": 1979,
+      "start_month": 6,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0073",
+        "COL-0082"
+      ],
+      "description": "Les citoyens élisent directement les députés européens pour la première fois. Le scrutin se déroule du 7 au 10 juin selon les pays ; la date retenue est celle de son début.",
+      "sources": [
+        {
+          "url": "https://www.europarl.europa.eu/topics/en/article/20240516STO21528/european-elections-highlights-from-the-past",
+          "evidence": "Parlement européen : premières élections directes du 7 au 10 juin 1979 ; début explicitement daté.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Première démocratique connue ; aucune réduction trompeuse du scrutin à un jour unique.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-146",
+      "id": "EVT-2945",
+      "group": "histoire",
+      "title": "La Charte des droits fondamentaux de l’Union européenne est proclamée",
+      "start_year": 2000,
+      "start_month": 12,
+      "start_day": 7,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0074",
+        "COL-0062",
+        "COL-0061",
+        "COL-0073"
+      ],
+      "description": "Les présidents du Parlement européen, du Conseil et de la Commission proclament la Charte à Nice. Le texte réunit les droits civils, politiques, économiques et sociaux.",
+      "sources": [
+        {
+          "url": "https://op.europa.eu/en/publication-detail/-/publication/f6473b0b-05a4-4f41-a6c5-d5a22af773fb/language-en",
+          "evidence": "Office des publications : signature et proclamation le 7 décembre 2000 à Nice.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Texte institutionnel exigeant de distinguer proclamation et portée juridique ultérieure.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-147",
+      "id": "EVT-2946",
+      "group": "histoire",
+      "title": "Jean-Paul II est élu pape",
+      "start_year": 1978,
+      "start_month": 10,
+      "start_day": 16,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0072",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le cardinal polonais Karol Wojtyła prend le nom de Jean-Paul II. Il devient le premier pape polonais de l’histoire.",
+      "sources": [
+        {
+          "url": "https://www.vatican.va/special/canonizzazione-27042014/documents/biografia_gpii_canonizzazione_en.html",
+          "evidence": "Biographie officielle : élection le 16 octobre 1978, inauguration du ministère le 22 distincte.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Pape et première nationale très connus.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-148",
+      "id": "EVT-2947",
+      "group": "histoire",
+      "title": "Le dalaï-lama reçoit le prix Nobel de la paix à Oslo",
+      "start_year": 1989,
+      "start_month": 12,
+      "start_day": 10,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0072",
+        "COL-0073",
+        "COL-0062",
+        "COL-0082"
+      ],
+      "description": "Le chef spirituel tibétain reçoit la récompense pour son engagement non violent. La date retenue est celle de la remise du prix, et non celle de l’annonce du lauréat.",
+      "sources": [
+        {
+          "url": "https://www.dalailama.com/messages/acceptance-speeches/nobel-peace-prize/nobel-peace-prize",
+          "evidence": "Discours original d’acceptation à la remise du prix, 10 décembre 1989.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Personnalité et prix connus, cérémonie explicitement datée.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-149",
+      "id": "EVT-2948",
+      "group": "histoire",
+      "title": "Le pape et le grand imam d’Al-Azhar signent un texte sur la fraternité humaine",
+      "start_year": 2019,
+      "start_month": 2,
+      "start_day": 4,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 2,
+      "packs": [
+        "COL-0072",
+        "COL-0073"
+      ],
+      "description": "À Abou Dhabi, François et Ahmed el-Tayeb appellent au dialogue, à la paix et à la coexistence. Le document engage leurs institutions à promouvoir ces principes.",
+      "sources": [
+        {
+          "url": "https://www.vatican.va/content/francesco/en/travels/2019/outside/documents/papa-francesco_20190204_documento-fratellanza-umana.html",
+          "evidence": "Document original signé à Abou Dhabi le 4 février 2019.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Étape contemporaine du dialogue interreligieux moins connue, niveau intermédiaire.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-150",
+      "id": "EVT-2949",
+      "group": "histoire",
+      "title": "Napoléon revient aux Tuileries pendant les Cent-Jours",
+      "start_year": 1815,
+      "start_month": 3,
+      "start_day": 20,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0067",
+        "COL-0061",
+        "COL-0062",
+        "COL-0081"
+      ],
+      "description": "Après son débarquement à Golfe-Juan et sa remontée vers Paris, Napoléon retrouve le palais des Tuileries. Louis XVIII a quitté la capitale.",
+      "sources": [
+        {
+          "url": "https://www.napoleon.org/histoire-des-2-empires/articles/delbe-a-waterloo-un-autre-regard-sur-la-periode-1814-1815",
+          "evidence": "Fondation Napoléon : arrivée à Paris le 20 mars au soir ; distincte du débarquement du 1er mars déjà présent.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Retour au pouvoir de Napoléon, étape célèbre des Cent-Jours.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    },
+    {
+      "proposal_id": "M2-151",
+      "id": "EVT-2950",
+      "group": "sport",
+      "title": "Alain Bernard devient champion olympique du 100 mètres nage libre",
+      "start_year": 2008,
+      "start_month": 8,
+      "start_day": 14,
+      "precision": "DAY",
+      "date_status": "EXACT",
+      "niveau": 1,
+      "packs": [
+        "COL-0105",
+        "COL-0108",
+        "COL-0061"
+      ],
+      "description": "Le nageur français remporte la finale à Pékin. Ce succès l’installe parmi les grandes figures de la natation française.",
+      "sources": [
+        {
+          "url": "https://www.worldaquatics.com/athletes/1011351/alain-bernard/medals",
+          "evidence": "World Aquatics : or olympique du 100 m nage libre, Beijing, Aug 14 2008.",
+          "checked_on": "2026-10-17"
+        }
+      ],
+      "level_reason": "Victoire française célèbre dans l’épreuve reine du sprint en natation.",
+      "aliases": [],
+      "territory": "sans objet",
+      "kind": "event"
+    }
+  ],
+  "associations": [
+    {
+      "event_id": "EVT-2340",
+      "pack_id": "COL-0113",
+      "reason": "Le Walkman complète les inventions du quotidien, sans changement de difficulté.",
+      "snapshot": {
+        "id": "EVT-2340",
+        "title": "Sony commercialise le premier Walkman au Japon",
+        "titre_question": null,
+        "niveau": 1,
+        "precision": "DAY",
+        "playable": true,
+        "playable_mode": "DAY",
+        "date_status": "EXACT",
+        "start_year": 1979,
+        "start_month": 7,
+        "start_day": 1,
+        "end_year": null,
+        "end_month": null,
+        "end_day": null,
+        "description": "Le baladeur à cassette permet d’emporter sa musique avec un casque léger. Sony développe un nouvel usage individuel de l’écoute."
+      }
+    },
+    {
+      "event_id": "EVT-0990",
+      "pack_id": "COL-0113",
+      "reason": "La présentation du premier iPhone complète les inventions familières.",
+      "snapshot": {
+        "id": "EVT-0990",
+        "title": "Présentation du premier iPhone par Steve Jobs",
+        "titre_question": null,
+        "niveau": 1,
+        "precision": "DAY",
+        "playable": true,
+        "playable_mode": "DAY",
+        "date_status": "EXACT",
+        "start_year": 2007,
+        "start_month": 1,
+        "start_day": 9,
+        "end_year": null,
+        "end_month": null,
+        "end_day": null,
+        "description": "Présentation du premier iPhone par Steve Jobs. Repère daté de 9 janvier 2007, lié à Économie et Techniques et technologies, avec un ancrage principal en Monde / global et États-Unis."
+      }
+    },
+    {
+      "event_id": "EVT-2016",
+      "pack_id": "COL-0116",
+      "reason": "Le couronnement déjà présent complète le pack royal, en conservant le niveau Intermédiaire.",
+      "snapshot": {
+        "id": "EVT-2016",
+        "title": "Couronnement de Charles III",
+        "titre_question": null,
+        "niveau": 2,
+        "precision": "DAY",
+        "playable": true,
+        "playable_mode": "DAY",
+        "date_status": "EXACT",
+        "start_year": 2023,
+        "start_month": 5,
+        "start_day": 6,
+        "end_year": null,
+        "end_month": null,
+        "end_day": null,
+        "description": "Couronnement de Charles III. Repère de culture générale repris du lot de candidats V15."
+      }
+    }
+  ],
+  "packs": [
+    {
+      "id": "COL-0061",
+      "slug": "france",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0062",
+      "slug": "europe",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0067",
+      "slug": "epoque-napoleonienne",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0070",
+      "slug": "espace",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0071",
+      "slug": "sciences",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0072",
+      "slug": "religions",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0073",
+      "slug": "droits-libertes",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0074",
+      "slug": "construction-europeenne",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0075",
+      "slug": "decolonisation",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0076",
+      "slug": "environnement",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0081",
+      "slug": "xixe-siecle",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0082",
+      "slug": "xxe-siecle",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0105",
+      "slug": "sport",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0106",
+      "slug": "sport-football",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0107",
+      "slug": "sport-tennis",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0108",
+      "slug": "sport-jeux-olympiques",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0109",
+      "slug": "sport-cyclisme",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0110",
+      "slug": "sport-mecanique",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0111",
+      "slug": "sport-autres-exploits",
+      "parent_id": "COL-0105",
+      "active": true
+    },
+    {
+      "id": "COL-0112",
+      "slug": "fun-grandes-premieres",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0113",
+      "slug": "fun-inventions-improbables",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0114",
+      "slug": "fun-films-cultes",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0115",
+      "slug": "fun-pop-culture",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0116",
+      "slug": "fun-rois-scandales-trahisons",
+      "parent_id": null,
+      "active": true
+    },
+    {
+      "id": "COL-0117",
+      "slug": "fun-histoire-derape",
+      "parent_id": null,
+      "active": true
+    }
+  ]
+}

@@ -11,7 +11,17 @@ import type { EtatSalon } from "@/lib/multi/salon";
 import { useChatSalon } from "./useChatSalon";
 import { accepterMembre, battementSalon, etatPartie, etatSalon, expulserMembre, lancerPartie, modifierSalon, quitterSalon, repondrePartie } from "@/app/multi/actions";
 import { EcranSalon } from "./EcranSalon";
-import { PartieMulti, type ActionsPartieMulti } from "./PartieMulti";
+import { PartieMulti, type ActionsPartieMulti, type CurseurJoueur } from "./PartieMulti";
+import type { EvenementSalon } from "@/lib/multi/canal";
+import type { HistoricDate } from "@/lib/game/dates";
+
+const date = (annee: number, mois?: number, jour?: number): HistoricDate => ({ year: annee, month: mois ?? null, day: jour ?? null });
+// Curseur reçu du canal (mode visible, #141) ; sans identifiant de question, il est ignoré.
+function lireCurseur(e: Extract<EvenementSalon, { type: "curseur" }>): CurseurJoueur | null {
+  if (!e.question) return null;
+  return { membreId: e.membreId, question: e.question, debut: date(e.annee, e.mois, e.jour),
+    fin: e.anneeFin != null ? date(e.anneeFin, e.moisFin, e.jourFin) : null };
+}
 
 export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
   const router = useRouter();
@@ -24,6 +34,7 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
   const joue = (e: EtatSalon) => e.salon.etat === "partie" && !e.membres.find((m) => m.id === e.moi)?.en_attente;
   const [enJeu, setEnJeu] = useState(() => joue(depart));
   const [signalPartie, setSignalPartie] = useState(0);
+  const ecouteCurseurs = useRef<((c: CurseurJoueur) => void) | null>(null);
   const chat = useChatSalon(depart.moi, (id) => void canal.current?.envoyer({ type: "chat", membreId: depart.moi, id }));
   const recevoirChat = useRef(chat.recevoir);
   useEffect(() => { recevoirChat.current = chat.recevoir; }, [chat.recevoir]);
@@ -44,6 +55,7 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
         if (e.type === "salon_change" && e.version > version.current) void recharger();
         if (e.type === "chat") recevoirChat.current(e.membreId, e.id);
         if (e.type === "partie_change") setSignalPartie((n) => n + 1);
+        if (e.type === "curseur") { const c = lireCurseur(e); if (c) ecouteCurseurs.current?.(c); }
       },
       surPresents: (liste) => setPresents(new Set(liste.map((p) => p.membreId))),
     });
@@ -72,10 +84,19 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
     etat: () => etatPartie(salonId),
     repondre: (questionId, debut, fin) => repondrePartie(salonId, questionId, debut, fin),
     prevenir: () => void canal.current?.envoyer({ type: "partie_change" }),
+    curseur: ({ membreId, question, debut, fin }) => void canal.current?.envoyer({
+      type: "curseur", membreId, question, annee: debut.year,
+      ...(debut.month != null ? { mois: debut.month } : {}), ...(debut.day != null ? { jour: debut.day } : {}),
+      ...(fin ? { anneeFin: fin.year, ...(fin.month != null ? { moisFin: fin.month } : {}), ...(fin.day != null ? { jourFin: fin.day } : {}) } : {}),
+    }),
   }), [salonId]);
+  const abonnerCurseurs = useCallback((recevoir: (c: CurseurJoueur) => void) => {
+    ecouteCurseurs.current = recevoir;
+    return () => { if (ecouteCurseurs.current === recevoir) ecouteCurseurs.current = null; };
+  }, []);
 
   if (enJeu) {
-    return <PartieMulti membres={etat.membres} presents={presents} actions={actionsPartie} signal={signalPartie}
+    return <PartieMulti modeVisible={etat.salon.reglages.mode_visible} abonnerCurseurs={abonnerCurseurs} membres={etat.membres} presents={presents} actions={actionsPartie} signal={signalPartie}
       quitter={() => void quitter()} retour={() => { setEnJeu(false); void recharger(); }} />;
   }
 

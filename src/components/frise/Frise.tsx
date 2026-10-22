@@ -23,7 +23,15 @@ import { Motif } from "@/components/charte/Motif";
 import { useVue } from "./useVue";
 import s from "./frise.module.css";
 
-export type PionFrise = { id: string; pseudo: string; couleur: string; date: HistoricDate; fin?: HistoricDate | null };
+export type PionFrise = {
+  id: string; pseudo: string; couleur: string; date: HistoricDate; fin?: HistoricDate | null;
+  /** Position lissée sur l'échelle de la frise (mode visible) ; sinon celle de `date`. */
+  t?: number; tFin?: number;
+  /** Curseur en direct (mode visible) : plus discret que le sien. */
+  direct?: boolean;
+  /** A validé sa réponse. */
+  valide?: boolean;
+};
 
 type Props = {
   precision: Precision;
@@ -494,17 +502,20 @@ export function Frise({
         {pions && (() => {
           // Pions étagés : un pion dont l'étiquette toucherait la précédente monte d'un cran.
           const fins: number[] = [];
-          return [...pions].map((p) => ({ p, x: X(versT(p.date)) })).sort((a, b) => a.x - b.x).map(({ p, x }) => {
-            const demi = largeurTexte(p.pseudo) / 2 + 12;
-            let niveau = fins.findIndex((f) => f < x - demi);
-            if (niveau < 0) niveau = Math.min(fins.length, 3);
-            fins[niveau] = x + demi;
+          return [...pions].map((p) => ({ p, x: X(p.t ?? versT(p.date)) })).sort((a, b) => a.x - b.x).map(({ p, x }) => {
+            const texte = p.valide ? `${p.pseudo} ✓` : p.pseudo;
+            const demi = largeurTexte(texte) / 2 + 12;
+            // Collision sur la position réelle de l'étiquette (retenue au bord de la frise).
+            const lx = clamp(x, demi, largeur - demi);
+            let niveau = fins.findIndex((f) => f < lx - demi);
+            if (niveau < 0) niveau = Math.min(fins.length, 4);
+            fins[niveau] = Math.max(fins[niveau] ?? -Infinity, lx + demi);
             const haut = 34 + niveau * 26;
             return (
-              <div key={p.id} aria-hidden="true">
-                {p.fin && <div className={s.pionPeriode} style={{ left: Math.min(x, X(versT(p.fin))), width: Math.abs(X(versT(p.fin)) - x), background: p.couleur }} />}
+              <div key={p.id} aria-hidden="true" className={p.direct ? s.pionDirect : undefined}>
+                {p.fin && <div className={s.pionPeriode} style={{ left: Math.min(x, X(p.tFin ?? versT(p.fin))), width: Math.abs(X(p.tFin ?? versT(p.fin)) - x), background: p.couleur }} />}
                 <div className={s.pionTige} style={{ left: x, top: 209 - haut, height: haut, background: p.couleur }} />
-                <div className={s.pionEtiquette} style={{ left: clamp(x, demi, largeur - demi), top: 209 - haut - 20, background: p.couleur }}>{p.pseudo}</div>
+                <div className={s.pionEtiquette} style={{ left: lx, top: 209 - haut - 20, background: p.couleur }}>{texte}</div>
               </div>
             );
           });

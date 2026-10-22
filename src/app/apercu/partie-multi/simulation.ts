@@ -19,13 +19,19 @@ const DECOMPTE = 3000;
 const DUREE = 30000;
 const REVELATION = 8000;
 const RAPIDE = 10000;
-// Joueurs fictifs : quand ils répondent (s après la question) et de combien ils se trompent. Sarah est déconnectée.
-const BOTS: Record<string, { apres: number[]; ecart: number[] }> = {
+type Bot = { apres: number[]; ecart: number[] };
+// Joueurs fictifs : quand ils répondent (s après la question) et de combien ils se trompent.
+// Partie de 5 : Sarah (m5) est déconnectée. Partie de 10 (mesure du mode visible) : 9 joueurs fictifs.
+const BOTS_5: Record<string, Bot> = {
   m2: { apres: [6, 9, 5, 12, 7], ecart: [0, 2, -4, 1, 3] },
   m3: { apres: [11, 14, 18, 8, 13], ecart: [3, -6, 10, 0, -1] },
   m4: { apres: [17, 21, 24, 19, 26], ecart: [-13, 8, -25, 20, 5] },
 };
-export const MEMBRES_JOUEURS = ["m1", "m2", "m3", "m4", "m5"];
+const BOTS_10: Record<string, Bot> = Object.fromEntries(Array.from({ length: 9 }, (_, k) => [`m${k + 2}`, {
+  apres: QUESTIONS.map((_, i) => 6 + ((k * 7 + i * 5) % 20)),
+  ecart: QUESTIONS.map((_, i) => ((k * 13 + i * 7) % 31) - 15),
+}]));
+export const joueursSimules = (dix: boolean) => (dix ? Array.from({ length: 10 }, (_, k) => `m${k + 1}`) : ["m1", "m2", "m3", "m4", "m5"]);
 
 function points(ecart: number, ecoule: number): number {
   const p = 100 * Math.max(0, 1 - Math.abs(ecart) / 50);
@@ -33,7 +39,9 @@ function points(ecart: number, ecoule: number): number {
 }
 
 // La partie commence au premier appel (décompte de 3 s).
-export function creerSimulation({ chrono = false, moi = "m1" } = {}) {
+export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}) {
+  const BOTS = dix ? BOTS_10 : BOTS_5;
+  const MEMBRES_JOUEURS = joueursSimules(dix);
   const horaires: Horaire[] = [];
   const reponses = new Map<string, Map<string, Reponse>>(QUESTIONS.map((q) => [q.id, new Map()]));
   let terminee = false;
@@ -67,7 +75,7 @@ export function creerSimulation({ chrono = false, moi = "m1" } = {}) {
         }
       }
       if (h.revelee != null) return;
-      const presents = MEMBRES_JOUEURS.filter((m) => m !== "m5");
+      const presents = MEMBRES_JOUEURS.filter((m) => dix || m !== "m5");
       const tous = presents.every((m) => reponses.get(QUESTIONS[i].id)!.has(m));
       if (maintenant <= h.limite && !tous) return;
       const fin = tous ? Math.max(...[...reponses.get(QUESTIONS[i].id)!.values()].map((r) => r.recue)) : h.limite;
@@ -115,5 +123,22 @@ export function creerSimulation({ chrono = false, moi = "m1" } = {}) {
     return repondreA(i, moi, debut.year, fin?.year, maintenant) ? { ok: true as const } : { ok: false as const, erreur: "Temps écoulé" };
   }
 
-  return { etat, repondre };
+  // Mode visible : où chaque joueur fictif promène son curseur, d'un point de départ jusqu'à sa réponse.
+  function curseurs(maintenant: number): { membreId: string; question: string; annee: number; fin?: number }[] {
+    avancer(maintenant);
+    const i = horaires.length - 1;
+    const h = horaires[i];
+    const q = QUESTIONS[i];
+    if (!h || maintenant < h.posee + 800 || h.revelee != null) return [];
+    return Object.entries(BOTS).map(([id, bot], k) => {
+      const fin = q.annee + bot.ecart[i];
+      const depart = fin + (k % 2 ? 40 : -35) + k * 3;
+      const p = Math.min(1, (maintenant - h.posee - 800) / (bot.apres[i] * 1000 - 800));
+      const vague = Math.sin(maintenant / 350 + k) * 6 * (1 - p);
+      const annee = Math.round(depart + (fin - depart) * (1 - (1 - p) ** 2) + vague) || 1;
+      return { membreId: id, question: q.id, annee, ...(q.fin != null ? { fin: annee + (q.fin - q.annee) } : {}) };
+    });
+  }
+
+  return { etat, repondre, curseurs };
 }

@@ -212,3 +212,22 @@ téléphone debout), « Réponse envoyée · on attend les autres » après Vali
 suivante dans N s ». Le navigateur redemande l'état aux échéances, quand un joueur prévient sur le canal
 (`partie_change`) et toutes les 3 s par sécurité ; les chronos sont calés sur l'heure du serveur (`horloge.ts`).
 L'écran de fin est provisoire (classement et « Retour au salon ») : le podium arrive avec #143.
+
+## Mode visible (#141)
+
+Réglage de l'hôte (`mode_visible`, invisible par défaut). Aperçu : `/apercu/partie-multi?visible=1`
+(`&joueurs=10` pour dix joueurs). Tests : `tests/multi-visible.test.ts`.
+
+- **Envoi** : pendant la question, tant qu'il n'a pas validé, chaque joueur diffuse son curseur sur le canal du
+  salon (événement `curseur` : question, date, et fin en question période). Au plus **10 envois par seconde**
+  (`creerLimiteur`, le dernier curseur part toujours), et seulement s'il a bougé.
+- **Mode invisible** : rien n'est envoyé (`doitDiffuser`), pas seulement masqué. Les réponses des autres
+  n'apparaissent qu'à la correction, en pions (#140).
+- **Affichage** : un pion par joueur, à sa couleur, plus discret que le sien, avec « ✓ » quand il a validé ; les
+  étiquettes proches s'étagent. Entre deux envois, la position est lissée à chaque image (`rapprocher`) ; avec
+  « réduire les animations », le pion saute directement à sa place.
+- Le canal étant public, un curseur ne contient qu'une date approximative choisie par le joueur : rien de secret.
+
+**Mesure** (22 oct. 2026, aperçu local, Chromium, 10 joueurs dont 9 fictifs à 10 envois/s) : 60 images par seconde,
+médiane et 95 % à 16,7 ms, aucune image au-delà de 50 ms. À refaire à plusieurs navigateurs sur l'aperçu Vercel,
+avec la mesure de latence (#135).

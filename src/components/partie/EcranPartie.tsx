@@ -80,6 +80,8 @@ type Props = {
     apresCorrection: ReactNode;
     /** Réponses des autres joueurs, posées sur la frise (à la correction, ou en direct en mode visible). */
     pions?: PionFrise[];
+    /** Mode visible (#141) : où je place mon curseur, à chaque changement avant de valider. */
+    surCurseur?: (debut: HistoricDate, fin: HistoricDate | null) => void;
     /** Rechargement : la réponse est déjà partie (ou la question close), on attend la correction. */
     dejaRepondu?: boolean;
   };
@@ -157,6 +159,13 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
   useEffect(() => {
     envoyerRef.current = envoyer;
   });
+  // Mode visible : chaque déplacement de mon curseur est signalé (l'écran de partie limite les envois).
+  const surCurseur = multi?.surCurseur;
+  const curseurDebut = periode ? debutJoueur : reponse;
+  const curseurFin = periode ? finJoueur : null;
+  useEffect(() => {
+    if (surCurseur && curseurDebut && !correction && !envoi) surCurseur(curseurDebut, curseurFin);
+  }, [surCurseur, curseurDebut, curseurFin, correction, envoi]);
   // Rechargement en multi : rien à envoyer, on attend la correction comme après une réponse.
   const dejaRepondu = useRef(multi?.dejaRepondu);
   useEffect(() => {

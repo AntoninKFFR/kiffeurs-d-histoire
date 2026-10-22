@@ -9,8 +9,9 @@ export type EvenementSalon =
   | { type: "salon_change"; version: number }
   /** Partie (#140) : un joueur a répondu, redemander l'état de la partie au serveur. */
   | { type: "partie_change" }
-  /** Mode visible : où un joueur place son curseur. */
-  | { type: "curseur"; membreId: string; annee: number; mois?: number; jour?: number }
+  /** Mode visible : où un joueur place son curseur (et la fin, en question période). */
+  | { type: "curseur"; membreId: string; question?: string; annee: number; mois?: number; jour?: number;
+      anneeFin?: number; moisFin?: number; jourFin?: number }
   /** Chat restreint : uniquement un identifiant du catalogue (#132). */
   | { type: "chat"; membreId: string; id: string }
   /** Mesure de latence (page de test). Heures en ms, horloge du serveur. */
@@ -49,8 +50,12 @@ export function lireEvenement(x: unknown): EvenementSalon | null {
       if (!estTexte(e.membreId) || !estNombre(e.annee)) return null;
       return {
         type: "curseur", membreId: e.membreId, annee: e.annee,
+        ...(estTexte(e.question) ? { question: e.question } : {}),
         ...(estNombre(e.mois) ? { mois: e.mois } : {}),
         ...(estNombre(e.jour) ? { jour: e.jour } : {}),
+        ...(estNombre(e.anneeFin) ? { anneeFin: e.anneeFin } : {}),
+        ...(estNombre(e.moisFin) ? { moisFin: e.moisFin } : {}),
+        ...(estNombre(e.jourFin) ? { jourFin: e.jourFin } : {}),
       };
     case "chat":
       return estTexte(e.membreId) && estTexte(e.id) && estDansLeCatalogue(e.id)

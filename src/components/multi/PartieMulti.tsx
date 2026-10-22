@@ -8,10 +8,13 @@ import type { HistoricDate } from "@/lib/game/dates";
 import { habillageDe } from "@/lib/game/habillages";
 import { capitaliser, precisionDepuis, urlIllustration } from "@/lib/game/partie";
 import { bornesDe, type Choix } from "@/lib/solo/choix";
+import { versT } from "@/lib/game/frise";
+import { creerLimiteur, doitDiffuser, rapprocher } from "@/lib/multi/curseurs";
 import { estimerDecalage, type Echantillon } from "@/lib/multi/horloge";
 import { chronoAccelere, classement, correctionPour, phaseDe, prochainRendezVous, type EtatPartie, type QuestionMulti } from "@/lib/multi/partie";
 import type { MembreSalon } from "@/lib/multi/salon";
 import { EcranPartie, type Correction, type ReponsePeriode } from "@/components/partie/EcranPartie";
+import type { PionFrise } from "@/components/frise/Frise";
 import s from "./partie-multi.module.css";
 
 export type ActionsPartieMulti = {
@@ -19,7 +22,13 @@ export type ActionsPartieMulti = {
   repondre: (questionId: string, debut: HistoricDate, fin?: HistoricDate | null) => Promise<{ ok: true } | { ok: false; erreur: string }>;
   /** Prévenir les autres que la partie a changé (réponse envoyée). */
   prevenir: () => void;
+  /** Mode visible : diffuser mon curseur sur le canal du salon. */
+  curseur: (c: CurseurJoueur) => void;
 };
+
+/** Curseur d'un joueur, tel qu'il circule sur le canal (mode visible). */
+export type CurseurJoueur = { membreId: string; question: string; debut: HistoricDate; fin: HistoricDate | null };
+type Position = { question: string; t: number; tFin: number | null; debut: HistoricDate; fin: HistoricDate | null };
 
 type Props = {
   membres: MembreSalon[];
@@ -32,12 +41,16 @@ type Props = {
   quitter: () => void;
   /** Aperçu : état et heure figés. */
   depart?: EtatPartie | null;
+  /** Réglage de l'hôte : on voit les curseurs des autres pendant la question (#141). */
+  modeVisible?: boolean;
+  /** Reçoit les curseurs des autres (mode visible) ; renvoie de quoi se désabonner. */
+  abonnerCurseurs?: (recevoir: (c: CurseurJoueur) => void) => () => void;
 };
 
 // Mêmes couleurs que les pions du salon (--j1 à --j6), en clair : la frise ne voit pas ces variables.
 const COULEURS = ["#8a2f2b", "#2f6b8a", "#5b7a3a", "#8a5a2f", "#6b3a8a", "#2f8a7a"];
 
-export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null }: Props) {
+export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null, modeVisible = false, abonnerCurseurs }: Props) {
   const [etat, setEtat] = useState<EtatPartie | null>(depart);
   const [decalage, setDecalage] = useState(0);
   const [maintenant, setMaintenant] = useState(() => Date.now());
@@ -90,6 +103,45 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     const t = setTimeout(() => void charger(), Math.max(0, rendezVous - (Date.now() + decalage)) + 150);
     return () => clearTimeout(t);
   }, [rendezVous, decalage, charger, depart]);
+
+  // Mode visible : cibles reçues du canal, positions affichées lissées vers elles (images d'animation).
+  const cibles = useRef(new Map<string, Position>());
+  const [affiches, setAffiches] = useState<ReadonlyMap<string, Position>>(new Map());
+  useEffect(() => {
+    if (!modeVisible || !abonnerCurseurs) return;
+    const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let image = 0;
+    let avant = performance.now();
+    const animer = (ici: number) => {
+      const dt = ici - avant;
+      avant = ici;
+      image = 0;
+      let encore = false;
+      setAffiches((anciens) => {
+        const suivants = new Map<string, Position>();
+        for (const [id, c] of cibles.current) {
+          const a = anciens.get(id);
+          if (reduit || !a || a.question !== c.question) { suivants.set(id, c); continue; }
+          const t = rapprocher(a.t, c.t, dt);
+          const tFin = c.tFin == null ? null : rapprocher(a.tFin ?? c.tFin, c.tFin, dt);
+          if (t !== c.t || tFin !== c.tFin) encore = true;
+          suivants.set(id, { ...c, t, tFin });
+        }
+        return suivants;
+      });
+      if (encore) image = requestAnimationFrame(animer);
+    };
+    const desabonner = abonnerCurseurs((c) => {
+      cibles.current.set(c.membreId, { question: c.question, debut: c.debut, fin: c.fin, t: versT(c.debut), tFin: c.fin ? versT(c.fin) : null });
+      if (!image) { avant = performance.now(); image = requestAnimationFrame(animer); }
+    });
+    return () => { desabonner(); cancelAnimationFrame(image); };
+  }, [modeVisible, abonnerCurseurs]);
+
+  // Mon curseur : 10 envois par seconde au plus, et seulement s'il a bougé.
+  const limiteur = useMemo(() => creerLimiteur(actions.curseur), [actions]);
+  useEffect(() => () => limiteur.arreter(), [limiteur]);
+  const dernierEnvoi = useRef("");
 
   const serveur = maintenant + decalage;
   const phase = etat ? phaseDe(etat, serveur) : null;
@@ -165,6 +217,18 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
   const joueurs = etat.scores.length;
   const accelere = chronoAccelere(etat);
   const dejaRepondu = q.ont_valide.includes(etat.moi) || q.revelee_le != null;
+  const diffuser = doitDiffuser(modeVisible, phase.type === "question", q.ont_valide.includes(etat.moi));
+  const versPion = (id: string, debut: HistoricDate, fin: HistoricDate | null): PionFrise =>
+    ({ id, pseudo: pseudo(id), couleur: couleur(id), date: debut, fin });
+  const pions: PionFrise[] | undefined = q.revelee_le
+    // À la correction : les réponses de tous (mode visible comme invisible).
+    ? (q.reponses ?? []).filter((r) => r.membre_id !== etat.moi).map((r) => versPion(r.membre_id,
+      { year: r.debut.year, month: r.debut.month ?? null, day: r.debut.day ?? null },
+      r.fin ? { year: r.fin.year, month: r.fin.month ?? null, day: r.fin.day ?? null } : null))
+    // Mode visible : les curseurs en direct de cette question.
+    : modeVisible ? [...affiches].filter(([id, p]) => id !== etat.moi && p.question === q.id).map(([id, p]) => ({
+      ...versPion(id, p.debut, p.fin), t: p.t, tFin: p.tFin ?? undefined, direct: true, valide: q.ont_valide.includes(id),
+    })) : undefined;
 
   // Envoi de la réponse, puis attente de la clôture (tous ont validé, ou fin du chrono).
   async function corrigerAvec(questionId: string, debut: HistoricDate | null, fin?: HistoricDate | null): Promise<Correction> {
@@ -207,12 +271,14 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
           {suivanteDans != null ? `Question suivante dans ${suivanteDans} s` : "Résultats dans un instant…"}
         </p>,
         dejaRepondu,
-        // Mode invisible : les pions des autres apparaissent à la correction seulement.
-        pions: q.revelee_le ? (q.reponses ?? []).filter((r) => r.membre_id !== etat.moi).map((r) => ({
-          id: r.membre_id, pseudo: pseudo(r.membre_id), couleur: couleur(r.membre_id),
-          date: { year: r.debut.year, month: r.debut.month ?? null, day: r.debut.day ?? null },
-          fin: r.fin ? { year: r.fin.year, month: r.fin.month ?? null, day: r.fin.day ?? null } : null,
-        })) : undefined,
+        pions,
+        // Mode invisible : rien n'est diffusé, pas seulement masqué.
+        surCurseur: diffuser ? (debut, fin) => {
+          const cle = JSON.stringify([q.id, debut, fin]);
+          if (cle === dernierEnvoi.current) return;
+          dernierEnvoi.current = cle;
+          limiteur.pousser({ membreId: etat.moi, question: q.id, debut, fin });
+        } : undefined,
       }}
     />
   );

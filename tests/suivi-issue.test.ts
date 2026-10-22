@@ -18,10 +18,12 @@ async function simuler(description: string | null, options: {
 } = {}) {
   const corpsV1 = "Roadmap V1\n- [ ] 🚧 #12 🤖 Étape V1\n- [ ] #13 Autre étape\n";
   const corpsV11 = "Roadmap V1.1\n- [ ] 🚧 #85 🤖 Étape V1.1\n- [ ] #86 Autre étape\n";
+  const corpsV13 = "Roadmap V1.3\n- [ ] 🚧 #133 🤖 Étape V1.3\n- [ ] #134 Autre étape\n";
   const issues = new Map<number, Issue>([
     [31, { title: "🚧 Roadmap V1", body: corpsV1 }],
     [98, { title: "🚧 Roadmap V1.1", body: corpsV11 }],
-    ...[12, 13, 85, 86, 999].map((numero): [number, Issue] =>
+    [148, { title: "🚧 Roadmap V1.3", body: corpsV13 }],
+    ...[12, 13, 85, 86, 133, 134, 999].map((numero): [number, Issue] =>
       [numero, { title: `🚧 Issue ${numero}`, body: "" }]),
   ]);
   const appels: string[] = [];
@@ -51,17 +53,21 @@ async function simuler(description: string | null, options: {
   const roadmapsModifiees = update.mock.calls
     .map(([modification]) => modification)
     .filter((modification) => modification.body !== undefined);
-  return { issues, corpsV1, corpsV11, appels, removeLabel, get, update, core, roadmapsModifiees };
+  return { issues, corpsV1, corpsV11, corpsV13, appels, removeLabel, get, update, core, roadmapsModifiees };
 }
 
 it.each([
-  { numero: 12, roadmap: 31, autreRoadmap: 98 },
-  { numero: 85, roadmap: 98, autreRoadmap: 31 },
-])("ferme #$numero uniquement dans la roadmap #$roadmap", async ({ numero, roadmap, autreRoadmap }) => {
+  { numero: 12, roadmap: 31, version: "1" },
+  { numero: 85, roadmap: 98, version: "1.1" },
+  { numero: 133, roadmap: 148, version: "1.3" },
+])("ferme #$numero uniquement dans la roadmap #$roadmap", async ({ numero, roadmap, version }) => {
   const resultat = await simuler(`Closes #${numero}`);
   expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([roadmap]);
-  expect(resultat.issues.get(roadmap)?.body).toContain(`- [x] #${numero} 🤖 Étape V${numero === 12 ? "1" : "1.1"} (PR #100)`);
-  expect(resultat.issues.get(autreRoadmap)?.body).toBe(autreRoadmap === 31 ? resultat.corpsV1 : resultat.corpsV11);
+  expect(resultat.issues.get(roadmap)?.body).toContain(`- [x] #${numero} 🤖 Étape V${version} (PR #100)`);
+  const corps = new Map([[31, resultat.corpsV1], [98, resultat.corpsV11], [148, resultat.corpsV13]]);
+  for (const [autre, attendu] of corps) {
+    if (autre !== roadmap) expect(resultat.issues.get(autre)?.body).toBe(attendu);
+  }
   expect(resultat.issues.get(numero)?.title).toBe(`Issue ${numero}`);
   expect(resultat.removeLabel).toHaveBeenCalledWith({ owner: "test", repo: "histoire", issue_number: numero, name: "en cours" });
   expect(resultat.core.warning).not.toHaveBeenCalled();
@@ -72,7 +78,8 @@ it("avertit une seule fois pour une issue absente des deux roadmaps sans modifie
   expect(resultat.roadmapsModifiees).toEqual([]);
   expect(resultat.issues.get(31)?.body).toBe(resultat.corpsV1);
   expect(resultat.issues.get(98)?.body).toBe(resultat.corpsV11);
-  expect(resultat.core.warning).toHaveBeenCalledExactlyOnceWith("#999 n'a pas de ligne dans les roadmaps #31, #98.");
+  expect(resultat.issues.get(148)?.body).toBe(resultat.corpsV13);
+  expect(resultat.core.warning).toHaveBeenCalledExactlyOnceWith("#999 n'a pas de ligne dans les roadmaps #31, #98, #148.");
   expect(resultat.issues.get(999)?.title).toBe("Issue 999");
 });
 

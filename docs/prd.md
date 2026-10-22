@@ -38,9 +38,9 @@ La V1 contient quatre modes solo et aucun multijoueur. Elle est gratuite, sans p
 | Navigateur web sur ordinateur | Oui, prioritaire |  |
 | Affichage tablette et mobile | Anticipé dans la conception | Optimisé |
 | Mode inversé (date donnée, événement à écrire) | Oui | Tolérance aux fautes affinée |
-| Multijoueur casual (lobby) | Non | Oui |
-| 1v1 classé (pick & ban, rangs par thème) | Non | Oui |
-| « Affronter ses camarades » en pédagogique | Non | Oui, avec le multijoueur |
+| Multijoueur casual (salon) | Non | V1.3 : Convivial, de 2 à 10 joueurs (voir « Multijoueur (V1.3) ») |
+| 1 contre 1 (pick & ban) | Non | V1.3 : gagné aux points, sans rang ; classé avec rangs plus tard |
+| « Affronter ses camarades » en pédagogique | Non | Plus tard (pas dans la V1.3) |
 | Espace professeur | Non | Oui |
 | Nouveaux packs de thèmes (inventions, dates françaises, etc.) | Ajoutés à tout moment, sans nouvelle version | Idem |
 | Application mobile native | Non | Non prévu |
@@ -126,6 +126,49 @@ Les quatre modes partagent le contenu et la frise, et les modes de datation part
 
 Avec un compte, le joueur voit les chapitres découverts et son meilleur score de test par chapitre.
 
+## Multijoueur (V1.3)
+
+Décidé par Maxou le 21 octobre 2026. Roadmap : issue de suivi #148. La V1.2 est l'enrichissement du catalogue (#122). Maquettes validées, émotes et phrases du chat : `docs/multijoueur.md`.
+
+**Deux modes**
+- **Convivial** : de 2 à 10 joueurs. L'hôte fixe le maximum, 8 par défaut.
+- **1 contre 1** : mode d'essai du futur classé. Il se gagne aux points, comme le Convivial, sans rang ni points de vie.
+
+**Salon**
+- Un salon est privé, ou **ouvert** : il apparaît alors dans le menu « Parties ouvertes ».
+- Créer un salon demande un compte. Après chaque partie, tout le monde revient dans le salon.
+- **Code de partie au format date JJ/MM/AAAA** (côté « RP »), avec un lien d'invitation.
+- **Invités sans compte** : ils rejoignent seulement par code ou par lien, avec un pseudo temporaire. Ils n'ont accès ni aux parties ouvertes ni au 1 contre 1.
+- **Amis** : ceux de KFFR contrée, avec une seule liste pour les deux jeux. On voit leur statut et on les invite directement depuis le salon.
+
+**Réglages de l'hôte**
+- Nombre de questions, précision Année / Mois / Jour, questions « période » oui ou non. Le mode inversé n'existe pas en multijoueur.
+- Contenu : l'hôte choisit directement un thème, un pack ou une période, ou passe par le **Mystère** (roulette), ou par le **vote** (Convivial). Pour le Mystère, le vote et le pick & ban, il coche la ou les catégories proposées (pack, période, thème : 1, 2 ou 3).
+- **Mode visible ou invisible** : en mode visible, on voit où les autres se placent. Le mode invisible est le réglage par défaut.
+- **Mode chrono** (option, désactivé par défaut) : quand le premier joueur répond, les autres n'ont plus que 10 s.
+
+**Déroulé d'une question**
+- Chrono de 30 s. Dès que tous ont validé, on révèle les placements de chacun, puis la bonne date, puis le classement bouge.
+- Score : même calcul qu'en solo, points cumulés sur la partie.
+- Le classement reste toujours à l'écran ; un podium termine la partie.
+
+**Pick & ban (1 contre 1)** : 7 propositions tirées des catégories cochées. Les joueurs bannissent à tour de rôle jusqu'à ce qu'il en reste une. L'hôte peut aussi choisir directement.
+
+**Chat restreint** : émotes historiques et phrases toutes faites « RP » seulement, pas de texte libre.
+
+**Supports et fluidité**
+- Le multijoueur est jouable sur téléphone dès la V1.3.
+- Objectif : moins de 0,2 s entre le clic d'un joueur et son affichage chez les autres.
+- Le serveur reste l'arbitre du chrono, des réponses et des scores.
+
+**Visuels d'abord** : toute image, maquette ou proposition visuelle est montrée en images dans la conversation et validée par Maxou avant d'être codée.
+
+**Infrastructure de KFFR contrée** (décision de Maxou et d'Antonin, 22 octobre 2026)
+- Les amis, la présence et les invitations sont ceux de la contrée. Antonin les ouvre à Histoire dans son dépôt (#149), et Histoire se contente d'appeler leurs fonctions.
+- Les salons et les parties vivent dans le schéma `histoire`, avec du code copié et adapté de la contrée.
+
+**Pas dans la V1.3** (carnet d'idées) : 1 contre 1 avec points de vie, classé avec rangs, pion avatar à skins et couronne du gagnant, « affronter ses camarades » en pédagogique, chat libre, mode histoire avec carte.
+
 ## Contenu
 
 La V1 joue uniquement sur la base de questions déjà préparée par Antonin à partir des programmes d'histoire du collège et du lycée. Le contenu est organisé en packs de thèmes : un nouveau pack (grandes inventions, dates françaises, etc.) peut être ajouté ou mis à jour à tout moment, sans attendre une nouvelle version du jeu.
@@ -157,7 +200,8 @@ Les comptes sont ceux de KFFR contrée : un joueur KFFR se connecte avec les mê
 | --- | --- | --- |
 | Solo libre, solo scolaire, pédagogique | Oui | Oui |
 | Progression sauvegardée (scores, chapitres, statistiques) | Non | Oui |
-| Multijoueur casual et classé (après la V1) | Non | Oui |
+| Rejoindre un salon multijoueur par code ou lien (V1.3) | Oui, avec un pseudo temporaire | Oui |
+| Créer un salon, parties ouvertes, 1 contre 1, amis (V1.3) | Non | Oui |
 
 **Supports** : navigateur web sur ordinateur en priorité. L'interface est conçue dès le départ pour s'adapter à la tablette et au mobile (frise tactile, pincer pour zoomer), sans application à installer.
 
@@ -190,8 +234,8 @@ Le détail est dans le document d'architecture du dépôt (docs/architecture.md)
 
 Aucun calendrier n'est fixé ; l'ordre ci-dessous suit les priorités exprimées.
 
-1. **Multijoueur casual** : salon à plusieurs joueurs, compte obligatoire. Il ouvre aussi « affronter ses camarades » en pédagogique.
-2. **1v1 classé** : pick & ban sur les thèmes, rangs par thème, points de vie perdus selon l'écart, temps limité avec la règle des 10 secondes après la première réponse. C'est le mode attendu pour fidéliser le grand public.
+1. **Multijoueur** : c'est la V1.3 (voir « Multijoueur (V1.3) »). Les invités sans compte y rejoignent un salon par code ou lien. « Affronter ses camarades » en pédagogique vient plus tard.
+2. **1v1 classé** (après la V1.3) : pick & ban sur les thèmes, rangs par thème, points de vie perdus selon l'écart, temps limité avec la règle des 10 secondes après la première réponse. C'est le mode attendu pour fidéliser le grand public.
 3. **Espace professeur** : créer une classe, faire jouer les élèves, suivre leurs résultats.
 
 Les packs de thèmes ne dépendent pas de cette feuille de route : ils s'ajoutent quand ils sont prêts.

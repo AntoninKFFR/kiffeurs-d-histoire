@@ -110,10 +110,8 @@ Règles :
 
 **Joueurs et parties**
 - `player_stats` : statistiques solo par joueur et par thème (précision moyenne, meilleur score).
-- `ratings` : classement 1v1 **par thème** (`user_id`, `theme_id`, `rating`, `games_played`, saison).
-- `matches`, `match_rounds`, `round_answers` : parties multijoueurs, manches, réponses avec **horodatage serveur**.
-- `lobbies`, `lobby_members` : salons casual.
-- `matchmaking_queue` : file d'attente du classé.
+- Multijoueur V1.3 : salons, membres, parties et réponses, voir « Multijoueur (V1.3) » plus bas (tables créées par #133).
+- Plus tard, avec le classé : `ratings` (classement 1v1 **par thème**) et `matchmaking_queue` (file d'attente).
 - `learning_progress` : cartes vues, chapitres terminés, résultats aux tests.
 
 Préparation #92, **non appliquée en production** : le registre pédagogique ferme les chapitres non enregistrés après son initialisation. Les éditions privées figent les cartes et les candidats des tests publiés, indépendamment des corrections ultérieures du canon. La complétion des chapitres non découpés conserve les IDs et URLs ; ses résultats vivent dans `learning_progress_editions`, sans transférer les scores initiaux. Les anciennes parties conservent leur édition pour Bilan et Rejouer. Le contrat, les volumes conditionnels, les limites et la séquence migration → manifeste → publication sont détaillés dans [le second audit #92](phase-2-92/second-audit.md) et [le plan de déploiement](phase-2-92/README.md).
@@ -165,12 +163,44 @@ des appels directs et concurrents. Les parties connectées ne sont pas concerné
 La purge est opportuniste : sans trafic, les lignes expirées restent présentes,
 mais sont inaccessibles. Aucun planificateur distant n'est ajouté.
 
-### Lobby casual (beaucoup de joueurs)
-- **Presence** Realtime sur le canal `lobby:<id>` : liste des joueurs connectés.
-- L'hôte lance la manche → RPC qui crée la manche en base → **Broadcast** « nouvelle question » à tous.
-- Chaque réponse passe par la RPC `submit_answer` ; le classement de la manche est diffusé à la fin.
+### Multijoueur (V1.3)
+Règles de jeu : `docs/prd.md`, section « Multijoueur (V1.3) ». Maquettes, chat restreint et mesures : `docs/multijoueur.md`. Rien n'est codé ici : chaque issue V1.3 précise ce qu'elle construit.
 
-### 1v1 classé
+**Ce qui vient de KFFR contrée et ce qui reste chez nous** (décision de Maxou et d'Antonin, 22 oct. 2026)
+
+| Brique | Où elle vit | Qui la fait évoluer |
+|---|---|---|
+| Comptes | `auth` (KFFR) | personne ici |
+| Amis (`friendships`, `friend_requests`), présence (`social_presence`), invitations (`game_invitations`) | `public`, tables de la contrée | Antonin, dans le dépôt de la contrée (#149) ; Histoire **appelle seulement leurs RPC** (#139) |
+| Salons, membres, parties, manches, réponses | `histoire` | ce dépôt (#133 et suivantes), avec du code copié et adapté des salons de la contrée (`rooms`, `room_players`, transfert d'hôte, verrou de version d'état, relance) |
+
+On n'écrit jamais dans `public` depuis ce dépôt, même pour « juste une colonne ». Toute évolution des tables sociales passe par Antonin. Le dépôt de la contrée (`AntoninKFFR/Contree-KFFR`) se lit pour s'inspirer ; ses tables de salons ne sont pas réutilisées.
+
+**Salons** (`histoire`, #133)
+- Un salon a un identifiant stable (transmis aux invitations de la contrée) et un **code de partie au format JJ/MM/AAAA**, unique parmi les salons actifs.
+- Il a aussi un hôte (transférable), un mode (Convivial ou 1 contre 1), une visibilité (privé ou ouvert), des réglages et un état (salon, partie, fin).
+- Les membres sont soit des **comptes**, soit des **invités** sans compte avec un pseudo temporaire (#134). Un invité ne crée pas de salon et ne voit ni les parties ouvertes ni le 1 contre 1.
+- Créer, rejoindre, quitter, changer les réglages et lancer passent tous par des RPC `security definer`. Le navigateur n'écrit jamais directement dans les tables.
+
+**Temps réel** (#135)
+- Un canal Supabase Realtime par salon : **Presence** pour savoir qui est là, **Broadcast** pour les événements (curseurs du mode visible, émotes, passage à la révélation).
+- On reprend le code client de la contrée : reconnexion, `is_connected` / `last_seen_at`, heartbeat.
+- **Horloge serveur** : chaque manche a une `deadline` en base. Le client corrige son décalage d'horloge et affiche le compte à rebours, mais c'est l'heure du serveur qui fait foi. Une réponse arrivée après la deadline est refusée.
+- En **mode chrono**, la première réponse fait `deadline = least(deadline, now() + 10 s)`.
+- Les deux jeux partagent la limite de 200 connexions Realtime : un seul canal par onglet.
+- Objectif de fluidité : moins de 0,2 s entre le clic d'un joueur et son affichage chez les autres (mesures dans `docs/multijoueur.md`).
+
+**Partie** (#140 à #143)
+- Le serveur tire les questions et corrige chaque réponse (même calcul de score qu'en solo).
+- La bonne date et les placements des autres ne sont envoyés qu'à la révélation, sauf les curseurs du mode visible, qui ne donnent pas la réponse.
+- Le classement est recalculé en base, puis diffusé. À la fin, tout le monde revient au salon.
+
+**Choix collectifs et 1 contre 1** (#144, #145)
+- Les votes, la roulette Mystère et le pick & ban sont tirés et arbitrés côté serveur. Chaque choix est validé par une RPC puis diffusé, et tout le salon voit le même tirage.
+
+**Chat restreint** (#138) : le client n'envoie qu'un identifiant du catalogue `src/lib/multi/chat-catalogue.ts` ; le serveur refuse tout le reste. Pas de texte libre.
+
+### 1v1 classé (après la V1.3)
 - **Matchmaking** : insertion dans `matchmaking_queue`, une fonction SQL apparie deux joueurs de niveau proche (verrou `FOR UPDATE SKIP LOCKED` pour éviter les doubles appariements).
 - **Pick & ban** : tours de sélection stockés dans `matches`, chaque choix validé par RPC puis diffusé.
 - **Chrono et règle des 10 secondes** : la manche a une `deadline` en base. Quand le premier joueur répond, la RPC fait `deadline = least(deadline, now() + 10 s)`. Le client affiche le compte à rebours mais c'est l'heure du serveur qui fait foi ; une réponse arrivée après la deadline est refusée. La clôture se déclenche soit par la deuxième réponse, soit par un appel `close_round` qui vérifie que la deadline est passée (filet de sécurité avec `pg_cron` si les deux joueurs se déconnectent).
@@ -230,8 +260,8 @@ kiffeurs-histoire/
 3. Mode solo + frise zoomable (le cœur du jeu, à rendre agréable avant tout le reste).
 4. Partie pédagogique (programme de terminale) : c'est la fonctionnalité que vous jugez « hyper importante ».
 5. Mode inversé avec correction des fautes.
-6. Lobby casual (premier usage du temps réel).
-7. 1v1 classé : matchmaking, pick & ban, rangs par thème.
+6. Multijoueur V1.3 (premier usage du temps réel) : salons, Convivial, 1 contre 1 aux points avec pick & ban (roadmap #148).
+7. 1v1 classé : matchmaking, rangs par thème.
 
 ## 8. Questions ouvertes
 

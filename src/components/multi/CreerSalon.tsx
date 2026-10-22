@@ -32,8 +32,10 @@ export function CreerSalon({ connecte }: { connecte: boolean }) {
   <section className={`${styles.boite} ${styles.creer} ${deplie ? styles.deplie : ""}`} aria-label="Créer un salon">
     <h2>Créer un salon</h2>
     <div className={styles.corps}>
-      {MODES.map((m) => <button key={m.mode} type="button" className={styles.mode} aria-pressed={mode === m.mode}
-        onClick={() => setMode(m.mode)}><b>{m.titre}</b><span>{m.texte}</span></button>)}
+      {connecte
+        ? MODES.map((m) => <button key={m.mode} type="button" className={styles.mode} aria-pressed={mode === m.mode}
+          onClick={() => setMode(m.mode)}><b>{m.titre}</b><span>{m.texte}</span></button>)
+        : <p className={styles.note}>Seuls les joueurs avec un compte KFFR créent un salon. Sans compte, rejoins celui d&apos;un ami avec son code ou son lien.</p>}
       {erreur && <p className={styles.erreur} role="alert">{erreur}</p>}
     </div>
     <div className={styles.pied}>

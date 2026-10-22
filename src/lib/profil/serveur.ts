@@ -1,7 +1,7 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
-import { cursorValide, type Historique, type Statistiques } from "./types";
+import { cursorValide, type Historique, type Statistiques, type StatsMulti } from "./types";
 
 // Aucune identité fournie par le navigateur ; aucune mise en cache partagée.
 async function clientPrive(client?: SupabaseClient) {
@@ -25,6 +25,14 @@ export async function chargerHistorique(
     throw new Error("L’historique est momentanément indisponible.");
   return data as Historique;
 }
+/** Parties à plusieurs (#143) : comptées à part, elles ne changent pas les statistiques du solo. */
+export async function chargerStatsMulti(client?: SupabaseClient): Promise<StatsMulti> {
+  const histoire = await clientPrive(client);
+  const { data, error } = await histoire.rpc("mes_stats_multi");
+  if (error || !data) throw new Error("Les parties à plusieurs sont momentanément indisponibles.");
+  return data as StatsMulti;
+}
+
 export async function chargerStatistiques(
   client?: SupabaseClient,
 ): Promise<Statistiques> {

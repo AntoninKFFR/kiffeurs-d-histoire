@@ -12,9 +12,11 @@ import { versT } from "@/lib/game/frise";
 import { creerLimiteur, doitDiffuser, rapprocher } from "@/lib/multi/curseurs";
 import { estimerDecalage, type Echantillon } from "@/lib/multi/horloge";
 import { chronoAccelere, classement, correctionPour, phaseDe, prochainRendezVous, type EtatPartie, type QuestionMulti } from "@/lib/multi/partie";
+import type { BilanPartie } from "@/lib/multi/bilan";
 import type { MembreSalon } from "@/lib/multi/salon";
 import { EcranPartie, type Correction, type ReponsePeriode } from "@/components/partie/EcranPartie";
 import type { PionFrise } from "@/components/frise/Frise";
+import { FinPartie } from "./FinPartie";
 import s from "./partie-multi.module.css";
 
 export type ActionsPartieMulti = {
@@ -24,6 +26,8 @@ export type ActionsPartieMulti = {
   prevenir: () => void;
   /** Mode visible : diffuser mon curseur sur le canal du salon. */
   curseur: (c: CurseurJoueur) => void;
+  /** Fin de partie : podium, classement final et faits marquants (#143). */
+  bilan: () => Promise<BilanPartie | null>;
 };
 
 /** Curseur d'un joueur, tel qu'il circule sur le canal (mode visible). */
@@ -146,6 +150,17 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
   const serveur = maintenant + decalage;
   const phase = etat ? phaseDe(etat, serveur) : null;
   const question = phase && (phase.type === "question" || phase.type === "revelation") ? phase.question : null;
+  // Fin de partie : le bilan se demande une fois (réessai toutes les 3 s s'il n'est pas encore prêt).
+  const [bilan, setBilan] = useState<BilanPartie | null>(null);
+  const fini = phase?.type === "fin";
+  useEffect(() => {
+    if (!fini || bilan) return;
+    let actif = true;
+    const demander = () => void actions.bilan().then((b) => { if (actif && b) setBilan(b); });
+    const t = setTimeout(demander, 0);
+    const filet = setInterval(demander, 3000);
+    return () => { actif = false; clearTimeout(t); clearInterval(filet); };
+  }, [fini, bilan, actions]);
   // Un objet stable tant que l'échéance ne change pas (le mode chrono peut la rapprocher).
   const finMs = question ? Date.parse(question.limite_le) - decalage : null;
   const totalMs = (etat?.partie.duree_question ?? 30) * 1000;
@@ -183,11 +198,12 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
   );
 
   if (phase.type === "fin") {
+    if (bilan) return <FinPartie bilan={bilan} membres={membres} moi={etat.moi} couleur={couleur} retour={retour} quitter={quitter} />;
     return (
       <div className={s.plein}>
         <div className={s.boiteFin}>
           <span className={s.inventaire}>Partie terminée · {etat.partie.contenu.titre ?? "Toute l'Histoire"}</span>
-          <h1>{lignes[0] ? `${pseudo(lignes[0].membreId)} l'emporte !` : "Partie terminée"}</h1>
+          <h1>Le podium arrive…</h1>
           {tableau(true)}
           <button type="button" className={s.bouton} onClick={retour}>Retour au salon</button>
         </div>

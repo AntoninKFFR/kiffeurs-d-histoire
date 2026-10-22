@@ -29,6 +29,7 @@ function PartieSimulee({ chrono, visible, dix, rejouer }: Options & { rejouer: (
     repondre: async (id, debut, fin) => simulation.repondre(id, debut, fin, Date.now()),
     prevenir: () => setSignal((n) => n + 1),
     curseur: () => {},
+    bilan: async () => simulation.bilan(Date.now()),
   }), [simulation]);
   // Les joueurs fictifs envoient leur curseur 10 fois par seconde, comme le ferait le canal.
   const abonnerCurseurs = useCallback((recevoir: (c: CurseurJoueur) => void) => {

@@ -52,6 +52,7 @@ export type Statistiques = {
   accuracy_over_time: PointPrecision[];
   games_without_context: number;
 };
+export type StatsMulti = { parties: number; victoires: number };
 export const MODES_PROFIL: Record<ModeProfil, string> = {
   solo_libre: "Solo libre",
   solo_scolaire: "Solo scolaire",

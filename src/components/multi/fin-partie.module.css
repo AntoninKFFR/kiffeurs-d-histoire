@@ -1,0 +1,110 @@
+/* Fin de partie (#143) : maquette docs/maquettes/v1.3/podium-pc.png. Plein écran, rien ne défile. */
+.fin {
+  position: fixed; inset: 0; z-index: 50; overflow: hidden;
+  background: var(--color-blanc-cartel); color: var(--color-encre);
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr);
+  column-gap: 60px; padding: 22px 40px 40px 60px;
+}
+.tete { grid-column: 1 / -1; text-align: center; display: grid; gap: 4px; }
+.tete h1 { font-size: 34px; line-height: 1.1; }
+.inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
+
+.podium { display: flex; align-items: flex-end; gap: 14px; border-bottom: 4px solid var(--color-encre); min-height: 0; padding-top: 20px; }
+.marche { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 0; }
+.couronne { font-size: 34px; color: var(--color-laiton); line-height: 1; }
+.pion { display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 28px; }
+.nom { font-family: var(--font-titre, "Young Serif", serif); font-size: 22px; margin-top: 8px; text-align: center; overflow-wrap: anywhere; }
+.pts { font-size: 30px; margin-bottom: 10px; }
+.socle { width: 100%; display: grid; place-items: center; border: 1px solid var(--color-filet); border-bottom: 0; background: var(--color-papier); }
+.socle :global(.date) { font-size: 64px; color: var(--color-encre-douce); }
+[data-marche="1"] .socle { height: 210px; }
+[data-marche="2"] .socle { height: 150px; }
+[data-marche="3"] .socle { height: 110px; }
+.or .socle { background: var(--color-fond-resultat); border-color: var(--color-laiton-clair); }
+.or .socle :global(.date) { color: var(--color-laiton); }
+
+.cote { display: flex; flex-direction: column; gap: 16px; min-height: 0; padding-top: 30px; }
+.classement { background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); box-shadow: var(--shadow-cartel); min-height: 0; overflow-y: auto; }
+.classement h2 { display: flex; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid var(--color-filet); font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); font-weight: 600; }
+.classement h2 span + span { color: var(--color-encre-douce); }
+.classement ol { list-style: none; margin: 0; padding: 0; }
+.classement li { display: grid; grid-template-columns: 18px 26px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 12px; border-bottom: 1px solid color-mix(in srgb, var(--color-filet) 50%, transparent); font-size: 14px; }
+.classement li:last-child { border-bottom: 0; }
+.classement li.moi { background: var(--color-fond-resultat); }
+.rang { font-family: var(--font-date); font-size: 20px; color: var(--color-encre-douce); }
+.petitPion { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 12px; }
+.ligneNom { min-width: 0; overflow-wrap: anywhere; }
+.invite { margin-left: 6px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--color-filet); padding: 0 4px; color: var(--color-encre-douce); }
+.total { font-size: 22px; }
+
+.fait { display: grid; gap: 4px; margin: 0; padding: 10px 14px; border: 1px solid var(--color-filet); font-size: 13px; }
+.coup { background: var(--color-fond-resultat); border-color: var(--color-laiton-clair); }
+.rate { background: var(--color-papier); }
+.rate .inventaire { color: var(--color-encre-douce); }
+
+.boutons { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.boutons button { font: inherit; min-height: 56px; cursor: pointer; }
+.quitter { background: var(--color-blanc-cartel); color: var(--color-encre); border: 1px solid var(--color-filet); }
+.boutons .retour { background: var(--color-encre); color: var(--color-blanc-cartel); border: 0; font-weight: 700; }
+.retour small { font-weight: 400; font-size: inherit; opacity: .8; }
+
+/* Beaucoup de joueurs (6 à 10) : des lignes plus fines pour tout voir sans défiler. */
+.nombreux li { padding-top: 2px; padding-bottom: 2px; }
+.nombreux .petitPion { width: 22px; height: 22px; font-size: 11px; }
+.nombreux .total { font-size: 19px; }
+
+/* Écran moyen : un peu plus serré. */
+@media (max-width: 1100px) {
+  .fin { column-gap: 32px; padding: 18px 24px 24px; }
+}
+/* Téléphone couché (et écrans bas) : tout se resserre pour tenir sans défiler. */
+@media (max-height: 500px) {
+  .fin { padding: 8px 16px 12px; column-gap: 20px; }
+  .tete { gap: 0; }
+  .tete h1 { font-size: 20px; }
+  .podium { gap: 8px; padding-top: 4px; }
+  .couronne { font-size: 18px; }
+  .pion { width: 34px; height: 34px; font-size: 15px; }
+  .nom { font-size: 14px; margin-top: 2px; }
+  .pts { font-size: 18px; margin-bottom: 4px; }
+  .socle :global(.date) { font-size: 30px; }
+  [data-marche="1"] .socle { height: 90px; }
+  [data-marche="2"] .socle { height: 64px; }
+  [data-marche="3"] .socle { height: 44px; }
+  .cote { gap: 6px; padding-top: 6px; }
+  .classement h2 { display: none; }
+  .classement li { padding: 2px 10px; font-size: 12px; gap: 6px; grid-template-columns: 14px 20px minmax(0, 1fr) auto; }
+  .petitPion { width: 20px; height: 20px; font-size: 10px; }
+  .rang { font-size: 15px; }
+  .total { font-size: 16px; }
+  .fait { padding: 4px 10px; font-size: 11px; gap: 0; }
+  .fait .inventaire { font-size: 9px; }
+  .boutons button { min-height: 44px; }
+  .retour { white-space: nowrap; }
+  /* Beaucoup de joueurs : le classement passe sur deux colonnes. */
+  .nombreux ol { display: grid; grid-auto-flow: column; grid-template-rows: repeat(var(--lignes), auto); grid-template-columns: 1fr 1fr; column-gap: 1px; background: color-mix(in srgb, var(--color-filet) 50%, transparent); }
+  .nombreux li { background: var(--color-blanc-cartel); border-bottom: 0; margin-bottom: 1px; padding: 1px 6px; gap: 4px; }
+  .nombreux .invite { display: block; margin: 0; width: fit-content; font-size: 8px; line-height: 1.2; }
+  .fin:has(.nombreux) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+}
+/* Téléphone debout : une seule colonne, podium puis classement. */
+@media (max-width: 600px) {
+  .fin { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); padding: 12px 16px; row-gap: 10px; }
+  .tete h1 { font-size: 22px; }
+  .podium { padding-top: 0; }
+  .pion { width: 44px; height: 44px; font-size: 18px; }
+  .nom { font-size: 15px; }
+  .pts { font-size: 20px; }
+  .socle :global(.date) { font-size: 34px; }
+  [data-marche="1"] .socle { height: 90px; }
+  [data-marche="2"] .socle { height: 64px; }
+  [data-marche="3"] .socle { height: 44px; }
+  .cote { padding-top: 0; gap: 8px; }
+  .fait { font-size: 12px; padding: 6px 10px; }
+  .nombreux ol { display: grid; grid-auto-flow: column; grid-template-rows: repeat(var(--lignes), auto); grid-template-columns: 1fr 1fr; column-gap: 1px; background: color-mix(in srgb, var(--color-filet) 50%, transparent); }
+  .nombreux li { background: var(--color-blanc-cartel); border-bottom: 0; margin-bottom: 1px; padding: 3px 8px; gap: 6px; grid-template-columns: 14px 20px minmax(0, 1fr) auto; font-size: 12px; }
+  .nombreux .petitPion { width: 20px; height: 20px; font-size: 10px; }
+  .nombreux .rang { font-size: 15px; }
+  .nombreux .total { font-size: 16px; }
+  .nombreux .invite { display: block; margin: 0; width: fit-content; }
+}

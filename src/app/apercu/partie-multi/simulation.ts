@@ -2,6 +2,7 @@
 // qui répondent tout seuls. Il suit les règles de histoire.etat_partie (décompte 3 s, chrono 30 s, clôture
 // quand tous ont validé, révélation 8 s, mode chrono 10 s) ; le score reprend la formule du solo, en Année.
 import type { HistoricDate } from "@/lib/game/dates";
+import type { BilanPartie } from "@/lib/multi/bilan";
 import type { EtatPartie } from "@/lib/multi/partie";
 
 type Question = { id: string; titre: string; annee: number; fin?: number; description: string };
@@ -140,5 +141,21 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}
     });
   }
 
-  return { etat, repondre, curseurs };
+  // Fin de partie (#143) : comme histoire.bilan_partie, une fois la partie terminée.
+  function bilan(maintenant: number): BilanPartie | null {
+    const e = etat(maintenant);
+    if (!terminee) return null;
+    return {
+      partie: { id: e.partie.id, numero: 1, contenu: e.partie.contenu, precision: "YEAR", total: QUESTIONS.length },
+      questions: QUESTIONS.map((q, i) => ({
+        position: i + 1, titre: q.titre,
+        correction: { debut: { year: q.annee }, ...(q.fin != null ? { fin: { year: q.fin } } : {}) },
+        reponses: [...reponses.get(q.id)!.entries()].map(([m, r]) => ({ membre_id: m, debut: { year: r.annee },
+          ecart: r.ecart, unite: "YEAR" as const, points: r.points, secondes: (r.recue - horaires[i].posee) / 1000 })),
+      })),
+      scores: e.scores,
+    };
+  }
+
+  return { etat, repondre, curseurs, bilan };
 }

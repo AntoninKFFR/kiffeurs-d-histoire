@@ -211,7 +211,7 @@ numéro de question, le classement posé en haut à droite (trois premiers sur t
 téléphone debout), « Réponse envoyée · on attend les autres » après Valider, puis la correction et « Question
 suivante dans N s ». Le navigateur redemande l'état aux échéances, quand un joueur prévient sur le canal
 (`partie_change`) et toutes les 3 s par sécurité ; les chronos sont calés sur l'heure du serveur (`horloge.ts`).
-L'écran de fin est provisoire (classement et « Retour au salon ») : le podium arrive avec #143.
+L'écran de fin est celui de #143 (ci-dessous).
 
 ## Mode visible (#141)
 
@@ -231,3 +231,20 @@ Réglage de l'hôte (`mode_visible`, invisible par défaut). Aperçu : `/apercu/
 **Mesure** (22 oct. 2026, aperçu local, Chromium, 10 joueurs dont 9 fictifs à 10 envois/s) : 60 images par seconde,
 médiane et 95 % à 16,7 ms, aucune image au-delà de 50 ms. À refaire à plusieurs navigateurs sur l'aperçu Vercel,
 avec la mesure de latence (#135).
+
+## Fin de partie (#143)
+
+Maquette : `maquettes/v1.3/podium-pc.png`. Aperçu : `/apercu/partie-multi` (attendre la fin des 5 questions,
+`?joueurs=10` pour dix joueurs). Tests : `tests/multi-bilan.test.ts`, `supabase/tests/fin_partie.sql`.
+
+- **Écran** (`FinPartie`) : podium des trois premiers (2e, 1er couronné, 3e), avec pion à la couleur du joueur,
+  pseudo et points ; classement final complet (invités marqués, ex æquo au même rang, sur deux colonnes au-delà de
+  5 joueurs sur téléphone) ; « Coup de maître » (la réponse qui a rapporté le plus, puis la plus rapide) et « Plus
+  gros raté » (le moins de points, puis le plus grand écart ; absent si tout le monde a visé juste). « Quitter » ou
+  « Retour au salon », automatique au bout de 15 s. Tout tient sans défiler, PC et téléphone, jusqu'à 10 joueurs.
+- **Données** (`bilan_partie`) : la dernière partie terminée du salon, ses questions, réponses (avec le temps mis)
+  et scores, pour les seuls membres du salon. Rien pendant la partie.
+- **Profil** : à la fin de chaque partie, `stats_multi` compte une partie pour chaque joueur avec compte présent au
+  lancement, et une victoire au(x) premier(s) s'il a marqué des points. Le profil l'affiche dans « À plusieurs »
+  (`mes_stats_multi`) ; les statistiques du solo ne changent pas.
+

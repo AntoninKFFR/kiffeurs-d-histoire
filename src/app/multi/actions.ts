@@ -6,6 +6,7 @@
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import type { SoloDate } from "@/lib/game/solo";
+import type { BilanPartie } from "@/lib/multi/bilan";
 import type { EtatPartie } from "@/lib/multi/partie";
 import { cookieInvite, DUREE_JETON_INVITE, lireCodeSalon, type EtatSalon, type Reglages, type ResultatBattement } from "@/lib/multi/salon";
 
@@ -171,4 +172,12 @@ export async function repondrePartie(salonId: string, questionId: string, debut:
     p_jeton: await jeton(salonId),
   });
   return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}
+
+/** Bilan de la dernière partie terminée du salon (podium, #143) ; null avant la fin. */
+export async function bilanPartie(salonId: string): Promise<BilanPartie | null> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { data, error } = await supabase.schema("histoire").rpc("bilan_partie", { p_salon_id: salonId, p_jeton: await jeton(salonId) });
+  return error ? null : (data as BilanPartie | null);
 }

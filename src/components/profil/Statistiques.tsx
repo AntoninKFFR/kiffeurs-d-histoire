@@ -4,13 +4,14 @@ import {
   nombre,
   pourcentage,
   type Statistiques as DonneesStatistiques,
+  type StatsMulti,
 } from "@/lib/profil/types";
 import { GraphiquePrecision } from "./GraphiquePrecision";
 import type { Progression } from "@/lib/progression/types";
 import { ProgressionPedagogique } from "./ProgressionPedagogique";
 import styles from "./Profil.module.css";
 
-export function Statistiques({ data, progression = null }: { data: DonneesStatistiques; progression?: Progression | null }) {
+export function Statistiques({ data, progression = null, multi = null }: { data: DonneesStatistiques; progression?: Progression | null; multi?: StatsMulti | null }) {
   return (
     <div className={styles.stack}>
       <section aria-labelledby="statistiques-titre">
@@ -52,6 +53,26 @@ export function Statistiques({ data, progression = null }: { data: DonneesStatis
           </div>
         )}
       </section>
+      {multi && (
+        <section aria-labelledby="multi-titre">
+          <h2 id="multi-titre" className={styles.heading}>
+            À plusieurs
+          </h2>
+          <dl className={styles.metrics}>
+            {(
+              [
+                ["Parties multi jouées", nombre(multi.parties)],
+                ["Victoires", nombre(multi.victoires)],
+              ] as const
+            ).map(([label, value]) => (
+              <div className={styles.metric} key={label}>
+                <dt className={styles.muted}>{label}</dt>
+                <dd className={styles.value}>{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
       {data.modes.length > 0 && (
         <section aria-labelledby="modes-titre">
           <h2 id="modes-titre" className={styles.heading}>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { classementFinal, coupDeMaitre, plusGrosRate, type BilanPartie } from "@/lib/multi/bilan";
+import { classementFinal, coupDeMaitre, habillageFin, plusGrosRate, romain, type BilanPartie } from "@/lib/multi/bilan";
 import { creerSimulation } from "@/app/apercu/partie-multi/simulation";
 
 const bilan = (extra: Partial<BilanPartie> = {}): BilanPartie => ({
@@ -45,5 +45,17 @@ describe("fin de partie (#143)", () => {
     const b = sim.bilan(T0 + 10 * 60_000)!;
     expect(b.questions).toHaveLength(5);
     expect(b.scores.map((x) => x.membre_id)).toEqual(["m1", "m2", "m3", "m4", "m5"]);
+  });
+
+  it("habillage : la gazette pour l'époque des journaux, le musée sinon", () => {
+    expect(habillageFin(bilan())).toBe("gazette");
+    const q = (year: number) => ({ position: 1, titre: "x", correction: { debut: { year } }, reponses: [] });
+    expect(habillageFin(bilan({ questions: [q(-52), q(1453), q(1804)] }))).toBe("musee");
+    expect(habillageFin(bilan({ questions: [q(1515), q(1914), q(1945)] }))).toBe("gazette");
+    expect(habillageFin(bilan({ questions: [] }))).toBe("musee");
+  });
+
+  it("rangs en chiffres romains", () => {
+    expect([1, 2, 3, 4, 9, 10].map(romain)).toEqual(["I", "II", "III", "IV", "IX", "X"]);
   });
 });

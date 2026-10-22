@@ -3,6 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PartieMulti, type ActionsPartieMulti, type CurseurJoueur } from "@/components/multi/PartieMulti";
+import type { HabillageFin } from "@/lib/multi/bilan";
 import type { MembreSalon } from "@/lib/multi/salon";
 import { creerSimulation, joueursSimules } from "./simulation";
 
@@ -11,16 +12,17 @@ const membres = (dix: boolean): MembreSalon[] => joueursSimules(dix).map((id, k)
   id, pseudo: PSEUDOS[k], est_hote: k === 0, invite: k === 3 || k === 4, ordre: k + 1, en_attente: false,
 }));
 
-type Options = { chrono: boolean; visible: boolean; dix: boolean };
+type Options = { chrono: boolean; visible: boolean; dix: boolean; fin?: HabillageFin };
 
 // Partie de 5 questions contre des joueurs fictifs. ?chrono=1 : mode chrono ; ?visible=1 : mode visible ;
-// ?joueurs=10 : dix joueurs (mesure de fluidité du mode visible). Rien n'est envoyé.
+// ?joueurs=10 : dix joueurs (mesure de fluidité du mode visible) ; ?fin=musee ou ?fin=gazette : habillage de
+// l'écran de fin (sinon celui de l'époque des questions, la gazette ici). Rien n'est envoyé.
 export function ApercuPartieMulti(options: Options) {
   const [partie, setPartie] = useState(0);
   return <PartieSimulee key={partie} {...options} rejouer={() => setPartie((n) => n + 1)} />;
 }
 
-function PartieSimulee({ chrono, visible, dix, rejouer }: Options & { rejouer: () => void }) {
+function PartieSimulee({ chrono, visible, dix, fin, rejouer }: Options & { rejouer: () => void }) {
   const router = useRouter();
   const simulation = useMemo(() => creerSimulation({ chrono, dix }), [chrono, dix]);
   const [signal, setSignal] = useState(0);
@@ -44,6 +46,6 @@ function PartieSimulee({ chrono, visible, dix, rejouer }: Options & { rejouer: (
   const liste = useMemo(() => membres(dix), [dix]);
   const presents = useMemo(() => new Set(liste.map((m) => m.id).filter((id) => dix || id !== "m5")), [liste, dix]);
   return <PartieMulti membres={liste} presents={presents} actions={actions} signal={signal}
-    modeVisible={visible} abonnerCurseurs={abonnerCurseurs}
+    modeVisible={visible} abonnerCurseurs={abonnerCurseurs} habillageFin={fin}
     quitter={() => router.push("/apercu")} retour={rejouer} />;
 }

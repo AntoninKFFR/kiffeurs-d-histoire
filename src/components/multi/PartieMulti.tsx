@@ -12,7 +12,7 @@ import { versT } from "@/lib/game/frise";
 import { creerLimiteur, doitDiffuser, rapprocher } from "@/lib/multi/curseurs";
 import { estimerDecalage, type Echantillon } from "@/lib/multi/horloge";
 import { chronoAccelere, classement, correctionPour, phaseDe, prochainRendezVous, type EtatPartie, type QuestionMulti } from "@/lib/multi/partie";
-import type { BilanPartie } from "@/lib/multi/bilan";
+import type { BilanPartie, HabillageFin } from "@/lib/multi/bilan";
 import type { MembreSalon } from "@/lib/multi/salon";
 import { EcranPartie, type Correction, type ReponsePeriode } from "@/components/partie/EcranPartie";
 import type { PionFrise } from "@/components/frise/Frise";
@@ -49,12 +49,14 @@ type Props = {
   modeVisible?: boolean;
   /** Reçoit les curseurs des autres (mode visible) ; renvoie de quoi se désabonner. */
   abonnerCurseurs?: (recevoir: (c: CurseurJoueur) => void) => () => void;
+  /** Aperçu : habillage imposé à l'écran de fin. */
+  habillageFin?: HabillageFin;
 };
 
 // Mêmes couleurs que les pions du salon (--j1 à --j6), en clair : la frise ne voit pas ces variables.
 const COULEURS = ["#8a2f2b", "#2f6b8a", "#5b7a3a", "#8a5a2f", "#6b3a8a", "#2f8a7a"];
 
-export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null, modeVisible = false, abonnerCurseurs }: Props) {
+export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null, modeVisible = false, abonnerCurseurs, habillageFin }: Props) {
   const [etat, setEtat] = useState<EtatPartie | null>(depart);
   const [decalage, setDecalage] = useState(0);
   const [maintenant, setMaintenant] = useState(() => Date.now());
@@ -198,7 +200,7 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
   );
 
   if (phase.type === "fin") {
-    if (bilan) return <FinPartie bilan={bilan} membres={membres} moi={etat.moi} couleur={couleur} retour={retour} quitter={quitter} />;
+    if (bilan) return <FinPartie bilan={bilan} membres={membres} moi={etat.moi} couleur={couleur} retour={retour} quitter={quitter} habillage={habillageFin} />;
     return (
       <div className={s.plein}>
         <div className={s.boiteFin}>

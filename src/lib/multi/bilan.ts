@@ -50,3 +50,22 @@ export function plusGrosRate(bilan: BilanPartie): FaitMarquant | null {
   return { membreId: pire.r.membre_id, titre: capitaliser(pire.q.titre),
     texte: `en ${formatHistoricDate(date(pire.r.debut), precisionDepuis(bilan.partie.precision))} : ${phraseEcart(pire.r.ecart, unite)} trop ${tard ? "tard" : "tôt"}` };
 }
+
+export type HabillageFin = "musee" | "gazette";
+
+/** Habillage de l'écran de fin : la gazette quand la partie portait surtout sur l'époque des journaux
+ *  (année médiane des questions à partir de 1789), la salle de musée sinon. */
+export function habillageFin(bilan: BilanPartie): HabillageFin {
+  const annees = bilan.questions.map((q) => q.correction.debut.year).sort((a, b) => a - b);
+  if (annees.length === 0) return "musee";
+  return annees[Math.floor((annees.length - 1) / 2)] >= DEBUT_GAZETTE ? "gazette" : "musee";
+}
+const DEBUT_GAZETTE = 1789;
+
+const ROMAINS: [number, string][] = [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"], [100, "C"], [90, "XC"], [50, "L"], [40, "XL"], [10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
+/** Rang en chiffres romains (I, II, III…), comme sur les socles. */
+export function romain(n: number): string {
+  let reste = n, texte = "";
+  for (const [valeur, signe] of ROMAINS) while (reste >= valeur) { texte += signe; reste -= valeur; }
+  return texte;
+}

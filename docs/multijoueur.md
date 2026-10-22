@@ -237,8 +237,12 @@ avec la mesure de latence (#135).
 Maquette : `maquettes/v1.3/podium-pc.png`. Aperçu : `/apercu/partie-multi` (attendre la fin des 5 questions,
 `?joueurs=10` pour dix joueurs). Tests : `tests/multi-bilan.test.ts`, `supabase/tests/fin_partie.sql`.
 
-- **Écran** (`FinPartie`) : podium des trois premiers (2e, 1er couronné, 3e), avec pion à la couleur du joueur,
-  pseudo et points ; classement final complet (invités marqués, ex æquo au même rang, sur deux colonnes au-delà de
+- **Habillage** (choix de Maxou, 22 oct. 2026, parmi trois pistes) : « salle de musée » par défaut (socles de
+  marbre à chiffres romains, portraits en camée, plaques de laiton, laurier du vainqueur) ; « gazette d'époque »
+  (une de journal, socles gravés, « exploit » et « bévue » du jour) quand l'année médiane des questions est 1789 ou
+  après, pour ne pas montrer de journal avant l'époque des journaux (`habillageFin`). Aperçu : `?fin=musee`.
+- **Écran** (`FinPartie`) : podium des trois premiers (2e, 1er au laurier, 3e), avec portrait à la couleur du
+  joueur, pseudo et points ; classement final complet (invités marqués, ex æquo au même rang, sur deux colonnes au-delà de
   5 joueurs sur téléphone) ; « Coup de maître » (la réponse qui a rapporté le plus, puis la plus rapide) et « Plus
   gros raté » (le moins de points, puis le plus grand écart ; absent si tout le monde a visé juste). « Quitter » ou
   « Retour au salon », automatique au bout de 15 s. Tout tient sans défiler, PC et téléphone, jusqu'à 10 joueurs.

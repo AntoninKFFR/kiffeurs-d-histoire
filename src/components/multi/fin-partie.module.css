@@ -1,37 +1,41 @@
-/* Fin de partie (#143) : maquette docs/maquettes/v1.3/podium-pc.png. Plein écran, rien ne défile. */
+/* Fin de partie (#143) : maquette docs/maquettes/v1.3/podium-pc.png, habillée « salle de musée » par défaut et
+   « gazette d'époque » selon l'époque des questions (choix de Maxou, 22 oct. 2026). Plein écran, rien ne défile. */
 .fin {
-  position: fixed; inset: 0; z-index: 50; overflow: hidden;
-  background: var(--color-blanc-cartel); color: var(--color-encre);
+  position: fixed; inset: 0; z-index: 50; overflow: hidden; color: var(--color-encre);
   display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr);
-  column-gap: 60px; padding: 22px 40px 40px 60px;
+  column-gap: 60px; padding: 20px 40px 40px 60px;
 }
-.tete { grid-column: 1 / -1; text-align: center; display: grid; gap: 4px; }
-.tete h1 { font-size: 34px; line-height: 1.1; }
+.tete { grid-column: 1 / -1; text-align: center; display: grid; gap: 2px; }
+.tete h1 { font-size: 36px; line-height: 1.1; }
+.fleuron { color: var(--color-laiton); font-size: 18px; line-height: 1; }
 .inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
 
-.podium { display: flex; align-items: flex-end; gap: 14px; border-bottom: 4px solid var(--color-encre); min-height: 0; padding-top: 20px; }
+/* Podium : portrait, cartel (nom et points), socle au chiffre romain. */
+.podium { display: flex; align-items: flex-end; gap: 18px; min-height: 0; padding: 0 10px; }
 .marche { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 0; }
-.couronne { font-size: 34px; color: var(--color-laiton); line-height: 1; }
-.pion { display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 28px; }
-.nom { font-family: var(--font-titre, "Young Serif", serif); font-size: 22px; margin-top: 8px; text-align: center; overflow-wrap: anywhere; }
-.pts { font-size: 30px; margin-bottom: 10px; }
-.socle { width: 100%; display: grid; place-items: center; border: 1px solid var(--color-filet); border-bottom: 0; background: var(--color-papier); }
-.socle :global(.date) { font-size: 64px; color: var(--color-encre-douce); }
-[data-marche="1"] .socle { height: 210px; }
-[data-marche="2"] .socle { height: 150px; }
-[data-marche="3"] .socle { height: 110px; }
-.or .socle { background: var(--color-fond-resultat); border-color: var(--color-laiton-clair); }
-.or .socle :global(.date) { color: var(--color-laiton); }
+.portrait { position: relative; display: grid; place-items: center; padding: 14px 0 8px; }
+[data-marche="1"] .portrait { margin-bottom: 12px; }
+.laurier { position: absolute; left: 50%; top: 50%; width: 150px; transform: translate(-50%, -52%); color: var(--color-laiton); }
+.camee { position: relative; width: 84px; height: 100px; border-radius: 50%; display: grid; place-items: center; }
+.camee span { font-family: var(--font-titre); font-size: 40px; color: #fbf8ef; }
+.cartel { display: grid; justify-items: center; margin: 4px 0 10px; text-align: center; max-width: 100%; }
+.nom { font-family: var(--font-titre); font-size: 20px; overflow-wrap: anywhere; line-height: 1.15; }
+.pts { font-size: 26px; line-height: 1; }
+.socle { width: 100%; position: relative; display: grid; place-items: center; border-bottom: 0; }
+.chiffre { font-family: var(--font-titre); font-size: 64px; line-height: 1.1; }
+[data-marche="1"] .socle { height: 200px; }
+[data-marche="2"] .socle { height: 140px; }
+[data-marche="3"] .socle { height: 100px; }
 
-.cote { display: flex; flex-direction: column; gap: 16px; min-height: 0; padding-top: 30px; }
-.classement { background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); box-shadow: var(--shadow-cartel); min-height: 0; overflow-y: auto; }
+.cote { display: flex; flex-direction: column; gap: 14px; min-height: 0; padding-top: 24px; }
+.classement { background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); min-height: 0; overflow-y: auto; }
 .classement h2 { display: flex; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid var(--color-filet); font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); font-weight: 600; }
 .classement h2 span + span { color: var(--color-encre-douce); }
 .classement ol { list-style: none; margin: 0; padding: 0; }
-.classement li { display: grid; grid-template-columns: 18px 26px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 12px; border-bottom: 1px solid color-mix(in srgb, var(--color-filet) 50%, transparent); font-size: 14px; }
+.classement li { display: grid; grid-template-columns: 32px 26px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 12px; border-bottom: 1px solid color-mix(in srgb, var(--color-filet) 50%, transparent); font-size: 14px; }
 .classement li:last-child { border-bottom: 0; }
 .classement li.moi { background: var(--color-fond-resultat); }
-.rang { font-family: var(--font-date); font-size: 20px; color: var(--color-encre-douce); }
+.rang { font-family: var(--font-titre); font-size: 16px; color: var(--color-encre-douce); }
 .petitPion { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 12px; }
 .ligneNom { min-width: 0; overflow-wrap: anywhere; }
 .invite { margin-left: 6px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--color-filet); padding: 0 4px; color: var(--color-encre-douce); }
@@ -40,13 +44,51 @@
 .fait { display: grid; gap: 4px; margin: 0; padding: 10px 14px; border: 1px solid var(--color-filet); font-size: 13px; }
 .coup { background: var(--color-fond-resultat); border-color: var(--color-laiton-clair); }
 .rate { background: var(--color-papier); }
-.rate .inventaire { color: var(--color-encre-douce); }
 
 .boutons { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .boutons button { font: inherit; min-height: 56px; cursor: pointer; }
 .quitter { background: var(--color-blanc-cartel); color: var(--color-encre); border: 1px solid var(--color-filet); }
 .boutons .retour { background: var(--color-encre); color: var(--color-blanc-cartel); border: 0; font-weight: 700; }
 .retour small { font-weight: 400; font-size: inherit; opacity: .8; }
+
+/* Salle de musée : marbre, camées cerclés de laiton, plaques de laiton. */
+.musee { background: radial-gradient(ellipse at 30% 40%, #fbf8ef 0%, #f1ecdf 70%); }
+.musee .podium { background: linear-gradient(transparent calc(100% - 26px), #d9d2bf calc(100% - 26px)); }
+.musee .camee { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--c) 70%, #fff), var(--c)); border: 4px double var(--color-laiton); box-shadow: 0 0 0 3px #f6efdd, 0 0 0 5px var(--color-laiton), 0 6px 12px rgba(0, 0, 0, .18); }
+.musee .camee span { text-shadow: 0 1px 0 rgba(0, 0, 0, .35); }
+.musee .cartel { padding: 4px 16px 2px; background: linear-gradient(#e2cd8f, #b08a3e); border: 1px solid #8c6c2c; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5); color: #2b2210; min-width: 70%; }
+.musee .cartel .nom { font-size: 18px; }
+.musee .cartel .pts { font-size: 24px; }
+.musee .socle {
+  margin-top: 10px; border: 1px solid #c6c1b2; border-bottom: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(150, 150, 140, .18) 22%, transparent 26%), linear-gradient(70deg, transparent 55%, rgba(150, 150, 140, .15) 57%, transparent 60%), linear-gradient(90deg, #e9e6dd, #f7f5ef 45%, #dedad0);
+}
+.musee .socle::before { content: ""; position: absolute; top: -10px; left: -8px; right: -8px; height: 12px; background: linear-gradient(#f7f5ef, #d7d2c4); border: 1px solid #c6c1b2; }
+.musee .chiffre { color: #8f8a7c; text-shadow: 0 1px 0 #fff, 0 -1px 0 rgba(0, 0, 0, .2); }
+.musee [data-marche="1"] .chiffre { color: var(--color-laiton); }
+.musee .classement { box-shadow: 0 6px 16px rgba(0, 0, 0, .08); }
+
+/* Gazette d'époque : une de journal, gravure en hachures. */
+.gazette { background: #f3efe2; padding-top: 14px; }
+.une { grid-column: 1 / -1; text-align: center; border-bottom: 3px double var(--color-encre); padding-bottom: 6px; }
+.bandeau { display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid var(--color-encre); padding-bottom: 4px; }
+.journal { font-family: var(--font-titre); font-size: 40px; line-height: 1.1; margin-top: 4px; }
+.une h1 { font-size: 26px; line-height: 1.2; font-style: italic; border-top: 1px solid var(--color-encre); padding-top: 4px; margin-top: 2px; }
+.gazette .podium { border-bottom: 4px solid var(--color-encre); padding: 0; gap: 14px; }
+.gazette .camee { width: 82px; height: 82px; background: repeating-linear-gradient(45deg, var(--c) 0 2px, color-mix(in srgb, var(--c) 55%, #f3efe2) 2px 4px); border: 2px solid var(--color-encre); outline: 1px solid var(--color-encre); outline-offset: 3px; }
+.gazette .camee span { text-shadow: 1px 1px 0 var(--color-encre); }
+.gazette .cartel { margin-top: 6px; }
+.gazette [data-marche="1"] .portrait { margin-bottom: 22px; }
+.gazette .pts { font-size: 28px; }
+.gazette .socle { border: 2px solid var(--color-encre); border-bottom: 0; background: repeating-linear-gradient(-45deg, #f3efe2 0 5px, rgba(29, 42, 58, .18) 5px 6px); }
+.gazette .chiffre { font-size: 56px; background: #f3efe2; padding: 0 12px; border: 1px solid var(--color-encre); }
+.gazette .cote { padding-top: 14px; }
+.gazette .classement { background: transparent; border: 0; border-top: 2px solid var(--color-encre); }
+.gazette .classement h2 { font-family: var(--font-titre); text-transform: none; letter-spacing: 0; font-size: 17px; color: var(--color-encre); justify-content: center; gap: 12px; font-weight: 400; }
+.gazette .classement li { border-bottom: 1px dotted var(--color-encre-douce); }
+.gazette .classement li.moi { background: color-mix(in srgb, var(--color-laiton-clair) 35%, transparent); }
+.gazette .fait { background: transparent; border: 0; border-left: 3px solid var(--color-encre); font-family: Georgia, serif; font-size: 14px; }
+.gazette .fait .inventaire { color: var(--color-encre); font-weight: 700; }
 
 /* Beaucoup de joueurs (6 à 10) : des lignes plus fines pour tout voir sans défiler. */
 .nombreux li { padding-top: 2px; padding-bottom: 2px; }
@@ -62,28 +104,44 @@
   .fin { padding: 8px 16px 12px; column-gap: 20px; }
   .tete { gap: 0; }
   .tete h1 { font-size: 20px; }
-  .podium { gap: 8px; padding-top: 4px; }
-  .couronne { font-size: 18px; }
-  .pion { width: 34px; height: 34px; font-size: 15px; }
-  .nom { font-size: 14px; margin-top: 2px; }
-  .pts { font-size: 18px; margin-bottom: 4px; }
-  .socle :global(.date) { font-size: 30px; }
-  [data-marche="1"] .socle { height: 90px; }
-  [data-marche="2"] .socle { height: 64px; }
-  [data-marche="3"] .socle { height: 44px; }
-  .cote { gap: 6px; padding-top: 6px; }
+  .fleuron { display: none; }
+  .bandeau { display: none; }
+  .journal { font-size: 16px; margin: 0; }
+  .une { padding-bottom: 2px; }
+  .une h1 { font-size: 16px; padding-top: 0; }
+  .podium { gap: 8px; }
+  .portrait { padding: 6px 0 2px; }
+  .laurier { width: 76px; }
+  [data-marche="1"] .portrait, .gazette [data-marche="1"] .portrait { margin-bottom: 6px; }
+  .fin:has(.nombreux) .nom { font-size: 11px; }
+  .camee, .gazette .camee { width: 38px; height: 42px; }
+  .gazette .camee { height: 38px; outline-offset: 2px; }
+  .camee span { font-size: 18px; }
+  .musee .camee { border-width: 2px; box-shadow: 0 0 0 2px #f6efdd, 0 0 0 3px var(--color-laiton); }
+  .cartel, .musee .cartel { margin: 2px 0 4px; padding: 1px 8px; }
+  .nom, .musee .cartel .nom { font-size: 13px; }
+  .pts, .musee .cartel .pts, .gazette .pts { font-size: 16px; }
+  .chiffre, .gazette .chiffre { font-size: 26px; }
+  .musee .socle { margin-top: 6px; }
+  .musee .socle::before { top: -6px; height: 7px; left: -4px; right: -4px; }
+  .musee .podium { background: linear-gradient(transparent calc(100% - 10px), #d9d2bf calc(100% - 10px)); }
+  [data-marche="1"] .socle { height: 80px; }
+  [data-marche="2"] .socle { height: 56px; }
+  [data-marche="3"] .socle { height: 40px; }
+  .cote, .gazette .cote { gap: 6px; padding-top: 6px; }
   .classement h2 { display: none; }
-  .classement li { padding: 2px 10px; font-size: 12px; gap: 6px; grid-template-columns: 14px 20px minmax(0, 1fr) auto; }
+  .classement li { padding: 2px 10px; font-size: 12px; gap: 6px; grid-template-columns: 24px 20px minmax(0, 1fr) auto; }
   .petitPion { width: 20px; height: 20px; font-size: 10px; }
-  .rang { font-size: 15px; }
+  .rang { font-size: 13px; }
   .total { font-size: 16px; }
-  .fait { padding: 4px 10px; font-size: 11px; gap: 0; }
+  .fait, .gazette .fait { padding: 4px 10px; font-size: 11px; gap: 0; }
   .fait .inventaire { font-size: 9px; }
   .boutons button { min-height: 44px; }
   .retour { white-space: nowrap; }
   /* Beaucoup de joueurs : le classement passe sur deux colonnes. */
   .nombreux ol { display: grid; grid-auto-flow: column; grid-template-rows: repeat(var(--lignes), auto); grid-template-columns: 1fr 1fr; column-gap: 1px; background: color-mix(in srgb, var(--color-filet) 50%, transparent); }
   .nombreux li { background: var(--color-blanc-cartel); border-bottom: 0; margin-bottom: 1px; padding: 1px 6px; gap: 4px; }
+  .gazette .nombreux li { background: #f3efe2; }
   .nombreux .invite { display: block; margin: 0; width: fit-content; font-size: 8px; line-height: 1.2; }
   .fin:has(.nombreux) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
 }
@@ -91,20 +149,36 @@
 @media (max-width: 600px) {
   .fin { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); padding: 12px 16px; row-gap: 10px; }
   .tete h1 { font-size: 22px; }
-  .podium { padding-top: 0; }
-  .pion { width: 44px; height: 44px; font-size: 18px; }
-  .nom { font-size: 15px; }
-  .pts { font-size: 20px; }
-  .socle :global(.date) { font-size: 34px; }
-  [data-marche="1"] .socle { height: 90px; }
-  [data-marche="2"] .socle { height: 64px; }
-  [data-marche="3"] .socle { height: 44px; }
-  .cote { padding-top: 0; gap: 8px; }
+  .bandeau { font-size: 8px; }
+  .bandeau span:last-child { display: none; }
+  .journal { font-size: 24px; }
+  .une h1 { font-size: 17px; }
+  .podium { gap: 10px; }
+  .laurier { width: 96px; }
+  [data-marche="1"] .portrait, .gazette [data-marche="1"] .portrait { margin-bottom: 8px; }
+  .camee { width: 50px; height: 60px; }
+  .gazette .camee { width: 50px; height: 50px; }
+  .camee span { font-size: 24px; }
+  .musee .camee { border-width: 3px; box-shadow: 0 0 0 2px #f6efdd, 0 0 0 4px var(--color-laiton); }
+  .musee .cartel { padding: 2px 8px; min-width: 0; }
+  .nom, .musee .cartel .nom { font-size: 14px; }
+  .pts, .musee .cartel .pts, .gazette .pts { font-size: 18px; }
+  .chiffre, .gazette .chiffre { font-size: 32px; }
+  .musee .podium { background: linear-gradient(transparent calc(100% - 12px), #d9d2bf calc(100% - 12px)); }
+  [data-marche="1"] .socle { height: 84px; }
+  [data-marche="2"] .socle { height: 60px; }
+  [data-marche="3"] .socle { height: 42px; }
+  .cote, .gazette .cote { padding-top: 0; gap: 8px; }
   .fait { font-size: 12px; padding: 6px 10px; }
+  .gazette .fait { font-size: 12px; padding: 4px 10px; }
+  .gazette .classement h2 { font-size: 15px; padding: 4px 12px; }
+  .gazette .classement li { padding-top: 3px; padding-bottom: 3px; }
+  .gazette .total { font-size: 19px; }
   .nombreux ol { display: grid; grid-auto-flow: column; grid-template-rows: repeat(var(--lignes), auto); grid-template-columns: 1fr 1fr; column-gap: 1px; background: color-mix(in srgb, var(--color-filet) 50%, transparent); }
-  .nombreux li { background: var(--color-blanc-cartel); border-bottom: 0; margin-bottom: 1px; padding: 3px 8px; gap: 6px; grid-template-columns: 14px 20px minmax(0, 1fr) auto; font-size: 12px; }
+  .nombreux li { background: var(--color-blanc-cartel); border-bottom: 0; margin-bottom: 1px; padding: 3px 8px; gap: 6px; grid-template-columns: 24px 20px minmax(0, 1fr) auto; font-size: 12px; }
+  .gazette .nombreux li { background: #f3efe2; }
   .nombreux .petitPion { width: 20px; height: 20px; font-size: 10px; }
-  .nombreux .rang { font-size: 15px; }
+  .nombreux .rang { font-size: 13px; }
   .nombreux .total { font-size: 16px; }
   .nombreux .invite { display: block; margin: 0; width: fit-content; }
 }

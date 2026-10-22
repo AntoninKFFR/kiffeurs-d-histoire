@@ -1,10 +1,10 @@
 /* Accueil « Jouer à plusieurs » et entrée d'un invité, d'après docs/maquettes/v1.3/accueil-pc.png. */
-.ecran { min-height: 100dvh; background: var(--color-vert-de-gris); color: var(--color-encre); padding: 12px 24px 24px; display: grid; align-content: start; gap: 18px; }
+.ecran { flex: 1; background: var(--color-vert-de-gris); color: var(--color-encre); padding: 12px 24px 24px; display: grid; align-content: start; gap: 18px; }
 .retour { justify-self: start; font-size: 13px; color: var(--color-encre-douce); text-decoration: underline; text-underline-offset: 3px; }
 .titre { display: grid; gap: 4px; }
 .titre h1 { font-family: var(--font-titre); font-weight: 400; font-size: clamp(28px, 4vw, 36px); line-height: 1.1; }
 .inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
-.colonnes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 300px)); gap: 18px; }
+.colonnes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); gap: 18px; max-width: 1180px; }
 .boite { background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); display: flex; flex-direction: column; min-height: 420px; }
 .boite > h2 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--color-filet); }
 .corps { padding: 14px; display: grid; gap: 12px; align-content: start; flex: 1; }
@@ -20,8 +20,54 @@
 .note { font-size: 12px; color: var(--color-encre-douce); text-align: center; }
 .erreur { font-size: 13px; color: var(--color-oxyde); }
 .seul { justify-self: center; width: min(360px, 100%); }
-@media (max-width: 640px) {
-  .ecran { padding: 12px; }
-  .colonnes { grid-template-columns: 1fr; }
-  .boite { min-height: 0; }
+.discret { color: var(--color-encre-douce); }
+.boite > h2 { display: flex; justify-content: space-between; gap: 8px; }
+.lien { justify-self: start; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.surTelephone { display: none; }
+
+/* Code JJ / MM / AAAA : les grandes cases du jeu */
+.cases { display: flex; justify-content: center; align-items: end; gap: 6px; }
+.caseCode { display: flex; align-items: end; gap: 6px; }
+.caseCode label { display: grid; gap: 2px; font-size: 11px; color: var(--color-encre-douce); }
+.caseCode input { font-family: var(--font-date); font-weight: 700; font-size: 44px; line-height: 1.1; color: var(--color-encre); width: 66px; border: 1px solid var(--color-filet); border-bottom: 2px solid var(--color-encre); background: var(--color-blanc-cartel); padding: 2px 6px; text-align: center; font-variant-numeric: tabular-nums; }
+.caseCode input.annee { width: 104px; }
+.caseCode input::placeholder { color: var(--color-filet); }
+.caseCode input:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.separateur { font-family: var(--font-date); font-weight: 700; font-size: 40px; color: var(--color-filet); padding-bottom: 6px; }
+
+/* Parties ouvertes */
+.ouvertes { list-style: none; margin: 0; padding: 0; overflow-y: auto; }
+.ouverte { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; padding: 10px 14px; border-bottom: 1px solid #e6e8e1; }
+.ouverte > div { display: grid; gap: 2px; min-width: 0; }
+.ouverte b { font-family: var(--font-titre); font-weight: 400; font-size: 16px; }
+.ouverte .note { text-align: left; }
+.ouverte button { font: inherit; font-size: 14px; color: var(--color-encre); border: 1px solid var(--color-filet); background: var(--color-blanc-cartel); padding: 8px 14px; cursor: pointer; }
+.ouverte button:disabled { color: var(--color-encre-douce); cursor: default; }
+.ouverte .enCours { font-family: var(--font-texte); font-size: 11px; font-weight: 700; color: var(--color-oxyde); }
+.places { display: flex; gap: 3px; margin-top: 3px; }
+.places i { width: 9px; height: 9px; border-radius: 50%; background: var(--color-encre); display: inline-block; }
+.places i.libre { background: none; border: 1px solid var(--color-filet); }
+
+/* Téléphone (maquette accueil-tel) : une pile ; créer = un bouton qui déplie le choix du mode. */
+.creerTel { display: none; }
+@media (max-width: 760px) {
+  /* Tout tient sans défiler : sous l'en-tête du site (65 px), la liste des parties défile seule. */
+  .ecran { padding: 12px; gap: 10px; height: calc(100dvh - 65px); min-height: 0; flex: none; display: flex; flex-direction: column; }
+  .colonnes:has(.deplie) > :not(.deplie) { display: none; }
+  .ecran .creer.deplie { flex: 1 1 auto; }
+  .titre h1 { font-size: 24px; }
+  .colonnes { display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
+  .colonnes > * { flex: none; }
+  .colonnes > :last-child { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+  .ouvertes { flex: 1; min-height: 0; }
+  .boite { min-height: 0; overflow: hidden; }
+  .corps, .pied { padding: 10px 12px; }
+  .surPc { display: none; }
+  .surTelephone { display: inline; }
+  .creerTel { display: block; }
+  .creer:not(.deplie) { display: none; }
+  .caseCode input { font-size: 36px; width: 56px; }
+  .caseCode input.annee { width: 88px; }
+  .ecran .secondaireTel { background: var(--color-blanc-cartel); color: var(--color-encre); border-color: var(--color-filet); font-weight: 400; min-height: 44px; font-size: 15px; }
+  .ouverte button { min-width: 44px; min-height: 44px; }
 }

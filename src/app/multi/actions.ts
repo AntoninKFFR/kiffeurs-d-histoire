@@ -119,3 +119,15 @@ export async function expulserMembre(salonId: string, membreId: string): Promise
   });
   return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
 }
+
+export type PartieOuverte = {
+  id: string; hote: string | null; mode: "convivial" | "un_contre_un"; reglages: Reglages;
+  joueurs: number; max_joueurs: number; etat: "attente" | "partie"; moi: boolean;
+};
+
+/** Salons ouverts (comptes seulement) ; null si la liste est indisponible ou réservée aux comptes. */
+export async function partiesOuvertes(): Promise<PartieOuverte[] | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.schema("histoire").rpc("parties_ouvertes");
+  return error || !Array.isArray(data) ? null : (data as PartieOuverte[]);
+}

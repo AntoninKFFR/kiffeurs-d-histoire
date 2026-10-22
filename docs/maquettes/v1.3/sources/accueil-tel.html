@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css">
+<style>
+.ecran{background:var(--vdg);display:flex;flex-direction:column;padding:44px 12px 12px;gap:10px}
+.boite{background:var(--cartel);border:1px solid var(--filet)}
+.boite h2{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--oxyde);font-weight:600;padding:8px 12px;border-bottom:1px solid var(--filet);display:flex;justify-content:space-between}
+.cases{display:flex;gap:4px;align-items:end;justify-content:center;padding:10px}
+.cases input{font:700 36px "Big Shoulders";width:56px;border:1px solid var(--filet);border-bottom:2px solid var(--encre);background:var(--cartel);text-align:center}
+.cases .an{width:88px}
+.sep{font:700 32px "Big Shoulders";color:var(--filet)}
+.o{display:grid;grid-template-columns:1fr auto;padding:8px 12px;border-bottom:1px solid #e6e8e1;align-items:center}
+.o .titre{font-size:15px}
+.ami{display:flex;gap:8px;align-items:center;padding:6px 12px;font-size:13px;border-bottom:1px solid #e6e8e1}
+</style></head><body><div class="ecran">
+<a class="quitter">← Accueil</a>
+<div><div class="inv">Jouer à plusieurs</div><div class="titre" style="font-size:24px;line-height:1.1">Défiez vos amis</div></div>
+<button class="btn-encre" style="height:50px;font-size:17px">Créer un salon</button>
+<div class="boite"><h2><span>Rejoindre avec un code</span></h2>
+ <div class="cases"><input value="17"><span class="sep">/</span><input value="03"><span class="sep">/</span><input class="an" value="1642"></div>
+ <div style="padding:0 12px 10px"><button style="width:100%">Rejoindre</button></div></div>
+<div class="boite"><h2><span>Parties ouvertes</span><span style="color:var(--encre-douce)">4</span></h2>
+ <div class="o"><div><div class="titre">Les Grognards</div><div class="etat">Convivial · Révolution · 5/8</div></div><button>Go</button></div>
+ <div class="o"><div><div class="titre">Salon de Inès</div><div class="etat">Convivial · Mystère · 2/6</div></div><button>Go</button></div>
+ <div class="o" style="border:0"><div><div class="titre">Duel de Paul</div><div class="etat">1 contre 1 · 1/2</div></div><button>Go</button></div></div>
+<div class="boite"><h2><span>Amis en ligne</span><span style="color:var(--encre-douce)">3</span></h2>
+ <div class="ami"><span class="pion" style="background:var(--j6)">H</span><span><b>Hugo</b> · <span class="etat">salon d'Histoire</span></span><button style="margin-left:auto;font-size:12px">Rejoindre</button></div>
+ <div class="ami" style="border:0"><span class="pion" style="background:var(--j5)">I</span><span><b>Inès</b> · <span class="etat">en contrée</span></span></div></div>
+</div></body></html>

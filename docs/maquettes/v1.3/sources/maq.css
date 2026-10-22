@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&family=Big+Shoulders:wght@600;700;800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap");
+:root{
+  --encre:#1d2a3a;--encre-douce:#4d5866;--vdg:#dfe3dc;--papier:#f3f2ec;--cartel:#fbfbf8;
+  --laiton:#b08a3e;--laiton-clair:#d9c48f;--oxyde:#8a2f2b;--sauge:#7e8c7a;--filet:#c3c8bd;--resultat:#f6efdd;
+  --e-mod:#e6cdc6;--e-cont:#cdd5df;
+  --j1:#8a2f2b;--j2:#2f6b8a;--j3:#5b7a3a;--j4:#8a5a2f;--j5:#6b3a8a;--j6:#2f8a7a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:var(--cartel);color:var(--encre);font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:14px;line-height:1.4}
+.titre{font-family:"Young Serif",Georgia,serif;font-weight:400}
+.date{font-family:"Big Shoulders","Arial Narrow",sans-serif;font-weight:700;font-variant-numeric:tabular-nums}
+.inv{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--oxyde)}
+.ecran{position:fixed;inset:0;overflow:hidden}
+.quitter{position:absolute;left:16px;top:12px;font-size:13px;color:var(--encre-douce);text-decoration:underline;text-underline-offset:3px;z-index:5}
+button,.btn{font:inherit;border:1px solid var(--filet);background:var(--cartel);color:var(--encre);padding:8px 12px;cursor:pointer}
+.btn-encre{background:var(--encre);color:var(--papier);border-color:var(--encre);font-weight:700}
+.btn-laiton{background:var(--laiton);color:#fff;border-color:var(--laiton);font-weight:700}
+.puce{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--filet);background:var(--papier);padding:2px 8px;font-size:12px}
+.seg{display:inline-flex;border:1px solid var(--filet)}
+.seg span{padding:5px 10px;font-size:13px;border-right:1px solid var(--filet);background:var(--cartel)}
+.seg span:last-child{border-right:0}
+.seg span.on{background:var(--encre);color:var(--papier)}
+.pion{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;color:#fff;font-weight:700;font-size:12px;flex:none}
+.couronne{color:var(--laiton);font-size:14px}
+.invite{font-size:10px;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--encre-douce);border:1px dashed var(--filet);padding:0 4px}
+.point{width:8px;height:8px;border-radius:50%;background:#5b9a52;display:inline-block}
+.point.absent{background:#c3c8bd}
+.bulle{position:absolute;background:var(--cartel);border:1px solid var(--filet);box-shadow:0 6px 16px -8px rgb(29 42 58/.4);padding:4px 8px;font-size:12px;white-space:nowrap}
+.bulle:after{content:"";position:absolute;left:12px;bottom:-6px;width:10px;height:10px;background:var(--cartel);border-right:1px solid var(--filet);border-bottom:1px solid var(--filet);transform:rotate(45deg)}
+.emote{display:inline-grid;place-items:center;width:30px;height:30px;border:1px solid var(--filet);background:#e9e6da;font-size:17px}
+
+/* Frise */
+.frise{position:absolute;left:0;right:0}
+.bande{position:absolute;left:0;right:0;height:30px;display:flex}
+.bande div{height:100%;display:flex;align-items:center;padding-left:10px;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--encre-douce)}
+.axe{position:absolute;left:0;right:0;height:4px;background:var(--encre)}
+.grad{position:absolute;transform:translateX(-50%);font-size:22px;color:var(--encre)}
+.grad:before{content:"";position:absolute;left:50%;top:-14px;width:1px;height:10px;background:var(--encre)}
+.marq{position:absolute;transform:translate(-50%,-50%) rotate(45deg);width:20px;height:20px;border:2px solid #fff}
+.etiq{position:absolute;transform:translateX(-50%);color:#fff;padding:3px 8px;font-size:12px;white-space:nowrap}
+.etiq b{font-family:"Big Shoulders",sans-serif;font-size:18px;margin-left:4px}
+.curseur{position:absolute;transform:translateX(-50%);display:grid;justify-items:center;gap:2px}
+.curseur .tige{width:2px;height:34px}
+.curseur .nom{font-size:11px;padding:1px 6px;color:#fff;white-space:nowrap}
+
+/* Classement posé sur la frise */
+.classement{position:absolute;right:16px;width:250px;background:rgb(251 251 248/.92);border:1px solid var(--filet);box-shadow:0 8px 24px -12px rgb(29 42 58/.35)}
+.classement h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--oxyde);font-weight:600;padding:8px 12px 6px;border-bottom:1px solid var(--filet);display:flex;justify-content:space-between}
+.ligne{display:grid;grid-template-columns:18px 26px 1fr auto;gap:8px;align-items:center;padding:5px 12px;border-bottom:1px solid #e6e8e1}
+.ligne:last-child{border-bottom:0}
+.ligne .rang{font-family:"Big Shoulders",sans-serif;font-size:18px;color:var(--encre-douce)}
+.ligne .score{font-family:"Big Shoulders",sans-serif;font-size:19px}
+.ligne.moi{background:var(--resultat)}
+.etat{font-size:11px;color:var(--encre-douce)}
+.ok{color:#3f7a37;font-weight:700}
+.monte{color:#3f7a37;font-size:11px;font-weight:700}
+.descend{color:var(--oxyde);font-size:11px;font-weight:700}
+.gain{font-family:"Big Shoulders",sans-serif;color:#3f7a37;font-size:15px}

@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css">
+<style>
+.ecran{background:var(--cartel)}
+.tete{position:absolute;left:0;right:0;top:22px;text-align:center}
+.tete h1{font-size:34px}
+.podium{position:absolute;left:90px;width:640px;bottom:120px;height:470px;display:flex;align-items:flex-end;gap:14px}
+.marche{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.marche .socle{width:100%;display:grid;place-items:center;border:1px solid var(--filet);border-bottom:0;background:var(--papier)}
+.marche .socle .date{font-size:64px;color:var(--encre-douce)}
+.gros{width:76px;height:76px;font-size:32px}
+.marche .nom{font-family:"Young Serif",serif;font-size:22px;margin-top:8px}
+.marche .pts{font-size:30px;margin-bottom:10px}
+.or .socle{background:var(--resultat);border-color:var(--laiton-clair)}
+.or .socle .date{color:var(--laiton)}
+.sol{position:absolute;left:60px;width:700px;bottom:116px;height:4px;background:var(--encre)}
+.droite{position:absolute;right:40px;top:120px;width:500px;display:grid;gap:16px}
+.droite .classement{position:static;width:auto}
+.fait{background:var(--resultat);border:1px solid var(--laiton-clair);padding:10px 14px;font-size:13px}
+.actions{position:absolute;right:40px;bottom:40px;width:500px;display:flex;gap:12px}
+.actions button{flex:1;height:56px;font-size:17px}
+</style></head><body>
+<div class="ecran">
+ <div class="tete"><div class="inv">Fin de partie · Révolution et Empire · 10 questions · Année</div><h1 class="titre">Antonin remporte la partie !</h1></div>
+ <div class="podium">
+  <div class="marche"><span class="pion gros" style="background:var(--j3)">L</span><div class="nom">Lulu_1515</div><div class="pts date">6 912</div><div class="socle" style="height:150px"><span class="date">2</span></div></div>
+  <div class="marche or"><span style="font-size:34px;color:var(--laiton);line-height:1">♛</span><span class="pion gros" style="background:var(--j2)">A</span><div class="nom">Antonin</div><div class="pts date">7 380</div><div class="socle" style="height:210px"><span class="date">1</span></div></div>
+  <div class="marche"><span class="pion gros" style="background:var(--j1)">M</span><div class="nom">Maxou</div><div class="pts date">6 870</div><div class="socle" style="height:110px"><span class="date">3</span></div></div>
+ </div>
+ <div class="sol"></div>
+ <div class="droite">
+  <div class="classement"><h3><span>Classement final</span><span style="color:var(--encre-douce)">5 joueurs</span></h3>
+   <div class="ligne"><span class="rang">1</span><span class="pion" style="background:var(--j2)">A</span><span>Antonin</span><span class="score">7 380</span></div>
+   <div class="ligne"><span class="rang">2</span><span class="pion" style="background:var(--j3)">L</span><span>Lulu_1515</span><span class="score">6 912</span></div>
+   <div class="ligne moi"><span class="rang">3</span><span class="pion" style="background:var(--j1)">M</span><span>Maxou ♛</span><span class="score">6 870</span></div>
+   <div class="ligne"><span class="rang">4</span><span class="pion" style="background:var(--j4)">C</span><span>Clément <span class="invite">invité</span></span><span class="score">5 104</span></div>
+   <div class="ligne"><span class="rang">5</span><span class="pion" style="background:var(--j5)">S</span><span>Sarah <span class="invite">invité</span></span><span class="score">3 260</span></div>
+  </div>
+  <div class="fait"><span class="inv">Coup de maître</span><br><b>Antonin</b> a trouvé le sacre de Napoléon <b>à l'année près en 3 secondes</b>.</div>
+  <div class="fait" style="background:var(--papier);border-color:var(--filet)"><span class="inv" style="color:var(--encre-douce)">Plus gros raté</span><br><b>Sarah</b> a placé Waterloo en 1830 : quinze ans trop tard.</div>
+ </div>
+ <div class="actions"><button>Quitter</button><button class="btn-encre">Retour au salon <span style="font-weight:400;opacity:.8">(8 s)</span></button></div>
+</div></body></html>

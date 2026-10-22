@@ -1,0 +1,30 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css">
+<style>
+.ecran{background:var(--vdg);display:flex;flex-direction:column;padding:44px 12px 12px;gap:10px}
+.code{background:var(--cartel);border:1px solid var(--filet);text-align:center;padding:8px}
+.code .val{font-size:44px;line-height:1}
+.code .val i{font-style:normal;color:var(--filet);margin:0 4px}
+.boite{background:var(--cartel);border:1px solid var(--filet)}
+.boite h2{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--oxyde);font-weight:600;padding:8px 12px;border-bottom:1px solid var(--filet);display:flex;justify-content:space-between}
+.j{display:flex;gap:8px;align-items:center;padding:6px 12px;border-bottom:1px solid #e6e8e1;font-weight:700}
+.j .point{margin-left:auto}
+.resume{padding:10px 12px;display:grid;gap:4px;font-size:13px}
+.chat{display:flex;gap:6px;align-items:center}
+.chat .emote{width:40px;height:40px}
+.lancer{height:54px;font-size:18px}
+</style></head><body><div class="ecran">
+<a class="quitter">← Quitter le salon</a>
+<div><div class="inv">Convivial · Privé · 5/8</div><div class="titre" style="font-size:22px;line-height:1.1">Le salon de Maxou</div></div>
+<div class="code"><div class="inv" style="color:var(--encre-douce)">Code du salon</div><div class="val date">17<i>/</i>03<i>/</i>1642</div><div style="display:flex;gap:6px;justify-content:center;margin-top:6px"><button style="font-size:13px">Copier le code</button><button style="font-size:13px">Partager le lien</button></div></div>
+<div class="boite"><h2><span>Joueurs</span><span>Inviter un ami +</span></h2>
+ <div class="j"><span class="pion" style="background:var(--j1)">M</span>Maxou <span class="couronne">♛</span><span class="point"></span></div>
+ <div class="j"><span class="pion" style="background:var(--j2)">A</span>Antonin<span class="point"></span></div>
+ <div class="j"><span class="pion" style="background:var(--j3)">L</span>Lulu_1515<span class="point"></span></div>
+ <div class="j"><span class="pion" style="background:var(--j4)">C</span>Clément <span class="invite">invité</span><span class="point"></span></div>
+ <div class="j" style="border:0"><span class="pion" style="background:var(--j5)">S</span>Sarah <span class="invite">invité</span><span class="point absent"></span></div>
+</div>
+<div class="boite"><h2><span>Réglages</span><span>Modifier ▸</span></h2>
+ <div class="resume"><b class="titre" style="font-size:16px;font-weight:400">Révolution et Empire</b><span>10 questions · Année · périodes incluses</span><span class="etat">Curseurs invisibles · Mode chrono désactivé</span></div></div>
+<div class="chat"><span class="emote">😂</span><span class="emote">⚔️</span><span class="emote">👑</span><span class="emote">⏳</span><button style="flex:1;height:40px">Phrases ▾</button></div>
+<button class="btn-encre lancer" style="margin-top:auto">Lancer la partie</button>
+</div></body></html>

@@ -1,0 +1,60 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css">
+<style>
+.ecran{background:var(--vdg)}
+.tete{position:absolute;left:24px;top:40px}
+.tete h1{font-size:34px;line-height:1.1}
+.grille{position:absolute;left:24px;right:24px;top:120px;bottom:24px;display:grid;grid-template-columns:1fr 1fr 1.25fr 300px;gap:18px}
+.boite{background:var(--cartel);border:1px solid var(--filet);display:flex;flex-direction:column;min-height:0}
+.boite>h2{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--oxyde);font-weight:600;padding:10px 14px;border-bottom:1px solid var(--filet);display:flex;justify-content:space-between}
+.corps{padding:14px;display:flex;flex-direction:column;gap:12px;flex:1}
+.mode{border:1px solid var(--filet);background:var(--papier);padding:12px;display:grid;gap:4px}
+.mode .titre{font-size:20px}
+.mode.on{border-color:var(--encre);box-shadow:inset 0 0 0 1px var(--encre)}
+.cases{display:flex;gap:6px;align-items:end;justify-content:center}
+.case{display:grid;gap:2px}
+.case label{font-size:11px;color:var(--encre-douce)}
+.case input{font:700 44px "Big Shoulders";color:var(--encre);width:66px;border:1px solid var(--filet);border-bottom:2px solid var(--encre);background:var(--cartel);padding:2px 6px;text-align:center}
+.case.an input{width:104px}
+.sep{font:700 40px "Big Shoulders";color:var(--filet);padding-bottom:6px}
+.champ{display:grid;gap:2px}
+.champ input{font:inherit;font-size:15px;border:1px solid var(--filet);border-bottom:2px solid var(--encre);background:var(--cartel);padding:8px}
+.ouverte{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:10px 14px;border-bottom:1px solid #e6e8e1}
+.ouverte .titre{font-size:16px}
+.places{display:flex;gap:3px;margin-top:3px}
+.places i{width:9px;height:9px;border-radius:50%;background:var(--encre);display:inline-block}
+.places i.l{background:none;border:1px solid var(--filet)}
+.ami{display:grid;grid-template-columns:26px 1fr auto;gap:8px;align-items:center;padding:8px 14px;border-bottom:1px solid #e6e8e1;font-size:13px}
+.toast{position:absolute;right:24px;top:20px;width:400px;background:var(--encre);color:var(--papier);padding:10px 14px;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;box-shadow:0 10px 24px -10px rgb(0 0 0/.5)}
+.toast button{font-size:12px;padding:4px 10px}
+</style></head><body><div class="ecran">
+<a class="quitter">← Accueil</a>
+<div class="tete"><div class="inv">Jouer à plusieurs</div><h1 class="titre">Défiez vos amis sur la frise</h1></div>
+<div class="toast"><span><b>Hugo</b> vous invite dans son salon<br><span style="font-size:12px;opacity:.8">Convivial · Grandes batailles · 3/8</span></span><button class="btn-laiton">Rejoindre</button><button style="background:none;color:var(--papier);border-color:#4d5866">Plus tard</button></div>
+<div class="grille">
+ <div class="boite"><h2><span>Créer un salon</span></h2><div class="corps">
+  <div class="mode on"><span class="titre">Convivial</span><span class="etat">De 2 à 10 joueurs. Points cumulés, votes, roulette Mystère.</span></div>
+  <div class="mode"><span class="titre">1 contre 1</span><span class="etat">Un duel, avec pick &amp; ban des thèmes, packs ou périodes.</span></div>
+  <button class="btn-encre" style="margin-top:auto;height:52px;font-size:17px">Créer mon salon</button>
+  <span class="etat" style="text-align:center">Compte requis pour créer un salon</span>
+ </div></div>
+ <div class="boite"><h2><span>Rejoindre avec un code</span></h2><div class="corps">
+  <span class="etat">Le code est une date : demandez-la à l'hôte.</span>
+  <div class="cases"><div class="case"><label>Jour</label><input value="17"></div><span class="sep">/</span><div class="case"><label>Mois</label><input value="03"></div><span class="sep">/</span><div class="case an"><label>Année</label><input value="1642"></div></div>
+  <div class="champ"><span class="etat">Votre pseudo pour la partie (sans compte)</span><input value="Clément"></div>
+  <button class="btn-encre" style="margin-top:auto;height:52px;font-size:17px">Rejoindre</button>
+  <span class="etat" style="text-align:center">Un lien d'invitation fonctionne aussi</span>
+ </div></div>
+ <div class="boite"><h2><span>Parties ouvertes</span><span style="color:var(--encre-douce)">4 salons</span></h2>
+  <div class="ouverte"><div><div class="titre">Les Grognards</div><div class="etat">Convivial · Révolution et Empire · 10 q. · Année</div><div class="places"><i></i><i></i><i></i><i></i><i></i><i class="l"></i><i class="l"></i><i class="l"></i></div></div><button>Rejoindre</button></div>
+  <div class="ouverte"><div><div class="titre">Salon de Inès</div><div class="etat">Convivial · Mystère 🎲 · 20 q. · Mois</div><div class="places"><i></i><i></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i></div></div><button>Rejoindre</button></div>
+  <div class="ouverte"><div><div class="titre">Duel de Paul</div><div class="etat">1 contre 1 · pick &amp; ban · Thèmes</div><div class="places"><i></i><i class="l"></i></div></div><button>Rejoindre</button></div>
+  <div class="ouverte"><div><div class="titre">Les Pharaons</div><div class="etat">Convivial · Vote · 10 q. · Année · <b style="color:var(--oxyde)">partie en cours</b></div><div class="places"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><button>Attendre</button></div>
+ </div>
+ <div class="boite"><h2><span>Amis</span><span style="color:var(--encre-douce)">+ Ajouter</span></h2>
+  <div class="ami"><span class="pion" style="background:var(--j6)">H</span><span><b>Hugo</b><br><span class="etat"><span class="point"></span> dans un salon d'Histoire</span></span><button>Rejoindre</button></div>
+  <div class="ami"><span class="pion" style="background:var(--j5)">I</span><span><b>Inès</b><br><span class="etat"><span class="point"></span> en partie de contrée</span></span><span></span></div>
+  <div class="ami"><span class="pion" style="background:var(--j2)">A</span><span><b>Antonin</b><br><span class="etat"><span class="point"></span> en ligne</span></span><span></span></div>
+  <div class="ami"><span class="pion" style="background:#9aa3ad">P</span><span><b>Paul</b><br><span class="etat"><span class="point absent"></span> vu il y a 2 h</span></span><span></span></div>
+  <div style="padding:10px 14px;background:var(--papier);margin-top:auto;font-size:13px;border-top:1px solid var(--filet)"><span class="inv" style="color:var(--encre-douce)">Demande reçue</span><br><b>Lulu_1515</b> veut être votre ami <span style="float:right"><button style="font-size:12px;padding:2px 8px">Accepter</button></span></div>
+ </div>
+</div></div></body></html>

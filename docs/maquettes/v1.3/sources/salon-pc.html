@@ -1,0 +1,84 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css">
+<style>
+.ecran{background:var(--vdg)}
+.haut{position:absolute;left:0;right:0;top:0;height:120px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 24px}
+.nomsalon{padding-top:18px}
+.nomsalon h1{font-size:28px;line-height:1.1}
+.code{text-align:center;background:var(--cartel);border:1px solid var(--filet);box-shadow:0 1px 0 #c3c8bd,0 8px 24px -12px rgb(29 42 58/.35);padding:10px 26px 12px}
+.code .val{font-size:52px;line-height:1;letter-spacing:.02em}
+.code .val i{font-style:normal;color:var(--filet);margin:0 6px}
+.code .act{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.code .act button{font-size:12px;padding:4px 10px}
+.colonnes{position:absolute;left:24px;right:24px;top:140px;bottom:96px;display:grid;grid-template-columns:330px 1fr;gap:20px}
+.boite{background:var(--cartel);border:1px solid var(--filet);display:flex;flex-direction:column;min-height:0}
+.boite>h2{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--oxyde);font-weight:600;padding:10px 14px;border-bottom:1px solid var(--filet);display:flex;justify-content:space-between}
+.joueur{position:relative;display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid #e6e8e1}
+.joueur .p{display:flex;gap:6px;align-items:center;font-weight:700}
+.joueur .bulle:after{left:-6px;bottom:auto;top:9px;transform:rotate(135deg)}
+.vide{color:var(--filet);font-style:italic;padding:8px 14px 8px 50px;border-bottom:1px dashed #e6e8e1}
+.amis{border-top:1px solid var(--filet);padding:10px 14px;display:grid;gap:6px;margin-top:auto;background:var(--papier)}
+.ami{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;font-size:13px}
+.ami button{font-size:12px;padding:3px 10px}
+.reglages{padding:6px 18px;display:grid;grid-template-columns:150px 1fr;row-gap:12px;column-gap:16px;align-items:center}
+.reglages .lab{font-size:13px;color:var(--encre-douce)}
+.choix{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.case{display:inline-flex;align-items:center;gap:6px;font-size:13px}
+.case i{display:inline-grid;place-items:center;width:16px;height:16px;border:1.5px solid var(--encre);font-style:normal;font-size:11px;background:var(--cartel)}
+.case i.on{background:var(--encre);color:#fff}
+.contenu{display:flex;gap:10px;align-items:center;border:1px solid var(--filet);background:var(--papier);padding:6px 10px}
+.contenu .vign{width:42px;height:32px;background:#e9e6da;border:1px solid #d6d2c4;display:grid;place-items:center;font-size:18px}
+.note{font-size:11px;color:var(--encre-douce)}
+.bas{position:absolute;left:24px;right:24px;bottom:16px;height:64px;display:grid;grid-template-columns:330px 1fr 260px;gap:20px;align-items:stretch}
+.chat{grid-column:1/3;background:var(--cartel);border:1px solid var(--filet);display:flex;align-items:center;gap:6px;padding:0 12px}
+.chat .phr{margin-left:8px;font-size:13px}
+.lancer{font-size:20px}
+.lancer small{display:block;font-size:11px;font-weight:400;opacity:.8}
+.decor{position:absolute;left:0;right:0;top:118px;height:2px;background:var(--encre);opacity:.15}
+</style></head><body>
+<div class="ecran">
+ <a class="quitter">← Quitter le salon</a>
+ <div class="haut">
+  <div class="nomsalon"><div class="inv">Salon · Convivial · Privé</div><h1 class="titre">Le salon de Maxou</h1><div class="note" style="margin-top:4px">5 joueurs sur 8 · en attente du lancement</div></div>
+  <div class="code"><div class="inv" style="color:var(--encre-douce)">Code du salon</div><div class="val date">17<i>/</i>03<i>/</i>1642</div><div class="act"><button>Copier le code</button><button>Copier le lien</button></div></div>
+  <div></div>
+ </div>
+ <div class="colonnes">
+  <div class="boite">
+   <h2><span>Joueurs</span><span>5 / 8</span></h2>
+   <div class="joueur"><span class="pion" style="background:var(--j1)">M</span><span class="p">Maxou <span class="couronne">♛</span></span><span class="point"></span></div>
+   <div class="joueur"><span class="pion" style="background:var(--j2)">A</span><span class="p">Antonin</span><span class="point"></span>
+     <div class="bulle" style="left:150px;top:4px">« Ave, compagnons ! »</div></div>
+   <div class="joueur"><span class="pion" style="background:var(--j3)">L</span><span class="p">Lulu_1515</span><span class="point"></span></div>
+   <div class="joueur"><span class="pion" style="background:var(--j4)">C</span><span class="p">Clément <span class="invite">invité</span></span><span class="point"></span></div>
+   <div class="joueur"><span class="pion" style="background:var(--j5)">S</span><span class="p">Sarah <span class="invite">invité</span></span><span class="point absent"></span></div>
+   <div class="vide">Place libre</div>
+   <div class="vide">Place libre</div>
+   <div class="amis">
+    <div class="inv" style="color:var(--encre-douce)">Amis en ligne</div>
+    <div class="ami"><span class="point"></span><span>Hugo · <span class="note">sur Histoire</span></span><button>Inviter</button></div>
+    <div class="ami"><span class="point"></span><span>Inès · <span class="note">en partie de contrée</span></span><button>Inviter</button></div>
+   </div>
+  </div>
+  <div class="boite">
+   <h2><span>Réglages de la partie</span><span style="color:var(--encre-douce)">♛ seul l'hôte modifie</span></h2>
+   <div class="reglages">
+    <span class="lab">Contenu</span>
+    <div class="choix"><span class="seg"><span class="on">Je choisis</span><span>Vote</span><span>Mystère</span></span>
+      <span class="case"><i class="on">✓</i>Pack</span><span class="case"><i class="on">✓</i>Période</span><span class="case"><i>&nbsp;</i>Thème</span></div>
+    <span class="lab"></span>
+    <div class="contenu"><span class="vign">⚜</span><div><div class="titre" style="font-size:17px">Révolution et Empire</div><div class="note">Pack · 142 questions · 1789 – 1815</div></div><button style="margin-left:auto;font-size:12px">Changer</button></div>
+    <span class="lab">Nombre de questions</span><div class="choix"><span class="seg"><span>5</span><span class="on">10</span><span>20</span></span></div>
+    <span class="lab">Précision</span><div class="choix"><span class="seg"><span class="on">Année</span><span>Mois</span><span>Jour</span></span><span class="case" style="margin-left:12px"><i class="on">✓</i>Questions « période » (début et fin)</span></div>
+    <span class="lab">Curseurs des autres</span><div class="choix"><span class="seg"><span>Visibles</span><span class="on">Invisibles</span></span><span class="note">Visibles : on voit où chacun se place, en direct.</span></div>
+    <span class="lab">Mode chrono</span><div class="choix"><span class="seg"><span>Activé</span><span class="on">Désactivé</span></span><span class="note">Activé : après la 1<sup>re</sup> réponse, il reste 10 s aux autres.</span></div>
+    <span class="lab">Salon</span><div class="choix"><span class="seg"><span class="on">Privé</span><span>Ouvert</span></span><span class="note" style="margin-left:6px">Places</span><span class="seg"><span>4</span><span>6</span><span class="on">8</span><span>10</span></span></div>
+   </div>
+  </div>
+ </div>
+ <div class="bas">
+  <div class="chat"><span class="inv" style="color:var(--encre-douce);margin-right:6px">Dire</span>
+   <span class="emote">😂</span><span class="emote">⚔️</span><span class="emote">👑</span><span class="emote">⏳</span><span class="emote">📜</span><span class="emote">💣</span><span class="emote">🏺</span><span class="emote">🎖️</span>
+   <button class="phr">Phrases ▾</button><span class="note" style="margin-left:auto">Émotes provisoires : les dessins viendront avec #132</span></div>
+  <button class="btn-encre lancer">Lancer la partie<small>5 joueurs prêts</small></button>
+ </div>
+</div></body></html>

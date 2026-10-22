@@ -1,0 +1,49 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css"><script src="maq.js"></script>
+<style>
+.question{position:absolute;left:0;right:0;top:14px;display:flex;justify-content:center;gap:18px;align-items:center}
+.illu{width:120px;height:90px;background:#e9e6da;border:1px solid #d6d2c4;display:grid;place-items:center;font-size:44px}
+.question h2{font-size:30px;line-height:1.1}
+.chrono{position:absolute;left:24px;top:64px;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--oxyde) 0 60%,#e6e8e1 60% 100%)}
+.chrono div{width:68px;height:68px;border-radius:50%;background:var(--cartel);display:grid;place-items:center;font-size:34px}
+.valides{position:absolute;left:16px;top:156px;font-size:12px;color:var(--encre-douce);width:110px;text-align:center}
+.saisie{position:absolute;left:24px;bottom:16px;display:flex;gap:16px;align-items:end}
+.boiteS{background:var(--papier);border:1px solid var(--filet);padding:10px 14px;display:grid;gap:4px}
+.boiteS input{font:700 42px "Big Shoulders";color:var(--oxyde);width:220px;border:1px solid var(--filet);border-bottom:2px solid var(--encre);background:var(--cartel);padding:2px 8px}
+.valider{height:62px;padding:0 34px;font-size:18px}
+.emotesbas{position:absolute;right:16px;bottom:16px;display:flex;gap:6px;align-items:center}
+</style></head><body>
+<div class="ecran">
+ <a class="quitter">← Quitter</a>
+ <div class="question"><div class="illu">🏰</div><div><div class="inv">Question 4 sur 10 · Révolution et Empire</div><h2 class="titre">Prise de la Bastille</h2><div style="font-weight:700">À trouver : l'année</div></div></div>
+ <div class="inv" style="position:absolute;left:24px;top:64px;font-size:13px">Révélation</div>
+
+ <div class="classement" style="top:96px"><h3><span>Classement</span><span style="color:var(--encre-douce)">après Q4</span></h3>
+  <div class="ligne"><span class="rang">1</span><span class="pion" style="background:var(--j2)">A</span><span>Antonin <span class="gain">+100</span></span><span class="score">2 440</span></div>
+  <div class="ligne"><span class="rang">2</span><span class="pion" style="background:var(--j3)">L</span><span>Lulu_1515 <span class="gain">+91</span> <span class="monte">▲1</span></span><span class="score">2 281</span></div>
+  <div class="ligne moi"><span class="rang">3</span><span class="pion" style="background:var(--j1)">M</span><span>Maxou ♛ <span class="gain">+60</span> <span class="descend">▼1</span></span><span class="score">2 270</span></div>
+  <div class="ligne"><span class="rang">4</span><span class="pion" style="background:var(--j4)">C</span><span>Clément <span class="gain">+54</span></span><span class="score">1 504</span></div>
+  <div class="ligne"><span class="rang">5</span><span class="pion" style="background:var(--j5)">S</span><span>Sarah <span class="etat">· pas de réponse</span></span><span class="score">890</span></div>
+ </div>
+
+ <div class="frise" id="f" style="top:0;bottom:0" data-min="1755" data-max="1835" data-axe="470"></div>
+
+ <div style="position:absolute;left:24px;bottom:22px;font-size:14px;max-width:600px"><span class="inv">Réponse : 14 juillet 1789</span><br>Le peuple de Paris prend la forteresse royale, symbole de l'absolutisme.</div>
+ <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:22px" class="etat">Question suivante dans <b class="date" style="font-size:18px;color:var(--encre)">4</b> s</div>
+ <div class="emotesbas"><span class="etat" style="margin-right:4px">Réagir</span><span class="emote">😂</span><span class="emote">⚔️</span><span class="emote">👑</span><span class="emote">⏳</span></div>
+ <div class="inv" style="position:absolute;right:16px;bottom:58px;color:var(--encre-douce)">Tout le monde a validé</div>
+</div>
+<script>
+const f = document.getElementById("f"); dessinerFrise(f, 10);
+const yA = +f.dataset.axe;
+function rep(an, nom, coul, haut, pts) {
+  f.insertAdjacentHTML("beforeend", `<div class="marq" style="left:${x(an, f)}px;top:${yA + 2}px;background:${coul}"></div>
+   <div class="curseur" style="left:${x(an, f)}px;top:${yA - 34 - haut}px"><span class="nom" style="background:${coul}">${nom} · ${an} <b>${pts}</b></span><span class="tige" style="background:${coul};height:${34 + haut - 22}px"></span></div>`);
+}
+rep(1776, "Clément", "var(--j4)", 40, "+54");
+rep(1792, "Lulu_1515", "var(--j3)", 40, "+91");
+rep(1799, "Maxou", "var(--j1)", 110, "+60");
+f.insertAdjacentHTML("beforeend", `<div class="marq" style="left:${x(1789, f)}px;top:${yA + 2}px;background:var(--laiton);width:28px;height:28px"></div>
+ <div class="etiq" style="left:${x(1789, f)}px;top:${yA + 52}px;background:var(--laiton);font-size:14px">Bonne réponse <b style="font-size:24px">1789</b></div>
+ <div class="curseur" style="left:${x(1789, f)}px;top:${yA - 34 - 160}px"><span class="nom" style="background:var(--j2)">Antonin · 1789 <b>+100</b> 🎯</span><span class="tige" style="background:var(--j2);height:172px"></span></div>`);
+</script>
+</body></html>

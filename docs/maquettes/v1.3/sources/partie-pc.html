@@ -1,0 +1,52 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css"><script src="maq.js"></script>
+<style>
+.question{position:absolute;left:0;right:0;top:14px;display:flex;justify-content:center;gap:18px;align-items:center}
+.illu{width:120px;height:90px;background:#e9e6da;border:1px solid #d6d2c4;display:grid;place-items:center;font-size:44px}
+.question h2{font-size:30px;line-height:1.1}
+.chrono{position:absolute;left:24px;top:64px;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--oxyde) 0 60%,#e6e8e1 60% 100%)}
+.chrono div{width:68px;height:68px;border-radius:50%;background:var(--cartel);display:grid;place-items:center;font-size:34px}
+.valides{position:absolute;left:16px;top:156px;font-size:12px;color:var(--encre-douce);width:110px;text-align:center}
+.saisie{position:absolute;left:24px;bottom:16px;display:flex;gap:16px;align-items:end}
+.boiteS{background:var(--papier);border:1px solid var(--filet);padding:10px 14px;display:grid;gap:4px}
+.boiteS input{font:700 42px "Big Shoulders";color:var(--oxyde);width:220px;border:1px solid var(--filet);border-bottom:2px solid var(--encre);background:var(--cartel);padding:2px 8px}
+.valider{height:62px;padding:0 34px;font-size:18px}
+.emotesbas{position:absolute;right:16px;bottom:16px;display:flex;gap:6px;align-items:center}
+</style></head><body>
+<div class="ecran">
+ <a class="quitter">← Quitter</a>
+ <div class="question"><div class="illu">🏰</div><div><div class="inv">Question 4 sur 10 · Révolution et Empire</div><h2 class="titre">Prise de la Bastille</h2><div style="font-weight:700">À trouver : l'année</div></div></div>
+ <div class="chrono"><div class="date">18</div></div>
+ <div class="valides"><b class="ok">2 / 5</b> ont validé</div>
+
+ <div class="classement" style="top:96px"><h3><span>Classement</span><span style="color:var(--encre-douce)">Q4/10</span></h3>
+  <div class="ligne"><span class="rang">1</span><span class="pion" style="background:var(--j2)">A</span><span>Antonin <span class="ok">✓</span></span><span class="score">2 340</span></div>
+  <div class="ligne moi"><span class="rang">2</span><span class="pion" style="background:var(--j1)">M</span><span>Maxou ♛</span><span class="score">2 210</span></div>
+  <div class="ligne"><span class="rang">3</span><span class="pion" style="background:var(--j3)">L</span><span>Lulu_1515 <span class="ok">✓</span></span><span class="score">2 190</span></div>
+  <div class="ligne"><span class="rang">4</span><span class="pion" style="background:var(--j4)">C</span><span>Clément</span><span class="score">1 450</span></div>
+  <div class="ligne"><span class="rang">5</span><span class="pion" style="background:var(--j5)">S</span><span>Sarah <span class="etat">· reconnexion…</span></span><span class="score">890</span></div>
+ </div>
+
+ <div class="frise" id="f" style="top:0;bottom:0" data-min="1755" data-max="1835" data-axe="470"></div>
+
+ <div class="saisie">
+  <div class="boiteS"><span class="etat">Tapez la date ou cliquez sur la frise</span><span class="etat">Année</span><input value="1799"></div>
+  <button class="btn-encre valider">Valider ma réponse</button>
+ </div>
+ <div class="emotesbas"><span class="etat" style="margin-right:4px">Réagir</span><span class="emote">😂</span><span class="emote">⚔️</span><span class="emote">👑</span><span class="emote">⏳</span></div>
+ <div class="inv" style="position:absolute;right:16px;bottom:58px;color:var(--encre-douce)">Mode visible : vous voyez les curseurs des autres</div>
+</div>
+<script>
+const f = document.getElementById("f"); dessinerFrise(f, 10);
+const yA = +f.dataset.axe;
+function autre(an, nom, coul, valide, haut) {
+  f.insertAdjacentHTML("beforeend", `<div class="curseur" style="left:${x(an, f)}px;top:${yA - 34 - haut}px;opacity:${valide ? .95 : .7}">
+   <span class="nom" style="background:${coul}">${nom}${valide ? " ✓" : ""}</span><span class="tige" style="background:${coul};height:${34 + haut - 22}px"></span></div>`);
+}
+autre(1789, "Antonin", "var(--j2)", true, 70);
+autre(1792, "Lulu_1515", "var(--j3)", true, 30);
+autre(1776, "Clément", "var(--j4)", false, 50);
+// le mien
+f.insertAdjacentHTML("beforeend", `<div class="marq" style="left:${x(1799, f)}px;top:${yA + 2}px;background:var(--oxyde);width:24px;height:24px"></div>
+ <div class="etiq" style="left:${x(1799, f)}px;top:${yA + 52}px;background:var(--oxyde)">Votre réponse <b>1799</b></div>`);
+</script>
+</body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="stylesheet" href="maq.css">
+<style>
+.ecran{background:var(--encre);color:var(--papier)}
+.tete{position:absolute;left:0;right:0;top:60px;text-align:center}
+.tete h1{font-size:36px;color:var(--papier)}
+.bandeau{position:absolute;left:0;right:0;top:250px;height:220px;display:flex;gap:16px;transform:translateX(-90px)}
+.c{flex:none;width:200px;height:220px;background:var(--cartel);color:var(--encre);border:1px solid var(--filet);display:grid;grid-template-rows:140px auto;text-align:center;opacity:.55}
+.c .i{display:grid;place-items:center;font-size:64px;background:#e9e6da}
+.c .t{font-family:"Young Serif";font-size:18px;padding:8px}
+.c.mid{opacity:1;outline:3px solid var(--laiton);transform:scale(1.06)}
+.barre{position:absolute;left:50%;top:225px;width:4px;height:270px;background:var(--laiton);transform:translateX(-50%);box-shadow:0 0 18px var(--laiton)}
+.barre:before,.barre:after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:10px solid transparent}
+.barre:before{top:-2px;border-top-color:var(--laiton)}
+.barre:after{bottom:-2px;border-bottom-color:var(--laiton)}
+.res{position:absolute;left:0;right:0;top:540px;text-align:center}
+.res .titre{font-size:30px;color:var(--laiton-clair)}
+</style></head><body><div class="ecran">
+<div class="tete"><div class="inv" style="color:var(--laiton-clair)">Thème Mystère · tiré pour tout le salon</div><h1 class="titre">La roulette décide…</h1></div>
+<div class="bandeau">
+<div class="c"><div class="i">🚂</div><div class="t">Révolution industrielle</div></div>
+<div class="c"><div class="i">🏺</div><div class="t">Égypte ancienne</div></div>
+<div class="c"><div class="i">⚽</div><div class="t">Sport</div></div>
+<div class="c mid"><div class="i">🏰</div><div class="t">Moyen Âge</div></div>
+<div class="c"><div class="i">🎬</div><div class="t">Films cultes</div></div>
+<div class="c"><div class="i">🚀</div><div class="t">Conquête spatiale</div></div>
+<div class="c"><div class="i">⚔️</div><div class="t">Grandes batailles</div></div>
+</div>
+<div class="barre"></div>
+<div class="res"><div class="titre">Moyen Âge</div><div style="opacity:.8;margin-top:6px">10 questions · Année · la partie commence dans 3 s</div></div>
+</div></body></html>

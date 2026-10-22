@@ -179,3 +179,36 @@ Migration `20261022120000_parties_ouvertes.sql`, tests `supabase/tests/parties_o
 - Limite connue : le canal étant public (voir #135), un client modifié pourrait faire apparaître une émote ou une
   phrase du catalogue sous le nom d'un autre joueur. Rien d'autre que le catalogue ne peut s'afficher.
 - Pendant la partie (émotes seules, discrètes) : branché avec l'écran de partie (#140).
+
+## Partie Convivial (#140)
+
+Migration `20261022140000_partie_convivial.sql`, tests `supabase/tests/partie_convivial.sql` et `tests/multi-partie.test.ts`.
+Aperçu contre des joueurs fictifs : `/apercu/partie-multi` (`?chrono=1` pour le mode chrono).
+
+**Déroulé**, entièrement arbitré par la base (pas de planificateur : chaque appel fait avancer la partie jusqu'à
+l'instant présent, `histoire.avancer_partie`) :
+
+1. L'hôte lance (`lancer_partie`) : il faut 2 joueurs ; ceux encore « en attente » sont acceptés (l'hôte a pu les
+   refuser avant). Tirage du solo (`solo_candidates`, tous niveaux) selon le contenu choisi : pack, thème, période
+   (mêmes bornes que `src/lib/solo/periodes.ts`), ou Thème Mystère (un pack ou un thème tiré au sort, la roulette
+   viendra avec #144). Le vote est refusé jusqu'à #144, le 1 contre 1 jusqu'à #145. Questions période : au plus une
+   sur cinq, si l'hôte les a activées. Pas de mode inversé.
+2. Décompte de 3 s, puis la question est posée : **30 s** (durée du solo, `scoring_settings.timer_seconds`).
+3. Réponse (`repondre_partie`) horodatée par le serveur ; refusée avant la question, après la limite, ou en double.
+   Score : `score_answer`, la formule du solo, le temps comptant depuis l'instant où la question est posée.
+   **Mode chrono** : la première réponse rapproche la limite à 10 s après elle.
+4. La question se clôt dès que tous les joueurs (membres acceptés encore dans le salon) ont validé, ou à la limite.
+   Un joueur déconnecté marque 0 ; après 30 s sans battement, il quitte le salon et ne bloque plus personne.
+5. Révélation de **8 s** (bonne réponse, réponses de tous, points), puis la question suivante.
+6. Après la dernière, la partie est terminée et le salon revient « en attente » : l'hôte peut relancer.
+
+**Ce que voit le navigateur** (`etat_partie`) : la question en cours sans sa date, la liste de **qui** a validé
+(jamais sa réponse), les scores des seules questions déjà révélées ; après la clôture seulement, la bonne réponse
+et les réponses de tous (#142 s'en servira pour l'écran de révélation). Rien n'est lisible avant (test SQL).
+
+**Écran** : celui du solo (`EcranPartie`, frise plein écran, clic ou cases), avec « X / N ont validé » à côté du
+numéro de question, le classement posé en haut à droite (trois premiers sur téléphone couché, sous la question sur
+téléphone debout), « Réponse envoyée · on attend les autres » après Valider, puis la correction et « Question
+suivante dans N s ». Le navigateur redemande l'état aux échéances, quand un joueur prévient sur le canal
+(`partie_change`) et toutes les 3 s par sécurité ; les chronos sont calés sur l'heure du serveur (`horloge.ts`).
+L'écran de fin est provisoire (classement et « Retour au salon ») : le podium arrive avec #143.

@@ -5,6 +5,8 @@
 // comme le secret des parties solo sans compte (docs/solo-serveur.md).
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
+import type { SoloDate } from "@/lib/game/solo";
+import type { EtatPartie } from "@/lib/multi/partie";
 import { cookieInvite, DUREE_JETON_INVITE, lireCodeSalon, type EtatSalon, type Reglages, type ResultatBattement } from "@/lib/multi/salon";
 
 type Entree = { salon_id: string; membre_id: string; code: string; jeton?: string };
@@ -138,6 +140,35 @@ export async function accepterMembre(salonId: string, membreId: string): Promise
   const supabase = await createClient();
   const { error } = await supabase.schema("histoire").rpc("accepter_membre", {
     p_salon_id: salonId, p_membre_id: membreId, p_jeton: await jeton(salonId),
+  });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}
+
+/** L'hôte lance la partie avec les réglages du salon (#140). */
+export async function lancerPartie(salonId: string): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("lancer_partie", { p_salon_id: salonId, p_jeton: await jeton(salonId) });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}
+
+/** État de la partie du salon (null : pas de partie, ou plus membre). Fait aussi avancer la partie. */
+export async function etatPartie(salonId: string): Promise<EtatPartie | null> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { data, error } = await supabase.schema("histoire").rpc("etat_partie", { p_salon_id: salonId, p_jeton: await jeton(salonId) });
+  return error ? null : (data as EtatPartie | null);
+}
+
+/** Réponse à la question en cours ; question période : début et fin. */
+export async function repondrePartie(salonId: string, questionId: string, debut: SoloDate, fin?: SoloDate | null): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("repondre_partie", {
+    p_salon_id: salonId, p_question_id: questionId,
+    p_annee: debut.year, p_mois: debut.month ?? null, p_jour: debut.day ?? null,
+    p_annee_fin: fin?.year ?? null, p_mois_fin: fin?.month ?? null, p_jour_fin: fin?.day ?? null,
+    p_jeton: await jeton(salonId),
   });
   return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
 }

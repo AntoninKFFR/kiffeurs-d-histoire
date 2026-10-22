@@ -1,0 +1,62 @@
+/* Partie Convivial (#140) : ce qui s'ajoute à l'écran de partie du solo (classement, attente, fin).
+   Maquettes : docs/maquettes/v1.3/partie-pc.png et partie-tel.png. */
+.plein, .autour {
+  --j1: #8a2f2b; --j2: #2f6b8a; --j3: #5b7a3a; --j4: #8a5a2f; --j5: #6b3a8a; --j6: #2f8a7a;
+}
+.plein { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; background: var(--color-vert-de-gris); color: var(--color-encre); overflow: hidden; }
+.grand { font-size: 20px; }
+.inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
+.boiteFin { display: grid; justify-items: center; gap: 12px; text-align: center; width: min(440px, 100%); max-height: 100%; min-height: 0; }
+.boiteFin h1 { font-size: 30px; line-height: 1.1; }
+.decompte { font-size: 96px; line-height: 1; color: var(--color-oxyde); }
+.bouton { font: inherit; font-weight: 700; color: #fff; background: var(--color-encre); border: 0; padding: 14px 28px; min-height: 48px; cursor: pointer; }
+.quitter, .quitterJeu { position: absolute; left: 16px; top: 2px; min-height: 44px; display: inline-flex; align-items: center; font: inherit; font-size: 13px; color: var(--color-encre-douce); text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; z-index: 1; }
+
+.valides { color: #3d6b35; font-weight: 700; }
+.accelere { color: var(--color-oxyde); font-weight: 700; }
+.suite { grid-column: 1 / -1; margin: 6px 0 0; font-weight: 700; }
+
+/* Classement posé sur la frise, en haut à droite. */
+.autour { position: absolute; right: 16px; top: 12px; width: 250px; z-index: 1; }
+.classement { background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); box-shadow: var(--shadow-cartel); }
+.classement h2 { display: flex; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid var(--color-filet); font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); font-weight: 600; }
+.classement h2 span + span { color: var(--color-encre-douce); }
+.classement ol { list-style: none; margin: 0; padding: 0; }
+.classement li { display: grid; grid-template-columns: 18px 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 5px 12px; border-bottom: 1px solid color-mix(in srgb, var(--color-filet) 50%, transparent); font-size: 13px; text-align: left; }
+.classement li:last-child { border-bottom: 0; }
+.classement li.moi { background: var(--color-fond-resultat); }
+.rang { font-family: var(--font-date); font-size: 18px; color: var(--color-encre-douce); }
+.pion { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 11px; }
+.nom { min-width: 0; overflow-wrap: anywhere; }
+.valide { color: #3d6b35; font-weight: 700; }
+.absent { color: var(--color-encre-douce); font-size: 11px; }
+.points { font-size: 20px; }
+.plus { display: none; margin: 0; padding: 4px 12px; font-size: 11px; color: var(--color-encre-douce); text-align: center; }
+.final { width: 100%; }
+.final li { padding: 8px 14px; font-size: 15px; }
+.final .points { font-size: 24px; }
+
+/* Écran moyen : la carte de question garde la place du centre, le classement se resserre. */
+@media (max-width: 1200px) {
+  .autour { width: 210px; right: 10px; }
+  .classement li { gap: 6px; padding: 4px 10px; }
+}
+/* Téléphone (debout ou couché) : les trois premiers seulement, en petit. */
+@media (max-width: 860px), (max-height: 500px) {
+  .autour { width: 150px; top: 4px; right: 6px; }
+  .autour .classement h2 { display: none; }
+  .autour .classement li:nth-child(n + 4) { display: none; }
+  .autour .classement li { grid-template-columns: 12px 18px minmax(0, 1fr) auto; gap: 5px; font-size: 11px; padding: 3px 6px; }
+  .autour .pion { width: 18px; height: 18px; font-size: 10px; }
+  .autour .points { font-size: 16px; }
+  .autour .plus { display: block; }
+  .autour .absent { display: none; }
+  .decompte { font-size: 72px; }
+}
+/* Téléphone debout : les trois premiers passent sous la question, sur toute la largeur (rien ne cache le titre). */
+@media (max-width: 600px) {
+  .autour { position: static; width: auto; margin-top: 6px; }
+  .autour .classement { box-shadow: none; }
+  .autour .classement li { padding: 2px 8px; }
+  .autour .plus { padding: 2px 8px; text-align: right; }
+}

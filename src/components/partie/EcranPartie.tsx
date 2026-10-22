@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { aLaPrecision, formatHistoricDate, type HistoricDate, type Precision } from "@/lib/game/dates";
 import { dateCourte, REGLAGES, versT, VUE_DE_BASE, type Vue } from "@/lib/game/frise";
@@ -64,6 +64,21 @@ type Props = {
   bornes?: Vue | null;
   /** Habillage de frise de la période jouée (#97). */
   habillage?: HabillageId | null;
+  /** Multijoueur (#140) : la suite est automatique, ces réglages adaptent l'écran du solo. */
+  multi?: {
+    /** À la suite de « Question 4 sur 10 » : qui a validé, mode chrono. */
+    inventaire?: ReactNode;
+    /** Posé sur la frise en haut à droite : le classement. */
+    autour?: ReactNode;
+    /** Remplace le lien « Quitter ». */
+    quitter?: ReactNode;
+    /** Bouton pendant l'attente de la correction (les autres jouent encore). */
+    attente: string;
+    /** Remplace le bouton après la correction (la question suivante arrive seule). */
+    apresCorrection: ReactNode;
+    /** Rechargement : la réponse est déjà partie (ou la question close), on attend la correction. */
+    dejaRepondu?: boolean;
+  };
 };
 
 const BRAVO: Record<Precision, string> = { annee: "Pile la bonne année !", mois: "Pile le bon mois !", jour: "Pile le bon jour !" };
@@ -73,7 +88,7 @@ const PILE: Record<Precision, string> = { annee: "pile la bonne année", mois: "
 const finAvantDebut = (debut: HistoricDate, fin: HistoricDate, precision: Precision) =>
   versT(aLaPrecision(fin, precision)) < versT(aLaPrecision(debut, precision));
 
-export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suivante, bornes, habillage }: Props) {
+export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suivante, bornes, habillage, multi }: Props) {
   const { precision } = question;
   const periode = Boolean(question.periode && corrigerPeriode);
   const { debut, fin } = bornes ?? VUE_DE_BASE;
@@ -138,6 +153,14 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
   useEffect(() => {
     envoyerRef.current = envoyer;
   });
+  // Rechargement en multi : rien à envoyer, on attend la correction comme après une réponse.
+  const dejaRepondu = useRef(multi?.dejaRepondu);
+  useEffect(() => {
+    if (dejaRepondu.current) {
+      expireTente.current = true;
+      void envoyerRef.current(null);
+    }
+  }, []);
   useEffect(() => {
     if (!chrono || correction) return;
     const tic = () => {
@@ -216,7 +239,7 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
     </button>
   ) : (
     <button type="button" className={s.valider} onClick={valider} disabled={envoi || passage || (!correction && !pret)}>
-      {correction ? (suivante?.libelle ?? "Rejouer cette question") : versLaFin ? "Placer la fin →" : "Valider ma réponse"}
+      {correction ? (suivante?.libelle ?? "Rejouer cette question") : envoi && multi ? multi.attente : versLaFin ? "Placer la fin →" : "Valider ma réponse"}
     </button>
   );
   const reponseBoite = (
@@ -284,7 +307,7 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
                     : BRAVO[precision]}
             </span>
             {description && <span className={s.explication}>{description}</span>}
-            {boutonValider}
+            {multi ? multi.apresCorrection : boutonValider}
           </div>
         ) : (
           boutonValider
@@ -300,6 +323,7 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
       <div className={s.carteTexte}>
         <span className={s.inventaire}>
           {question.inventaire ? `${question.inventaire} · ` : ""}Question {question.numero} sur {question.total}
+          {multi?.inventaire}
         </span>
         <h2>{question.titre}</h2>
         {periode ? (
@@ -327,10 +351,13 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
         correction={correction && { bonne: correction.bonne, titre: question.titre, bonneFin: correction.bonneFin }}
         haut={
           <>
-            <Link href="/" className={s.quitter}>
-              ← Quitter
-            </Link>
+            {multi?.quitter ?? (
+              <Link href="/" className={s.quitter}>
+                ← Quitter
+              </Link>
+            )}
             {carte}
+            {multi?.autour}
           </>
         }
         sous={<BandeEpoques vue={vue} animer={animer} bornes={cadre} />}

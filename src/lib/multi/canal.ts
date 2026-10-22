@@ -7,6 +7,8 @@ import { estDansLeCatalogue } from "./chat-catalogue";
 export type EvenementSalon =
   /** Le salon a changé en base (membres, réglages) : recharger l'état. */
   | { type: "salon_change"; version: number }
+  /** Partie (#140) : un joueur a répondu, redemander l'état de la partie au serveur. */
+  | { type: "partie_change" }
   /** Mode visible : où un joueur place son curseur. */
   | { type: "curseur"; membreId: string; annee: number; mois?: number; jour?: number }
   /** Chat restreint : uniquement un identifiant du catalogue (#132). */
@@ -41,6 +43,8 @@ export function lireEvenement(x: unknown): EvenementSalon | null {
   switch (e.type) {
     case "salon_change":
       return estNombre(e.version) ? { type: "salon_change", version: e.version } : null;
+    case "partie_change":
+      return { type: "partie_change" };
     case "curseur":
       if (!estTexte(e.membreId) || !estNombre(e.annee)) return null;
       return {

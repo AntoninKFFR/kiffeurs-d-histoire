@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/client";
 import { ouvrirCanalSalon, type CanalSalon } from "@/lib/multi/canal";
 import { demarrerBattement } from "@/lib/multi/battement";
 import type { EtatSalon } from "@/lib/multi/salon";
+import { useChatSalon } from "./useChatSalon";
 import { accepterMembre, battementSalon, etatSalon, expulserMembre, modifierSalon, quitterSalon } from "@/app/multi/actions";
 import { EcranSalon } from "./EcranSalon";
 
@@ -18,6 +19,9 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
   const canal = useRef<CanalSalon | null>(null);
   const version = useRef(depart.salon.version);
   const salonId = depart.salon.id;
+  const chat = useChatSalon(depart.moi, (id) => void canal.current?.envoyer({ type: "chat", membreId: depart.moi, id }));
+  const recevoirChat = useRef(chat.recevoir);
+  useEffect(() => { recevoirChat.current = chat.recevoir; }, [chat.recevoir]);
 
   const perdu = useCallback(() => router.replace("/multi?erreur=salon_perdu"), [router]);
   const recharger = useCallback(async () => {
@@ -30,7 +34,10 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
   useEffect(() => {
     const moi = depart.membres.find((m) => m.id === depart.moi)!;
     const c = ouvrirCanalSalon(createClient(), salonId, { membreId: moi.id, pseudo: moi.pseudo }, {
-      surEvenement: (e) => { if (e.type === "salon_change" && e.version > version.current) void recharger(); },
+      surEvenement: (e) => {
+        if (e.type === "salon_change" && e.version > version.current) void recharger();
+        if (e.type === "chat") recevoirChat.current(e.membreId, e.id);
+      },
       surPresents: (liste) => setPresents(new Set(liste.map((p) => p.membreId))),
     });
     canal.current = c;
@@ -49,7 +56,7 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
     return null;
   };
 
-  return <EcranSalon etat={etat} presents={presents}
+  return <EcranSalon etat={etat} presents={presents} chat={chat.salon} maintenant={chat.maintenant}
     lien={`${typeof window === "undefined" ? "" : window.location.origin}/multi/salon/${salonId}`}
     actions={{
       modifier: async (changements) => {

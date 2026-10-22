@@ -164,3 +164,18 @@ Migration `20261022120000_parties_ouvertes.sql`, tests `supabase/tests/parties_o
   `20261022130000_arrivee_en_partie.sql`. Les joueurs d'une partie seront ceux présents et acceptés à son lancement (#140).
 - **Lien d'invitation** : `/multi/salon/<uuid>` (#136) plutôt que `/salon/<code>` : l'uuid ne se devine pas, alors qu'un
   lien avec le code contournerait la limite d'essais de codes.
+
+## Chat du salon (#138)
+
+- Barre « Dire » en bas du salon (maquettes salon-pc et salon-tel) : 8 émotes en accès direct sur PC, 4 sur
+  téléphone, et le menu « Phrases » avec les 16 émotes et les 25 phrases par famille. Le dernier message s'affiche à
+  droite de la barre (PC) ; chaque message apparaît 4 s en bulle à côté du joueur.
+- On n'envoie qu'un identifiant du catalogue (événement `chat` du canal) ; à la réception, `lireEvenement` jette tout
+  identifiant inconnu : aucun texte libre ne peut s'afficher, même envoyé par un client modifié.
+- **Anti-spam** (`src/lib/multi/chat.ts`) : 1 message par seconde et 5 par 10 s, vérifié à l'envoi (« Doucement : un
+  message par seconde. ») et à la réception pour chaque joueur (le surplus est ignoré).
+- **Masquer** : bouton à côté de chaque joueur ; ses bulles et messages disparaissent pour soi seulement, le temps
+  de la visite.
+- Limite connue : le canal étant public (voir #135), un client modifié pourrait faire apparaître une émote ou une
+  phrase du catalogue sous le nom d'un autre joueur. Rien d'autre que le catalogue ne peut s'afficher.
+- Pendant la partie (émotes seules, discrètes) : branché avec l'écran de partie (#140).

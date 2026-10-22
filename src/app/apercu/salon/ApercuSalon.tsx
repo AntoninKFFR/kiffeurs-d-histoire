@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { EcranSalon } from "@/components/multi/EcranSalon";
+import { useChatSalon } from "@/components/multi/useChatSalon";
 import type { EtatSalon } from "@/lib/multi/salon";
 
 const DEPART: EtatSalon = {
@@ -26,7 +28,15 @@ const DEPART: EtatSalon = {
 export function ApercuSalon({ vue }: { vue: "hote" | "joueur" }) {
   const router = useRouter();
   const [etat, setEtat] = useState<EtatSalon>({ ...DEPART, moi: vue === "hote" ? "m1" : "m4" });
-  return <EcranSalon etat={etat} presents={new Set(["m1", "m2", "m3", "m4"])} lien="https://k-iffeur-d-histoire.vercel.app/multi/salon/exemple"
+  const chat = useChatSalon(etat.moi, () => {});
+  const { recevoir } = chat;
+  // Quelques messages fictifs pour voir les bulles et le dernier message.
+  useEffect(() => {
+    const t1 = setTimeout(() => recevoir("m2", "ave-compagnons"), 300);
+    const t2 = setTimeout(() => recevoir("m3", "napoleon-rire"), 600);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [recevoir]);
+  return <EcranSalon etat={etat} chat={chat.salon} maintenant={chat.maintenant} presents={new Set(["m1", "m2", "m3", "m4"])} lien="https://k-iffeur-d-histoire.vercel.app/multi/salon/exemple"
     actions={{
       modifier: async ({ reglages, visibilite, maxJoueurs }) => {
         setEtat((e) => ({ ...e, salon: { ...e.salon, version: e.salon.version + 1,

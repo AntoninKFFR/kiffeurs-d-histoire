@@ -5,6 +5,8 @@
 import { useState } from "react";
 import { CATEGORIES, decrireCible, optionsContenu, titreContenu } from "@/lib/multi/contenu";
 import { LIBELLES_PRECISION, PLACES_CONVIVIAL, type Categorie, type ChoixContenu, type EtatSalon, type Reglages } from "@/lib/multi/salon";
+import { DUREE_BULLE, type MessageChat } from "@/lib/multi/chat";
+import { BarreChat, ContenuChat } from "./BarreChat";
 import styles from "./salon.module.css";
 
 export type ActionsSalon = {
@@ -54,8 +56,18 @@ function ChoisirContenu({ type: depart, selection, onChoisir, onFermer }: {
   </div>;
 }
 
-export function EcranSalon({ etat, presents, lien, actions }: {
-  etat: EtatSalon; presents: ReadonlySet<string>; lien: string; actions: ActionsSalon;
+/** Chat restreint (#138) : messages reçus (les plus récents à la fin), joueurs masqués localement. */
+export type ChatSalon = {
+  messages: readonly MessageChat[];
+  masques: ReadonlySet<string>;
+  dire: (id: string) => string | null;
+  masquer: (membreId: string, oui: boolean) => void;
+};
+
+export function EcranSalon({ etat, presents, lien, actions, chat, maintenant }: {
+  etat: EtatSalon; presents: ReadonlySet<string>; lien: string; actions: ActionsSalon; chat: ChatSalon;
+  /** Heure locale du dernier rendu, pour savoir quelles bulles sont encore affichées. */
+  maintenant: number;
 }) {
   const { salon, membres, moi } = etat;
   const r = salon.reglages;
@@ -102,6 +114,9 @@ export function EcranSalon({ etat, presents, lien, actions }: {
   };
   const assez = membres.length >= 2;
   const enPartie = salon.etat === "partie";
+  const visibles = chat.messages.filter((m) => !chat.masques.has(m.membreId));
+  const bulle = (membreId: string) => [...visibles].reverse().find((m) => m.membreId === membreId && maintenant - m.recu < DUREE_BULLE);
+  const pseudoDe = (membreId: string) => membres.find((m) => m.id === membreId)?.pseudo ?? "Un joueur";
 
   return <div className={styles.ecran}>
     <header className={styles.haut}>
@@ -133,7 +148,7 @@ export function EcranSalon({ etat, presents, lien, actions }: {
       <section className={styles.boite} aria-label="Joueurs">
         <h2><span>Joueurs</span><span>{membres.length} / {salon.max_joueurs}</span></h2>
         <ul className={styles.joueurs}>
-          {membres.map((m) => <li key={m.id} className={styles.joueur}>
+          {membres.map((m) => { const b = bulle(m.id); const masque = chat.masques.has(m.id); return <li key={m.id} className={styles.joueur}>
             <span className={styles.pion} style={{ background: `var(${COULEURS[(m.ordre - 1) % COULEURS.length]})` }} aria-hidden>
               {[...m.pseudo][0]?.toUpperCase()}
             </span>
@@ -144,17 +159,18 @@ export function EcranSalon({ etat, presents, lien, actions }: {
               {m.id === moi && <span className={styles.note}>(toi)</span>}
               {m.en_attente && <span className={styles.attente}>{m.id === moi ? "l'hôte doit t'accepter" : "arrivé en cours de partie"}</span>}
             </span>
-            {suisHote && m.id !== moi
-              ? m.en_attente
-                ? <span className={styles.actionsJoueur}>
-                  <button type="button" className={styles.accepter} onClick={() => agir(actions.accepter(m.id))} aria-label={`Accepter ${m.pseudo}`}>Accepter</button>
-                  <button type="button" className={styles.expulser} onClick={() => agir(actions.expulser(m.id))} aria-label={`Refuser ${m.pseudo}`}>Refuser</button>
-                </span>
-                : <button type="button" className={styles.expulser} onClick={() => agir(actions.expulser(m.id))} aria-label={`Expulser ${m.pseudo}`}>Expulser</button>
-              : <span />}
+            <span className={styles.actionsJoueur}>
+              {m.id !== moi && <button type="button" className={styles.expulser} aria-pressed={masque}
+                onClick={() => chat.masquer(m.id, !masque)} aria-label={`${masque ? "Afficher" : "Masquer"} les messages de ${m.pseudo}`}
+                title="Pour toi seulement">{masque ? "Masqué" : "Masquer"}</button>}
+              {suisHote && m.id !== moi && m.en_attente && <button type="button" className={styles.accepter} onClick={() => agir(actions.accepter(m.id))} aria-label={`Accepter ${m.pseudo}`}>Accepter</button>}
+              {suisHote && m.id !== moi && <button type="button" className={styles.expulser} onClick={() => agir(actions.expulser(m.id))}
+                aria-label={`${m.en_attente ? "Refuser" : "Expulser"} ${m.pseudo}`}>{m.en_attente ? "Refuser" : "Expulser"}</button>}
+            </span>
             <span className={`${styles.point} ${presents.has(m.id) ? "" : styles.absent}`}
               title={presents.has(m.id) ? "Connecté" : "Déconnecté"} />
-          </li>)}
+            {b && <span key={b.cle} className={styles.bulle} role="status"><ContenuChat id={b.id} /></span>}
+          </li>; })}
           {Array.from({ length: Math.max(0, salon.max_joueurs - membres.length) }, (_, i) =>
             <li key={`vide-${i}`} className={styles.vide}>Place libre</li>)}
         </ul>
@@ -243,6 +259,7 @@ export function EcranSalon({ etat, presents, lien, actions }: {
     </div>
 
     <div className={styles.bas}>
+      <BarreChat dire={chat.dire} dernier={visibles.at(-1) ?? null} auteur={pseudoDe} />
       {message && <p className={styles.message} role="alert">{message}</p>}
       <button type="button" className={styles.lancer} disabled={!suisHote || !assez || enPartie}
         onClick={() => agir(actions.lancer())}>

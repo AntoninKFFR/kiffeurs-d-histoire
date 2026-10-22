@@ -35,7 +35,7 @@
 
 /* Joueurs */
 .joueurs { list-style: none; margin: 0; padding: 0; overflow-y: auto; }
-.joueur { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding: 8px 14px; border-bottom: 1px solid #e6e8e1; }
+.joueur { position: relative; display: grid; grid-template-columns: 26px minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding: 8px 14px; border-bottom: 1px solid #e6e8e1; }
 .pseudo { display: flex; gap: 6px; align-items: center; font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
 .pion { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 12px; }
 .couronne { color: var(--color-laiton); font-size: 14px; }
@@ -72,8 +72,29 @@
 .resume { display: none; padding: 10px 12px; gap: 4px; font-size: 13px; }
 .resume b { font-family: var(--font-titre); font-weight: 400; font-size: 16px; }
 
-.bas { display: flex; justify-content: flex-end; align-items: stretch; gap: 20px; }
-.message { align-self: center; margin-right: auto; font-size: 13px; color: var(--color-oxyde); }
+.bas { position: relative; display: flex; justify-content: flex-end; align-items: stretch; gap: 20px; }
+.message { position: absolute; right: 0; bottom: calc(100% + 4px); margin: 0; font-size: 13px; color: var(--color-oxyde); background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); padding: 4px 8px; }
+.ecran .expulser[aria-pressed="true"] { background: var(--color-papier); color: var(--color-oxyde); }
+
+/* Chat restreint (#138) */
+.chat { position: relative; flex: 1; min-width: 0; background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); display: flex; align-items: center; gap: 6px; padding: 0 12px; }
+.chat > .inventaire { color: var(--color-encre-douce); margin-right: 6px; }
+.ecran .emote { display: inline-grid; place-items: center; width: 34px; height: 34px; padding: 0; background: var(--color-fond-resultat); }
+.ecran .emote:hover { border-color: var(--color-laiton); }
+.emote img { display: block; }
+.ecran .phrases { margin-left: 8px; font-size: 13px; }
+.dernier { margin-left: auto; min-width: 0; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--color-encre-douce); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.dernier b { color: var(--color-encre); }
+.refus { color: var(--color-oxyde); font-size: 12px; }
+.menuChat { position: absolute; left: 0; bottom: calc(100% + 6px); z-index: 15; width: min(560px, calc(100vw - 32px)); max-height: min(440px, 70dvh); overflow-y: auto; background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); box-shadow: var(--shadow-cartel); padding: 10px 12px; display: grid; gap: 10px; }
+.familleChat { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.familleChat > .inventaire { flex-basis: 100%; }
+.grilleEmotes { display: flex; flex-wrap: wrap; gap: 6px; }
+.ecran .phrase { font-size: 13px; padding: 5px 10px; text-align: left; }
+.ecran .phrase:hover { border-color: var(--color-laiton); }
+.bulle { position: absolute; left: 150px; top: 50%; transform: translateY(-50%); z-index: 3; display: flex; align-items: center; background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); box-shadow: 0 6px 16px -8px rgb(29 42 58 / .4); padding: 4px 8px; font-size: 12px; white-space: nowrap; max-width: calc(100% - 160px); overflow: hidden; text-overflow: ellipsis; animation: bulle 4s ease forwards; pointer-events: none; }
+@keyframes bulle { 0% { opacity: 0; transform: translateY(-50%) scale(.9); } 8%, 85% { opacity: 1; transform: translateY(-50%) scale(1); } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .bulle { animation: none; } }
 .ecran .lancer { width: 260px; min-height: 64px; background: var(--color-encre); color: var(--color-papier); border-color: var(--color-encre); font-weight: 700; font-size: 20px; line-height: 1.1; }
 .lancer small { display: block; font-size: 11px; font-weight: 400; opacity: .8; margin-top: 2px; }
 .ecran .lancer:disabled { opacity: .55; }
@@ -114,14 +135,19 @@
   .vide { display: none; }
   .resume { display: grid; }
   .surTelephone { display: inline; }
-  .surPc { display: none; }
+  .surPc, .ecran .emote.surPc { display: none; }
   .boiteReglages .reglages { display: none; }
   .boiteReglages.ouvert { position: fixed; inset: 0; z-index: 10; }
   .boiteReglages.ouvert .reglages { display: grid; grid-template-columns: 1fr; row-gap: 6px; padding: 10px 12px 16px; }
   .boiteReglages.ouvert .libelle { margin-top: 6px; }
   .boiteReglages.ouvert .resume { display: none; }
-  .bas { flex-direction: column; gap: 6px; margin-top: auto; }
-  .message { margin: 0; }
+  .bas { flex-direction: column; gap: 10px; margin-top: auto; }
+  .chat { background: none; border: 0; padding: 0; flex: none; }
+  .ecran .emote { width: 44px; height: 44px; }
+  .ecran .phrases { flex: 1; margin-left: 0; height: 44px; }
+  .chat > .refus { position: absolute; left: 0; bottom: calc(100% + 4px); background: var(--color-blanc-cartel); padding: 2px 6px; }
+  .menuChat { width: 100%; }
+  .bulle { left: auto; right: 40px; max-width: 60%; }
   .ecran .lancer { width: 100%; min-height: 54px; font-size: 18px; }
 }
 @media (max-width: 760px) and (max-height: 640px) {

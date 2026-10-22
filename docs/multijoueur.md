@@ -9,8 +9,8 @@ Validées par Maxou le 22 octobre 2026, sans changement demandé. Elles font foi
 un écran ou un élément visuel qui n'y figure pas est d'abord montré **en images dans la conversation** et validé
 par Maxou avant d'être codé.
 
-Les émotes (😂, ⚔️…) et les illustrations des cartes sont **provisoires** : les vrais dessins viennent de #132
-et des illustrations existantes du jeu. Les pseudos, scores et salons sont des exemples.
+Les émotes (😂, ⚔️…) des maquettes sont **provisoires** : les vrais dessins sont ceux de #132 (plus bas).
+Les illustrations des cartes viennent des illustrations existantes du jeu. Les pseudos, scores et salons sont des exemples.
 
 | Écran | PC (1366 × 768) | Téléphone | Issues |
 | --- | --- | --- | --- |
@@ -28,3 +28,13 @@ Les écrans sans maquette téléphone suivent la même logique que leur version 
 
 Les sources HTML des maquettes (couleurs et polices de la charte) sont dans `maquettes/v1.3/sources/`.
 Elles ne sont pas du code du jeu : on s'en inspire, on ne les importe pas.
+
+## Chat restreint : émotes et phrases (#132, 22 octobre 2026)
+
+Validés par Maxou le 22 octobre 2026. Pas de texte libre dans les salons : on n'envoie qu'une émote ou une phrase
+de ce catalogue. Le catalogue est dans `src/lib/multi/chat-catalogue.ts` ; les 16 émotes sont des dessins encre
+(64 × 64, moins de 2 Ko) dans `public/emotes/<id>.svg`. Les 25 phrases sont classées en 5 familles (saluer,
+encourager, taquiner, féliciter, réagir).
+
+Le client envoie seulement l'identifiant (`berezina`, `napoleon-rire`…) ; le serveur refuse tout identifiant
+absent du catalogue (#138). Les identifiants sont stables : on peut en ajouter, jamais en renommer ni en réutiliser.

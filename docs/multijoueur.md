@@ -84,3 +84,25 @@ Règles appliquées en base :
   Toute autre clé est refusée.
 - Erreurs : `42501` accès refusé (connexion requise, pas hôte, exclu, salon inexistant), `22023` paramètre invalide,
   `55000` salon complet ou partie en cours, `53400` trop d'essais de code.
+
+## Temps réel (#135)
+
+**Canal** (`src/lib/multi/canal.ts`) : un seul canal Supabase Realtime par salon et par onglet, nommé `histoire-salon:<uuid du salon>`. Presence (clé = identifiant du membre) dit qui est là ; Broadcast (événement `evt`) porte les curseurs du mode visible, le chat restreint et l'avis « le salon a changé, rechargez ». Le canal est public, car les invités n'ont pas de session et nous ne touchons pas aux règles du schéma `realtime` : il ne transporte donc rien de secret, et tout ce qui arrive est filtré (`lireEvenement` ; le chat n'accepte que les identifiants du catalogue). En cas de coupure, le canal se réabonne seul après 0,5 s, 1 s, 2 s… jusqu'à 8 s.
+
+**Battement de présence** (`battement.ts`, RPC `histoire.battement_salon`) : chaque onglet signale sa présence toutes les 10 s, et aussitôt quand il redevient visible (téléphone sorti de veille). Un membre silencieux depuis **plus de 30 s** est retiré du salon (la couronne passe au suivant) ; en dessous, il retrouve sa place telle quelle. Le battement renvoie aussi la version du salon, ce qui rattrape un avis `salon_change` perdu pendant la coupure.
+
+**Horloge** (`horloge.ts`, RPC `histoire.heure_serveur`) : 5 allers-retours au démarrage ; on garde le plus rapide et on en déduit l'écart entre l'horloge du navigateur et celle du serveur. Les comptes à rebours s'affichent en heure du serveur (`resteAvant`), donc tombent à zéro en même temps chez tout le monde ; c'est la base qui refuse une réponse en retard.
+
+**Affichage optimiste** (`optimiste.ts`) : le clic s'affiche tout de suite chez le joueur, la RPC part ensuite ; si le serveur refuse, l'affichage est annulé.
+
+**Plafond de connexions** (table `histoire.limites_temps_reel`) : l'offre gratuite donne 200 connexions temps réel, partagées avec la contrée. Le multi s'arrête à **120 membres connectés** : au-delà de 110, on ne crée plus de nouveau salon (erreur 53400, « trop de monde, réessaie dans un instant »), les 10 places restantes servant à rejoindre les salons existants. Les deux nombres se changent en base sans déploiement.
+
+**Page de test** : `/multi/test-latence` (liée nulle part, non indexée). Ouvrir la même adresse dans deux onglets ou sur deux appareils ; chaque onglet envoie un message par seconde, les autres le renvoient, la page affiche l'aller simple (médiane et 95 %) et l'écart avec l'horloge du serveur. `?salon=xyz` pour isoler un essai.
+
+**Mesures** : objectif, aller simple médian sous 0,2 s.
+
+| Date | Conditions | Aller simple médian | 95 % | Écart d'horloge |
+|---|---|---|---|---|
+| à faire | deux navigateurs, KFFR | | | |
+
+La synchronisation des chronos est vérifiée par les tests (`tests/multi-temps-reel.test.ts` : écart estimé à moins de 0,3 s malgré un réseau irrégulier), et la reconnexion après 10 s de coupure par `supabase/tests/temps_reel.sql`.

@@ -35,17 +35,17 @@
 
 /* Joueurs */
 .joueurs { list-style: none; margin: 0; padding: 0; overflow-y: auto; }
-.joueur { position: relative; display: grid; grid-template-columns: 26px minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding: 8px 14px; border-bottom: 1px solid #e6e8e1; }
-.pseudo { display: flex; gap: 6px; align-items: center; font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
+.joueur { position: relative; display: grid; grid-template-columns: 26px minmax(96px, 1fr) auto auto; gap: 10px; align-items: center; padding: 8px 14px; border-bottom: 1px solid #e6e8e1; }
+.pseudo { display: flex; flex-wrap: wrap; gap: 2px 6px; align-items: center; font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
 .pion { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 12px; }
 .couronne { color: var(--color-laiton); font-size: 14px; }
-.invite { font-size: 10px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--color-encre-douce); border: 1px dashed var(--color-filet); padding: 0 4px; font-weight: 400; }
+.invite { white-space: nowrap; font-size: 10px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--color-encre-douce); border: 1px dashed var(--color-filet); padding: 0 4px; font-weight: 400; }
 .point { width: 8px; height: 8px; border-radius: 50%; background: #5b9a52; display: inline-block; }
 .absent { background: var(--color-filet); }
 .ecran .expulser { font-size: 11px; padding: 2px 6px; color: var(--color-encre-douce); }
 .actionsJoueur { display: flex; gap: 4px; }
 .ecran .accepter { font-size: 11px; padding: 2px 6px; background: var(--color-encre); color: var(--color-papier); border-color: var(--color-encre); }
-.attente { font-size: 11px; font-weight: 400; color: var(--color-oxyde); }
+.attente { flex-basis: 100%; font-size: 11px; font-weight: 400; color: var(--color-oxyde); }
 .vide { color: var(--color-filet); font-style: italic; padding: 8px 14px 8px 50px; border-bottom: 1px dashed #e6e8e1; }
 
 /* Réglages */

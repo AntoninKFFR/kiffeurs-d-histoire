@@ -85,11 +85,32 @@ Règles appliquées en base :
 - Erreurs : `42501` accès refusé (connexion requise, pas hôte, exclu, salon inexistant), `22023` paramètre invalide,
   `55000` salon complet ou partie en cours, `53400` trop d'essais de code.
 
+## Invités sans compte (#134)
+
+Migration `20261022110000_invites_salons.sql`, tests `supabase/tests/invites.sql`. Aucune connexion anonyme Supabase,
+aucun compte créé, rien dans `auth` ni `public`.
+
+- **Entrée** : seulement par code ou par lien (`rejoindre_salon`, `rejoindre_salon_par_lien`). Pas de création de salon,
+  pas de 1 contre 1, et la liste des parties ouvertes (#137) leur sera refusée côté serveur.
+- **Jeton** : 64 caractères aléatoires, rendus une seule fois ; la base n'en garde que le hash et une date d'expiration
+  (**24 h**). Le site le range dans un cookie httpOnly `histoire-salon-<uuid>` (24 h, `sameSite=lax`) : le JavaScript
+  de la page ne le voit jamais. Toutes les actions passent par `src/app/multi/actions.ts` (`rejoindreParCode`,
+  `rejoindreParLien`, `etatSalon`, `battementSalon`, `quitterSalon`), qui lisent ce cookie.
+- **Pseudo** : 3 à 16 caractères (lettres, chiffres, espaces, `-`, `_`, `.`, `'`), espaces en trop retirés, unique
+  dans le salon, marqué « invité » à l'affichage. Refusés : grossièretés (même déguisées : `c0nn4rd`, accents), et noms
+  qui feraient passer l'invité pour l'équipe ou l'hôte (`Admin`, `KFFR`, `Hôte`…). Règle en SQL
+  (`histoire.refus_pseudo_invite`), copie côté navigateur pour prévenir avant l'envoi (`src/lib/multi/salon.ts`).
+- **Usurpation** : sans le jeton, impossible d'agir à la place d'un invité ; un jeton ne vaut que pour son salon ;
+  un invité n'est jamais hôte. Un compte qui ouvre un lien entre avec son pseudo KFFR, sans jeton.
+- **Temps réel** : l'invité rejoint le canal `histoire-salon:<uuid>` de son salon, dont il connaît l'uuid ; l'uuid des
+  autres salons ne lui est jamais donné.
+- Les écrans (pseudo sous le code, page du lien) suivent la maquette `accueil` et arrivent avec #136 et #137.
+
 ## Temps réel (#135)
 
 **Canal** (`src/lib/multi/canal.ts`) : un seul canal Supabase Realtime par salon et par onglet, nommé `histoire-salon:<uuid du salon>`. Presence (clé = identifiant du membre) dit qui est là ; Broadcast (événement `evt`) porte les curseurs du mode visible, le chat restreint et l'avis « le salon a changé, rechargez ». Le canal est public, car les invités n'ont pas de session et nous ne touchons pas aux règles du schéma `realtime` : il ne transporte donc rien de secret, et tout ce qui arrive est filtré (`lireEvenement` ; le chat n'accepte que les identifiants du catalogue). En cas de coupure, le canal se réabonne seul après 0,5 s, 1 s, 2 s… jusqu'à 8 s.
 
-**Battement de présence** (`battement.ts`, RPC `histoire.battement_salon`) : chaque onglet signale sa présence toutes les 10 s, et aussitôt quand il redevient visible (téléphone sorti de veille). Un membre silencieux depuis **plus de 30 s** est retiré du salon (la couronne passe au suivant) ; en dessous, il retrouve sa place telle quelle. Le battement renvoie aussi la version du salon, ce qui rattrape un avis `salon_change` perdu pendant la coupure.
+**Battement de présence** (`battement.ts`, action `battementSalon`, RPC `histoire.battement_salon`) : chaque onglet signale sa présence toutes les 10 s, et aussitôt quand il redevient visible (téléphone sorti de veille). Un membre silencieux depuis **plus de 30 s** est retiré du salon (la couronne passe au suivant) ; en dessous, il retrouve sa place telle quelle. Le battement renvoie aussi la version du salon, ce qui rattrape un avis `salon_change` perdu pendant la coupure.
 
 **Horloge** (`horloge.ts`, RPC `histoire.heure_serveur`) : 5 allers-retours au démarrage ; on garde le plus rapide et on en déduit l'écart entre l'horloge du navigateur et celle du serveur. Les comptes à rebours s'affichent en heure du serveur (`resteAvant`), donc tombent à zéro en même temps chez tout le monde ; c'est la base qui refuse une réponse en retard.
 

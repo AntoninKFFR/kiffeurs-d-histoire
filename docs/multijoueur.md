@@ -127,3 +127,21 @@ aucun compte créé, rien dans `auth` ni `public`.
 | à faire | deux navigateurs, KFFR | | | |
 
 La synchronisation des chronos est vérifiée par les tests (`tests/multi-temps-reel.test.ts` : écart estimé à moins de 0,3 s malgré un réseau irrégulier), et la reconnexion après 10 s de coupure par `supabase/tests/temps_reel.sql`.
+
+## Écran du salon (#136)
+
+- `/multi` : accueil « Jouer à plusieurs » ; pour l'instant la colonne « Créer un salon » (Convivial ou 1 contre 1,
+  compte requis). Les colonnes code, parties ouvertes et amis arrivent avec #137 et #139.
+- `/multi/salon/<uuid>` : l'écran du salon, et aussi le **lien d'invitation** (« Copier le lien ») : un compte y entre
+  aussitôt avec son pseudo KFFR, un invité choisit d'abord son pseudo.
+- Composants : `EcranSalon` (affichage seul, d'après les maquettes salon-pc et salon-tel), `SalonEnDirect` (état,
+  canal, battement), `RejoindreInvite`, `CreerSalon` (`src/components/multi/`). Aperçu avec des joueurs fictifs :
+  `/apercu/salon` (hôte) et `/apercu/salon?vue=joueur`.
+- Synchronisation : après chaque action réussie, l'écran recharge l'état et diffuse `salon_change` ; les autres
+  rechargent en le recevant, ou au battement suivant s'ils l'ont manqué. Point vert = présent sur le canal.
+- Les réglages sont modifiables par l'hôte seul (désactivés chez les autres, refusés en base). Sur téléphone, ils sont
+  résumés ; l'hôte les ouvre en plein écran avec « Modifier ».
+- La fenêtre « Choisir le contenu » (packs, périodes, thèmes du solo) n'était pas dans les maquettes : montrée à Maxou
+  en images avant fusion.
+- « Lancer la partie » est actif pour l'hôte à partir de 2 joueurs ; il sera branché sur la partie avec #140.
+- Le chat (#138) et les amis (#139) prendront la place prévue dans les maquettes.

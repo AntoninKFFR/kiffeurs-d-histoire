@@ -1,0 +1,40 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { EcranSalon } from "@/components/multi/EcranSalon";
+import type { EtatSalon } from "@/lib/multi/salon";
+
+const DEPART: EtatSalon = {
+  salon: {
+    id: "00000000-0000-4000-8000-000000000136", code: "17/03/1642", mode: "convivial", visibilite: "prive",
+    max_joueurs: 8, etat: "attente", version: 1,
+    reglages: { questions: 10, precision: "YEAR", questions_periode: true, mode_visible: false, mode_chrono: false,
+      contenu: { choix: "direct", categories: ["pack", "periode"], cible: { type: "periode", id: "xixe" } } },
+  },
+  moi: "m1",
+  membres: [
+    { id: "m1", pseudo: "Maxou", est_hote: true, invite: false, ordre: 1 },
+    { id: "m2", pseudo: "Antonin", est_hote: false, invite: false, ordre: 2 },
+    { id: "m3", pseudo: "Lulu_1515", est_hote: false, invite: false, ordre: 3 },
+    { id: "m4", pseudo: "Clément", est_hote: false, invite: true, ordre: 4 },
+    { id: "m5", pseudo: "Sarah", est_hote: false, invite: true, ordre: 5 },
+  ],
+};
+
+// Aperçu de l'écran du salon avec des joueurs fictifs : les réglages changent pour de vrai, rien n'est envoyé.
+export function ApercuSalon({ vue }: { vue: "hote" | "joueur" }) {
+  const router = useRouter();
+  const [etat, setEtat] = useState<EtatSalon>({ ...DEPART, moi: vue === "hote" ? "m1" : "m4" });
+  return <EcranSalon etat={etat} presents={new Set(["m1", "m2", "m3", "m4"])} lien="https://k-iffeur-d-histoire.vercel.app/multi/salon/exemple"
+    actions={{
+      modifier: async ({ reglages, visibilite, maxJoueurs }) => {
+        setEtat((e) => ({ ...e, salon: { ...e.salon, version: e.salon.version + 1,
+          reglages: { ...e.salon.reglages, ...reglages }, visibilite: visibilite ?? e.salon.visibilite, max_joueurs: maxJoueurs ?? e.salon.max_joueurs } }));
+        return null;
+      },
+      expulser: async (id) => { setEtat((e) => ({ ...e, membres: e.membres.filter((m) => m.id !== id) })); return null; },
+      quitter: () => router.push("/apercu"),
+      lancer: async () => "Aperçu : la partie multijoueur arrive avec #140.",
+    }} />;
+}

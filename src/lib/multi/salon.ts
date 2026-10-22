@@ -34,10 +34,28 @@ export type MembreSalon = { id: string; pseudo: string; est_hote: boolean; invit
 export type EtatSalon = {
   salon: {
     id: string; code: string; mode: "convivial" | "un_contre_un"; visibilite: "prive" | "ouvert";
-    max_joueurs: number; etat: "attente" | "partie"; version: number; reglages: Record<string, unknown>;
+    max_joueurs: number; etat: "attente" | "partie"; version: number; reglages: Reglages;
   };
   moi: string;
   membres: MembreSalon[];
 };
 
 export type ResultatBattement = { ok: true; version: number; heureServeur: number } | { ok: false; perdu: boolean };
+
+export type ChoixContenu = "direct" | "mystere" | "vote" | "pick_ban";
+export type Categorie = "pack" | "periode" | "theme";
+export type CibleContenu = { type: Categorie; id: string };
+
+/** Réglages tels que rendus par histoire.reglages_salon (toutes les clés présentes). */
+export type Reglages = {
+  questions: 5 | 10 | 20;
+  precision: "YEAR" | "MONTH" | "DAY";
+  questions_periode: boolean;
+  mode_visible: boolean;
+  mode_chrono: boolean;
+  contenu: { choix: ChoixContenu; categories: Categorie[]; cible: CibleContenu | null };
+};
+
+export const PLACES_CONVIVIAL = [4, 6, 8, 10] as const;
+
+export const LIBELLES_PRECISION: Record<Reglages["precision"], string> = { YEAR: "Année", MONTH: "Mois", DAY: "Jour" };

@@ -5,7 +5,7 @@
 // comme le secret des parties solo sans compte (docs/solo-serveur.md).
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
-import { cookieInvite, DUREE_JETON_INVITE, lireCodeSalon, type EtatSalon, type ResultatBattement } from "@/lib/multi/salon";
+import { cookieInvite, DUREE_JETON_INVITE, lireCodeSalon, type EtatSalon, type Reglages, type ResultatBattement } from "@/lib/multi/salon";
 
 type Entree = { salon_id: string; membre_id: string; code: string; jeton?: string };
 export type ResultatEntree = { ok: true; salonId: string; membreId: string; code: string } | { ok: false; erreur: string };
@@ -79,4 +79,43 @@ export async function quitterSalon(salonId: string): Promise<void> {
   const supabase = await createClient();
   await supabase.schema("histoire").rpc("quitter_salon", { p_salon_id: salonId, p_jeton: await jeton(salonId) });
   (await cookies()).delete(nom);
+}
+
+export type ResultatAction = { ok: true } | { ok: false; erreur: string };
+
+/** Créer un salon (compte requis). Renvoie l'identifiant pour ouvrir l'écran du salon. */
+export async function creerSalon(mode: "convivial" | "un_contre_un"): Promise<{ ok: true; salonId: string } | { ok: false; erreur: string }> {
+  if (mode !== "convivial" && mode !== "un_contre_un") return { ok: false, erreur: "Mode inconnu." };
+  const supabase = await createClient();
+  const { data, error } = await supabase.schema("histoire").rpc("creer_salon", { p_mode: mode, p_visibilite: "prive" });
+  if (error) {
+    if (error.code === "42501") return { ok: false, erreur: "Connecte-toi pour créer un salon." };
+    if (error.code === "53400") return { ok: false, erreur: "Beaucoup de monde en ce moment : réessaie dans un instant." };
+    return { ok: false, erreur: "Impossible de créer le salon pour l'instant." };
+  }
+  return { ok: true, salonId: data.salon_id };
+}
+
+/** Réglages de l'hôte : seules les clés données changent. */
+export async function modifierSalon(salonId: string, changements: {
+  reglages?: Partial<Reglages>;
+  visibilite?: "prive" | "ouvert";
+  maxJoueurs?: number;
+}): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("modifier_salon", {
+    p_salon_id: salonId, p_jeton: await jeton(salonId), p_reglages: changements.reglages ?? null,
+    p_visibilite: changements.visibilite ?? null, p_max_joueurs: changements.maxJoueurs ?? null,
+  });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}
+
+export async function expulserMembre(salonId: string, membreId: string): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("expulser_membre", {
+    p_salon_id: salonId, p_membre_id: membreId, p_jeton: await jeton(salonId),
+  });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
 }

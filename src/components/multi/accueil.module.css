@@ -1,0 +1,27 @@
+/* Accueil « Jouer à plusieurs » et entrée d'un invité, d'après docs/maquettes/v1.3/accueil-pc.png. */
+.ecran { min-height: 100dvh; background: var(--color-vert-de-gris); color: var(--color-encre); padding: 12px 24px 24px; display: grid; align-content: start; gap: 18px; }
+.retour { justify-self: start; font-size: 13px; color: var(--color-encre-douce); text-decoration: underline; text-underline-offset: 3px; }
+.titre { display: grid; gap: 4px; }
+.titre h1 { font-family: var(--font-titre); font-weight: 400; font-size: clamp(28px, 4vw, 36px); line-height: 1.1; }
+.inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
+.colonnes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 300px)); gap: 18px; }
+.boite { background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); display: flex; flex-direction: column; min-height: 420px; }
+.boite > h2 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--color-filet); }
+.corps { padding: 14px; display: grid; gap: 12px; align-content: start; flex: 1; }
+.mode { text-align: left; display: grid; gap: 4px; padding: 12px 14px; border: 1px solid var(--color-filet); background: var(--color-papier); color: var(--color-encre); font: inherit; cursor: pointer; }
+.mode[aria-pressed="true"] { border: 2px solid var(--color-encre); background: var(--color-blanc-cartel); padding: 11px 13px; }
+.mode b { font-family: var(--font-titre); font-weight: 400; font-size: 22px; }
+.mode span { font-size: 12px; color: var(--color-encre-douce); }
+.champ { display: grid; gap: 4px; font-size: 13px; color: var(--color-encre-douce); }
+.champ input { font: inherit; font-size: 16px; color: var(--color-encre); padding: 10px; border: 1px solid var(--color-filet); border-bottom: 2px solid var(--color-encre); background: var(--color-blanc-cartel); }
+.pied { padding: 14px; display: grid; gap: 8px; justify-items: center; }
+.principal { width: 100%; min-height: 52px; font: inherit; font-size: 17px; font-weight: 700; background: var(--color-encre); color: var(--color-papier); border: 1px solid var(--color-encre); cursor: pointer; }
+.principal:disabled { opacity: .55; cursor: default; }
+.note { font-size: 12px; color: var(--color-encre-douce); text-align: center; }
+.erreur { font-size: 13px; color: var(--color-oxyde); }
+.seul { justify-self: center; width: min(360px, 100%); }
+@media (max-width: 640px) {
+  .ecran { padding: 12px; }
+  .colonnes { grid-template-columns: 1fr; }
+  .boite { min-height: 0; }
+}

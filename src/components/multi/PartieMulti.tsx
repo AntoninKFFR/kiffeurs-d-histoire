@@ -34,7 +34,8 @@ type Props = {
   depart?: EtatPartie | null;
 };
 
-const COULEURS = ["--j1", "--j2", "--j3", "--j4", "--j5", "--j6"];
+// Mêmes couleurs que les pions du salon (--j1 à --j6), en clair : la frise ne voit pas ces variables.
+const COULEURS = ["#8a2f2b", "#2f6b8a", "#5b7a3a", "#8a5a2f", "#6b3a8a", "#2f8a7a"];
 
 export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null }: Props) {
   const [etat, setEtat] = useState<EtatPartie | null>(depart);
@@ -103,7 +104,7 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
   const pseudo = (id: string) => membres.find((m) => m.id === id)?.pseudo ?? "Joueur parti";
   const couleur = (id: string) => {
     const m = membres.find((x) => x.id === id);
-    return `var(${COULEURS[((m?.ordre ?? 1) - 1) % COULEURS.length]})`;
+    return COULEURS[((m?.ordre ?? 1) - 1) % COULEURS.length];
   };
   const hote = membres.find((m) => m.est_hote)?.id;
   const lignes = classement(etat);
@@ -206,6 +207,12 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
           {suivanteDans != null ? `Question suivante dans ${suivanteDans} s` : "Résultats dans un instant…"}
         </p>,
         dejaRepondu,
+        // Mode invisible : les pions des autres apparaissent à la correction seulement.
+        pions: q.revelee_le ? (q.reponses ?? []).filter((r) => r.membre_id !== etat.moi).map((r) => ({
+          id: r.membre_id, pseudo: pseudo(r.membre_id), couleur: couleur(r.membre_id),
+          date: { year: r.debut.year, month: r.debut.month ?? null, day: r.debut.day ?? null },
+          fin: r.fin ? { year: r.fin.year, month: r.fin.month ?? null, day: r.fin.day ?? null } : null,
+        })) : undefined,
       }}
     />
   );

@@ -59,7 +59,7 @@ describe("partie Convivial (#140)", () => {
     expect(correctionPour(question(), "m1")).toBeNull();
     expect(correctionPour(close, "m1")).toEqual({
       bonne: { year: 1337, month: null, day: null }, bonneFin: { year: 1453, month: null, day: null },
-      points: 88, ecart: "3 ans", ecartFin: null, description: "Un conflit de plus d'un siècle.", expiree: false,
+      points: 88, ecart: "3 ans", ecartFin: null, description: "Un conflit de plus d'un siècle.", expiree: false, autres: [],
     });
     // Sans réponse : 0 point, « temps écoulé ».
     expect(correctionPour(close, "m2")).toMatchObject({ points: 0, expiree: true });

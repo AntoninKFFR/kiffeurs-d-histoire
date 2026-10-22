@@ -107,6 +107,7 @@ export function correctionPour(q: QuestionMulti, membreId: string): Correction |
     ecartFin: r?.ecart_fin != null ? phraseEcart(r.ecart_fin, unite) : null,
     description: q.correction.description ? capitaliser(q.correction.description) : null,
     expiree: !r,
+    autres: (q.reponses ?? []).filter((x) => x.membre_id !== membreId).flatMap((x) => [versDate(x.debut), ...(x.fin ? [versDate(x.fin)] : [])]),
   };
 }
 

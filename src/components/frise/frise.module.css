@@ -128,3 +128,8 @@
 .losangeFixe::before { content: none; }
 .periodeJoueur { position: absolute; top: 205px; height: 12px; background: var(--color-oxyde); opacity: 0.45; z-index: 1; pointer-events: none; min-width: 2px; }
 .periodeBonne { position: absolute; top: 186px; height: 12px; background: var(--color-laiton); border: 1px solid var(--color-encre); z-index: 1; pointer-events: none; min-width: 2px; }
+
+/* Pions des autres joueurs (multijoueur) : une tige de leur couleur et leur pseudo. */
+.pionTige { position: absolute; width: 2px; transform: translateX(-50%); opacity: .85; z-index: 1; }
+.pionEtiquette { position: absolute; transform: translateX(-50%); padding: 1px 8px 2px; font-size: 11px; color: #fff; white-space: nowrap; z-index: 1; }
+.pionPeriode { position: absolute; top: 214px; height: 4px; opacity: .6; }

@@ -23,6 +23,8 @@ import { Motif } from "@/components/charte/Motif";
 import { useVue } from "./useVue";
 import s from "./frise.module.css";
 
+export type PionFrise = { id: string; pseudo: string; couleur: string; date: HistoricDate; fin?: HistoricDate | null };
+
 type Props = {
   precision: Precision;
   /**
@@ -51,6 +53,8 @@ type Props = {
   correction?: { bonne: HistoricDate; titre: string; bonneFin?: HistoricDate } | null;
   /** Mode inversé : la date donnée par le jeu, marquée sur la frise avant la correction. */
   dateDonnee?: HistoricDate | null;
+  /** Multijoueur (#140, #141) : les réponses des autres joueurs, en pions de leur couleur. */
+  pions?: PionFrise[];
   /** Cartes d'événements posées sur la frise ; les marqueurs proches se regroupent. */
   marqueurs?: MarqueurFrise[];
   /** Variante opt-in de /apprendre ; le rendu compact des autres écrans est conservé. */
@@ -99,6 +103,7 @@ export function Frise({
   correction = null,
   dateDonnee = null,
   marqueurs,
+  pions,
   presentationMarqueurs = "compacte",
   toutVoir = false,
   remplir = false,
@@ -485,6 +490,25 @@ export function Frise({
             </div>
           </>
         )}
+
+        {pions && (() => {
+          // Pions étagés : un pion dont l'étiquette toucherait la précédente monte d'un cran.
+          const fins: number[] = [];
+          return [...pions].map((p) => ({ p, x: X(versT(p.date)) })).sort((a, b) => a.x - b.x).map(({ p, x }) => {
+            const demi = largeurTexte(p.pseudo) / 2 + 12;
+            let niveau = fins.findIndex((f) => f < x - demi);
+            if (niveau < 0) niveau = Math.min(fins.length, 3);
+            fins[niveau] = x + demi;
+            const haut = 34 + niveau * 26;
+            return (
+              <div key={p.id} aria-hidden="true">
+                {p.fin && <div className={s.pionPeriode} style={{ left: Math.min(x, X(versT(p.fin))), width: Math.abs(X(versT(p.fin)) - x), background: p.couleur }} />}
+                <div className={s.pionTige} style={{ left: x, top: 209 - haut, height: haut, background: p.couleur }} />
+                <div className={s.pionEtiquette} style={{ left: clamp(x, demi, largeur - demi), top: 209 - haut - 20, background: p.couleur }}>{p.pseudo}</div>
+              </div>
+            );
+          });
+        })()}
 
         {dateDonnee && !correction && (
           <>

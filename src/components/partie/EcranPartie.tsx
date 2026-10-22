@@ -7,7 +7,7 @@ import { dateCourte, REGLAGES, versT, VUE_DE_BASE, type Vue } from "@/lib/game/f
 import type { Chrono } from "@/lib/game/partie";
 import type { MethodeSaisie } from "@/lib/game/solo";
 import { Motif } from "@/components/charte/Motif";
-import { Frise } from "@/components/frise/Frise";
+import { Frise, type PionFrise } from "@/components/frise/Frise";
 import { useVue } from "@/components/frise/useVue";
 import { BandeEpoques } from "./BandeEpoques";
 import { useSaisieFrise } from "@/components/saisie/useSaisieFrise";
@@ -48,6 +48,8 @@ export type Correction = {
   /** Question période : la vraie fin, et l'écart sur la fin (`ecart` porte alors sur le début). */
   bonneFin?: HistoricDate;
   ecartFin?: string | null;
+  /** Multijoueur : réponses des autres, pour cadrer la frise sur tous les pions. */
+  autres?: HistoricDate[];
 };
 
 type Props = {
@@ -76,6 +78,8 @@ type Props = {
     attente: string;
     /** Remplace le bouton après la correction (la question suivante arrive seule). */
     apresCorrection: ReactNode;
+    /** Réponses des autres joueurs, posées sur la frise (à la correction, ou en direct en mode visible). */
+    pions?: PionFrise[];
     /** Rechargement : la réponse est déjà partie (ou la question close), on attend la correction. */
     dejaRepondu?: boolean;
   };
@@ -134,7 +138,7 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
       setCorrection(c);
       if (periode) setEtape("debut");
       // La frise montre la bonne date (ou période), et la réponse quand il y en a une.
-      const ts = [c.bonne, c.bonneFin, ...(rep ? ("debut" in rep ? [rep.debut, rep.fin] : [rep]) : [])]
+      const ts = [c.bonne, c.bonneFin, ...(c.autres ?? []), ...(rep ? ("debut" in rep ? [rep.debut, rep.fin] : [rep]) : [])]
         .filter((d): d is HistoricDate => d != null).map(versT);
       const min = Math.min(...ts);
       const max = Math.max(...ts);
@@ -344,6 +348,7 @@ export function EcranPartie({ question, corriger, corrigerPeriode, chrono, suiva
         precision={precision}
         habillage={habillage}
         controle={controle}
+        pions={multi?.pions}
         reponse={correction && periode ? debutJoueur : reponse}
         onReponse={poserSurFrise}
         enSaisie={enSaisie}

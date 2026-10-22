@@ -8,7 +8,7 @@ import { createClient } from "@/lib/supabase/client";
 import { ouvrirCanalSalon, type CanalSalon } from "@/lib/multi/canal";
 import { demarrerBattement } from "@/lib/multi/battement";
 import type { EtatSalon } from "@/lib/multi/salon";
-import { battementSalon, etatSalon, expulserMembre, modifierSalon, quitterSalon } from "@/app/multi/actions";
+import { accepterMembre, battementSalon, etatSalon, expulserMembre, modifierSalon, quitterSalon } from "@/app/multi/actions";
 import { EcranSalon } from "./EcranSalon";
 
 export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
@@ -54,6 +54,10 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
     actions={{
       modifier: async (changements) => {
         const r = await modifierSalon(salonId, changements);
+        return apres(r.ok ? null : r.erreur);
+      },
+      accepter: async (membreId) => {
+        const r = await accepterMembre(salonId, membreId);
         return apres(r.ok ? null : r.erreur);
       },
       expulser: async (membreId) => {

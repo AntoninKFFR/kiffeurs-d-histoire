@@ -131,3 +131,13 @@ export async function partiesOuvertes(): Promise<PartieOuverte[] | null> {
   const { data, error } = await supabase.schema("histoire").rpc("parties_ouvertes");
   return error || !Array.isArray(data) ? null : (data as PartieOuverte[]);
 }
+
+/** L'hôte accepte un joueur arrivé pendant une partie (le refuser : expulserMembre). */
+export async function accepterMembre(salonId: string, membreId: string): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("accepter_membre", {
+    p_salon_id: salonId, p_membre_id: membreId, p_jeton: await jeton(salonId),
+  });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}

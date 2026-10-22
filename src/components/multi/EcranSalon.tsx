@@ -10,6 +10,7 @@ import styles from "./salon.module.css";
 export type ActionsSalon = {
   modifier: (changements: { reglages?: Partial<Reglages>; visibilite?: "prive" | "ouvert"; maxJoueurs?: number }) => Promise<string | null>;
   expulser: (membreId: string) => Promise<string | null>;
+  accepter: (membreId: string) => Promise<string | null>;
   quitter: () => void;
   lancer: () => Promise<string | null>;
 };
@@ -141,9 +142,15 @@ export function EcranSalon({ etat, presents, lien, actions }: {
               {m.est_hote && <span className={styles.couronne} title="Hôte">♛</span>}
               {m.invite && <span className={styles.invite}>invité</span>}
               {m.id === moi && <span className={styles.note}>(toi)</span>}
+              {m.en_attente && <span className={styles.attente}>{m.id === moi ? "l'hôte doit t'accepter" : "arrivé en cours de partie"}</span>}
             </span>
             {suisHote && m.id !== moi
-              ? <button type="button" className={styles.expulser} onClick={() => agir(actions.expulser(m.id))} aria-label={`Expulser ${m.pseudo}`}>Expulser</button>
+              ? m.en_attente
+                ? <span className={styles.actionsJoueur}>
+                  <button type="button" className={styles.accepter} onClick={() => agir(actions.accepter(m.id))} aria-label={`Accepter ${m.pseudo}`}>Accepter</button>
+                  <button type="button" className={styles.expulser} onClick={() => agir(actions.expulser(m.id))} aria-label={`Refuser ${m.pseudo}`}>Refuser</button>
+                </span>
+                : <button type="button" className={styles.expulser} onClick={() => agir(actions.expulser(m.id))} aria-label={`Expulser ${m.pseudo}`}>Expulser</button>
               : <span />}
             <span className={`${styles.point} ${presents.has(m.id) ? "" : styles.absent}`}
               title={presents.has(m.id) ? "Connecté" : "Déconnecté"} />

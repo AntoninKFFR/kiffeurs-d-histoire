@@ -14,11 +14,11 @@ const DEPART: EtatSalon = {
   },
   moi: "m1",
   membres: [
-    { id: "m1", pseudo: "Maxou", est_hote: true, invite: false, ordre: 1 },
-    { id: "m2", pseudo: "Antonin", est_hote: false, invite: false, ordre: 2 },
-    { id: "m3", pseudo: "Lulu_1515", est_hote: false, invite: false, ordre: 3 },
-    { id: "m4", pseudo: "Clément", est_hote: false, invite: true, ordre: 4 },
-    { id: "m5", pseudo: "Sarah", est_hote: false, invite: true, ordre: 5 },
+    { id: "m1", pseudo: "Maxou", est_hote: true, invite: false, ordre: 1, en_attente: false },
+    { id: "m2", pseudo: "Antonin", est_hote: false, invite: false, ordre: 2, en_attente: false },
+    { id: "m3", pseudo: "Lulu_1515", est_hote: false, invite: false, ordre: 3, en_attente: false },
+    { id: "m4", pseudo: "Clément", est_hote: false, invite: true, ordre: 4, en_attente: false },
+    { id: "m5", pseudo: "Sarah", est_hote: false, invite: true, ordre: 5, en_attente: true },
   ],
 };
 
@@ -33,6 +33,7 @@ export function ApercuSalon({ vue }: { vue: "hote" | "joueur" }) {
           reglages: { ...e.salon.reglages, ...reglages }, visibilite: visibilite ?? e.salon.visibilite, max_joueurs: maxJoueurs ?? e.salon.max_joueurs } }));
         return null;
       },
+      accepter: async (id) => { setEtat((e) => ({ ...e, membres: e.membres.map((m) => m.id === id ? { ...m, en_attente: false } : m) })); return null; },
       expulser: async (id) => { setEtat((e) => ({ ...e, membres: e.membres.filter((m) => m.id !== id) })); return null; },
       quitter: () => router.push("/apercu"),
       lancer: async () => "Aperçu : la partie multijoueur arrive avec #140.",

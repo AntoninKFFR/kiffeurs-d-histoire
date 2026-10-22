@@ -29,7 +29,11 @@ export function refusPseudoInvite(pseudo: string): string | null {
   return null;
 }
 
-export type MembreSalon = { id: string; pseudo: string; est_hote: boolean; invite: boolean; ordre: number };
+export type MembreSalon = {
+  id: string; pseudo: string; est_hote: boolean; invite: boolean; ordre: number;
+  /** Arrivé pendant une partie : l'hôte l'accepte ou le refuse avant la suivante. */
+  en_attente: boolean;
+};
 
 export type EtatSalon = {
   salon: {

@@ -44,7 +44,23 @@ set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000025';
 select pg_temp.verifier((select histoire.parties_ouvertes()->0->>'etat' = 'partie'), 'partie en cours affichée');
 insert into t select 'entree', histoire.rejoindre_salon_par_lien((select (valeur->>'salon_id')::uuid from t where cle = 'ouvert'));
 select pg_temp.verifier((select histoire.parties_ouvertes()->0->>'joueurs' = '2' and (histoire.parties_ouvertes()->0->>'moi')::boolean), 'entré pour attendre');
+select pg_temp.verifier((select (histoire.etat_salon((select (valeur->>'salon_id')::uuid from t where cle = 'ouvert'))->'membres'->1->>'en_attente')::boolean), 'arrivé pendant la partie : en attente');
+-- Seul l'hôte accepte.
+select pg_temp.refuser(format('select histoire.accepter_membre(%L, %L)', (select valeur->>'salon_id' from t where cle = 'ouvert'), (select valeur->>'membre_id' from t where cle = 'entree')), '42501');
 reset role;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000024';
+select pg_temp.verifier((select (histoire.etat_salon((select (valeur->>'salon_id')::uuid from t where cle = 'ouvert'))->'membres'->0->>'en_attente')::boolean = false), 'hôte jamais en attente');
+select histoire.accepter_membre((select (valeur->>'salon_id')::uuid from t where cle = 'ouvert'), (select (valeur->>'membre_id')::uuid from t where cle = 'entree'));
+select pg_temp.verifier((select (histoire.etat_salon((select (valeur->>'salon_id')::uuid from t where cle = 'ouvert'))->'membres'->1->>'en_attente')::boolean = false), 'accepté par l''hôte');
+reset role;
+-- Salon complet : refusé.
+update histoire.salons set max_joueurs = 2 where id = (select (valeur->>'salon_id')::uuid from t where cle = 'ouvert');
+set local role anon;
+set local request.jwt.claim.sub = '';
+select pg_temp.refuser(format('select histoire.rejoindre_salon_par_lien(%L, %L)', (select valeur->>'salon_id' from t where cle = 'ouvert'), 'Gaston'), '55000');
+reset role;
+update histoire.salons set max_joueurs = 4 where id = (select (valeur->>'salon_id')::uuid from t where cle = 'ouvert');
 
 -- Exclu : le salon disparaît de sa liste.
 set local role authenticated;

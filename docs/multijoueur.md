@@ -158,7 +158,9 @@ Migration `20261022120000_parties_ouvertes.sql`, tests `supabase/tests/parties_o
   2 dernières heures, sans code ni identifiant de compte ; un compte exclu ne voit plus le salon. Rafraîchie toutes
   les 5 s quand la page est visible. Bouton « Rejoindre », « Attendre » si une partie est en cours, « Revenir » si on
   y est déjà, « Complet » sinon.
-- **Partie en cours** : on peut désormais entrer dans un salon pendant une partie ; on attend la suivante dans le salon.
-  Les joueurs d'une partie seront ceux présents à son lancement (#140).
+- **Partie en cours** : on peut entrer dans un salon (s'il reste une place) pendant une partie ; on attend dans le
+  salon. Ce joueur est marqué « en attente » (`salon_membres.en_attente`, posé par la base) ; entre deux parties, l'hôte
+  l'**accepte** (`accepter_membre`) ou le **refuse** (`expulser_membre`). Décision de Maxou, 22 oct. Migration
+  `20261022130000_arrivee_en_partie.sql`. Les joueurs d'une partie seront ceux présents et acceptés à son lancement (#140).
 - **Lien d'invitation** : `/multi/salon/<uuid>` (#136) plutôt que `/salon/<code>` : l'uuid ne se devine pas, alors qu'un
   lien avec le code contournerait la limite d'essais de codes.

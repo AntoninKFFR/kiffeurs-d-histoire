@@ -32,9 +32,9 @@
 .pied b { color: var(--color-encre); }
 .erreur { color: var(--color-oxyde); font-weight: 700; }
 
-/* ——— Roulette ——— */
-.roulette { --carte: 200px; --ecart: 16px; --haut: 220px; background: #1d2a3a; color: #f6f3ea; grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1fr); }
-.roulette .inventaire { color: #d9c48f; }
+/* ——— Roulette : papier ancien (choix de Maxou, 23 oct., à la place du bleu de la maquette) ——— */
+.roulette { --carte: 200px; --ecart: 16px; --haut: 220px; background: radial-gradient(ellipse at center, #fbf6e8 0%, #efe4c8 100%); color: #1d2a3a; grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1fr); }
+.roulette .inventaire { color: #8a2f2b; }
 .fenetre { position: relative; grid-row: 3; justify-self: center; width: 100vw; height: calc(var(--haut) + 24px); overflow: hidden; }
 .repere { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); background: #b08a3e; z-index: 1; }
 .repere::before, .repere::after { content: ""; position: absolute; left: -7px; border-inline: 8px solid transparent; }
@@ -43,15 +43,15 @@
 .bande { position: absolute; left: 50%; top: 12px; display: flex; gap: var(--ecart); width: max-content;
   transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2)));
   animation: tourner both; will-change: transform; }
-.case { box-sizing: border-box; width: var(--carte); height: var(--haut); flex-shrink: 0; display: grid; grid-template-rows: 62% 1fr; background: #959aa3; color: #1d2a3a; transition: background .3s, box-shadow .3s; }
-.case .illu { margin: 0; background: #8a8f96; border-bottom: 0; }
+.case { box-sizing: border-box; width: var(--carte); height: var(--haut); flex-shrink: 0; display: grid; grid-template-rows: 62% 1fr; background: #fffdf7; color: #1d2a3a; border: 1px solid #d9c48f; transition: opacity .3s, box-shadow .3s; }
+.case .illu { margin: 0; background: #f3ead3; border-bottom: 0; }
 .case .motif { width: 64px; height: 64px; color: #1d2a3a; }
 .case b { padding: 10px 8px; font-family: var(--font-titre); font-weight: 400; font-size: 18px; line-height: 1.2; overflow-wrap: anywhere; }
-.case[data-gagnante="true"] { background: #fbfaf5; box-shadow: 0 0 0 4px #b08a3e, 0 0 40px rgb(217 196 143 / .35); }
-.case[data-gagnante="true"] .illu { background: #e9e6da; }
+.case[data-gagnante="true"] { box-shadow: 0 0 0 4px #b08a3e, 0 0 40px rgb(176 138 62 / .3); }
+.fenetre[data-arretee="true"] .case:not([data-gagnante="true"]) { opacity: .6; }
 .annonce { grid-row: 4; align-self: start; padding-top: 28px; display: grid; gap: 6px; }
-.annonce h2 { margin: 0; font-family: var(--font-titre); font-weight: 400; font-size: 34px; color: #d9c48f; overflow-wrap: anywhere; }
-.annonce p { margin: 0; font-size: 14px; color: #d8dbe0; }
+.annonce h2 { margin: 0; font-family: var(--font-titre); font-weight: 400; font-size: 34px; color: #8a2f2b; overflow-wrap: anywhere; }
+.annonce p { margin: 0; font-size: 14px; color: #5a5040; }
 @keyframes tourner {
   0% { transform: translateX(calc(-1 * var(--carte) / 2)); animation-timing-function: cubic-bezier(.15, .6, .2, 1); }
   90% { transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2) - 14px)); animation-timing-function: ease-in-out; }

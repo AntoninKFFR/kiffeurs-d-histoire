@@ -9,16 +9,17 @@ import type { MembreSalon } from "@/lib/multi/salon";
 import { creerSimulation, joueursSimules } from "./simulation";
 
 const PSEUDOS = ["Maxou", "Antonin", "Lulu_1515", "Clément", "Sarah", "Hugo", "Inès", "Jules", "Chloé", "Nora"];
-const membres = (dix: boolean): MembreSalon[] => joueursSimules(dix).map((id, k) => ({
+const membres = (dix: boolean, duel: boolean): MembreSalon[] => joueursSimules(dix, duel).map((id, k) => ({
   id, pseudo: PSEUDOS[k], est_hote: k === 0, invite: k === 3 || k === 4, ordre: k + 1, en_attente: false,
 }));
 
-type Options = { chrono: boolean; visible: boolean; dix: boolean; fin?: HabillageFin; contenu?: "vote" | "mystere" };
+type Options = { chrono: boolean; visible: boolean; dix: boolean; fin?: HabillageFin; contenu?: "vote" | "mystere" | "pickban" };
 
 // Partie de 5 questions contre des joueurs fictifs. ?chrono=1 : mode chrono ; ?visible=1 : mode visible ;
 // ?joueurs=10 : dix joueurs (mesure de fluidité du mode visible) ; ?fin=musee ou ?fin=gazette : habillage de
 // l'écran de fin (sinon celui de l'époque des questions, la gazette ici) ; ?contenu=vote ou ?contenu=mystere :
-// vote des joueurs ou roulette avant la première question (#144). Rien n'est envoyé.
+// vote des joueurs ou roulette avant la première question (#144) ; ?contenu=pickban : 1 contre 1 contre Antonin,
+// avec pick & ban (#145). Rien n'est envoyé.
 export function ApercuPartieMulti(options: Options) {
   const [partie, setPartie] = useState(0);
   return <PartieSimulee key={partie} {...options} rejouer={() => setPartie((n) => n + 1)} />;
@@ -32,6 +33,7 @@ function PartieSimulee({ chrono, visible, dix, fin, contenu, rejouer }: Options 
     etat: async () => simulation.etat(Date.now()),
     repondre: async (id, debut, fin) => simulation.repondre(id, debut, fin, Date.now()),
     voter: async (choix) => simulation.voter(choix, Date.now()),
+    bannir: async (choix) => simulation.bannir(choix, Date.now()),
     prevenir: () => setSignal((n) => n + 1),
     curseur: () => {},
     bilan: async () => simulation.bilan(Date.now()),
@@ -52,7 +54,7 @@ function PartieSimulee({ chrono, visible, dix, fin, contenu, rejouer }: Options 
     const id = setInterval(() => {
       const e = simulation.etat(Date.now());
       const q = e.question;
-      const cle = `${q?.id}-${q?.revelee_le}-${e.partie.etat}-${e.vote?.votes.length}`;
+      const cle = `${q?.id}-${q?.revelee_le}-${e.partie.etat}-${e.vote?.votes.length}-${e.pick_ban?.bans.length}`;
       if (cle !== vu) setSignal((n) => n + 1);
       vu = cle;
     }, 200);
@@ -70,7 +72,8 @@ function PartieSimulee({ chrono, visible, dix, fin, contenu, rejouer }: Options 
     masques: new Set(),
     dire: (id) => { const recu = Date.now(); setMiens((l) => [...l, { cle: `m1-${recu}`, membreId: "m1", id, recu }]); return null; },
   }), [leurs, miens]);
-  const liste = useMemo(() => membres(dix), [dix]);
+  const duel = contenu === "pickban";
+  const liste = useMemo(() => membres(dix, duel), [dix, duel]);
   const presents = useMemo(() => new Set(liste.map((m) => m.id).filter((id) => dix || id !== "m5")), [liste, dix]);
   return <PartieMulti membres={liste} presents={presents} actions={actions} signal={signal}
     modeVisible={visible} abonnerCurseurs={abonnerCurseurs} habillageFin={fin} chat={chat}

@@ -1,13 +1,14 @@
 "use client";
 
-// Vote et Thème Mystère (#144) : ce qui précède la première question quand l'hôte n'a pas choisi le contenu.
-// Maquettes : docs/maquettes/v1.3/vote-pc.png et roulette-pc.png. Le serveur tient le vote, tire la roulette
-// et fixe les horaires ; ces écrans ne font que les montrer, à l'heure du serveur.
+// Vote, Thème Mystère (#144) et pick & ban (#145) : ce qui précède la première question quand l'hôte n'a pas
+// choisi le contenu. Maquettes : docs/maquettes/v1.3/vote-pc.png, roulette-pc.png, pickban-pc.png et pickban-tel.png.
+// Le serveur tient le vote et les bans, tire la roulette et fixe les horaires ; ces écrans ne font que les montrer,
+// à l'heure du serveur.
 import { useState, type CSSProperties } from "react";
 import { Motif } from "@/components/charte/Motif";
 import { ChronoCirculaire } from "@/components/ui/ChronoCirculaire";
 import { detailContenu, motifContenu } from "@/lib/multi/contenu";
-import { bandeRoulette, decompteVotes, type TiragePartie, type VotePartie } from "@/lib/multi/partie";
+import { bandeRoulette, decompteVotes, lirePickBan, type PickBan, type TiragePartie, type VotePartie } from "@/lib/multi/partie";
 import type { MembreSalon } from "@/lib/multi/salon";
 import type { SoloDifficulty } from "@/lib/game/solo";
 import s from "./choix-partie.module.css";
@@ -143,6 +144,101 @@ export function RouletteMulti({ tirage, egalite, total, precision, debutMs, serv
           <p>{total} questions · {PRECISIONS[precision]} · {reste > 0 ? `la partie commence dans ${reste} s` : "c'est parti !"}</p>
         </> : <p>La roulette tourne…</p>}
       </div>
+    </div>
+  );
+}
+
+type Resultat = Promise<{ ok: true } | { ok: false; erreur: string }>;
+
+export function PickBanMulti({ pickBan, membres, moi, couleur, serveur, debutMs, total, precision, quitter, bannir }: Commun & {
+  pickBan: PickBan;
+  moi: string;
+  /** Pick & ban fini : première question (heure du serveur, ms). */
+  debutMs: number | null;
+  total: number;
+  precision: SoloDifficulty;
+  bannir: (choix: number) => Resultat;
+}) {
+  // La carte visée, puis le ban envoyé (affiché tout de suite, le serveur confirme au prochain état).
+  const [vise, setVise] = useState<{ tour: number; choix: number } | null>(null);
+  const [envoi, setEnvoi] = useState<{ tour: number; choix: number } | null>(null);
+  const [erreur, setErreur] = useState<string | null>(null);
+  const lu = lirePickBan(pickBan);
+  const tour = pickBan.bans.length;
+  const enCours = envoi?.tour === tour ? envoi : null;
+  const aMoi = lu.joueur === moi && !enCours;
+  const choix = vise?.tour === tour && !lu.bannis.has(vise.choix) ? vise.choix : null;
+  const pseudo = (id: string | null) => membres.find((m) => m.id === id)?.pseudo ?? "Joueur parti";
+  const initiale = (id: string | null) => [...pseudo(id)][0]?.toUpperCase();
+  const restant = pickBan.tour_fin ? Math.max(0, Math.ceil((Date.parse(pickBan.tour_fin) - serveur) / 1000)) : 0;
+  const retenue = lu.retenue != null ? pickBan.propositions[lu.retenue] : null;
+  const debutDans = debutMs != null ? Math.max(0, Math.ceil((debutMs - serveur) / 1000)) : null;
+  const restantes = lu.restantes.length - (enCours ? 1 : 0);
+
+  async function confirmer() {
+    if (choix == null || !aMoi) return;
+    setEnvoi({ tour, choix });
+    setErreur(null);
+    const r = await bannir(choix);
+    if (!r.ok) { setEnvoi(null); setErreur(r.erreur); }
+  }
+
+  const joueur = (id: string, cote: "g" | "d") => (
+    <div className={s.joueur} data-cote={cote} data-actif={lu.joueur === id}>
+      <span className={s.grosPion} style={{ background: couleur(id) }} aria-hidden>{initiale(id)}</span>
+      <span>
+        <b>{pseudo(id)}{id === moi ? " (toi)" : ""}</b>
+        <small>a banni {lu.bansDe(id)}{lu.joueur === id ? (id === moi ? " · à toi" : " · son tour") : ""}</small>
+      </span>
+    </div>
+  );
+  // Moi à gauche, l'adversaire à droite (comme la maquette).
+  const gauche = pickBan.ordre.includes(moi) ? moi : pickBan.ordre[0];
+  const droite = pickBan.ordre.find((id) => id !== gauche);
+
+  return (
+    <div className={`${s.plein} ${s.pickban}`}>
+      <button type="button" className={s.quitter} onClick={quitter}>← Quitter</button>
+      <header className={s.duel}>
+        {gauche && joueur(gauche, "g")}
+        <div className={s.vs}><span className={s.inventaire}>1 contre 1 · pick &amp; ban</span><b className="date">VS</b></div>
+        {droite && joueur(droite, "d")}
+      </header>
+      <div className={s.consigne} role="status">
+        {retenue ? <>
+          <h1>On joue : {retenue.titre}</h1>
+          <p>{total} questions · {PRECISIONS[precision]} · {debutDans ? `la partie commence dans ${debutDans} s` : "c'est parti !"}</p>
+        </> : aMoi ? <>
+          <h1>À toi de bannir</h1>
+          <p>Il reste {restantes} choix : bannis-en un. Temps : <b className={`${s.secondes} date`}>{restant}</b> s (sinon au hasard)</p>
+        </> : <>
+          <h1>{enCours ? "Ban envoyé…" : `${pseudo(lu.joueur)} bannit…`}</h1>
+          <p>Il reste {restantes} choix. Temps : <b className={`${s.secondes} date`}>{restant}</b> s (sinon au hasard)</p>
+        </>}
+      </div>
+      <ul className={s.propositions} aria-label="Propositions">
+        {pickBan.propositions.map((p, i) => {
+          const ban = lu.bannis.get(i) ?? (enCours?.choix === i ? { membre_id: moi, hasard: false } : null);
+          return <li key={`${p.type}-${p.id}`}>
+            <button type="button" className={s.prop} data-banni={!!ban} data-vise={choix === i && !ban} data-retenue={lu.retenue === i}
+              disabled={!aMoi || !!ban} aria-pressed={choix === i}
+              aria-label={`${p.titre}${ban ? `, banni${ban.hasard ? " au hasard" : ` par ${pseudo(ban.membre_id)}`}` : ""}`}
+              onClick={() => setVise({ tour, choix: i })}>
+              {ban && <span className={s.par} style={{ background: ban.membre_id ? couleur(ban.membre_id) : undefined }}
+                title={ban.hasard ? "Banni au hasard (temps écoulé)" : `Banni par ${pseudo(ban.membre_id)}`}>
+                {ban.hasard ? "?" : initiale(ban.membre_id)}</span>}
+              <span className={s.illu}><Motif nom={motifContenu(p)} className={s.motif} /></span>
+              <b className={s.titre}>{p.titre}</b>
+              <span className={s.detail}>{ETIQUETTES[p.type]}</span>
+            </button>
+          </li>;
+        })}
+      </ul>
+      <footer className={s.action}>
+        {erreur && <p className={s.erreur} role="alert">{erreur}</p>}
+        {aMoi && <button type="button" className={s.bannir} disabled={choix == null} onClick={() => void confirmer()}>
+          {choix == null ? "Touche une carte à bannir" : `Bannir « ${pickBan.propositions[choix].titre} »`}</button>}
+      </footer>
     </div>
   );
 }

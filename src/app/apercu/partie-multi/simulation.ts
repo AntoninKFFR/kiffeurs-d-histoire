@@ -3,7 +3,7 @@
 // quand tous ont validé, révélation 8 s, mode chrono 10 s) ; le score reprend la formule du solo, en Année.
 import type { HistoricDate } from "@/lib/game/dates";
 import type { BilanPartie } from "@/lib/multi/bilan";
-import type { EtatPartie, PropositionContenu, TiragePartie } from "@/lib/multi/partie";
+import type { EtatPartie, PickBan, PropositionContenu, TiragePartie } from "@/lib/multi/partie";
 
 type Question = { id: string; titre: string; annee: number; fin?: number; description: string };
 type Reponse = { annee: number; fin?: number; recue: number; points: number; ecart: number; ecartFin?: number };
@@ -47,7 +47,17 @@ const BOTS_10: Record<string, Bot> = Object.fromEntries(Array.from({ length: 9 }
   apres: QUESTIONS.map((_, i) => 6 + ((k * 7 + i * 5) % 20)),
   ecart: QUESTIONS.map((_, i) => ((k * 13 + i * 7) % 31) - 15),
 }]));
-export const joueursSimules = (dix: boolean) => (dix ? Array.from({ length: 10 }, (_, k) => `m${k + 1}`) : ["m1", "m2", "m3", "m4", "m5"]);
+export const joueursSimules = (dix: boolean, duel = false) =>
+  (duel ? ["m1", "m2"] : dix ? Array.from({ length: 10 }, (_, k) => `m${k + 1}`) : ["m1", "m2", "m3", "m4", "m5"]);
+// Pick & ban (#145) : Antonin (m2) bannit en premier, 3 s après le début de son tour, dans cet ordre de préférence.
+const TOUR = 10000;
+const PICKBAN: PropositionContenu[] = [
+  { type: "pack", id: "COL-0105", titre: "Sport" }, { type: "periode", id: "moyen-age", titre: "Moyen Âge" },
+  { type: "theme", id: "TAG-0127", titre: "Sciences" }, { type: "periode", id: "xixe", titre: "XIXe siècle" },
+  { type: "pack", id: "COL-0114", titre: "Sorties de films cultes" }, { type: "theme", id: "TAG-0130", titre: "Espace" },
+  { type: "periode", id: "antiquite", titre: "Antiquité" },
+];
+const BANS_ANTONIN = [4, 0, 6, 2];
 
 function points(ecart: number, ecoule: number): number {
   const p = 100 * Math.max(0, 1 - Math.abs(ecart) / 50);
@@ -57,13 +67,15 @@ function points(ecart: number, ecoule: number): number {
 // La partie commence au premier appel (décompte de 3 s).
 // ?contenu=vote : 15 s de vote d'abord (les joueurs fictifs votent ; égalité, donc roulette, si je vote Sciences) ;
 // ?contenu=mystere : la roulette tire une période pour tout le salon.
-export function creerSimulation({ chrono = false, moi = "m1", dix = false, contenu = "direct" as "direct" | "vote" | "mystere" } = {}) {
-  const BOTS = dix ? BOTS_10 : BOTS_5;
-  const MEMBRES_JOUEURS = joueursSimules(dix);
+export function creerSimulation({ chrono = false, moi = "m1", dix = false, contenu = "direct" as "direct" | "vote" | "mystere" | "pickban" } = {}) {
+  const duel = contenu === "pickban";
+  const BOTS = duel ? { m2: BOTS_5.m2 } : dix ? BOTS_10 : BOTS_5;
+  const MEMBRES_JOUEURS = joueursSimules(dix, duel);
+  const bans: { choix: number; membre: string; hasard: boolean; quand: number }[] = [];
   const horaires: Horaire[] = [];
   let debut: number | null = null;
   const votes = new Map<string, { choix: number; quand: number }>();
-  let voteClos: number | null = contenu === "vote" ? null : 0;
+  let voteClos: number | null = contenu === "vote" || duel ? null : 0;
   let tirage: TiragePartie | null = null;
   let joue: PropositionContenu & { mystere?: boolean } = { type: "periode", id: "xixe", titre: "XIXe siècle" };
 
@@ -84,6 +96,24 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false, conte
       }
     }
     if (voteClos != null) return;
+    if (duel) {
+      // Chacun son tour ; à la fin du temps, ban au hasard (ici : la dernière carte encore en jeu).
+      for (;;) {
+        if (bans.length >= PICKBAN.length - 1) break;
+        const debutTour = bans.at(-1)?.quand ?? debut;
+        const joueur = bans.length % 2 ? "m1" : "m2";
+        const libres = PICKBAN.map((_, i) => i).filter((i) => !bans.some((b) => b.choix === i));
+        if (joueur === "m2" && debutTour + 3000 <= maintenant) {
+          bans.push({ choix: BANS_ANTONIN.find((i) => libres.includes(i)) ?? libres[0], membre: "m2", hasard: false, quand: debutTour + 3000 });
+        } else if (debutTour + TOUR <= maintenant) {
+          bans.push({ choix: libres.at(-1)!, membre: joueur, hasard: true, quand: debutTour + TOUR });
+        } else return;
+      }
+      voteClos = bans.at(-1)!.quand;
+      joue = PICKBAN.find((_, i) => !bans.some((b) => b.choix === i))!;
+      horaires.push({ posee: voteClos + DECOMPTE, limite: voteClos + DECOMPTE + DUREE, revelee: null });
+      return;
+    }
     for (const [id, apres, choix] of VOTES_BOTS) {
       if (MEMBRES_JOUEURS.includes(id) && !votes.has(id) && debut + apres <= maintenant) votes.set(id, { choix, quand: debut + apres });
     }
@@ -154,10 +184,11 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false, conte
     const iso = (t: number) => new Date(t).toISOString();
     const date = (annee?: number) => (annee == null ? undefined : { year: annee });
     return {
-      partie: { id: "apercu", numero: 1, etat: terminee ? "terminee" : voteClos == null ? "vote" : "en_cours", contenu: voteClos == null ? {} : joue,
+      partie: { id: "apercu", numero: 1, etat: terminee ? "terminee" : voteClos == null ? (duel ? "pick_ban" : "vote") : "en_cours", contenu: voteClos == null ? {} : joue,
         precision: "YEAR", mode_chrono: chrono, total: QUESTIONS.length, duree_question: DUREE / 1000, duree_revelation: REVELATION / 1000,
         categories: contenu === "mystere" ? ["periode"] : ["pack", "periode", "theme"] },
-      vote: voteClos == null ? { propositions: PROPOSITIONS, fin: iso(debut! + VOTE), duree: VOTE / 1000,
+      pick_ban: duel ? pickBan() : null,
+      vote: voteClos == null && !duel ? { propositions: PROPOSITIONS, fin: iso(debut! + VOTE), duree: VOTE / 1000,
         votes: [...votes.entries()].sort((a, b) => a[1].quand - b[1].quand).map(([m, v]) => ({ membre_id: m, choix: v.choix })) } : null,
       tirage,
       heure_serveur: maintenant,
@@ -177,6 +208,22 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false, conte
       scores: MEMBRES_JOUEURS.map((m) => ({ membre_id: m, points: QUESTIONS.reduce((total, x, k) =>
         total + (horaires[k]?.revelee != null ? reponses.get(x.id)!.get(m)?.points ?? 0 : 0), 0) })),
     };
+  }
+
+  function pickBan(): PickBan {
+    return { propositions: PICKBAN, ordre: ["m2", "m1"], duree: TOUR / 1000,
+      bans: bans.map((b, tour) => ({ tour, membre_id: b.membre, choix: b.choix, hasard: b.hasard })),
+      tour_fin: voteClos == null ? new Date((bans.at(-1)?.quand ?? debut!) + TOUR).toISOString() : null };
+  }
+
+  function bannir(choix: number, maintenant: number) {
+    preparer(maintenant);
+    if (voteClos != null) return { ok: false as const, erreur: "Le pick & ban est terminé" };
+    if (bans.length % 2 !== 1) return { ok: false as const, erreur: "Ce n'est pas ton tour" };
+    if (bans.some((b) => b.choix === choix)) return { ok: false as const, erreur: "Choix invalide" };
+    bans.push({ choix, membre: moi, hasard: false, quand: maintenant });
+    preparer(maintenant);
+    return { ok: true as const };
   }
 
   function voter(choix: number, maintenant: number) {
@@ -235,5 +282,5 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false, conte
       ? [{ membreId: "m2", id: EMOTES[i % EMOTES.length], recu: h.revelee + 3000 }] : []);
   }
 
-  return { etat, repondre, voter, curseurs, bilan, reactions };
+  return { etat, repondre, voter, bannir, curseurs, bilan, reactions };
 }

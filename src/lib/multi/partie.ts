@@ -42,12 +42,22 @@ export type VotePartie = {
   votes: { membre_id: string; choix: number }[];
 };
 
+/** Pick & ban du 1 contre 1 (#145) : les deux joueurs dans l'ordre des tours, les bans déjà faits, la fin du tour
+ *  en cours (null une fois terminé : la proposition restante est jouée). */
+export type PickBan = {
+  propositions: PropositionContenu[];
+  ordre: string[];
+  duree: number;
+  bans: { tour: number; membre_id: string | null; choix: number; hasard: boolean }[];
+  tour_fin: string | null;
+};
+
 /** Roulette tirée par le serveur (Thème Mystère, ou égalité au vote) : la même pour tout le salon. */
 export type TiragePartie = { candidats: PropositionContenu[]; gagnant: PropositionContenu; fin: string };
 
 export type EtatPartie = {
   partie: {
-    id: string; numero: number; etat: "vote" | "en_cours" | "terminee";
+    id: string; numero: number; etat: "vote" | "pick_ban" | "en_cours" | "terminee";
     contenu: { type?: string; id?: string; titre?: string; mystere?: boolean };
     precision: SoloDifficulty; mode_chrono: boolean; total: number;
     duree_question: number; duree_revelation: number;
@@ -55,6 +65,7 @@ export type EtatPartie = {
   };
   vote?: VotePartie | null;
   tirage?: TiragePartie | null;
+  pick_ban?: PickBan | null;
   heure_serveur: number;
   moi: string;
   je_joue: boolean;
@@ -67,6 +78,8 @@ export type EtatPartie = {
 export type Phase =
   | { type: "vote"; vote: VotePartie }
   | { type: "roulette"; tirage: TiragePartie; debutMs: number }
+  /** Pick & ban en cours (debutMs null), puis le contenu retenu jusqu'à la première question. */
+  | { type: "pickban"; pickBan: PickBan; debutMs: number | null }
   | { type: "decompte"; position: number; debutMs: number }
   | { type: "question"; question: QuestionMulti }
   | { type: "revelation"; question: QuestionMulti; suivanteMs: number | null }
@@ -75,7 +88,11 @@ export type Phase =
 /** Ce que l'écran doit montrer à l'instant `maintenantServeur` (ms, heure du serveur). */
 export function phaseDe(etat: EtatPartie, maintenantServeur: number): Phase {
   if (etat.partie.etat === "vote" && etat.vote) return { type: "vote", vote: etat.vote };
+  if (etat.partie.etat === "pick_ban" && etat.pick_ban) return { type: "pickban", pickBan: etat.pick_ban, debutMs: null };
   const q = etat.question;
+  if (!q && etat.pick_ban && etat.prochaine?.position === 1 && maintenantServeur < Date.parse(etat.prochaine.posee_le)) {
+    return { type: "pickban", pickBan: etat.pick_ban, debutMs: Date.parse(etat.prochaine.posee_le) };
+  }
   // Roulette (Mystère, égalité au vote) : elle tourne, puis montre le gagnant jusqu'à la première question.
   if (!q && etat.tirage && etat.prochaine?.position === 1 && maintenantServeur < Date.parse(etat.prochaine.posee_le)) {
     return { type: "roulette", tirage: etat.tirage, debutMs: Date.parse(etat.prochaine.posee_le) };
@@ -97,6 +114,7 @@ export function phaseDe(etat: EtatPartie, maintenantServeur: number): Phase {
 /** Prochain instant (heure du serveur) où l'état change sans action de personne : à redemander alors. */
 export function prochainRendezVous(etat: EtatPartie): number | null {
   if (etat.vote) return Date.parse(etat.vote.fin);
+  if (etat.pick_ban?.tour_fin) return Date.parse(etat.pick_ban.tour_fin);
   const q = etat.question;
   if (etat.prochaine) return Date.parse(etat.prochaine.posee_le);
   if (q && !q.revelee_le) return Date.parse(q.limite_le);
@@ -195,3 +213,17 @@ export function bandeRoulette(tirage: TiragePartie, arret: number): PropositionC
 }
 
 export const memeContenu = (a: PropositionContenu, b: PropositionContenu) => a.type === b.type && a.id === b.id;
+
+/** Où en est le pick & ban : à qui le tour, ce qui reste, ce qui est retenu, qui a banni quoi. */
+export function lirePickBan(pb: PickBan) {
+  const bannis = new Map(pb.bans.map((b) => [b.choix, b]));
+  const restantes = pb.propositions.map((_, i) => i).filter((i) => !bannis.has(i));
+  const fini = restantes.length <= 1;
+  return {
+    bannis,
+    restantes,
+    retenue: fini ? restantes[0] ?? null : null,
+    joueur: fini ? null : pb.ordre[pb.bans.length % 2] ?? null,
+    bansDe: (membreId: string) => pb.bans.filter((b) => b.membre_id === membreId).length,
+  };
+}

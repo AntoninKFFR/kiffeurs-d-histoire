@@ -23,7 +23,7 @@ import type { PionFrise } from "@/components/frise/Frise";
 import { EMOTES } from "@/lib/multi/chat-catalogue";
 import { ContenuChat, ImageEmote } from "./BarreChat";
 import { FinPartie } from "./FinPartie";
-import { RouletteMulti, VoteMulti } from "./ChoixPartie";
+import { PickBanMulti, RouletteMulti, VoteMulti } from "./ChoixPartie";
 import s from "./partie-multi.module.css";
 
 export type ActionsPartieMulti = {
@@ -31,6 +31,8 @@ export type ActionsPartieMulti = {
   repondre: (questionId: string, debut: HistoricDate, fin?: HistoricDate | null) => Promise<{ ok: true } | { ok: false; erreur: string }>;
   /** Vote pour l'une des trois propositions (#144). */
   voter: (choix: number) => Promise<{ ok: true } | { ok: false; erreur: string }>;
+  /** Pick & ban du 1 contre 1 : bannir une proposition, à son tour (#145). */
+  bannir: (choix: number) => Promise<{ ok: true } | { ok: false; erreur: string }>;
   /** Prévenir les autres que la partie a changé (réponse envoyée). */
   prevenir: () => void;
   /** Mode visible : diffuser mon curseur sur le canal du salon. */
@@ -203,6 +205,11 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     return <VoteMulti vote={phase.vote} membres={membres} moi={etat.moi} jeJoue={etat.je_joue} categories={etat.partie.categories ?? []}
       couleur={couleur} serveur={serveur} quitter={quitter}
       voter={async (choix) => { const r = await actions.voter(choix); if (r.ok) { actions.prevenir(); void charger(); } return r; }} />;
+  }
+  if (phase.type === "pickban") {
+    return <PickBanMulti pickBan={phase.pickBan} membres={membres} moi={etat.moi} couleur={couleur} serveur={serveur}
+      debutMs={phase.debutMs} total={etat.partie.total} precision={etat.partie.precision} quitter={quitter}
+      bannir={async (choix) => { const r = await actions.bannir(choix); if (r.ok) { actions.prevenir(); void charger(); } return r; }} />;
   }
   if (phase.type === "roulette") {
     return <RouletteMulti tirage={phase.tirage} egalite={!etat.partie.contenu.mystere} total={etat.partie.total}

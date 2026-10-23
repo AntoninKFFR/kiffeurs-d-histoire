@@ -191,7 +191,7 @@ l'instant présent, `histoire.avancer_partie`) :
 1. L'hôte lance (`lancer_partie`) : il faut 2 joueurs ; ceux encore « en attente » sont acceptés (l'hôte a pu les
    refuser avant). Tirage du solo (`solo_candidates`, tous niveaux) selon le contenu choisi : pack, thème, période
    (mêmes bornes que `src/lib/solo/periodes.ts`), Thème Mystère ou vote des joueurs (voir « Vote et Thème
-   Mystère (#144) »). Le 1 contre 1 est refusé jusqu'à #145. Questions période : au plus une
+   Mystère (#144) ») ; en 1 contre 1, pick & ban (#145). Questions période : au plus une
    sur cinq, si l'hôte les a activées. Pas de mode inversé.
 2. Décompte de 3 s, puis la question est posée : **30 s** (durée du solo, `scoring_settings.timer_seconds`).
 3. Réponse (`repondre_partie`) horodatée par le serveur ; refusée avant la question, après la limite, ou en double.
@@ -290,3 +290,29 @@ des émojis des maquettes). Aperçu : `/apercu/partie-multi?contenu=vote` ou `?c
   serveur (un joueur qui arrive en retard la voit déjà avancée) ; elle s'arrête sur le gagnant, puis montre
   « N questions · précision · la partie commence dans N s » jusqu'à la première question (3 s de décompte).
   Mouvement réduit : la bande ne défile pas, elle est posée directement sur le gagnant.
+
+## 1 contre 1 et pick & ban (#145)
+
+Migration `20261023100000_pick_ban.sql`, tests `supabase/tests/pick_ban.sql` et `tests/multi-pickban.test.ts`.
+Écran : `PickBanMulti` dans `src/components/multi/ChoixPartie.tsx` (maquettes pickban-pc et pickban-tel ; sur
+téléphone debout, les cartes passent sur deux lignes). Aperçu : `/apercu/partie-multi?contenu=pickban` (contre
+Antonin, fictif).
+
+- Salon de 2 places, comptes seulement. L'hôte choisit directement le contenu, passe par le Mystère, ou lance le
+  **pick & ban** (réglage par défaut). Le vote reste réservé au Convivial. La partie suit ensuite les règles du
+  Convivial (#140 à #143), mode chrono et mode visible compris.
+- **Propositions** : 7 contenus jouables (assez de questions pour la longueur choisie) tirés par le serveur dans
+  les catégories cochées, à tour de rôle entre catégories pour qu'elles soient variées. Si le catalogue en offre
+  moins de 7, le pick & ban se fait avec ce qu'il y a (au moins 2).
+- **Tours** : l'ordre des deux joueurs est tiré au sort au lancement. Chacun bannit une proposition à son tour
+  (`bannir_partie`), **10 s par tour** (`durees_pick_ban`) ; à la fin du temps, le serveur bannit au hasard pour
+  lui (marqué « ? » sur la carte). Un tour commence au ban précédent : un joueur rapide fait avancer le duel.
+- Quand il ne reste qu'une proposition, elle est jouée : l'écran l'entoure de laiton (« On joue : … ») jusqu'à la
+  première question, 3 s après le dernier ban.
+- Tout est arbitré et horodaté par la base ; `etat_partie` renvoie le même `pick_ban` aux deux joueurs.
+
+**À observer pour le futur classé** :
+- la variété des propositions (des catégories reviennent-elles trop ? des contenus jamais choisis ?) ;
+- la durée réelle du pick & ban (6 tours de 10 s au plus, soit une minute) et le nombre de bans au hasard,
+  signe que 10 s sont trop courtes ou que l'écran n'est pas clair ;
+- quel contenu reste le plus souvent, et si le joueur qui bannit en premier est avantagé.

@@ -112,3 +112,78 @@
   .case b { font-size: 15px; padding: 6px; }
   .annonce h2 { font-size: 28px; }
 }
+
+/* ——— Pick & ban (1 contre 1, #145) ——— */
+.pickban { background: var(--color-vert-de-gris); color: var(--color-encre); padding-top: 24px; grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 12px; }
+.duel { width: min(1250px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; padding: 0 30px; }
+.joueur { display: flex; gap: 12px; align-items: center; text-align: left; min-width: 0; }
+.joueur[data-cote="d"] { flex-direction: row-reverse; text-align: right; }
+.joueur b { display: block; font-family: var(--font-titre); font-weight: 400; font-size: 24px; line-height: 1.1; overflow-wrap: anywhere; }
+.joueur small { font-size: 12px; color: var(--color-encre-douce); }
+.grosPion { display: inline-grid; place-items: center; flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 24px; transition: box-shadow .2s; }
+.joueur[data-actif="true"] .grosPion { box-shadow: 0 0 0 4px var(--color-laiton); }
+.vs { display: grid; justify-items: center; }
+.vs b { font-size: 40px; line-height: 1; color: var(--color-oxyde); font-weight: 400; }
+.consigne { display: grid; gap: 4px; }
+.consigne h1 { margin: 0; font-size: 28px; line-height: 1.15; overflow-wrap: anywhere; }
+.consigne p { margin: 0; font-size: 12px; color: var(--color-encre-douce); }
+.secondes { font-size: 20px; color: var(--color-oxyde); font-weight: 400; }
+.propositions { list-style: none; margin: 0; padding: 0 6px; width: 100%; align-self: center; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 14px; }
+.prop { position: relative; width: 100%; height: 100%; display: grid; grid-template-rows: 110px auto auto; align-content: start; gap: 4px; padding: 0 6px 12px; font: inherit; color: inherit; text-align: center; background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); cursor: pointer; transition: transform .15s, opacity .3s; }
+.prop .illu { margin: 0 -6px; }
+.prop .motif { width: 56px; height: 56px; }
+.prop .titre { padding-top: 4px; font-size: 16px; }
+.prop:disabled { cursor: default; }
+.prop:focus-visible { outline: 3px solid var(--color-laiton); outline-offset: 3px; }
+.prop:hover:not(:disabled) { transform: translateY(-2px); }
+.prop[data-vise="true"] { outline: 3px solid var(--color-oxyde); outline-offset: -1px; transform: translateY(-6px); }
+.prop[data-banni="true"] { opacity: .45; filter: grayscale(1); }
+.prop[data-banni="true"]::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent 48.5%, var(--color-oxyde) 49%, var(--color-oxyde) 51%, transparent 51.5%); pointer-events: none; }
+.prop[data-retenue="true"] { box-shadow: 0 0 0 4px var(--color-laiton), 0 0 30px rgb(176 138 62 / .35); transform: translateY(-6px); }
+.par { position: absolute; left: 6px; top: 6px; z-index: 2; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--color-encre-douce); color: #fff; font-size: 10px; font-weight: 700; }
+.action { min-height: 52px; display: grid; justify-items: center; gap: 6px; }
+.bannir { min-height: 52px; padding: 14px 40px; font: inherit; font-weight: 700; font-size: 17px; color: #fff; background: var(--color-encre); border: 0; cursor: pointer; overflow-wrap: anywhere; }
+.bannir:disabled { opacity: .6; cursor: default; }
+.bannir:focus-visible { outline: 3px solid var(--color-laiton); outline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .propositions { gap: 8px; }
+  .prop .titre { font-size: 14px; }
+}
+/* Téléphone couché (maquette pickban-tel) : bandeau des joueurs réduit, une ligne de sept cartes, bouton en bas. */
+@media (max-height: 500px) {
+  .pickban { padding: 6px 8px 8px; gap: 4px; }
+  .duel { padding: 0 0 0 70px; }
+  .grosPion { width: 28px; height: 28px; font-size: 13px; }
+  .joueur { gap: 6px; }
+  .joueur b { font-size: 15px; }
+  .joueur small { display: none; }
+  .joueur[data-actif="true"] .grosPion { box-shadow: 0 0 0 3px var(--color-laiton); }
+  .vs b { display: none; }
+  .consigne h1 { font-size: 20px; }
+  .consigne p { font-size: 11px; }
+  .secondes { font-size: 16px; }
+  .propositions { gap: 6px; padding: 0; }
+  .prop { grid-template-rows: 62px auto auto; padding: 0 3px 6px; gap: 2px; }
+  .prop .illu { margin: 0 -3px; }
+  .prop .motif { width: 34px; height: 34px; }
+  .prop .titre { font-size: 12px; }
+  .prop .detail { display: none; }
+  .bannir { width: 100%; min-height: 48px; padding: 10px; font-size: 16px; }
+}
+/* Téléphone debout : deux lignes de cartes (4 + 3). */
+@media (max-width: 600px) {
+  .pickban { padding: 44px 10px 12px; }
+  .duel { padding: 0; gap: 6px; }
+  .vs .inventaire { display: none; }
+  .grosPion { width: 36px; height: 36px; font-size: 16px; }
+  .joueur b { font-size: 16px; }
+  .vs b { font-size: 26px; }
+  .consigne h1 { font-size: 22px; }
+  .propositions { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 0; }
+  .prop { grid-template-rows: 70px auto auto; padding: 0 3px 8px; }
+  .prop .illu { margin: 0 -3px; }
+  .prop .motif { width: 38px; height: 38px; }
+  .prop .titre { font-size: 13px; }
+  .bannir { width: 100%; padding: 12px; font-size: 16px; }
+}

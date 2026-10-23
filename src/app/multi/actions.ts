@@ -190,3 +190,12 @@ export async function voterPartie(salonId: string, choix: number): Promise<Resul
   const { error } = await supabase.schema("histoire").rpc("voter_partie", { p_salon_id: salonId, p_choix: choix, p_jeton: await jeton(salonId) });
   return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
 }
+
+/** Pick & ban du 1 contre 1 (#145) : bannir une proposition, à son tour. */
+export async function bannirPartie(salonId: string, choix: number): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  if (!Number.isInteger(choix) || choix < 0 || choix > 6) return { ok: false, erreur: "Choix invalide." };
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("bannir_partie", { p_salon_id: salonId, p_choix: choix, p_jeton: await jeton(salonId) });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}

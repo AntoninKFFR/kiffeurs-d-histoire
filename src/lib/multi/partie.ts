@@ -78,17 +78,45 @@ export function prochainRendezVous(etat: EtatPartie): number | null {
   return null;
 }
 
-export type LigneClassement = { membreId: string; points: number; rang: number; aValide: boolean };
+export type LigneClassement = {
+  membreId: string; points: number; rang: number; aValide: boolean;
+  /** Révélation, une fois le classement mis à jour : points de la question (null : pas de réponse). */
+  gain?: number | null;
+  /** Places gagnées (positif) ou perdues (négatif) sur cette question. */
+  mouvement?: number;
+};
 
-/** Classement : points décroissants, ex æquo au même rang, puis l'ordre du serveur (ordre d'arrivée). */
-export function classement(etat: EtatPartie): LigneClassement[] {
-  const valides = new Set(etat.question && !etat.question.revelee_le ? etat.question.ont_valide : []);
-  const tries = etat.scores.map((s, i) => ({ ...s, i })).sort((a, b) => b.points - a.points || a.i - b.i);
-  return tries.map((s) => ({
-    membreId: s.membre_id,
-    points: s.points,
-    rang: 1 + tries.filter((x) => x.points > s.points).length,
-    aValide: valides.has(s.membre_id),
+/** Révélation en trois temps (ms après la clôture) : les placements de chacun, puis la bonne date, puis le
+ *  classement qui bouge. */
+export const REVELATION_DATE = 1200;
+export const REVELATION_CLASSEMENT = 2400;
+export type EtapeRevelation = "placements" | "date" | "classement";
+
+export function etapeRevelation(q: QuestionMulti, maintenantServeur: number): EtapeRevelation {
+  const ecoule = maintenantServeur - Date.parse(q.revelee_le ?? "");
+  return ecoule >= REVELATION_CLASSEMENT ? "classement" : ecoule >= REVELATION_DATE ? "date" : "placements";
+}
+
+/** Classement : points décroissants, ex æquo au même rang, puis l'ordre du serveur (ordre d'arrivée).
+ *  Pendant la révélation, `etape` dit s'il faut encore montrer le classement d'avant la question. */
+export function classement(etat: EtatPartie, etape?: EtapeRevelation): LigneClassement[] {
+  const q = etat.question;
+  const valides = new Set(q && !q.revelee_le ? q.ont_valide : []);
+  const revelee = q?.revelee_le ? q : null;
+  const gain = (id: string) => revelee?.reponses?.find((r) => r.membre_id === id)?.points ?? null;
+  const ranger = (scores: { membre_id: string; points: number }[]) => {
+    const tries = scores.map((s, i) => ({ ...s, i })).sort((a, b) => b.points - a.points || a.i - b.i);
+    return tries.map((s) => ({ membreId: s.membre_id, points: s.points, rang: 1 + tries.filter((x) => x.points > s.points).length }));
+  };
+  const apres = ranger(etat.scores);
+  if (!revelee || !etape) return apres.map((l) => ({ ...l, aValide: valides.has(l.membreId) }));
+  const avant = ranger(etat.scores.map((s) => ({ ...s, points: s.points - (gain(s.membre_id) ?? 0) })));
+  if (etape !== "classement") return avant.map((l) => ({ ...l, aValide: false }));
+  // Places gagnées ou perdues dans la liste ; rien à la première question, quand tout le monde partait de 0.
+  const departage = avant.some((a) => a.points > 0);
+  return apres.map((l, i) => ({
+    ...l, aValide: false, gain: gain(l.membreId),
+    mouvement: departage ? avant.findIndex((a) => a.membreId === l.membreId) - i : 0,
   }));
 }
 
@@ -109,6 +137,11 @@ export function correctionPour(q: QuestionMulti, membreId: string): Correction |
     expiree: !r,
     autres: (q.reponses ?? []).filter((x) => x.membre_id !== membreId).flatMap((x) => [versDate(x.debut), ...(x.fin ? [versDate(x.fin)] : [])]),
   };
+}
+
+/** La question s'est close avant la fin du chrono : tout le monde avait validé. */
+export function closeAvantLaFin(q: QuestionMulti): boolean {
+  return q.revelee_le != null && Date.parse(q.revelee_le) < Date.parse(q.limite_le);
 }
 
 /** Le mode chrono a raccourci la question : il reste au plus 10 s après la première réponse. */

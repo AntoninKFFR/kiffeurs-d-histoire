@@ -178,7 +178,7 @@ Migration `20261022120000_parties_ouvertes.sql`, tests `supabase/tests/parties_o
   de la visite.
 - Limite connue : le canal étant public (voir #135), un client modifié pourrait faire apparaître une émote ou une
   phrase du catalogue sous le nom d'un autre joueur. Rien d'autre que le catalogue ne peut s'afficher.
-- Pendant la partie (émotes seules, discrètes) : branché avec l'écran de partie (#140).
+- Pendant la partie (émotes seules, discrètes) : « Réagir » pendant la révélation (#142).
 
 ## Partie Convivial (#140)
 
@@ -231,6 +231,24 @@ Réglage de l'hôte (`mode_visible`, invisible par défaut). Aperçu : `/apercu/
 **Mesure** (22 oct. 2026, aperçu local, Chromium, 10 joueurs dont 9 fictifs à 10 envois/s) : 60 images par seconde,
 médiane et 95 % à 16,7 ms, aucune image au-delà de 50 ms. À refaire à plusieurs navigateurs sur l'aperçu Vercel,
 avec la mesure de latence (#135).
+
+## Révélation (#142)
+
+Maquette : `maquettes/v1.3/revelation-pc.png`. Aperçu : `/apercu/partie-multi` (`?joueurs=10` pour dix joueurs).
+Tests : `tests/multi-revelation.test.ts`. Pas de migration : tout vient de `etat_partie` (#140).
+
+- **Trois temps** (`etapeRevelation`, comptés depuis la clôture, à l'heure du serveur) : les placements de chacun
+  s'affichent d'abord (« Et la bonne réponse est… »), la bonne date et ma correction arrivent à 1,2 s, le
+  classement bouge à 2,4 s (chaque ligne glisse vers sa nouvelle place, sauf avec « réduire les animations »).
+- **Pions** : « pseudo · date +points », avec 🎯 pour une réponse pile. Sur téléphone, sans la date (elle se lit sur
+  l'axe), et avec l'initiale seule au-delà de 5 joueurs ; les étiquettes passent devant les tiges.
+- **Classement** : « Après Q n », points gagnés (en vert, sur PC), places gagnées ▲ ou perdues ▼ (rien à la
+  première question, quand tout le monde part de 0), « pas de réponse ». En tête de question : « Révélation · Tout
+  le monde a validé » ou « Temps écoulé ». Le chrono disparaît à la clôture.
+- **Réagir** (chat #138 en partie) : quatre émotes sous le classement pendant la révélation (rire, duel, couronne,
+  sablier) ; les émotes des autres s'affichent 4 s à côté de leur nom. Les phrases restent au salon.
+- Limite connue : à 10 joueurs groupés sur un petit téléphone couché (667 × 375), les étiquettes du haut peuvent
+  passer sous le titre de la question.
 
 ## Fin de partie (#143)
 

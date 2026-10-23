@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { PartieMulti, type ActionsPartieMulti, type CurseurJoueur } from "@/components/multi/PartieMulti";
+import { PartieMulti, type ActionsPartieMulti, type ChatPartie, type CurseurJoueur } from "@/components/multi/PartieMulti";
+import type { MessageChat } from "@/lib/multi/chat";
 import type { HabillageFin } from "@/lib/multi/bilan";
 import type { MembreSalon } from "@/lib/multi/salon";
 import { creerSimulation, joueursSimules } from "./simulation";
@@ -43,9 +44,32 @@ function PartieSimulee({ chrono, visible, dix, fin, rejouer }: Options & { rejou
     }, 100);
     return () => clearInterval(id);
   }, [simulation]);
+  // Comme le canal en vrai : on prévient dès qu'un joueur fictif fait clore une question.
+  useEffect(() => {
+    let vu = "";
+    const id = setInterval(() => {
+      const q = simulation.etat(Date.now()).question;
+      const cle = `${q?.id}-${q?.revelee_le}`;
+      if (q?.revelee_le && cle !== vu) setSignal((n) => n + 1);
+      vu = cle;
+    }, 200);
+    return () => clearInterval(id);
+  }, [simulation]);
+  // Chat : mes émotes, et celles des joueurs fictifs (relues toutes les 500 ms).
+  const [miens, setMiens] = useState<MessageChat[]>([]);
+  const [leurs, setLeurs] = useState<MessageChat[]>([]);
+  useEffect(() => {
+    const id = setInterval(() => setLeurs(simulation.reactions(Date.now()).map((m) => ({ ...m, cle: `${m.membreId}-${m.recu}` }))), 500);
+    return () => clearInterval(id);
+  }, [simulation]);
+  const chat = useMemo<ChatPartie>(() => ({
+    messages: [...leurs, ...miens].sort((a, b) => a.recu - b.recu),
+    masques: new Set(),
+    dire: (id) => { const recu = Date.now(); setMiens((l) => [...l, { cle: `m1-${recu}`, membreId: "m1", id, recu }]); return null; },
+  }), [leurs, miens]);
   const liste = useMemo(() => membres(dix), [dix]);
   const presents = useMemo(() => new Set(liste.map((m) => m.id).filter((id) => dix || id !== "m5")), [liste, dix]);
   return <PartieMulti membres={liste} presents={presents} actions={actions} signal={signal}
-    modeVisible={visible} abonnerCurseurs={abonnerCurseurs} habillageFin={fin}
+    modeVisible={visible} abonnerCurseurs={abonnerCurseurs} habillageFin={fin} chat={chat}
     quitter={() => router.push("/apercu")} retour={rejouer} />;
 }

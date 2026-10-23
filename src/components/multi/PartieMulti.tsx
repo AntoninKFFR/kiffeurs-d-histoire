@@ -3,7 +3,7 @@
 // Partie Convivial (#140) : l'écran de partie du solo (frise plein écran, clic ou cases JJ/MM/AAAA), branché
 // sur la partie du salon. Le serveur fixe les horaires et corrige ; on lui redemande l'état aux échéances,
 // quand un autre joueur prévient (« partie_change » sur le canal), et toutes les 3 s par sécurité.
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { HistoricDate } from "@/lib/game/dates";
 import { habillageDe } from "@/lib/game/habillages";
 import { capitaliser, precisionDepuis, urlIllustration } from "@/lib/game/partie";
@@ -11,11 +11,17 @@ import { bornesDe, type Choix } from "@/lib/solo/choix";
 import { versT } from "@/lib/game/frise";
 import { creerLimiteur, doitDiffuser, rapprocher } from "@/lib/multi/curseurs";
 import { estimerDecalage, type Echantillon } from "@/lib/multi/horloge";
-import { chronoAccelere, classement, correctionPour, phaseDe, prochainRendezVous, type EtatPartie, type QuestionMulti } from "@/lib/multi/partie";
+import { DUREE_BULLE, elementChat, type MessageChat } from "@/lib/multi/chat";
+import {
+  chronoAccelere, classement, closeAvantLaFin, correctionPour, etapeRevelation, phaseDe, prochainRendezVous, REVELATION_DATE,
+  type EtatPartie, type LigneClassement, type QuestionMulti,
+} from "@/lib/multi/partie";
 import type { BilanPartie, HabillageFin } from "@/lib/multi/bilan";
 import type { MembreSalon } from "@/lib/multi/salon";
 import { EcranPartie, type Correction, type ReponsePeriode } from "@/components/partie/EcranPartie";
 import type { PionFrise } from "@/components/frise/Frise";
+import { EMOTES } from "@/lib/multi/chat-catalogue";
+import { ContenuChat, ImageEmote } from "./BarreChat";
 import { FinPartie } from "./FinPartie";
 import s from "./partie-multi.module.css";
 
@@ -51,12 +57,19 @@ type Props = {
   abonnerCurseurs?: (recevoir: (c: CurseurJoueur) => void) => () => void;
   /** Aperçu : habillage imposé à l'écran de fin. */
   habillageFin?: HabillageFin;
+  /** Chat du salon pendant la partie : émotes seules, en bulle à côté du joueur dans le classement (#142). */
+  chat?: ChatPartie;
 };
+
+export type ChatPartie = { messages: readonly MessageChat[]; masques: ReadonlySet<string>; dire: (id: string) => string | null };
+
+// « Réagir » pendant la révélation (maquette revelation-pc) : rire, duel, couronne, sablier.
+const REACTIONS = ["napoleon-rire", "duel", "couronne", "sablier"].map((id) => EMOTES.find((e) => e.id === id)!);
 
 // Mêmes couleurs que les pions du salon (--j1 à --j6), en clair : la frise ne voit pas ces variables.
 const COULEURS = ["#8a2f2b", "#2f6b8a", "#5b7a3a", "#8a5a2f", "#6b3a8a", "#2f8a7a"];
 
-export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null, modeVisible = false, abonnerCurseurs, habillageFin }: Props) {
+export function PartieMulti({ membres, presents, actions, signal, retour, quitter, depart = null, modeVisible = false, abonnerCurseurs, habillageFin, chat }: Props) {
   const [etat, setEtat] = useState<EtatPartie | null>(depart);
   const [decalage, setDecalage] = useState(0);
   const [maintenant, setMaintenant] = useState(() => Date.now());
@@ -65,13 +78,17 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
   // Réponse envoyée : la correction arrive quand la question est close pour tout le monde.
   const attente = useRef<{ id: string; resoudre: (c: Correction) => void } | null>(null);
 
+  // Révélation en trois temps : la bonne date (et ma correction) arrive après les placements de chacun.
+  const decalageRef = useRef(0);
   const appliquer = useCallback((e: EtatPartie) => {
     etatRef.current = e;
     setEtat(e);
     const a = attente.current;
     if (a && e.question?.id === a.id && e.question.revelee_le) {
       attente.current = null;
-      a.resoudre(correctionPour(e.question, e.moi)!);
+      const correction = correctionPour(e.question, e.moi)!;
+      const reste = Date.parse(e.question.revelee_le) + REVELATION_DATE - (Date.now() + decalageRef.current);
+      if (reste > 0) setTimeout(() => a.resoudre(correction), reste); else a.resoudre(correction);
     }
   }, []);
 
@@ -82,7 +99,8 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     if (!e) return;
     // Horloge du serveur : la mesure au plus court aller-retour parmi les 10 dernières.
     echantillons.current = [...echantillons.current.slice(-9), { envoi, serveur: e.heure_serveur, reception }];
-    setDecalage(estimerDecalage(echantillons.current).decalage);
+    decalageRef.current = estimerDecalage(echantillons.current).decalage;
+    setDecalage(decalageRef.current);
     appliquer(e);
   }, [actions, appliquer]);
 
@@ -164,7 +182,8 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     return () => { actif = false; clearTimeout(t); clearInterval(filet); };
   }, [fini, bilan, actions]);
   // Un objet stable tant que l'échéance ne change pas (le mode chrono peut la rapprocher).
-  const finMs = question ? Date.parse(question.limite_le) - decalage : null;
+  // Plus de chrono une fois la question close.
+  const finMs = question && !question.revelee_le ? Date.parse(question.limite_le) - decalage : null;
   const totalMs = (etat?.partie.duree_question ?? 30) * 1000;
   const chrono = useMemo(() => (finMs == null ? undefined : { finMs, totalMs }), [finMs, totalMs]);
 
@@ -176,27 +195,42 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     return COULEURS[((m?.ordre ?? 1) - 1) % COULEURS.length];
   };
   const hote = membres.find((m) => m.est_hote)?.id;
-  const lignes = classement(etat);
+  const etape = phase.type === "revelation" ? etapeRevelation(phase.question, serveur) : undefined;
+  const lignes = classement(etat, etape);
+  // En partie, seules les émotes s'affichent (une phrase du salon attendra le retour au salon).
+  const visibles = chat ? chat.messages.filter((m) => !chat.masques.has(m.membreId) && elementChat(m.id)?.type === "emote") : [];
+  const bulle = (membreId: string) => [...visibles].reverse().find((m) => m.membreId === membreId && maintenant - m.recu < DUREE_BULLE);
   const tableau = (fin = false) => (
     <section className={`${s.classement} ${fin ? s.final : ""}`} aria-label="Classement">
-      <h2><span>Classement</span>{!fin && <span>Q{question?.position ?? etat.prochaine?.position ?? etat.partie.total}/{etat.partie.total}</span>}</h2>
-      <ol>
-        {lignes.map((l) => (
-          <li key={l.membreId} className={l.membreId === etat.moi ? s.moi : undefined}>
-            <span className={s.rang}>{l.rang}</span>
-            <span className={s.pion} style={{ background: couleur(l.membreId) }} aria-hidden>{[...pseudo(l.membreId)][0]?.toUpperCase()}</span>
-            <span className={s.nom}>
-              {pseudo(l.membreId)}
-              {l.membreId === hote && <span title="Hôte"> ♛</span>}
-              {l.aValide && <span className={s.valide} title="A validé"> ✓</span>}
-              {!presents.has(l.membreId) && <span className={s.absent}> · reconnexion…</span>}
-            </span>
-            <b className={`${s.points} date`}>{l.points.toLocaleString("fr-FR")}</b>
-          </li>
-        ))}
-      </ol>
+      <h2><span>Classement</span>{!fin && <span>{etape === "classement" ? `Après Q${question?.position}` : `Q${question?.position ?? etat.prochaine?.position ?? etat.partie.total}/${etat.partie.total}`}</span>}</h2>
+      <ListeClassement lignes={lignes} rendu={(l) => {
+        const b = bulle(l.membreId);
+        return <>
+          <span className={s.rang}>{l.rang}</span>
+          <span className={s.pion} style={{ background: couleur(l.membreId) }} aria-hidden>{[...pseudo(l.membreId)][0]?.toUpperCase()}</span>
+          <span className={s.nom}>
+            {pseudo(l.membreId)}
+            {l.membreId === hote && <span title="Hôte"> ♛</span>}
+            {l.aValide && <span className={s.valide} title="A validé"> ✓</span>}
+            {l.gain != null && <span className={s.gain}> +{l.gain}</span>}
+            {!!l.mouvement && <span className={l.mouvement > 0 ? s.monte : s.descend} title={l.mouvement > 0 ? "Gagne des places" : "Perd des places"}>
+              {" "}{l.mouvement > 0 ? "▲" : "▼"}{Math.abs(l.mouvement)}</span>}
+            {l.gain === null && presents.has(l.membreId) && <span className={s.absent}> · pas de réponse</span>}
+            {!presents.has(l.membreId) && <span className={s.absent}> · reconnexion…</span>}
+            {b && <span key={b.cle} className={s.bulle} role="status"><ContenuChat id={b.id} /></span>}
+          </span>
+          <b className={`${s.points} date`}>{l.points.toLocaleString("fr-FR")}</b>
+        </>;
+      }} moi={etat.moi} />
       {!fin && lignes.length > 3 && <p className={s.plus}>+{lignes.length - 3} joueur{lignes.length > 4 ? "s" : ""}</p>}
     </section>
+  );
+  const reagir = chat && phase.type === "revelation" && (
+    <div className={s.reagir}>
+      <span className={s.inventaire}>Réagir</span>
+      {REACTIONS.map((e) => <button key={e.id} type="button" title={`${e.nom} ${e.action}`} onClick={() => chat.dire(e.id)}>
+        <ImageEmote emote={e} taille={22} /></button>)}
+    </div>
   );
 
   if (phase.type === "fin") {
@@ -240,9 +274,12 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     ({ id, pseudo: pseudo(id), couleur: couleur(id), date: debut, fin });
   const pions: PionFrise[] | undefined = q.revelee_le
     // À la correction : les réponses de tous (mode visible comme invisible).
-    ? (q.reponses ?? []).filter((r) => r.membre_id !== etat.moi).map((r) => versPion(r.membre_id,
-      { year: r.debut.year, month: r.debut.month ?? null, day: r.debut.day ?? null },
-      r.fin ? { year: r.fin.year, month: r.fin.month ?? null, day: r.fin.day ?? null } : null))
+    ? (q.reponses ?? []).filter((r) => r.membre_id !== etat.moi).map((r) => ({
+      ...versPion(r.membre_id,
+        { year: r.debut.year, month: r.debut.month ?? null, day: r.debut.day ?? null },
+        r.fin ? { year: r.fin.year, month: r.fin.month ?? null, day: r.fin.day ?? null } : null),
+      points: r.points, pile: r.ecart === 0 && (r.ecart_fin ?? 0) === 0,
+    }))
     // Mode visible : les curseurs en direct de cette question.
     : modeVisible ? [...affiches].filter(([id, p]) => id !== etat.moi && p.question === q.id).map(([id, p]) => ({
       ...versPion(id, p.debut, p.fin), t: p.t, tFin: p.tFin ?? undefined, direct: true, valide: q.ont_valide.includes(id),
@@ -278,13 +315,16 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
       corriger={(id, rep) => corrigerAvec(id, rep)}
       corrigerPeriode={(id, rep: ReponsePeriode | null) => corrigerAvec(id, rep?.debut ?? null, rep?.fin ?? null)}
       multi={{
-        inventaire: <>
+        inventaire: q.revelee_le ? <>
+          {" · "}<span className={s.accelere}>Révélation</span>
+          {" · "}{closeAvantLaFin(q) ? "Tout le monde a validé" : "Temps écoulé"}
+        </> : <>
           {" · "}<span className={s.valides}>{q.ont_valide.length} / {joueurs} ont validé</span>
           {accelere && !q.revelee_le && <> · <span className={s.accelere}>Mode chrono : plus que 10 s !</span></>}
         </>,
-        autour: <div className={s.autour}>{tableau()}</div>,
+        autour: <div className={s.autour}>{tableau()}{reagir}</div>,
         quitter: <button type="button" className={s.quitterJeu} onClick={quitter}>← Quitter</button>,
-        attente: "Réponse envoyée · on attend les autres",
+        attente: q.revelee_le ? "Et la bonne réponse est…" : "Réponse envoyée · on attend les autres",
         apresCorrection: <p className={s.suite} role="status">
           {suivanteDans != null ? `Question suivante dans ${suivanteDans} s` : "Résultats dans un instant…"}
         </p>,
@@ -300,4 +340,28 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
       }}
     />
   );
+}
+
+// Liste du classement : quand l'ordre change (révélation), chaque ligne glisse de son ancienne place à la nouvelle.
+function ListeClassement({ lignes, rendu, moi }: { lignes: LigneClassement[]; rendu: (l: LigneClassement) => React.ReactNode; moi: string }) {
+  const liste = useRef<HTMLOListElement>(null);
+  const avant = useRef(new Map<string, number>());
+  const ordre = lignes.map((l) => l.membreId).join();
+  useLayoutEffect(() => {
+    const el = liste.current;
+    if (!el) return;
+    const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const items = [...el.querySelectorAll<HTMLLIElement>("li[data-id]")];
+    for (const li of items) {
+      const ancien = avant.current.get(li.dataset.id!);
+      const delta = ancien == null ? 0 : ancien - li.offsetTop;
+      if (delta && !reduit) {
+        li.animate([{ transform: `translateY(${delta}px)` }, { transform: "none" }], { duration: 600, easing: "cubic-bezier(.2,.7,.2,1)" });
+      }
+    }
+    avant.current = new Map(items.map((li) => [li.dataset.id!, li.offsetTop]));
+  }, [ordre]);
+  return <ol ref={liste}>
+    {lignes.map((l) => <li key={l.membreId} data-id={l.membreId} className={l.membreId === moi ? s.moi : undefined}>{rendu(l)}</li>)}
+  </ol>;
 }

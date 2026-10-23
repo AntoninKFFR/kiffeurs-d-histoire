@@ -97,7 +97,7 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
   }, []);
 
   if (enJeu) {
-    return <PartieMulti modeVisible={etat.salon.reglages.mode_visible} abonnerCurseurs={abonnerCurseurs} membres={etat.membres} presents={presents} actions={actionsPartie} signal={signalPartie}
+    return <PartieMulti modeVisible={etat.salon.reglages.mode_visible} abonnerCurseurs={abonnerCurseurs} membres={etat.membres} presents={presents} actions={actionsPartie} signal={signalPartie} chat={chat.salon}
       quitter={() => void quitter()} retour={() => { setEnJeu(false); void recharger(); }} />;
   }
 

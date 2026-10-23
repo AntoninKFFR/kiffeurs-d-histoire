@@ -71,3 +71,25 @@
   .final .pion { width: 20px; height: 20px; }
   .bouton { padding: 8px 24px; min-height: 44px; }
 }
+
+/* Révélation (#142, maquette revelation-pc) : points gagnés, places gagnées ou perdues, réactions. */
+.gain { color: #3d6b35; font-weight: 700; }
+.monte { color: #3d6b35; font-size: 11px; font-weight: 700; }
+.descend { color: var(--color-oxyde); font-size: 11px; font-weight: 700; }
+.bulle { display: inline-flex; vertical-align: middle; margin-left: 4px; animation: bulle .25s ease-out; }
+.bulle img { width: 22px; height: 22px; }
+@keyframes bulle { from { transform: scale(.4); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .bulle { animation: none; } }
+.reagir { display: flex; align-items: center; justify-content: flex-end; gap: 6px; margin-top: 8px; }
+.reagir .inventaire { color: var(--color-encre-douce); margin-right: 2px; }
+.reagir button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); cursor: pointer; }
+.reagir button:hover { border-color: var(--color-laiton); }
+@media (max-width: 860px), (max-height: 500px) {
+  .reagir { margin-top: 4px; gap: 4px; }
+  .reagir .inventaire { display: none; }
+  .reagir button { width: 30px; height: 30px; }
+  .autour .bulle img { width: 16px; height: 16px; }
+  /* Les points gagnés restent sur les pions de la frise ; ici, les places gagnées ou perdues seulement. */
+  .autour .gain { display: none; }
+  .autour .monte, .autour .descend { font-size: 9px; }
+}

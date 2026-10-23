@@ -25,7 +25,7 @@ type Bot = { apres: number[]; ecart: number[] };
 // Partie de 5 : Sarah (m5) est déconnectée. Partie de 10 (mesure du mode visible) : 9 joueurs fictifs.
 const BOTS_5: Record<string, Bot> = {
   m2: { apres: [6, 9, 5, 12, 7], ecart: [0, 2, -4, 1, 3] },
-  m3: { apres: [11, 14, 18, 8, 13], ecart: [3, -6, 10, 0, -1] },
+  m3: { apres: [11, 5, 18, 8, 13], ecart: [3, 0, 10, 0, -1] },
   m4: { apres: [17, 21, 24, 19, 26], ecart: [-13, 8, -25, 20, 5] },
 };
 const BOTS_10: Record<string, Bot> = Object.fromEntries(Array.from({ length: 9 }, (_, k) => [`m${k + 2}`, {
@@ -157,5 +157,13 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}
     };
   }
 
-  return { etat, repondre, curseurs, bilan };
+  // Réactions des joueurs fictifs (#142) : Antonin envoie une émote 3 s après chaque révélation.
+  function reactions(maintenant: number): { membreId: string; id: string; recu: number }[] {
+    avancer(maintenant);
+    const EMOTES = ["couronne", "napoleon-rire", "duel", "sablier", "couronne"];
+    return horaires.flatMap((h, i) => h.revelee != null && h.revelee + 3000 <= maintenant
+      ? [{ membreId: "m2", id: EMOTES[i % EMOTES.length], recu: h.revelee + 3000 }] : []);
+  }
+
+  return { etat, repondre, curseurs, bilan, reactions };
 }

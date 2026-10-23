@@ -35,3 +35,34 @@ export function titreContenu(r: Reglages): string {
   if (r.contenu.choix === "pick_ban") return "Pick & ban";
   return decrireCible(r.contenu.cible)?.titre ?? "Toute l'Histoire";
 }
+
+// Vote et roulette (#144) : un motif de la charte et une ligne de détail pour chaque contenu proposé.
+const MOTIFS_PERIODES: Record<string, string> = {
+  antiquite: "amphore", "moyen-age": "donjon", "epoque-moderne": "caravelle", xixe: "locomotive",
+  "guerres-mondiales": "casque", "depuis-1945": "fusee",
+};
+const MOTIFS_MOTS: [RegExp, string][] = [
+  [/espace|spatial/i, "fusee"], [/premi[eè]re guerre|seconde guerre|xxe|guerre froide/i, "casque"],
+  [/guerre|bataille|conflit|g[ée]nocide|terroris|violence/i, "epee"], [/r[ée]volution|insurrection|nationalis/i, "cocarde"],
+  [/napol|roi|empire|totalitar/i, "couronne"], [/religion/i, "vitrail"], [/france/i, "lys"],
+  [/science|savoir|technique|invention|m[ée]decine|premi[eè]res/i, "ampoule"], [/transport|industri|cyclisme|m[ée]canique/i, "locomotive"],
+  [/explor|colonis|esclav|migration/i, "caravelle"], [/europe|diplomat|g[ée]opolit|international|fronti[eè]re/i, "globe"],
+  [/film|pop|m[ée]dia|culture|art/i, "journal"], [/droit|libert|d[ée]mocratie|politique|[ée]tat|l[ée]gislation|travail|social/i, "parchemin"],
+  [/antiquit/i, "amphore"], [/moyen/i, "donjon"], [/moderne/i, "caravelle"], [/xixe/i, "locomotive"],
+  [/sport|football|tennis|olymp/i, "tour"], [/environnement|urbanis/i, "boussole"],
+];
+const MOTIFS_REPLI = ["parchemin", "colonne", "ecu", "plume", "globe", "boussole", "journal", "tour"];
+
+export function motifContenu(c: { type: string; id: string; titre: string }): string {
+  if (c.type === "periode" && MOTIFS_PERIODES[c.id]) return MOTIFS_PERIODES[c.id];
+  const mot = MOTIFS_MOTS.find(([re]) => re.test(c.titre));
+  if (mot) return mot[1];
+  const h = [...c.id].reduce((a, ch) => (a * 31 + ch.charCodeAt(0)) >>> 0, 7);
+  return MOTIFS_REPLI[h % MOTIFS_REPLI.length];
+}
+
+/** « 186 questions · 1789 – 1815 » (sans le type, déjà affiché sur l'étiquette). */
+export function detailContenu(c: { type: string; id: string }): string {
+  if (c.type !== "pack" && c.type !== "periode" && c.type !== "theme") return "";
+  return decrireCible({ type: c.type, id: c.id })?.detail.replace(/^(Pack|Thème|Période) · /, "").replace(/ · $/, "") ?? "";
+}

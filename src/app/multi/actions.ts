@@ -181,3 +181,12 @@ export async function bilanPartie(salonId: string): Promise<BilanPartie | null> 
   const { data, error } = await supabase.schema("histoire").rpc("bilan_partie", { p_salon_id: salonId, p_jeton: await jeton(salonId) });
   return error ? null : (data as BilanPartie | null);
 }
+
+/** Vote pour l'une des trois propositions (#144) ; on peut changer d'avis tant que le vote est ouvert. */
+export async function voterPartie(salonId: string, choix: number): Promise<ResultatAction> {
+  cookieInvite(salonId);
+  if (![0, 1, 2].includes(choix)) return { ok: false, erreur: "Choix invalide." };
+  const supabase = await createClient();
+  const { error } = await supabase.schema("histoire").rpc("voter_partie", { p_salon_id: salonId, p_choix: choix, p_jeton: await jeton(salonId) });
+  return error ? { ok: false, erreur: messageErreur(error) } : { ok: true };
+}

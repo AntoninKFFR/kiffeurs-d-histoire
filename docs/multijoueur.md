@@ -190,8 +190,8 @@ l'instant présent, `histoire.avancer_partie`) :
 
 1. L'hôte lance (`lancer_partie`) : il faut 2 joueurs ; ceux encore « en attente » sont acceptés (l'hôte a pu les
    refuser avant). Tirage du solo (`solo_candidates`, tous niveaux) selon le contenu choisi : pack, thème, période
-   (mêmes bornes que `src/lib/solo/periodes.ts`), ou Thème Mystère (un pack ou un thème tiré au sort, la roulette
-   viendra avec #144). Le vote est refusé jusqu'à #144, le 1 contre 1 jusqu'à #145. Questions période : au plus une
+   (mêmes bornes que `src/lib/solo/periodes.ts`), Thème Mystère ou vote des joueurs (voir « Vote et Thème
+   Mystère (#144) »). Le 1 contre 1 est refusé jusqu'à #145. Questions période : au plus une
    sur cinq, si l'hôte les a activées. Pas de mode inversé.
 2. Décompte de 3 s, puis la question est posée : **30 s** (durée du solo, `scoring_settings.timer_seconds`).
 3. Réponse (`repondre_partie`) horodatée par le serveur ; refusée avant la question, après la limite, ou en double.
@@ -270,3 +270,23 @@ Maquette : `maquettes/v1.3/podium-pc.png`. Aperçu : `/apercu/partie-multi` (att
   lancement, et une victoire au(x) premier(s) s'il a marqué des points. Le profil l'affiche dans « À plusieurs »
   (`mes_stats_multi`) ; les statistiques du solo ne changent pas.
 
+## Vote et Thème Mystère (#144)
+
+Migration `20261023090000_vote_mystere.sql`, tests `supabase/tests/vote_mystere.sql` et `tests/multi-vote.test.ts`.
+Écrans : `src/components/multi/ChoixPartie.tsx` (maquettes vote-pc et roulette-pc ; motifs de la charte à la place
+des émojis des maquettes). Aperçu : `/apercu/partie-multi?contenu=vote` ou `?contenu=mystere`.
+
+- **Vote** (Convivial) : au lancement, la partie est en état `vote` pendant **15 s** (`durees_choix_multi`), sans
+  question tirée. Trois propositions, une par catégorie cochée par l'hôte d'abord (pack, période, thème), complétées
+  dans les catégories cochées ; seuls les contenus qui ont assez de questions pour la longueur choisie sont proposés
+  (`contenus_multi`). Chacun vote en touchant une carte (`voter_partie`), peut changer d'avis, et voit les votes des
+  autres (pions sous les cartes). Les joueurs « en attente » regardent sans voter.
+- Le vote se clôt dès que tous les joueurs ont voté, ou à la fin des 15 s. La proposition qui a le plus de voix
+  l'emporte ; **à égalité** (ou sans aucun vote), la roulette tranche entre les ex æquo. Les questions sont tirées à
+  la clôture ; si le tirage échoue, la partie s'arrête et le salon revient en attente.
+- **Thème Mystère** : au lancement, le serveur tire le contenu dans les catégories cochées (packs, périodes,
+  thèmes jouables) et l'enregistre (`tirage` : jusqu'à 12 candidats, le gagnant, l'heure de fin).
+- **Roulette** : **6 s** plein écran, la même pour tout le salon. Chaque écran cale l'animation sur l'heure du
+  serveur (un joueur qui arrive en retard la voit déjà avancée) ; elle s'arrête sur le gagnant, puis montre
+  « N questions · précision · la partie commence dans N s » jusqu'à la première question (3 s de décompte).
+  Mouvement réduit : la bande ne défile pas, elle est posée directement sur le gagnant.

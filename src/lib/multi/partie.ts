@@ -31,13 +31,30 @@ export type QuestionMulti = {
   reponses?: ReponseRevelee[];
 };
 
+/** Un contenu proposé au vote ou tiré par la roulette (#144). */
+export type PropositionContenu = { type: "pack" | "periode" | "theme"; id: string; titre: string };
+
+/** Vote en cours : les trois propositions, l'échéance et le vote de chacun (visible de tous). */
+export type VotePartie = {
+  propositions: PropositionContenu[];
+  fin: string;
+  duree: number;
+  votes: { membre_id: string; choix: number }[];
+};
+
+/** Roulette tirée par le serveur (Thème Mystère, ou égalité au vote) : la même pour tout le salon. */
+export type TiragePartie = { candidats: PropositionContenu[]; gagnant: PropositionContenu; fin: string };
+
 export type EtatPartie = {
   partie: {
-    id: string; numero: number; etat: "en_cours" | "terminee";
+    id: string; numero: number; etat: "vote" | "en_cours" | "terminee";
     contenu: { type?: string; id?: string; titre?: string; mystere?: boolean };
     precision: SoloDifficulty; mode_chrono: boolean; total: number;
     duree_question: number; duree_revelation: number;
+    categories?: ("pack" | "periode" | "theme")[];
   };
+  vote?: VotePartie | null;
+  tirage?: TiragePartie | null;
   heure_serveur: number;
   moi: string;
   je_joue: boolean;
@@ -48,6 +65,8 @@ export type EtatPartie = {
 
 /** Phase affichée : décompte avant une question, question ouverte, révélation, fin. */
 export type Phase =
+  | { type: "vote"; vote: VotePartie }
+  | { type: "roulette"; tirage: TiragePartie; debutMs: number }
   | { type: "decompte"; position: number; debutMs: number }
   | { type: "question"; question: QuestionMulti }
   | { type: "revelation"; question: QuestionMulti; suivanteMs: number | null }
@@ -55,7 +74,12 @@ export type Phase =
 
 /** Ce que l'écran doit montrer à l'instant `maintenantServeur` (ms, heure du serveur). */
 export function phaseDe(etat: EtatPartie, maintenantServeur: number): Phase {
+  if (etat.partie.etat === "vote" && etat.vote) return { type: "vote", vote: etat.vote };
   const q = etat.question;
+  // Roulette (Mystère, égalité au vote) : elle tourne, puis montre le gagnant jusqu'à la première question.
+  if (!q && etat.tirage && etat.prochaine?.position === 1 && maintenantServeur < Date.parse(etat.prochaine.posee_le)) {
+    return { type: "roulette", tirage: etat.tirage, debutMs: Date.parse(etat.prochaine.posee_le) };
+  }
   const prochaine = etat.prochaine ? Date.parse(etat.prochaine.posee_le) : null;
   if (prochaine != null && maintenantServeur >= prochaine) {
     // La question suivante a commencé : en attendant le nouvel état, on la montre en décompte terminé.
@@ -72,6 +96,7 @@ export function phaseDe(etat: EtatPartie, maintenantServeur: number): Phase {
 
 /** Prochain instant (heure du serveur) où l'état change sans action de personne : à redemander alors. */
 export function prochainRendezVous(etat: EtatPartie): number | null {
+  if (etat.vote) return Date.parse(etat.vote.fin);
   const q = etat.question;
   if (etat.prochaine) return Date.parse(etat.prochaine.posee_le);
   if (q && !q.revelee_le) return Date.parse(q.limite_le);
@@ -150,3 +175,23 @@ export function chronoAccelere(etat: EtatPartie): boolean {
   if (!q || !etat.partie.mode_chrono) return false;
   return Date.parse(q.limite_le) - Date.parse(q.posee_le) < etat.partie.duree_question * 1000;
 }
+
+/** Votes reçus par chaque proposition, et le mien (null : pas encore voté). */
+export function decompteVotes(vote: VotePartie, moi: string): { voix: string[][]; monChoix: number | null } {
+  const voix = vote.propositions.map((_, i) => vote.votes.filter((v) => v.choix === i).map((v) => v.membre_id));
+  return { voix, monChoix: vote.votes.find((v) => v.membre_id === moi)?.choix ?? null };
+}
+
+/** Bande de la roulette : les candidats à tour de rôle, le gagnant à l'index `arret`, quelques cartes après.
+ *  Ses voisines ne sont jamais le gagnant (la bande aurait l'air de s'arrêter une carte trop tôt). */
+export function bandeRoulette(tirage: TiragePartie, arret: number): PropositionContenu[] {
+  const liste = tirage.candidats.length ? tirage.candidats : [tirage.gagnant];
+  const n = liste.length;
+  return Array.from({ length: arret + 4 }, (_, i) => {
+    if (i === arret) return tirage.gagnant;
+    const c = liste[i % n];
+    return Math.abs(i - arret) === 1 && n > 1 && memeContenu(c, tirage.gagnant) ? liste[(i + 1) % n] : c;
+  });
+}
+
+export const memeContenu = (a: PropositionContenu, b: PropositionContenu) => a.type === b.type && a.id === b.id;

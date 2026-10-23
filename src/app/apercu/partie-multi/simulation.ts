@@ -3,7 +3,7 @@
 // quand tous ont validé, révélation 8 s, mode chrono 10 s) ; le score reprend la formule du solo, en Année.
 import type { HistoricDate } from "@/lib/game/dates";
 import type { BilanPartie } from "@/lib/multi/bilan";
-import type { EtatPartie } from "@/lib/multi/partie";
+import type { EtatPartie, PropositionContenu, TiragePartie } from "@/lib/multi/partie";
 
 type Question = { id: string; titre: string; annee: number; fin?: number; description: string };
 type Reponse = { annee: number; fin?: number; recue: number; points: number; ecart: number; ecartFin?: number };
@@ -20,6 +20,21 @@ const DECOMPTE = 3000;
 const DUREE = 30000;
 const REVELATION = 8000;
 const RAPIDE = 10000;
+const VOTE = 15000;
+const ROULETTE = 6000;
+// Vote (#144) : une proposition par catégorie ; Antonin et Clément pour la Révolution, Lulu pour les Sciences.
+const PROPOSITIONS: PropositionContenu[] = [
+  { type: "pack", id: "COL-0066", titre: "Révolution française" },
+  { type: "periode", id: "xixe", titre: "XIXe siècle" },
+  { type: "theme", id: "TAG-0127", titre: "Sciences" },
+];
+const VOTES_BOTS: [string, number, number][] = [["m2", 3000, 0], ["m3", 5000, 2], ["m4", 9000, 0], ["m6", 4000, 1], ["m7", 6000, 2],
+  ["m8", 7000, 1], ["m9", 8000, 0], ["m10", 11000, 2]];
+const MYSTERES: PropositionContenu[] = [
+  { type: "periode", id: "antiquite", titre: "Antiquité" }, { type: "periode", id: "moyen-age", titre: "Moyen Âge" },
+  { type: "periode", id: "epoque-moderne", titre: "Époque moderne" }, { type: "periode", id: "xixe", titre: "XIXe siècle" },
+  { type: "periode", id: "guerres-mondiales", titre: "Guerres mondiales" }, { type: "periode", id: "depuis-1945", titre: "Depuis 1945" },
+];
 type Bot = { apres: number[]; ecart: number[] };
 // Joueurs fictifs : quand ils répondent (s après la question) et de combien ils se trompent.
 // Partie de 5 : Sarah (m5) est déconnectée. Partie de 10 (mesure du mode visible) : 9 joueurs fictifs.
@@ -40,10 +55,52 @@ function points(ecart: number, ecoule: number): number {
 }
 
 // La partie commence au premier appel (décompte de 3 s).
-export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}) {
+// ?contenu=vote : 15 s de vote d'abord (les joueurs fictifs votent ; égalité, donc roulette, si je vote Sciences) ;
+// ?contenu=mystere : la roulette tire une période pour tout le salon.
+export function creerSimulation({ chrono = false, moi = "m1", dix = false, contenu = "direct" as "direct" | "vote" | "mystere" } = {}) {
   const BOTS = dix ? BOTS_10 : BOTS_5;
   const MEMBRES_JOUEURS = joueursSimules(dix);
   const horaires: Horaire[] = [];
+  let debut: number | null = null;
+  const votes = new Map<string, { choix: number; quand: number }>();
+  let voteClos: number | null = contenu === "vote" ? null : 0;
+  let tirage: TiragePartie | null = null;
+  let joue: PropositionContenu & { mystere?: boolean } = { type: "periode", id: "xixe", titre: "XIXe siècle" };
+
+  function roulette(candidats: PropositionContenu[], gagnant: PropositionContenu, fin: number): TiragePartie {
+    return { candidats, gagnant, fin: new Date(fin).toISOString() };
+  }
+
+  // Avant les questions : le vote (clos quand tous les présents ont voté, ou à 15 s), ou la roulette Mystère.
+  function preparer(maintenant: number) {
+    if (debut == null) {
+      debut = maintenant;
+      if (contenu === "mystere") {
+        joue = { ...MYSTERES[3], mystere: true };
+        tirage = roulette([MYSTERES[0], MYSTERES[1], MYSTERES[5], MYSTERES[3], MYSTERES[2], MYSTERES[4]], MYSTERES[3], maintenant + ROULETTE);
+        horaires.push({ posee: maintenant + ROULETTE + DECOMPTE, limite: maintenant + ROULETTE + DECOMPTE + DUREE, revelee: null });
+      } else if (contenu === "direct") {
+        horaires.push({ posee: maintenant + DECOMPTE, limite: maintenant + DECOMPTE + DUREE, revelee: null });
+      }
+    }
+    if (voteClos != null) return;
+    for (const [id, apres, choix] of VOTES_BOTS) {
+      if (MEMBRES_JOUEURS.includes(id) && !votes.has(id) && debut + apres <= maintenant) votes.set(id, { choix, quand: debut + apres });
+    }
+    const presents = MEMBRES_JOUEURS.filter((m) => dix || m !== "m5");
+    const tous = presents.every((m) => votes.has(m));
+    if (!tous && maintenant < debut + VOTE) return;
+    voteClos = tous ? Math.max(...[...votes.values()].map((v) => v.quand)) : debut + VOTE;
+    const voix = PROPOSITIONS.map((_, i) => [...votes.values()].filter((v) => v.choix === i).length);
+    const ex = PROPOSITIONS.filter((_, i) => voix[i] === Math.max(...voix));
+    let posee = voteClos + DECOMPTE;
+    joue = ex[0];
+    if (ex.length > 1) {
+      tirage = roulette(ex, ex[0], voteClos + ROULETTE);
+      posee += ROULETTE;
+    }
+    horaires.push({ posee, limite: posee + DUREE, revelee: null });
+  }
   const reponses = new Map<string, Map<string, Reponse>>(QUESTIONS.map((q) => [q.id, new Map()]));
   let terminee = false;
 
@@ -62,7 +119,8 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}
   }
 
   function avancer(maintenant: number) {
-    if (horaires.length === 0) horaires.push({ posee: maintenant + DECOMPTE, limite: maintenant + DECOMPTE + DUREE, revelee: null });
+    preparer(maintenant);
+    if (horaires.length === 0) return;
     for (;;) {
       const i = horaires.length - 1;
       const h = horaires[i];
@@ -96,8 +154,12 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}
     const iso = (t: number) => new Date(t).toISOString();
     const date = (annee?: number) => (annee == null ? undefined : { year: annee });
     return {
-      partie: { id: "apercu", numero: 1, etat: terminee ? "terminee" : "en_cours", contenu: { type: "periode", id: "xixe", titre: "XIXe siècle" },
-        precision: "YEAR", mode_chrono: chrono, total: QUESTIONS.length, duree_question: DUREE / 1000, duree_revelation: REVELATION / 1000 },
+      partie: { id: "apercu", numero: 1, etat: terminee ? "terminee" : voteClos == null ? "vote" : "en_cours", contenu: voteClos == null ? {} : joue,
+        precision: "YEAR", mode_chrono: chrono, total: QUESTIONS.length, duree_question: DUREE / 1000, duree_revelation: REVELATION / 1000,
+        categories: contenu === "mystere" ? ["periode"] : ["pack", "periode", "theme"] },
+      vote: voteClos == null ? { propositions: PROPOSITIONS, fin: iso(debut! + VOTE), duree: VOTE / 1000,
+        votes: [...votes.entries()].sort((a, b) => a[1].quand - b[1].quand).map(([m, v]) => ({ membre_id: m, choix: v.choix })) } : null,
+      tirage,
       heure_serveur: maintenant,
       moi,
       je_joue: true,
@@ -115,6 +177,14 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}
       scores: MEMBRES_JOUEURS.map((m) => ({ membre_id: m, points: QUESTIONS.reduce((total, x, k) =>
         total + (horaires[k]?.revelee != null ? reponses.get(x.id)!.get(m)?.points ?? 0 : 0), 0) })),
     };
+  }
+
+  function voter(choix: number, maintenant: number) {
+    preparer(maintenant);
+    if (voteClos != null) return { ok: false as const, erreur: "Le vote est clos" };
+    votes.set(moi, { choix, quand: maintenant });
+    preparer(maintenant);
+    return { ok: true as const };
   }
 
   function repondre(questionId: string, debut: HistoricDate, fin: HistoricDate | null | undefined, maintenant: number) {
@@ -165,5 +235,5 @@ export function creerSimulation({ chrono = false, moi = "m1", dix = false } = {}
       ? [{ membreId: "m2", id: EMOTES[i % EMOTES.length], recu: h.revelee + 3000 }] : []);
   }
 
-  return { etat, repondre, curseurs, bilan, reactions };
+  return { etat, repondre, voter, curseurs, bilan, reactions };
 }

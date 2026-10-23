@@ -13,23 +13,25 @@ const membres = (dix: boolean): MembreSalon[] => joueursSimules(dix).map((id, k)
   id, pseudo: PSEUDOS[k], est_hote: k === 0, invite: k === 3 || k === 4, ordre: k + 1, en_attente: false,
 }));
 
-type Options = { chrono: boolean; visible: boolean; dix: boolean; fin?: HabillageFin };
+type Options = { chrono: boolean; visible: boolean; dix: boolean; fin?: HabillageFin; contenu?: "vote" | "mystere" };
 
 // Partie de 5 questions contre des joueurs fictifs. ?chrono=1 : mode chrono ; ?visible=1 : mode visible ;
 // ?joueurs=10 : dix joueurs (mesure de fluidité du mode visible) ; ?fin=musee ou ?fin=gazette : habillage de
-// l'écran de fin (sinon celui de l'époque des questions, la gazette ici). Rien n'est envoyé.
+// l'écran de fin (sinon celui de l'époque des questions, la gazette ici) ; ?contenu=vote ou ?contenu=mystere :
+// vote des joueurs ou roulette avant la première question (#144). Rien n'est envoyé.
 export function ApercuPartieMulti(options: Options) {
   const [partie, setPartie] = useState(0);
   return <PartieSimulee key={partie} {...options} rejouer={() => setPartie((n) => n + 1)} />;
 }
 
-function PartieSimulee({ chrono, visible, dix, fin, rejouer }: Options & { rejouer: () => void }) {
+function PartieSimulee({ chrono, visible, dix, fin, contenu, rejouer }: Options & { rejouer: () => void }) {
   const router = useRouter();
-  const simulation = useMemo(() => creerSimulation({ chrono, dix }), [chrono, dix]);
+  const simulation = useMemo(() => creerSimulation({ chrono, dix, contenu }), [chrono, dix, contenu]);
   const [signal, setSignal] = useState(0);
   const actions = useMemo<ActionsPartieMulti>(() => ({
     etat: async () => simulation.etat(Date.now()),
     repondre: async (id, debut, fin) => simulation.repondre(id, debut, fin, Date.now()),
+    voter: async (choix) => simulation.voter(choix, Date.now()),
     prevenir: () => setSignal((n) => n + 1),
     curseur: () => {},
     bilan: async () => simulation.bilan(Date.now()),
@@ -48,9 +50,10 @@ function PartieSimulee({ chrono, visible, dix, fin, rejouer }: Options & { rejou
   useEffect(() => {
     let vu = "";
     const id = setInterval(() => {
-      const q = simulation.etat(Date.now()).question;
-      const cle = `${q?.id}-${q?.revelee_le}`;
-      if (q?.revelee_le && cle !== vu) setSignal((n) => n + 1);
+      const e = simulation.etat(Date.now());
+      const q = e.question;
+      const cle = `${q?.id}-${q?.revelee_le}-${e.partie.etat}-${e.vote?.votes.length}`;
+      if (cle !== vu) setSignal((n) => n + 1);
       vu = cle;
     }, 200);
     return () => clearInterval(id);

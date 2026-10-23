@@ -51,14 +51,6 @@ select pg_temp.verifier(histoire.etat_partie((select (valeur->>'salon_id')::uuid
   (select valeur->>'jeton' from t where cle = 'invite')) is null, 'pas de partie avant le lancement');
 reset role;
 
--- Le vote n'est pas encore jouable.
-update histoire.salons set reglages = jsonb_set(reglages, '{contenu,choix}', '"vote"') where id = (select (valeur->>'salon_id')::uuid from t where cle = 'salon');
-set local role authenticated;
-set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000040';
-select pg_temp.refuser(format('select histoire.lancer_partie(%L)', (select valeur->>'salon_id' from t where cle = 'salon')), '22023');
-reset role;
-update histoire.salons set reglages = jsonb_set(reglages, '{contenu,choix}', '"direct"') where id = (select (valeur->>'salon_id')::uuid from t where cle = 'salon');
-
 -- Lancement.
 set local role authenticated;
 set local request.jwt.claim.sub = '00000000-0000-0000-0000-000000000040';

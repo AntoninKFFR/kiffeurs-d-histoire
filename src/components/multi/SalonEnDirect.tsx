@@ -9,7 +9,7 @@ import { ouvrirCanalSalon, type CanalSalon } from "@/lib/multi/canal";
 import { demarrerBattement } from "@/lib/multi/battement";
 import type { EtatSalon } from "@/lib/multi/salon";
 import { useChatSalon } from "./useChatSalon";
-import { accepterMembre, battementSalon, bilanPartie, etatPartie, etatSalon, expulserMembre, lancerPartie, modifierSalon, quitterSalon, repondrePartie } from "@/app/multi/actions";
+import { accepterMembre, battementSalon, bilanPartie, etatPartie, etatSalon, expulserMembre, lancerPartie, modifierSalon, quitterSalon, repondrePartie, voterPartie } from "@/app/multi/actions";
 import { EcranSalon } from "./EcranSalon";
 import { PartieMulti, type ActionsPartieMulti, type CurseurJoueur } from "./PartieMulti";
 import type { EvenementSalon } from "@/lib/multi/canal";
@@ -84,6 +84,7 @@ export function SalonEnDirect({ depart }: { depart: EtatSalon }) {
     etat: () => etatPartie(salonId),
     bilan: () => bilanPartie(salonId),
     repondre: (questionId, debut, fin) => repondrePartie(salonId, questionId, debut, fin),
+    voter: (choix) => voterPartie(salonId, choix),
     prevenir: () => void canal.current?.envoyer({ type: "partie_change" }),
     curseur: ({ membreId, question, debut, fin }) => void canal.current?.envoyer({
       type: "curseur", membreId, question, annee: debut.year,

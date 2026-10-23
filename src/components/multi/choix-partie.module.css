@@ -1,0 +1,114 @@
+/* Vote et Thème Mystère (#144). Maquettes : docs/maquettes/v1.3/vote-pc.png et roulette-pc.png.
+   Tout tient sans défiler, du PC (1366×768) au téléphone couché (667×375) ou debout (375×667). */
+.plein {
+  --j1: #8a2f2b; --j2: #2f6b8a; --j3: #5b7a3a; --j4: #8a5a2f; --j5: #6b3a8a; --j6: #2f8a7a;
+  position: fixed; inset: 0; z-index: 50; display: grid; justify-items: center; align-content: start;
+  padding: 40px 24px 24px; overflow: hidden; text-align: center; grid-template-columns: minmax(0, 100%);
+}
+.quitter { position: absolute; left: 16px; top: 2px; min-height: 44px; display: inline-flex; align-items: center; font: inherit; font-size: 13px; color: inherit; opacity: .8; text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; z-index: 2; }
+.tete { display: grid; gap: 4px; justify-items: center; max-width: calc(100% - 200px); }
+.tete h1 { margin: 0; font-size: 34px; line-height: 1.1; }
+.inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
+
+/* ——— Vote ——— */
+.vote { background: var(--color-vert-de-gris); color: var(--color-encre); grid-template-rows: auto minmax(0, 1fr) auto; }
+.chrono { position: absolute; right: 36px; top: 30px; }
+.cartes { list-style: none; margin: 0; padding: 0; width: min(1146px, 100%); align-self: center; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.carte { width: 100%; height: 100%; display: grid; grid-template-rows: 150px auto auto auto 26px 18px; justify-items: center; align-content: start; gap: 8px; padding: 0 12px 16px; font: inherit; color: inherit; text-align: center; background: var(--color-blanc-cartel); border: 1px solid var(--color-filet); box-shadow: 0 1px 0 #c3c8bd, 0 8px 24px -12px rgb(29 42 58 / .35); cursor: pointer; transition: transform .15s, box-shadow .15s; }
+.carte:hover:not(:disabled) { transform: translateY(-2px); }
+.carte:focus-visible { outline: 3px solid var(--color-laiton); outline-offset: 3px; }
+.carte:disabled { cursor: default; }
+.carte[data-choisi="true"] { border-color: var(--color-encre); box-shadow: inset 0 0 0 2px var(--color-encre), 0 8px 24px -12px rgb(29 42 58 / .35); }
+.illu { display: grid; place-items: center; align-self: stretch; justify-self: stretch; margin: 0 -12px; background: color-mix(in srgb, var(--color-papier) 70%, var(--color-filet)); border-bottom: 1px solid var(--color-filet); }
+.motif { width: 72px; height: 72px; color: var(--color-encre); }
+.tag { margin-top: 6px; padding: 3px 8px; font-size: 12px; border: 1px solid var(--color-filet); background: var(--color-papier); }
+.titre { font-family: var(--font-titre); font-weight: 400; font-size: 24px; line-height: 1.15; overflow-wrap: anywhere; }
+.detail { font-size: 12px; color: var(--color-encre-douce); }
+.votes { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; min-height: 26px; }
+.pion { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 12px; }
+.monVote { font-size: 12px; font-weight: 700; color: #3d6b35; }
+.pied { display: grid; gap: 6px; justify-items: center; font-size: 12px; color: var(--color-encre-douce); }
+.pied p { margin: 0; }
+.pied b { color: var(--color-encre); }
+.erreur { color: var(--color-oxyde); font-weight: 700; }
+
+/* ——— Roulette ——— */
+.roulette { --carte: 200px; --ecart: 16px; --haut: 220px; background: #1d2a3a; color: #f6f3ea; grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1fr); }
+.roulette .inventaire { color: #d9c48f; }
+.fenetre { position: relative; grid-row: 3; justify-self: center; width: 100vw; height: calc(var(--haut) + 24px); overflow: hidden; }
+.repere { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); background: #b08a3e; z-index: 1; }
+.repere::before, .repere::after { content: ""; position: absolute; left: -7px; border-inline: 8px solid transparent; }
+.repere::before { top: 0; border-top: 10px solid #b08a3e; }
+.repere::after { bottom: 0; border-bottom: 10px solid #b08a3e; }
+.bande { position: absolute; left: 50%; top: 12px; display: flex; gap: var(--ecart); width: max-content;
+  transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2)));
+  animation: tourner both; will-change: transform; }
+.case { box-sizing: border-box; width: var(--carte); height: var(--haut); flex-shrink: 0; display: grid; grid-template-rows: 62% 1fr; background: #959aa3; color: #1d2a3a; transition: background .3s, box-shadow .3s; }
+.case .illu { margin: 0; background: #8a8f96; border-bottom: 0; }
+.case .motif { width: 64px; height: 64px; color: #1d2a3a; }
+.case b { padding: 10px 8px; font-family: var(--font-titre); font-weight: 400; font-size: 18px; line-height: 1.2; overflow-wrap: anywhere; }
+.case[data-gagnante="true"] { background: #fbfaf5; box-shadow: 0 0 0 4px #b08a3e, 0 0 40px rgb(217 196 143 / .35); }
+.case[data-gagnante="true"] .illu { background: #e9e6da; }
+.annonce { grid-row: 4; align-self: start; padding-top: 28px; display: grid; gap: 6px; }
+.annonce h2 { margin: 0; font-family: var(--font-titre); font-weight: 400; font-size: 34px; color: #d9c48f; overflow-wrap: anywhere; }
+.annonce p { margin: 0; font-size: 14px; color: #d8dbe0; }
+@keyframes tourner {
+  0% { transform: translateX(calc(-1 * var(--carte) / 2)); animation-timing-function: cubic-bezier(.15, .6, .2, 1); }
+  90% { transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2) - 14px)); animation-timing-function: ease-in-out; }
+  100% { transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2))); }
+}
+.fenetre[data-arretee="true"] .bande { animation: none; will-change: auto; }
+@media (prefers-reduced-motion: reduce) { .bande { animation: none; } }
+
+/* Écran moyen. */
+@media (max-width: 1100px) {
+  .cartes { gap: 16px; }
+  .titre { font-size: 21px; }
+}
+/* Téléphone couché : cartes basses, en ligne. */
+@media (max-height: 500px) {
+  .plein { padding: 8px 12px 8px; }
+  .tete h1 { font-size: 22px; }
+  .chrono { right: 12px; top: 6px; }
+  .chrono > div { transform: scale(.7); transform-origin: top right; }
+  .cartes { gap: 10px; }
+  .carte { grid-template-rows: 64px auto auto auto 22px 16px; gap: 4px; padding-bottom: 8px; }
+  .motif { width: 40px; height: 40px; }
+  .tag { margin-top: 4px; font-size: 11px; padding: 1px 6px; }
+  .titre { font-size: 17px; }
+  .detail { font-size: 11px; }
+  .votes { min-height: 22px; }
+  .pion { width: 22px; height: 22px; font-size: 10px; }
+  .pied { font-size: 11px; gap: 2px; }
+  .roulette { --carte: 132px; --ecart: 10px; --haut: 150px; }
+  .case .motif { width: 44px; height: 44px; }
+  .case b { font-size: 14px; padding: 6px; }
+  .annonce { padding-top: 8px; }
+  .annonce h2 { font-size: 24px; }
+}
+/* Téléphone debout : les trois cartes l'une sous l'autre, motif à gauche. */
+@media (max-width: 600px) {
+  .plein { padding: 44px 12px 12px; }
+  .tete { max-width: calc(100% - 70px); justify-self: start; justify-items: start; text-align: left; }
+  .tete h1 { font-size: 26px; }
+  .chrono { right: 10px; top: 36px; }
+  .chrono > div { transform: scale(.75); transform-origin: top right; }
+  .cartes { grid-template-columns: 1fr; gap: 10px; }
+  .carte { grid-template-columns: 76px minmax(0, 1fr); grid-template-rows: auto auto auto auto; justify-items: start; align-items: center; column-gap: 12px; row-gap: 3px; padding: 0 12px 0 0; text-align: left; }
+  .carte > * { grid-column: 2; }
+  .carte .illu { grid-column: 1; grid-row: 1 / 7; margin: 0; border-bottom: 0; border-right: 1px solid var(--color-filet); }
+  .motif { width: 44px; height: 44px; }
+  .tag { margin-top: 8px; font-size: 11px; padding: 1px 6px; }
+  .titre { font-size: 19px; }
+  .detail { font-size: 11px; }
+  .votes { justify-content: flex-start; min-height: 22px; }
+  .votes:empty { display: none; }
+  .pion { width: 22px; height: 22px; font-size: 10px; }
+  .monVote { margin-bottom: 8px; }
+  .carte > :last-child { margin-bottom: 8px; }
+  .roulette .tete { justify-self: center; justify-items: center; text-align: center; max-width: 100%; }
+  .roulette { --carte: 128px; --ecart: 10px; --haut: 156px; }
+  .case .motif { width: 44px; height: 44px; }
+  .case b { font-size: 15px; padding: 6px; }
+  .annonce h2 { font-size: 28px; }
+}

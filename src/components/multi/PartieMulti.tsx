@@ -23,11 +23,14 @@ import type { PionFrise } from "@/components/frise/Frise";
 import { EMOTES } from "@/lib/multi/chat-catalogue";
 import { ContenuChat, ImageEmote } from "./BarreChat";
 import { FinPartie } from "./FinPartie";
+import { RouletteMulti, VoteMulti } from "./ChoixPartie";
 import s from "./partie-multi.module.css";
 
 export type ActionsPartieMulti = {
   etat: () => Promise<EtatPartie | null>;
   repondre: (questionId: string, debut: HistoricDate, fin?: HistoricDate | null) => Promise<{ ok: true } | { ok: false; erreur: string }>;
+  /** Vote pour l'une des trois propositions (#144). */
+  voter: (choix: number) => Promise<{ ok: true } | { ok: false; erreur: string }>;
   /** Prévenir les autres que la partie a changé (réponse envoyée). */
   prevenir: () => void;
   /** Mode visible : diffuser mon curseur sur le canal du salon. */
@@ -195,6 +198,17 @@ export function PartieMulti({ membres, presents, actions, signal, retour, quitte
     return COULEURS[((m?.ordre ?? 1) - 1) % COULEURS.length];
   };
   const hote = membres.find((m) => m.est_hote)?.id;
+
+  if (phase.type === "vote") {
+    return <VoteMulti vote={phase.vote} membres={membres} moi={etat.moi} jeJoue={etat.je_joue} categories={etat.partie.categories ?? []}
+      couleur={couleur} serveur={serveur} quitter={quitter}
+      voter={async (choix) => { const r = await actions.voter(choix); if (r.ok) { actions.prevenir(); void charger(); } return r; }} />;
+  }
+  if (phase.type === "roulette") {
+    return <RouletteMulti tirage={phase.tirage} egalite={!etat.partie.contenu.mystere} total={etat.partie.total}
+      precision={etat.partie.precision} debutMs={phase.debutMs} serveur={serveur} quitter={quitter} />;
+  }
+
   const etape = phase.type === "revelation" ? etapeRevelation(phase.question, serveur) : undefined;
   const lignes = classement(etat, etape);
   // En partie, seules les émotes s'affichent (une phrase du salon attendra le retour au salon).

@@ -220,11 +220,12 @@ export function PickBanMulti({ pickBan, membres, moi, couleur, serveur, debutMs,
         {pickBan.propositions.map((p, i) => {
           const ban = lu.bannis.get(i) ?? (enCours?.choix === i ? { membre_id: moi, hasard: false } : null);
           return <li key={`${p.type}-${p.id}`}>
-            <button type="button" className={s.prop} data-banni={!!ban} data-vise={choix === i && !ban} data-retenue={lu.retenue === i}
+            <button type="button" className={s.prop} data-banni={!!ban}
+              style={ban?.membre_id && !ban.hasard ? { "--couleur-ban": couleur(ban.membre_id) } as CSSProperties : undefined} data-vise={choix === i && !ban} data-retenue={lu.retenue === i}
               disabled={!aMoi || !!ban} aria-pressed={choix === i}
               aria-label={`${p.titre}${ban ? `, banni${ban.hasard ? " au hasard" : ` par ${pseudo(ban.membre_id)}`}` : ""}`}
               onClick={() => setVise({ tour, choix: i })}>
-              {ban && <span className={s.par} style={{ background: ban.membre_id ? couleur(ban.membre_id) : undefined }}
+              {ban && <span className={s.par} style={{ background: ban.membre_id && !ban.hasard ? couleur(ban.membre_id) : undefined }}
                 title={ban.hasard ? "Banni au hasard (temps écoulé)" : `Banni par ${pseudo(ban.membre_id)}`}>
                 {ban.hasard ? "?" : initiale(ban.membre_id)}</span>}
               <span className={s.illu}><Motif nom={motifContenu(p)} className={s.motif} /></span>

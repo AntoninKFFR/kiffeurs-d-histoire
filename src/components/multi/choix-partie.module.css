@@ -32,9 +32,9 @@
 .pied b { color: var(--color-encre); }
 .erreur { color: var(--color-oxyde); font-weight: 700; }
 
-/* ——— Roulette : papier ancien (choix de Maxou, 23 oct., à la place du bleu de la maquette) ——— */
-.roulette { --carte: 200px; --ecart: 16px; --haut: 220px; background: radial-gradient(ellipse at center, #fbf6e8 0%, #efe4c8 100%); color: #1d2a3a; grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1fr); }
-.roulette .inventaire { color: #8a2f2b; }
+/* ——— Roulette : sur le fond des menus (choix de Maxou, 23 oct., à la place du bleu de la maquette) ——— */
+.roulette { --carte: 200px; --ecart: 16px; --haut: 220px; background: var(--color-vert-de-gris); color: var(--color-encre); grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1fr); }
+.roulette .inventaire { color: var(--color-oxyde); }
 .fenetre { position: relative; grid-row: 3; justify-self: center; width: 100vw; height: calc(var(--haut) + 24px); overflow: hidden; }
 .repere { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); background: #b08a3e; z-index: 1; }
 .repere::before, .repere::after { content: ""; position: absolute; left: -7px; border-inline: 8px solid transparent; }
@@ -43,15 +43,15 @@
 .bande { position: absolute; left: 50%; top: 12px; display: flex; gap: var(--ecart); width: max-content;
   transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2)));
   animation: tourner both; will-change: transform; }
-.case { box-sizing: border-box; width: var(--carte); height: var(--haut); flex-shrink: 0; display: grid; grid-template-rows: 62% 1fr; background: #fffdf7; color: #1d2a3a; border: 1px solid #d9c48f; transition: opacity .3s, box-shadow .3s; }
-.case .illu { margin: 0; background: #f3ead3; border-bottom: 0; }
-.case .motif { width: 64px; height: 64px; color: #1d2a3a; }
+.case { box-sizing: border-box; width: var(--carte); height: var(--haut); flex-shrink: 0; display: grid; grid-template-rows: 62% 1fr; background: var(--color-blanc-cartel); color: var(--color-encre); border: 1px solid var(--color-filet); transition: opacity .3s, box-shadow .3s; }
+.case .illu { margin: 0; background: color-mix(in srgb, var(--color-papier) 70%, var(--color-filet)); border-bottom: 0; }
+.case .motif { width: 64px; height: 64px; color: var(--color-encre); }
 .case b { padding: 10px 8px; font-family: var(--font-titre); font-weight: 400; font-size: 18px; line-height: 1.2; overflow-wrap: anywhere; }
 .case[data-gagnante="true"] { box-shadow: 0 0 0 4px #b08a3e, 0 0 40px rgb(176 138 62 / .3); }
 .fenetre[data-arretee="true"] .case:not([data-gagnante="true"]) { opacity: .6; }
 .annonce { grid-row: 4; align-self: start; padding-top: 28px; display: grid; gap: 6px; }
-.annonce h2 { margin: 0; font-family: var(--font-titre); font-weight: 400; font-size: 34px; color: #8a2f2b; overflow-wrap: anywhere; }
-.annonce p { margin: 0; font-size: 14px; color: #5a5040; }
+.annonce h2 { margin: 0; font-family: var(--font-titre); font-weight: 400; font-size: 34px; color: var(--color-encre); overflow-wrap: anywhere; }
+.annonce p { margin: 0; font-size: 14px; color: var(--color-encre-douce); }
 @keyframes tourner {
   0% { transform: translateX(calc(-1 * var(--carte) / 2)); animation-timing-function: cubic-bezier(.15, .6, .2, 1); }
   90% { transform: translateX(calc(-1 * (var(--arret) * (var(--carte) + var(--ecart)) + var(--carte) / 2) - 14px)); animation-timing-function: ease-in-out; }
@@ -137,10 +137,12 @@
 .prop:focus-visible { outline: 3px solid var(--color-laiton); outline-offset: 3px; }
 .prop:hover:not(:disabled) { transform: translateY(-2px); }
 .prop[data-vise="true"] { outline: 3px solid var(--color-oxyde); outline-offset: -1px; transform: translateY(-6px); }
-.prop[data-banni="true"] { opacity: .45; filter: grayscale(1); }
-.prop[data-banni="true"]::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent 48.5%, var(--color-oxyde) 49%, var(--color-oxyde) 51%, transparent 51.5%); pointer-events: none; }
+.prop[data-banni="true"] { background: color-mix(in srgb, var(--color-blanc-cartel) 55%, transparent); }
+.prop[data-banni="true"] > :not(.par) { opacity: .45; filter: grayscale(1); }
+/* Le trait du ban, à la couleur de celui qui a banni (gris si c'est le hasard). */
+.prop[data-banni="true"]::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent 48.5%, var(--couleur-ban, var(--color-encre-douce)) 49%, var(--couleur-ban, var(--color-encre-douce)) 51%, transparent 51.5%); pointer-events: none; }
 .prop[data-retenue="true"] { box-shadow: 0 0 0 4px var(--color-laiton), 0 0 30px rgb(176 138 62 / .35); transform: translateY(-6px); }
-.par { position: absolute; left: 6px; top: 6px; z-index: 2; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--color-encre-douce); color: #fff; font-size: 10px; font-weight: 700; }
+.par { position: absolute; left: 6px; top: 6px; z-index: 2; display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-encre-douce); color: #fff; font-size: 16px; font-weight: 700; box-shadow: 0 0 0 2px var(--color-blanc-cartel); }
 .action { min-height: 52px; display: grid; justify-items: center; gap: 6px; }
 .bannir { min-height: 52px; padding: 14px 40px; font: inherit; font-weight: 700; font-size: 17px; color: #fff; background: var(--color-encre); border: 0; cursor: pointer; overflow-wrap: anywhere; }
 .bannir:disabled { opacity: .6; cursor: default; }
@@ -169,6 +171,7 @@
   .prop .motif { width: 34px; height: 34px; }
   .prop .titre { font-size: 12px; }
   .prop .detail { display: none; }
+  .par { width: 20px; height: 20px; font-size: 10px; left: 3px; top: 3px; }
   .bannir { width: 100%; min-height: 48px; padding: 10px; font-size: 16px; }
 }
 /* Téléphone debout : deux lignes de cartes (4 + 3). */
@@ -185,5 +188,6 @@
   .prop .illu { margin: 0 -3px; }
   .prop .motif { width: 38px; height: 38px; }
   .prop .titre { font-size: 13px; }
+  .par { width: 22px; height: 22px; font-size: 11px; left: 3px; top: 3px; }
   .bannir { width: 100%; padding: 12px; font-size: 16px; }
 }

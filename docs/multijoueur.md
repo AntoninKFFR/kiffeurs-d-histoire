@@ -316,3 +316,10 @@ Antonin, fictif).
 - la durée réelle du pick & ban (6 tours de 10 s au plus, soit une minute) et le nombre de bans au hasard,
   signe que 10 s sont trop courtes ou que l'écran n'est pas clair ;
 - quel contenu reste le plus souvent, et si le joueur qui bannit en premier est avantagé.
+
+## Aide « Jouer à plusieurs » (#146, en partie)
+
+Page `/multi/aide` (`src/app/multi/aide/page.tsx`), textes validés par Maxou le 23 octobre 2026 : huit fiches, du salon
+au podium. Lien « Comment ça marche ? » sous le titre de l'accueil « Jouer à plusieurs ». À mettre à jour si une
+règle change (durées, modes, réglages). Le reste de #146 (test à 10 navigateurs, mesures de latence) demande le site
+en ligne et la base KFFR.

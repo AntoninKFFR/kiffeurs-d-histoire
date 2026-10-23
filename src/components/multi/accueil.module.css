@@ -2,6 +2,7 @@
 .ecran { flex: 1; background: var(--color-vert-de-gris); color: var(--color-encre); padding: 12px 24px 24px; display: grid; align-content: start; gap: 18px; }
 .retour { justify-self: start; font-size: 13px; color: var(--color-encre-douce); text-decoration: underline; text-underline-offset: 3px; }
 .titre { display: grid; gap: 4px; }
+.aide { justify-self: start; font-size: 13px; color: var(--color-encre-douce); text-decoration: underline; text-underline-offset: 3px; }
 .titre h1 { font-family: var(--font-titre); font-weight: 400; font-size: clamp(28px, 4vw, 36px); line-height: 1.1; }
 .inventaire { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-oxyde); }
 .colonnes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); gap: 18px; max-width: 1180px; }

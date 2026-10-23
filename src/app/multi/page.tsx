@@ -24,6 +24,7 @@ export default async function MultiPage({ searchParams }: PageProps<"/multi">) {
     <header className={styles.titre}>
       <span className={styles.inventaire}>Jouer à plusieurs</span>
       <h1>Défiez vos amis<span className={styles.surPc}> sur la frise</span></h1>
+      <Link href="/multi/aide" className={styles.aide}>Comment ça marche&nbsp;?</Link>
     </header>
     {typeof erreur === "string" && ERREURS[erreur] && <p className={styles.erreur} role="alert">{ERREURS[erreur]}</p>}
     <div className={styles.colonnes}>

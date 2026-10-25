@@ -3,6 +3,7 @@
 # Kiffeurs d'Histoire
 
 - Langue du projet : français (interface, commentaires, commits).
+- Dépôt déplacé chez Antonin fin octobre 2026 (compte GitHub de Maxou bloqué par l'anti-abus). Les numéros d'issues et de PR jusqu'à 150 cités dans les commits et les docs sont ceux de l'ancien dépôt Zazou13015/KIffeur-d-Histoire : leur contenu est dans `docs/archives-github/`, et `docs/archives-github/correspondance-numeros.md` donne le nouveau numéro des 21 issues reprises. Limiter l'activité automatisée sur GitHub (2-3 agents à la fois maximum).
 - Le projet Supabase de production est **partagé avec KFFR contrée** (mêmes comptes joueurs).
   Toutes les tables de ce jeu vivent dans le schéma `histoire` ; ne jamais créer ni modifier quoi que ce soit dans `public` ou `auth`.
 - Toute modification de base passe par un fichier dans `supabase/migrations/` (`npm run db:new <nom>`), jamais par le tableau de bord.
@@ -18,7 +19,7 @@
 ## Traiter une issue
 
 1. **Vérifier que personne ne la traite déjà** : l'issue ne doit pas porter le label `en cours`, ni être assignée à quelqu'un, et aucune PR ouverte ne doit la viser (`Closes #<numéro>` ou branche `issue-<numéro>-…`). Si c'est le cas, ne pas la prendre : le dire à Maxou.
-2. **Se déclarer, c'est le premier geste de l'agent, avant tout code** : dès qu'il prend une issue, l'agent passe lui-même l'issue « en cours » sans attendre qu'on le lui demande. Il pose le label `en cours`, ajoute 🚧 au début du titre de l'issue (pour la repérer dans la liste), s'assigne l'issue (Maxou ou Antonin, selon pour qui il travaille) et ajoute 🚧 devant la ligne de l'étape dans l'issue de suivi de la roadmap concernée (#31 pour la V1, #98 pour la V1.1) (en modifiant son corps : `- [ ] 🚧 #<numéro> …`). Le label reste jusqu'à la fusion ou la fermeture de la PR (voir « Libérer l'issue » plus bas).
+2. **Se déclarer, c'est le premier geste de l'agent, avant tout code** : dès qu'il prend une issue, l'agent passe lui-même l'issue « en cours » sans attendre qu'on le lui demande. Il pose le label `en cours`, ajoute 🚧 au début du titre de l'issue (pour la repérer dans la liste), s'assigne l'issue (Maxou ou Antonin, selon pour qui il travaille) et ajoute 🚧 devant la ligne de l'étape dans l'issue de suivi de la roadmap concernée (#20 pour la V1.3 ; les suivis V1 et V1.1 de l'ancien dépôt sont archivés dans `docs/archives-github/`) (en modifiant son corps : `- [ ] 🚧 #<numéro> …`). Le label reste jusqu'à la fusion ou la fermeture de la PR (voir « Libérer l'issue » plus bas).
 3. Lire l'issue en entier, puis ses dépendances (« Dépend de ») : si l'une n'est pas fermée, le signaler avant de commencer.
 4. Lire `docs/prd.md` et `docs/architecture.md` pour la partie concernée ; ne rien ajouter hors du périmètre de l'issue.
 5. Une branche par issue, partie de `main` à jour : `issue-<numéro>-<slug>` (ex. `issue-12-frise-zoom`).
@@ -29,10 +30,10 @@
 
 ## Libérer l'issue
 
-- PR fusionnée : l'issue se ferme toute seule (`Closes #…`), et le robot `.github/workflows/suivi-issue.yml` retire le label `en cours` et le 🚧, puis coche l'étape dans l'issue de suivi de la roadmap concernée (#31 pour la V1, #98 pour la V1.1) avec le numéro de PR (il ne le fait que si la PR contient `Closes #<numéro>`). L'agent vérifie que c'est bien fait et complète ce que le robot ne fait pas. Sans robot, il fait lui-même, sans attendre qu'on le lui demande, les trois gestes suivants :
+- PR fusionnée : l'issue se ferme toute seule (`Closes #…`), et le robot `.github/workflows/suivi-issue.yml` retire le label `en cours` et le 🚧, puis coche l'étape dans l'issue de suivi de la roadmap concernée (#20 pour la V1.3 ; les suivis V1 et V1.1 de l'ancien dépôt sont archivés dans `docs/archives-github/`) avec le numéro de PR (il ne le fait que si la PR contient `Closes #<numéro>`). L'agent vérifie que c'est bien fait et complète ce que le robot ne fait pas. Sans robot, il fait lui-même, sans attendre qu'on le lui demande, les trois gestes suivants :
   1. retirer le label `en cours` de l'issue et le 🚧 de son titre ;
-  2. dans l'issue de suivi de la roadmap concernée (#31 pour la V1, #98 pour la V1.1), cocher l'étape (`- [x] #<numéro> …`), retirer le 🚧 de sa ligne et y ajouter le numéro de la PR fusionnée ;
+  2. dans l'issue de suivi de la roadmap concernée (#20 pour la V1.3 ; les suivis V1 et V1.1 de l'ancien dépôt sont archivés dans `docs/archives-github/`), cocher l'étape (`- [x] #<numéro> …`), retirer le 🚧 de sa ligne et y ajouter le numéro de la PR fusionnée ;
   3. mettre à jour la date « Dernière mise à jour » de cette issue de suivi.
-  Si l'agent n'est pas là quand la PR est fusionnée (fusion par Maxou ou Antonin), le premier agent qui s'en aperçoit fait ces gestes ; au début de chaque issue, il vérifie donc que l'issue de suivi de la roadmap concernée (#31 pour la V1, #98 pour la V1.1) reflète bien l'état des issues fermées et corrige l'écart. Avant de modifier cette issue de suivi, relire son contenu actuel (Maxou et Antonin peuvent l'avoir changé) et ne toucher que les lignes concernées.
+  Si l'agent n'est pas là quand la PR est fusionnée (fusion par Maxou ou Antonin), le premier agent qui s'en aperçoit fait ces gestes ; au début de chaque issue, il vérifie donc que l'issue de suivi de la roadmap concernée (#20 pour la V1.3 ; les suivis V1 et V1.1 de l'ancien dépôt sont archivés dans `docs/archives-github/`) reflète bien l'état des issues fermées et corrige l'écart. Avant de modifier cette issue de suivi, relire son contenu actuel (Maxou et Antonin peuvent l'avoir changé) et ne toucher que les lignes concernées.
 - PR fermée sans fusion, ou travail abandonné : retirer le label `en cours`, le 🚧 du titre et l'assignation, et dire en commentaire pourquoi.
 - Une issue qui garde `en cours` sans PR ni activité depuis plusieurs jours est probablement oubliée : demander à Maxou ou Antonin avant de la reprendre.

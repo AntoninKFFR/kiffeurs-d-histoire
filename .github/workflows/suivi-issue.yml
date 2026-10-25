@@ -1,7 +1,7 @@
 name: Suivi des issues
 
 # À la fusion d'une PR sur main : libère l'issue visée (label « en cours » et 🚧)
-# et coche son étape dans l'issue de suivi de la roadmap concernée (#31 ou #98).
+# et coche son étape dans l'issue de suivi de la roadmap concernée (#20 pour la V1.3 dans le dépôt d'Antonin ; #31 et #98 étaient ceux de l'ancien dépôt).
 on:
   pull_request:
     types: [closed]
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const SUIVIS = [31, 98];
+            const SUIVIS = [20];
             const pr = context.payload.pull_request;
             const { owner, repo } = context.repo;
 

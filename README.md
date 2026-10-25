@@ -4,7 +4,7 @@ Jeu web de dates historiques : placer des événements sur une frise, en solo, e
 
 Stack : Next.js (App Router, TypeScript, Tailwind) sur Vercel, Supabase (Postgres, Auth, Realtime, Storage). Architecture détaillée dans [docs/architecture.md](docs/architecture.md).
 
-Feuille de route V1 : [issue de suivi #31](https://github.com/Zazou13015/KIffeur-d-Histoire/issues/31). Pour prendre une étape (humain ou agent IA), suivre la section « Traiter une issue » de [CLAUDE.md](CLAUDE.md).
+Feuille de route V1.3 : issue de suivi #20. Les feuilles de route V1 et V1.1 de l'ancien dépôt sont archivées dans [docs/archives-github/](docs/archives-github/README.md). Pour prendre une étape (humain ou agent IA), suivre la section « Traiter une issue » de [CLAUDE.md](CLAUDE.md).
 
 Comptes partagés, pseudo global, inscription/reset et sauvegarde des parties :
 [docs/comptes.md](docs/comptes.md). La migration #24 et ses fixtures sont testées

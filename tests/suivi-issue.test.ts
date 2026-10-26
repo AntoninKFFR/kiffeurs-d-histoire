@@ -16,12 +16,10 @@ async function simuler(description: string | null, options: {
   labelAbsent?: boolean;
   apresEcriture?: (numero: number, issues: Map<number, Issue>) => void;
 } = {}) {
-  const corpsV1 = "Roadmap V1\n- [ ] 🚧 #12 🤖 Étape V1\n- [ ] #13 Autre étape\n";
-  const corpsV11 = "Roadmap V1.1\n- [ ] 🚧 #85 🤖 Étape V1.1\n- [ ] #86 Autre étape\n";
+  const corpsV13 = "Roadmap V1.3\n- [ ] 🚧 #5 🤖 Salons en base\n- [ ] #6 🤖 Invités sans compte\n- [ ] #7 🤖 Temps réel\n";
   const issues = new Map<number, Issue>([
-    [31, { title: "🚧 Roadmap V1", body: corpsV1 }],
-    [98, { title: "🚧 Roadmap V1.1", body: corpsV11 }],
-    ...[12, 13, 85, 86, 999].map((numero): [number, Issue] =>
+    [20, { title: "🚧 Roadmap V1.3", body: corpsV13 }],
+    ...[5, 6, 7, 999].map((numero): [number, Issue] =>
       [numero, { title: `🚧 Issue ${numero}`, body: "" }]),
   ]);
   const appels: string[] = [];
@@ -51,42 +49,40 @@ async function simuler(description: string | null, options: {
   const roadmapsModifiees = update.mock.calls
     .map(([modification]) => modification)
     .filter((modification) => modification.body !== undefined);
-  return { issues, corpsV1, corpsV11, appels, removeLabel, get, update, core, roadmapsModifiees };
+  return { issues, corpsV13, appels, removeLabel, get, update, core, roadmapsModifiees };
 }
 
 it.each([
-  { numero: 12, roadmap: 31, autreRoadmap: 98 },
-  { numero: 85, roadmap: 98, autreRoadmap: 31 },
-])("ferme #$numero uniquement dans la roadmap #$roadmap", async ({ numero, roadmap, autreRoadmap }) => {
+  { numero: 5, etape: "🤖 Salons en base", autre: "- [ ] #6 🤖 Invités sans compte" },
+  { numero: 6, etape: "🤖 Invités sans compte", autre: "- [ ] 🚧 #5 🤖 Salons en base" },
+])("ferme #$numero dans la roadmap V1.3 #20", async ({ numero, etape, autre }) => {
   const resultat = await simuler(`Closes #${numero}`);
-  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([roadmap]);
-  expect(resultat.issues.get(roadmap)?.body).toContain(`- [x] #${numero} 🤖 Étape V${numero === 12 ? "1" : "1.1"} (PR #100)`);
-  expect(resultat.issues.get(autreRoadmap)?.body).toBe(autreRoadmap === 31 ? resultat.corpsV1 : resultat.corpsV11);
+  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([20]);
+  expect(resultat.issues.get(20)?.body).toContain(`- [x] #${numero} ${etape} (PR #100)`);
+  expect(resultat.issues.get(20)?.body).toContain(autre);
   expect(resultat.issues.get(numero)?.title).toBe(`Issue ${numero}`);
   expect(resultat.removeLabel).toHaveBeenCalledWith({ owner: "test", repo: "histoire", issue_number: numero, name: "en cours" });
   expect(resultat.core.warning).not.toHaveBeenCalled();
 });
 
-it("avertit une seule fois pour une issue absente des deux roadmaps sans modifier leurs corps", async () => {
+it("avertit une seule fois pour une issue absente de la roadmap V1.3", async () => {
   const resultat = await simuler("Closes #999");
   expect(resultat.roadmapsModifiees).toEqual([]);
-  expect(resultat.issues.get(31)?.body).toBe(resultat.corpsV1);
-  expect(resultat.issues.get(98)?.body).toBe(resultat.corpsV11);
-  expect(resultat.core.warning).toHaveBeenCalledExactlyOnceWith("#999 n'a pas de ligne dans les roadmaps #31, #98.");
+  expect(resultat.issues.get(20)?.body).toBe(resultat.corpsV13);
+  expect(resultat.core.warning).toHaveBeenCalledExactlyOnceWith("#999 n'a pas de ligne dans les roadmaps #20.");
   expect(resultat.issues.get(999)?.title).toBe("Issue 999");
 });
 
-it("ignore #31 et #98 même lorsqu'une PR ferme aussi une étape", async () => {
-  const resultat = await simuler("Closes #31\nCloses #98\nCloses #85");
-  expect(resultat.removeLabel.mock.calls.map(([m]) => m.issue_number)).toEqual([85]);
-  expect(resultat.update.mock.calls.some(([m]) => [31, 98].includes(m.issue_number) && m.title !== undefined)).toBe(false);
-  expect(resultat.issues.get(31)?.title).toBe("🚧 Roadmap V1");
-  expect(resultat.issues.get(98)?.title).toBe("🚧 Roadmap V1.1");
-  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([98]);
+it("ignore #20 même lorsqu'une PR ferme aussi une étape", async () => {
+  const resultat = await simuler("Closes #20\nCloses #5");
+  expect(resultat.removeLabel.mock.calls.map(([m]) => m.issue_number)).toEqual([5]);
+  expect(resultat.update.mock.calls.some(([m]) => m.issue_number === 20 && m.title !== undefined)).toBe(false);
+  expect(resultat.issues.get(20)?.title).toBe("🚧 Roadmap V1.3");
+  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([20]);
   expect(resultat.core.warning).not.toHaveBeenCalled();
 });
 
-it.each(["Closes #31\nCloses #98", "PR intermédiaire sans fermeture", null])(
+it.each(["Closes #20", "PR intermédiaire sans fermeture", null])(
   "ne touche aucune issue ni roadmap sans étape visée (%s)", async (description) => {
     const resultat = await simuler(description);
     expect(resultat.get).not.toHaveBeenCalled();
@@ -97,33 +93,36 @@ it.each(["Closes #31\nCloses #98", "PR intermédiaire sans fermeture", null])(
   },
 );
 
-it("traite plusieurs issues, déduplique les fermetures et relit chaque roadmap juste avant son écriture", async () => {
-  const resultat = await simuler("Closes #12\nFixes #85\nResolves #86\nCloses #85", {
+it("traite plusieurs issues, déduplique les fermetures et relit la roadmap juste avant son écriture", async () => {
+  const resultat = await simuler("Closes #5\nFixes #6\nResolves #7\nCloses #6", {
     apresEcriture(numero, issues) {
-      // Une modification humaine de #98 pendant le traitement de #31 doit être conservée.
-      if (numero === 31) issues.get(98)!.body += "\nNote ajoutée par Antonin\n";
+      // Une modification humaine de #20 pendant le traitement des issues doit être conservée.
+      if (numero === 5) issues.get(20)!.body += "\nNote ajoutée par Antonin\n";
     },
   });
-  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([31, 98]);
-  expect(resultat.removeLabel.mock.calls.map(([m]) => m.issue_number)).toEqual([12, 85, 86]);
-  expect(resultat.issues.get(98)?.body).toContain("- [x] #85 🤖 Étape V1.1 (PR #100)");
-  expect(resultat.issues.get(98)?.body).toContain("- [x] #86 Autre étape (PR #100)");
-  expect(resultat.issues.get(98)?.body).toContain("Note ajoutée par Antonin");
-  for (const numero of [31, 98]) {
-    const index = resultat.appels.indexOf(`update:${numero}`);
-    expect(resultat.appels[index - 1]).toBe(`get:${numero}`);
-  }
+  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([20]);
+  expect(resultat.removeLabel.mock.calls.map(([m]) => m.issue_number)).toEqual([5, 6, 7]);
+  expect(resultat.issues.get(20)?.body).toContain("- [x] #5 🤖 Salons en base (PR #100)");
+  expect(resultat.issues.get(20)?.body).toContain("- [x] #6 🤖 Invités sans compte (PR #100)");
+  expect(resultat.issues.get(20)?.body).toContain("- [x] #7 🤖 Temps réel (PR #100)");
+  expect(resultat.issues.get(20)?.body).toContain("Note ajoutée par Antonin");
+  const index = resultat.appels.indexOf("update:20");
+  expect(resultat.appels[index - 1]).toBe("get:20");
   expect(resultat.core.warning).not.toHaveBeenCalled();
 });
 
-it("conserve la tolérance au label absent et n'ajoute pas deux fois la référence de PR", async () => {
-  const resultat = await simuler("Closes #12\nCloses #85", {
+it("tolère un label absent et ne répète pas une référence de PR", async () => {
+  const resultat = await simuler("Closes #5\nCloses #6", {
     labelAbsent: true,
     apresEcriture(numero, issues) {
-      if (numero === 12) issues.get(31)!.body = "- [x] #12 🤖 Étape V1 (PR #100)\n";
+      if (numero === 5) {
+        issues.get(20)!.body = "- [x] #5 🤖 Salons en base (PR #100)\n- [ ] #6 🤖 Invités sans compte\n";
+      }
     },
   });
-  expect(resultat.issues.get(31)?.body).toBe("- [x] #12 🤖 Étape V1 (PR #100)\n");
-  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([31, 98]);
+  expect(resultat.issues.get(20)?.body).toContain("- [x] #5 🤖 Salons en base (PR #100)");
+  expect(resultat.issues.get(20)?.body?.match(/PR #100/g)).toHaveLength(2);
+  expect(resultat.issues.get(20)?.body).toContain("- [x] #6 🤖 Invités sans compte (PR #100)");
+  expect(resultat.roadmapsModifiees.map(m => m.issue_number)).toEqual([20]);
   expect(resultat.core.warning).not.toHaveBeenCalled();
 });

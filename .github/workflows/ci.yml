@@ -66,8 +66,9 @@ jobs:
   # Parcours V1 joués dans un vrai navigateur (#27), sur une pile Supabase locale jetable.
   tests-bout-en-bout:
     runs-on: ubuntu-latest
-    # Préparation Docker/Chromium + 82 scénarios ; les délais individuels restent bornés.
-    timeout-minutes: 15
+    # La préparation Docker/Supabase peut prendre 12+ min ; laisser le temps aux 286 parcours Playwright.
+    # Conserver la suite complète et ses limites individuelles.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
